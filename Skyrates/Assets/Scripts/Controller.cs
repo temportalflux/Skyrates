@@ -56,6 +56,7 @@ public class Controller : MonoBehaviour
 
     [Header("Movement")]
     public InputKey movementHorizontal;
+    public InputKey rotate;
     public InputKey movementVertical;
     public InputKey movementUp;
     public InputKey movementDown;
@@ -80,6 +81,7 @@ public class Controller : MonoBehaviour
 
 
         this.movementHorizontal.load();
+        this.rotate.load();
         this.movementVertical.load();
         this.movementUp.load();
         this.movementDown.load();
@@ -103,7 +105,7 @@ public class Controller : MonoBehaviour
         forwards.y = 0;
         strafe.y = 0;
         vertical.x = vertical.z = 0;
-
+        Vector3 forwards_saved = forwards;
 
         // Move the player
 
@@ -111,11 +113,18 @@ public class Controller : MonoBehaviour
         strafe *= this.movementHorizontal.get();
         vertical *= (this.movementUp.get() - this.movementDown.get());
 
-        this.controller.Move(forwards + vertical);
+        this.controller.Move(forwards + vertical + strafe);
 
-        float rotateScale = this.movementHorizontal.get();
+        float rotateScale = this.rotate.get();
         Vector3 rotate = this.transform.up * rotateScale;
         this.transform.Rotate(rotate);
+        /*
+        Vector3 dir = Vector3.RotateTowards(
+            this.transform.forward, forwards_saved * this.rotate.get(),
+            5 * Time.deltaTime, 0.0F
+        );
+        this.transform.rotation = Quaternion.LookRotation(dir);
+        //*/
 
         // Move the camera
         this.camera.RotateAround(this.transform.position, Vector3.up, this.cameraHorizontal.get() - rotateScale);

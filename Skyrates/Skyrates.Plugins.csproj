@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F503969E-6AD0-3620-5B86-E9AD55D36447}</ProjectGuid>
+    <ProjectGuid>{0260AA73-0BF3-B1C2-4E3E-EE17FDF3FA6A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -225,22 +225,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Skyrates.Plugins.csproj">
-      <Project>{0260AA73-0BF3-B1C2-4E3E-EE17FDF3FA6A}</Project>
-      <Name>Skyrates.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Scripts\Controller.cs" />
-    <Compile Include="Assets\Scripts\Looter.cs" />
-    <Compile Include="Assets\Scripts\OutOfWorldBoundary.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scripts\SelfDestruct.cs" />
-    <Compile Include="Assets\Scripts\Shootable.cs" />
-    <Compile Include="Assets\Scripts\Shooter.cs" />
-    <Compile Include="Assets\Scripts\Stats\Version.cs" />
-    <Compile Include="Assets\Scripts\UI\UpdateVersion.cs" />
-    <Compile Include="Assets\Scripts\Xbox.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Demo\Scripts\CubeKiller.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Demo\Scripts\CubeSpawner.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Demo\Scripts\Record.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\Gif\GifEncoder.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\Gif\GifFrame.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\Gif\LzwEncoder.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\Gif\NeuQuant.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\MinAttribute.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\Recorder.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\ReflectionUtils.cs" />
+    <Compile Include="Assets\Plugins\Moments\Moments Recorder\Scripts\Worker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Moments\LICENSE.txt" />

@@ -71,6 +71,8 @@ GameObject:
   - component: {fileID: 20912312475540178}
   - component: {fileID: 124047054886033358}
   - component: {fileID: 81586391343058586}
+  - component: {fileID: 114834019323659244}
+  - component: {fileID: 114333967331920900}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -239,7 +241,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443920496466422}
   m_LocalRotation: {x: 0.1165116, y: -0, z: -0, w: 0.99318933}
-  m_LocalPosition: {x: 0, y: 3.62, z: -6.02}
+  m_LocalPosition: {x: 0, y: 4.87, z: -11.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4753631753285694}
@@ -521,6 +523,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   loot: 0
+--- !u!114 &114333967331920900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443920496466422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3729fda5a6290194ba951a6cf75459e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114386247583912742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,7 +561,11 @@ MonoBehaviour:
   movementHorizontal:
     key: 12
     type: 1
-    multiplier: 5
+    multiplier: 0.25
+  rotate:
+    key: 12
+    type: 1
+    multiplier: 2
   movementVertical:
     key: 13
     type: 1
@@ -556,11 +573,11 @@ MonoBehaviour:
   movementUp:
     key: 0
     type: 0
-    multiplier: 1
+    multiplier: 0.2
   movementDown:
     key: 1
     type: 0
-    multiplier: 1
+    multiplier: 0.2
   cameraHorizontal:
     key: 14
     type: 1
@@ -590,6 +607,26 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1408921564785406, guid: 4ec5d27c116c656479dc0ae675f287af,
     type: 2}
   spawn: {fileID: 4398749781341180}
+--- !u!114 &114834019323659244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443920496466422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5378998db5ba9488d08a4e3b80821a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Width: 320
+  m_Height: 180
+  m_AutoAspect: 1
+  m_FramePerSecond: 24
+  m_Repeat: 0
+  m_Quality: 15
+  m_BufferSize: 5
+  m_GifPath: /Gifs/
+  WorkerPriority: 1
 --- !u!124 &124047054886033358
 Behaviour:
   m_ObjectHideFlags: 1
