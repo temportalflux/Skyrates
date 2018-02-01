@@ -7,9 +7,9 @@ public class InputUnity : InputConfig
 
     public string inputDescriptor;
 
-    public override string GetDescriptor()
-    {
-        return this.inputDescriptor;
-    }
+    //public override string GetDescriptor()
+    //{
+    //    return this.inputDescriptor;
+    //}
 
 }
