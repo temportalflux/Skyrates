@@ -34,9 +34,9 @@ public class InputSet
 
     private Dictionary<Controller, InputConfig> mappedConfigs;
 
-    public void loadConfigs()
+    public void Load()
     {
-        this.mappedConfigs.Clear();
+        this.mappedConfigs = new Dictionary<Controller, InputConfig>();
         foreach (Configuration config in this.configs)
         {
             this.mappedConfigs.Add(config.inputType, config.descriptor);

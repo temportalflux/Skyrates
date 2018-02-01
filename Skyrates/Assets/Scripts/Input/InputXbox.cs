@@ -47,7 +47,7 @@ public class InputXbox : InputConfig
     }
 
     private readonly Enum key;
-    private readonly string descriptor;
+    //private readonly string descriptor;
 
     public InputXbox(Enum key, InputType inputType, string descriptor)
     {
@@ -61,9 +61,9 @@ public class InputXbox : InputConfig
         return this.key;
     }
 
-    public override string GetDescriptor()
-    {
-        return this.descriptor;
-    }
+    //public override string GetDescriptor()
+    //{
+    //    return this.descriptor;
+    //}
 
 }

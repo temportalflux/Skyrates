@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class InputConfig
+[Serializable]
+public class InputConfig
 {
 
     public enum InputType
@@ -11,6 +13,7 @@ public abstract class InputConfig
     }
 
     public InputType inputType;
+    public string descriptor;
     public float multiplier;
 
     public InputType GetInputType()
@@ -18,7 +21,10 @@ public abstract class InputConfig
         return this.inputType;
     }
 
-    public abstract string GetDescriptor();
+    public string GetDescriptor()
+    {
+        return this.descriptor;
+    }
 
     public float GetValue()
     {

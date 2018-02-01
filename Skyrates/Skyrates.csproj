@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -289,8 +291,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ChampNet\Network.cs" />
-    <Compile Include="Assets\Scripts\Controller.cs" />
-    <Compile Include="Assets\Scripts\Controller\ControllerPlayer.cs" />
+    <Compile Include="Assets\Scripts\Controller\InputMovement.cs" />
+    <Compile Include="Assets\Scripts\Extension\Vector3.cs" />
     <Compile Include="Assets\Scripts\Input\InputAction.cs" />
     <Compile Include="Assets\Scripts\Input\InputConfig.cs" />
     <Compile Include="Assets\Scripts\Input\InputSet.cs" />
