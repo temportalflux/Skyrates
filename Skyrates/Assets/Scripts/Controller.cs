@@ -16,7 +16,6 @@ public class Controller : MonoBehaviour
 
         public InputType type;
 
-        public float multiplier;
 
         [HideInInspector]
         public Xbox Config { get; private set; }
