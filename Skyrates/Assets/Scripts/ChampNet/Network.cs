@@ -144,7 +144,7 @@ namespace ChampNetPlugin
         [DllImport(IDENTIFIER)]
         public static extern int StartClient();
 
-        /// Connect this CLIENT to some server using the specified credentials
+        /// Connect this Client to some server using the specified credentials
         [DllImport(IDENTIFIER)]
         public static extern int ConnectToServer(string address, int port);
 

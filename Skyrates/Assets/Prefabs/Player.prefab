@@ -62,7 +62,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1443920496466422
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -76,6 +76,22 @@ GameObject:
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1591717329298594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4993194586238940}
+  - component: {fileID: 114899103861187588}
+  m_Layer: 0
+  m_Name: View
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +290,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 4.87, z: -11.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4753631753285694}
+  m_Father: {fileID: 4993194586238940}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 13.382001, y: 0, z: 0}
 --- !u!4 &4753631753285694
@@ -287,7 +303,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4730640441688548}
+  - {fileID: 4993194586238940}
   - {fileID: 4343977259271596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -347,6 +363,20 @@ Transform:
   - {fileID: 4398749781341180}
   m_Father: {fileID: 4343977259271596}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4993194586238940
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591717329298594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4730640441688548}
+  m_Father: {fileID: 4753631753285694}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20912312475540178
 Camera:
@@ -520,7 +550,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65285323760182484
 BoxCollider:
@@ -626,6 +656,23 @@ MonoBehaviour:
   m_BufferSize: 5
   m_GifPath: /Gifs/
   WorkerPriority: 1
+--- !u!114 &114899103861187588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591717329298594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff50c57275a5fa47a979489393e83a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput:
+    HorizontalInput: 0
+    HorizontalSpeed: 3
+    VerticalInput: 0
+    VerticalSpeed: 3
+  pivot: {fileID: 4753631753285694}
 --- !u!114 &114931724776558892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -637,38 +684,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ddb9c8d68f19841bf6b7935bac0cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForward:
-    configs:
-    - inputType: 2
-      descriptor:
-        inputType: 1
-        descriptor: xbox_stick_l_vertical
-        multiplier: 1
-    - inputType: 0
-      descriptor:
-        inputType: 0
-        descriptor: Vertical
-        multiplier: 1
-  movementStrafe:
-    configs:
-    - inputType: 0
-      descriptor:
-        inputType: 1
-        descriptor: xbox_stick_l_horizontal
-        multiplier: 1
-    - inputType: 0
-      descriptor:
-        inputType: 0
-        descriptor: Horizontal
-        multiplier: 1
-  interact:
-    configs:
-    - inputType: 0
-      descriptor:
-        inputType: 0
-        descriptor: 
-        multiplier: 0
-  speed: 5
+  playerInput:
+    ForwardInput: 0
+    ForwardSpeed: 10
+    StrafeInput: 0
+    StrafeSpeed: 10
+    VerticalInput: 0
+    VerticalSpeed: 10
   forwardView: {fileID: 4730640441688548}
   render: {fileID: 4343977259271596}
 --- !u!124 &124047054886033358
