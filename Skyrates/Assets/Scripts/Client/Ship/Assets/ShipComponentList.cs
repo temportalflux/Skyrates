@@ -25,7 +25,12 @@ public class ShipComponentList : ScriptableObject
     /// Generated from <see cref="components"/>.
     /// </summary>
     private string[][] componentNames;
-    
+
+    private void OnEnable()
+    {
+        this.GenerateNames();
+    }
+
     public void GenerateNames()
     {
         this.componentNames = new string[ShipBuilder.ComponentTypes.Length][];

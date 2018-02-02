@@ -7,16 +7,26 @@ public class ShipHull : ShipComponent
 {
 
     [Serializable]
-    public struct Target
+    public class HullTargets
     {
-        public Transform[] roots;
+
+        [Serializable]
+        public struct Target
+        {
+            public Transform[] roots;
+        }
+        
+        public Target[] list;
+
     }
 
-    public Target[] targets;
+    public HullTargets targets;
 
     public Transform[] GetRoots(ShipBuilder.ComponentType compType)
     {
-        return this.targets[(int) compType].roots;
+        Debug.Assert((int)ShipBuilder.ComponentType.Hull == 0);
+        // compType - 1 to account for Hull
+        return this.targets.list[(int) compType - 1].roots;
     }
 
     public void AddShipComponent(ShipBuilder.ComponentType compType, ShipComponent comp)

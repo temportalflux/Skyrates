@@ -8,14 +8,14 @@ public class ShipBuilder : ScriptableObject
 {
     public enum ComponentType
     {
-        Hull, Propulsion, Ammunition, Sail, Figurehead, Navigation,
+        Hull, Propulsion, Artillery, Sail, Figurehead, Navigation,
     }
 
     public static readonly ComponentType[] ComponentTypes =
     {
         ComponentType.Hull,
         ComponentType.Propulsion,
-        ComponentType.Ammunition,
+        ComponentType.Artillery,
         ComponentType.Sail,
         ComponentType.Figurehead,
         ComponentType.Navigation,
@@ -24,11 +24,11 @@ public class ShipBuilder : ScriptableObject
     public static readonly Type[] ComponentClassTypes =
     {
         typeof(ShipHull),
-        typeof(ShipComponent),
-        typeof(ShipComponent),
-        typeof(ShipComponent),
-        typeof(ShipComponent),
-        typeof(ShipComponent),
+        typeof(ShipPropulsion),
+        typeof(ShipArtillery),
+        typeof(ShipSail),
+        typeof(ShipFigurehead),
+        typeof(ShipNavigation),
     };
 
     public ShipComponentList shipComponentList;
@@ -47,7 +47,7 @@ public class ShipBuilder : ScriptableObject
 
     public ShipComponent GetAmmunition()
     {
-        return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Ammunition, this.components[(int)ComponentType.Ammunition]);
+        return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Artillery, this.components[(int)ComponentType.Artillery]);
     }
 
     public ShipComponent GetSail()
@@ -65,10 +65,10 @@ public class ShipBuilder : ScriptableObject
         return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Navigation, this.components[(int)ComponentType.Navigation]);
     }
 
-    public void BuildTo(ref GameObject root)
+    public ShipHull BuildTo(ref Transform root)
     {
         ShipHull hullPrefab = this.GetHull();
-        ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root.transform).GetComponent<ShipHull>();
+        ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHull>();
 
         foreach (ComponentType compType in ComponentTypes)
         {
@@ -81,12 +81,13 @@ public class ShipBuilder : ScriptableObject
 
             foreach (Transform target in targets)
             {
-                GameObject built = Instantiate(prefab, target.position, target.rotation, root.transform);
+                GameObject built = Instantiate(prefab, target.position, target.rotation, root);
                 hullBuilt.AddShipComponent(compType, built.GetComponent<ShipComponent>());
             }
             
         }
 
+        return hullBuilt;
     }
 
 }
