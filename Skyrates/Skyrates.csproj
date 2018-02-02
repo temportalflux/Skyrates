@@ -289,16 +289,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ChampNet\Network.cs" />
-    <Compile Include="Assets\Scripts\Controller.cs" />
+    <Compile Include="Assets\Scripts\Controller\InputMovement.cs" />
+    <Compile Include="Assets\Scripts\Controller\InputRotation.cs" />
+    <Compile Include="Assets\Scripts\Extension\Vector3.cs" />
+    <Compile Include="Assets\Scripts\Input\InputAction.cs" />
+    <Compile Include="Assets\Scripts\Input\InputConfig.cs" />
+    <Compile Include="Assets\Scripts\Input\InputSet.cs" />
+    <Compile Include="Assets\Scripts\Input\InputUnity.cs" />
+    <Compile Include="Assets\Scripts\Input\InputXbox.cs" />
     <Compile Include="Assets\Scripts\Looter.cs" />
     <Compile Include="Assets\Scripts\OutOfWorldBoundary.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Shootable.cs" />
     <Compile Include="Assets\Scripts\Shooter.cs" />
+    <Compile Include="Assets\Scripts\SideOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\Stats\Version.cs" />
     <Compile Include="Assets\Scripts\UI\UpdateVersion.cs" />
-    <Compile Include="Assets\Scripts\Xbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Moments\LICENSE.txt" />
