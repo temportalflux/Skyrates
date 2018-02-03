@@ -21,7 +21,7 @@ public class ShipHull : ShipComponent
     }
 
     public HullTargets targets;
-
+    
     public Transform[] GetRoots(ShipBuilder.ComponentType compType)
     {
         Debug.Assert((int)ShipBuilder.ComponentType.Hull == 0);
