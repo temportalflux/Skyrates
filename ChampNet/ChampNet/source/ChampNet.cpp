@@ -50,6 +50,7 @@ namespace ChampNet
 		// Startup the server by reserving a port
 		RakNet::SocketDescriptor sd = RakNet::SocketDescriptor(port, 0);
 		this->mpPeerInterface->Startup(maxClients, &sd, 1);
+		// outgoing = max - incoming via raknet
 		this->mpPeerInterface->SetMaximumIncomingConnections(maxClients);
 	}
 
@@ -59,6 +60,8 @@ namespace ChampNet
 		// Startup the client by starting on an empty socket
 		RakNet::SocketDescriptor sd;
 		this->mpPeerInterface->Startup(1, &sd, 1);
+		// outgoing = max - incoming via raknet
+		this->mpPeerInterface->SetMaximumIncomingConnections(0);
 	}
 
 	// Connect the interface to its destination
