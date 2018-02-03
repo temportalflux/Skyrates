@@ -6,11 +6,16 @@ public class EventUpdateGameState : NetworkEvent
 {
 
     [BitSerialize(1)]
-    public GameState.Data serverState;
+    public GameStateData serverState;
 
     public EventUpdateGameState()
     {
-        this.serverState = new GameState.Data();
+        this.serverState = new GameStateData();
+    }
+
+    public override void Deserialize(byte[] data)
+    {
+        base.Deserialize(data);
     }
 
     public override void Execute()

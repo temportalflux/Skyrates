@@ -38,6 +38,10 @@ int GameState::Client::getSize() const
 	return 0
 		// clientID
 		+ sizeof(unsigned int)
+		// if guid is valid
+		+ 1
+		// playerEntityGuid
+		+ sizeof(int) + 16
 		;
 	;
 }
@@ -89,6 +93,13 @@ char* GameState::serializeForClient(unsigned char packetID, int &dataLength, int
 		// write clientID
 		*((unsigned int *)pos) = pClient->clientID;
 		pos += sizeof(unsigned int);
+
+		*((unsigned char*) pos) = pClient->playerEntityGuidValid ? 1 : 0; pos++;
+
+		int guidSize = 16;
+		*((int *) pos) = guidSize;
+		pos += sizeof(guidSize);
+		memcpy(pos, pClient->playerEntityGuid, guidSize);
 
 	}
 

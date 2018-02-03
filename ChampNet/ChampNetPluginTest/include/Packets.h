@@ -23,4 +23,16 @@ struct PacketID
 	unsigned int dataID;
 };
 
+struct PacketHandshakeAccept
+{
+	/// The packetID
+	unsigned char id;
+	/// the client's id
+	unsigned int clientID;
+	/// The bytes of the playerEntityGuid
+	unsigned char guid[16];
+};
+
+#pragma pack(pop) 
+
 /// @}
