@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89880e518801e24a88099aa8325ff08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentRoot: {fileID: 716558563}
-  blueprint: {fileID: 11400000, guid: 78e837ba4dbe551488ff0d8ad964477b, type: 2}
-  hull: {fileID: 0}
+  ComponentRoot: {fileID: 716558563}
+  Blueprint: {fileID: 11400000, guid: 78e837ba4dbe551488ff0d8ad964477b, type: 2}
+  Hull: {fileID: 0}
 --- !u!1 &716558562
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
     VerticalInput: 0
     VerticalSpeed: 10
   forwardView: {fileID: 1467069852}
-  render: {fileID: 0}
+  render: {fileID: 396614731}
 --- !u!54 &1933169230
 Rigidbody:
   m_ObjectHideFlags: 0

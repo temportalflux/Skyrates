@@ -6,35 +6,35 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
 
-    public Transform componentRoot;
+    public Transform ComponentRoot;
 
-    public ShipBuilder blueprint;
+    public ShipBuilder Blueprint;
 
     // Data from ShipBuilder used to generate during Generate
     // Only valid after Generate
-    public ShipData shipData;
+    public ShipData ShipData;
 
     // The generated object, created during Generate
     [HideInInspector]
-    public ShipHull hull;
+    public ShipHull Hull;
 
     private void Start()
     {
-        this.shipData = null;
-        this.hull = null;
+        this.ShipData = null;
+        this.Hull = null;
 
         this.Generate();
     }
 
     public void Destroy()
     {
-        this.componentRoot.DestroyChildren();
+        this.ComponentRoot.DestroyChildren();
     }
 
     public void Generate()
     {
-        this.shipData = this.blueprint.GetData();
-        this.hull = this.blueprint.BuildTo(ref this.componentRoot, this.shipData);
+        this.ShipData = this.Blueprint.GetData();
+        this.Hull = this.Blueprint.BuildTo(ref this.ComponentRoot, this.ShipData);
     }
 
 }
