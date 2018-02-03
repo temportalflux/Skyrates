@@ -61,7 +61,7 @@ public class NetworkComponent : Singleton<NetworkComponent>
         this.session.SetClientID(uint.MaxValue); // mark as something horrible instead of -1
         this.session.Connected = false;
 
-        this.gameState.SetClients(new GameState.Data.Client[0]);
+        this.gameState.SetClients(new GameStateData.Client[0]);
 
     }
 

@@ -49,7 +49,7 @@ public partial class ShipBuilder : ScriptableObject
     }
 
     /// <summary>
-    /// Returns server-serializable data representing the parts of the ship
+    /// Returns server-serializable _gameStateData representing the parts of the ship
     /// </summary>
     /// <returns></returns>
     public ShipData GetData()
@@ -64,7 +64,7 @@ public partial class ShipBuilder : ScriptableObject
     }
 
     /// <summary>
-    /// Builds the current data as a GameObject
+    /// Builds the current _gameStateData as a GameObject
     /// </summary>
     /// <param name="root"></param>
     /// <param name="data"></param>

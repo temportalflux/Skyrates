@@ -86,7 +86,7 @@ public class Client
         // The packet to return, null because if there is no packet there should be no return
         Packet packet = null;
 
-        // All the data that is sent back via out in NetworkPlugin.PollPacket
+        // All the _gameStateData that is sent back via out in NetworkPlugin.PollPacket
         string address;
         byte[] data;
         ulong transmitTime;
@@ -94,16 +94,16 @@ public class Client
         // Get the next packet (returns false if no packet)
         if (NetworkPlugin.PollPacket(out address, out data, out transmitTime))
         {
-            // There was packet data, so
+            // There was packet _gameStateData, so
             // create the packet
             packet = new Packet();
-            // and load in the data
+            // and load in the _gameStateData
             packet.sourceAddress = address;
             packet.data = data;
             packet.transmitTime = transmitTime;
         }
 
-        // Return the packet, will be null if there was no data, and will exist if there was a packet
+        // Return the packet, will be null if there was no _gameStateData, and will exist if there was a packet
         return packet;
     }
 
@@ -137,10 +137,10 @@ public class Client
                     evt.sourceAddress = packet.sourceAddress;
                     evt.transmitTime = transmitTimeMS;
 
-                    // Read off the data of the packet
+                    // Read off the _gameStateData of the packet
                     evt.Deserialize(packet.data);
 
-                    // Push the event + data into the queue for processing
+                    // Push the event + _gameStateData into the queue for processing
                     this._events.Enqueue(evt);
                 }
             }

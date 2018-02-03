@@ -14,25 +14,23 @@ public class PlayerTracker : Singleton<PlayerTracker>
         this.loadSingleton(this, ref Instance);
     }
 
-    public static void Spawn(IEnumerable<GameState.Data.Client> clients)
+    public static void Spawn(IEnumerable<GameStateData.Client> clients)
     {
-        foreach (GameState.Data.Client client in clients)
+        foreach (GameStateData.Client client in clients)
         {
+
+            // TODO: Spawn the client
+
             Debug.Log("Spawn client " + client.clientID);
-
-            // Mark in gamestate the client that is this client
-            if (client.clientID == NetworkComponent.Session.ClientID)
-            {
-                Instance.gameState.SetMainClient(client);
-            }
-
+            
         }
     }
 
-    public static void Destroy(IEnumerable<GameState.Data.Client> clients)
+    public static void Destroy(IEnumerable<GameStateData.Client> clients)
     {
-        foreach (GameState.Data.Client client in clients)
+        foreach (GameStateData.Client client in clients)
         {
+            // TODO: Destroy it
             Debug.Log("Destroy client " + client.clientID);
         }
     }

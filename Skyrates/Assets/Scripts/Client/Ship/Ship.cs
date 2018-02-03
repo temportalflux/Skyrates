@@ -10,7 +10,7 @@ public class Ship : MonoBehaviour
 
     public ShipBuilder Blueprint;
 
-    // Data from ShipBuilder used to generate during Generate
+    // data from ShipBuilder used to generate during Generate
     // Only valid after Generate
     public ShipData ShipData;
 

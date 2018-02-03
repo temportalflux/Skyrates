@@ -38,18 +38,18 @@ public class BitSerializeAttribute : Attribute
         /// <returns>int</returns>
         int GetSize(object obj);
         /// <summary>
-        /// Serialize a specfic object into a byte array. Returns the byte[] with the populated data.
+        /// Serialize a specfic object into a byte array. Returns the byte[] with the populated _gameStateData.
         /// </summary>
         /// <param name="obj">The object to serialize.</param>
-        /// <param name="data">The byte array of data.</param>
-        /// <param name="start">How far into the data to put the object's serialized data.</param>
+        /// <param name="data">The byte array of _gameStateData.</param>
+        /// <param name="start">How far into the _gameStateData to put the object's serialized _gameStateData.</param>
         /// <returns>byte[]</returns>
         byte[] Serialize(object obj, byte[] data, int start);
         /// <summary>
         /// Deserialize a byte array into an object.
         /// </summary>
-        /// <param name="data">the byte[] of data.</param>
-        /// <param name="start">How far into the serialized data the object was put.</param>
+        /// <param name="data">the byte[] of _gameStateData.</param>
+        /// <param name="start">How far into the serialized _gameStateData the object was put.</param>
         /// <returns>object</returns>
         object Deserialize(object obj, byte[] data, int start, Type type);
     }
@@ -80,18 +80,18 @@ public class BitSerializeAttribute : Attribute
         /// <returns>int</returns>
         public int GetSize(object obj) { return _GetSize((T)obj); }
         /// <summary>
-        /// Serialize a specfic object into a byte array. Returns the byte[] with the populated data.
+        /// Serialize a specfic object into a byte array. Returns the byte[] with the populated _gameStateData.
         /// </summary>
         /// <param name="obj">The object to serialize with the type <see cref="T"/>.</param>
-        /// <param name="data">The byte array of data.</param>
-        /// <param name="start">How far into the data to put the object's serialized data.</param>
+        /// <param name="data">The byte array of _gameStateData.</param>
+        /// <param name="start">How far into the _gameStateData to put the object's serialized _gameStateData.</param>
         /// <returns>byte[]</returns>
         public byte[] Serialize(object obj, byte[] data, int start) { return _Serialize((T)obj, data, start); }
         /// <summary>
         /// Deserialize a byte array into an object with the type <see cref="T"/>.
         /// </summary>
-        /// <param name="data">the byte[] of data.</param>
-        /// <param name="start">How far into the serialized data the object was put.</param>
+        /// <param name="data">the byte[] of _gameStateData.</param>
+        /// <param name="start">How far into the serialized _gameStateData the object was put.</param>
         /// <returns>object with the type <see cref="T"/></returns>
         public object Deserialize(object obj, byte[] data, int start, Type type) { return _Deserialize((T)obj, data, start, type); }
     }
@@ -301,9 +301,9 @@ public class BitSerializeAttribute : Attribute
     /// <summary>
     /// Write some byte array into another byte array at some offset.
     /// </summary>
-    /// <param name="dest">The data to copy.</param>
+    /// <param name="dest">The _gameStateData to copy.</param>
     /// <param name="start">The offset in bytes.</param>
-    /// <param name="source">The data object to copy into at the offset.</param>
+    /// <param name="source">The _gameStateData object to copy into at the offset.</param>
     private static void CopyTo(ref byte[] dest, int start, byte[] source)
     {
         Array.Copy(source, 0, dest, start, source.Length);
@@ -445,7 +445,7 @@ public class BitSerializeAttribute : Attribute
         {
             // We can cast to ILIst because arrays implement it and we verfied that it is an array in the if statement
             System.Collections.IList fieldArray = (System.Collections.IList)obj;
-            // The value has no entries, so it has no data
+            // The value has no entries, so it has no _gameStateData
             if (fieldArray.Count <= 0)
             {
                 return sizeof(int);
@@ -530,7 +530,7 @@ public class BitSerializeAttribute : Attribute
         }
         Type type = obj.GetType();
 
-        // No incoming data object, so this is the beginning of a serialization, so we need the size
+        // No incoming _gameStateData object, so this is the beginning of a serialization, so we need the size
         if (data == null)
         {
             // Determine size of obj
@@ -547,7 +547,7 @@ public class BitSerializeAttribute : Attribute
             }
         }
 
-        // Serialize obj into data, starting at start
+        // Serialize obj into _gameStateData, starting at start
 
         if (MODULES.ContainsKey(type))
         {
@@ -611,7 +611,7 @@ public class BitSerializeAttribute : Attribute
         // Is not a collection, nor in MODULES
         else
         {
-            // Fill the data with the serialized fields
+            // Fill the _gameStateData with the serialized fields
             foreach (AttributeField attributeField in attribute.fields)
             {
                 object value = attributeField.info.GetValue(obj);
@@ -748,7 +748,7 @@ public class BitSerializeAttribute : Attribute
         // Is not a collection, nor in MODULES
         else
         {
-            // Fill the data with the serialized fields
+            // Fill the _gameStateData with the serialized fields
             foreach (AttributeField attributeField in attribute.fields)
             {
                 object element = null;
