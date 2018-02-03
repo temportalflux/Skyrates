@@ -26,6 +26,9 @@ public class GameStateData : ISerializing
 
         // TODO: PhysicsData
 
+        // TODO: Add to net state
+        public uint lootCount;
+
     }
     
     public GameStateData()

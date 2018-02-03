@@ -8,7 +8,7 @@ public class Looter : MonoBehaviour
     // meant to be used for raycast (hence mask). must convert bits to compare
     public LayerMask lootLayer;
 
-    public int loot = 0;
+    public uint loot;
 
     private void Start()
     {
@@ -33,8 +33,14 @@ public class Looter : MonoBehaviour
         {
             // collider is a loot
             Destroy(other.gameObject);
+            // TODO: Put in gamestate
             this.loot++;
         }
+    }
+
+    public void OnGUI()
+    {
+        GUI.Label(new Rect(0, 0, 300, 30), this.loot.ToString());
     }
 
 }
