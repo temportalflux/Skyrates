@@ -22,7 +22,11 @@ public static partial class ExtensionMethods
     {
         foreach (Transform child in transform)
         {
-            GameObject.Destroy(child.gameObject);
+            #if UNITY_EDITOR
+                GameObject.DestroyImmediate(child.gameObject);
+            #else
+                GameObject.Destroy(child.gameObject);
+            #endif
         }
         return transform;
     }
