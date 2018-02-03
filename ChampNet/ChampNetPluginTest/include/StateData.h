@@ -51,8 +51,6 @@ struct StateNetwork
 	unsigned int maxClients;
 	/// The number of peers connected to the server
 	unsigned int peersConnected;
-	/// The maximum number of players allowed to connected client peer
-	const unsigned int maxPlayersPerClient = 4;
 
 };
 
