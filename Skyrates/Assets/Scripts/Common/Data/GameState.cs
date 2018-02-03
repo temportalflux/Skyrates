@@ -36,11 +36,22 @@ public partial class GameState : ScriptableObject
         IEnumerable<GameStateData.Client> outgoing = this.data.clients.Except(clients);
         // All the ones that stayed
         IEnumerable<GameStateData.Client> stayed = this.data.clients.Intersect(clients);
+
+        // TODO: Sorting will be weird, find a way to do manually according to clientID
+
+        GameStateData.Client[] updatedClients = stayed.Concat(incoming).OrderBy(client => client.clientID).ToArray();
         
-        this.SetClients(stayed.Concat(incoming).ToArray());
+        //this.SetClients();
 
         EntityTracker.Destroy(outgoing);
-        EntityTracker.Spawn(incoming);
+
+        // Spawning to be done when the guid is valid
+        //EntityTracker.Spawn(incoming);
+
+    }
+
+    private void IntegrateClient(GameStateData.Client previous, ref GameStateData.Client current)
+    {
 
     }
 
