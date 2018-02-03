@@ -27,14 +27,17 @@ public class HullTargetEditor : Editor
         {
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
+                if (compType == ComponentType.Hull) continue;
+
                 EditorGUILayout.Separator();
-                int iComp = (int) compType;
+
+                int iComp = (int) compType - 1;
 
                 Transform[] roots = targets.list[iComp].roots;
 
                 this.Array(compType.ToString(), ref toggleComp[iComp], ref roots,
                     doBlock:true, GetFieldName:(Transform t) => t == null ? "Pos/Rot" : t.name);
-
+                
                 targets.list[iComp].roots = roots;
 
             }

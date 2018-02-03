@@ -32,7 +32,8 @@ public class ShipHull : ShipComponent
     
     public Transform[] GetRoots(ComponentType compType)
     {
-        Debug.Assert((int)ComponentType.Hull == 0);
+        Debug.Assert((int) ComponentType.Hull == 0);
+        Debug.Assert(ComponentType.Hull != compType);
         // compType - 1 to account for Hull
         return this.targets.list[(int) compType - 1].roots;
     }
@@ -41,14 +42,29 @@ public class ShipHull : ShipComponent
     {
         foreach (ComponentType key in ShipData.ComponentTypes)
         {
-            HullTargets.Target t = this.targets.list[(int)key];
+            if (key == ComponentType.Hull) continue;
+            HullTargets.Target t = this.targets.list[(int)key - 1];
             t.generatedComponents = new ShipComponent[t.roots.Length];
+            this.targets.list[(int) key - 1] = t;
         }
     }
 
     public void AddShipComponent(ComponentType compType, int index, ShipComponent comp)
     {
-        this.targets.list[(int) compType].generatedComponents[index] = comp;
+        Debug.Assert((int) ComponentType.Hull == 0);
+        Debug.Assert(ComponentType.Hull != compType, "Cannot add hull to hull");
+        HullTargets.Target t = this.targets.list[(int) compType - 1];
+        t.generatedComponents[index] = comp;
+        comp.gameObject.transform.SetPositionAndRotation(t.roots[index].position, t.roots[index].rotation);
+        this.targets.list[(int) compType - 1] = t;
+    }
+
+    public ShipComponent[] GetGeneratedComponent(ComponentType compType)
+    {
+        Debug.Assert((int) ComponentType.Hull == 0);
+        Debug.Assert(ComponentType.Hull != compType, "Cannot get hull from hull");
+        // compType - 1 to account for Hull
+        return this.targets.list[(int) compType - 1].generatedComponents;
     }
 
 }

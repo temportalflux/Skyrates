@@ -14,7 +14,10 @@ public class DummyClient : Client
 
     public override void Disconnect() { }
 
-    public override void Start(Session session) { }
+    public override void Start(Session session)
+    {
+        EntityTracker.SpawnPlayer(Entity.NewGuid());
+    }
 
     public override void Dispatch(NetworkEvent evt, string address, int port) { }
 

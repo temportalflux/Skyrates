@@ -21,6 +21,7 @@ public class Shooter : MonoBehaviour
 
         Projectile projectile = gameObject.GetComponent<Projectile>();
         projectile.init(this);
+        projectile.addForce(this.transform.forward * 1000);
 
         return projectile;
     }
