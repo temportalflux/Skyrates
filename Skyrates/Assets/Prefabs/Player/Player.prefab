@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 114509353812128234}
   - component: {fileID: 114538933203677380}
   - component: {fileID: 114911614023129656}
-  - component: {fileID: 136644950151613576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -346,11 +345,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput:
     ForwardInput: 0
-    ForwardSpeed: 10
+    ForwardSpeed: 50
     StrafeInput: 0
-    StrafeSpeed: 10
+    StrafeSpeed: 50
     VerticalInput: 0
-    VerticalSpeed: 20
+    VerticalSpeed: 80
   forwardView: {fileID: 4730640441688548}
   render: {fileID: 4214878389350958}
 --- !u!124 &124047054886033358
@@ -360,16 +359,3 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443920496466422}
   m_Enabled: 1
---- !u!136 &136644950151613576
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773078546417248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
