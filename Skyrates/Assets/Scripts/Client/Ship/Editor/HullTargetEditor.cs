@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+using ComponentType = ShipData.ComponentType;
+
 [CustomEditor(typeof(ShipHull))]
 public class HullTargetEditor : Editor
 {
 
     private ShipHull instance;
 
-    static bool[] toggleComp = new bool[ShipBuilder.ComponentTypes.Length];
+    static bool[] toggleComp = new bool[ShipData.ComponentTypes.Length];
 
     public void OnEnable()
     {
@@ -23,7 +25,7 @@ public class HullTargetEditor : Editor
 
         ShipHull.HullTargets targets = this.instance.targets;
         {
-            foreach (ShipBuilder.ComponentType compType in ShipBuilder.ComponentTypes)
+            foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 EditorGUILayout.Separator();
                 int iComp = (int) compType;

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using ComponentType = ShipData.ComponentType;
+
 [CreateAssetMenu(menuName = "Stats/Ship Component List")]
 public class ShipComponentList : ScriptableObject
 {
@@ -14,14 +16,14 @@ public class ShipComponentList : ScriptableObject
     }
 
     /// <summary>
-    /// An array keyed by <see cref="ShipBuilder.ComponentType"/> where values are arrays of ShipComponents.
+    /// An array keyed by <see cref="ComponentType"/> where values are arrays of ShipComponents.
     /// </summary>
-    public ComponentList[] components = new ComponentList[ShipBuilder.ComponentTypes.Length];
+    public ComponentList[] components = new ComponentList[ShipData.ComponentTypes.Length];
 
     public bool[] editor_showComponentArray;
 
     /// <summary>
-    /// The list of names for an array of components keyed by <see cref="ShipBuilder.ComponentType"/>.
+    /// The list of names for an array of components keyed by <see cref="ComponentType"/>.
     /// Generated from <see cref="components"/>.
     /// </summary>
     private string[][] componentNames;
@@ -33,8 +35,8 @@ public class ShipComponentList : ScriptableObject
 
     public void GenerateNames()
     {
-        this.componentNames = new string[ShipBuilder.ComponentTypes.Length][];
-        foreach (ShipBuilder.ComponentType compType in ShipBuilder.ComponentTypes)
+        this.componentNames = new string[ShipData.ComponentTypes.Length][];
+        foreach (ComponentType compType in ShipData.ComponentTypes)
         {
             ComponentList componentArray = this.components[(int) compType];
             this.componentNames[(int)compType] = new string[componentArray.components.Length];
@@ -46,14 +48,19 @@ public class ShipComponentList : ScriptableObject
         }
     }
 
-    public string[] GetNames(ShipBuilder.ComponentType compType)
+    public string[] GetNames(ComponentType compType)
     {
         return this.componentNames == null ? new string[0] : this.componentNames[(int) compType];
     }
 
-    public T GetComponent<T>(ShipBuilder.ComponentType compType, int index) where T : ShipComponent
+    public ShipComponent GetRawComponent(ComponentType compType, int index)
     {
-        return (T)this.components[(int) compType].components[index];
+        return this.components[(int) compType].components[index];
+    }
+
+    public T GetComponent<T>(ComponentType compType, int index) where T : ShipComponent
+    {
+        return (T)this.GetRawComponent(compType, index);
     }
 
 }

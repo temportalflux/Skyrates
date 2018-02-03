@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
+
+using ComponentType = ShipData.ComponentType;
 
 [CustomEditor(typeof(ShipComponentList))]
 public class ShipComponentListEditor : Editor
@@ -21,11 +22,11 @@ public class ShipComponentListEditor : Editor
 
         // Get the list of which categories are already folded out
         bool[] enabled_editor = this.instance.editor_showComponentArray;
-        if (enabled_editor == null) enabled_editor = new bool[ShipBuilder.ComponentTypes.Length];
+        if (enabled_editor == null) enabled_editor = new bool[ShipData.ComponentTypes.Length];
 
         bool changed = false;
 
-        foreach (ShipBuilder.ComponentType compType in ShipBuilder.ComponentTypes)
+        foreach (ComponentType compType in ShipData.ComponentTypes)
         {
             // Get the index of the Component type
             int arrayIndex = (int)compType;
@@ -35,7 +36,7 @@ public class ShipComponentListEditor : Editor
             ShipComponentList.ComponentList components = this.instance.components[arrayIndex];
             if (components.components == null) components.components = new ShipComponent[0];
             // Get the script class type of this component type
-            Type shipComponentType = ShipBuilder.ComponentClassTypes[(int)compType];
+            Type shipComponentType = ShipData.ComponentClassTypes[(int)compType];
 
             EditorGUILayout.Separator();
 

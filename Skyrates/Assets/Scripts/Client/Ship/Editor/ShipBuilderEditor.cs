@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
+
+using ComponentType = ShipData.ComponentType;
 
 [CustomEditor(typeof(ShipBuilder))]
 public class ShipBuilderEditor : Editor
@@ -24,7 +25,7 @@ public class ShipBuilderEditor : Editor
 
         EditorGUILayout.Separator();
 
-        foreach (ShipBuilder.ComponentType compType in ShipBuilder.ComponentTypes)
+        foreach (ComponentType compType in ShipData.ComponentTypes)
         {
             int arrayIndex = (int)compType;
 
@@ -34,11 +35,11 @@ public class ShipBuilderEditor : Editor
 
             if (instance.shipComponentList != null)
             {
-                instance.components[arrayIndex] = EditorGUILayout.Popup(instance.components[arrayIndex], instance.shipComponentList.GetNames(compType));
+                instance.shipData[compType] = EditorGUILayout.Popup(instance.shipData[compType], instance.shipComponentList.GetNames(compType));
             }
             else
             {
-                EditorGUILayout.LabelField(instance.components[arrayIndex].ToString());
+                EditorGUILayout.LabelField(instance.shipData[compType].ToString());
             }
 
             EditorGUILayout.EndHorizontal();

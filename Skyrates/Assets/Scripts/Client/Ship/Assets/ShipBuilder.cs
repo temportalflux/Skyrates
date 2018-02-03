@@ -3,86 +3,94 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using ComponentType = ShipData.ComponentType;
+
 [CreateAssetMenu(menuName = "Stats/Ship Builder")]
-public class ShipBuilder : ScriptableObject
+public partial class ShipBuilder : ScriptableObject
 {
-    public enum ComponentType
-    {
-        Hull, Propulsion, Artillery, Sail, Figurehead, Navigation,
-    }
-
-    public static readonly ComponentType[] ComponentTypes =
-    {
-        ComponentType.Hull,
-        ComponentType.Propulsion,
-        ComponentType.Artillery,
-        ComponentType.Sail,
-        ComponentType.Figurehead,
-        ComponentType.Navigation,
-    };
-
-    public static readonly Type[] ComponentClassTypes =
-    {
-        typeof(ShipHull),
-        typeof(ShipPropulsion),
-        typeof(ShipArtillery),
-        typeof(ShipSail),
-        typeof(ShipFigurehead),
-        typeof(ShipNavigation),
-    };
-
     public ShipComponentList shipComponentList;
 
-    public int[] components = new int[ComponentTypes.Length];
+    public ShipData shipData = new ShipData();
 
-    public ShipHull GetHull()
+    public ShipHull GetHull(ShipData data = null)
     {
-        return this.shipComponentList.GetComponent<ShipHull>(ComponentType.Hull, this.components[(int)ComponentType.Hull]);
+        if (data == null) data = this.shipData;
+        return (ShipHull)this.GetShipComponent(ComponentType.Hull, data);
     }
 
-    public ShipComponent GetPropulsion()
+    public ShipPropulsion GetPropulsion(ShipData data = null)
     {
-        return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Propulsion, this.components[(int)ComponentType.Propulsion]);
+        if (data == null) data = this.shipData;
+        return (ShipPropulsion)this.GetShipComponent(ComponentType.Propulsion, data);
     }
 
-    public ShipComponent GetAmmunition()
+    public ShipArtillery GetArtillery(ShipData data = null)
     {
-        return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Artillery, this.components[(int)ComponentType.Artillery]);
+        if (data == null) data = this.shipData;
+        return (ShipArtillery)this.GetShipComponent(ComponentType.Artillery, data);
     }
 
-    public ShipComponent GetSail()
+    public ShipSail GetSail(ShipData data = null)
     {
-        return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Sail, this.components[(int)ComponentType.Sail]);
+        if (data == null) data = this.shipData;
+        return (ShipSail)this.GetShipComponent(ComponentType.Sail, data);
     }
 
-    public ShipComponent GetFigurehead()
+    public ShipFigurehead GetFigurehead(ShipData data = null)
     {
-        return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Figurehead, this.components[(int)ComponentType.Figurehead]);
+        if (data == null) data = this.shipData;
+        return (ShipFigurehead)this.GetShipComponent(ComponentType.Figurehead, data);
     }
 
-    public ShipComponent GetNavigation()
+    public ShipNavigation GetNavigation(ShipData data = null)
     {
-        return this.shipComponentList.GetComponent<ShipComponent>(ComponentType.Navigation, this.components[(int)ComponentType.Navigation]);
+        if (data == null) data = this.shipData;
+        return (ShipNavigation)this.GetShipComponent(ComponentType.Navigation, data);
     }
 
-    public ShipHull BuildTo(ref Transform root)
+    /// <summary>
+    /// Returns server-serializable data representing the parts of the ship
+    /// </summary>
+    /// <returns></returns>
+    public ShipData GetData()
     {
-        ShipHull hullPrefab = this.GetHull();
+        return this.shipData;
+    }
+
+    public ShipComponent GetShipComponent(ComponentType type, ShipData data)
+    {
+        ShipComponent comp = this.shipComponentList.GetRawComponent(type, data[ComponentType.Navigation]);
+        return comp;
+    }
+
+    /// <summary>
+    /// Builds the current data as a GameObject
+    /// </summary>
+    /// <param name="root"></param>
+    /// <param name="data"></param>
+    /// <returns></returns>
+    public ShipHull BuildTo(ref Transform root, ShipData data = null)
+    {
+        if (data == null) data = this.shipData;
+        
+        ShipHull hullPrefab = (ShipHull)this.GetShipComponent(ComponentType.Hull, data);
         ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHull>();
 
-        foreach (ComponentType compType in ComponentTypes)
+        foreach (ComponentType compType in ShipData.ComponentTypes)
         {
             if (compType == ComponentType.Hull) continue;
 
-            GameObject prefab = this.shipComponentList.GetComponent<ShipComponent>(
-                compType, this.components[(int) compType]).gameObject;
+            GameObject prefab = this.GetShipComponent(compType, data).gameObject;
 
-            Transform[] targets = hullPrefab.GetRoots(compType);
+            Transform[] targets = hullBuilt.GetRoots(compType);
 
-            foreach (Transform target in targets)
+            hullBuilt.ClearGeneratedComponents();
+
+            for(int iTarget = 0; iTarget < targets.Length; iTarget++)
             {
+                Transform target = targets[iTarget];
                 GameObject built = Instantiate(prefab, target.position, target.rotation, root);
-                hullBuilt.AddShipComponent(compType, built.GetComponent<ShipComponent>());
+                hullBuilt.AddShipComponent(compType, iTarget, built.GetComponent<ShipComponent>());
             }
             
         }
