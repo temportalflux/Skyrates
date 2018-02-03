@@ -16,15 +16,18 @@ public class GameStateData : ISerializing
         [BitSerialize(0)]
         public uint clientID;
 
-        // TODO: System.Guid for the object it owns
+        // Flag that marks the guid as valid, so we don't use invalid guids
+        [BitSerialize(1)]
+        public bool playerEntityGuidValid;
+
+        // TODO: Put on server
+        [BitSerialize(2)]
+        public Guid playerEntityGuid;
 
         // TODO: PhysicsData
 
     }
-
-
-
-
+    
     public GameStateData()
     {
         this.clients = new Client[0];

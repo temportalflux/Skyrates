@@ -296,6 +296,31 @@ public class BitSerializeAttribute : Attribute
                 return obj;
             }),
         } },
+        // Guid
+        { typeof(Guid), new SerializationModule<Guid> {
+            _GetSize = new Func<Guid, int>((Guid valueA) => sizeof(Int32) + 16), // https://msdn.microsoft.com/en-us/library/system.guid.tobytearray(v=vs.110).aspx
+            _Serialize = new Func<Guid, byte[], int, byte[]>((Guid valueB, byte[] data, int start) =>
+            {
+                byte[] guidData = valueB.ToByteArray();
+                
+                data = MODULES[typeof(Int32)].Serialize(guidData.Length, data, start);
+                start += sizeof(Int32);
+
+                CopyTo(ref data, start, valueB.ToByteArray());
+
+                return data;
+            }),
+            _Deserialize = new Func<Guid, byte[], int, Type, Guid>((Guid obj, byte[] data, int start, Type type) =>
+            {
+                Type t = typeof(Int32);
+                int size = (int)MODULES[t].Deserialize(0, data, start, t);
+
+                byte[] guidData = new byte[size];
+                CopyFrom(data, ref guidData, start, size);
+
+                return new Guid(guidData);
+            }),
+        } },
     };
 
     /// <summary>
@@ -308,7 +333,12 @@ public class BitSerializeAttribute : Attribute
     {
         Array.Copy(source, 0, dest, start, source.Length);
     }
-    
+
+    private static void CopyFrom(byte[] source, ref byte[] dest, int start, int length)
+    {
+        Array.Copy(source, start, dest, 0, length);
+    }
+
     public class AttributeField
     {
 
@@ -611,7 +641,7 @@ public class BitSerializeAttribute : Attribute
         // Is not a collection, nor in MODULES
         else
         {
-            // Fill the _gameStateData with the serialized fields
+            // Fill the data with the serialized fields
             foreach (AttributeField attributeField in attribute.fields)
             {
                 object value = attributeField.info.GetValue(obj);
@@ -676,12 +706,14 @@ public class BitSerializeAttribute : Attribute
                 try
                 {
                     element = Activator.CreateInstance(subtype);
+                    element = Deserialize(element, data, start, attribute, subtype);
+                    arr.SetValue(element, i);
+                    start += GetSizeOf(element, attribute.fields);
                 }
-                catch (Exception e) { }
-
-                element = Deserialize(element, data, start, attribute, subtype);
-                arr.SetValue(element, i);
-                start += GetSizeOf(element, attribute.fields);
+                catch (Exception e)
+                {
+                    Debug.LogException(e);
+                }
             }
 
             return (object)arr;

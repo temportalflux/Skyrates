@@ -39,6 +39,9 @@ enum MessageIDs
 	//! [Handshake.3] Sent to tell server that we have accepted the client ID (GameState updates can begin)
 	HandshakeAccept,
 
+	//! [Update] Sent to server to update physics data about the player
+	UpdatePlayerPhysics,
+
 	Disconnect,
 
 	#pragma endregion

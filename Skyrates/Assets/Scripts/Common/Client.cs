@@ -44,7 +44,7 @@ public class Client
     /// <param name="port">The server port.</param>
     public virtual void Dispatch(NetworkEvent evt, string address, int port)
     {
-        byte[] data = BitSerializeAttribute.Serialize(evt);
+        byte[] data = evt.Serialize();
         // Send the event to the address
         NetworkPlugin.SendByteArray(address, port, data, data.Length);
     }

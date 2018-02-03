@@ -187,8 +187,19 @@ void StateServer::handlePacket(ChampNet::Packet *packet)
 				unsigned char *data;
 				packet->getData(data, pPacketLength);
 
-				memcpy(this->mpGameState->clients[pPacket->clientID]->playerEntityGuid, data + 5 + sizeof(int), 16);
+				int posSizeGuid = 5;
+				data += posSizeGuid;
+				
+				int sizeGuid = *((int *) data);
+				data += sizeof(sizeGuid);
+				
+				unsigned char target[16];
+				memcpy(target, data, 16);
+
+				memcpy(this->mpGameState->clients[pPacket->clientID]->playerEntityGuid, target, 16);
 				this->mpGameState->clients[pPacket->clientID]->playerEntityGuidValid = true;
+
+				//std::cout << "tmp\n";
 
 			}
 			break;

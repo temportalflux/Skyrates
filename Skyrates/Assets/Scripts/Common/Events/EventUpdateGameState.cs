@@ -13,6 +13,11 @@ public class EventUpdateGameState : NetworkEvent
         this.serverState = new GameStateData();
     }
 
+    public override void Deserialize(byte[] data)
+    {
+        base.Deserialize(data);
+    }
+
     public override void Execute()
     {
         if (NetworkComponent.Session.Connected)

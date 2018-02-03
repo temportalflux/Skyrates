@@ -21,6 +21,11 @@ public abstract class NetworkEvent
     // For Deserialize
     public NetworkEvent() { }
 
+    public virtual byte[] Serialize()
+    {
+        return BitSerializeAttribute.Serialize(this);
+    }
+
     public virtual void Deserialize(byte[] data)
     {
         BitSerializeAttribute.Deserialize(this, data);

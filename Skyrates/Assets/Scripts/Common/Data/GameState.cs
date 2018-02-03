@@ -39,8 +39,8 @@ public partial class GameState : ScriptableObject
         
         this.SetClients(stayed.Concat(incoming).ToArray());
 
-        PlayerTracker.Destroy(outgoing);
-        PlayerTracker.Spawn(incoming);
+        EntityTracker.Destroy(outgoing);
+        EntityTracker.Spawn(incoming);
 
     }
 
