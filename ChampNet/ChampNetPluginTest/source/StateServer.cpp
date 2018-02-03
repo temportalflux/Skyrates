@@ -165,8 +165,9 @@ void StateServer::handlePacket(ChampNet::Packet *packet)
 				// Print out that a user exists
 				std::cout << "Client " << clientID << " has joined from " << addressSender << '\n';
 				std::cout << "There are " << this->mpGameState->clients.size() << " clients\n";
-				
+
 				this->mpGameState->clients[clientID]->passedHandshake = false;
+				this->mpGameState->clients[clientID]->playerEntityGuidValid = false;
 
 				PacketID pPacketClientID[1];
 				pPacketClientID->id = MessageIDs::HandshakeClientID;
@@ -177,10 +178,18 @@ void StateServer::handlePacket(ChampNet::Packet *packet)
 			break;
 		case MessageIDs::HandshakeAccept:
 			{
-				//unsigned int pPacketLength = 0;
-				//PacketID* pPacket = packet->getPacketAs<PacketID>(pPacketLength);
+				unsigned int pPacketLength = 0;
+				PacketHandshakeAccept* pPacket = packet->getPacketAs<PacketHandshakeAccept>(pPacketLength);
 				
 				// Ok, they are good, the client side will start processing game updates
+				std::cout << "Client has accepted their id\n";
+
+				unsigned char *data;
+				packet->getData(data, pPacketLength);
+
+				memcpy(this->mpGameState->clients[pPacket->clientID]->playerEntityGuid, data + 5 + sizeof(int), 16);
+				this->mpGameState->clients[pPacket->clientID]->playerEntityGuidValid = true;
+
 			}
 			break;
 		case ChampNetPlugin::ID_CLIENT_MISSING:

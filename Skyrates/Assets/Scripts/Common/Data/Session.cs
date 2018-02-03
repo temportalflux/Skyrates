@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Session")]
+[CreateAssetMenu(menuName = "data/Session")]
 public class Session : ScriptableObject
 {
 
@@ -38,7 +38,7 @@ public class Session : ScriptableObject
 
     public bool Connected = false;
 
-    // Can this session be considered valid data? True only if the game has started (user has entered world scene)
+    // Can this session be considered valid _gameStateData? True only if the game has started (user has entered world scene)
     public bool IsValid
     {
         get { return this.Mode != NetworkMode.None; }

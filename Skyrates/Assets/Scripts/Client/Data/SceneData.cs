@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Scene Data")]
+[CreateAssetMenu(menuName = "data/Scene data")]
 public class SceneData : ScriptableObject
 {
 

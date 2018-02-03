@@ -9,7 +9,7 @@ public interface ISerializing
     /// Returns the size of the packet (the size for a potential byte[])
     /// </summary>
     /// <returns>
-    /// the integer length of a byte array to hold this event's data
+    /// the integer length of a byte array to hold this event's _gameStateData
     /// </returns>
     /// <remarks>
     /// Author: Dustin Yost
@@ -17,9 +17,9 @@ public interface ISerializing
     int GetSize();
 
     /// <summary>
-    /// Serializes data from this event into a byte array
+    /// Serializes _gameStateData from this event into a byte array
     /// </summary>
-    /// <param name="data">The data.</param>
+    /// <param name="data">The _gameStateData.</param>
     /// <param name="lastIndex">The last index.</param>
     /// <remarks>
     /// Author: Dustin Yost
@@ -27,9 +27,9 @@ public interface ISerializing
     void Serialize(ref byte[] data, ref int lastIndex);
 
     /// <summary>
-    /// Deserializes data from a byte array into this event's data
+    /// Deserializes _gameStateData from a byte array into this event's _gameStateData
     /// </summary>
-    /// <param name="data">The data.</param>
+    /// <param name="data">The _gameStateData.</param>
     /// <param name="lastIndex">The last index.</param>
     /// <remarks>
     /// Author: Dustin Yost

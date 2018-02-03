@@ -133,7 +133,7 @@ namespace ChampNetPlugin
         [DllImport(IDENTIFIER)]
         public static extern IntPtr GetPacketAddress(IntPtr packetRef, ref uint length);
 
-        /// Returns the packet's data, given some valid packet pointer (Call after PollPacket if valid is true).
+        /// Returns the packet's _gameStateData, given some valid packet pointer (Call after PollPacket if valid is true).
         [DllImport(IDENTIFIER)]
         public static extern IntPtr GetPacketData(IntPtr packetRef, ref uint length, ref ulong transmitTime);
 
@@ -146,9 +146,9 @@ namespace ChampNetPlugin
         public static extern void SendByteArray(string address, int port, byte[] byteArray, int byteArraySize);
 
         /// WRAPPER METHOD
-        /// Handles polling the network for packets, and returning the address and data of that packet.
+        /// Handles polling the network for packets, and returning the address and _gameStateData of that packet.
         /// Use instead of PollPacket(bool), GetPacketAddress, GetPacketData, and FreePacket
-        /// Copies out the data from a valid packet, and frees the packet from memory.
+        /// Copies out the _gameStateData from a valid packet, and frees the packet from memory.
         /// Returns true if a valid packet was found, else false.
         public static bool PollPacket(out string address, out byte[] data, out ulong transmitTime)
         {
@@ -162,7 +162,7 @@ namespace ChampNetPlugin
             bool foundPacket = false;
             IntPtr packetRef = PollPacket(ref foundPacket);
 
-            // If a valid packet has be dequeued, copy out the data.
+            // If a valid packet has be dequeued, copy out the _gameStateData.
             if (foundPacket)
             {
                 //Debug.Log("Got packet ptr " + packetRef);
@@ -180,15 +180,15 @@ namespace ChampNetPlugin
                     Debug.LogError(e);
                 }
 
-                // Get the data
+                // Get the _gameStateData
                 uint dataLength = 0;
                 IntPtr ptrData = GetPacketData(packetRef, ref dataLength, ref transmitTime);
 
                 data = new byte[dataLength];
                 Marshal.Copy(ptrData, data, 0, (int)dataLength);
-                // Data is now possessed by C#
+                // data is now possessed by C#
                 
-                // Free the packet - all data is copied over
+                // Free the packet - all _gameStateData is copied over
                 FreePacket(packetRef);
             }
 

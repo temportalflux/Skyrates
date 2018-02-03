@@ -28,6 +28,10 @@ public:
 
 		/// The clientID of the controlling client. This is unique across all peers in a network.
 		unsigned int clientID;
+
+		bool playerEntityGuidValid;
+
+		unsigned char playerEntityGuid[16];
 		
 	};
 
