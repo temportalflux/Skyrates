@@ -76,6 +76,8 @@ public partial class ShipBuilder : ScriptableObject
         ShipHull hullPrefab = (ShipHull)this.GetShipComponent(ComponentType.Hull, data);
         ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHull>();
 
+        hullBuilt.ClearGeneratedComponents();
+
         foreach (ComponentType compType in ShipData.ComponentTypes)
         {
             if (compType == ComponentType.Hull) continue;
@@ -83,8 +85,6 @@ public partial class ShipBuilder : ScriptableObject
             GameObject prefab = this.GetShipComponent(compType, data).gameObject;
 
             Transform[] targets = hullBuilt.GetRoots(compType);
-
-            hullBuilt.ClearGeneratedComponents();
 
             for(int iTarget = 0; iTarget < targets.Length; iTarget++)
             {

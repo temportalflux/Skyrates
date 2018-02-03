@@ -75,6 +75,17 @@ public class InputRotation : MonoBehaviour
         Vector3 dirHorizontal = this.transform.right;
         dirVertical.y = dirVertical.z = 0;
 
+        
+        /*
+        float rotateDegrees = this.playerInput.Vertical;
+        Vector3 currentVector = transform.position - this.pivot.position;
+        currentVector.y = 0;
+        Vector3 iVec = this.transform.forward.Flatten(Vector3.up);
+        float angleBetween = Vector3.Angle(iVec, currentVector) * (Vector3.Cross(iVec, currentVector).y > 0 ? 1 : -1);
+        float newAngle = Mathf.Clamp(angleBetween + rotateDegrees, -90, 40);
+        rotateDegrees = newAngle - angleBetween;
+        */
+
         // Pivot around the local left/right axis (right of the facing direction)
         this.transform.RotateAround(this.pivot.position, dirHorizontal, this.playerInput.Vertical);
 

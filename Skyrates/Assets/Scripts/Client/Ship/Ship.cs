@@ -18,14 +18,6 @@ public class Ship : MonoBehaviour
     [HideInInspector]
     public ShipHull Hull;
 
-    private void Start()
-    {
-        this.ShipData = null;
-        this.Hull = null;
-
-        this.Generate();
-    }
-
     public void Destroy()
     {
         this.ComponentRoot.DestroyChildren();

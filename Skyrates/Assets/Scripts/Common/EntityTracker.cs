@@ -30,16 +30,22 @@ public class EntityTracker : Singleton<EntityTracker>
         {
 
             Debug.Log("Spawning player for client " + client.clientID);
-
-            Player player = GameObject.Instantiate(Instance.PlayerPrefab.gameObject, Instance.transform).GetComponent<Player>();
-            // Generate identifier
-            player.Init(client.playerEntityGuid);
-            // Generate ship object
-            player.GenerateShip();
-
-            Instance._playerEntities.Add(player.GetGuid(), player);
             
+            SpawnPlayer(client.playerEntityGuid);
+
         }
+    }
+
+    public static void SpawnPlayer(Guid entityID)
+    {
+        // TODO: This is put on a DoNotDestroyOnLoad object
+        Player player = GameObject.Instantiate(Instance.PlayerPrefab.gameObject, Instance.transform).GetComponent<Player>();
+        // Generate identifier
+        player.Init(entityID);
+        // Generate ship object
+        player.GenerateShip();
+
+        Instance._playerEntities.Add(player.GetGuid(), player);
     }
 
     public static void Destroy(IEnumerable<GameStateData.Client> clients)

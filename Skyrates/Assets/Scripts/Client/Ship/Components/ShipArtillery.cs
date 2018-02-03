@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipArtillery : ShipComponent {
-    
+public class ShipArtillery : ShipComponent
+{
+
+    public Shooter shooter;
+
 }
