@@ -288,24 +288,47 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ChampNet\Network.cs" />
-    <Compile Include="Assets\Scripts\Controller\InputMovement.cs" />
-    <Compile Include="Assets\Scripts\Controller\InputRotation.cs" />
-    <Compile Include="Assets\Scripts\Extension\Vector3.cs" />
-    <Compile Include="Assets\Scripts\Input\InputAction.cs" />
-    <Compile Include="Assets\Scripts\Input\InputConfig.cs" />
-    <Compile Include="Assets\Scripts\Input\InputSet.cs" />
-    <Compile Include="Assets\Scripts\Input\InputUnity.cs" />
-    <Compile Include="Assets\Scripts\Input\InputXbox.cs" />
-    <Compile Include="Assets\Scripts\Looter.cs" />
-    <Compile Include="Assets\Scripts\OutOfWorldBoundary.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scripts\SelfDestruct.cs" />
-    <Compile Include="Assets\Scripts\Shootable.cs" />
-    <Compile Include="Assets\Scripts\Shooter.cs" />
-    <Compile Include="Assets\Scripts\SideOnlyAttribute.cs" />
-    <Compile Include="Assets\Scripts\Stats\Version.cs" />
-    <Compile Include="Assets\Scripts\UI\UpdateVersion.cs" />
+    <Compile Include="Assets\PlayerTracker.cs" />
+    <Compile Include="Assets\Scripts\Client\Component\OutOfWorldBoundary.cs" />
+    <Compile Include="Assets\Scripts\Client\Component\SelfDestruct.cs" />
+    <Compile Include="Assets\Scripts\Client\Controller\InputMovement.cs" />
+    <Compile Include="Assets\Scripts\Client\Controller\InputRotation.cs" />
+    <Compile Include="Assets\Scripts\Client\Data\SceneData.cs" />
+    <Compile Include="Assets\Scripts\Client\Data\Version.cs" />
+    <Compile Include="Assets\Scripts\Client\Extension\Vector3.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\InputAction.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\InputConfig.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\InputSet.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\InputUnity.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\InputXbox.cs" />
+    <Compile Include="Assets\Scripts\Client\Loot\Looter.cs" />
+    <Compile Include="Assets\Scripts\Client\Projectile\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Client\Projectile\Shootable.cs" />
+    <Compile Include="Assets\Scripts\Client\Projectile\Shooter.cs" />
+    <Compile Include="Assets\Scripts\Client\Scene\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\UpdateVersion.cs" />
+    <Compile Include="Assets\Scripts\Client\Util\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Common\ChampNet\NetworkPlugin.cs" />
+    <Compile Include="Assets\Scripts\Common\Client.cs" />
+    <Compile Include="Assets\Scripts\Common\Data\GameState.cs" />
+    <Compile Include="Assets\Scripts\Common\Data\Session.cs" />
+    <Compile Include="Assets\Scripts\Common\DummyClient.cs" />
+    <Compile Include="Assets\Scripts\Common\Events\EventConnection.cs" />
+    <Compile Include="Assets\Scripts\Common\Events\EventDisconnect.cs" />
+    <Compile Include="Assets\Scripts\Common\Events\EventHandshakeAccept.cs" />
+    <Compile Include="Assets\Scripts\Common\Events\EventHandshakeClientID.cs" />
+    <Compile Include="Assets\Scripts\Common\Events\EventHandshakeJoin.cs" />
+    <Compile Include="Assets\Scripts\Common\Events\EventUpdateGameState.cs" />
+    <Compile Include="Assets\Scripts\Common\Events\NetworkEvent.cs" />
+    <Compile Include="Assets\Scripts\Common\MessageMap.cs" />
+    <Compile Include="Assets\Scripts\Common\NetworkComponent.cs" />
+    <Compile Include="Assets\Scripts\Common\NetworkTest.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\NetworkEventAttribute.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\Serializing\BitSerializeAttribute.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\Serializing\BitTest.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\Serializing\BitTest2.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\Serializing\ISerializing.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\Side.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Moments\LICENSE.txt" />

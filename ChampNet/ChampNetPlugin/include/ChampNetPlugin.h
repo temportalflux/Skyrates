@@ -27,7 +27,6 @@ extern "C"
 	namespace ChampNetPlugin {
 
 		/// All the Message/Packet identifiers used for this implementation
-		// TODO: Not DLL general - should be moved for just server usage (irrellevant to non-Cretin usage)
 		// Designations:
 		// C: Client
 		// S: Server
@@ -48,53 +47,8 @@ extern "C"
 			ID_CLIENT_CONNECTION_REJECTED = ID_CONNECTION_ATTEMPT_FAILED,
 
 			//! placeholder - For tracking in C# script
-			ID_PLACEHOLDER = ID_USER_PACKET_ENUM,
-
-			// Client-Sent Messages
-			//! C->S: ask server to join
-			ID_CLIENT_JOINED,
-			//! C->S: ask server to move player
-			ID_PLAYER_REQUEST_MOVEMENT,
-			//! C->: ask server to add monster to player
-			ID_PLAYER_ADD_MONSTER, // PacketUserIDDouble
-
-			// Battle Messages
-			//! C->S: request a battle with some other player
-			//! S->B: forwarded packet for request
-			ID_BATTLE_REQUEST, // PacketUserIDDouble
-			//! B->S: accept or deny battle with some requesting player
-			//! S->A: forwarded packet for response (mainly for denial)
-			ID_BATTLE_RESPONSE, // PacketBattleResponse
-			//! S->AB: prompt battle actions from A and B
-			ID_BATTLE_PROMPT_SELECTION, // PacketBattlePromptSelection
-			//! AB->S: Respond to PROMPT_SELECTION with a selection for battle
-			ID_BATTLE_SELECTION, // PacketBattleSelection
-			//! S->A: Notify A that B disconnected during battle
-			ID_BATTLE_OPPONENT_DISCONNECTED,
-			//! A(winner)->S: tell server I won
-			//! S->AB: notify clients of outcome of battle
-			ID_BATTLE_RESULT, // PacketUserIDTriple
-			//! AB->S: Tell server the client has acknowledged the battle result and is return to normal space
-			ID_BATTLE_RESULT_RESPONSE, // PacketUserID
-			//! C->S: Tell server the client has engaged in a local battle with AI
-			ID_BATTLE_LOCAL_TOGGLE, // PacketUserIDBool
-
-			// Server-Sent Messages
-			//! 2) Sent to clients to notify them of the values for some spawning user
-			//! Sender uses to place self, peers use to place a dummy unit
-			ID_UPDATE_GAMESTATE,
-			//! 3) Sent to clients to mandate their ID
-			ID_CLIENT_REQUEST_PLAYER,
-			//! Sent to server and forwarded to clients notifying them a user has left the server
-			ID_CLIENT_LEFT,
-			//! Notification to clients that the server has been disconnected
-			ID_DISCONNECT,
-
-			// Increment Client Score by 1
-			ID_CLIENT_SCORE_UP,
-			// recieve new rank
-			ID_CLIENT_RANK_INTEGRATION,
-
+			ID_NONE = ID_USER_PACKET_ENUM,
+			
 		};
 
 		/// Create a network to connect with
