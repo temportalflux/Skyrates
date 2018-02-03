@@ -30,44 +30,8 @@ public class HullTargetEditor : Editor
 
                 Transform[] roots = targets.list[iComp].roots;
 
-                int targetSize = roots.Length;
-
-                EditorGUILayout.BeginHorizontal();
-                {
-                    toggleComp[iComp] = EditorGUILayout.Foldout(
-                        toggleComp[iComp], compType.ToString());
-
-                    GUILayout.FlexibleSpace();
-
-                    EditorGUILayout.BeginHorizontal();
-                    {
-                        targetSize = EditorGUILayout.IntField(targetSize);
-
-                        if (GUILayout.Button("+", GUILayout.Width(20)))
-                        {
-                            targetSize++;
-                        }
-
-                        if (GUILayout.Button("-", GUILayout.Width(20)))
-                        {
-                            targetSize--;
-                        }
-                    }
-                    EditorGUILayout.EndHorizontal();
-
-                    Array.Resize(ref roots, targetSize);
-
-                }
-                EditorGUILayout.EndHorizontal();
-
-                if (toggleComp[iComp])
-                {
-                    for (int iRoot = 0; iRoot < targetSize; iRoot++)
-                    {
-                        roots[iRoot] = (Transform)EditorGUILayout.ObjectField(
-                            "Pos/Rot", roots[iRoot], typeof(Transform), true);
-                    }
-                }
+                this.Array(compType.ToString(), ref toggleComp[iComp], ref roots,
+                    doBlock:true, GetFieldName:(Transform t) => t == null ? "Pos/Rot" : t.name);
 
                 targets.list[iComp].roots = roots;
 
