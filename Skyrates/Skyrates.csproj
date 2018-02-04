@@ -290,6 +290,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Client\AI\AITarget.cs" />
     <Compile Include="Assets\Scripts\Client\AI\ForceLerp.cs" />
+    <Compile Include="Assets\Scripts\Client\Analytics\Analytics.cs" />
+    <Compile Include="Assets\Scripts\Client\Analytics\Event\AnalyticEvent.cs" />
+    <Compile Include="Assets\Scripts\Client\Analytics\Event\EventDateTime.cs" />
+    <Compile Include="Assets\Scripts\Client\Analytics\Event\EventSessionEnd.cs" />
+    <Compile Include="Assets\Scripts\Client\Analytics\Event\EventSessionStart.cs" />
+    <Compile Include="Assets\Scripts\Client\Analytics\Events.cs" />
     <Compile Include="Assets\Scripts\Client\Component\OutOfWorldBoundary.cs" />
     <Compile Include="Assets\Scripts\Client\Component\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Client\Controller\InputInteraction.cs" />
@@ -321,6 +327,7 @@
     <Compile Include="Assets\Scripts\Client\Ship\Components\ShipPropulsion.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Components\ShipSail.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Ship.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\UpdateSessionID.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateVersion.cs" />
     <Compile Include="Assets\Scripts\Client\Util\Singleton.cs" />
     <Compile Include="Assets\Scripts\Client\World\Generator.cs" />

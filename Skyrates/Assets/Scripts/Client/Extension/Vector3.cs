@@ -31,4 +31,17 @@ public static partial class ExtensionMethods
         return transform;
     }
 
+    // TODO: Move me!!
+    public static string ToStringLong<T, U>(this IDictionary<T, U> dictionary)
+    {
+        string str = "{";
+
+        foreach (KeyValuePair<T, U> pair in dictionary)
+        {
+            str += string.Format("{{{0}:{1}}}", pair.Key.ToString(), pair.Value.ToString());
+        }
+
+        return str + "}";
+    }
+
 }

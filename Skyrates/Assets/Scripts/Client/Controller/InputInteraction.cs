@@ -35,8 +35,6 @@ public class InputInteraction : MonoBehaviour
     public InputData input;
 
     public Player player;
-
-    public Shooter shooter;
     
     void Update()
     {
