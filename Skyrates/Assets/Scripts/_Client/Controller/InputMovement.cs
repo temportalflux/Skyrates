@@ -91,6 +91,8 @@ public class InputMovement : MonoBehaviour
             Input.GetButton("xbox_bumper_l")
              ? Input.GetAxis("xbox_stick_r_vertical")
              : 0.0f;
+        input.VerticalInput = Input.GetButton("xbox_bumper_r") ? 1 :
+            Input.GetButton("xbox_bumper_l") ? -1 : 0;
     }
 
     private void Move(InputData input, ref PhysicsData physicsData)
