@@ -54,10 +54,7 @@ public class InputRotation : MonoBehaviour
     {
 
         // Vertical is right stick (up/down)
-        this.playerInput.VerticalInput =
-            !Input.GetButton("xbox_bumper_l")
-            ? Input.GetAxis("xbox_stick_r_vertical")
-            : 0.0f;
+        this.playerInput.VerticalInput = Input.GetAxis("xbox_stick_r_vertical");
 
         // Horizontal is right stick (left/right)
         this.playerInput.HorizontalInput = Input.GetAxis("xbox_stick_r_horizontal");

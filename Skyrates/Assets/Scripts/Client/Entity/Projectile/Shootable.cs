@@ -74,11 +74,9 @@ public class Shootable : MonoBehaviour
             float x = Random.Range(-1, 1);
             float y = 1;
             float z = Random.Range(-1, 1);
-            Vector3 direction = new Vector3(x, y, z);
-            Vector3 force = direction * 5;
-            Quaternion rotateForce = Quaternion.RotateTowards(Quaternion.identity, Quaternion.Euler(direction), 5);
+            Vector3 direction = new Vector3(x, y, z).normalized;
             loot.GetComponent<ConstantForce>().torque = direction * 10;
-            lootPhysics.AddForce(force, ForceMode.Impulse);
+            lootPhysics.velocity = direction * 200;
         }
     }
     

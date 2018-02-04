@@ -86,11 +86,7 @@ public class InputMovement : MonoBehaviour
         // Strafe is left stick (left/right)
         input.StrafeInput = Input.GetAxis("xbox_stick_l_horizontal");
 
-        // Vertical is left stick (up/down if A is down)
-        input.VerticalInput =
-            Input.GetButton("xbox_bumper_l")
-             ? Input.GetAxis("xbox_stick_r_vertical")
-             : 0.0f;
+        // Vertical is bumpers
         input.VerticalInput = Input.GetButton("xbox_bumper_r") ? 1 :
             Input.GetButton("xbox_bumper_l") ? -1 : 0;
     }
