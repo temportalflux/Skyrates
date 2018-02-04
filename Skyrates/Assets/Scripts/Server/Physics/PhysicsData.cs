@@ -18,9 +18,14 @@ public class PhysicsData
     // SERIALIZED
 
     [BitSerialize(0)]
-    public Vector3 Position;
+    public Vector3 PositionLinear;
+
+    public Vector3 VelocityLinear;
 
     [BitSerialize(1)]
-    public Vector3 RotationEuler;
+    public Vector3 PositionRotational;
+
+    // TODO: Serialize
+    public Vector3 VelocityRotationEuler;
 
 }

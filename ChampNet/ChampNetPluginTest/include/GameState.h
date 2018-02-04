@@ -32,6 +32,20 @@ public:
 		bool playerEntityGuidValid;
 
 		unsigned char playerEntityGuid[16];
+
+		/// Position X
+		float physicsPositionX;
+		/// Position Y
+		float physicsPositionY;
+		/// Position Z
+		float physicsPositionZ;
+
+		/// VelocityRotationEuler X
+		float physicsPositionRotationalEulerX;
+		/// VelocityRotationEuler Y
+		float physicsPositionRotationalEulerY;
+		/// VelocityRotationEuler Z
+		float physicsPositionRotationalEulerZ;
 		
 	};
 

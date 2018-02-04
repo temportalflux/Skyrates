@@ -28,20 +28,20 @@ public class GameStateEditor : Editor
         // GameState should NEVER be editable (server delivers it)
 
         toggleBlockClients = EditorGUILayout.Foldout(toggleBlockClients,
-            "Clients: " + this._gameStateData.clients.Length);
+            "Clients: " + this._gameStateData.clients.Count);
         if (toggleBlockClients)
         {
             EditorGUI.indentLevel++;
-            if (this._gameStateData.clients.Length == 0)
+            if (this._gameStateData.clients.Count == 0)
             {
                 EditorGUILayout.LabelField("No clients here :(((");
             }
             else
             {
-                if (toggleClientBlocks.Length != this._gameStateData.clients.Length)
-                    Array.Resize(ref toggleClientBlocks, this._gameStateData.clients.Length);
+                if (toggleClientBlocks.Length != this._gameStateData.clients.Count)
+                    Array.Resize(ref toggleClientBlocks, this._gameStateData.clients.Count);
 
-                for (int iClient = 0; iClient < this._gameStateData.clients.Length; iClient++)
+                for (int iClient = 0; iClient < this._gameStateData.clients.Count; iClient++)
                 {
 
                     GameStateData.Client client = this._gameStateData.clients[iClient];

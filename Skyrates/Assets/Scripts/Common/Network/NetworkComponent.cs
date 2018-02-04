@@ -61,7 +61,7 @@ public class NetworkComponent : Singleton<NetworkComponent>
         this.session.SetClientID(uint.MaxValue); // mark as something horrible instead of -1
         this.session.Connected = false;
 
-        this.gameState.SetClients(new GameStateData.Client[0]);
+        this.gameState.data.clients.Clear();
 
     }
 
@@ -92,7 +92,8 @@ public class NetworkComponent : Singleton<NetworkComponent>
 
     public static GameStateData.Client GetClientState()
     {
-        return GameState.data.clients[Session.ClientID];
+        // TODO: Potentially expensive, cache the local client during gamestate integration
+        return GameState.data.clients.Find(client => client.clientID == Session.ClientID);
     }
 
     #endregion
