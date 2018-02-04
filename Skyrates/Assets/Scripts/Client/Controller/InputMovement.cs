@@ -76,22 +76,16 @@ public class InputMovement : MonoBehaviour
 
     private void GetInput()
     {
-        // If movement is locked to vertical (cannot move forward)
-        bool verticalLock = Input.GetButton("xbox_a");
-
         // ForwardInput is left stick (up/down)
-        this.playerInput.ForwardInput = 
-            verticalLock
-            ? 0.0f
-            : Input.GetAxis("xbox_stick_l_vertical");
+        this.playerInput.ForwardInput = Input.GetAxis("xbox_stick_l_vertical");
 
         // Strafe is left stick (left/right)
         this.playerInput.StrafeInput = Input.GetAxis("xbox_stick_l_horizontal");
 
         // Vertical is left stick (up/down if A is down)
-        this.playerInput.VerticalInput = 
-            verticalLock
-             ? Input.GetAxis("xbox_stick_l_vertical")
+        this.playerInput.VerticalInput =
+            Input.GetButton("xbox_bumper_l")
+             ? Input.GetAxis("xbox_stick_r_vertical")
              : 0.0f;
     }
 
@@ -102,21 +96,32 @@ public class InputMovement : MonoBehaviour
         Vector3 cameraStrafe = this.forwardView.right.Flatten(Vector3.up).normalized;
         Vector3 vertical = this.transform.up.Flatten(Vector3.forward + Vector3.right).normalized;
 
-        Vector3 movementForward = cameraForward * this.playerInput.Forward;
+        // For character
+        //Vector3 movementForward = cameraForward * this.playerInput.Forward;
+        // for ship
+        Vector3 movementForward = this.render.forward * this.playerInput.Forward;
+
         Vector3 movementStrafe = cameraStrafe * this.playerInput.Strafe;
         Vector3 movementVertical = vertical * this.playerInput.Vertical;
 
-        Vector3 movementXZ = movementForward + movementStrafe;
+        // for character
+        // Vector3 movementXZ = movementForward + movementStrafe;
+        // for ship
+        Vector3 movementXZ = movementForward;
+
         Vector3 movementXYZ = movementXZ + movementVertical;
 
         this.physics.velocity = movementXYZ;
 
+        // for ship movement
+        this.render.Rotate(0.0f, this.playerInput.Strafe, 0.0f, Space.World);
+
         if (movementXYZ.sqrMagnitude > 0)
         {
             Vector3 directionMovement = this.transform.position;
-            // TODO: Bug. This is wonky when moving vertically
             directionMovement += movementXZ.normalized;
-            this.render.LookAt(directionMovement);
+            // For character movement
+            //this.render.LookAt(directionMovement);
 
             // TODO: Improve. Fix animation rotation of mesh on flip
             //float step = 2.0f * Time.deltaTime;

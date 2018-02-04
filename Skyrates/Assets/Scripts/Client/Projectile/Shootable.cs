@@ -33,36 +33,53 @@ public class Shootable : MonoBehaviour
     // Called when some non-trigger collider with a rigidbody enters
     private void OnTriggerEnter(Collider other)
     {
+
+        bool destroy = false;
+
         Projectile projectile = other.GetComponent<Projectile>();
         if (projectile != null && !this.markedForDestruction)
+        {
+            destroy = true;
+            // collider is a projectile
+            Destroy(projectile.gameObject);
+        }
+
+        if (other.CompareTag("Ram"))
+        {
+            //ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
+            destroy = true;
+        }
+
+        if (destroy)
         {
             this.markedForDestruction = true;
 
             Vector3 position = this.transform.position;
 
-            // collider is a projectile
-            Destroy(projectile.gameObject);
             // Deal damage
             Destroy(this.rootParent);
-
-
+            
             // Spawn loot
-            for (int i = 0; i < Random.Range(5, 20); i++)
-            {
-                GameObject loot = Instantiate(this.loot, position, Quaternion.identity);
-                Rigidbody lootPhysics = loot.GetComponent<Rigidbody>();
-                float x = Random.Range(-1, 1);
-                float y = 1;
-                float z = Random.Range(-1, 1);
-                Vector3 direction = new Vector3(x, y, z);
-                Vector3 force = direction * 5;
-                Quaternion rotateForce = Quaternion.RotateTowards(Quaternion.identity, Quaternion.Euler(direction), 5);
-                loot.GetComponent<ConstantForce>().torque = direction * 10;
-                lootPhysics.AddForce(force, ForceMode.Impulse);
-            }
-
+            this.SpawnLoot(position);
         }
 
+    }
+
+    private void SpawnLoot(Vector3 position)
+    {
+        for (int i = 0; i < Random.Range(5, 20); i++)
+        {
+            GameObject loot = Instantiate(this.loot, position, Quaternion.identity);
+            Rigidbody lootPhysics = loot.GetComponent<Rigidbody>();
+            float x = Random.Range(-1, 1);
+            float y = 1;
+            float z = Random.Range(-1, 1);
+            Vector3 direction = new Vector3(x, y, z);
+            Vector3 force = direction * 5;
+            Quaternion rotateForce = Quaternion.RotateTowards(Quaternion.identity, Quaternion.Euler(direction), 5);
+            loot.GetComponent<ConstantForce>().torque = direction * 10;
+            lootPhysics.AddForce(force, ForceMode.Impulse);
+        }
     }
     
 }

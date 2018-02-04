@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 114509353812128234}
   - component: {fileID: 114538933203677380}
   - component: {fileID: 114911614023129656}
-  - component: {fileID: 136644950151613576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -132,8 +131,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443920496466422}
-  m_LocalRotation: {x: 0.1165116, y: -0, z: -0, w: 0.99318933}
-  m_LocalPosition: {x: 0, y: 4.87, z: -11.26}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4993194586238940}
@@ -160,14 +159,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1591717329298594}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.16662017, y: -0, z: -0, w: 0.98602116}
+  m_LocalPosition: {x: 0, y: 16.19, z: -23.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4730640441688548}
   m_Father: {fileID: 4753631753285694}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.183, y: 0, z: 0}
 --- !u!20 &20912312475540178
 Camera:
   m_ObjectHideFlags: 1
@@ -346,11 +345,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput:
     ForwardInput: 0
-    ForwardSpeed: 10
+    ForwardSpeed: 50
     StrafeInput: 0
-    StrafeSpeed: 10
+    StrafeSpeed: 1
     VerticalInput: 0
-    VerticalSpeed: 10
+    VerticalSpeed: -50
   forwardView: {fileID: 4730640441688548}
   render: {fileID: 4214878389350958}
 --- !u!124 &124047054886033358
@@ -360,16 +359,3 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443920496466422}
   m_Enabled: 1
---- !u!136 &136644950151613576
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773078546417248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

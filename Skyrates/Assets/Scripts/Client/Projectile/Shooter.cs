@@ -9,6 +9,8 @@ public class Shooter : MonoBehaviour
 
     public Transform spawn;
 
+    public float force = 1;
+
     private void Start()
     {
         Debug.Assert(this.projectilePrefab.GetComponent<Projectile>() != null,
@@ -21,7 +23,7 @@ public class Shooter : MonoBehaviour
 
         Projectile projectile = gameObject.GetComponent<Projectile>();
         projectile.init(this);
-        projectile.addForce(this.transform.forward * 1000);
+        projectile.addForce(this.transform.forward * this.force);
 
         return projectile;
     }

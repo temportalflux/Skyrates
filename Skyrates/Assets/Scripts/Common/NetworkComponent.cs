@@ -90,6 +90,11 @@ public class NetworkComponent : Singleton<NetworkComponent>
         return Instance._network;
     }
 
+    public static GameStateData.Client GetClientState()
+    {
+        return GameState.data.clients[Session.ClientID];
+    }
+
     #endregion
 
     #region IP Helper
