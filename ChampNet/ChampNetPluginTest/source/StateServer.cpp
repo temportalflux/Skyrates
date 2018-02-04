@@ -196,6 +196,21 @@ void StateServer::handlePacket(ChampNet::Packet *packet)
 			std::cout << "Connection lost\n";
 			// TODO: Do something here, else the client will remain in game state
 			break;
+		case MessageIDs::UpdatePlayerPhysics:
+			{
+				unsigned int pPacketLength = 0;
+				PacketUpdatePhysics* pPacket = packet->getPacketAs<PacketUpdatePhysics>(pPacketLength);
+
+				GameState::Client *pClient = this->mpGameState->clients[pPacket->clientID];
+				pClient->physicsPositionX = pPacket->posX;
+				pClient->physicsPositionY = pPacket->posY;
+				pClient->physicsPositionZ = pPacket->posZ;
+				pClient->physicsPositionRotationalEulerX = pPacket->positionRotationalEulerX;
+				pClient->physicsPositionRotationalEulerY = pPacket->positionRotationalEulerY;
+				pClient->physicsPositionRotationalEulerZ = pPacket->positionRotationalEulerZ;
+
+			}
+			break;
 		case MessageIDs::Disconnect:
 			{
 				unsigned int pPacketLength = 0;
