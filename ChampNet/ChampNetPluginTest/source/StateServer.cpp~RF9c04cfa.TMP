@@ -205,9 +205,9 @@ void StateServer::handlePacket(ChampNet::Packet *packet)
 				pClient->physicsPositionX = pPacket->posX;
 				pClient->physicsPositionY = pPacket->posY;
 				pClient->physicsPositionZ = pPacket->posZ;
-				pClient->physicsPositionRotationalEulerX = pPacket->positionRotationalEulerX;
-				pClient->physicsPositionRotationalEulerY = pPacket->positionRotationalEulerY;
-				pClient->physicsPositionRotationalEulerZ = pPacket->positionRotationalEulerZ;
+				pClient->physicsVelocityRotationEulerX = pPacket->velocityRotationEulerX;
+				pClient->physicsVelocityRotationEulerY = pPacket->velocityRotationEulerY;
+				pClient->physicsVelocityRotationEulerZ = pPacket->velocityRotationEulerZ;
 
 			}
 			break;

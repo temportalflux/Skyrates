@@ -336,6 +336,8 @@ public class BitSerializeAttribute : Attribute
 
     private static void CopyFrom(byte[] source, ref byte[] dest, int start, int length)
     {
+        Debug.Assert(source.Length >= start + length);
+        Debug.Assert(dest.Length >= 0 + length);
         Array.Copy(source, start, dest, 0, length);
     }
 
