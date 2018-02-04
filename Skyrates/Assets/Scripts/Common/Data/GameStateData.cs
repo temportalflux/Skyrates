@@ -7,10 +7,10 @@ using UnityEngine;
 public class GameStateData : ISerializing
 {
         
-    public Client[] clients;
+    public List<Client> clients;
 
     [Serializable] // for inspector
-    public struct Client
+    public class Client
     {
 
         [BitSerialize(0)]
@@ -20,20 +20,55 @@ public class GameStateData : ISerializing
         [BitSerialize(1)]
         public bool playerEntityGuidValid;
 
-        // TODO: Put on server
         [BitSerialize(2)]
         public Guid playerEntityGuid;
 
-        // TODO: PhysicsData
+        [BitSerialize(3)]
+        public PhysicsData physics;
 
-        // TODO: Add to net state
+        // TODO: Add to network state
         public uint lootCount;
+
+        public bool IsLocalClient
+        {
+            get { return this.clientID == NetworkComponent.Session.ClientID; }
+        }
+
+        public void Integrate(Client serverState)
+        {
+            this.clientID = serverState.clientID;
+
+            if (!serverState.playerEntityGuidValid)
+            {
+                this.playerEntityGuid = Guid.Empty;
+            }
+            else if (this.playerEntityGuid == Guid.Empty)
+            {
+                Debug.Log("Found valid player guid");
+                this.playerEntityGuid = serverState.playerEntityGuid;
+                if (!EntityTracker.Contains(this.playerEntityGuid))
+                {
+                    EntityTracker.Spawn(this);
+                }
+            }
+            else
+            {
+                this.physics = serverState.physics;
+                Entity e;
+                if (EntityTracker.TryGetValue(this.playerEntityGuid, out e))
+                {
+                    e.IntegratePhysics(this.physics);
+                }
+            }
+
+            this.lootCount = serverState.lootCount;
+        }
 
     }
     
     public GameStateData()
     {
-        this.clients = new Client[0];
+        this.clients = new List<Client>();
     }
 
     public int GetSize()
@@ -41,7 +76,7 @@ public class GameStateData : ISerializing
         int totalSize = 0;
 
         // number of clients + how much space the array takes up
-        totalSize += sizeof(int) + this.clients.Length * BitSerializeAttribute.GetSizeOf(typeof(Client));
+        totalSize += sizeof(int) + this.clients.Count * BitSerializeAttribute.GetSizeOf(typeof(Client));
 
         return totalSize;
     }
@@ -62,10 +97,10 @@ public class GameStateData : ISerializing
     {
 
         int count = System.BitConverter.ToInt32(data, lastIndex); lastIndex += sizeof(System.Int32);
-        this.clients = new Client[count];
+        this.clients.Clear();
         for (int i = 0; i < count; i++)
         {
-            this.clients[i] = (Client)BitSerializeAttribute.Deserialize(new Client(), data, ref lastIndex);
+            this.clients.Add((Client) BitSerializeAttribute.Deserialize(new Client(), data, ref lastIndex));
         }
 
     }

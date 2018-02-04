@@ -33,6 +33,26 @@ struct PacketHandshakeAccept
 	unsigned char guid[16];
 };
 
+struct PacketUpdatePhysics
+{
+	/// The packetID
+	unsigned char id;
+	/// the client's id
+	unsigned int clientID;
+
+	/// Position X
+	float posX;
+	/// Position Y
+	float posY;
+	/// Position Z
+	float posZ;
+
+	float positionRotationalEulerX;
+	float positionRotationalEulerY;
+	float positionRotationalEulerZ;
+
+};
+
 #pragma pack(pop) 
 
 /// @}

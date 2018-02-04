@@ -27,8 +27,6 @@ public class ShipBuilderEditor : Editor
 
         foreach (ComponentType compType in ShipData.ComponentTypes)
         {
-            int arrayIndex = (int)compType;
-
             EditorGUILayout.BeginHorizontal();
 
             EditorGUILayout.LabelField(compType.ToString());

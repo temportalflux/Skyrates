@@ -42,6 +42,10 @@ int GameState::Client::getSize() const
 		+ 1
 		// playerEntityGuid
 		+ sizeof(int) + 16
+		// position
+		+ sizeof(float) * 3
+		// velocity rotational
+		+ sizeof(float) * 3
 		;
 	;
 }
@@ -100,6 +104,15 @@ char* GameState::serializeForClient(unsigned char packetID, int &dataLength, int
 		*((int *) pos) = guidSize;
 		pos += sizeof(guidSize);
 		memcpy(pos, pClient->playerEntityGuid, guidSize);
+		pos += guidSize;
+
+		*((float *) pos) = pClient->physicsPositionX; pos += sizeof(float);
+		*((float *) pos) = pClient->physicsPositionY; pos += sizeof(float);
+		*((float *) pos) = pClient->physicsPositionZ; pos += sizeof(float);
+
+		*((float *) pos) = pClient->physicsPositionRotationalEulerX; pos += sizeof(float);
+		*((float *) pos) = pClient->physicsPositionRotationalEulerY; pos += sizeof(float);
+		*((float *) pos) = pClient->physicsPositionRotationalEulerZ; pos += sizeof(float);
 
 	}
 

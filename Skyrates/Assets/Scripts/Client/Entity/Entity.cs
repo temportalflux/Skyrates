@@ -29,5 +29,9 @@ public class Entity : MonoBehaviour
         return this.guid;
     }
 
+    public virtual void IntegratePhysics(PhysicsData physics)
+    {
+        this.transform.SetPositionAndRotation(physics.PositionLinear, Quaternion.Euler(physics.VelocityRotationEuler));
+    }
 
 }
