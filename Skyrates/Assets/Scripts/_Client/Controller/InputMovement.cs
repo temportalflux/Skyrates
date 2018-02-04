@@ -53,6 +53,8 @@ public class InputMovement : MonoBehaviour
 
     public InputData playerInput;
 
+    public float constantVelocity;
+
     [Tooltip("The transform which points towards where the forward direction is.")]
     public Transform forwardView;
 
@@ -101,8 +103,8 @@ public class InputMovement : MonoBehaviour
         // For character
         //Vector3 movementForward = cameraForward * this.playerInput.Forward;
         // for ship
-        Vector3 movementForward = this.render.forward * input.Forward;
-
+        Vector3 movementForward = this.render.forward * (input.Forward + this.constantVelocity);
+        
         Vector3 movementStrafe = cameraStrafe * input.Strafe;
         Vector3 movementVertical = vertical * input.Vertical;
 
