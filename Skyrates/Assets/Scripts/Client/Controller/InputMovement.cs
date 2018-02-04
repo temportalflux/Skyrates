@@ -76,22 +76,16 @@ public class InputMovement : MonoBehaviour
 
     private void GetInput()
     {
-        // If movement is locked to vertical (cannot move forward)
-        bool verticalLock = Input.GetButton("xbox_a");
-
         // ForwardInput is left stick (up/down)
-        this.playerInput.ForwardInput = 
-            verticalLock
-            ? 0.0f
-            : Input.GetAxis("xbox_stick_l_vertical");
+        this.playerInput.ForwardInput = Input.GetAxis("xbox_stick_l_vertical");
 
         // Strafe is left stick (left/right)
         this.playerInput.StrafeInput = Input.GetAxis("xbox_stick_l_horizontal");
 
         // Vertical is left stick (up/down if A is down)
-        this.playerInput.VerticalInput = 
-            verticalLock
-             ? Input.GetAxis("xbox_stick_l_vertical")
+        this.playerInput.VerticalInput =
+            Input.GetButton("xbox_bumper_l")
+             ? Input.GetAxis("xbox_stick_r_vertical")
              : 0.0f;
     }
 

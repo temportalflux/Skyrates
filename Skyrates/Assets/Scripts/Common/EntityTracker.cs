@@ -12,6 +12,8 @@ public class EntityTracker : Singleton<EntityTracker>
 
     public Player PlayerPrefab;
 
+    public Transform spawn;
+
     private readonly Dictionary<Guid, Player> _playerEntities = new Dictionary<Guid, Player>();
     private readonly Dictionary<Guid, Entity> _npcEntities = new Dictionary<Guid, Entity>();
 
@@ -40,6 +42,9 @@ public class EntityTracker : Singleton<EntityTracker>
     {
         // TODO: This is put on a DoNotDestroyOnLoad object
         Player player = GameObject.Instantiate(Instance.PlayerPrefab.gameObject, Instance.transform).GetComponent<Player>();
+
+        player.transform.SetPositionAndRotation(Instance.spawn.position, Instance.spawn.rotation);
+
         // Generate identifier
         player.Init(entityID);
         // Generate ship object

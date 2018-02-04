@@ -8,6 +8,8 @@ public class Generator : MonoBehaviour
 
     public GameObject prefab;
 
+    public Transform root;
+
     public int amount;
 
     void Awake()
@@ -27,12 +29,12 @@ public class Generator : MonoBehaviour
     private void Generate(GameObject prefab, Bounds bounds)
     {
         Vector3 pos = UnityEngine.Random.insideUnitSphere;
-        pos.Scale(bounds.size);
-        //pos += bounds.min;
+        pos.Scale(bounds.extents);
+        pos += bounds.center;
 
         Vector3 rot = new Vector3(0, UnityEngine.Random.value * 360, 0);
 
-        GameObject generated = Instantiate(prefab, this.transform);
+        GameObject generated = Instantiate(prefab, this.root);
         generated.transform.SetPositionAndRotation(pos, Quaternion.Euler(rot));
 
     }
