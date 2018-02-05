@@ -189,8 +189,11 @@ namespace ChampNetPlugin {
 
 	void SendData(const char* address, char* byteArray, int byteArraySize, PacketPriority *priority, PacketReliability *reliability, int channel, bool broadcast)
 	{
-		RakNet::SystemAddress system_address;
-		system_address.FromString(address);
+		RakNet::SystemAddress system_address = RakNet::UNASSIGNED_SYSTEM_ADDRESS;
+		if (address != NULL)
+		{
+			system_address.FromString(address);
+		}
 		//std::string s = std::string("Writing data with timestamp for data size ") + std::to_string(byteArraySize);
 		//send_log(s.c_str(), Color::White);
 		gpNetwork->sendTo(byteArray, byteArraySize, &system_address, priority, reliability, channel, broadcast, true);
