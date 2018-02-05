@@ -259,9 +259,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="ZiosThemes">
-      <HintPath>Assets/@Themes/ZiosThemes.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -351,7 +348,6 @@
     <Compile Include="Assets\Scripts\Common\Network\Serializing\BitTest.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Serializing\BitTest2.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Serializing\ISerializing.cs" />
-    <Compile Include="Assets\Scripts\Common\Util\Extension\Editor.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Extension\Vector3.cs" />
     <Compile Include="Assets\Scripts\Common\Util\NetworkEventAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Side.cs" />
