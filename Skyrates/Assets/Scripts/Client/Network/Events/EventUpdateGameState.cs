@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EventUpdateGameState : NetworkEvent
+﻿public class EventUpdateGameState : NetworkEvent
 {
 
     [BitSerialize(1)]

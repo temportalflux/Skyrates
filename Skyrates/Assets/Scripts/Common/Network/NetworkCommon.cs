@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using ChampNetPlugin;
+using Skyrates.Server.Network;
+using UnityEngine;
 
 namespace Skyrates.Common.Network
 {
@@ -103,9 +105,9 @@ namespace Skyrates.Common.Network
         /// <param name="evt">The event.</param>
         /// <param name="address">The server address.</param>
         /// <param name="port">The server port.</param>
-        public void Dispatch(NetworkEvent evt, string address, int port)
+        public void Dispatch(NetworkEvent evt, string address, int port, bool broadcast = false)
         {
-            this._dispatcher.Enqueue(evt, address, port);
+            this._dispatcher.Enqueue(evt, address, port, broadcast);
         }
 
         /// <summary>
@@ -113,9 +115,9 @@ namespace Skyrates.Common.Network
         /// </summary>
         /// <param name="evt">The event.</param>
         /// <param name="address">The server address.</param>
-        public void Dispatch(NetworkEvent evt, string address)
+        public void Dispatch(NetworkEvent evt, string address, bool broadcast = false)
         {
-            this.Dispatch(evt, address, NetworkComponent.GetSession.Port);
+            this.Dispatch(evt, address, NetworkComponent.GetSession.Port, broadcast);
         }
 
         /// <summary>
@@ -124,7 +126,16 @@ namespace Skyrates.Common.Network
         /// <param name="evt">The event.</param>
         public void Dispatch(NetworkEvent evt)
         {
-            this.Dispatch(evt, NetworkComponent.GetSession.TargetAddress);
+            this.Dispatch(evt, NetworkComponent.GetSession.TargetAddress, false);
+        }
+
+        /// <summary>
+        /// Dispatches the specified event, using broadcasting to all others connected on the port in <see cref="NetworkComponent"/>.<see cref="Session"/>.
+        /// </summary>
+        /// <param name="evt">The event.</param>
+        public void DispatchAll(NetworkEvent evt)
+        {
+            this.Dispatch(evt, NetworkComponent.GetSession.Address, true);
         }
 
         /// <summary>
@@ -134,6 +145,16 @@ namespace Skyrates.Common.Network
         {
             this._dispatcher.Update();
             this._receiver.Update();
+        }
+
+        protected Coroutine StartCoroutine(IEnumerator coroutine)
+        {
+            return NetworkComponent.Instance.StartCoroutine(coroutine);
+        }
+
+        protected void StopCoroutine(Coroutine coroutine)
+        {
+            NetworkComponent.Instance.StopCoroutine(coroutine);
         }
 
     }
@@ -152,12 +173,14 @@ namespace Skyrates.Common.Network
             public readonly byte[] Data;
             public readonly string Address;
             public readonly int Port;
+            public readonly bool Broadcast;
 
-            public EventData(byte[] data, string address, int port)
+            public EventData(byte[] data, string address, int port, bool broadcast)
             {
                 this.Data = data;
                 this.Address = address;
                 this.Port = port;
+                this.Broadcast = broadcast;
             }
         }
 
@@ -177,9 +200,9 @@ namespace Skyrates.Common.Network
         /// <param name="evt"></param>
         /// <param name="address"></param>
         /// <param name="port"></param>
-        public void Enqueue(NetworkEvent evt, string address, int port)
+        public void Enqueue(NetworkEvent evt, string address, int port, bool broadcast)
         {
-            this._events.Enqueue(new EventData(evt.Serialize(), address, port));
+            this._events.Enqueue(new EventData(evt.Serialize(), address, port, broadcast));
         }
 
         /// <summary>
@@ -190,7 +213,7 @@ namespace Skyrates.Common.Network
             while (this._events.Count > 0)
             {
                 EventData evt = this._events.Dequeue();
-                this.Dispatch(evt.Data, evt.Address, evt.Port);
+                this.Dispatch(evt.Data, evt.Address, evt.Port, evt.Broadcast);
             }
         }
 
@@ -200,10 +223,10 @@ namespace Skyrates.Common.Network
         /// <param name="evt">The event.</param>
         /// <param name="address">The server address.</param>
         /// <param name="port">The server port.</param>
-        public virtual void Dispatch(byte[] data, string address, int port)
+        public virtual void Dispatch(byte[] data, string address, int port, bool broadcast)
         {
             // Send the event to the address
-            NetworkPlugin.SendByteArray(address, port, data, data.Length);
+            NetworkPlugin.SendByteArray(address, port, data, data.Length, broadcast);
         }
 
     }

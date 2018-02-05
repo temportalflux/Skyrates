@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Common.Network;
-using UnityEngine;
+﻿using Skyrates.Common.Network;
 
 [NetworkEvent(Side.Client, Side.Server)]
 [NetworkEvent(Side.Server, Side.Client)]

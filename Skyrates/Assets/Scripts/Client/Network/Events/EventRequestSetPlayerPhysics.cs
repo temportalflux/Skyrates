@@ -4,7 +4,7 @@ using Skyrates.Common.Network;
 using UnityEngine;
 
 [NetworkEvent(Side.Client, Side.Server)]
-public class EventRequestToUpdatePlayerPhysics : NetworkEvent
+public class EventRequestSetPlayerPhysics : NetworkEvent
 {
 
     [BitSerialize(1)]
@@ -13,7 +13,7 @@ public class EventRequestToUpdatePlayerPhysics : NetworkEvent
     [BitSerialize(2)]
     public PhysicsData data;
 
-    public EventRequestToUpdatePlayerPhysics(PhysicsData dataIn) : base(NetworkEventID.RequestToUpdatePlayerPhysics)
+    public EventRequestSetPlayerPhysics(PhysicsData dataIn) : base(NetworkEventID.RequestSetPlayerPhysics)
     {
         this.clientID = NetworkComponent.GetSession.ClientID;
         this.data = dataIn;

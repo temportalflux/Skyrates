@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Skyrates.Server.Network;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -132,19 +133,19 @@ namespace Skyrates.Common.Network
 
         public void StartStandalone()
         {
-            this.StartGame(Session.NetworkMode.Standalone);
+            this.StartGame(this.Session.NetworkMode.Standalone);
             // Start the world asap
             SceneLoader.Instance.ActivateNext();
         }
 
         public void StartClient()
         {
-            this.StartGame(Session.NetworkMode.Client);
+            this.StartGame(this.Session.NetworkMode.Client);
         }
 
         public void StartHost()
         {
-            this.StartGame(Session.NetworkMode.Host);
+            this.StartGame(this.Session.NetworkMode.Host);
         }
 
         private void StartGame(Session.NetworkMode mode)
@@ -177,11 +178,11 @@ namespace Skyrates.Common.Network
         {
             switch (this.Session.Mode)
             {
-                case Session.NetworkMode.Standalone:
+                case this.Session.NetworkMode.Standalone:
                     return new Client.Network.DummyClient();
-                case Session.NetworkMode.Client:
+                case this.Session.NetworkMode.Client:
                     return new Client.Network.Client();
-                case Session.NetworkMode.Host:
+                case this.Session.NetworkMode.Host:
                     return new Server.Network.ClientServer();
                 default:
                     return null;

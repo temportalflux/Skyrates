@@ -314,11 +314,10 @@
     <Compile Include="Assets\Scripts\Client\Loot\Looter.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Client.cs" />
     <Compile Include="Assets\Scripts\Client\Network\DummyClient.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\Events\EventDisconnect.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeAccept.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeJoin.cs" />
+    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestSetPlayerPhysics.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventUpdateGameState.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestToUpdatePlayerPhysics.cs" />
     <Compile Include="Assets\Scripts\Client\Scene\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Assets\ShipBuilder.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Assets\ShipComponentList.cs" />
@@ -343,6 +342,8 @@
     <Compile Include="Assets\Scripts\Common\Data\Version.cs" />
     <Compile Include="Assets\Scripts\Common\EntityTracker\EntityTracker.cs" />
     <Compile Include="Assets\Scripts\Common\Network\ChampNet\NetworkPlugin.cs" />
+    <Compile Include="Assets\Scripts\Common\Network\Event\EventDisconnect.cs" />
+    <Compile Include="Assets\Scripts\Common\Network\Event\EventRakNet.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\NetworkEvent.cs" />
     <Compile Include="Assets\Scripts\Common\Network\NetworkCommon.cs" />
     <Compile Include="Assets\Scripts\Common\Network\NetworkComponent.cs" />
@@ -360,7 +361,6 @@
     <Compile Include="Assets\Scripts\Server\GameState\GameState.cs" />
     <Compile Include="Assets\Scripts\Server\GameState\GameStateData.cs" />
     <Compile Include="Assets\Scripts\Server\Network\ClientServer.cs" />
-    <Compile Include="Assets\Scripts\Server\Network\Event\EventConnection.cs" />
     <Compile Include="Assets\Scripts\Server\Network\Event\EventHandshakeClientID.cs" />
     <Compile Include="Assets\Scripts\Server\Physics\PhysicsData.cs" />
     <Compile Include="Assets\Scripts\Server\Ship\ShipData.cs" />

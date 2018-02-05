@@ -1,6 +1,8 @@
 ﻿using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
+using Skyrates.Server.Network;
 using Skyrates.Server.Network.Event;
+using UnityEngine;
 
 namespace Skyrates.Client.Network
 {
@@ -18,6 +20,7 @@ namespace Skyrates.Client.Network
             base.Create();
             NetworkEvents.ConnectionAccepted += this.OnConnectionAccepted;
             NetworkEvents.ConnectionRejected += this.OnConnectionRejected;
+            NetworkEvents.Disconnect += this.OnDisconnect;
             NetworkEvents.HandshakeClientID += this.OnHandshakeClientID;
             NetworkEvents.UpdateGamestate += this.OnUpdateGameState;
         }
@@ -28,6 +31,7 @@ namespace Skyrates.Client.Network
             base.Destroy();
             NetworkEvents.ConnectionAccepted -= this.OnConnectionAccepted;
             NetworkEvents.ConnectionRejected -= this.OnConnectionRejected;
+            NetworkEvents.Disconnect -= this.OnDisconnect;
             NetworkEvents.HandshakeClientID -= this.OnHandshakeClientID;
             NetworkEvents.UpdateGamestate -= this.OnUpdateGameState;
         }
@@ -43,7 +47,7 @@ namespace Skyrates.Client.Network
         /// Receives connection acceptance by RakNet server (implicit).
         /// Initates the handshake with <see cref="EventHandshakeJoin"/>.
         /// </summary>
-        /// <param name="evt"><see cref="EventConnection"/></param>
+        /// <param name="evt"><see cref="EventRakNet"/></param>
         public void OnConnectionAccepted(NetworkEvent evt)
         {
             UnityEngine.Debug.Log("Joining server");
@@ -57,10 +61,15 @@ namespace Skyrates.Client.Network
         /// <summary>
         /// Receives connection rejection by RakNet server (implicit).
         /// </summary>
-        /// <param name="evt"><see cref="EventConnection"/></param>
+        /// <param name="evt"><see cref="EventRakNet"/></param>
         public void OnConnectionRejected(NetworkEvent evt)
         {
             UnityEngine.Debug.LogWarning("Connection was rejected... :'(");
+        }
+
+        public void OnDisconnect(NetworkEvent evt)
+        {
+            Debug.LogWarning("Server kicked us... do something.");
         }
 
         /// <summary>

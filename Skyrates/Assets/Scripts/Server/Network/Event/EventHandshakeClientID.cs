@@ -1,3 +1,4 @@
+using Skyrates.Common.Network;
 using UnityEngine;
 
 namespace Skyrates.Server.Network.Event
@@ -9,6 +10,11 @@ namespace Skyrates.Server.Network.Event
 
         [BitSerialize(1)]
         public uint clientID;
+
+        public EventHandshakeClientID(uint clientID) : base(NetworkEventID.HandshakeClientID)
+        {
+            this.clientID = clientID;
+        }
 
     }
 
