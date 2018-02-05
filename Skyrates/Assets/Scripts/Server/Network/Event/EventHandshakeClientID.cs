@@ -1,4 +1,5 @@
 using Skyrates.Common.Network;
+using Skyrates.Common.Network.Event;
 using UnityEngine;
 
 namespace Skyrates.Server.Network.Event

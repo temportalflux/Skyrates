@@ -1,22 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Common.Network;
-using UnityEngine;
+﻿using Skyrates.Common.Network;
+using Skyrates.Common.Network.Event;
 
-[NetworkEvent(Side.Client, Side.Server)]
-public class EventRequestSetPlayerPhysics : NetworkEvent
+namespace Skyrates.Client.Network.Event
 {
 
-    [BitSerialize(1)]
-    public uint clientID;
-
-    [BitSerialize(2)]
-    public PhysicsData data;
-
-    public EventRequestSetPlayerPhysics(PhysicsData dataIn) : base(NetworkEventID.RequestSetPlayerPhysics)
+    [NetworkEvent(Side.Client, Side.Server)]
+    public class EventRequestSetPlayerPhysics : NetworkEvent
     {
-        this.clientID = NetworkComponent.GetSession.ClientID;
-        this.data = dataIn;
+
+        [BitSerialize(1)] public uint clientID;
+
+        [BitSerialize(2)] public PhysicsData data;
+
+        public EventRequestSetPlayerPhysics() : base(NetworkEventID.RequestSetPlayerPhysics)
+        {
+        }
+
+        public EventRequestSetPlayerPhysics(PhysicsData dataIn) : this()
+        {
+            this.clientID = NetworkComponent.GetSession.ClientID;
+            this.data = dataIn;
+        }
+
     }
 
 }

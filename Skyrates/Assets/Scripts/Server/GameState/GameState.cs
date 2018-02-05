@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "data/Game State")]

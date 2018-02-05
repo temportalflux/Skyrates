@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Skyrates.Server.Network
+namespace Skyrates.Common.Network
 {
 
     [CreateAssetMenu(menuName = "data/Session")]

@@ -1,5 +1,6 @@
 ﻿using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
+using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 using Skyrates.Server.Network.Event;
 using UnityEngine;
@@ -87,7 +88,7 @@ namespace Skyrates.Client.Network
             // Set the client ID
             NetworkComponent.GetSession.SetClientID(evtClientId.clientID);
             // Mark the client as connected to the server (it can now process updates)
-            NetworkComponent.GetSession.Connected = true;
+            NetworkComponent.GetSession.HandshakeComplete = true;
 
             this.Dispatch(new EventHandshakeAccept(evtClientId.clientID, Entity.NewGuid()));
 
@@ -102,11 +103,11 @@ namespace Skyrates.Client.Network
         /// <param name="evt"><see cref="EventUpdateGameState"/></param>
         public void OnUpdateGameState(NetworkEvent evt)
         {
-            if (NetworkComponent.GetSession.Connected)
+            if (NetworkComponent.GetSession.HandshakeComplete)
             {
                 EventUpdateGameState eventUpdate = evt as EventUpdateGameState;
                 UnityEngine.Debug.Assert(eventUpdate != null, "eventUpdate != null");
-                NetworkComponent.GetGameState.Integrate(eventUpdate.serverState, eventUpdate.transmitTime);
+                NetworkComponent.GetGameState.Integrate(eventUpdate.ServerState, eventUpdate.transmitTime);
             }
         }
 

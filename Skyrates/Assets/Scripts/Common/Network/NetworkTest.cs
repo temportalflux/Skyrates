@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using Skyrates.Common.Network;
 using UnityEngine;
 
-public class NetworkTest : MonoBehaviour
+namespace Skyrates.Client.Network.Test
 {
-
-    // Use this for initialization
-    void Start()
+    public class NetworkTest : MonoBehaviour
     {
-        NetworkComponent.GetSession.Port = 425;
-        NetworkComponent.Instance.StartClient();
+
+        // Use this for initialization
+        void Start()
+        {
+            NetworkComponent.GetSession.Port = 425;
+            NetworkComponent.Instance.StartClient();
+        }
+
     }
-    
 }

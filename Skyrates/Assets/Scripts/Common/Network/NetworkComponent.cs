@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -55,9 +56,9 @@ namespace Skyrates.Common.Network
 
             if (this._network != null)
             {
-                if (GetSession.Connected || GetSession.HasValidClientID())
+                if (GetSession.HandshakeComplete || GetSession.HasValidClientID())
                 {
-                    GetNetwork().Dispatch(new EventDisconnect(NetworkComponent.GetSession.ClientID));
+                    GetNetwork().Dispatch(new EventDisconnect(GetSession.ClientID));
                 }
 
                 GetNetwork().Shutdown();
@@ -133,19 +134,19 @@ namespace Skyrates.Common.Network
 
         public void StartStandalone()
         {
-            this.StartGame(this.Session.NetworkMode.Standalone);
+            this.StartGame(Session.NetworkMode.Standalone);
             // Start the world asap
             SceneLoader.Instance.ActivateNext();
         }
 
         public void StartClient()
         {
-            this.StartGame(this.Session.NetworkMode.Client);
+            this.StartGame(Session.NetworkMode.Client);
         }
 
         public void StartHost()
         {
-            this.StartGame(this.Session.NetworkMode.Host);
+            this.StartGame(Session.NetworkMode.Host);
         }
 
         private void StartGame(Session.NetworkMode mode)
@@ -178,11 +179,11 @@ namespace Skyrates.Common.Network
         {
             switch (this.Session.Mode)
             {
-                case this.Session.NetworkMode.Standalone:
+                case Session.NetworkMode.Standalone:
                     return new Client.Network.DummyClient();
-                case this.Session.NetworkMode.Client:
+                case Session.NetworkMode.Client:
                     return new Client.Network.Client();
-                case this.Session.NetworkMode.Host:
+                case Session.NetworkMode.Host:
                     return new Server.Network.ClientServer();
                 default:
                     return null;

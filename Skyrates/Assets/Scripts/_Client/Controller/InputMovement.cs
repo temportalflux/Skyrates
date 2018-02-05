@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Network.Event;
+using Skyrates.Common.Network;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -149,7 +151,7 @@ public class InputMovement : MonoBehaviour
         if (moved)
         {
             // TODO: Fire unity event
-            NetworkComponent.GetClient().Dispatch(new EventRequestSetPlayerPhysics(physicsData));
+            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(physicsData));
         }
     }
 

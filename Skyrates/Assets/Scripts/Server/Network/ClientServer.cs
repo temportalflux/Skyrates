@@ -2,6 +2,7 @@
 using System.Collections;
 using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
+using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network.Event;
 using UnityEngine;
 

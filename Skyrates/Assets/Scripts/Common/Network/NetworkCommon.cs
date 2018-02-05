@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ChampNetPlugin;
+using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 using UnityEngine;
 

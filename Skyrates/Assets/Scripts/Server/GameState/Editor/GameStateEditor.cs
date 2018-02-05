@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Network;
 using UnityEditor;
 using UnityEngine;
 
@@ -50,7 +51,7 @@ public class GameStateEditor : Editor
                     toggle = EditorGUILayout.Foldout(toggle,
                         "ID:" + client.clientID +
                         // indicate if the local client is this block
-                        (NetworkComponent.Session.ClientID == client.clientID ? " LOCAL" : "")
+                        (NetworkComponent.GetSession.ClientID == client.clientID ? " LOCAL" : "")
                     );
                     toggleClientBlocks[iClient] = toggle;
 

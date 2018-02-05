@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Skyrates.Common.Network;
+using Skyrates.Server.Network;
 
 namespace Skyrates.Client.Network
 {

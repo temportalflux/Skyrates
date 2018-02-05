@@ -1,35 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Common.Network;
-using UnityEngine;
+﻿using Skyrates.Common.Network;
 
-public abstract class NetworkEvent
+namespace Skyrates.Common.Network.Event
 {
 
-    [BitSerialize]
-    public byte eventID;
-
-    public string sourceAddress;
-
-    public float transmitTime;
-
-    // For client creation
-    public NetworkEvent(NetworkEventID id)
+    public abstract class NetworkEvent
     {
-        this.eventID = (byte)id;
-    }
 
-    // For Deserialize
-    public NetworkEvent() { }
+        [BitSerialize]
+        public byte eventID;
 
-    public virtual byte[] Serialize()
-    {
-        return BitSerializeAttribute.Serialize(this);
-    }
+        public string sourceAddress;
 
-    public virtual void Deserialize(byte[] data)
-    {
-        BitSerializeAttribute.Deserialize(this, data);
+        public float transmitTime;
+
+        // Dispatch
+        protected NetworkEvent(NetworkEventID id)
+        {
+            this.eventID = (byte)id;
+        }
+
+        // Deserialize
+        protected NetworkEvent() { }
+
+        public virtual byte[] Serialize()
+        {
+            return BitSerializeAttribute.Serialize(this);
+        }
+
+        public virtual void Deserialize(byte[] data)
+        {
+            BitSerializeAttribute.Deserialize(this, data);
+        }
+
     }
 
 }
