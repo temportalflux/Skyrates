@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 public abstract class NetworkEvent
@@ -13,7 +14,7 @@ public abstract class NetworkEvent
     public float transmitTime;
 
     // For client creation
-    public NetworkEvent(MessageMap.MessageID id)
+    public NetworkEvent(NetworkEventID id)
     {
         this.eventID = (byte)id;
     }
@@ -30,7 +31,5 @@ public abstract class NetworkEvent
     {
         BitSerializeAttribute.Deserialize(this, data);
     }
-
-    public virtual void Execute() { }
 
 }

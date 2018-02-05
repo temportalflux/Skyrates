@@ -16,6 +16,8 @@ public class Session : ScriptableObject
         Standalone,
         // Joiner of game: Client
         Client,
+        // Host of a game: Acts as Server On Top of Client
+        Host,
     }
 
     // The IPv4 address of this peer (client or server)
@@ -50,11 +52,19 @@ public class Session : ScriptableObject
         get { return this.Mode != NetworkMode.Standalone; }
     }
 
+    public void Init()
+    {
+        this.Mode = Session.NetworkMode.None;
+        this.SetAddressBoth("");
+        this.Port = 0;
+        this.SetClientID(uint.MaxValue); // mark as something horrible instead of -1
+        this.Connected = false;
+    }
+
     public bool HasValidClientID()
     {
         return this.ClientID < uint.MaxValue;
     }
-
 
     public void SetAddress(string address)
     {

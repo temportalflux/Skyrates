@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 [NetworkEvent(Side.Client, Side.Server)]
@@ -11,7 +12,7 @@ public class EventDisconnect : NetworkEvent
     public uint clientID;
 
     // deserialize
-    public EventDisconnect() : base(MessageMap.MessageID.Disconnect) { }
+    public EventDisconnect() : base(NetworkEventID.Disconnect) { }
 
     // dispatch
     public EventDisconnect(uint clientID) : this()

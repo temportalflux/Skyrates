@@ -1,28 +1,26 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Skyrates.Common.Network;
 
-[NetworkEvent(Side.Client, Side.Server)]
-public class EventHandshakeAccept : NetworkEvent
+namespace Skyrates.Client.Network.Event
 {
 
-    [BitSerialize(1)]
-    public uint clientID;
-    
-    // TODO: Put on server
-    [BitSerialize(2)]
-    public Guid playerEntityGuid;
-
-    public EventHandshakeAccept(uint clientID, Guid playerEntityGuid) : base(MessageMap.MessageID.HandshakeAccept)
+    [NetworkEvent(Side.Client, Side.Server)]
+    public class EventHandshakeAccept : NetworkEvent
     {
-        this.clientID = clientID;
-        this.playerEntityGuid = playerEntityGuid;
+
+        [BitSerialize(1)]
+        public uint clientID;
+        
+        [BitSerialize(2)]
+        public Guid playerEntityGuid;
+
+        public EventHandshakeAccept(uint clientID, Guid playerEntityGuid) : base(NetworkEventID.HandshakeAccept)
+        {
+            this.clientID = clientID;
+            this.playerEntityGuid = playerEntityGuid;
+        }
+
     }
 
-    public override byte[] Serialize()
-    {
-        return base.Serialize();
-    }
 
 }

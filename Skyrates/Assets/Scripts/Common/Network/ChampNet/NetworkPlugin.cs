@@ -12,9 +12,6 @@ using System;
 using System.Runtime.InteropServices;
 using AOT;
 
-/// \addtogroup client
-/// @{
-
 namespace ChampNetPlugin
 {
 
@@ -36,15 +33,7 @@ namespace ChampNetPlugin
         #endregion
 
         NONE = 134, // ID_USER_PACKET_ENUM
-
-        #region Server
-
-        #endregion
-
-        #region Client
-
-        #endregion
-
+        
     }
 
     /// <summary>
@@ -203,4 +192,3 @@ namespace ChampNetPlugin
     }
 
 }
-/// @}

@@ -1,213 +1,105 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ChampNetPlugin;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Skyrates.Common.Network;
+using Skyrates.Client.Network.Event;
+using Skyrates.Server.Network.Event;
 
-// TODO: Naming. This class must be renamed. It is too vague.
-// essentially this is the base class for both client and server network systems.
-// All messages/events are routed through this class
-// https://blog.codinghorror.com/i-shall-call-it-somethingmanager/
-public class Client
+namespace Skyrates.Client.Network
 {
 
     /// <summary>
-    /// The collection of events since last fetch
+    /// Base class implementation for all Clients.
     /// </summary>
-    private Queue<NetworkEvent> _events;
-
-    #region Plugin
-
-    public virtual void Create()
+    /// <inheritdoc/>
+    public class Client : NetworkCommon
     {
-        this._events = new Queue<NetworkEvent>();
-        NetworkPlugin.Create();
-    }
 
-    public virtual void Disconnect()
-    {
-        // TODO: Force send disconnect packet?
-
-        NetworkPlugin.Disconnect();
-    }
-
-    public virtual void Destroy()
-    {
-        NetworkPlugin.Destroy();
-    }
-
-    /// <summary>
-    /// Dispatches the specified event.
-    /// </summary>
-    /// <param name="evt">The event.</param>
-    /// <param name="address">The server address.</param>
-    /// <param name="port">The server port.</param>
-    public virtual void Dispatch(NetworkEvent evt, string address, int port)
-    {
-        byte[] data = evt.Serialize();
-        // Send the event to the address
-        NetworkPlugin.SendByteArray(address, port, data, data.Length);
-    }
-
-    public void Dispatch(NetworkEvent evt, string address)
-    {
-        this.Dispatch(evt, address, NetworkComponent.Session.Port);
-    }
-
-    public void Dispatch(NetworkEvent evt)
-    {
-        this.Dispatch(evt, NetworkComponent.Session.TargetAddress, NetworkComponent.Session.Port);
-    }
-
-    #endregion
-
-    #region Packets
-
-    public class Packet
-    {
-        public string sourceAddress;
-
-        public byte[] data;
-
-        public ulong transmitTime;
-    }
-
-    public void Fetch()
-    {
-        NetworkPlugin.FetchPackets();
-    }
-
-    /// <summary>
-    /// Get the next packet in the series. Returns Null if there was no packet, else an actual <see cref="Packet"/>.
-    /// </summary>
-    /// <returns>A packet or null</returns>
-    public Packet GetNextPacket()
-    {
-        // The packet to return, null because if there is no packet there should be no return
-        Packet packet = null;
-
-        // All the _gameStateData that is sent back via out in NetworkPlugin.PollPacket
-        string address;
-        byte[] data;
-        ulong transmitTime;
-
-        // Get the next packet (returns false if no packet)
-        if (NetworkPlugin.PollPacket(out address, out data, out transmitTime))
+        /// <inheritdoc />
+        public override void Create()
         {
-            // There was packet _gameStateData, so
-            // create the packet
-            packet = new Packet();
-            // and load in the _gameStateData
-            packet.sourceAddress = address;
-            packet.data = data;
-            packet.transmitTime = transmitTime;
+            base.Create();
+            NetworkEvents.ConnectionAccepted += this.OnConnectionAccepted;
+            NetworkEvents.ConnectionRejected += this.OnConnectionRejected;
+            NetworkEvents.HandshakeClientID += this.OnHandshakeClientID;
+            NetworkEvents.UpdateGamestate += this.OnUpdateGameState;
         }
 
-        // Return the packet, will be null if there was no _gameStateData, and will exist if there was a packet
-        return packet;
-    }
-
-    public virtual void UpdateNetwork()
-    {
-        this.Fetch();
-
-        Packet packet;
-        while ((packet = this.GetNextPacket()) != null)
+        /// <inheritdoc />
+        public override void Destroy()
         {
-            float transmitTimeMS = packet.transmitTime * 0.001f;
+            base.Destroy();
+            NetworkEvents.ConnectionAccepted -= this.OnConnectionAccepted;
+            NetworkEvents.ConnectionRejected -= this.OnConnectionRejected;
+            NetworkEvents.HandshakeClientID -= this.OnHandshakeClientID;
+            NetworkEvents.UpdateGamestate -= this.OnUpdateGameState;
+        }
 
-            int messageID = (int) packet.data[0];
+        /// <inheritdoc />
+        public override void StartAndConnect(Session session)
+        {
+            this.StartClient(session);
+            this.Connect(session);
+        }
 
-            if (messageID == (int)ChampNetPlugin.MessageIDs.CLIENT_CONNECTION_REJECTED)
+        /// <summary>
+        /// Receives connection acceptance by RakNet server (implicit).
+        /// Initates the handshake with <see cref="EventHandshakeJoin"/>.
+        /// </summary>
+        /// <param name="evt"><see cref="EventConnection"/></param>
+        public void OnConnectionAccepted(NetworkEvent evt)
+        {
+            UnityEngine.Debug.Log("Joining server");
+            // Initiates handshake after connecting
+            this.Dispatch(new EventHandshakeJoin(),
+                NetworkComponent.GetSession.TargetAddress,
+                NetworkComponent.GetSession.Port
+            );
+        }
+
+        /// <summary>
+        /// Receives connection rejection by RakNet server (implicit).
+        /// </summary>
+        /// <param name="evt"><see cref="EventConnection"/></param>
+        public void OnConnectionRejected(NetworkEvent evt)
+        {
+            UnityEngine.Debug.LogWarning("Connection was rejected... :'(");
+        }
+
+        /// <summary>
+        /// Receives client ID from <see cref="EventHandshakeClientID"/>.
+        /// Responds with <see cref="EventHandshakeAccept"/>.
+        /// </summary>
+        /// <param name="evt"><see cref="EventHandshakeClientID"/></param>
+        public void OnHandshakeClientID(NetworkEvent evt)
+        {
+            EventHandshakeClientID evtClientId = evt as EventHandshakeClientID;
+            UnityEngine.Debug.Assert(evtClientId != null, "evtClientId != null");
+
+            UnityEngine.Debug.Log("Client got id " + evtClientId.clientID);
+
+            // Set the client ID
+            NetworkComponent.GetSession.SetClientID(evtClientId.clientID);
+            // Mark the client as connected to the server (it can now process updates)
+            NetworkComponent.GetSession.Connected = true;
+
+            this.Dispatch(new EventHandshakeAccept(evtClientId.clientID, Entity.NewGuid()));
+
+            // TODO: Decouple via events
+            SceneLoader.Instance.ActivateNext();
+        }
+
+        /// <summary>
+        /// Receives <see cref="EventUpdateGameState"/>.
+        /// Processes/Integrates server gamestate.
+        /// </summary>
+        /// <param name="evt"><see cref="EventUpdateGameState"/></param>
+        public void OnUpdateGameState(NetworkEvent evt)
+        {
+            if (NetworkComponent.GetSession.Connected)
             {
-                Debug.Log("Error: Connection rejected.");
-            }
-
-            // Create the network event from the messsage identifier
-            NetworkEvent evt;
-            bool nonRakNetPacket = MessageMap.CreateFrom(messageID, out evt);
-
-            if (nonRakNetPacket)
-            {
-                //Debug.Assert(evt != null, "Error: non-raknet event returned null structure");
-
-                if (evt != null)
-                {
-
-                    evt.sourceAddress = packet.sourceAddress;
-                    evt.transmitTime = transmitTimeMS;
-
-                    // Read off the _gameStateData of the packet
-                    evt.Deserialize(packet.data);
-
-                    // Push the event + _gameStateData into the queue for processing
-                    this._events.Enqueue(evt);
-                }
+                EventUpdateGameState eventUpdate = evt as EventUpdateGameState;
+                UnityEngine.Debug.Assert(eventUpdate != null, "eventUpdate != null");
+                NetworkComponent.GetGameState.Integrate(eventUpdate.serverState, eventUpdate.transmitTime);
             }
         }
 
-        this.ProcessEvents();
     }
-
-    /// <summary>
-    /// Checks for events in the queue and returns the first if there are any.
-    /// </summary>
-    /// <param name="evt">The event.</param>
-    /// <returns>true if there is an event</returns>
-    private bool PollEvent(out NetworkEvent evt)
-    {
-        // ensure the event out is always something
-        evt = null;
-        // check if there are events in the queue
-        if (this._events.Count > 0)
-        {
-            // get the first event
-            evt = this._events.Dequeue();
-            return true;
-        }
-        return false;
-    }
-
-    /// <summary>
-    /// Processes the events in the event queue.
-    /// </summary>
-    private void ProcessEvents()
-    {
-        // While there are events
-        NetworkEvent evt;
-        while (this.PollEvent(out evt))
-        {
-            // execute them
-            evt.Execute();
-        }
-    }
-
-    #endregion
-
-    #region Event
-
-    public virtual void Start(Session session)
-    {
-        NetworkPlugin.StartClient();
-    }
-
-    public virtual void Connect(Session session)
-    {
-        NetworkPlugin.ConnectToServer(session.TargetAddress, session.Port);
-    }
-
-    public virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-    }
-
-    public virtual void JoinServer()
-    {
-        this.Dispatch(new EventHandshakeJoin(),
-            NetworkComponent.Session.TargetAddress,
-            NetworkComponent.Session.Port
-        );
-    }
-
-    #endregion
-
 }

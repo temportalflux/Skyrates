@@ -149,7 +149,7 @@ public class InputMovement : MonoBehaviour
         if (moved)
         {
             // TODO: Fire unity event
-            NetworkComponent.GetClient().Dispatch(new EventUpdatePlayerPhysics(physicsData));
+            NetworkComponent.GetClient().Dispatch(new EventRequestToUpdatePlayerPhysics(physicsData));
         }
     }
 

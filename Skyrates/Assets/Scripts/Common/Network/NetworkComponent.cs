@@ -4,210 +4,201 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NetworkComponent : Singleton<NetworkComponent>
+namespace Skyrates.Common.Network
 {
-
-    public static NetworkComponent Instance;
-
+    
     /// <summary>
-    /// The session which is instantiated prior to running
-    /// <see cref="NetworkComponent.CreateNetworkAndConnect"/>.
+    /// A MonoBehaviour Singleton to wrap Networking
     /// </summary>
-    public Session session;
-
-    public GameState gameState;
-
-    /// <summary>
-    /// The networking object, clients and client-on-top-of-servers are subclasses
-    /// </summary>
-    private Client _network;
-
-    private void Awake()
-    {
-        this.loadSingleton(this, ref Instance);
-
-        this._network = null;
-
-        this.InitData();
-        
-        this.session.SetAddressBoth(this.GetIP());
-        StartCoroutine(this.CheckIP());
-    }
-
-    void OnDestroy()
+    public class NetworkComponent : Singleton<NetworkComponent>
     {
 
-        if (this._network != null)
+        /// <summary>
+        /// The static instance of this Singleton
+        /// </summary>
+        public static NetworkComponent Instance;
+
+        /// <summary>
+        /// The session which is instantiated prior to running
+        /// <see cref="NetworkComponent.CreateNetworkAndConnect"/>.
+        /// </summary>
+        public Session Session;
+
+        /// <summary>
+        /// The state of the game
+        /// </summary>
+        public GameState GameState;
+
+        /// <summary>
+        /// The networking object, clients and client-on-top-of-servers are subclasses
+        /// </summary>
+        private NetworkCommon _network;
+
+        /// <summary>
+        /// Loads the Singleton and instatiates data objects
+        /// </summary>
+        private void Awake()
         {
-            if (Session.Connected || Session.HasValidClientID())
+            this.loadSingleton(this, ref Instance);
+
+            this._network = null;
+
+            this.InitData();
+
+            this.Session.SetAddressBoth(this.GetIP());
+            StartCoroutine(this.CheckIP());
+        }
+
+        void OnDestroy()
+        {
+
+            if (this._network != null)
             {
-                GetClient().Dispatch(new EventDisconnect(NetworkComponent.Session.ClientID));
+                if (GetSession.Connected || GetSession.HasValidClientID())
+                {
+                    GetNetwork().Dispatch(new EventDisconnect(NetworkComponent.GetSession.ClientID));
+                }
+
+                GetNetwork().Shutdown();
+                GetNetwork().Destroy();
             }
 
-            GetClient().Disconnect();
-            GetClient().Destroy();
+            this.InitData();
         }
 
-        this.InitData();
-    }
-
-    // Wipes Session and GameState
-    private void InitData()
-    {
-
-        this.session.Mode = Session.NetworkMode.None;
-        this.session.SetAddressBoth("");
-        this.session.Port = 0;
-        this.session.SetClientID(uint.MaxValue); // mark as something horrible instead of -1
-        this.session.Connected = false;
-
-        this.gameState.data.clients.Clear();
-
-    }
-
-    #region Static
-
-    public static Session Session
-    {
-        get
+        // Wipes Session and GameState
+        private void InitData()
         {
-            Debug.Assert(Instance != null);
-            return Instance.session;
+            this.Session.Init();
+            this.GameState.data.clients.Clear();
         }
-    }
 
-    public static GameState GameState
-    {
-        get
+        #region Static
+
+        public static Session GetSession
         {
-            Debug.Assert(Instance != null);
-            return Instance.gameState;
+            get
+            {
+                Debug.Assert(Instance != null);
+                return Instance.Session;
+            }
         }
-    }
 
-    public static Client GetClient()
-    {
-        return Instance._network;
-    }
-
-    public static GameStateData.Client GetClientState()
-    {
-        // TODO: Potentially expensive, cache the local client during gamestate integration
-        return GameState.data.clients.Find(client => client.clientID == Session.ClientID);
-    }
-
-    #endregion
-
-    #region IP Helper
-
-    private string GetIP()
-    {
-        IPAddress[] addr = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList;
-        return addr[addr.Length - 1].ToString();
-    }
-
-    private IEnumerator CheckIP()
-    {
-        var myExtIPWWW = new WWW("http://checkip.dyndns.org");
-        if (myExtIPWWW == null)
-            yield break;
-        yield return myExtIPWWW;
-        var myExtIP = myExtIPWWW.text;
-        myExtIP = myExtIP.Substring(myExtIP.IndexOf(":") + 1);
-        myExtIP = myExtIP.Substring(1, myExtIP.IndexOf("<") - 1);
-        this.session.SetAddress(myExtIP);
-    }
-    
-    #endregion
-
-    #region Actions
-
-    public void StartStandalone()
-    {
-        this.StartGame(Session.NetworkMode.Standalone);
-        // Start the world asap
-        SceneLoader.Instance.ActivateNext();
-    }
-
-    public void StartClient()
-    {
-        this.StartGame(Session.NetworkMode.Client);
-        // will wait to start world until net handshake
-    }
-
-    private void StartGame(Session.NetworkMode mode)
-    {
-        SceneLoader.Instance.ActivateNext();
-        SceneLoader.Instance.Enqueue(SceneData.SceneKey.World);
-
-        Debug.Log("NetComp: Starting network as " + mode);
-
-        this.session.Mode = mode;
-        this.CreateNetworkAndConnect();
-    }
-
-    #endregion
-
-    #region Start Network
-
-    public void CreateNetworkAndConnect()
-    {
-        Debug.Assert(this.session.IsValid);
-
-        // Create the network
-        this._network = this.CreateNetwork();
-        this._network.Create();
-        // Create it up
-        this._network.Start(this.session);
-        // Connect
-        this._network.Connect(this.session);
-    }
-
-    private Client CreateNetwork()
-    {
-        switch (this.session.Mode)
+        public static GameState GetGameState
         {
-            case Session.NetworkMode.Standalone:
-                return new DummyClient();
-            case Session.NetworkMode.Client:
-                return new Client();
-            //case Session.NetworkMode.Host:
-                //return new ServerClient(new Client());
-            default:
-                return null;
+            get
+            {
+                Debug.Assert(Instance != null);
+                return Instance.GameState;
+            }
         }
-    }
 
-    #endregion
-
-    #region SceneEvents
-
-    public void OnEnable()
-    {
-        SceneManager.sceneLoaded += this.OnSceneLoaded;
-    }
-
-    public void OnDisable()
-    {
-        SceneManager.sceneLoaded -= this.OnSceneLoaded;
-    }
-
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (this._network != null)
+        public static NetworkCommon GetNetwork()
         {
-            this._network.OnSceneLoaded(scene, mode);
+            return Instance._network;
         }
-    }
 
-    public void FixedUpdate()
-    {
-        if (this._network != null)
+        public static GameStateData.Client GetClientState()
         {
-            this._network.UpdateNetwork();
+            // TODO: Potentially expensive, cache the local client during gamestate integration
+            return GetGameState.data.clients.Find(client => client.clientID == GetSession.ClientID);
         }
+
+        #endregion
+
+        #region IP Helper
+
+        private string GetIP()
+        {
+            IPAddress[] addr = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList;
+            return addr[addr.Length - 1].ToString();
+        }
+
+        private IEnumerator CheckIP()
+        {
+            var myExtIPWWW = new WWW("http://checkip.dyndns.org");
+            if (myExtIPWWW == null)
+                yield break;
+            yield return myExtIPWWW;
+            var myExtIP = myExtIPWWW.text;
+            myExtIP = myExtIP.Substring(myExtIP.IndexOf(":") + 1);
+            myExtIP = myExtIP.Substring(1, myExtIP.IndexOf("<") - 1);
+            this.Session.SetAddress(myExtIP);
+        }
+
+        #endregion
+
+        #region Actions
+
+        public void StartStandalone()
+        {
+            this.StartGame(Session.NetworkMode.Standalone);
+            // Start the world asap
+            SceneLoader.Instance.ActivateNext();
+        }
+
+        public void StartClient()
+        {
+            this.StartGame(Session.NetworkMode.Client);
+        }
+
+        public void StartHost()
+        {
+            this.StartGame(Session.NetworkMode.Host);
+        }
+
+        private void StartGame(Session.NetworkMode mode)
+        {
+            SceneLoader.Instance.ActivateNext();
+            SceneLoader.Instance.Enqueue(SceneData.SceneKey.World);
+
+            Debug.Log("NetComp: Starting network as " + mode);
+
+            this.Session.Mode = mode;
+            this.CreateNetworkAndConnect();
+        }
+
+        #endregion
+
+        #region Start Network
+
+        public void CreateNetworkAndConnect()
+        {
+            Debug.Assert(this.Session.IsValid);
+
+            // Create the network
+            this._network = this.CreateNetwork();
+            this._network.Create();
+            // Start it up & Connect
+            this._network.StartAndConnect(this.Session);
+        }
+
+        private NetworkCommon CreateNetwork()
+        {
+            switch (this.Session.Mode)
+            {
+                case Session.NetworkMode.Standalone:
+                    return new Client.Network.DummyClient();
+                case Session.NetworkMode.Client:
+                    return new Client.Network.Client();
+                case Session.NetworkMode.Host:
+                    return new Server.Network.ClientServer();
+                default:
+                    return null;
+            }
+        }
+
+        #endregion
+        
+        public void FixedUpdate()
+        {
+            if (this._network != null)
+            {
+                this._network.Update();
+            }
+        }
+
     }
 
-    #endregion
 
 }

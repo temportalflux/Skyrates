@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 [Serializable] // for inspector
@@ -31,7 +32,7 @@ public class GameStateData : ISerializing
 
         public bool IsLocalClient
         {
-            get { return this.clientID == NetworkComponent.Session.ClientID; }
+            get { return this.clientID == NetworkComponent.GetSession.ClientID; }
         }
 
         public void Integrate(Client serverState)
