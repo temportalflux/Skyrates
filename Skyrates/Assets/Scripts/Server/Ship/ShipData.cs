@@ -33,12 +33,12 @@ public class ShipData
     };
 
     [BitSerialize()]
-    public int[] components = new int[ComponentTypes.Length];
+    public int[] Components = new int[ComponentTypes.Length];
 
     public int this[ComponentType key]
     {
-        get { return this.components[(int) key]; }
-        set { this.components[(int) key] = value; }
+        get { return this.Components[(int) key]; }
+        set { this.Components[(int) key] = value; }
     }
 
 }

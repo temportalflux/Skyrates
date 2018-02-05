@@ -106,8 +106,15 @@ namespace Skyrates.Common.Network
         /// <param name="evt">The event.</param>
         /// <param name="address">The server address.</param>
         /// <param name="port">The server port.</param>
-        public void Dispatch(NetworkEvent evt, string address, int port, bool broadcast = false)
+        public virtual void Dispatch(NetworkEvent evt, string address, int port, bool broadcast = false)
         {
+            // Will only allow server sent messages through
+            Session.NetworkMode mode = NetworkComponent.GetSession.Mode;
+            Side side = mode == Session.NetworkMode.Host ? Side.Server : Side.Client;
+            Debug.Assert(evt.IsSentBy(side), string.Format(
+                "{0} sent message attempting to be sent from {1}, these must be mitigated or stopped.",
+                side, side == Side.Client ? Side.Server : Side.Client
+            ));
             this._dispatcher.Enqueue(evt, address, port, broadcast);
         }
 

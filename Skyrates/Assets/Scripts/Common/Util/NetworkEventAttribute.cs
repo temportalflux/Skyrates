@@ -7,13 +7,23 @@ using UnityEngine;
 public class NetworkEventAttribute : Attribute
 {
 
-    private Side _sender;
-    private Side _receiver;
+    private readonly Side _sender;
+    private readonly Side _receiver;
 
     public NetworkEventAttribute(Side sender, Side receiver)
     {
         this._sender = sender;
         this._receiver = receiver;
+    }
+
+    public Side GetSender()
+    {
+        return this._sender;
+    }
+
+    public Side GetReceiver()
+    {
+        return this._receiver;
     }
 
 }

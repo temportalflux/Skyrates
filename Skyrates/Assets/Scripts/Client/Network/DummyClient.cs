@@ -1,4 +1,5 @@
 ﻿using Skyrates.Common.Network;
+using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 
 namespace Skyrates.Client.Network
@@ -27,6 +28,10 @@ namespace Skyrates.Client.Network
 
         public override void StartServer(Session session)
         {}
+
+        public override void Dispatch(NetworkEvent evt, string address, int port, bool broadcast = false)
+        {
+        }
 
     }
 

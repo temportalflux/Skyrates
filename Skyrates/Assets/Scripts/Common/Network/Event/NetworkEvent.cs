@@ -1,4 +1,6 @@
-﻿using Skyrates.Common.Network;
+﻿using System;
+using System.Linq;
+using Skyrates.Common.Network;
 
 namespace Skyrates.Common.Network.Event
 {
@@ -30,6 +32,24 @@ namespace Skyrates.Common.Network.Event
         public virtual void Deserialize(byte[] data)
         {
             BitSerializeAttribute.Deserialize(this, data);
+        }
+
+        public NetworkEventAttribute GetAttribute()
+        {
+            return this.GetType().GetCustomAttributes(
+                typeof(NetworkEventAttribute), true).FirstOrDefault() as NetworkEventAttribute;
+        }
+
+        public bool IsSentBy(Side side)
+        {
+            var attribute = this.GetAttribute();
+            return attribute != null && attribute.GetSender() == side;
+        }
+
+        public bool IsReceivedBy(Side side)
+        {
+            var attribute = this.GetAttribute();
+            return attribute != null && attribute.GetReceiver() == side;
         }
 
     }

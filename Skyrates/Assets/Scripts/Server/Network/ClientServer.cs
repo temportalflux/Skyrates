@@ -11,16 +11,22 @@ namespace Skyrates.Server.Network
     public class ClientServer : NetworkCommon
     {
 
+        /// <summary>
+        /// The list of clients connected at any one time
+        /// </summary>
         private ClientList _clientList;
 
-        private float secondsPerUpdate;
+        /// <summary>
+        /// How many seconds are between game state dispatches
+        /// </summary>
+        private float _secondsPerUpdate;
 
         /// <inheritdoc />
         public override void Create()
         {
             base.Create();
             this._clientList = null;
-            this.secondsPerUpdate = 0.0f;
+            this._secondsPerUpdate = 0.0f;
             NetworkEvents.HandshakeJoin += this.OnHandshakeJoin;
             NetworkEvents.HandshakeAccept += this.OnHandshakeAccept;
             NetworkEvents.Disconnect += this.OnDisconnect;
@@ -32,7 +38,7 @@ namespace Skyrates.Server.Network
         {
             base.Destroy();
             this._clientList = null;
-            this.secondsPerUpdate = 0.0f;
+            this._secondsPerUpdate = 0.0f;
             NetworkEvents.HandshakeJoin -= this.OnHandshakeJoin;
             NetworkEvents.HandshakeAccept -= this.OnHandshakeAccept;
             NetworkEvents.Disconnect -= this.OnDisconnect;
@@ -45,7 +51,7 @@ namespace Skyrates.Server.Network
             this.StartServer(session);
 
             this._clientList = new ClientList(session.MaxClients);
-            this.secondsPerUpdate = session.ServerTickUpdate;
+            this._secondsPerUpdate = session.ServerTickUpdate;
 
             this.StartCoroutine(this.DispatchGameState());
         }
@@ -130,7 +136,7 @@ namespace Skyrates.Server.Network
             {
                 // TODO: Dispatch valid gamestate
                 //this.Dispatch(new EventUpdateGameState(), true);
-                yield return new WaitForSeconds(this.secondsPerUpdate);
+                yield return new WaitForSeconds(this._secondsPerUpdate);
             }
         }
 
