@@ -4,6 +4,24 @@ using UnityEngine;
 
 namespace Skyrates.Common.Entity
 {
+    
+    [Serializable]
+    public class TypeData
+    {
+
+        [BitSerialize(0)]
+        public Entity.Type EntityType;
+
+        [BitSerialize(1)]
+        public int EntityTypeIndex;
+
+        public TypeData(Entity.Type type, int index)
+        {
+            this.EntityType = type;
+            this.EntityTypeIndex = index;
+        }
+
+    }
 
     public class Entity : MonoBehaviour
     {
@@ -23,15 +41,20 @@ namespace Skyrates.Common.Entity
         public static readonly Type[] AllTypes = { Type.Static, Type.Dynamic, Type.Player };
         public static readonly object[] ListableTypes = { Type.Static, Type.Dynamic };
         public static readonly System.Type[] ListableClassTypes = { typeof(Entity), typeof(EntityDynamic) };
-        
+
         #endregion
 
         /// <summary>
         /// A unique identifier for this entity
         /// </summary>
         [BitSerialize(0)]
+        [SerializeField]
         public Guid Guid;
-        
+
+        [BitSerialize(1)]
+        [SerializeField]
+        public TypeData TypeData;
+
         #region Guid
 
         public static Guid NewGuid()
@@ -39,14 +62,15 @@ namespace Skyrates.Common.Entity
             return Guid.NewGuid();
         }
 
-        public void Init(Guid guid)
+        public void Init(Guid guid, TypeData typeData)
         {
             this.Guid = guid;
+            this.TypeData = typeData;
         }
 
-        public void Init()
+        public void Init(TypeData typeData)
         {
-            this.Init(NewGuid());
+            this.Init(NewGuid(), typeData);
         }
 
         #endregion

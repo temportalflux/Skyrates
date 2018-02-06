@@ -9,7 +9,7 @@ public class AITarget : Entity
 
     void Start()
     {
-        this.Init(); // create the guid
+        this.Init(null); // create the guid
         this.GetComponent<Collider>().isTrigger = true;
     }
     

@@ -7,7 +7,7 @@ namespace Skyrates.Common.Entity
     public class EntityDynamic : Entity
     {
 
-        [BitSerialize(1)]
+        [BitSerialize(2)]
         public PhysicsData Physics;
 
         /// <inheritdoc />
