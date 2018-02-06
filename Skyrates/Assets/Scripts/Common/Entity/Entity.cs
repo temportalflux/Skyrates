@@ -47,10 +47,19 @@ namespace Skyrates.Common.Entity
         #endregion
 
         /// <summary>
-        /// 
+        /// Called by <see cref="EntityReceiver.Deserialize"/> when the entity's data was successfully deserialized into it.
         /// </summary>
-        public virtual void IntegratePhysics()
+        public void OnDeserializeSuccess()
         {
+
+        }
+
+        /// <summary>
+        /// Called by <see cref="EntityReceiver.Deserialize"/> when the entity was not found in the server state and thus should be removed.
+        /// </summary>
+        public void OnDeserializeFail()
+        {
+            Destroy(this.gameObject);
         }
 
     }

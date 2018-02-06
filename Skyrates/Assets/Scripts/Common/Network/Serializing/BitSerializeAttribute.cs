@@ -446,12 +446,12 @@ namespace Skyrates.Common.Network
         /// <param name="dest">The _gameStateData to copy.</param>
         /// <param name="start">The offset in bytes.</param>
         /// <param name="source">The _gameStateData object to copy into at the offset.</param>
-        private static void CopyTo(ref byte[] dest, int start, byte[] source)
+        public static void CopyTo(ref byte[] dest, int start, byte[] source)
         {
             Array.Copy(source, 0, dest, start, source.Length);
         }
 
-        private static void CopyFrom(byte[] source, ref byte[] dest, int start, int length)
+        public static void CopyFrom(byte[] source, ref byte[] dest, int start, int length)
         {
             Debug.Assert(source.Length >= start + length);
             Debug.Assert(dest.Length >= 0 + length);

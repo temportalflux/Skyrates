@@ -30,7 +30,6 @@ namespace Skyrates.Server.Network.Event
         {
             EntityTracker tracker = NetworkComponent.GetNetwork().GetEntityTracker();
             tracker.Serialize(ref data, ref lastIndex);
-
         }
 
         /// <inheritdoc />
@@ -38,7 +37,6 @@ namespace Skyrates.Server.Network.Event
         {
             EntityTracker tracker = NetworkComponent.GetNetwork().GetEntityTracker();
             tracker.Deserialize(data, ref lastIndex);
-
         }
 
     }
