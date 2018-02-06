@@ -20,20 +20,20 @@ namespace Skyrates.Client.Network
         public override void Create()
         {
             base.Create();
-            NetworkEvents.ConnectionAccepted += this.OnConnectionAccepted;
-            NetworkEvents.ConnectionRejected += this.OnConnectionRejected;
-            NetworkEvents.Disconnect += this.OnDisconnect;
-            NetworkEvents.HandshakeClientID += this.OnHandshakeClientID;
+            NetworkEvents.Instance.ConnectionAccepted += this.OnConnectionAccepted;
+            NetworkEvents.Instance.ConnectionRejected += this.OnConnectionRejected;
+            NetworkEvents.Instance.Disconnect += this.OnDisconnect;
+            NetworkEvents.Instance.HandshakeClientID += this.OnHandshakeClientID;
         }
 
         /// <inheritdoc />
         public override void Destroy()
         {
             base.Destroy();
-            NetworkEvents.ConnectionAccepted -= this.OnConnectionAccepted;
-            NetworkEvents.ConnectionRejected -= this.OnConnectionRejected;
-            NetworkEvents.Disconnect -= this.OnDisconnect;
-            NetworkEvents.HandshakeClientID -= this.OnHandshakeClientID;
+            NetworkEvents.Instance.ConnectionAccepted -= this.OnConnectionAccepted;
+            NetworkEvents.Instance.ConnectionRejected -= this.OnConnectionRejected;
+            NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
+            NetworkEvents.Instance.HandshakeClientID -= this.OnHandshakeClientID;
         }
 
         /// <inheritdoc />

@@ -371,7 +371,7 @@ namespace Skyrates.Common.Network
             evt = null;
 
             // Attempt to retrieve the object
-            if (NetworkEvents.Types.TryGetValue(identifier, out msgType))
+            if (NetworkEvents.Instance.Types.TryGetValue(identifier, out msgType))
             {
                 evt = Activator.CreateInstance(msgType) as NetworkEvent;
             }
@@ -414,7 +414,7 @@ namespace Skyrates.Common.Network
             {
                 // Find the delegate to fire
                 NetworkEventDelegate evtDelegate;
-                if (NetworkEvents.Delegates.TryGetValue((NetworkEventID) evt.EventID, out evtDelegate))
+                if (NetworkEvents.Instance.Delegates.TryGetValue((NetworkEventID) evt.EventID, out evtDelegate))
                 {
                     if (evtDelegate != null)
                     {
@@ -423,7 +423,7 @@ namespace Skyrates.Common.Network
                     }
                     else
                     {
-                        Debug.Log(string.Format("Delegate for {0} was null...", (NetworkEventID) evt.EventID));
+                        Debug.LogWarning(string.Format("Delegate for {0} was null...", (NetworkEventID) evt.EventID));
                     }
                 }
                 else
