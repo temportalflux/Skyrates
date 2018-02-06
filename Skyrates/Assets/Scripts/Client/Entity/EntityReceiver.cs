@@ -7,7 +7,8 @@ namespace Skyrates.Common.Entity
 
     public class EntityReceiver : EntityTracker
     {
-
+        
+        /// <inheritdoc />
         public override void Deserialize(byte[] data, ref int lastIndex)
         {
             // TODO: Deserialize the entities

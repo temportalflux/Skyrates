@@ -55,7 +55,7 @@ namespace Skyrates.Common.Entity
     }
 
 
-    public class EntityTracker
+    public class EntityTracker : ISerializing
     {
         
         public readonly Dictionary<Entity.EntityType, EntitySet> _entities = new Dictionary<Entity.EntityType, EntitySet>();
@@ -135,7 +135,31 @@ namespace Skyrates.Common.Entity
 
         }
         //*/
-        
+
+        #region Serializing
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void GenerateData() { }
+
+        /// <inheritdoc />
+        public virtual int GetSize()
+        {
+            return 0;
+        }
+
+        /// <inheritdoc />
+        public virtual void Serialize(ref byte[] data, ref int lastIndex)
+        {
+        }
+
+        /// <inheritdoc />
+        public virtual void Deserialize(byte[] data, ref int lastIndex)
+        {
+        }
+
+        #endregion
 
     }
 

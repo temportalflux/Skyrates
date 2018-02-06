@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ChampNetPlugin;
+using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 using UnityEngine;
@@ -39,6 +40,8 @@ namespace Skyrates.Common.Network
         /// </summary>
         private PacketReceiver _receiver;
 
+        protected EntityTracker EntityTracker;
+
         /// <summary>
         /// Create the network object in the backend. Must use <see cref="Destroy"/> when done.
         /// </summary>
@@ -46,6 +49,7 @@ namespace Skyrates.Common.Network
         {
             this._dispatcher = new PacketDispatcher();
             this._receiver = new PacketReceiver();
+            this.EntityTracker = null;
             NetworkPlugin.Create();
         }
 
@@ -54,6 +58,7 @@ namespace Skyrates.Common.Network
         /// </summary>
         public virtual void Destroy()
         {
+            this.EntityTracker = null;
             NetworkPlugin.Destroy();
         }
 
@@ -163,6 +168,11 @@ namespace Skyrates.Common.Network
         protected void StopCoroutine(Coroutine coroutine)
         {
             NetworkComponent.Instance.StopCoroutine(coroutine);
+        }
+
+        public EntityTracker GetEntityTracker()
+        {
+            return this.EntityTracker;
         }
 
     }

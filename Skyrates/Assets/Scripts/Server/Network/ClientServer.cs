@@ -2,6 +2,7 @@
 using System.Collections;
 using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
+using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network.Event;
 using UnityEngine;
@@ -21,6 +22,11 @@ namespace Skyrates.Server.Network
         /// How many seconds are between game state dispatches
         /// </summary>
         private float _secondsPerUpdate;
+
+        public static ClientServer Instance()
+        {
+            return NetworkComponent.GetNetwork() as ClientServer;
+        }
 
         /// <inheritdoc />
         public override void Create()
@@ -53,6 +59,7 @@ namespace Skyrates.Server.Network
 
             this._clientList = new ClientList(session.MaxClients);
             this._secondsPerUpdate = session.ServerTickUpdate;
+            this.EntityTracker = new EntityOwner();
 
             this.StartCoroutine(this.DispatchGameState());
         }

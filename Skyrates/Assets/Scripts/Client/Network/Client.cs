@@ -1,5 +1,6 @@
 ﻿using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
+using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 using Skyrates.Server.Network.Event;
@@ -40,6 +41,8 @@ namespace Skyrates.Client.Network
         /// <inheritdoc />
         public override void StartAndConnect(Session session)
         {
+            this.EntityTracker = new EntityReceiver();
+            
             this.StartClient(session);
             this.Connect(session);
         }
