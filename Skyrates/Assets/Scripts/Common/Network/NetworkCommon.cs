@@ -117,8 +117,8 @@ namespace Skyrates.Common.Network
             Session.NetworkMode mode = NetworkComponent.GetSession.Mode;
             Side side = mode == Session.NetworkMode.Host ? Side.Server : Side.Client;
             Debug.Assert(evt.IsSentBy(side), string.Format(
-                "{0} sent message attempting to be sent from {1}, these must be mitigated or stopped.",
-                side, side == Side.Client ? Side.Server : Side.Client
+                "{0} sent message attempting to be sent from {1}, these must be mitigated or stopped. {2}",
+                side, side == Side.Client ? Side.Server : Side.Client, (NetworkEventID)evt.EventID
             ));
             this._dispatcher.Enqueue(evt, address, port, broadcast);
         }
