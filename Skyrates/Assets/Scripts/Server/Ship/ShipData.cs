@@ -15,7 +15,7 @@ public class ShipData
 
     public enum ComponentType
     {
-        Artillery, Figurehead, Hull, Navigation, Propulsion, Sail, 
+       Artillery, Figurehead, Hull, Navigation, Propulsion, Sail,
     }
 
     public static readonly object[] ComponentTypes =
@@ -27,6 +27,14 @@ public class ShipData
         ComponentType.Propulsion,
         ComponentType.Sail,
     };
+    public static readonly ComponentType[] NonHullComponents = {
+        ComponentType.Artillery,
+        ComponentType.Figurehead,
+        ComponentType.Navigation,
+        ComponentType.Propulsion,
+        ComponentType.Sail,
+    };
+    public static readonly int[] HulllessComponentIndex = { 0, 1, -1, 2, 3, 4 };
 
     public static readonly Type[] ComponentClassTypes =
     {

@@ -117,9 +117,7 @@ namespace Skyrates.Client.Ship
             ShipHull hullPrefab = (ShipHull) this.GetShipComponent(ComponentType.Hull, data);
             ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHull>();
 
-            // Clear any lingering components attached to the hull
-            hullBuilt.ClearGeneratedComponents();
-
+            int iMount = 0;
             // Create all the remaining components
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
@@ -135,7 +133,9 @@ namespace Skyrates.Client.Ship
                 GameObject prefab = component.gameObject;
 
                 // Get all the targets for the type of component (transforms on hull to generate at)
-                Transform[] targets = hullBuilt.GetRoots(compType);
+                Transform[] targets = hullBuilt.Mounts[iMount].Roots;
+
+                hullBuilt.SetShipComponentCount(compType, targets.Length);
 
                 // Generate a component of the current type at each target
                 for (int iTarget = 0; iTarget < targets.Length; iTarget++)
@@ -144,8 +144,11 @@ namespace Skyrates.Client.Ship
                     // Create the object
                     GameObject built = Instantiate(prefab, target.position, target.rotation, root);
                     // Tell the built hull that it exists
-                    hullBuilt.AddShipComponent(compType, iTarget, built.GetComponent<ShipComponent>());
+                    // TODO: Optimize this function to just send in the transform
+                    hullBuilt.AddShipComponent(hullPrefab.Mounts, compType, iTarget, built.GetComponent<ShipComponent>());
                 }
+
+                iMount++;
             }
 
             return hullBuilt;

@@ -33,6 +33,10 @@ namespace Skyrates.Client.Network
         {
         }
 
+        public override void Update()
+        {
+        }
+
     }
 
 }

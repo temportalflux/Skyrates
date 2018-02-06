@@ -154,7 +154,7 @@ namespace Skyrates.Common.Network
         /// <summary>
         /// Updates the network, dispatching all current packets and receiving any packets in the network (in that order).
         /// </summary>
-        public void Update()
+        public virtual void Update()
         {
             this._dispatcher.Update();
             this._receiver.Update();

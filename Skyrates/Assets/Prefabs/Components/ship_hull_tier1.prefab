@@ -470,16 +470,16 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4993872714023964}
-  - {fileID: 4618837432596788}
-  - {fileID: 4696149142057652}
-  - {fileID: 4851004614324560}
   - {fileID: 4153089071353414}
   - {fileID: 4431854579093392}
   - {fileID: 4915025528335942}
   - {fileID: 4721377874323728}
   - {fileID: 4832667220931328}
   - {fileID: 4672304239260768}
+  - {fileID: 4618837432596788}
+  - {fileID: 4851004614324560}
+  - {fileID: 4696149142057652}
+  - {fileID: 4993872714023964}
   m_Father: {fileID: 4300505032321926}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -507,7 +507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 19.101002, y: -90.00001, z: -0.448}
 --- !u!4 &4173539874566462
 Transform:
@@ -623,7 +623,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 17.386002, y: -87.188, z: 0.33800003}
 --- !u!4 &4538739917721618
 Transform:
@@ -649,7 +649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4640063721161936
 Transform:
@@ -677,7 +677,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 18.565, y: 77.991005, z: -1.1600001}
 --- !u!4 &4696149142057652
 Transform:
@@ -690,7 +690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4721377874323728
 Transform:
@@ -703,7 +703,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 16.944, y: 88.533005, z: -0.127}
 --- !u!4 &4832667220931328
 Transform:
@@ -716,7 +716,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 19.287, y: 89.01, z: -0.2}
 --- !u!4 &4851004614324560
 Transform:
@@ -729,7 +729,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4915025528335942
 Transform:
@@ -742,7 +742,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 18.688002, y: -81.359, z: 0.68500006}
 --- !u!4 &4993872714023964
 Transform:
@@ -755,7 +755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133667316906190}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23011079895067912
 MeshRenderer:
@@ -1178,29 +1178,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-    list:
-    - roots:
-      - {fileID: 4696149142057652}
-      generatedComponents: []
-    - roots:
-      - {fileID: 4153089071353414}
-      - {fileID: 4832667220931328}
-      - {fileID: 4672304239260768}
-      - {fileID: 4721377874323728}
-      - {fileID: 4431854579093392}
-      - {fileID: 4915025528335942}
-      generatedComponents: []
-    - roots: []
-      generatedComponents: []
-    - roots:
-      - {fileID: 4618837432596788}
-      generatedComponents: []
-    - roots:
-      - {fileID: 4851004614324560}
-      generatedComponents: []
-    - roots: []
-      generatedComponents: []
+  Mounts:
+  - Roots:
+    - {fileID: 4153089071353414}
+    - {fileID: 4431854579093392}
+    - {fileID: 4915025528335942}
+    - {fileID: 4721377874323728}
+    - {fileID: 4832667220931328}
+    - {fileID: 4672304239260768}
+  - Roots:
+    - {fileID: 4618837432596788}
+  - Roots:
+    - {fileID: 4851004614324560}
+  - Roots:
+    - {fileID: 4696149142057652}
+  - Roots:
+    - {fileID: 4993872714023964}
+  - Roots: []
 --- !u!136 &136964033428741976
 CapsuleCollider:
   m_ObjectHideFlags: 1

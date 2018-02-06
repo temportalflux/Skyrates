@@ -126,6 +126,8 @@ namespace Skyrates.Common.Network
         public void StartHost()
         {
             this.StartGame(Session.NetworkMode.Host);
+            // Start the world asap
+            SceneLoader.Instance.ActivateNext();
         }
 
         private void StartGame(Session.NetworkMode mode)

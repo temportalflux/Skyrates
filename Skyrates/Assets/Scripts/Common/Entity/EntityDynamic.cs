@@ -18,7 +18,7 @@ namespace Skyrates.Common.Entity
         /// Updated via <see cref="Steering"/>.
         /// </summary>
         [BitSerialize(2)]
-        public PhysicsData Physics;
+        public PhysicsData Physics = new PhysicsData();
 
         /// <summary>
         /// The steering data used - info which is specific to this
@@ -31,12 +31,15 @@ namespace Skyrates.Common.Entity
         /// The actual steering object - set via editor.
         /// </summary>
         public Steering Steering;
-
+        
         void FixedUpdate()
         {
             
             // Update steering on a fixed timestep
-            this.Steering.GetSteering(this.SteeringData, ref this.Physics);
+            if (this.Steering != null)
+            {
+                this.Steering.GetSteering(this.SteeringData, ref this.Physics);
+            }
 
             // Integrate physics from steering and any network updates
             this.IntegratePhysics(Time.fixedDeltaTime);

@@ -15,7 +15,7 @@ namespace Skyrates.Client.Ship
     public class ShipHull : ShipComponent
     {
 
-        #region Generation
+        #region PREFAB ONLY
 
         /// <summary>
         /// A set of targets for a specfic <see cref="ComponentType"/>.
@@ -28,13 +28,6 @@ namespace Skyrates.Client.Ship
             /// </summary>
             [SerializeField]
             public Transform[] Roots;
-
-            /// <summary>
-            /// The objects generated during <see cref="ShipBuilder.BuiltTo"/>.
-            /// </summary>
-            [SerializeField]
-            public ShipComponent[] GeneratedComponents;
-
         }
         
         /// <summary>
@@ -46,63 +39,39 @@ namespace Skyrates.Client.Ship
         #endregion
 
         /// <summary>
-        /// Returns an array of all the target transforms for a specificed type.
+        /// The objects generated during <see cref="ShipBuilder.BuiltTo"/>.
         /// </summary>
-        /// <param name="compType"></param>
-        /// <returns></returns>
-        public Transform[] GetRoots(ComponentType compType)
-        {
-            Debug.Assert((int) ComponentType.Hull == 0);
-            Debug.Assert(ComponentType.Hull != compType);
+        private readonly ShipComponent[][] GeneratedComponents = new ShipComponent[ShipData.NonHullComponents.Length][];
 
-            // compType - 1 to account for Hull
-            return this.Mounts[(int) compType - 1].Roots;
+        private int GetComponentIndex(ComponentType type)
+        {
+            return ShipData.HulllessComponentIndex[(int) type];
         }
 
         /// <summary>
-        /// Clears any generated components from the list.
-        /// <param name="doDestroy">If the objects should be destroyed via MonoBehavior.</param>
+        /// Creates the array of components for some type.
         /// </summary>
-        public void ClearGeneratedComponents(bool doDestroy = false)
+        /// <param name="type"></param>
+        /// <param name="count"></param>
+        public void SetShipComponentCount(ComponentType type, int count)
         {
-            foreach (ComponentType key in ShipData.ComponentTypes)
-            {
-                if (key == ComponentType.Hull) continue;
-                Mount t = this.Mounts[(int) key - 1];
-
-                if (doDestroy)
-                {
-                    foreach (ShipComponent component in t.GeneratedComponents)
-                    {
-                        Destroy(component);
-                    }
-                }
-
-                t.GeneratedComponents = new ShipComponent[t.Roots.Length];
-                this.Mounts[(int) key - 1] = t;
-            }
+            this.GeneratedComponents[this.GetComponentIndex(type)] = new ShipComponent[count];
         }
 
         /// <summary>
         /// Sets the generated component of a type at the target index.
         /// </summary>
-        /// <param name="compType"></param>
+        /// <param name="iMount"></param>
         /// <param name="index"></param>
         /// <param name="comp"></param>
-        public void AddShipComponent(ComponentType compType, int index, ShipComponent comp)
+        public void AddShipComponent(Mount[] mounts, ComponentType compType, int index, ShipComponent comp)
         {
-            Debug.Assert((int) ComponentType.Hull == 0);
-            Debug.Assert(ComponentType.Hull != compType, "Cannot add hull to hull");
-
             // Set the generated component
-            Mount t = this.Mounts[(int) compType - 1];
-            t.GeneratedComponents[index] = comp;
+            this.GeneratedComponents[this.GetComponentIndex(compType)][index] = comp;
 
             // Set the transform information on the component from the target
-            comp.gameObject.transform.SetPositionAndRotation(t.Roots[index].position, t.Roots[index].rotation);
-
-            // Update list
-            this.Mounts[(int) compType - 1] = t;
+            Mount mount = mounts[this.GetComponentIndex(compType)];
+            comp.gameObject.transform.SetPositionAndRotation(mount.Roots[index].position, mount.Roots[index].rotation);
         }
 
         /// <summary>
@@ -115,8 +84,9 @@ namespace Skyrates.Client.Ship
             Debug.Assert((int) ComponentType.Hull == 0);
             Debug.Assert(ComponentType.Hull != compType, "Cannot get hull from hull");
             // compType - 1 to account for Hull
-            return this.Mounts[(int) compType - 1].GeneratedComponents;
+            return this.GeneratedComponents[this.GetComponentIndex(compType)];
         }
+
 
     }
 

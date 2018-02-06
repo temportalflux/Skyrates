@@ -8,7 +8,7 @@ public class Player : EntityDynamic
 
     public Ship ShipRoot;
 
-    public void GenerateShip()
+    void Awake()
     {
         this.ShipRoot.Destroy();
         this.ShipRoot.Generate();

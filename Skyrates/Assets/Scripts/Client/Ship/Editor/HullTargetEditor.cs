@@ -10,7 +10,7 @@ using ComponentType = ShipData.ComponentType;
 namespace Skyrates.Client.Ship
 {
 
-    [CustomEditor(typeof(ShipHull))]
+    //[CustomEditor(typeof(ShipHull))]
     public class HullTargetEditor : Editor
     {
 
@@ -27,13 +27,19 @@ namespace Skyrates.Client.Ship
         {
             this.DrawScriptField(this._instance);
 
+            if (this._instance.Mounts == null) this._instance.Mounts = new ShipHull.Mount[ShipData.NonHullComponents.Length];
+            if (this._instance.Mounts.Length != ShipData.NonHullComponents.Length)
+            {
+                Array.Resize(ref this._instance.Mounts, ShipData.NonHullComponents.Length);
+            }
+
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 if (compType == ComponentType.Hull) continue;
 
                 EditorGUILayout.Separator();
 
-                int iComp = (int) compType - 1;
+                int iComp = ShipData.HulllessComponentIndex[(int) compType];
 
                 Transform[] roots = this._instance.Mounts[iComp].Roots;
 
