@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Skyrates.Server.Network
 {
+    [SideOnly(Side.Server)]
     public class ClientServer : NetworkCommon
     {
 

@@ -4,23 +4,37 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class EntityTracker : Singleton<EntityTracker>
+public class EntityTracker
 {
+    private struct EntitySet
+    {
 
-    public static EntityTracker Instance;
+        public readonly Dictionary<Guid, Entity> Entities;
 
-    public GameState GameState;
+        public bool TryGetValue<T>(Guid id, out T entity) where T : Entity
+        {
+            entity = null;
 
-    public Player PlayerPrefab;
+            Entity e;
+            bool found = this.Entities.TryGetValue(id, out e);
+            if (found)
+            {
+                Debug.Assert(e is T);
+                entity = e as T;
+                return true;
+            }
 
-    public Transform spawn;
+            return false;
+        }
 
+    }
+
+    private readonly Dictionary<EntityType, EntitySet> _entities = new Dictionary<EntityType, EntitySet>();
     private readonly Dictionary<Guid, Player> _playerEntities = new Dictionary<Guid, Player>();
     private readonly Dictionary<Guid, Entity> _npcEntities = new Dictionary<Guid, Entity>();
 
     void Awake()
     {
-        this.loadSingleton(this, ref Instance);
 
         Debug.Assert(this.GameState != null);
         Debug.Assert(this.PlayerPrefab != null);
