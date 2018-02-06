@@ -7,8 +7,10 @@ namespace Skyrates.Common.Entity
 {
     public class EntitySet
     {
-        private Entity.EntityType _key;
-        private readonly Dictionary<Guid, Entity> _entities;
+        
+        public Entity.EntityType _key;
+        
+        public readonly Dictionary<Guid, Entity> _entities;
 
         public EntitySet(Entity.EntityType type)
         {
@@ -50,24 +52,16 @@ namespace Skyrates.Common.Entity
             return this._entities.ContainsKey(id);
         }
 
-        public Dictionary<Guid, Entity>.Enumerator GetEnumerator()
-        {
-            return this._entities.GetEnumerator();
-        }
-
     }
 
 
-    public class EntityTracker : ISerializing
+    public class EntityTracker
     {
-
-        protected readonly Dictionary<Entity.EntityType, EntitySet> _entities = new Dictionary<Entity.EntityType, EntitySet>();
-
-        protected uint EntityCount;
+        
+        public readonly Dictionary<Entity.EntityType, EntitySet> _entities = new Dictionary<Entity.EntityType, EntitySet>();
 
         void Awake()
         {
-            this.EntityCount = 0;
             foreach (Entity.EntityType type in Entity.TYPES)
             {
                 this._entities.Add(type, new EntitySet(type));
@@ -78,7 +72,6 @@ namespace Skyrates.Common.Entity
         {
             Debug.Assert(this._entities.ContainsKey(type));
             this._entities[type].Add(e);
-            this.EntityCount++;
         }
 
         public Entity Remove(Entity.EntityType type, Guid id)
@@ -142,22 +135,7 @@ namespace Skyrates.Common.Entity
 
         }
         //*/
-
-        /// <inheritdoc />
-        public int GetSize()
-        {
-            // TODO: Get size of byte array to create
-            return -1;
-        }
-
-
-        /// <inheritdoc />
-        public virtual void Serialize(ref byte[] data, ref int lastIndex)
-        { }
-
-        /// <inheritdoc />
-        public virtual void Deserialize(byte[] data, ref int lastIndex)
-        { }
+        
 
     }
 

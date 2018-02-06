@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -303,7 +301,7 @@
     <Compile Include="Assets\Scripts\Client\Component\OutOfWorldBoundary.cs" />
     <Compile Include="Assets\Scripts\Client\Component\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Client\Data\SceneData.cs" />
-    <Compile Include="Assets\Scripts\Client\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\EntityReceiver.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Player.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Projectile.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Shootable.cs" />
@@ -336,8 +334,7 @@
     <Compile Include="Assets\Scripts\Common\Analytics\Event\EventSessionStart.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Events.cs" />
     <Compile Include="Assets\Scripts\Common\Data\Version.cs" />
-    <Compile Include="Assets\Scripts\Server\Entity\EntityOwner.cs" />
-    <Compile Include="Assets\Scripts\Client\Entity\EntityReceiver.cs" />
+    <Compile Include="Assets\Scripts\Common\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Common\Entity\EntityTracker.cs" />
     <Compile Include="Assets\Scripts\Common\Network\ChampNet\NetworkPlugin.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\EventDisconnect.cs" />
@@ -353,10 +350,12 @@
     <Compile Include="Assets\Scripts\Common\Network\Serializing\ISerializing.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Session.cs" />
     <Compile Include="Assets\Scripts\Common\Network\SideOnlyAttribute.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\DeprecatedAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Extension\Vector3.cs" />
     <Compile Include="Assets\Scripts\Common\Util\NetworkEventAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Side.cs" />
     <Compile Include="Assets\Scripts\Server\AI\Steering.cs" />
+    <Compile Include="Assets\Scripts\Server\Entity\EntityOwner.cs" />
     <Compile Include="Assets\Scripts\Server\GameState\GameState.cs" />
     <Compile Include="Assets\Scripts\Server\GameState\GameStateData.cs" />
     <Compile Include="Assets\Scripts\Server\Network\ClientServer.cs" />
@@ -368,7 +367,6 @@
   <ItemGroup>
     <None Include="Assets\Plugins\Moments\LICENSE.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

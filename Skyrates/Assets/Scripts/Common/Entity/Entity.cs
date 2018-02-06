@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 namespace Skyrates.Common.Entity
@@ -9,6 +10,8 @@ namespace Skyrates.Common.Entity
     public class Entity : MonoBehaviour
     {
 
+        #region Static
+    
         public enum EntityType
         {
             Static,
@@ -16,10 +19,17 @@ namespace Skyrates.Common.Entity
             Player,
         }
 
-        public static readonly EntityType[] TYPES = new[] {EntityType.Static, EntityType.Dynamic, EntityType.Player};
+        public static readonly EntityType[] TYPES = new[] { EntityType.Static, EntityType.Dynamic, EntityType.Player };
 
-        // A unique identifier for this entity
-        private Guid guid;
+        #endregion
+
+        /// <summary>
+        /// A unique identifier for this entity
+        /// </summary>
+        [BitSerialize(0)]
+        private Guid _guid;
+
+        #region Guid
 
         public static Guid NewGuid()
         {
@@ -28,7 +38,7 @@ namespace Skyrates.Common.Entity
 
         public void Init(Guid guid)
         {
-            this.guid = guid;
+            this._guid = guid;
         }
 
         public void Init()
@@ -38,9 +48,12 @@ namespace Skyrates.Common.Entity
 
         public Guid GetGuid()
         {
-            return this.guid;
+            return this._guid;
         }
 
+        #endregion
+
+        [Deprecated]
         public virtual void IntegratePhysics(PhysicsData physics)
         {
             this.transform.SetPositionAndRotation(physics.PositionLinear,
