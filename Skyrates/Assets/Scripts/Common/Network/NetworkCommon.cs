@@ -416,8 +416,15 @@ namespace Skyrates.Common.Network
                 NetworkEventDelegate evtDelegate;
                 if (NetworkEvents.Delegates.TryGetValue((NetworkEventID) evt.EventID, out evtDelegate))
                 {
-                    // Fire off the delegate
-                    evtDelegate.Invoke(evt);
+                    if (evtDelegate != null)
+                    {
+                        // Fire off the delegate
+                        evtDelegate.Invoke(evt);
+                    }
+                    else
+                    {
+                        Debug.Log(string.Format("Delegate for {0} was null...", (NetworkEventID) evt.EventID));
+                    }
                 }
                 else
                 {
