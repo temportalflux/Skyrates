@@ -2,6 +2,10 @@
 namespace Skyrates.Common.Network
 {
 
+    /// <summary>
+    /// Implemented for custom use cases which cannot be defined with
+    /// the <see cref="BitSerializeAttribute"/> usage.
+    /// </summary>
     public interface ISerializing
     {
 

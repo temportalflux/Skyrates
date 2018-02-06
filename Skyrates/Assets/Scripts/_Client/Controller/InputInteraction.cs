@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Ship;
 using UnityEngine;
 
 public class InputInteraction : MonoBehaviour
@@ -90,7 +91,7 @@ public class InputInteraction : MonoBehaviour
         foreach (ShipComponent component in components)
         {
             ShipArtillery artillery = (ShipArtillery) component;
-            artillery.shooter.fireProjectile();
+            artillery.Shooter.fireProjectile();
         }
     }
 

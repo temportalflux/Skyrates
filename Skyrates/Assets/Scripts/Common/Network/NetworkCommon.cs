@@ -342,8 +342,8 @@ namespace Skyrates.Common.Network
                     if (evt != null)
                     {
 
-                        netEvent.sourceAddress = evt.SourceAddress;
-                        netEvent.transmitTime = transmitTimeMS;
+                        netEvent.SourceAddress = evt.SourceAddress;
+                        netEvent.TransmitTime = transmitTimeMS;
 
                         // Read off the _gameStateData of the packet
                         netEvent.Deserialize(evt.Data);
@@ -414,14 +414,14 @@ namespace Skyrates.Common.Network
             {
                 // Find the delegate to fire
                 NetworkEventDelegate evtDelegate;
-                if (NetworkEvents.Delegates.TryGetValue((NetworkEventID) evt.eventID, out evtDelegate))
+                if (NetworkEvents.Delegates.TryGetValue((NetworkEventID) evt.EventId, out evtDelegate))
                 {
                     // Fire off the delegate
                     evtDelegate.Invoke(evt);
                 }
                 else
                 {
-                    UnityEngine.Debug.LogWarning("Could not fire off event " + (NetworkEventID)evt.eventID + ", no event delegate.");
+                    UnityEngine.Debug.LogWarning("Could not fire off event " + (NetworkEventID)evt.EventId + ", no event delegate.");
                 }
             }
         }

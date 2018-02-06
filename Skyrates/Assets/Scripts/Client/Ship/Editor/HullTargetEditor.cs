@@ -1,30 +1,32 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Ship;
 using UnityEditor;
 using UnityEngine;
 
 using ComponentType = ShipData.ComponentType;
 
-[CustomEditor(typeof(ShipHull))]
-public class HullTargetEditor : Editor
+namespace Skyrates.Client.Ship
 {
 
-    private ShipHull instance;
-
-    static bool[] toggleComp = new bool[ShipData.ComponentTypes.Length];
-
-    public void OnEnable()
+    [CustomEditor(typeof(ShipHull))]
+    public class HullTargetEditor : Editor
     {
-        this.instance = this.target as ShipHull;
-    }
 
-    public override void OnInspectorGUI()
-    {
-        this.DrawScriptField(this.instance);
+        private ShipHull _instance;
 
-        ShipHull.HullTargets targets = this.instance.targets;
+        private static readonly bool[] ToggleComp = new bool[ShipData.ComponentTypes.Length];
+
+        public void OnEnable()
         {
+            this._instance = this.target as ShipHull;
+        }
+
+        public override void OnInspectorGUI()
+        {
+            this.DrawScriptField(this._instance);
+
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 if (compType == ComponentType.Hull) continue;
@@ -33,19 +35,18 @@ public class HullTargetEditor : Editor
 
                 int iComp = (int) compType - 1;
 
-                Transform[] roots = targets.list[iComp].roots;
+                Transform[] roots = this._instance.Mounts[iComp].Roots;
 
-                this.Array(compType.ToString(), ref toggleComp[iComp], ref roots,
-                    doBlock:true, GetFieldName:(Transform t) => t == null ? "Pos/Rot" : t.name);
-                
-                targets.list[iComp].roots = roots;
+                this.Array(compType.ToString(), ref ToggleComp[iComp], ref roots,
+                    doBlock: true, GetFieldName: (Transform t) => t == null ? "Pos/Rot" : t.name);
+
+                this._instance.Mounts[iComp].Roots = roots;
 
             }
 
+            EditorUtility.SetDirty(this._instance);
         }
-        this.instance.targets = targets;
 
-        EditorUtility.SetDirty(this.instance);
     }
 
 }

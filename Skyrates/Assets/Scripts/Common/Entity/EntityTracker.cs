@@ -5,38 +5,68 @@ using UnityEngine;
 
 namespace Skyrates.Common.Entity
 {
+
+    /// <summary>
+    /// The set of entities tracked via <see cref="EntityTracker"/>,
+    /// of a single <see cref="Entity.Type"/>.
+    /// </summary>
     public class EntitySet
     {
         
-        public Entity.Type _key;
+        /// <summary>
+        /// The type that this set contains.
+        /// </summary>
+        public Entity.Type Key;
         
-        public readonly Dictionary<Guid, Entity> _entities;
+        /// <summary>
+        /// The list of entities being tracked, keyed by their <see cref="Guid"/>.
+        /// </summary>
+        public readonly Dictionary<Guid, Entity> Entities;
 
         public EntitySet(Entity.Type type)
         {
-            this._key = type;
-            this._entities = new Dictionary<Guid, Entity>();
+            this.Key = type;
+            this.Entities = new Dictionary<Guid, Entity>();
         }
 
-        public void Add(Entity e)
+        /// <summary>
+        /// Add an entity to the tracker.
+        /// </summary>
+        /// <param name="e"></param>
+        public bool Add(Entity e)
         {
-            this._entities.Add(e.Guid, e);
+            // Cannot track and entity already being tracked.
+            if (this.ContainsKey(e.Guid)) return false;
+            this.Entities.Add(e.Guid, e);
+            return true;
         }
 
+        /// <summary>
+        /// Remove an entity from the tracker.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Entity Remove(Guid id)
         {
-            if (!this._entities.ContainsKey(id)) return null;
-            Entity e = this._entities[id];
-            this._entities.Remove(id);
+            if (!this.Entities.ContainsKey(id)) return null;
+            Entity e = this.Entities[id];
+            this.Entities.Remove(id);
             return e;
         }
 
+        /// <summary>
+        /// Attempts to find an entity via its <see cref="Guid"/> in this set.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public bool TryGetValue<T>(Guid id, out T entity) where T : Entity
         {
             entity = null;
 
             Entity e;
-            bool found = this._entities.TryGetValue(id, out e);
+            bool found = this.Entities.TryGetValue(id, out e);
             if (found)
             {
                 Debug.Assert(e is T);
@@ -47,48 +77,84 @@ namespace Skyrates.Common.Entity
             return false;
         }
 
+        /// <summary>
+        /// Checks if there in an entity with a specific <see cref="Guid"/> under this set.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool ContainsKey(Guid id)
         {
-            return this._entities.ContainsKey(id);
+            return this.Entities.ContainsKey(id);
         }
 
     }
 
-
+    /// <summary>
+    /// A tracker which watches all entities which are synced over the network.
+    /// Implemented by <see cref="EntityDispatcher"/> and <see cref="EntityReceiver"/> to handle
+    /// serializing and deserializing entities.
+    /// </summary>
     public class EntityTracker : ISerializing
     {
         
-        public readonly Dictionary<Entity.Type, EntitySet> _entities = new Dictionary<Entity.Type, EntitySet>();
+        /// <summary>
+        /// The dictionary of all entities, keyed by a type of entity.
+        /// </summary>
+        public readonly Dictionary<Entity.Type, EntitySet> Entities = new Dictionary<Entity.Type, EntitySet>();
 
         void Awake()
         {
             foreach (Entity.Type type in Entity.AllTypes)
             {
-                this._entities.Add(type, new EntitySet(type));
+                this.Entities.Add(type, new EntitySet(type));
             }
         }
 
-        public void Add(Entity.Type type, Entity e)
+        /// <summary>
+        /// Add an entity to the map.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="e"></param>
+        public bool Add(Entity.Type type, Entity e)
         {
-            Debug.Assert(this._entities.ContainsKey(type));
-            this._entities[type].Add(e);
+            Debug.Assert(this.Entities.ContainsKey(type));
+            return this.Entities[type].Add(e);
         }
 
+        /// <summary>
+        /// Tries to remove an entity from the map.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Entity Remove(Entity.Type type, Guid id)
         {
-            return this._entities[type].Remove(id);
+            return this.Entities[type].Remove(id);
         }
 
+        /// <summary>
+        /// Returns if there is an entity with a <see cref="Guid"/> under a specific <see cref="Entity.Type"/>.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="entityGuid"></param>
+        /// <returns></returns>
         public bool ContainsKey(Entity.Type type, Guid entityGuid)
         {
-            return this._entities[type].ContainsKey(entityGuid);
+            return this.Entities[type].ContainsKey(entityGuid);
         }
 
+        /// <summary>
+        /// Tries to get an entity under a <see cref="Entity.Type"/> with a specific <see cref="Guid"/>.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="e"></param>
+        /// <returns></returns>
         public bool TryGetValue(Entity.Type type, Guid id, out Entity e)
         {
             e = null;
             EntitySet set;
-            return this._entities.TryGetValue(type, out set) && set.TryGetValue(id, out e);
+            return this.Entities.TryGetValue(type, out set) && set.TryGetValue(id, out e);
         }
 
         /* TODO: Add event for spawning/destroying entities

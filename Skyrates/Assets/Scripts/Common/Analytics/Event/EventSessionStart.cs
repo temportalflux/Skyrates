@@ -8,7 +8,7 @@ public class EventSessionStart : EventDateTime
 
     public EventSessionStart() : base(EnumAnalyticEvent.SessionStart)
     {
-        this[EnumAnalyticParam.Version] = Analytics.Instance.Version.getSemantic();
+        this[EnumAnalyticParam.Version] = Analytics.Instance.Version.GetSemantic();
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Skyrates.Client.Ship;
+using UnityEditor;
 
 using ComponentType = ShipData.ComponentType;
 

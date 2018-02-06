@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -299,11 +301,8 @@
     <Compile Include="Assets\Scripts\_Client\Input\InputSet.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputUnity.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputXbox.cs" />
-    <Compile Include="Assets\Scripts\Client\AI\AITarget.cs" />
-    <Compile Include="Assets\Scripts\Client\AI\ForceLerp.cs" />
     <Compile Include="Assets\Scripts\Client\Component\OutOfWorldBoundary.cs" />
     <Compile Include="Assets\Scripts\Client\Component\SelfDestruct.cs" />
-    <Compile Include="Assets\Scripts\Client\Data\SceneData.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityReceiver.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Player.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Projectile.cs" />
@@ -315,6 +314,7 @@
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeAccept.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeJoin.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestSetPlayerPhysics.cs" />
+    <Compile Include="Assets\Scripts\Client\Scene\SceneData.cs" />
     <Compile Include="Assets\Scripts\Client\Scene\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Assets\ShipBuilder.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Assets\ShipComponentList.cs" />
@@ -330,6 +330,10 @@
     <Compile Include="Assets\Scripts\Client\UI\UpdateVersion.cs" />
     <Compile Include="Assets\Scripts\Client\Util\Singleton.cs" />
     <Compile Include="Assets\Scripts\Client\World\Generator.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Old\AITarget.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Basic\Seek.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Old\ForceLerp.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Steering.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Analytics.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Event\AnalyticEvent.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Event\EventDateTime.cs" />
@@ -360,8 +364,7 @@
     <Compile Include="Assets\Scripts\Common\Util\NetworkEventAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\PrefabList.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Side.cs" />
-    <Compile Include="Assets\Scripts\Server\AI\Steering.cs" />
-    <Compile Include="Assets\Scripts\Server\Entity\EntityOwner.cs" />
+    <Compile Include="Assets\Scripts\Server\Entity\EntityDispatcher.cs" />
     <Compile Include="Assets\Scripts\Server\GameState\GameState.cs" />
     <Compile Include="Assets\Scripts\Server\GameState\GameStateData.cs" />
     <Compile Include="Assets\Scripts\Server\Network\ClientServer.cs" />

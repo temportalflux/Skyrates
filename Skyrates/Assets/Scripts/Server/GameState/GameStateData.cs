@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;

@@ -5,20 +5,33 @@ using Skyrates.Common.Network;
 namespace Skyrates.Common.Network.Event
 {
 
+    /// <summary>
+    /// Any packet/message/event which is sent over the network.
+    /// </summary>
     public abstract class NetworkEvent
     {
 
+        /// <summary>
+        /// The identifier of this event.
+        /// Will always line up with something in <see cref="NetworkEventID"/>.
+        /// </summary>
         [BitSerialize]
-        public byte eventID;
+        public byte EventId;
 
-        public string sourceAddress;
+        /// <summary>
+        /// The is the IP address of the source, usually IPv4.
+        /// </summary>
+        public string SourceAddress;
 
-        public float transmitTime;
+        /// <summary>
+        /// How long it took to transmit this packet from dispatcher to receiver in ms.
+        /// </summary>
+        public float TransmitTime;
 
         // Dispatch
         protected NetworkEvent(NetworkEventID id)
         {
-            this.eventID = (byte)id;
+            this.EventId = (byte)id;
         }
 
         // Deserialize

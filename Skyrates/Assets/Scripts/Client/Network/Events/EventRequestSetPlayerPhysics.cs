@@ -1,4 +1,5 @@
-﻿using Skyrates.Common.Network;
+﻿using Skyrates.Common.AI;
+using Skyrates.Common.Network;
 using Skyrates.Common.Network.Event;
 
 namespace Skyrates.Client.Network.Event

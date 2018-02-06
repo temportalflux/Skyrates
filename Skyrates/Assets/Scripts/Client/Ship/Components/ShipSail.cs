@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Skyrates.Client.Ship
+{
 public class ShipSail : ShipComponent
 {
+
+    }
 
 }

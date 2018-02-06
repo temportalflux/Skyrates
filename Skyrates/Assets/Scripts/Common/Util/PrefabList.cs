@@ -41,9 +41,20 @@ namespace Skyrates.Client.Util
             this.KeyValueTypes = keyTypes;
         }
 
-        public abstract object GetKeyFrom(int index);
+        /// <summary>
+        /// Returns the key as an integer (good for serialization).
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public abstract int GetIndexFrom(object key);
 
+        /// <summary>
+        /// Returns an integer as a user readable key (usually enum).
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public abstract object GetKeyFrom(int index);
+        
         public bool TryGetValue<TKey, TValue>(TKey key, int prefabIndex, out TValue prefab) where TValue : MonoBehaviour
         {
             int keyIndex = this.GetIndexFrom(key);

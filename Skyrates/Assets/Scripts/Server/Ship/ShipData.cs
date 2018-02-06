@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Ship;
 using Skyrates.Common.Network;
 using UnityEngine;
 
+/// <summary>
+/// Data object used to send ship rig data over the network (and for tool usage in editor).
+/// Stores references to components as integers for lookup in <see cref="ShipComponentList"/>.
+/// </summary>
+[Serializable]
 public class ShipData
 {
 
@@ -32,13 +38,25 @@ public class ShipData
         typeof(ShipSail),
     };
 
-    [BitSerialize()]
+    [BitSerialize(0)]
+    [SerializeField]
     public int[] Components = new int[ComponentTypes.Length];
 
     public int this[ComponentType key]
     {
-        get { return this.Components[(int) key]; }
-        set { this.Components[(int) key] = value; }
+        get { return this.Components[(int)key]; }
+        set { this.Components[(int)key] = value; }
+    }
+
+    /// <summary>
+    /// Return the ship component for the selected category.
+    /// </summary>
+    /// <param name="list">The <see cref="ShipComponentList"/> reference.</param>
+    /// <param name="type">The type of component requested.</param>
+    /// <returns></returns>
+    public ShipComponent GetShipComponent(ShipComponentList list, ComponentType type)
+    {
+        return list.GetRawComponent(type, this[type]);
     }
 
 }

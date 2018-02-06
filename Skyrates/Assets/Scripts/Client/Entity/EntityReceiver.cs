@@ -8,11 +8,19 @@ using UnityEngine;
 namespace Skyrates.Common.Entity
 {
 
+    /// <inheritdoc />
+    /// <summary>
+    /// Implementation of <see cref="T:Skyrates.Common.Entity.EntityTracker" /> to handle deserializing entities.
+    /// </summary>
     public class EntityReceiver : EntityTracker
     {
 
+        /// <summary>
+        /// The total number of bytes used during <see cref="Deserialize"/>.
+        /// </summary>
         private int _totalBytes;
 
+        /// <inheritdoc />
         public override int GetSize()
         {
             return this._totalBytes;
@@ -20,7 +28,7 @@ namespace Skyrates.Common.Entity
         
         /// <inheritdoc />
         /// <summary>
-        /// Paired with <see cref="EntityOwner.GenerateData"/>.
+        /// Paired with <see cref="EntityDispatcher.GenerateData"/>.
         /// </summary>
         public override void Deserialize(byte[] data, ref int lastIndex)
         {
@@ -44,7 +52,7 @@ namespace Skyrates.Common.Entity
 
                 // BEFORE:
                 // Make a list of all GUIDs
-                List<Guid> dirtyEntities = new List<Guid>(this._entities[type]._entities.Keys);
+                List<Guid> dirtyEntities = new List<Guid>(this.Entities[type].Entities.Keys);
 
                 int entityCount = (int) BitSerializeAttribute.Deserialize(0, data, ref lastIndex);
 
@@ -56,15 +64,15 @@ namespace Skyrates.Common.Entity
                     // NOT CHANGING LAST INDEX (entities need the data of their entity guid)
 
                     // if that entity is already being tracked
-                    if (this._entities[type].ContainsKey(entityGuid))
+                    if (this.Entities[type].ContainsKey(entityGuid))
                     {
                         // Remove a guid from dirtyEntities when it is encountered
                         dirtyEntities.Remove(entityGuid);
 
                         // deserialize into that entity (and then call integrate)
-                        Entity entity = this._entities[type]._entities[entityGuid];
+                        Entity entity = this.Entities[type].Entities[entityGuid];
                         entity = (Entity)BitSerializeAttribute.Deserialize(entity, data, ref lastIndex);
-                        this._entities[type]._entities[entityGuid] = entity;
+                        this.Entities[type].Entities[entityGuid] = entity;
                         entity.OnDeserializeSuccess();
 
                     }

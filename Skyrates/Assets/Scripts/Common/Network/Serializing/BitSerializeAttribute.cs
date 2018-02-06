@@ -354,6 +354,19 @@ namespace Skyrates.Common.Network
                         }),
                 }
             },
+            // Quaternion
+            {
+                typeof(Quaternion), new SerializationModule<Quaternion>
+                {
+                    _GetSize = new Func<Quaternion, int>((Quaternion valueA) => { return 3 * sizeof(Single); }),
+                    _Serialize = new Func<Quaternion, byte[], int, byte[]>((Quaternion valueB, byte[] data, int start) =>
+                        MODULES[typeof(Vector3)].Serialize(valueB.eulerAngles, data, start)),
+                    _Deserialize = new Func<Quaternion, byte[], int, Type, Quaternion>(
+                        (Quaternion obj, byte[] data, int start, Type type) =>
+                        Quaternion.Euler((Vector3)MODULES[typeof(Vector3)]
+                            .Deserialize(Vector3.zero, data, start, typeof(Vector3)))),
+                }
+            },
             // Color
             {
                 typeof(Color), new SerializationModule<Color>

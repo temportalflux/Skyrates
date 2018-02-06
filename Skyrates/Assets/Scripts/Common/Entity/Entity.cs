@@ -23,6 +23,9 @@ namespace Skyrates.Common.Entity
 
     }
 
+    /// <summary>
+    /// Any entity that in the world. Used predominantly for its ability to be syncced via networking.
+    /// </summary>
     public class Entity : MonoBehaviour
     {
 
@@ -55,6 +58,10 @@ namespace Skyrates.Common.Entity
         [SerializeField]
         public TypeData TypeData;
 
+        // TODO: Fire an event when entities are created (via editor OR via script)
+        // TODO: Fire an event when entities are destroyed
+        // TODO: Respond to these events by editting EntityTracker IF HOST OR NOT NETWORKED
+        
         #region Guid
 
         public static Guid NewGuid()

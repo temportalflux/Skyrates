@@ -59,7 +59,7 @@ namespace Skyrates.Server.Network
 
             this._clientList = new ClientList(session.MaxClients);
             this._secondsPerUpdate = session.ServerTickUpdate;
-            this.EntityTracker = new EntityOwner();
+            this.EntityTracker = new EntityDispatcher();
 
             this.StartCoroutine(this.DispatchGameState());
         }
@@ -73,10 +73,10 @@ namespace Skyrates.Server.Network
         public void OnHandshakeJoin(NetworkEvent evt)
         {
             uint clientID;
-            if (!this._clientList.TryAdd(evt.sourceAddress, out clientID))
+            if (!this._clientList.TryAdd(evt.SourceAddress, out clientID))
             {
                 Debug.Log("ERROR: Server is full, but another user has connected - disconnecting new user");
-                this.Dispatch(new EventDisconnect(), evt.sourceAddress);
+                this.Dispatch(new EventDisconnect(), evt.SourceAddress);
                 return;
             }
 
@@ -84,7 +84,7 @@ namespace Skyrates.Server.Network
 
             // TODO: Create client entry in gamestate
             
-            this.Dispatch(new EventHandshakeClientID(clientID), evt.sourceAddress);
+            this.Dispatch(new EventHandshakeClientID(clientID), evt.SourceAddress);
         }
 
         /// <summary>

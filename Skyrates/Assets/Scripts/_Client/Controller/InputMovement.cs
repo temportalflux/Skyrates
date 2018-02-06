@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Client.Network.Event;
+using Skyrates.Common.AI;
 using Skyrates.Common.Network;
 using UnityEngine;
 using UnityEngine.Events;
@@ -115,10 +116,10 @@ public class InputMovement : MonoBehaviour
 
         Vector3 movementXYZ = movementXZ + movementVertical;
 
-        physicsData.VelocityLinear = movementXYZ;
+        physicsData.LinearVelocity = movementXYZ;
 
         // for ship movement
-        physicsData.VelocityRotationEuler = new Vector3(0.0f, input.Strafe, 0.0f);
+        physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, input.Strafe, 0.0f));
 
         if (movementXYZ.sqrMagnitude > 0)
         {
@@ -138,15 +139,15 @@ public class InputMovement : MonoBehaviour
 
     public void ApplyPhysics(ref PhysicsData physicsData)
     {
-        physicsData.PositionLinear = this.transform.position;
-        physicsData.PositionRotational = this.render.rotation.eulerAngles;
+        physicsData.LinearPosition = this.transform.position;
+        physicsData.RotationPosition = this.render.rotation;
 
-        this.physics.velocity = physicsData.VelocityLinear;
-        this.render.Rotate(physicsData.VelocityRotationEuler, Space.World);
+        this.physics.velocity = physicsData.LinearVelocity;
+        this.render.Rotate(physicsData.RotationVelocity.eulerAngles, Space.World);
 
         bool moved = false;
-        moved = moved || physicsData.VelocityLinear.sqrMagnitude > 0;
-        moved = moved || physicsData.VelocityRotationEuler.sqrMagnitude > 0;
+        moved = moved || physicsData.LinearVelocity.sqrMagnitude > 0;
+        moved = moved || physicsData.RotationVelocity.eulerAngles.sqrMagnitude > 0;
 
         if (moved)
         {
