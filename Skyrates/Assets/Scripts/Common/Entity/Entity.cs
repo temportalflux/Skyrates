@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -27,8 +25,8 @@ namespace Skyrates.Common.Entity
         /// A unique identifier for this entity
         /// </summary>
         [BitSerialize(0)]
-        private Guid _guid;
-
+        public Guid Guid;
+        
         #region Guid
 
         public static Guid NewGuid()
@@ -38,7 +36,7 @@ namespace Skyrates.Common.Entity
 
         public void Init(Guid guid)
         {
-            this._guid = guid;
+            this.Guid = guid;
         }
 
         public void Init()
@@ -46,18 +44,13 @@ namespace Skyrates.Common.Entity
             this.Init(NewGuid());
         }
 
-        public Guid GetGuid()
-        {
-            return this._guid;
-        }
-
         #endregion
 
-        [Deprecated]
-        public virtual void IntegratePhysics(PhysicsData physics)
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void IntegratePhysics()
         {
-            this.transform.SetPositionAndRotation(physics.PositionLinear,
-                Quaternion.Euler(physics.VelocityRotationEuler));
         }
 
     }

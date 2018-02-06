@@ -20,7 +20,7 @@ namespace Skyrates.Common.Entity
 
         public void Add(Entity e)
         {
-            this._entities.Add(e.GetGuid(), e);
+            this._entities.Add(e.Guid, e);
         }
 
         public Entity Remove(Guid id)
