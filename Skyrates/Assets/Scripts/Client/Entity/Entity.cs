@@ -3,35 +3,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+namespace Skyrates.Common.Entity
 {
 
-    // A unique identifier for this entity
-    private Guid guid;
-
-    public static Guid NewGuid()
+    public class Entity : MonoBehaviour
     {
-        return Guid.NewGuid();
-    }
 
-    public void Init(Guid guid)
-    {
-        this.guid = guid;
-    }
+        public enum EntityType
+        {
+            Static,
+            Dynamic,
+            Player,
+        }
 
-    public void Init()
-    {
-        this.Init(NewGuid());
-    }
+        public static readonly EntityType[] TYPES = new[] {EntityType.Static, EntityType.Dynamic, EntityType.Player};
 
-    public Guid GetGuid()
-    {
-        return this.guid;
-    }
+        // A unique identifier for this entity
+        private Guid guid;
 
-    public virtual void IntegratePhysics(PhysicsData physics)
-    {
-        this.transform.SetPositionAndRotation(physics.PositionLinear, Quaternion.Euler(physics.VelocityRotationEuler));
+        public static Guid NewGuid()
+        {
+            return Guid.NewGuid();
+        }
+
+        public void Init(Guid guid)
+        {
+            this.guid = guid;
+        }
+
+        public void Init()
+        {
+            this.Init(NewGuid());
+        }
+
+        public Guid GetGuid()
+        {
+            return this.guid;
+        }
+
+        public virtual void IntegratePhysics(PhysicsData physics)
+        {
+            this.transform.SetPositionAndRotation(physics.PositionLinear,
+                Quaternion.Euler(physics.VelocityRotationEuler));
+        }
+
     }
 
 }
