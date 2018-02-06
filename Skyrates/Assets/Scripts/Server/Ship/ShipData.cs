@@ -9,27 +9,27 @@ public class ShipData
 
     public enum ComponentType
     {
-        Hull, Propulsion, Artillery, Sail, Figurehead, Navigation,
+        Artillery, Figurehead, Hull, Navigation, Propulsion, Sail, 
     }
 
-    public static readonly ComponentType[] ComponentTypes =
+    public static readonly object[] ComponentTypes =
     {
-        ComponentType.Hull,
-        ComponentType.Propulsion,
         ComponentType.Artillery,
-        ComponentType.Sail,
         ComponentType.Figurehead,
+        ComponentType.Hull,
         ComponentType.Navigation,
+        ComponentType.Propulsion,
+        ComponentType.Sail,
     };
 
     public static readonly Type[] ComponentClassTypes =
     {
-        typeof(ShipHull),
-        typeof(ShipPropulsion),
         typeof(ShipArtillery),
-        typeof(ShipSail),
         typeof(ShipFigurehead),
+        typeof(ShipHull),
         typeof(ShipNavigation),
+        typeof(ShipPropulsion),
+        typeof(ShipSail),
     };
 
     [BitSerialize()]

@@ -6,7 +6,7 @@ using System.Runtime.Remoting;
 using Skyrates.Common.Network;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "data/Game State")]
+[CreateAssetMenu(menuName = "Data/Game State")]
 public partial class GameState : ScriptableObject
 {
     
@@ -122,7 +122,7 @@ public partial class GameState : ScriptableObject
         // Outgoing
         else if (next == null)
         {
-            EntityTracker.Destroy(previous);
+            // TODO: EntityTracker.Destroy(previous);
         }
         // Stayed
         else

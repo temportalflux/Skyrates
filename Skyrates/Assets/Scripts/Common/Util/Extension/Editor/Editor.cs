@@ -10,7 +10,7 @@ using Object = UnityEngine.Object;
 public static partial class ExtensionMethods
 {
 #if UNITY_EDITOR
-    public static void ScriptField(this Editor editor, ScriptableObject obj)
+    public static void DrawScriptField(this Editor editor, ScriptableObject obj)
     {
         // Draw script line
         GUI.enabled = false;
@@ -22,7 +22,7 @@ public static partial class ExtensionMethods
         GUI.enabled = true;
     }
 
-    public static void ScriptField(this Editor editor, MonoBehaviour obj)
+    public static void DrawScriptField(this Editor editor, MonoBehaviour obj)
     {
         // Draw script line
         GUI.enabled = false;

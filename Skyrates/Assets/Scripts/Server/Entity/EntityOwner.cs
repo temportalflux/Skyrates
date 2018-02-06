@@ -26,11 +26,11 @@ namespace Skyrates.Common.Entity
             // Cache to hold all bytes to be combined later
             Queue<byte[]> bytes = new Queue<byte[]>();
 
-            byte[] dataTypes = BitSerializeAttribute.Serialize(Entity.TYPES.Length);
+            byte[] dataTypes = BitSerializeAttribute.Serialize(Entity.AllTypes.Length);
             totalBytes += dataTypes.Length;
             bytes.Enqueue(dataTypes);
 
-            foreach (Entity.EntityType type in Entity.TYPES)
+            foreach (Entity.Type type in Entity.AllTypes)
             {
                 EntitySet set = this._entities[type];
 

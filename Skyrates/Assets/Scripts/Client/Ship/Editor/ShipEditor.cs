@@ -6,11 +6,11 @@ using UnityEngine;
 [CustomEditor(typeof(Ship))]
 public class ShipEditor : Editor
 {
-    private Ship instance;
+    private Ship _instance;
 
     public void OnEnable()
     {
-        this.instance = this.target as Ship;
+        this._instance = this.target as Ship;
     }
 
     public override void OnInspectorGUI()
@@ -19,11 +19,11 @@ public class ShipEditor : Editor
         
         if (GUILayout.Button("Build"))
         {
-            this.instance.Destroy();
-            this.instance.Generate();
+            this._instance.Destroy();
+            this._instance.Generate();
         }
 
-        EditorUtility.SetDirty(this.instance);
+        EditorUtility.SetDirty(this._instance);
 
     }
     

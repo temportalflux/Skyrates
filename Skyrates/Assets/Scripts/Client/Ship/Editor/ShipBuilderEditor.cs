@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -33,7 +34,14 @@ public class ShipBuilderEditor : Editor
 
             if (instance.shipComponentList != null)
             {
-                instance.shipData[compType] = EditorGUILayout.Popup(instance.shipData[compType], instance.shipComponentList.GetNames(compType));
+                string[] names = instance.shipComponentList.GetNames(compType);
+                List<string> namesWithNil = new List<string>();
+                namesWithNil.Add("None");
+                namesWithNil.AddRange(names);
+                instance.shipData[compType] = EditorGUILayout.Popup(
+                    instance.shipData[compType] + 1,
+                    namesWithNil.ToArray()
+                ) - 1;
             }
             else
             {

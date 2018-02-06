@@ -5,7 +5,7 @@ using UnityEngine;
 
 using ComponentType = ShipData.ComponentType;
 
-[CreateAssetMenu(menuName = "Stats/Ship Builder")]
+[CreateAssetMenu(menuName = "Data/Ship/Builder")]
 public partial class ShipBuilder : ScriptableObject
 {
     public ShipComponentList shipComponentList;
@@ -59,8 +59,7 @@ public partial class ShipBuilder : ScriptableObject
 
     public ShipComponent GetShipComponent(ComponentType type, ShipData data)
     {
-        ShipComponent comp = this.shipComponentList.GetRawComponent(type, data[ComponentType.Navigation]);
-        return comp;
+        return this.shipComponentList.GetRawComponent(type, data[type]);
     }
 
     /// <summary>
@@ -82,15 +81,19 @@ public partial class ShipBuilder : ScriptableObject
         {
             if (compType == ComponentType.Hull) continue;
 
-            GameObject prefab = this.GetShipComponent(compType, data).gameObject;
-
-            Transform[] targets = hullBuilt.GetRoots(compType);
-
-            for(int iTarget = 0; iTarget < targets.Length; iTarget++)
+            ShipComponent component = this.GetShipComponent(compType, data);
+            if (component != null)
             {
-                Transform target = targets[iTarget];
-                GameObject built = Instantiate(prefab, target.position, target.rotation, root);
-                hullBuilt.AddShipComponent(compType, iTarget, built.GetComponent<ShipComponent>());
+                GameObject prefab = component.gameObject;
+
+                Transform[] targets = hullBuilt.GetRoots(compType);
+
+                for (int iTarget = 0; iTarget < targets.Length; iTarget++)
+                {
+                    Transform target = targets[iTarget];
+                    GameObject built = Instantiate(prefab, target.position, target.rotation, root);
+                    hullBuilt.AddShipComponent(compType, iTarget, built.GetComponent<ShipComponent>());
+                }
             }
             
         }

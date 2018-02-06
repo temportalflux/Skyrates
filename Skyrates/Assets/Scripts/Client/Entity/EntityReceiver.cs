@@ -40,7 +40,7 @@ namespace Skyrates.Common.Entity
             // Look through entity set data:
             for (int iType = 0; iType < entityTypes; iType++)
             {
-                Entity.EntityType type = Entity.TYPES[iType];
+                Entity.Type type = Entity.AllTypes[iType];
 
                 // BEFORE:
                 // Make a list of all GUIDs

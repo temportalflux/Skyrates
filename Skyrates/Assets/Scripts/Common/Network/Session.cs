@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Skyrates.Common.Network
 {
 
-    [CreateAssetMenu(menuName = "data/Session")]
+    [CreateAssetMenu(menuName = "Data/Session")]
     public class Session : ScriptableObject
     {
 

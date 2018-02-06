@@ -21,7 +21,7 @@ public class HullTargetEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        this.ScriptField(this.instance);
+        this.DrawScriptField(this.instance);
 
         ShipHull.HullTargets targets = this.instance.targets;
         {

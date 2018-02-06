@@ -8,11 +8,11 @@ namespace Skyrates.Common.Entity
     public class EntitySet
     {
         
-        public Entity.EntityType _key;
+        public Entity.Type _key;
         
         public readonly Dictionary<Guid, Entity> _entities;
 
-        public EntitySet(Entity.EntityType type)
+        public EntitySet(Entity.Type type)
         {
             this._key = type;
             this._entities = new Dictionary<Guid, Entity>();
@@ -58,33 +58,33 @@ namespace Skyrates.Common.Entity
     public class EntityTracker : ISerializing
     {
         
-        public readonly Dictionary<Entity.EntityType, EntitySet> _entities = new Dictionary<Entity.EntityType, EntitySet>();
+        public readonly Dictionary<Entity.Type, EntitySet> _entities = new Dictionary<Entity.Type, EntitySet>();
 
         void Awake()
         {
-            foreach (Entity.EntityType type in Entity.TYPES)
+            foreach (Entity.Type type in Entity.AllTypes)
             {
                 this._entities.Add(type, new EntitySet(type));
             }
         }
 
-        public void Add(Entity.EntityType type, Entity e)
+        public void Add(Entity.Type type, Entity e)
         {
             Debug.Assert(this._entities.ContainsKey(type));
             this._entities[type].Add(e);
         }
 
-        public Entity Remove(Entity.EntityType type, Guid id)
+        public Entity Remove(Entity.Type type, Guid id)
         {
             return this._entities[type].Remove(id);
         }
 
-        public bool ContainsKey(Entity.EntityType type, Guid entityGuid)
+        public bool ContainsKey(Entity.Type type, Guid entityGuid)
         {
             return this._entities[type].ContainsKey(entityGuid);
         }
 
-        public bool TryGetValue(Entity.EntityType type, Guid id, out Entity e)
+        public bool TryGetValue(Entity.Type type, Guid id, out Entity e)
         {
             e = null;
             EntitySet set;
@@ -164,7 +164,7 @@ namespace Skyrates.Common.Entity
         /// <summary>
         /// A missing entity was encountered via deserialization and needs to be spawned
         /// </summary>
-        public void SpawnEntity(Entity.EntityType type, Guid guid)
+        public void SpawnEntity(Entity.Type type, Guid guid)
         {
             // TODO: Spawn the entity
         }

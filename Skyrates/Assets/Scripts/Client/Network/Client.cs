@@ -110,7 +110,7 @@ namespace Skyrates.Client.Network
             {
                 EventUpdateGameState eventUpdate = evt as EventUpdateGameState;
                 UnityEngine.Debug.Assert(eventUpdate != null, "eventUpdate != null");
-                NetworkComponent.GetGameState.Integrate(eventUpdate.ServerState, eventUpdate.transmitTime);
+                // TODO: NetworkComponent.GetGameState.Integrate(eventUpdate.ServerState, eventUpdate.transmitTime);
             }
         }
 

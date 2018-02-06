@@ -1,61 +1,37 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Util;
 using UnityEngine;
 
 using ComponentType = ShipData.ComponentType;
 
-[CreateAssetMenu(menuName = "Stats/Ship Component List")]
-public class ShipComponentList : ScriptableObject
+[CreateAssetMenu(menuName = "Data/Ship/List: Components")]
+public class ShipComponentList : PrefabList
 {
 
-    [Serializable]
-    public struct ComponentList
+    void OnEnable()
     {
-        public ShipComponent[] components;
+        this.Setup(ShipData.ComponentTypes, ShipData.ComponentClassTypes);
     }
 
-    /// <summary>
-    /// An array keyed by <see cref="ComponentType"/> where values are arrays of ShipComponents.
-    /// </summary>
-    public ComponentList[] components = new ComponentList[ShipData.ComponentTypes.Length];
-
-    public bool[] editor_showComponentArray;
-
-    /// <summary>
-    /// The list of names for an array of components keyed by <see cref="ComponentType"/>.
-    /// Generated from <see cref="components"/>.
-    /// </summary>
-    private string[][] componentNames;
-
-    private void OnEnable()
+    /// <inheritdoc />
+    public override object GetKeyFrom(int index)
     {
-        this.GenerateNames();
+        return (ComponentType) index;
     }
 
-    public void GenerateNames()
+    /// <inheritdoc />
+    public override int GetIndexFrom(object key)
     {
-        this.componentNames = new string[ShipData.ComponentTypes.Length][];
-        foreach (ComponentType compType in ShipData.ComponentTypes)
-        {
-            ComponentList componentArray = this.components[(int) compType];
-            this.componentNames[(int)compType] = new string[componentArray.components.Length];
-            for (int iComponent = 0; iComponent < componentArray.components.Length; iComponent++)
-            {
-                ShipComponent comp = this.components[(int) compType].components[iComponent];
-                this.componentNames[(int) compType][iComponent] = comp != null ? comp.name : "Null " + iComponent;
-            }
-        }
+        return (int) key;
     }
-
-    public string[] GetNames(ComponentType compType)
-    {
-        return this.componentNames == null ? new string[0] : this.componentNames[(int) compType];
-    }
-
+    
     public ShipComponent GetRawComponent(ComponentType compType, int index)
     {
-        return this.components[(int) compType].components[index];
+        ShipComponent component = null;
+        this.TryGetValue(compType, index, out component);
+        return component;
     }
 
     public T GetComponent<T>(ComponentType compType, int index) where T : ShipComponent

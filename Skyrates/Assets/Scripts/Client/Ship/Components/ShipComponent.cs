@@ -5,9 +5,4 @@ using UnityEngine;
 
 public class ShipComponent : MonoBehaviour
 {
-
-    private Guid networkID;
-
-
-
 }

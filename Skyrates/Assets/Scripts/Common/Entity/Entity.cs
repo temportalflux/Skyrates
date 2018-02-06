@@ -9,16 +9,21 @@ namespace Skyrates.Common.Entity
     {
 
         #region Static
-    
-        public enum EntityType
+
+        public enum Type
         {
+            // LISTABLES MUST COME FIRST
             Static,
             Dynamic,
+
+            // Then others...
             Player,
         }
 
-        public static readonly EntityType[] TYPES = new[] { EntityType.Static, EntityType.Dynamic, EntityType.Player };
-
+        public static readonly Type[] AllTypes = { Type.Static, Type.Dynamic, Type.Player };
+        public static readonly object[] ListableTypes = { Type.Static, Type.Dynamic };
+        public static readonly System.Type[] ListableClassTypes = { typeof(Entity), typeof(EntityDynamic) };
+        
         #endregion
 
         /// <summary>

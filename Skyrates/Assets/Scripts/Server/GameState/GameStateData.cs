@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -47,19 +48,23 @@ public class GameStateData : ISerializing
             {
                 Debug.Log("Found valid player guid");
                 this.playerEntityGuid = serverState.playerEntityGuid;
+                /* TODO
                 if (!EntityTracker.Contains(this.playerEntityGuid))
                 {
                     EntityTracker.Spawn(this);
                 }
+                //*/
             }
             else
             {
                 this.physics = serverState.physics;
                 Entity e;
+                /* TODO
                 if (EntityTracker.TryGetValue(this.playerEntityGuid, out e))
                 {
                     e.IntegratePhysics(this.physics);
                 }
+                //*/
             }
 
             this.lootCount = serverState.lootCount;
