@@ -36,8 +36,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4986014796683882}
   - component: {fileID: 54642449414566752}
-  - component: {fileID: 114956092729709676}
   - component: {fileID: 114365753191355872}
+  - component: {fileID: 114956092729709676}
   m_Layer: 0
   m_Name: Player-Root
   m_TagString: Player
@@ -278,6 +278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ComponentRoot: {fileID: 4717130946942272}
   Blueprint: {fileID: 11400000, guid: 78e837ba4dbe551488ff0d8ad964477b, type: 2}
+  ShipData:
+    Components: 000000000000000000000000000000000000000000000000
   Hull: {fileID: 0}
 --- !u!114 &114242816756184236
 MonoBehaviour:
@@ -359,7 +361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e665f01fc0c4e92b61de41bdab46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1971021690887574}
+  TypeData:
+    EntityType: 1
+    EntityTypeIndex: 0
+  Steering: {fileID: 0}
   ShipRoot: {fileID: 114167662047460524}
 --- !u!114 &114996241618102304
 MonoBehaviour:

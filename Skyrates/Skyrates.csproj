@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -330,8 +328,8 @@
     <Compile Include="Assets\Scripts\Client\UI\UpdateVersion.cs" />
     <Compile Include="Assets\Scripts\Client\Util\Singleton.cs" />
     <Compile Include="Assets\Scripts\Client\World\Generator.cs" />
-    <Compile Include="Assets\Scripts\Common\AI\Old\AITarget.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Basic\Seek.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Old\AITarget.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Old\ForceLerp.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Analytics.cs" />
@@ -358,12 +356,12 @@
     <Compile Include="Assets\Scripts\Common\Network\Serializing\BitTest2.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Serializing\ISerializing.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Session.cs" />
+    <Compile Include="Assets\Scripts\Common\Network\Side.cs" />
     <Compile Include="Assets\Scripts\Common\Network\SideOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\DeprecatedAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Extension\Vector3.cs" />
     <Compile Include="Assets\Scripts\Common\Util\NetworkEventAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\PrefabList.cs" />
-    <Compile Include="Assets\Scripts\Common\Util\Side.cs" />
     <Compile Include="Assets\Scripts\Server\Entity\EntityDispatcher.cs" />
     <Compile Include="Assets\Scripts\Server\GameState\GameState.cs" />
     <Compile Include="Assets\Scripts\Server\GameState\GameStateData.cs" />

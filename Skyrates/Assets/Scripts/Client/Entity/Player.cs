@@ -3,7 +3,7 @@ using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
 
 // TODO: Remove
-public class Player : Entity
+public class Player : EntityDynamic
 {
 
     public Ship ShipRoot;
