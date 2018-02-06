@@ -46,6 +46,8 @@ namespace Skyrates.Common.Entity
 
         #endregion
 
+        #region Network
+
         /// <summary>
         /// Called by <see cref="EntityReceiver.Deserialize"/> when the entity's data was successfully deserialized into it.
         /// </summary>
@@ -62,6 +64,8 @@ namespace Skyrates.Common.Entity
             Destroy(this.gameObject);
         }
 
+        #endregion
+        
     }
 
 }

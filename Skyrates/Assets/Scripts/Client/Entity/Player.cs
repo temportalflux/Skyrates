@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Entity;
 using UnityEngine;
 
 public class Player : Entity
@@ -28,8 +29,9 @@ public class Player : Entity
         this.controller.SetActive(this.isLocallyControlled);
     }
 
-    public override void IntegratePhysics(PhysicsData physics)
+    public void IntegratePhysics(PhysicsData physics)
     {
+        // TODO: Move this to a steering?
         if (!this.isLocallyControlled)
         {
             this.transform.position = physics.PositionLinear;

@@ -11,8 +11,9 @@ namespace Skyrates.Common.Entity
         public PhysicsData Physics;
 
         /// <inheritdoc />
-        public override void IntegratePhysics()
+        public void IntegratePhysics()
         {
+            // TODO: Use this after steering does its thing
             this.transform.SetPositionAndRotation(
                 this.Physics.PositionLinear,
                 Quaternion.Euler(this.Physics.VelocityRotationEuler)
