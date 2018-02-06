@@ -140,8 +140,7 @@ namespace Skyrates.Server.Network
         {
             while (true)
             {
-                // TODO: Dispatch valid gamestate
-                //this.Dispatch(new EventUpdateGameState(), true);
+                //this.DispatchAll(new EventUpdateGameState());
                 yield return new WaitForSeconds(this._secondsPerUpdate);
             }
         }

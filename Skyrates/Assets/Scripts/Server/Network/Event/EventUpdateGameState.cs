@@ -74,7 +74,6 @@ namespace Skyrates.Server.Network.Event
             // Entities
             EntityTracker tracker = NetworkComponent.GetNetwork().GetEntityTracker();
             tracker.Deserialize(data, ref lastIndex);
-
         }
 
     }

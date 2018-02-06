@@ -24,7 +24,6 @@ namespace Skyrates.Client.Network
             NetworkEvents.ConnectionRejected += this.OnConnectionRejected;
             NetworkEvents.Disconnect += this.OnDisconnect;
             NetworkEvents.HandshakeClientID += this.OnHandshakeClientID;
-            NetworkEvents.UpdateGamestate += this.OnUpdateGameState;
         }
 
         /// <inheritdoc />
@@ -35,7 +34,6 @@ namespace Skyrates.Client.Network
             NetworkEvents.ConnectionRejected -= this.OnConnectionRejected;
             NetworkEvents.Disconnect -= this.OnDisconnect;
             NetworkEvents.HandshakeClientID -= this.OnHandshakeClientID;
-            NetworkEvents.UpdateGamestate -= this.OnUpdateGameState;
         }
 
         /// <inheritdoc />
@@ -99,21 +97,6 @@ namespace Skyrates.Client.Network
             // TODO: Decouple via events
             SceneLoader.Instance.ActivateNext();
         }
-
-        /// <summary>
-        /// Receives <see cref="EventUpdateGameState"/>.
-        /// Processes/Integrates server gamestate.
-        /// </summary>
-        /// <param name="evt"><see cref="EventUpdateGameState"/></param>
-        public void OnUpdateGameState(NetworkEvent evt)
-        {
-            if (NetworkComponent.GetSession.HandshakeComplete)
-            {
-                EventUpdateGameState eventUpdate = evt as EventUpdateGameState;
-                UnityEngine.Debug.Assert(eventUpdate != null, "eventUpdate != null");
-                // TODO: NetworkComponent.GetGameState.Integrate(eventUpdate.ServerState, eventUpdate.transmitTime);
-            }
-        }
-
+        
     }
 }
