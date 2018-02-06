@@ -10,7 +10,7 @@ namespace Skyrates.Client.Network
 {
 
     /// <summary>
-    /// Base class implementation for all Clients.
+    /// Base class implementation for all ClientsData.
     /// </summary>
     /// <inheritdoc/>
     public class Client : NetworkCommon
@@ -86,14 +86,15 @@ namespace Skyrates.Client.Network
             EventHandshakeClientID evtClientId = evt as EventHandshakeClientID;
             UnityEngine.Debug.Assert(evtClientId != null, "evtClientId != null");
 
-            UnityEngine.Debug.Log("Client got id " + evtClientId.clientID);
+            UnityEngine.Debug.Log("ClientData got id " + evtClientId.client.ClientId);
 
             // Set the client ID
-            NetworkComponent.GetSession.SetClientID(evtClientId.clientID);
+            NetworkComponent.GetSession.SetClientData(evtClientId.client);
+
             // Mark the client as connected to the server (it can now process updates)
             NetworkComponent.GetSession.HandshakeComplete = true;
 
-            this.Dispatch(new EventHandshakeAccept(evtClientId.clientID, Entity.NewGuid()));
+            this.Dispatch(new EventHandshakeAccept(evtClientId.client.ClientId, Entity.NewGuid()));
 
             // TODO: Decouple via events
             SceneLoader.Instance.ActivateNext();

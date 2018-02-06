@@ -24,7 +24,7 @@ namespace Skyrates.Common.Network
     /// All messages/events are routed through this class
     /// https://blog.codinghorror.com/i-shall-call-it-somethingmanager/
     /// 
-    /// Usage: Create, Start[Client/Server], [Connect], Send/Receive events, Shutdown, Destroy
+    /// Usage: Create, Start[ClientData/Server], [Connect], Send/Receive events, Shutdown, Destroy
     /// 
     /// </summary>
     public abstract class NetworkCommon
@@ -414,14 +414,14 @@ namespace Skyrates.Common.Network
             {
                 // Find the delegate to fire
                 NetworkEventDelegate evtDelegate;
-                if (NetworkEvents.Delegates.TryGetValue((NetworkEventID) evt.EventId, out evtDelegate))
+                if (NetworkEvents.Delegates.TryGetValue((NetworkEventID) evt.EventID, out evtDelegate))
                 {
                     // Fire off the delegate
                     evtDelegate.Invoke(evt);
                 }
                 else
                 {
-                    UnityEngine.Debug.LogWarning("Could not fire off event " + (NetworkEventID)evt.EventId + ", no event delegate.");
+                    UnityEngine.Debug.LogWarning("Could not fire off event " + (NetworkEventID)evt.EventID + ", no event delegate.");
                 }
             }
         }

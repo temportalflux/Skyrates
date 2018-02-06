@@ -16,7 +16,7 @@ namespace Skyrates.Common.Network.Event
         /// Will always line up with something in <see cref="NetworkEventID"/>.
         /// </summary>
         [BitSerialize]
-        public byte EventId;
+        public byte EventID;
 
         /// <summary>
         /// The is the IP address of the source, usually IPv4.
@@ -31,7 +31,7 @@ namespace Skyrates.Common.Network.Event
         // Dispatch
         protected NetworkEvent(NetworkEventID id)
         {
-            this.EventId = (byte)id;
+            this.EventID = (byte)id;
         }
 
         // Deserialize

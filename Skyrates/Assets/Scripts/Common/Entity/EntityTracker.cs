@@ -158,7 +158,7 @@ namespace Skyrates.Common.Entity
         }
 
         /* TODO: Add event for spawning/destroying entities
-        public static void Spawn(GameStateData.Client client)
+        public static void Spawn(GameStateData.ClientData client)
         {
             Debug.Log("Spawning player for client " + client.clientID);
             SpawnPlayer(client.playerEntityGuid).SetDummy(!client.IsLocalClient);
@@ -182,7 +182,7 @@ namespace Skyrates.Common.Entity
             return player;
         }
 
-        public static void Destroy(GameStateData.Client client)
+        public static void Destroy(GameStateData.ClientData client)
         {
             Debug.Log("Destroy player for client " + client.clientID);
 

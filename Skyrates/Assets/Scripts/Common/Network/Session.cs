@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Server.Network;
 using UnityEngine;
 
 namespace Skyrates.Common.Network
@@ -26,12 +27,12 @@ namespace Skyrates.Common.Network
             Standalone,
 
             /// <summary>
-            /// Joiner of game: Client.
+            /// Joiner of game: ClientData.
             /// </summary>
             Client,
 
             /// <summary>
-            /// Host of a game: Acts as Server On Top of Client.
+            /// Host of a game: Acts as Server On Top of ClientData.
             /// </summary>
             Host,
         }
@@ -73,6 +74,11 @@ namespace Skyrates.Common.Network
         public uint ClientID = 0;
 
         /// <summary>
+        /// The local client's player GUID.
+        /// </summary>
+        public Guid PlayerGuid = Guid.Empty;
+
+        /// <summary>
         /// If this client has successfully authenticated with the server.
         /// </summary>
         public bool HandshakeComplete = false;
@@ -98,7 +104,7 @@ namespace Skyrates.Common.Network
             this.Mode = Session.NetworkMode.None;
             this.SetAddressBoth("");
             this.Port = 0;
-            this.SetClientID(uint.MaxValue); // mark as something horrible instead of -1
+            this.SetClientData(new ClientData(){ClientId = uint.MaxValue , PlayerGuid = Guid.Empty}); // marked as something horrible instead of -1
             this.HandshakeComplete = false;
         }
 
@@ -138,9 +144,10 @@ namespace Skyrates.Common.Network
             int.TryParse(field.text, out this.Port);
         }
 
-        public void SetClientID(uint id)
+        public void SetClientData(ClientData data)
         {
-            this.ClientID = id;
+            this.ClientID = data.ClientId;
+            this.PlayerGuid = data.PlayerGuid;
         }
 
     }

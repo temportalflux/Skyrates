@@ -15,7 +15,7 @@ namespace Skyrates.Common.Network
         IncomingConnection = ChampNetPlugin.MessageIDs.CLIENT_CONNECTION_INCOMING,
         #endregion
 
-        #region RakeNet -> Client
+        #region RakeNet -> ClientData
         ConnectionAccepted = ChampNetPlugin.MessageIDs.CLIENT_CONNECTION_ACCEPTED,
         ConnectionRejected = ChampNetPlugin.MessageIDs.CLIENT_CONNECTION_REJECTED,
         #endregion
@@ -30,14 +30,14 @@ namespace Skyrates.Common.Network
 
         #region Server Sent
 
-        //! [Handshake.2] Sent with the Client's ID on connection
+        //! [Handshake.2] Sent with the ClientData's ID on connection
         HandshakeClientID,
 
         UpdateGamestate,
 
         #endregion
 
-        #region Client Sent
+        #region ClientData Sent
 
         //! [Handshake.1] Sent to initiate handshake and ask server to join
         HandshakeJoin,
@@ -67,7 +67,7 @@ namespace Skyrates.Common.Network
 
         #endregion
 
-        #region RakNet -> Client
+        #region RakNet -> ClientData
 
         public static event NetworkEventDelegate ConnectionAccepted;
         public static event NetworkEventDelegate ConnectionRejected;
@@ -88,7 +88,7 @@ namespace Skyrates.Common.Network
 
         #endregion
 
-        #region Client Sent
+        #region ClientData Sent
         
         public static event NetworkEventDelegate HandshakeJoin;
         public static event NetworkEventDelegate HandshakeAccept;
@@ -112,7 +112,7 @@ namespace Skyrates.Common.Network
             { NetworkEventID.IncomingConnection, typeof(EventRakNet) },
             #endregion
 
-            #region RakNet -> Client
+            #region RakNet -> ClientData
             { NetworkEventID.ConnectionAccepted, typeof(EventRakNet) },
             { NetworkEventID.ConnectionRejected, typeof(EventRakNet) },
             #endregion
@@ -129,7 +129,7 @@ namespace Skyrates.Common.Network
 
             #endregion
 
-            #region Client
+            #region ClientData
             
             {NetworkEventID.HandshakeJoin, typeof(EventHandshakeJoin)},
             {NetworkEventID.HandshakeAccept, typeof(EventHandshakeAccept)},
@@ -156,7 +156,7 @@ namespace Skyrates.Common.Network
                 { NetworkEventID.IncomingConnection, IncomingConnection },
                 #endregion
 
-                #region RakNet -> Client
+                #region RakNet -> ClientData
                 { NetworkEventID.ConnectionAccepted, ConnectionAccepted },
                 { NetworkEventID.ConnectionRejected, ConnectionRejected },
                 #endregion
@@ -173,7 +173,7 @@ namespace Skyrates.Common.Network
                 
                 #endregion
 
-                #region Client
+                #region ClientData
                 
                 {NetworkEventID.HandshakeJoin, HandshakeJoin},
                 {NetworkEventID.HandshakeAccept, HandshakeAccept},

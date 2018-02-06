@@ -10,11 +10,11 @@ namespace Skyrates.Server.Network.Event
     {
 
         [BitSerialize(1)]
-        public uint clientID;
+        public ClientData client;
 
-        public EventHandshakeClientID(uint clientID) : base(NetworkEventID.HandshakeClientID)
+        public EventHandshakeClientID(ClientData client) : base(NetworkEventID.HandshakeClientID)
         {
-            this.clientID = clientID;
+            this.client = client;
         }
 
     }

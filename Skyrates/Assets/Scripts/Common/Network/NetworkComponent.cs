@@ -25,12 +25,7 @@ namespace Skyrates.Common.Network
         /// <see cref="NetworkComponent.CreateNetworkAndConnect"/>.
         /// </summary>
         public Session Session;
-
-        /// <summary>
-        /// The state of the game
-        /// </summary>
-        public GameState GameState;
-
+        
         /// <summary>
         /// The networking object, clients and client-on-top-of-servers are subclasses
         /// </summary>
@@ -72,7 +67,6 @@ namespace Skyrates.Common.Network
         private void InitData()
         {
             this.Session.Init();
-            this.GameState.data.clients.Clear();
         }
 
         #region Static
@@ -85,27 +79,12 @@ namespace Skyrates.Common.Network
                 return Instance.Session;
             }
         }
-
-        public static GameState GetGameState
-        {
-            get
-            {
-                Debug.Assert(Instance != null);
-                return Instance.GameState;
-            }
-        }
-
+        
         public static NetworkCommon GetNetwork()
         {
             return Instance._network;
         }
-
-        public static GameStateData.Client GetClientState()
-        {
-            // TODO: Potentially expensive, cache the local client during gamestate integration
-            return GetGameState.data.clients.Find(client => client.clientID == GetSession.ClientID);
-        }
-
+        
         #endregion
 
         #region IP Helper
