@@ -82,7 +82,7 @@ namespace Skyrates.Client.Network
             EventHandshakeClientID evtClientId = evt as EventHandshakeClientID;
             UnityEngine.Debug.Assert(evtClientId != null, "evtClientId != null");
 
-            UnityEngine.Debug.Log("ClientData got id " + evtClientId.client.ClientId);
+            UnityEngine.Debug.Log(string.Format("ClientData got id {0} {1}", evtClientId.client.ClientId, evtClientId.client.PlayerGuid));
 
             // Set the client ID
             NetworkComponent.GetSession.SetClientData(evtClientId.client);

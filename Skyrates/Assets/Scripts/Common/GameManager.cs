@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
     public Entity SpawnEntity(TypeData typeData, Guid guid)
     {
         // TODO: Spawn shit
-        Debug.Log(string.Format("Spawn {0}:{1} {2}", typeData.EntityType, typeData.EntityTypeIndex, guid));
+        //Debug.Log(string.Format("Spawn {0}:{1} {2}", typeData.EntityType, typeData.EntityTypeIndex, guid));
         return null;
     }
 
@@ -51,8 +51,8 @@ public class GameManager : Singleton<GameManager>
         entityPlayer.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
 
         // TODO: Use events to let network know that an entity has spawned
-        entityPlayer.Init(playerID, new TypeData(Entity.Type.Player, -1));
-        NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
+        //entityPlayer.Init(playerID, new TypeData(Entity.Type.Player, -1));
+        //NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
 
     }
 
