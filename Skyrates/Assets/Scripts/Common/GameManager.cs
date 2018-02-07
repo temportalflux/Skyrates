@@ -51,7 +51,9 @@ public class GameManager : Singleton<GameManager>
                 // TODO: Use events to let network know that an entity has spawned
                 entityPlayer.Init(guid, typeData);
                 entityPlayer.OwnerNetworkID = ownerNetworkID;
-                NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
+                
+                if (NetworkComponent.GetSession.IsNetworked)
+                    NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
 
                 if (!isLocal)
                 {
