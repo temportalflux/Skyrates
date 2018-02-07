@@ -50,7 +50,7 @@ public class EntityPlayer : EntityDynamic
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (!this.isDummy)
+        if (NetworkComponent.GetSession.Mode == Session.NetworkMode.Client)
         {
             // TODO: Move this to an event
             // TODO: Reconsider frequency
