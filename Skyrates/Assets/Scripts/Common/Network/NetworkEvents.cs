@@ -188,7 +188,9 @@ namespace Skyrates.Common.Network
                 case NetworkEventID.Disconnect: return Disconnect;
                 #endregion
                 case NetworkEventID.None:  return null;
-                default: return null;
+                default:
+                    Debug.LogWarning(string.Format("No delegate for event {0}", eventID));
+                    return null;
             }
         }
 
