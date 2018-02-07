@@ -1,15 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Common.Entity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
+
+    public static GameManager Instance;
 
     public EntityList EntityList;
 
     public Transform playerSpawn;
+
+    void Awake()
+    {
+        this.loadSingleton(this, ref Instance);
+    }
 
     void OnEnable()
     {
@@ -27,6 +35,12 @@ public class GameManager : MonoBehaviour
             // Do game prep
             this.SpawnPlayer();
         }
+    }
+
+    public void SpawnEntity(Entity.Type type, Guid guid)
+    {
+        // TODO: Spawn shit
+        Debug.Log(string.Format("Spawn {0} {1}", type, guid));
     }
 
     void SpawnPlayer()

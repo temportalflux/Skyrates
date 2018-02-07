@@ -80,7 +80,7 @@ namespace Skyrates.Common.Entity
                     else
                     {
                         // entity should be added locally
-                        this.SpawnEntity(type, entityGuid);
+                        GameManager.Instance.SpawnEntity(type, entityGuid);
                     }
 
                 }

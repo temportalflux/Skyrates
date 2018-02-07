@@ -226,15 +226,7 @@ namespace Skyrates.Common.Entity
         }
 
         #endregion
-
-        /// <summary>
-        /// A missing entity was encountered via deserialization and needs to be spawned
-        /// </summary>
-        public void SpawnEntity(Entity.Type type, Guid guid)
-        {
-            // TODO: Spawn the entity
-        }
-
+        
     }
 
 }
