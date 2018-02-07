@@ -31,4 +31,10 @@ public class EntityPlayer : EntityDynamic
         return this.Render;
     }
 
+    public void SetDummy()
+    {
+        this.View.gameObject.SetActive(false);
+        this.Steering = null;
+    }
+
 }
