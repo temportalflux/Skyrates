@@ -72,6 +72,9 @@ namespace Skyrates.Server.Network
             this._secondsPerUpdate = session.ServerTickUpdate;
             this.EntityTracker = new EntityDispatcher();
 
+            // TODO: Fire event
+            NetworkComponent.GetSession.PlayerGuid = Entity.NewGuid();
+
             this.StartCoroutine(this.DispatchGameState());
         }
 
