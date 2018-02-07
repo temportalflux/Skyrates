@@ -34,12 +34,13 @@ public class GameManager : Singleton<GameManager>
         if (scene.name == SceneLoader.Instance.SceneData.GameName)
         {
             // TODO: Send event for spawning player
-            this.SpawnEntity(new TypeData(Entity.Type.Player, -1), 
+            this.SpawnEntity(new TypeData(Entity.Type.Player, -1),
+                NetworkComponent.GetSession.NetworkID,
                 NetworkComponent.GetSession.PlayerGuid, isLocal:true);
         }
     }
 
-    public Entity SpawnEntity(TypeData typeData, Guid guid, bool isLocal = false)
+    public Entity SpawnEntity(TypeData typeData, int ownerNetworkID, Guid guid, bool isLocal = false)
     {
         switch (typeData.EntityType)
         {
@@ -49,6 +50,7 @@ public class GameManager : Singleton<GameManager>
 
                 // TODO: Use events to let network know that an entity has spawned
                 entityPlayer.Init(guid, typeData);
+                entityPlayer.OwnerNetworkID = ownerNetworkID;
                 NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
 
                 if (!isLocal)

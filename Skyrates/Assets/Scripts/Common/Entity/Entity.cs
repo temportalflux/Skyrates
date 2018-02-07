@@ -15,24 +15,16 @@ namespace Skyrates.Common.Entity
         [BitSerialize(1)]
         public int EntityTypeIndex;
 
-        [BitSerialize(2)]
-        public int OwnerNetworkID;
-
         public Entity.Type EntityType
         {
             get { return (Entity.Type) this.EntityTypeAsInt; }
             set { this.EntityTypeAsInt = (int)value; }
         }
-
-        public TypeData(Entity.Type type, int index) : this(type, index, (int)NetworkComponent.GetSession.NetworkID)
-        {
-        }
-
-        public TypeData(Entity.Type type, int index, int clientId)
+        
+        public TypeData(Entity.Type type, int index)
         {
             this.EntityType = type;
             this.EntityTypeIndex = index;
-            this.OwnerNetworkID = clientId;
         }
 
         public TypeData()
@@ -74,6 +66,9 @@ namespace Skyrates.Common.Entity
         public Guid Guid;
 
         [BitSerialize(1)]
+        public int OwnerNetworkID;
+
+        [BitSerialize(2)]
         [SerializeField]
         [HideInInspector]
         public TypeData TypeData;
@@ -82,8 +77,6 @@ namespace Skyrates.Common.Entity
         // TODO: Fire an event when entities are destroyed
         // TODO: Respond to these events by editting EntityTracker IF HOST OR NOT NETWORKED
         
-        #region Guid
-
         public static Guid NewGuid()
         {
             return Guid.NewGuid();
@@ -99,9 +92,7 @@ namespace Skyrates.Common.Entity
         {
             this.Init(NewGuid(), typeData);
         }
-
-        #endregion
-
+        
         #region Network
 
         /// <summary>
