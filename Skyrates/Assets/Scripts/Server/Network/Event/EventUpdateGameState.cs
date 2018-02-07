@@ -65,15 +65,19 @@ namespace Skyrates.Server.Network.Event
         /// <inheritdoc />
         public void Deserialize(byte[] data, ref int lastIndex)
         {
-            Client.Network.Client client = NetworkComponent.GetNetwork() as Client.Network.Client;
-            Debug.Assert(client != null, "client != null");
+            // TODO: Move to event
+            if (NetworkComponent.GetSession.HandshakeComplete)
+            {
+                Client.Network.Client client = NetworkComponent.GetNetwork() as Client.Network.Client;
+                Debug.Assert(client != null, "client != null");
 
-            // Event ID
-            this.EventID = (byte)BitSerializeAttribute.Deserialize(this.EventID, data, ref lastIndex);
+                // Event ID
+                this.EventID = (byte) BitSerializeAttribute.Deserialize(this.EventID, data, ref lastIndex);
 
-            // Entities
-            EntityTracker tracker = NetworkComponent.GetNetwork().GetEntityTracker();
-            tracker.Deserialize(data, ref lastIndex);
+                // Entities
+                EntityTracker tracker = NetworkComponent.GetNetwork().GetEntityTracker();
+                tracker.Deserialize(data, ref lastIndex);
+            }
         }
 
     }

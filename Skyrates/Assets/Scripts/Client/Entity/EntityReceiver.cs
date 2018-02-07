@@ -84,10 +84,13 @@ namespace Skyrates.Common.Entity
                             (TypeData)BitSerializeAttribute.Deserialize(new TypeData(), data, ref indexEntityPeak);
                         // Spawn the entity
                         Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid);
-                        // have the entity fully deserialize
-                        entity = (Entity) BitSerializeAttribute.Deserialize(entity, data, ref lastIndex);
-                        // tell them it worked
-                        entity.OnDeserializeSuccess();
+                        if (entity != null)
+                        {
+                            // have the entity fully deserialize
+                            entity = (Entity) BitSerializeAttribute.Deserialize(entity, data, ref lastIndex);
+                            // tell them it worked
+                            entity.OnDeserializeSuccess();
+                        }
                     }
 
                 }
