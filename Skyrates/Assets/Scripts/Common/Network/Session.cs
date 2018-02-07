@@ -99,6 +99,11 @@ namespace Skyrates.Common.Network
             get { return this.Mode != NetworkMode.Standalone; }
         }
 
+        public int NetworkID
+        {
+            get { return this.Mode == NetworkMode.Host ? -1 : (int)this.ClientID; }
+        }
+
         public void Init()
         {
             this.Mode = Session.NetworkMode.None;

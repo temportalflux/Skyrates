@@ -83,7 +83,8 @@ namespace Skyrates.Common.Entity
                         TypeData entityTypeData =
                             (TypeData)BitSerializeAttribute.Deserialize(new TypeData(), data, ref indexEntityPeak);
                         // Spawn the entity
-                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid);
+                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid,
+                            isLocal: entityTypeData.OwnerNetworkID == NetworkComponent.GetSession.NetworkID);
                         if (entity != null)
                         {
                             // have the entity fully deserialize

@@ -15,16 +15,24 @@ namespace Skyrates.Common.Entity
         [BitSerialize(1)]
         public int EntityTypeIndex;
 
+        [BitSerialize(2)]
+        public int OwnerNetworkID;
+
         public Entity.Type EntityType
         {
             get { return (Entity.Type) this.EntityTypeAsInt; }
             set { this.EntityTypeAsInt = (int)value; }
         }
 
-        public TypeData(Entity.Type type, int index)
+        public TypeData(Entity.Type type, int index) : this(type, index, (int)NetworkComponent.GetSession.NetworkID)
+        {
+        }
+
+        public TypeData(Entity.Type type, int index, int clientId)
         {
             this.EntityType = type;
             this.EntityTypeIndex = index;
+            this.OwnerNetworkID = clientId;
         }
 
         public TypeData()

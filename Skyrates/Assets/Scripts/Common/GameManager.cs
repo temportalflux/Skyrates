@@ -34,7 +34,8 @@ public class GameManager : Singleton<GameManager>
         if (scene.name == SceneLoader.Instance.SceneData.GameName)
         {
             // TODO: Send event for spawning player
-            this.SpawnPlayer(NetworkComponent.GetSession.PlayerGuid, true);
+            this.SpawnEntity(new TypeData(Entity.Type.Player, -1), 
+                NetworkComponent.GetSession.PlayerGuid, isLocal:true);
         }
     }
 
@@ -60,11 +61,6 @@ public class GameManager : Singleton<GameManager>
                 Debug.Log(string.Format("Spawn {0}:{1} {2}", typeData.EntityType, typeData.EntityTypeIndex, guid));
                 return null;
         }
-    }
-
-    public void SpawnPlayer(Guid playerID, bool isLocal)
-    {
-        EntityPlayer player = (EntityPlayer) this.SpawnEntity(new TypeData(Entity.Type.Player, -1), playerID, isLocal);
     }
 
 }
