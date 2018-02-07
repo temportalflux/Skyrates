@@ -47,22 +47,32 @@ namespace Skyrates.Common.Network.Event
             BitSerializeAttribute.Deserialize(this, data);
         }
 
-        public NetworkEventAttribute GetAttribute()
+        public object[] GetAttribute()
         {
-            return this.GetType().GetCustomAttributes(
-                typeof(NetworkEventAttribute), true).FirstOrDefault() as NetworkEventAttribute;
+            return this.GetType().GetCustomAttributes( typeof(NetworkEventAttribute), true);
         }
 
         public bool IsSentBy(Side side)
         {
             var attribute = this.GetAttribute();
-            return attribute != null && attribute.GetSender() == side;
+            foreach (object o in attribute)
+            {
+                NetworkEventAttribute attr = o as NetworkEventAttribute;
+                if (attr != null && attr.GetSender() == side) return true;
+            }
+            return false;
         }
 
         public bool IsReceivedBy(Side side)
         {
             var attribute = this.GetAttribute();
-            return attribute != null && attribute.GetReceiver() == side;
+            foreach (object o in attribute)
+            {
+                NetworkEventAttribute attr = o as NetworkEventAttribute;
+                if (attr != null && attr.GetReceiver() == side)
+                    return true;
+            }
+            return false;
         }
 
     }
