@@ -102,7 +102,7 @@ namespace Skyrates.Common.Entity
         /// </summary>
         public readonly Dictionary<Entity.Type, EntitySet> Entities = new Dictionary<Entity.Type, EntitySet>();
 
-        void Awake()
+        public EntityTracker()
         {
             foreach (Entity.Type type in Entity.AllTypes)
             {

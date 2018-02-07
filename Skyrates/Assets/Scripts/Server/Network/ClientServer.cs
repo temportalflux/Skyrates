@@ -148,7 +148,9 @@ namespace Skyrates.Server.Network
         {
             while (true)
             {
-                //this.DispatchAll(new EventUpdateGameState());
+                EventUpdateGameState evt = new EventUpdateGameState();
+                evt.GenerateData();
+                this.DispatchAll(evt);
                 yield return new WaitForSeconds(this._secondsPerUpdate);
             }
         }
