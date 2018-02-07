@@ -116,8 +116,7 @@ namespace Skyrates.Server.Network
 
             ClientData client = this.ClientList[(int) evtAccept.clientID];
             // TODO: Send event for spawning player
-            GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1, (int)client.ClientId), client.PlayerGuid, isLocal:false);
-
+            GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), (int)client.ClientId, client.PlayerGuid, isLocal:false);
         }
 
         /// <summary>

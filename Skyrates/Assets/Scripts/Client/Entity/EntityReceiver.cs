@@ -80,11 +80,12 @@ namespace Skyrates.Common.Entity
                     {
                         // entity should be added locally
                         // peak at the type of entity
+                        int ownerNetworkId = (int) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
                         TypeData entityTypeData =
                             (TypeData)BitSerializeAttribute.Deserialize(new TypeData(), data, ref indexEntityPeak);
                         // Spawn the entity
-                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid,
-                            isLocal: entityTypeData.OwnerNetworkID == NetworkComponent.GetSession.NetworkID);
+                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, ownerNetworkId, entityGuid,
+                            isLocal: ownerNetworkId == NetworkComponent.GetSession.NetworkID);
                         if (entity != null)
                         {
                             // have the entity fully deserialize
