@@ -439,7 +439,7 @@ namespace Skyrates.Common.Network
                 else
                 {
                     //Debug.LogWarning(string.Format("Delegate for {0} was null...", (NetworkEventID) evt.EventID));
-                    Debug.LogWarning("Could not fire off event " + (NetworkEventID) evt.EventID + ", no event delegate.");
+                    //Debug.LogWarning("Could not fire off event " + (NetworkEventID) evt.EventID + ", no event delegate.");
                 }
             }
         }
