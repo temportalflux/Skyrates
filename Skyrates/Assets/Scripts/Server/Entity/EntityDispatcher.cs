@@ -37,10 +37,6 @@ namespace Skyrates.Common.Entity
             // Cache for how many bytes are used.
             this._totalBytes = 0;
 
-            byte[] dataTypes = BitSerializeAttribute.Serialize(Entity.AllTypes.Length);
-            this._totalBytes += dataTypes.Length;
-            this._serializedData.Enqueue(dataTypes);
-
             foreach (Entity.Type type in Entity.AllTypes)
             {
                 EntitySet set = this.Entities[type];

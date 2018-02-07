@@ -115,10 +115,10 @@ namespace Skyrates.Common.Entity
         /// </summary>
         /// <param name="type"></param>
         /// <param name="e"></param>
-        public bool Add(Entity.Type type, Entity e)
+        public bool Add(Entity e)
         {
-            Debug.Assert(this.Entities.ContainsKey(type));
-            return this.Entities[type].Add(e);
+            Debug.Assert(this.Entities.ContainsKey(e.TypeData.EntityType));
+            return this.Entities[e.TypeData.EntityType].Add(e);
         }
 
         /// <summary>

@@ -35,7 +35,7 @@ public class InputInteraction : MonoBehaviour
 
     public InputData input;
 
-    public Player player;
+    public EntityPlayer EntityPlayer;
     
     void Update()
     {
@@ -87,7 +87,7 @@ public class InputInteraction : MonoBehaviour
 
     private void Shoot()
     {
-        ShipComponent[] components = this.player.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
+        ShipComponent[] components = this.EntityPlayer.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
         foreach (ShipComponent component in components)
         {
             ShipArtillery artillery = (ShipArtillery) component;

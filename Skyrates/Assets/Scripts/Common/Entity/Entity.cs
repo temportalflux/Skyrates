@@ -21,6 +21,10 @@ namespace Skyrates.Common.Entity
             this.EntityTypeIndex = index;
         }
 
+        public TypeData()
+        {
+        }
+
     }
 
     /// <summary>

@@ -43,12 +43,10 @@ namespace Skyrates.Common.Entity
             // - - entity should be added locally
 
             // Get data in terms of EntitySets
-            int entityTypes = (int)BitSerializeAttribute.Deserialize(0, data, ref lastIndex);
 
             // Look through entity set data:
-            for (int iType = 0; iType < entityTypes; iType++)
+            foreach (Entity.Type type in Entity.AllTypes)
             {
-                Entity.Type type = Entity.AllTypes[iType];
 
                 // BEFORE:
                 // Make a list of all GUIDs
@@ -60,7 +58,8 @@ namespace Skyrates.Common.Entity
                 {
                     // Peak at the GUID (don't incrememnt index counter)
                     // ASSUME: Guid is the first thing serialized by Entities
-                    Guid entityGuid = (Guid) BitSerializeAttribute.Deserialize(Guid.Empty, data, lastIndex);
+                    int indexEntityPeak = lastIndex;
+                    Guid entityGuid = (Guid) BitSerializeAttribute.Deserialize(Guid.Empty, data, ref indexEntityPeak);
                     // NOT CHANGING LAST INDEX (entities need the data of their entity guid)
 
                     // if that entity is already being tracked
@@ -80,7 +79,15 @@ namespace Skyrates.Common.Entity
                     else
                     {
                         // entity should be added locally
-                        GameManager.Instance.SpawnEntity(type, entityGuid);
+                        // peak at the type of entity
+                        TypeData entityTypeData =
+                            (TypeData)BitSerializeAttribute.Deserialize(new TypeData(), data, ref indexEntityPeak);
+                        // Spawn the entity
+                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid);
+                        // have the entity fully deserialize
+                        entity = (Entity) BitSerializeAttribute.Deserialize(entity, data, ref lastIndex);
+                        // tell them it worked
+                        entity.OnDeserializeSuccess();
                     }
 
                 }

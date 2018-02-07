@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Common.Entity;
+using Skyrates.Common.Network;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,21 +34,25 @@ public class GameManager : Singleton<GameManager>
         if (scene.name == SceneLoader.Instance.SceneData.GameName)
         {
             // Do game prep
-            this.SpawnPlayer();
+            this.SpawnPlayer(NetworkComponent.GetSession.PlayerGuid);
         }
     }
 
-    public void SpawnEntity(Entity.Type type, Guid guid)
+    public Entity SpawnEntity(TypeData typeData, Guid guid)
     {
         // TODO: Spawn shit
-        Debug.Log(string.Format("Spawn {0} {1}", type, guid));
+        Debug.Log(string.Format("Spawn {0}:{1} {2}", typeData.EntityType, typeData.EntityTypeIndex, guid));
+        return null;
     }
 
-    void SpawnPlayer()
+    void SpawnPlayer(Guid playerID)
     {
-        EntityDynamic player = Instantiate(this.EntityList.PrefabPlayer.gameObject).GetComponent<EntityDynamic>();
-        player.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
-        
+        EntityPlayer entityPlayer = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayer>();
+        entityPlayer.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
+
+        // TODO: Use events to let network know that an entity has spawned
+        entityPlayer.Init(playerID, new TypeData(Entity.Type.Player, -1));
+        NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
     }
 
 }

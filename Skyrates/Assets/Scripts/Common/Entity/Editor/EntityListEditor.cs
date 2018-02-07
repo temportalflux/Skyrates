@@ -26,8 +26,8 @@ namespace Skyrates.Common.Entity
         {
             EntityList instance = (EntityList) this.Instance;
 
-            instance.PrefabPlayer = (EntityDynamic)EditorGUILayout.ObjectField(
-                "Player Prefab", instance.PrefabPlayer, typeof(EntityDynamic), false);
+            instance.PrefabEntityPlayer = (EntityPlayer)EditorGUILayout.ObjectField(
+                "Player Prefab", instance.PrefabEntityPlayer, typeof(EntityPlayer), false);
 
         }
 
