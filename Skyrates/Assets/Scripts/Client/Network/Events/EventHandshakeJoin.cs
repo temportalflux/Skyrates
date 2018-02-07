@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Skyrates.Common.Network;
+using Skyrates.Common.Network.Event;
 
-[NetworkEvent(Side.Client, Side.Server)]
-public class EventHandshakeJoin : NetworkEvent
+namespace Skyrates.Client.Network.Event
 {
-
-    public EventHandshakeJoin() : base(MessageMap.MessageID.HandshakeJoin) { }
-
+    [NetworkEvent(Side.Client, Side.Server)]
+    public class EventHandshakeJoin : NetworkEvent
+    {
+        public EventHandshakeJoin() : base(NetworkEventID.HandshakeJoin) { }
+    }
 }

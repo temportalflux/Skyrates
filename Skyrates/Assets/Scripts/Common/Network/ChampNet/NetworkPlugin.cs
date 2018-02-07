@@ -12,9 +12,6 @@ using System;
 using System.Runtime.InteropServices;
 using AOT;
 
-/// \addtogroup client
-/// @{
-
 namespace ChampNetPlugin
 {
 
@@ -36,15 +33,7 @@ namespace ChampNetPlugin
         #endregion
 
         NONE = 134, // ID_USER_PACKET_ENUM
-
-        #region Server
-
-        #endregion
-
-        #region Client
-
-        #endregion
-
+        
     }
 
     /// <summary>
@@ -117,7 +106,7 @@ namespace ChampNetPlugin
         [DllImport(IDENTIFIER)]
         public static extern int StartClient();
 
-        /// Connect this Client to some server using the specified credentials
+        /// Connect this ClientData to some server using the specified credentials
         [DllImport(IDENTIFIER)]
         public static extern int ConnectToServer(string address, int port);
 
@@ -143,7 +132,7 @@ namespace ChampNetPlugin
 
         /// Send a byte array to the server
         [DllImport(IDENTIFIER)]
-        public static extern void SendByteArray(string address, int port, byte[] byteArray, int byteArraySize);
+        public static extern void SendByteArray(string address, int port, byte[] byteArray, int byteArraySize, bool broadcast);
 
         /// WRAPPER METHOD
         /// Handles polling the network for packets, and returning the address and _gameStateData of that packet.
@@ -203,4 +192,3 @@ namespace ChampNetPlugin
     }
 
 }
-/// @}

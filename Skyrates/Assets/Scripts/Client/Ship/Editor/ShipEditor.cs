@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Ship))]
-public class ShipEditor : Editor
+namespace Skyrates.Client.Ship
 {
-    private Ship instance;
 
-    public void OnEnable()
-    {
-        this.instance = this.target as Ship;
-    }
 
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(Ship))]
+    public class ShipEditor : Editor
     {
-        base.OnInspectorGUI();
-        
-        if (GUILayout.Button("Build"))
+        private Ship _instance;
+
+        public void OnEnable()
         {
-            this.instance.Destroy();
-            this.instance.Generate();
+            this._instance = this.target as Ship;
         }
 
-        EditorUtility.SetDirty(this.instance);
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            if (GUILayout.Button("Build"))
+            {
+                this._instance.Destroy();
+                this._instance.Generate();
+            }
+
+            EditorUtility.SetDirty(this._instance);
+
+        }
+
 
     }
-    
 
 }

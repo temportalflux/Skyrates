@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Network.Event;
+using Skyrates.Common.AI;
+using Skyrates.Common.Entity;
+using Skyrates.Common.Network;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -63,18 +67,18 @@ public class InputMovement : MonoBehaviour
 
     public Rigidbody physics;
 
-    public PhysicsData physicsData;
+    private EntityDynamic dynamicTmp;
 
     void Start()
     {
-        this.physicsData = new PhysicsData();
+        dynamicTmp = this.physics.GetComponent<EntityDynamic>();
     }
     
     void Update()
     {
         this.GetInput(ref this.playerInput);
-        this.Move(this.playerInput, ref this.physicsData);
-        this.ApplyPhysics(ref this.physicsData);
+        this.Move(this.playerInput, ref this.dynamicTmp.Physics);
+        this.ApplyPhysics(ref this.dynamicTmp.Physics);
 
     }
 
@@ -113,10 +117,10 @@ public class InputMovement : MonoBehaviour
 
         Vector3 movementXYZ = movementXZ + movementVertical;
 
-        physicsData.VelocityLinear = movementXYZ;
+        physicsData.LinearVelocity = movementXYZ;
 
         // for ship movement
-        physicsData.VelocityRotationEuler = new Vector3(0.0f, input.Strafe, 0.0f);
+        physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, input.Strafe, 0.0f));
 
         if (movementXYZ.sqrMagnitude > 0)
         {
@@ -136,20 +140,20 @@ public class InputMovement : MonoBehaviour
 
     public void ApplyPhysics(ref PhysicsData physicsData)
     {
-        physicsData.PositionLinear = this.transform.position;
-        physicsData.PositionRotational = this.render.rotation.eulerAngles;
+        physicsData.LinearPosition = this.transform.position;
+        physicsData.RotationPosition = this.render.rotation;
 
-        this.physics.velocity = physicsData.VelocityLinear;
-        this.render.Rotate(physicsData.VelocityRotationEuler, Space.World);
+        this.physics.velocity = physicsData.LinearVelocity;
+        this.render.Rotate(physicsData.RotationVelocity.eulerAngles, Space.World);
 
         bool moved = false;
-        moved = moved || physicsData.VelocityLinear.sqrMagnitude > 0;
-        moved = moved || physicsData.VelocityRotationEuler.sqrMagnitude > 0;
+        moved = moved || physicsData.LinearVelocity.sqrMagnitude > 0;
+        moved = moved || physicsData.RotationVelocity.eulerAngles.sqrMagnitude > 0;
 
         if (moved)
         {
             // TODO: Fire unity event
-            NetworkComponent.GetClient().Dispatch(new EventUpdatePlayerPhysics(physicsData));
+            //NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(physicsData));
         }
     }
 

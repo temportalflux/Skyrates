@@ -2,7 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipFigurehead : ShipComponent
+namespace Skyrates.Client.Ship
 {
+
+    /// <summary>
+    /// Subclass of <see cref="ShipComponent"/> dedicated to
+    /// components of type <see cref="ShipData.ComponentType.Figurehead"/>.
+    /// </summary>
+    public class ShipFigurehead : ShipComponent
+    {
+
+    }
 
 }

@@ -5,66 +5,89 @@ using UnityEngine;
 
 using ComponentType = ShipData.ComponentType;
 
-public class ShipHull : ShipComponent
+namespace Skyrates.Client.Ship
 {
-
-    [Serializable]
-    public class HullTargets
+    
+    /// <summary>
+    /// Subclass of <see cref="ShipComponent"/> dedicated to
+    /// components of type <see cref="ShipData.ComponentType.Hull"/>.
+    /// </summary>
+    public class ShipHull : ShipComponent
     {
 
+        #region PREFAB ONLY
+
+        /// <summary>
+        /// A set of targets for a specfic <see cref="ComponentType"/>.
+        /// </summary>
         [Serializable]
-        public struct Target
+        public struct Mount
         {
-            // The pos/rot of the object that will be generated
-            public Transform[] roots;
-
-            // The objects generated during ShipBuilder.BuiltTo
-            public ShipComponent[] generatedComponents;
-
+            /// <summary>
+            /// The pos/rot of the object that will be generated.
+            /// </summary>
+            [SerializeField]
+            public Transform[] Roots;
         }
         
-        // List of transforms/objects for each ComponentType
-        public Target[] list;
+        /// <summary>
+        /// List of transforms/objects for each ComponentType.
+        /// </summary>
+        [SerializeField]
+        public Mount[] Mounts;
 
-    }
+        #endregion
 
-    public HullTargets targets;
-    
-    public Transform[] GetRoots(ComponentType compType)
-    {
-        Debug.Assert((int) ComponentType.Hull == 0);
-        Debug.Assert(ComponentType.Hull != compType);
-        // compType - 1 to account for Hull
-        return this.targets.list[(int) compType - 1].roots;
-    }
+        /// <summary>
+        /// The objects generated during <see cref="ShipBuilder.BuiltTo"/>.
+        /// </summary>
+        private readonly ShipComponent[][] GeneratedComponents = new ShipComponent[ShipData.NonHullComponents.Length][];
 
-    public void ClearGeneratedComponents()
-    {
-        foreach (ComponentType key in ShipData.ComponentTypes)
+        private int GetComponentIndex(ComponentType type)
         {
-            if (key == ComponentType.Hull) continue;
-            HullTargets.Target t = this.targets.list[(int)key - 1];
-            t.generatedComponents = new ShipComponent[t.roots.Length];
-            this.targets.list[(int) key - 1] = t;
+            return ShipData.HulllessComponentIndex[(int) type];
         }
-    }
 
-    public void AddShipComponent(ComponentType compType, int index, ShipComponent comp)
-    {
-        Debug.Assert((int) ComponentType.Hull == 0);
-        Debug.Assert(ComponentType.Hull != compType, "Cannot add hull to hull");
-        HullTargets.Target t = this.targets.list[(int) compType - 1];
-        t.generatedComponents[index] = comp;
-        comp.gameObject.transform.SetPositionAndRotation(t.roots[index].position, t.roots[index].rotation);
-        this.targets.list[(int) compType - 1] = t;
-    }
+        /// <summary>
+        /// Creates the array of components for some type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="count"></param>
+        public void SetShipComponentCount(ComponentType type, int count)
+        {
+            this.GeneratedComponents[this.GetComponentIndex(type)] = new ShipComponent[count];
+        }
 
-    public ShipComponent[] GetGeneratedComponent(ComponentType compType)
-    {
-        Debug.Assert((int) ComponentType.Hull == 0);
-        Debug.Assert(ComponentType.Hull != compType, "Cannot get hull from hull");
-        // compType - 1 to account for Hull
-        return this.targets.list[(int) compType - 1].generatedComponents;
+        /// <summary>
+        /// Sets the generated component of a type at the target index.
+        /// </summary>
+        /// <param name="iMount"></param>
+        /// <param name="index"></param>
+        /// <param name="comp"></param>
+        public void AddShipComponent(Mount[] mounts, ComponentType compType, int index, ShipComponent comp)
+        {
+            // Set the generated component
+            this.GeneratedComponents[this.GetComponentIndex(compType)][index] = comp;
+
+            // Set the transform information on the component from the target
+            Mount mount = mounts[this.GetComponentIndex(compType)];
+            comp.gameObject.transform.SetPositionAndRotation(mount.Roots[index].position, mount.Roots[index].rotation);
+        }
+
+        /// <summary>
+        /// Returns the generated component list for a specific type.
+        /// </summary>
+        /// <param name="compType"></param>
+        /// <returns></returns>
+        public ShipComponent[] GetGeneratedComponent(ComponentType compType)
+        {
+            Debug.Assert((int) ComponentType.Hull == 0);
+            Debug.Assert(ComponentType.Hull != compType, "Cannot get hull from hull");
+            // compType - 1 to account for Hull
+            return this.GeneratedComponents[this.GetComponentIndex(compType)];
+        }
+
+
     }
 
 }

@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipArtillery : ShipComponent
+namespace Skyrates.Client.Ship
 {
 
-    public Shooter shooter;
+    /// <summary>
+    /// Subclass of <see cref="ShipComponent"/> dedicated to
+    /// components of type <see cref="ShipData.ComponentType.Artillery"/>.
+    /// </summary>
+    public class ShipArtillery : ShipComponent
+    {
+        
+        public Shooter Shooter;
+
+    }
 
 }

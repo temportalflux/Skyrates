@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Ship;
 using UnityEditor;
 using UnityEngine;
 using ComponentType = ShipData.ComponentType;
@@ -20,7 +22,7 @@ public class ShipBuilderEditor : Editor
         EditorGUILayout.LabelField("Ship Builder");
 
         EditorGUILayout.BeginHorizontal();
-        instance.shipComponentList = (ShipComponentList)EditorGUILayout.ObjectField("Component List", instance.shipComponentList, typeof(ShipComponentList), false);
+        instance.ShipComponentList = (ShipComponentList)EditorGUILayout.ObjectField("Component List", instance.ShipComponentList, typeof(ShipComponentList), false);
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.Separator();
@@ -31,13 +33,20 @@ public class ShipBuilderEditor : Editor
 
             EditorGUILayout.LabelField(compType.ToString());
 
-            if (instance.shipComponentList != null)
+            if (instance.ShipComponentList != null)
             {
-                instance.shipData[compType] = EditorGUILayout.Popup(instance.shipData[compType], instance.shipComponentList.GetNames(compType));
+                string[] names = instance.ShipComponentList.GetNames(compType);
+                List<string> namesWithNil = new List<string>();
+                namesWithNil.Add("None");
+                namesWithNil.AddRange(names);
+                instance.ShipData[compType] = EditorGUILayout.Popup(
+                    instance.ShipData[compType] + 1,
+                    namesWithNil.ToArray()
+                ) - 1;
             }
             else
             {
-                EditorGUILayout.LabelField(instance.shipData[compType].ToString());
+                EditorGUILayout.LabelField(instance.ShipData[compType].ToString());
             }
 
             EditorGUILayout.EndHorizontal();

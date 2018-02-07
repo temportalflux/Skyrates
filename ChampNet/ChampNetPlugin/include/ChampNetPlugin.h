@@ -91,7 +91,7 @@ extern "C"
 		CHAMPNET_PLUGIN_SYMTAG void FreePacket(void* packetPtr);
 
 		/// Sends a byte[] of data to some address
-		CHAMPNET_PLUGIN_SYMTAG void SendByteArray(const char* address, int port, char* byteArray, int byteArraySize);
+		CHAMPNET_PLUGIN_SYMTAG void SendByteArray(const char* address, int port, char* byteArray, int byteArraySize, bool broadcast);
 
 		/// Sends a byte[] of data to some address uing RakNet protocols
 		CHAMPNET_PLUGIN_SYMTAG void SendData(const char* address, char* byteArray, int byteArraySize, PacketPriority *priority, PacketReliability *reliability, int channel, bool broadcast);
