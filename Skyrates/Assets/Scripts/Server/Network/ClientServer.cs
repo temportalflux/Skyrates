@@ -113,6 +113,9 @@ namespace Skyrates.Server.Network
             System.Diagnostics.Debug.Assert(evtAccept != null, "evtAccept != null");
             
             Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.clientID));
+            
+            // TODO: Send event for spawning player
+            GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), this.ClientList[(int) evtAccept.clientID].PlayerGuid);
 
         }
 
@@ -129,6 +132,7 @@ namespace Skyrates.Server.Network
             {
                 Debug.Log(string.Format("Error: Cannot remove client with client ID {0}", evtDisconnect.clientID));
             }
+            // TODO: Remove the player
         }
 
         /// <summary>
@@ -233,6 +237,11 @@ namespace Skyrates.Server.Network
             bool validID = clientID < this.ClientsData.Length && this.ClientsData[clientID] != null;
             if (validID) this.ClientsData[clientID] = null;
             return validID;
+        }
+
+        public ClientData this[int index]
+        {
+            get { return this.ClientsData[index]; }
         }
 
     }
