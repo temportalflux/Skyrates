@@ -1,6 +1,7 @@
 ﻿
 using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 // TODO: Remove
@@ -35,6 +36,11 @@ public class EntityPlayer : EntityDynamic
     {
         this.View.gameObject.SetActive(false);
         this.Steering = null;
+    }
+
+    public override bool ShouldDeserialize()
+    {
+        return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
     }
 
 }
