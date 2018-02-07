@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Client.Network.Event;
 using Skyrates.Common.AI;
+using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
 using UnityEngine.Events;
@@ -66,18 +67,18 @@ public class InputMovement : MonoBehaviour
 
     public Rigidbody physics;
 
-    public PhysicsData physicsData;
+    private EntityDynamic dynamicTmp;
 
     void Start()
     {
-        this.physicsData = new PhysicsData();
+        dynamicTmp = this.physics.GetComponent<EntityDynamic>();
     }
     
     void Update()
     {
         this.GetInput(ref this.playerInput);
-        this.Move(this.playerInput, ref this.physicsData);
-        this.ApplyPhysics(ref this.physicsData);
+        this.Move(this.playerInput, ref this.dynamicTmp.Physics);
+        this.ApplyPhysics(ref this.dynamicTmp.Physics);
 
     }
 

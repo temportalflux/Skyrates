@@ -54,28 +54,28 @@ namespace Skyrates.Common.Entity
         {
 
             // Update velocity
-            this.Physics.LinearVelocity += this.Physics.LinearAccelleration * deltaTime;
+            //this.Physics.LinearVelocity += this.Physics.LinearAccelleration * deltaTime;
 
-            // Update position
-            this.Physics.LinearPosition += this.Physics.LinearVelocity * deltaTime;
+            //// Update position
+            //this.Physics.LinearPosition += this.Physics.LinearVelocity * deltaTime;
 
-            // Set position
-            this.transform.position = this.Physics.LinearPosition;
+            //// Set position
+            //this.transform.position = this.Physics.LinearPosition;
 
-            // Update rotational velocity
-            this.Physics.RotationVelocity = Quaternion.Euler(
-                this.Physics.RotationVelocity.eulerAngles +
-                this.Physics.RotationAccelleration.eulerAngles * deltaTime
-            );
+            //// Update rotational velocity
+            //this.Physics.RotationVelocity = Quaternion.Euler(
+            //    this.Physics.RotationVelocity.eulerAngles +
+            //    this.Physics.RotationAccelleration.eulerAngles * deltaTime
+            //);
 
-            // Update rotation
-            this.Physics.RotationPosition = Quaternion.Euler(
-                this.Physics.RotationPosition.eulerAngles +
-                this.Physics.RotationVelocity.eulerAngles * deltaTime
-            );
+            //// Update rotation
+            //this.Physics.RotationPosition = Quaternion.Euler(
+            //    this.Physics.RotationPosition.eulerAngles +
+            //    this.Physics.RotationVelocity.eulerAngles * deltaTime
+            //);
 
-            // Set rotation
-            this.transform.rotation = this.Physics.RotationPosition;
+            //// Set rotation
+            //this.transform.rotation = this.Physics.RotationPosition;
 
         }
 
