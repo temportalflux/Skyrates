@@ -95,7 +95,7 @@ namespace Skyrates.Server.Network
                 return;
             }
 
-            Debug.Log("Client joined ");
+            Debug.Log(string.Format("Client {0} ({1}) joined, sending GUID {2}", client.ClientId, client.Address, client.PlayerGuid));
             
             this.Dispatch(new EventHandshakeClientID(client), evt.SourceAddress);
         }
@@ -214,10 +214,10 @@ namespace Skyrates.Server.Network
         public bool TryAdd(string address, out ClientData client)
         {
             client = null;
-            for (int clientID = 0; clientID < this.ClientsData.Length; clientID++)
+            for (uint clientID = 0; clientID < this.ClientsData.Length; clientID++)
             {
                 if (this.ClientsData[clientID] != null) continue;
-                this.ClientsData[clientID] = client = new ClientData {Address = address};
+                this.ClientsData[clientID] = client = new ClientData {Address = address, ClientId = clientID, PlayerGuid = Entity.NewGuid()};
                 return true;
             }
             return false;
