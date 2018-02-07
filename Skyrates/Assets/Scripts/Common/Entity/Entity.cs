@@ -10,10 +10,16 @@ namespace Skyrates.Common.Entity
     {
 
         [BitSerialize(0)]
-        public Entity.Type EntityType;
+        public int EntityTypeAsInt;
 
         [BitSerialize(1)]
         public int EntityTypeIndex;
+
+        public Entity.Type EntityType
+        {
+            get { return (Entity.Type) this.EntityTypeAsInt; }
+            set { this.EntityTypeAsInt = (int)value; }
+        }
 
         public TypeData(Entity.Type type, int index)
         {

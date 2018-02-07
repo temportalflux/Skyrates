@@ -24,8 +24,9 @@ namespace Skyrates.Common.Entity
         /// The steering data used - info which is specific to this
         /// entity and likely used by multiple steering algorithms.
         /// </summary>
-        [BitSerialize(3)]
-        public SteeringData SteeringData;
+        // TODO: Player AI doesn't use a target...?
+        //[BitSerialize(3)]
+        public SteeringData SteeringData = new SteeringData();
 
         /// <summary>
         /// The actual steering object - set via editor.
@@ -60,7 +61,7 @@ namespace Skyrates.Common.Entity
             //this.Physics.LinearPosition += this.Physics.LinearVelocity * deltaTime;
 
             //// Set position
-            //this.transform.position = this.Physics.LinearPosition;
+            this.transform.position = this.Physics.LinearPosition;
 
             //// Update rotational velocity
             //this.Physics.RotationVelocity = Quaternion.Euler(
@@ -75,7 +76,7 @@ namespace Skyrates.Common.Entity
             //);
 
             //// Set rotation
-            //this.transform.rotation = this.Physics.RotationPosition;
+            this.transform.rotation = this.Physics.RotationPosition;
 
         }
 

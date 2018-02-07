@@ -21,7 +21,7 @@ namespace Skyrates.Common.AI
         /// </summary>
         [BitSerialize(0)]
         [SerializeField]
-        public PhysicsData Target;
+        public PhysicsData Target = new PhysicsData();
 
     }
 

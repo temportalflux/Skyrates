@@ -53,6 +53,7 @@ public class GameManager : Singleton<GameManager>
         // TODO: Use events to let network know that an entity has spawned
         entityPlayer.Init(playerID, new TypeData(Entity.Type.Player, -1));
         NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
+
     }
 
 }
