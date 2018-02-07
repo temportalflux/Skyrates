@@ -33,8 +33,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (scene.name == SceneLoader.Instance.SceneData.GameName)
         {
-            // Do game prep
-            this.SpawnPlayer(NetworkComponent.GetSession.PlayerGuid);
+            // TODO: Send event for spawning player
+            this.SpawnPlayer(NetworkComponent.GetSession.PlayerGuid, true);
         }
     }
 
@@ -57,9 +57,10 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    void SpawnPlayer(Guid playerID)
+    public void SpawnPlayer(Guid playerID, bool isLocal)
     {
-        this.SpawnEntity(new TypeData(Entity.Type.Player, -1), playerID);
+        EntityPlayer player = (EntityPlayer) this.SpawnEntity(new TypeData(Entity.Type.Player, -1), playerID);
+        if (!isLocal) player.SetDummy();
     }
 
 }

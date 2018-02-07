@@ -115,11 +115,7 @@ namespace Skyrates.Server.Network
             Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.clientID));
             
             // TODO: Send event for spawning player
-            Entity spawned = GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), this.ClientList[(int) evtAccept.clientID].PlayerGuid);
-            if (spawned != null && spawned is EntityPlayer)
-            {
-                (spawned as EntityPlayer).SetDummy();
-            }
+            GameManager.Instance.SpawnPlayer(this.ClientList[(int) evtAccept.clientID].PlayerGuid, false);
 
         }
 
