@@ -62,10 +62,12 @@ namespace Skyrates.Common.Entity
         /// </summary>
         [BitSerialize(0)]
         [SerializeField]
+        [HideInInspector]
         public Guid Guid;
 
         [BitSerialize(1)]
         [SerializeField]
+        [HideInInspector]
         public TypeData TypeData;
 
         // TODO: Fire an event when entities are created (via editor OR via script)

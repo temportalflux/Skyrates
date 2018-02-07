@@ -16,6 +16,13 @@ namespace Skyrates.Common.AI
     public class SteeringData
     {
 
+        // NOT SERIALIZED
+
+        public Transform View;
+        public Transform Render;
+
+        // SERIALIZED
+
         /// <summary>
         /// The location/physics information for the target.
         /// </summary>

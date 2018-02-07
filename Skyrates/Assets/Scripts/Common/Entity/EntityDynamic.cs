@@ -26,6 +26,7 @@ namespace Skyrates.Common.Entity
         /// </summary>
         // TODO: Player AI doesn't use a target...?
         //[BitSerialize(3)]
+        [HideInInspector]
         public SteeringData SteeringData = new SteeringData();
 
         /// <summary>
@@ -35,7 +36,10 @@ namespace Skyrates.Common.Entity
         
         void FixedUpdate()
         {
-            
+
+            this.SteeringData.View = this.GetView();
+            this.SteeringData.Render = this.GetRender();
+
             // Update steering on a fixed timestep
             if (this.Steering != null)
             {
@@ -47,6 +51,16 @@ namespace Skyrates.Common.Entity
 
         }
 
+        protected virtual Transform GetView()
+        {
+            return this.transform;
+        }
+
+        protected virtual Transform GetRender()
+        {
+            return this.GetView();
+        }
+
         /// <summary>
         /// Integrates the current set of physics with the <see cref="Transform"/>.
         /// </summary>
@@ -55,28 +69,31 @@ namespace Skyrates.Common.Entity
         {
 
             // Update velocity
-            //this.Physics.LinearVelocity += this.Physics.LinearAccelleration * deltaTime;
+            this.Physics.LinearVelocity += this.Physics.LinearAccelleration * deltaTime;
 
             //// Update position
-            //this.Physics.LinearPosition += this.Physics.LinearVelocity * deltaTime;
+            this.Physics.LinearPosition += this.Physics.LinearVelocity * deltaTime;
 
             //// Set position
             this.transform.position = this.Physics.LinearPosition;
+            // TODO: this.rigidbody.velocity = ? maybe
+
+
 
             //// Update rotational velocity
-            //this.Physics.RotationVelocity = Quaternion.Euler(
-            //    this.Physics.RotationVelocity.eulerAngles +
-            //    this.Physics.RotationAccelleration.eulerAngles * deltaTime
-            //);
+            this.Physics.RotationVelocity = Quaternion.Euler(
+                this.Physics.RotationVelocity.eulerAngles +
+                this.Physics.RotationAccelleration.eulerAngles * deltaTime
+            );
 
             //// Update rotation
-            //this.Physics.RotationPosition = Quaternion.Euler(
-            //    this.Physics.RotationPosition.eulerAngles +
-            //    this.Physics.RotationVelocity.eulerAngles * deltaTime
-            //);
+            this.Physics.RotationPosition = Quaternion.Euler(
+                this.Physics.RotationPosition.eulerAngles +
+                this.Physics.RotationVelocity.eulerAngles * deltaTime
+            );
 
             //// Set rotation
-            this.transform.rotation = this.Physics.RotationPosition;
+            this.GetRender().Rotate(this.Physics.RotationVelocity.eulerAngles, Space.World);
 
         }
 
