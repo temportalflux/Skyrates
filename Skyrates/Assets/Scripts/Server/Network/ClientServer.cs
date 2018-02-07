@@ -74,6 +74,7 @@ namespace Skyrates.Server.Network
 
             // TODO: Fire event
             NetworkComponent.GetSession.PlayerGuid = Entity.NewGuid();
+            NetworkComponent.GetSession.HandshakeComplete = true;
 
             this.StartCoroutine(this.DispatchGameState());
         }
