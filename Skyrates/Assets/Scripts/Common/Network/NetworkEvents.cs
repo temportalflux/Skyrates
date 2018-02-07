@@ -69,10 +69,9 @@ namespace Skyrates.Common.Network
         /// </summary>
         public Dictionary<NetworkEventID, Type> Types;
 
-        /// <summary>
-        /// Map of <see cref="NetworkEventID"/> to its <see cref="NetworkEventDelegate"/> event delegate, so that the <see cref="NetworkEvent"/> can be fired by <see cref="NetworkCommon._receiver"/>.
-        /// </summary>
-        public Dictionary<NetworkEventID, NetworkEventDelegate> Delegates;
+        // <summary>
+        // Map of <see cref="NetworkEventID"/> to its <see cref="NetworkEventDelegate"/> event delegate, so that the <see cref="NetworkEvent"/> can be fired by <see cref="NetworkCommon._receiver"/>.
+        // </summary>
 
         void Awake()
         {
@@ -117,53 +116,7 @@ namespace Skyrates.Common.Network
                 #endregion
 
             };
-
-            this.Delegates = new Dictionary<NetworkEventID, NetworkEventDelegate>()
-            {
-
-                #region RakNet -> Server
-
-                {NetworkEventID.IncomingConnection, IncomingConnection},
-
-                #endregion
-
-                #region RakNet -> ClientData
-
-                {NetworkEventID.ConnectionAccepted, ConnectionAccepted},
-                {NetworkEventID.ConnectionRejected, ConnectionRejected},
-
-                #endregion
-
-                #region RakNet -> Both
-
-                {NetworkEventID.ConnectionLost, ConnectionLost},
-                {NetworkEventID.ConnectionDropped, ConnectionDropped},
-
-                #endregion
-
-                #region Server
-
-                {NetworkEventID.HandshakeClientID, HandshakeClientID},
-                {NetworkEventID.UpdateGamestate, UpdateGamestate},
-
-                #endregion
-
-                #region ClientData
-
-                {NetworkEventID.HandshakeJoin, HandshakeJoin},
-                {NetworkEventID.HandshakeAccept, HandshakeAccept},
-                {NetworkEventID.RequestSetPlayerPhysics, RequestSetPlayerPhysics},
-
-                #endregion
-
-                #region From/To Both
-
-                {NetworkEventID.Disconnect, Disconnect},
-
-                #endregion
-
-            };
-
+            
         }
 
         #region RakNet -> Server
@@ -207,7 +160,37 @@ namespace Skyrates.Common.Network
 
         #endregion
 
-        
+        public NetworkEventDelegate Delegate(NetworkEventID eventID)
+        {
+            switch (eventID)
+            {
+                #region RakNet -> Server
+                case NetworkEventID.IncomingConnection: return IncomingConnection;
+                #endregion
+                #region RakNet -> ClientData
+                case NetworkEventID.ConnectionAccepted: return ConnectionAccepted;
+                case NetworkEventID.ConnectionRejected: return ConnectionRejected;
+                #endregion
+                #region RakNet -> Both
+                case NetworkEventID.ConnectionLost: return ConnectionLost;
+                case NetworkEventID.ConnectionDropped: return ConnectionDropped;
+                #endregion
+                #region Server
+                case NetworkEventID.HandshakeClientID: return HandshakeClientID;
+                case NetworkEventID.UpdateGamestate: return UpdateGamestate;
+                #endregion
+                #region ClientData
+                case NetworkEventID.HandshakeJoin: return HandshakeJoin;
+                case NetworkEventID.HandshakeAccept: return HandshakeAccept;
+                case NetworkEventID.RequestSetPlayerPhysics: return RequestSetPlayerPhysics;
+                #endregion
+                #region From/To Both
+                case NetworkEventID.Disconnect: return Disconnect;
+                #endregion
+                case NetworkEventID.None:  return null;
+                default: return null;
+            }
+        }
 
     }
 

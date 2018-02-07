@@ -16,20 +16,18 @@ namespace Skyrates.Client.Network
     public class Client : NetworkCommon
     {
 
-        /// <inheritdoc />
-        public override void Create()
+        public override void SubscribeEvents()
         {
-            base.Create();
+            base.SubscribeEvents();
             NetworkEvents.Instance.ConnectionAccepted += this.OnConnectionAccepted;
             NetworkEvents.Instance.ConnectionRejected += this.OnConnectionRejected;
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.HandshakeClientID += this.OnHandshakeClientID;
         }
 
-        /// <inheritdoc />
-        public override void Destroy()
+        public override void UnsubscribeEvents()
         {
-            base.Destroy();
+            base.UnsubscribeEvents();
             NetworkEvents.Instance.ConnectionAccepted -= this.OnConnectionAccepted;
             NetworkEvents.Instance.ConnectionRejected -= this.OnConnectionRejected;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;

@@ -62,6 +62,23 @@ namespace Skyrates.Common.Network
             NetworkPlugin.Destroy();
         }
 
+        #region Eeehh
+        // TODO: ORganize!!!
+
+        public bool HasSubscribed;
+
+        public virtual void SubscribeEvents()
+        {
+            this.HasSubscribed = true;
+        }
+
+        public virtual void UnsubscribeEvents()
+        {
+            this.HasSubscribed = false;
+        }
+
+        #endregion
+
         /// <summary>
         /// Called after <see cref="Create"/> but before <see cref="Destroy"/> to start the network in its default configuration.
         /// Implementation should call <see cref="StartClient"/> or <see cref="StartServer"/>, and <see cref="Connect"/> if applicable.
@@ -413,22 +430,16 @@ namespace Skyrates.Common.Network
             while (this.PollEvent(out evt))
             {
                 // Find the delegate to fire
-                NetworkEventDelegate evtDelegate;
-                if (NetworkEvents.Instance.Delegates.TryGetValue((NetworkEventID) evt.EventID, out evtDelegate))
+                NetworkEventDelegate evtDelegate = NetworkEvents.Instance.Delegate((NetworkEventID) evt.EventID);
+                if (evtDelegate != null)
                 {
-                    if (evtDelegate != null)
-                    {
-                        // Fire off the delegate
-                        evtDelegate.Invoke(evt);
-                    }
-                    else
-                    {
-                        Debug.LogWarning(string.Format("Delegate for {0} was null...", (NetworkEventID) evt.EventID));
-                    }
+                    // Fire off the delegate
+                    evtDelegate.Invoke(evt);
                 }
                 else
                 {
-                    UnityEngine.Debug.LogWarning("Could not fire off event " + (NetworkEventID)evt.EventID + ", no event delegate.");
+                    //Debug.LogWarning(string.Format("Delegate for {0} was null...", (NetworkEventID) evt.EventID));
+                    Debug.LogWarning("Could not fire off event " + (NetworkEventID) evt.EventID + ", no event delegate.");
                 }
             }
         }

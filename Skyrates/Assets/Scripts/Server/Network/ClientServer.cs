@@ -34,10 +34,6 @@ namespace Skyrates.Server.Network
             base.Create();
             this.ClientList = null;
             this._secondsPerUpdate = 0.0f;
-            NetworkEvents.Instance.HandshakeJoin += this.OnHandshakeJoin;
-            NetworkEvents.Instance.HandshakeAccept += this.OnHandshakeAccept;
-            NetworkEvents.Instance.Disconnect += this.OnDisconnect;
-            NetworkEvents.Instance.RequestSetPlayerPhysics += this.OnRequestSetPlayerPhysics;
         }
 
         /// <inheritdoc />
@@ -46,6 +42,20 @@ namespace Skyrates.Server.Network
             base.Destroy();
             this.ClientList = null;
             this._secondsPerUpdate = 0.0f;
+        }
+
+        public override void SubscribeEvents()
+        {
+            base.SubscribeEvents();
+            NetworkEvents.Instance.HandshakeJoin += this.OnHandshakeJoin;
+            NetworkEvents.Instance.HandshakeAccept += this.OnHandshakeAccept;
+            NetworkEvents.Instance.Disconnect += this.OnDisconnect;
+            NetworkEvents.Instance.RequestSetPlayerPhysics += this.OnRequestSetPlayerPhysics;
+        }
+
+        public override void UnsubscribeEvents()
+        {
+            base.UnsubscribeEvents();
             NetworkEvents.Instance.HandshakeJoin -= this.OnHandshakeJoin;
             NetworkEvents.Instance.HandshakeAccept -= this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;

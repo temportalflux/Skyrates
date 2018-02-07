@@ -63,6 +63,32 @@ namespace Skyrates.Common.Network
             this.InitData();
         }
 
+        void OnEnable()
+        {
+            SceneManager.sceneLoaded += this.OnSceneLoaded;
+        }
+
+        void OnDisable()
+        {
+            SceneManager.sceneUnloaded += this.OnSceneUnLoaded;
+        }
+
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (this._network != null && !this._network.HasSubscribed)
+            {
+                this._network.SubscribeEvents();
+            }
+        }
+
+        void OnSceneUnLoaded(Scene scene)
+        {
+            if (this._network != null && this._network.HasSubscribed)
+            {
+                this._network.UnsubscribeEvents();
+            }
+        }
+
         // Wipes Session and GameState
         private void InitData()
         {
