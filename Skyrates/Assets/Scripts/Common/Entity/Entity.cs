@@ -121,7 +121,13 @@ namespace Skyrates.Common.Entity
         }
 
         #endregion
-        
+
+        public virtual bool ShouldDeserialize()
+        {
+            return true;
+        }
+
+
     }
 
 }

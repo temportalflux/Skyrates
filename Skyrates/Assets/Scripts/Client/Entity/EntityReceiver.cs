@@ -70,9 +70,13 @@ namespace Skyrates.Common.Entity
 
                         // deserialize into that entity (and then call integrate)
                         Entity entity = this.Entities[type].Entities[entityGuid];
-                        entity = (Entity)BitSerializeAttribute.Deserialize(entity, data, ref lastIndex);
-                        this.Entities[type].Entities[entityGuid] = entity;
-                        entity.OnDeserializeSuccess();
+                        // marker for entities like local players who are controlled locally and shouldnt deserialize info
+                        if (entity.ShouldDeserialize())
+                        {
+                            entity = (Entity)BitSerializeAttribute.Deserialize(entity, data, ref lastIndex);
+                            this.Entities[type].Entities[entityGuid] = entity;
+                            entity.OnDeserializeSuccess();
+                        }
 
                     }
                     // else
