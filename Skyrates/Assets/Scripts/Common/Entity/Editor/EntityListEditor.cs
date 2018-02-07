@@ -29,6 +29,7 @@ namespace Skyrates.Common.Entity
             instance.PrefabEntityPlayer = (EntityPlayer)EditorGUILayout.ObjectField(
                 "Player Prefab", instance.PrefabEntityPlayer, typeof(EntityPlayer), false);
 
+            EditorUtility.SetDirty(instance);
         }
 
     }
