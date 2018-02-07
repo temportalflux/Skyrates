@@ -441,8 +441,7 @@ namespace Skyrates.Common.Network
                     _Deserialize = new Func<Guid, byte[], int, Type, Guid>(
                         (Guid obj, byte[] data, int start, Type type) =>
                         {
-                            Type t = typeof(Int32);
-                            int size = (int) MODULES[t].Deserialize(0, data, start, t);
+                            int size = (int)BitSerializeAttribute.Deserialize(0, data, ref start);
 
                             byte[] guidData = new byte[size];
                             CopyFrom(data, ref guidData, start, size);
