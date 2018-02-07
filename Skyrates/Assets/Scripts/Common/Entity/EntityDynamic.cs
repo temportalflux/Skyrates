@@ -33,8 +33,8 @@ namespace Skyrates.Common.Entity
         /// The actual steering object - set via editor.
         /// </summary>
         public Steering Steering;
-        
-        void FixedUpdate()
+
+        protected virtual void FixedUpdate()
         {
 
             this.SteeringData.View = this.GetView();

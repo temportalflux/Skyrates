@@ -1,4 +1,5 @@
 ﻿
+using Skyrates.Client.Network.Event;
 using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
@@ -15,6 +16,8 @@ public class EntityPlayer : EntityDynamic
     public Transform Render;
 
     public Ship ShipRoot;
+
+    private bool isDummy = false;
 
     void Awake()
     {
@@ -34,6 +37,7 @@ public class EntityPlayer : EntityDynamic
 
     public void SetDummy()
     {
+        this.isDummy = true;
         this.View.gameObject.SetActive(false);
         this.Steering = null;
     }
@@ -43,4 +47,14 @@ public class EntityPlayer : EntityDynamic
         return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
     }
 
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (!this.isDummy)
+        {
+            // TODO: Move this to an event
+            // TODO: Reconsider frequency
+            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(this.Physics));
+        }
+    }
 }

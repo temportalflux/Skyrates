@@ -143,13 +143,17 @@ namespace Skyrates.Server.Network
         public void OnRequestSetPlayerPhysics(NetworkEvent evt)
         {
             EventRequestSetPlayerPhysics evtSetPlayerPhysics = evt as EventRequestSetPlayerPhysics;
+            System.Diagnostics.Debug.Assert(evtSetPlayerPhysics != null, "evtSetPlayerPhysics != null");
+            
+            // Get client from gamestate
+            ClientData client = this.ClientList[(int)evtSetPlayerPhysics.clientID];
 
-            // evtSetPlayerPhysics.clientID
-            // TODO: Get client from gamestate
-            // TODO: Set physic variables for the player owned by them
-
-            // TODO: This requires an EntityTracker
-
+            // Set physic variables for the player owned by them
+            EntityDynamic e = this.GetEntityTracker().Entities[Entity.Type.Player].Entities[client.PlayerGuid] as EntityDynamic;
+            if (e != null)
+            {
+                e.Physics = evtSetPlayerPhysics.Physics;
+            }
         }
 
         private IEnumerator DispatchGameState()

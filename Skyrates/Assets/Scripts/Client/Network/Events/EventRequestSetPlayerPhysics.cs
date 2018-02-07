@@ -9,18 +9,20 @@ namespace Skyrates.Client.Network.Event
     public class EventRequestSetPlayerPhysics : NetworkEvent
     {
 
-        [BitSerialize(1)] public uint clientID;
+        [BitSerialize(1)]
+        public uint clientID;
 
-        [BitSerialize(2)] public PhysicsData data;
+        [BitSerialize(2)]
+        public PhysicsData Physics;
 
         public EventRequestSetPlayerPhysics() : base(NetworkEventID.RequestSetPlayerPhysics)
         {
         }
 
-        public EventRequestSetPlayerPhysics(PhysicsData dataIn) : this()
+        public EventRequestSetPlayerPhysics(PhysicsData physicsIn) : this()
         {
             this.clientID = NetworkComponent.GetSession.ClientID;
-            this.data = dataIn;
+            this.Physics = physicsIn;
         }
 
     }
