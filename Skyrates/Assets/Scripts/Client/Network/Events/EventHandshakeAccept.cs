@@ -11,18 +11,14 @@ namespace Skyrates.Client.Network.Event
 
         [BitSerialize(1)]
         public uint clientID;
-        
-        [BitSerialize(2)]
-        public Guid playerEntityGuid;
 
         public EventHandshakeAccept() : base(NetworkEventID.HandshakeAccept)
         {
         }
 
-        public EventHandshakeAccept(uint clientID, Guid playerEntityGuid) : this()
+        public EventHandshakeAccept(uint clientID) : this()
         {
             this.clientID = clientID;
-            this.playerEntityGuid = playerEntityGuid;
         }
 
     }

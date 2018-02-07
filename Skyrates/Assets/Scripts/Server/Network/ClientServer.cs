@@ -39,6 +39,7 @@ namespace Skyrates.Server.Network
         /// <inheritdoc />
         public override void Destroy()
         {
+            this.Dispatch(new EventDisconnect());
             base.Destroy();
             this.ClientList = null;
             this._secondsPerUpdate = 0.0f;
@@ -106,12 +107,9 @@ namespace Skyrates.Server.Network
             EventHandshakeAccept evtAccept = evt as EventHandshakeAccept;
 
             System.Diagnostics.Debug.Assert(evtAccept != null, "evtAccept != null");
+            
+            Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.clientID));
 
-            Guid guid = evtAccept.playerEntityGuid;
-            
-            // TODO: copy over player GUID
-            // TODO: Mark client as with valid player GUID
-            
         }
 
         /// <summary>
