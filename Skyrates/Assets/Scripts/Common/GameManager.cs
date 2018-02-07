@@ -38,7 +38,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public Entity SpawnEntity(TypeData typeData, Guid guid)
+    public Entity SpawnEntity(TypeData typeData, Guid guid, bool isLocal = false)
     {
         switch (typeData.EntityType)
         {
@@ -50,6 +50,11 @@ public class GameManager : Singleton<GameManager>
                 entityPlayer.Init(guid, typeData);
                 NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
 
+                if (!isLocal)
+                {
+                    entityPlayer.SetDummy();
+                }
+
                 return entityPlayer;
             default:
                 Debug.Log(string.Format("Spawn {0}:{1} {2}", typeData.EntityType, typeData.EntityTypeIndex, guid));
@@ -59,8 +64,7 @@ public class GameManager : Singleton<GameManager>
 
     public void SpawnPlayer(Guid playerID, bool isLocal)
     {
-        EntityPlayer player = (EntityPlayer) this.SpawnEntity(new TypeData(Entity.Type.Player, -1), playerID);
-        if (!isLocal) player.SetDummy();
+        EntityPlayer player = (EntityPlayer) this.SpawnEntity(new TypeData(Entity.Type.Player, -1), playerID, isLocal);
     }
 
 }
