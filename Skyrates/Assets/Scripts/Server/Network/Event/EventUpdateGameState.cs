@@ -68,7 +68,7 @@ namespace Skyrates.Server.Network.Event
             if (!NetworkComponent.GetSession.HandshakeComplete) return;
 
             // Event ID
-            this.EventID = (byte) BitSerializeAttribute.Deserialize(this.EventID, data, ref lastIndex);
+            //this.EventID = (byte) BitSerializeAttribute.Deserialize(this.EventID, data, ref lastIndex);
 
             Client.Network.Client client = NetworkComponent.GetNetwork() as Client.Network.Client;
             Debug.Assert(client != null, "client != null");
