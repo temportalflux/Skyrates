@@ -73,7 +73,12 @@ namespace Skyrates.Client.Network
 
         public void OnDisconnect(NetworkEvent evt)
         {
-            Debug.LogWarning("Server kicked us... do something.");
+            // TODO: Boot user back to main menu
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            UnityEngine.Application.Quit();
+#endif
         }
 
         /// <summary>
