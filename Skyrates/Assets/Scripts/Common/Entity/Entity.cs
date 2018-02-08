@@ -26,6 +26,7 @@ namespace Skyrates.Common.Entity
         public TypeData(Entity.Type type, int index)
         {
             this.EntityType = type;
+            this.EntityTypeAsInt = (int) this.EntityType;
             this.EntityTypeIndex = index;
         }
 
@@ -87,7 +88,7 @@ namespace Skyrates.Common.Entity
 
         void Start()
         {
-            this.Init(NewGuid(), new TypeData(){EntityType = this.EntityType, EntityTypeIndex = this.EntityTypeArrayIndex});
+            this.Init(NewGuid(), new TypeData(this.EntityType, this.EntityTypeArrayIndex));
             this.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
         }
 
