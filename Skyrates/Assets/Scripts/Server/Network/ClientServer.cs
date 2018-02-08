@@ -54,6 +54,7 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeAccept += this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics += this.OnRequestSetPlayerPhysics;
+            GameManager.Events.PlayerLeft += this.OnPlayerLeft;
         }
 
         public override void UnsubscribeEvents()
@@ -63,6 +64,7 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeAccept -= this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics -= this.OnRequestSetPlayerPhysics;
+            GameManager.Events.PlayerLeft -= this.OnPlayerLeft;
         }
 
         /// <inheritdoc />
@@ -78,6 +80,17 @@ namespace Skyrates.Server.Network
             NetworkComponent.GetSession.HandshakeComplete = true;
 
             this.StartCoroutine(this.DispatchGameState());
+        }
+
+        private IEnumerator DispatchGameState()
+        {
+            while (true)
+            {
+                EventUpdateGameState evt = new EventUpdateGameState();
+                evt.GenerateData();
+                this.DispatchAll(evt);
+                yield return new WaitForSeconds(this._secondsPerUpdate);
+            }
         }
 
         /// <summary>
@@ -132,13 +145,17 @@ namespace Skyrates.Server.Network
         {
             EventDisconnect evtDisconnect = evt as EventDisconnect;
             System.Diagnostics.Debug.Assert(evtDisconnect != null, "evtDisconnect != null");
-            if (!this.ClientList.TryRemove(evtDisconnect.clientID))
+            ClientData client;
+            if (!this.ClientList.TryRemove(evtDisconnect.clientID, out client))
             {
                 Debug.Log(string.Format("Error: Cannot remove client with client ID {0}", evtDisconnect.clientID));
                 return;
             }
+
             Debug.Log(string.Format("Client {0} has disconnected", evtDisconnect.clientID));
-            // TODO: Remove the player
+            
+            GameManager.Events.Dispatch(new EventPlayerLeft(client.PlayerGuid));
+
         }
 
         /// <summary>
@@ -162,15 +179,14 @@ namespace Skyrates.Server.Network
             }
         }
 
-        private IEnumerator DispatchGameState()
+        void OnPlayerLeft(GameEvent evt)
         {
-            while (true)
+            Entity entity;
+            if (this.GetEntityTracker().TryGetValue(Entity.Type.Player, ((EventPlayerLeft) evt).PlayerGuid, out entity))
             {
-                EventUpdateGameState evt = new EventUpdateGameState();
-                evt.GenerateData();
-                this.DispatchAll(evt);
-                yield return new WaitForSeconds(this._secondsPerUpdate);
+                UnityEngine.Object.Destroy(entity.gameObject);
             }
+           
         }
 
     }
@@ -242,10 +258,15 @@ namespace Skyrates.Server.Network
         /// </summary>
         /// <param name="clientID"></param>
         /// <returns></returns>
-        public bool TryRemove(uint clientID)
+        public bool TryRemove(uint clientID, out ClientData client)
         {
             bool validID = clientID < this.ClientsData.Length && this.ClientsData[clientID] != null;
-            if (validID) this.ClientsData[clientID] = null;
+            client = null;
+            if (validID)
+            {
+                client = this.ClientsData[clientID];
+                this.ClientsData[clientID] = null;
+            }
             return validID;
         }
 

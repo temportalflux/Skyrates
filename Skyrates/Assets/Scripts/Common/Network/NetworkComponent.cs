@@ -55,7 +55,7 @@ namespace Skyrates.Common.Network
             {
                 if (GetSession.HandshakeComplete || GetSession.HasValidClientID())
                 {
-                    GetNetwork().Dispatch(new EventDisconnect(GetSession.ClientID));
+                    GetNetwork().DispatchAllImmediate(new EventDisconnect(GetSession.ClientID));
                 }
 
                 GetNetwork().Shutdown();

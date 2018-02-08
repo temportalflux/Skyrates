@@ -27,6 +27,7 @@ namespace Skyrates.Client.Game.Event
         #region Player
 
         PlayerMoved,
+        PlayerLeft,
 
         #endregion
 
@@ -48,6 +49,7 @@ namespace Skyrates.Client.Game.Event
         #endregion
         #region Player
         public event GameEventDelegate PlayerMoved;
+        public event GameEventDelegate PlayerLeft;
         #endregion
 
         public GameEventDelegate Delegate(GameEventID eventID)
@@ -71,6 +73,8 @@ namespace Skyrates.Client.Game.Event
                 #region Player
                 case GameEventID.PlayerMoved:
                     return this.PlayerMoved;
+                case GameEventID.PlayerLeft:
+                    return this.PlayerLeft;
                 #endregion
                 default:
                     Debug.LogWarning(string.Format("No delegate for event {0}", eventID));

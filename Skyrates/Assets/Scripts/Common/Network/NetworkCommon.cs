@@ -163,6 +163,11 @@ namespace Skyrates.Common.Network
             this.Dispatch(evt, NetworkComponent.GetSession.Address, true);
         }
 
+        public void DispatchAllImmediate(NetworkEvent evt)
+        {
+            this._dispatcher.Dispatch(evt.Serialize(), NetworkComponent.GetSession.Address, NetworkComponent.GetSession.Port, true);
+        }
+
         /// <summary>
         /// Updates the network, dispatching all current packets and receiving any packets in the network (in that order).
         /// </summary>
