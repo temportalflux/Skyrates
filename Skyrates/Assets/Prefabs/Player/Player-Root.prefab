@@ -230,6 +230,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4296624790975764}
+  - component: {fileID: 114621202652398174}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -3093,6 +3094,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea214a1f8b4be543b17cf9bab8816b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114621202652398174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1199482204315226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec4b65294023b84f86111266f230e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput:
+    HorizontalInput: 0
+    HorizontalSpeed: 1
+    VerticalInput: 0
+    VerticalSpeed: 1
+  pivot: {fileID: 4986014796683882}
 --- !u!114 &114758669244366518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3214,6 +3232,9 @@ MonoBehaviour:
     View: {fileID: 0}
     Render: {fileID: 0}
   Steering: {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
+  ShipData:
+    Components: 000000000000000000000000000000000000000000000000
+    _hasNewData: 0
   View: {fileID: 4296624790975764}
   Render: {fileID: 4626443736001176}
   ShipRoot: {fileID: 114167662047460524}
