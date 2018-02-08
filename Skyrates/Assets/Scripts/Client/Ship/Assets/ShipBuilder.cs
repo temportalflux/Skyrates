@@ -20,7 +20,9 @@ namespace Skyrates.Client.Ship
         /// <summary>
         /// The data references for every component this rig uses.
         /// </summary>
-        [SerializeField] public ShipData ShipData;
+        [SerializeField]
+        [HideInInspector]
+        public ShipData ShipData;
 
         #region Get Components
 
@@ -116,12 +118,10 @@ namespace Skyrates.Client.Ship
             // Create the hull
             ShipHull hullPrefab = (ShipHull) this.GetShipComponent(ComponentType.Hull, data);
             ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHull>();
-
-            int iMount = 0;
+            
             // Create all the remaining components
-            foreach (ComponentType compType in ShipData.ComponentTypes)
+            foreach (ComponentType compType in ShipData.NonHullComponents)
             {
-                if (compType == ComponentType.Hull) continue;
 
                 // Get the component for the type
                 ShipComponent component = this.GetShipComponent(compType, data);
@@ -133,7 +133,7 @@ namespace Skyrates.Client.Ship
                 GameObject prefab = component.gameObject;
 
                 // Get all the targets for the type of component (transforms on hull to generate at)
-                Transform[] targets = hullBuilt.Mounts[iMount].Roots;
+                Transform[] targets = hullPrefab.Mounts[ShipData.HulllessComponentIndex[(int)compType]].Roots;
 
                 hullBuilt.SetShipComponentCount(compType, targets.Length);
 
@@ -147,8 +147,7 @@ namespace Skyrates.Client.Ship
                     // TODO: Optimize this function to just send in the transform
                     hullBuilt.AddShipComponent(hullPrefab.Mounts, compType, iTarget, built.GetComponent<ShipComponent>());
                 }
-
-                iMount++;
+                
             }
 
             return hullBuilt;

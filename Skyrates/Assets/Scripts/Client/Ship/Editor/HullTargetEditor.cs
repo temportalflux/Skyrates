@@ -10,13 +10,13 @@ using ComponentType = ShipData.ComponentType;
 namespace Skyrates.Client.Ship
 {
 
-    //[CustomEditor(typeof(ShipHull))]
+    [CustomEditor(typeof(ShipHull))]
     public class HullTargetEditor : Editor
     {
 
         private ShipHull _instance;
 
-        private static readonly bool[] ToggleComp = new bool[ShipData.ComponentTypes.Length];
+        private static readonly bool[] ToggleComp = new bool[ShipData.NonHullComponents.Length];
 
         public void OnEnable()
         {
@@ -33,10 +33,8 @@ namespace Skyrates.Client.Ship
                 Array.Resize(ref this._instance.Mounts, ShipData.NonHullComponents.Length);
             }
 
-            foreach (ComponentType compType in ShipData.ComponentTypes)
+            foreach (ComponentType compType in ShipData.NonHullComponents)
             {
-                if (compType == ComponentType.Hull) continue;
-
                 EditorGUILayout.Separator();
 
                 int iComp = ShipData.HulllessComponentIndex[(int) compType];

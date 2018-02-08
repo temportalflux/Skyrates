@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4538739917721618}
-  - component: {fileID: 136964033428741976}
+  - component: {fileID: 136522199019769278}
   m_Layer: 0
   m_Name: physics
   m_TagString: Untagged
@@ -1178,30 +1178,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-    list:
-    - roots:
-      - {fileID: 4696149142057652}
-      generatedComponents: []
-    - roots:
-      - {fileID: 4153089071353414}
-      - {fileID: 4832667220931328}
-      - {fileID: 4672304239260768}
-      - {fileID: 4721377874323728}
-      - {fileID: 4431854579093392}
-      - {fileID: 4915025528335942}
-      generatedComponents: []
-    - roots: []
-      generatedComponents: []
-    - roots:
-      - {fileID: 4618837432596788}
-      generatedComponents: []
-    - roots:
-      - {fileID: 4851004614324560}
-      generatedComponents: []
-    - roots: []
-      generatedComponents: []
---- !u!136 &136964033428741976
+  Mounts:
+  - Roots:
+    - {fileID: 4153089071353414}
+    - {fileID: 4431854579093392}
+    - {fileID: 4915025528335942}
+    - {fileID: 4721377874323728}
+    - {fileID: 4832667220931328}
+    - {fileID: 4672304239260768}
+  - Roots:
+    - {fileID: 4618837432596788}
+  - Roots:
+    - {fileID: 4851004614324560}
+  - Roots:
+    - {fileID: 4696149142057652}
+  - Roots:
+    - {fileID: 4993872714023964}
+--- !u!136 &136522199019769278
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1210,7 +1203,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 108.7251
-  m_Height: 340.05823
+  m_Radius: 1.0461671
+  m_Height: 3.4813461
   m_Direction: 2
-  m_Center: {x: 0.0012207031, y: -31.040527, z: 6.0527954}
+  m_Center: {x: -0.034189224, y: -0.2604425, z: 0.043881893}

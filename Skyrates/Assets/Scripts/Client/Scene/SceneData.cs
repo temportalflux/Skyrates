@@ -17,6 +17,7 @@ public class SceneData : ScriptableObject
         MenuMain,
         LoadingWorld,
         World,
+        WorldNonClient,
     }
 
     [Tooltip("The name of the menu scene")]
@@ -27,6 +28,9 @@ public class SceneData : ScriptableObject
     [Tooltip("The name of the main game scene (what scene is loaded when the player goes to pkay)")]
     public string GameName;
 
+    [Tooltip("Where all objects go when they are only owned by server")]
+    public string WorldNonClient;
+
     public readonly Dictionary<SceneKey, string> SceneNames = new Dictionary<SceneKey, string>();
 
     void OnEnable()
@@ -34,6 +38,7 @@ public class SceneData : ScriptableObject
         SceneNames[SceneKey.MenuMain] = MenuName;
         SceneNames[SceneKey.LoadingWorld] = GameLoading;
         SceneNames[SceneKey.World] = GameName;
+        SceneNames[SceneKey.WorldNonClient] = WorldNonClient;
     }
 
     public string GetName(SceneKey sceneKey)
