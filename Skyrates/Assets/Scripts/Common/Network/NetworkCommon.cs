@@ -11,13 +11,6 @@ namespace Skyrates.Common.Network
 {
 
     /// <summary>
-    /// The function template to which subscribes must adhere.
-    /// </summary>
-    /// <param name="evt">The <see cref="NetworkEvent"/> which has been triggered.</param>
-    //public delegate void NetworkEventDelegate<T>(T evt) where T: NetworkEvent;
-    public delegate void NetworkEventDelegate(NetworkEvent evt);
-
-    /// <summary>
     /// The base class for any <see cref="Side"/>d network.
     /// TODO: This naming is too vague
     /// essentially this is the base class for both client and server network systems.

@@ -303,6 +303,11 @@
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Projectile.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Shootable.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Shooter.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\Events\EventEntity.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\Events\EventPlayerMoved.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\Events\GameEvent.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\GameEvents.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Client\Loot\Looter.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Client.cs" />
     <Compile Include="Assets\Scripts\Client\Network\DummyClient.cs" />
@@ -342,7 +347,6 @@
     <Compile Include="Assets\Scripts\Common\Entity\EntityDynamic.cs" />
     <Compile Include="Assets\Scripts\Common\Entity\EntityList.cs" />
     <Compile Include="Assets\Scripts\Common\Entity\EntityTracker.cs" />
-    <Compile Include="Assets\Scripts\Common\GameManager.cs" />
     <Compile Include="Assets\Scripts\Common\Network\ChampNet\NetworkPlugin.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\EventDisconnect.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\EventRakNet.cs" />
@@ -360,6 +364,7 @@
     <Compile Include="Assets\Scripts\Common\Network\SideOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\DeprecatedAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Extension\Vector3.cs" />
+    <Compile Include="Assets\Scripts\Common\Util\IEventDelegate.cs" />
     <Compile Include="Assets\Scripts\Common\Util\NetworkEventAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\PrefabList.cs" />
     <Compile Include="Assets\Scripts\Server\Entity\EntityDispatcher.cs" />

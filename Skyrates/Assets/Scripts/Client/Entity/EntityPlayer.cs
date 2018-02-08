@@ -1,4 +1,6 @@
 ﻿
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Client.Network.Event;
 using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
@@ -46,12 +48,7 @@ public class EntityPlayer : EntityDynamic
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (NetworkComponent.GetSession.Mode == Session.NetworkMode.Client)
-        {
-            // TODO: Move this to an event
-            // TODO: Reconsider frequency
-            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(this.Physics));
-        }
+        GameManager.Events.Dispatch(new EventPlayerMoved(this));
     }
 
     public override bool ShouldDeserialize()

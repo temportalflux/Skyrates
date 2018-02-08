@@ -60,63 +60,65 @@ namespace Skyrates.Common.Network
 
     }
 
-    public class NetworkEvents : Singleton<NetworkEvents>
+    /// <summary>
+    /// The function template to which subscribes must adhere.
+    /// </summary>
+    /// <param name="evt">The <see cref="NetworkEvent"/> which has been triggered.</param>
+    //public delegate void NetworkEventDelegate<T>(T evt) where T: NetworkEvent;
+    public delegate void NetworkEventDelegate(NetworkEvent evt);
+
+    public class NetworkEvents : Singleton<NetworkEvents>, IEventDelegate<NetworkEventID, NetworkEventDelegate>
     {
         public static NetworkEvents Instance;
 
         /// <summary>
         /// Map of <see cref="NetworkEventID"/> to its <see cref="NetworkEvent"/> type, so that data can be deserialized via <see cref="BitSerializeAttribute"/>.
         /// </summary>
-        public Dictionary<NetworkEventID, Type> Types;
+        public readonly Dictionary<NetworkEventID, Type> Types = new Dictionary<NetworkEventID, Type>()
+        {
 
-        // <summary>
-        // Map of <see cref="NetworkEventID"/> to its <see cref="NetworkEventDelegate"/> event delegate, so that the <see cref="NetworkEvent"/> can be fired by <see cref="NetworkCommon._receiver"/>.
-        // </summary>
+            #region RakNet -> Server
+            { NetworkEventID.IncomingConnection, typeof(EventRakNet)
+            },
+            #endregion
 
+            #region RakNet -> ClientData
+            { NetworkEventID.ConnectionAccepted, typeof(EventRakNet)
+            },
+            { NetworkEventID.ConnectionRejected, typeof(EventRakNet) },
+            #endregion
+
+            #region RakNet -> Both
+            { NetworkEventID.ConnectionLost, typeof(EventRakNet) }, // connection was closed somehow
+            { NetworkEventID.ConnectionDropped, typeof(EventRakNet) }, // for client, server shutdown while we were still connected
+            #endregion
+
+            #region Server
+
+            {NetworkEventID.HandshakeClientID, typeof(EventHandshakeClientID)},
+            {NetworkEventID.UpdateGamestate, typeof(EventUpdateGameState)},
+
+            #endregion
+
+            #region ClientData
+            
+            {NetworkEventID.HandshakeJoin, typeof(EventHandshakeJoin)},
+            {NetworkEventID.HandshakeAccept, typeof(EventHandshakeAccept)},
+            {NetworkEventID.RequestSetPlayerPhysics, typeof(EventRequestSetPlayerPhysics)},
+
+            #endregion
+
+            #region From/To Both
+
+            {NetworkEventID.Disconnect, typeof(EventDisconnect) },
+
+            #endregion
+
+        };
+        
         void Awake()
         {
             this.loadSingleton(this, ref Instance);
-
-            this.Types = new Dictionary<NetworkEventID, Type>()
-            {
-
-                #region RakNet -> Server
-                { NetworkEventID.IncomingConnection, typeof(EventRakNet) },
-                #endregion
-
-                #region RakNet -> ClientData
-                { NetworkEventID.ConnectionAccepted, typeof(EventRakNet) },
-                { NetworkEventID.ConnectionRejected, typeof(EventRakNet) },
-                #endregion
-
-                #region RakNet -> Both
-                { NetworkEventID.ConnectionLost, typeof(EventRakNet) }, // connection was closed somehow
-                { NetworkEventID.ConnectionDropped, typeof(EventRakNet) }, // for client, server shutdown while we were still connected
-                #endregion
-
-                #region Server
-
-                {NetworkEventID.HandshakeClientID, typeof(EventHandshakeClientID)},
-                {NetworkEventID.UpdateGamestate, typeof(EventUpdateGameState)},
-
-                #endregion
-
-                #region ClientData
-            
-                {NetworkEventID.HandshakeJoin, typeof(EventHandshakeJoin)},
-                {NetworkEventID.HandshakeAccept, typeof(EventHandshakeAccept)},
-                {NetworkEventID.RequestSetPlayerPhysics, typeof(EventRequestSetPlayerPhysics)},
-
-                #endregion
-
-                #region From/To Both
-
-                {NetworkEventID.Disconnect, typeof(EventDisconnect) },
-
-                #endregion
-
-            };
-            
         }
 
         #region RakNet -> Server
