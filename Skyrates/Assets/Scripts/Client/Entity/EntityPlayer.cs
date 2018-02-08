@@ -62,6 +62,7 @@ public class EntityPlayer : EntityDynamic
         if (this.ShipRoot.ShipData.MustBeRebuilt())
         {
             // TODO: Rebuild the ship
+            Debug.LogWarning("rebuild ship");
         }
     }
 
