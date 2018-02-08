@@ -1,4 +1,6 @@
 ﻿using System;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -57,6 +59,8 @@ namespace Skyrates.Common.Entity
 
         #endregion
 
+        // THE ORDER OF THESE FIELDS IS SENSITIVE FOR DESERIALIZATION IN ENTITYRECEIVER
+
         /// <summary>
         /// A unique identifier for this entity
         /// </summary>
@@ -65,6 +69,9 @@ namespace Skyrates.Common.Entity
         [HideInInspector]
         public Guid Guid;
 
+        /// <summary>
+        /// Which client "owns" this entity (sends updates about it).
+        /// </summary>
         [BitSerialize(1)]
         public int OwnerNetworkID;
 
@@ -73,9 +80,10 @@ namespace Skyrates.Common.Entity
         [HideInInspector]
         public TypeData TypeData;
 
-        // TODO: Fire an event when entities are created (via editor OR via script)
-        // TODO: Fire an event when entities are destroyed
-        // TODO: Respond to these events by editting EntityTracker IF HOST OR NOT NETWORKED
+        void OnDestroy()
+        {
+            GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityDestroy, this));
+        }
         
         public static Guid NewGuid()
         {

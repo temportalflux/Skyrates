@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -289,8 +291,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\_Client\Controller\InputInteraction.cs" />
-    <Compile Include="Assets\Scripts\_Client\Controller\InputMovement.cs" />
-    <Compile Include="Assets\Scripts\_Client\Controller\InputRotation.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputAction.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputConfig.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputSet.cs" />
@@ -304,7 +304,9 @@
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Shootable.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Shooter.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\EventEntity.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\Events\EventGameStart.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\EventPlayerMoved.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\Events\EventSceneLoaded.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\GameEvent.cs" />
     <Compile Include="Assets\Scripts\Client\Game\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Client\Game\GameManager.cs" />

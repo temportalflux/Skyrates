@@ -32,46 +32,39 @@ namespace Skyrates.Client.Game
             this._events = new GameEvents();
         }
 
+        #region Spawn Local Player
+
         void OnEnable()
         {
-            SceneManager.sceneLoaded += this.OnSceneLoaded;
+            Events.SceneLoaded += this.OnSceneLoaded;
         }
         void OnDisable()
         {
-            SceneManager.sceneLoaded -= this.OnSceneLoaded;
+            Events.SceneLoaded -= this.OnSceneLoaded;
         }
 
-        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        void OnSceneLoaded(GameEvent evt)
         {
-            if (scene.name == SceneLoader.Instance.SceneData.GameName)
+            if (((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
             {
-                // TODO: Send event for spawning player
-                this.SpawnEntity(new TypeData(Entity.Type.Player, -1),
-                    NetworkComponent.GetSession.NetworkID,
-                    NetworkComponent.GetSession.PlayerGuid, isLocal: true);
+                Entity e = this.SpawnEntity(new TypeData(Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
+                System.Diagnostics.Debug.Assert(e != null, "e != null");
+                e.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
             }
         }
 
-        public Entity SpawnEntity(TypeData typeData, int ownerNetworkID, Guid guid, bool isLocal = false)
+        #endregion
+
+        public Entity SpawnEntity(TypeData typeData, Guid guid)
         {
             switch (typeData.EntityType)
             {
                 case Entity.Type.Player:
                     EntityPlayer entityPlayer = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayer>();
                     entityPlayer.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
-
-                    // TODO: Use events to let network know that an entity has spawned
                     entityPlayer.Init(guid, typeData);
-                    entityPlayer.OwnerNetworkID = ownerNetworkID;
-
-                    if (NetworkComponent.GetSession.IsNetworked)
-                        NetworkComponent.GetNetwork().GetEntityTracker().Add(entityPlayer);
-
-                    if (!isLocal)
-                    {
-                        entityPlayer.SetDummy();
-                    }
-
+                    entityPlayer.OwnerNetworkID = -1;
+                    GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, entityPlayer));
                     return entityPlayer;
                 default:
                     Debug.Log(string.Format("Spawn {0}:{1} {2}", typeData.EntityType, typeData.EntityTypeIndex, guid));

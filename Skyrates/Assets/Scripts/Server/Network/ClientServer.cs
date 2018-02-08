@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
 using Skyrates.Common.Entity;
@@ -71,8 +73,7 @@ namespace Skyrates.Server.Network
             this.ClientList = new ClientList(session.MaxClients);
             this._secondsPerUpdate = session.ServerTickUpdate;
             this.EntityTracker = new EntityDispatcher();
-
-            // TODO: Fire event
+            
             NetworkComponent.GetSession.PlayerGuid = Entity.NewGuid();
             NetworkComponent.GetSession.HandshakeComplete = true;
 
@@ -115,8 +116,11 @@ namespace Skyrates.Server.Network
             Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.clientID));
 
             ClientData client = this.ClientList[(int) evtAccept.clientID];
-            // TODO: Send event for spawning player
-            GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), (int)client.ClientId, client.PlayerGuid, isLocal:false);
+
+            EntityPlayer e = GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), client.PlayerGuid) as EntityPlayer;
+            System.Diagnostics.Debug.Assert(e != null, "e != null");
+            e.OwnerNetworkID = (int) client.ClientId;
+            e.SetDummy();
         }
 
         /// <summary>

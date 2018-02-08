@@ -106,6 +106,14 @@ namespace Skyrates.Client.Network
             // TODO: Reconsider frequency
             NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventPlayerMoved) evt).Player.Physics));
         }
-        
+
+        public void DeserializeGameState(byte[] data, ref int lastIndex)
+        {
+            // Entities
+            EntityTracker tracker = NetworkComponent.GetNetwork().GetEntityTracker();
+            tracker.Deserialize(data, ref lastIndex);
+        }
+
+
     }
 }

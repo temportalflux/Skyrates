@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 using UnityEngine;
@@ -165,6 +167,7 @@ namespace Skyrates.Common.Network
 
             this.Session.Mode = mode;
             this.CreateNetworkAndConnect();
+            GameManager.Events.Dispatch(new EventGameStart(mode));
         }
 
         #endregion

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ChampNetPlugin;
+using Skyrates.Client.Game;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
@@ -55,19 +56,20 @@ namespace Skyrates.Common.Network
             NetworkPlugin.Destroy();
         }
 
-        #region Eeehh
-        // TODO: ORganize!!!
+        #region Events in Network
 
         public bool HasSubscribed;
 
         public virtual void SubscribeEvents()
         {
             this.HasSubscribed = true;
+            this.GetEntityTracker().SubscribeEvents();
         }
 
         public virtual void UnsubscribeEvents()
         {
             this.HasSubscribed = false;
+            this.GetEntityTracker().UnsubscribeEvents();
         }
 
         #endregion

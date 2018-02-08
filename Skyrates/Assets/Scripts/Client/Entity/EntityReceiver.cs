@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Skyrates.Client.Game;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -88,14 +89,19 @@ namespace Skyrates.Common.Entity
                         TypeData entityTypeData =
                             (TypeData)BitSerializeAttribute.Deserialize(new TypeData(), data, ref indexEntityPeak);
                         // Spawn the entity
-                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, ownerNetworkId, entityGuid,
-                            isLocal: ownerNetworkId == NetworkComponent.GetSession.NetworkID);
+                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid);
                         if (entity != null)
                         {
                             // have the entity fully deserialize
                             entity = (Entity) BitSerializeAttribute.Deserialize(entity, data, ref lastIndex);
                             // tell them it worked
                             entity.OnDeserializeSuccess();
+                            // Player is dummy for another controller when not spawned by this client (first spawn is via network)
+                            // Other occurance can be found when the server gets an accepted handshake and spawns the client's player
+                            if (entityTypeData.EntityType == Entity.Type.Player)
+                            {
+                                ((EntityPlayer)entity).SetDummy();
+                            }
                         }
                     }
 
