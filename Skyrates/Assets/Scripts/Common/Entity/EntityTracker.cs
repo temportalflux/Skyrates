@@ -168,18 +168,30 @@ namespace Skyrates.Common.Entity
         public virtual void SubscribeEvents()
         {
             GameManager.Events.EntityInstantiate += this.OnEntityInstantiate;
+            GameManager.Events.EntityStart += this.OnEntityStart;
             GameManager.Events.EntityDestroy += this.OnEntityDestroy;
         }
 
         public virtual void UnsubscribeEvents()
         {
             GameManager.Events.EntityInstantiate -= this.OnEntityInstantiate;
+            GameManager.Events.EntityStart -= this.OnEntityStart;
             GameManager.Events.EntityDestroy -= this.OnEntityDestroy;
         }
 
         void OnEntityInstantiate(GameEvent evt)
         {
-            this.Add(((EventEntity) evt).Entity);
+            //this.Add(((EventEntity) evt).Entity);
+        }
+
+        void OnEntityStart(GameEvent evt)
+        {
+            Entity e = ((EventEntity) evt).Entity;
+            // double check in case this was already covered by entity instantiate
+            if (!this.ContainsKey(e.TypeData.EntityType, e.Guid))
+            {
+                this.Add(e);
+            }
         }
 
         void OnEntityDestroy(GameEvent evt)

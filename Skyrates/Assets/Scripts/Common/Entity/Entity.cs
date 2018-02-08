@@ -90,6 +90,7 @@ namespace Skyrates.Common.Entity
         {
             this.Init(NewGuid(), new TypeData(this.EntityType, this.EntityTypeArrayIndex));
             this.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
+            GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityStart, this));
         }
 
         void OnDestroy()
