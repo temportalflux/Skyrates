@@ -45,7 +45,8 @@ namespace Skyrates.Client.Game
 
         void OnSceneLoaded(GameEvent evt)
         {
-            if (((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
+            // TODO: Move this to owner classes (DummyClient & ClientServer)
+            if (NetworkComponent.GetSession.IsOwner && ((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
             {
                 Entity e = this.SpawnEntity(new TypeData(Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
                 System.Diagnostics.Debug.Assert(e != null, "e != null");

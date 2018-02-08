@@ -98,7 +98,7 @@ namespace Skyrates.Common.Entity
                             entity.OnDeserializeSuccess();
                             // Player is dummy for another controller when not spawned by this client (first spawn is via network)
                             // Other occurance can be found when the server gets an accepted handshake and spawns the client's player
-                            if (entityTypeData.EntityType == Entity.Type.Player)
+                            if (entityTypeData.EntityType == Entity.Type.Player && ownerNetworkId != NetworkComponent.GetSession.NetworkID)
                             {
                                 ((EntityPlayer)entity).SetDummy();
                             }

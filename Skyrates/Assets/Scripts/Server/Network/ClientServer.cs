@@ -135,7 +135,9 @@ namespace Skyrates.Server.Network
             if (!this.ClientList.TryRemove(evtDisconnect.clientID))
             {
                 Debug.Log(string.Format("Error: Cannot remove client with client ID {0}", evtDisconnect.clientID));
+                return;
             }
+            Debug.Log(string.Format("Client {0} has disconnected", evtDisconnect.clientID));
             // TODO: Remove the player
         }
 
