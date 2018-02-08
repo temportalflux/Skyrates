@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4296624790975764}
-  - component: {fileID: 114242816756184236}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -96,23 +95,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1971021690887574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4989403104721018}
-  - component: {fileID: 114996241618102304}
-  - component: {fileID: 114697433427098822}
-  m_Layer: 0
-  m_Name: Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!4 &4296624790975764
 Transform:
   m_ObjectHideFlags: 1
@@ -125,7 +107,7 @@ Transform:
   m_Children:
   - {fileID: 4741259884216756}
   m_Father: {fileID: 4986014796683882}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 14.540001, y: 0, z: 0}
 --- !u!4 &4626443736001176
 Transform:
@@ -139,7 +121,7 @@ Transform:
   m_Children:
   - {fileID: 4717130946942272}
   m_Father: {fileID: 4986014796683882}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4717130946942272
 Transform:
@@ -177,23 +159,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4989403104721018}
   - {fileID: 4296624790975764}
   - {fileID: 4626443736001176}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4989403104721018
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971021690887574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4986014796683882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20290055576588650
@@ -280,24 +248,8 @@ MonoBehaviour:
   Blueprint: {fileID: 11400000, guid: 78e837ba4dbe551488ff0d8ad964477b, type: 2}
   ShipData:
     Components: 000000000000000000000000000000000000000000000000
+    _hasNewData: 0
   Hull: {fileID: 0}
---- !u!114 &114242816756184236
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1199482204315226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff50c57275a5fa47a979489393e83a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput:
-    HorizontalInput: 0
-    HorizontalSpeed: 3
-    VerticalInput: 0
-    VerticalSpeed: 3
-  pivot: {fileID: 4986014796683882}
 --- !u!114 &114365753191355872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,23 +265,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   loot: 0
---- !u!114 &114697433427098822
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971021690887574}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f3cf0d985eebe4fbabb7c7944418d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input:
-    ShootInput: 0
-    ShootSpeed: 1
-    ShootDelay: 0.1
-    ShootDelayMin: 0
-  EntityPlayer: {fileID: 0}
 --- !u!114 &114943066303382066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e665f01fc0c4e92b61de41bdab46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OwnerNetworkID: 0
   TypeData:
     EntityTypeAsInt: 0
     EntityTypeIndex: 0
@@ -371,28 +307,6 @@ MonoBehaviour:
   View: {fileID: 4296624790975764}
   Render: {fileID: 4626443736001176}
   ShipRoot: {fileID: 114167662047460524}
---- !u!114 &114996241618102304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971021690887574}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ddb9c8d68f19841bf6b7935bac0cb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput:
-    ForwardInput: 0
-    ForwardSpeed: 500
-    StrafeInput: 0
-    StrafeSpeed: 1
-    VerticalInput: 0
-    VerticalSpeed: 250
-  constantVelocity: 200
-  forwardView: {fileID: 4296624790975764}
-  render: {fileID: 4626443736001176}
-  physics: {fileID: 54642449414566752}
 --- !u!124 &124033094765310984
 Behaviour:
   m_ObjectHideFlags: 1
