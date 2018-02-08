@@ -92,13 +92,18 @@ namespace Skyrates.Common.Entity
         {
             this.Init(NewGuid(), typeData);
         }
-        
+
         #region Network
+
+        public virtual bool ShouldDeserialize()
+        {
+            return true;
+        }
 
         /// <summary>
         /// Called by <see cref="EntityReceiver.Deserialize"/> when the entity's data was successfully deserialized into it.
         /// </summary>
-        public void OnDeserializeSuccess()
+        public virtual void OnDeserializeSuccess()
         {
 
         }
@@ -106,17 +111,12 @@ namespace Skyrates.Common.Entity
         /// <summary>
         /// Called by <see cref="EntityReceiver.Deserialize"/> when the entity was not found in the server state and thus should be removed.
         /// </summary>
-        public void OnDeserializeFail()
+        public virtual void OnDeserializeFail()
         {
             Destroy(this.gameObject);
         }
 
         #endregion
-
-        public virtual bool ShouldDeserialize()
-        {
-            return true;
-        }
 
 
     }

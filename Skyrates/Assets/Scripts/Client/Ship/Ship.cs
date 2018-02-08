@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 namespace Skyrates.Client.Ship
@@ -14,6 +15,7 @@ namespace Skyrates.Client.Ship
 
         // data from ShipBuilder used to generate during Generate
         // Only valid after Generate
+        [BitSerialize(0)]
         public ShipData ShipData;
 
         // The generated object, created during Generate

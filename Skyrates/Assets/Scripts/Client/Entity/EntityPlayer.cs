@@ -15,6 +15,7 @@ public class EntityPlayer : EntityDynamic
     [Tooltip("The root of the render object (must be a child/decendent of this root)")]
     public Transform Render;
 
+    [BitSerialize(3)]
     public Ship ShipRoot;
 
     private bool isDummy = false;
@@ -42,11 +43,6 @@ public class EntityPlayer : EntityDynamic
         this.Steering = null;
     }
 
-    public override bool ShouldDeserialize()
-    {
-        return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
-    }
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -57,4 +53,17 @@ public class EntityPlayer : EntityDynamic
             NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(this.Physics));
         }
     }
+
+    public override bool ShouldDeserialize()
+    {
+        return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
+    }
+    public override void OnDeserializeSuccess()
+    {
+        if (this.ShipRoot.ShipData.MustBeRebuilt())
+        {
+            // TODO: Rebuild the ship
+        }
+    }
+
 }

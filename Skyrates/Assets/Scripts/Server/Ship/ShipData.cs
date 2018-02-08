@@ -10,7 +10,7 @@ using UnityEngine;
 /// Stores references to components as integers for lookup in <see cref="ShipComponentList"/>.
 /// </summary>
 [Serializable]
-public class ShipData
+public class ShipData : ISerializing
 {
 
     public enum ComponentType
@@ -45,10 +45,12 @@ public class ShipData
         typeof(ShipPropulsion),
         typeof(ShipSail),
     };
-
-    [BitSerialize(0)]
+    
     [SerializeField]
     public int[] Components = new int[ComponentTypes.Length];
+
+    [SerializeField]
+    private bool _hasNewData = false;
 
     public int this[ComponentType key]
     {
@@ -65,6 +67,48 @@ public class ShipData
     public ShipComponent GetShipComponent(ShipComponentList list, ComponentType type)
     {
         return list.GetRawComponent(type, this[type]);
+    }
+
+
+    public int GetSize()
+    {
+        return this.Components.Length * sizeof(int);
+    }
+
+    public void Serialize(ref byte[] data, ref int lastIndex)
+    {
+        data = BitSerializeAttribute.Serialize(this.Components, data, lastIndex);
+        lastIndex += this.GetSize();
+    }
+
+    public void Deserialize(byte[] data, ref int lastIndex)
+    {
+        int[] deserializedComponents = (int[])BitSerializeAttribute.Deserialize(this.Components, data, ref lastIndex);
+        if (deserializedComponents.Length != this.Components.Length)
+        {
+            this._hasNewData = true;
+        }
+        else
+        {
+            for (int iComponent = 0; iComponent < this.Components.Length; iComponent++)
+            {
+                if (this.Components[iComponent] != deserializedComponents[iComponent])
+                {
+                    this._hasNewData = true;
+                    break;
+                }
+            }
+        }
+
+        if (this._hasNewData)
+        {
+            this.Components = deserializedComponents;
+        }
+    }
+
+    public bool MustBeRebuilt()
+    {
+        return this._hasNewData;
     }
 
 }
