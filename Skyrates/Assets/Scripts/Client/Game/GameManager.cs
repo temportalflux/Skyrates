@@ -80,7 +80,6 @@ namespace Skyrates.Client.Game
             if (spawned == null) return null;
 
             spawned.Init(guid, typeData);
-            spawned.OwnerNetworkID = -1;
 
             EntityDynamic entityDynamic = spawned as EntityDynamic;
             if (entityDynamic != null)

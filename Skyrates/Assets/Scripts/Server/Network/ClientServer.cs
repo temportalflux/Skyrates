@@ -76,6 +76,7 @@ namespace Skyrates.Server.Network
             this._secondsPerUpdate = session.ServerTickUpdate;
             this.EntityTracker = new EntityDispatcher();
             
+            // Set local player guid
             NetworkComponent.GetSession.PlayerGuid = Entity.NewGuid();
             NetworkComponent.GetSession.HandshakeComplete = true;
 
@@ -247,6 +248,7 @@ namespace Skyrates.Server.Network
             for (uint clientID = 0; clientID < this.ClientsData.Length; clientID++)
             {
                 if (this.ClientsData[clientID] != null) continue;
+                // create connecting client
                 this.ClientsData[clientID] = client = new ClientData {Address = address, ClientId = clientID, PlayerGuid = Entity.NewGuid()};
                 return true;
             }
