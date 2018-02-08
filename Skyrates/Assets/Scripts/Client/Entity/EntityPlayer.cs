@@ -11,16 +11,17 @@ using UnityEngine;
 public class EntityPlayer : EntityDynamic
 {
 
+    [BitSerialize(3)]
+    [HideInInspector]
+    public ShipData ShipData;
+
     [Tooltip("The transform which points towards where the forward direction is.")]
     public Transform View;
 
     [Tooltip("The root of the render object (must be a child/decendent of this root)")]
     public Transform Render;
 
-    [BitSerialize(3)]
     public Ship ShipRoot;
-
-    private bool isDummy = false;
 
     void Awake()
     {
@@ -40,7 +41,6 @@ public class EntityPlayer : EntityDynamic
 
     public void SetDummy()
     {
-        this.isDummy = true;
         this.View.gameObject.SetActive(false);
         this.Steering = null;
     }
@@ -53,8 +53,10 @@ public class EntityPlayer : EntityDynamic
 
     public override bool ShouldDeserialize()
     {
+        this.ShipData = this.ShipRoot.ShipData;
         return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
     }
+
     public override void OnDeserializeSuccess()
     {
         if (this.ShipRoot.ShipData.MustBeRebuilt())
