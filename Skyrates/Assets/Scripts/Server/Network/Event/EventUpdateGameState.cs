@@ -27,8 +27,8 @@ namespace Skyrates.Server.Network.Event
             Debug.Assert(server != null, "server != null");
 
             // EventID
-            this._totalBytes += sizeof(byte);
-            this._serializedData.Enqueue(BitSerializeAttribute.Serialize(this.EventID));
+            //this._totalBytes += sizeof(byte);
+            //this._serializedData.Enqueue(BitSerializeAttribute.Serialize(this.EventID));
 
             // Entities
             EntityTracker tracker = server.GetEntityTracker();

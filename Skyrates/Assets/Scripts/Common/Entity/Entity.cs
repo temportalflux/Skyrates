@@ -26,7 +26,6 @@ namespace Skyrates.Common.Entity
         public TypeData(Entity.Type type, int index)
         {
             this.EntityType = type;
-            this.EntityTypeAsInt = (int) this.EntityType;
             this.EntityTypeIndex = index;
         }
 
