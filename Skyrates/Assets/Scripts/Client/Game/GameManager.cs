@@ -58,21 +58,41 @@ namespace Skyrates.Client.Game
 
         public Entity SpawnEntity(TypeData typeData, Guid guid)
         {
-            switch (typeData.EntityType)
-            {
-                case Entity.Type.Player:
-                    EntityPlayer entityPlayer = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayer>();
-                    entityPlayer.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
-                    entityPlayer.Init(guid, typeData);
-                    entityPlayer.OwnerNetworkID = -1;
-                    GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, entityPlayer));
-                    return entityPlayer;
-                default:
-                    Debug.Log(string.Format("Spawn {0}:{1} {2}", typeData.EntityType, typeData.EntityTypeIndex, guid));
-                    return null;
-            }
-        }
+            Entity spawned = null;
 
+            if (typeData.EntityType == Entity.Type.Player)
+            {
+                spawned = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayer>();
+            }
+            else
+            {
+                try
+                {
+                    spawned = Instantiate(this.EntityList.Categories[typeData.EntityTypeAsInt]
+                        .Prefabs[typeData.EntityTypeIndex].gameObject).GetComponent<Entity>();
+                }
+                catch (Exception)
+                {
+                    Debug.Log(string.Format("Error, cannot spawn entity type {0}", typeData.EntityType));
+                }
+            }
+
+            if (spawned == null) return null;
+
+            spawned.Init(guid, typeData);
+            spawned.OwnerNetworkID = -1;
+
+            EntityDynamic entityDynamic = spawned as EntityDynamic;
+            if (entityDynamic != null)
+            {
+                entityDynamic.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
+            }
+
+            GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
+
+            return spawned;
+
+        }
     }
 
 }
