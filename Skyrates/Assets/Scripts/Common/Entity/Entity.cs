@@ -73,12 +73,23 @@ namespace Skyrates.Common.Entity
         /// Which client "owns" this entity (sends updates about it).
         /// </summary>
         [BitSerialize(1)]
+        [HideInInspector]
         public int OwnerNetworkID;
 
         [BitSerialize(2)]
         [SerializeField]
         [HideInInspector]
         public TypeData TypeData;
+
+        // TODO: Made an editor so these two properties are unessessary
+        public Type EntityType;
+        public int EntityTypeArrayIndex;
+
+        void Start()
+        {
+            this.Init(NewGuid(), new TypeData(){EntityType = this.EntityType, EntityTypeIndex = this.EntityTypeArrayIndex});
+            this.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
+        }
 
         void OnDestroy()
         {
