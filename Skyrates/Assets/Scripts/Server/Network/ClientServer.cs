@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
 using Skyrates.Common.Entity;
@@ -52,6 +54,7 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeAccept += this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics += this.OnRequestSetPlayerPhysics;
+            GameManager.Events.PlayerLeft += this.OnPlayerLeft;
         }
 
         public override void UnsubscribeEvents()
@@ -61,6 +64,7 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeAccept -= this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics -= this.OnRequestSetPlayerPhysics;
+            GameManager.Events.PlayerLeft -= this.OnPlayerLeft;
         }
 
         /// <inheritdoc />
@@ -71,12 +75,22 @@ namespace Skyrates.Server.Network
             this.ClientList = new ClientList(session.MaxClients);
             this._secondsPerUpdate = session.ServerTickUpdate;
             this.EntityTracker = new EntityDispatcher();
-
-            // TODO: Fire event
+            
             NetworkComponent.GetSession.PlayerGuid = Entity.NewGuid();
             NetworkComponent.GetSession.HandshakeComplete = true;
 
             this.StartCoroutine(this.DispatchGameState());
+        }
+
+        private IEnumerator DispatchGameState()
+        {
+            while (true)
+            {
+                EventUpdateGameState evt = new EventUpdateGameState();
+                evt.GenerateData();
+                this.DispatchAll(evt);
+                yield return new WaitForSeconds(this._secondsPerUpdate);
+            }
         }
 
         /// <summary>
@@ -115,8 +129,11 @@ namespace Skyrates.Server.Network
             Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.clientID));
 
             ClientData client = this.ClientList[(int) evtAccept.clientID];
-            // TODO: Send event for spawning player
-            GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), (int)client.ClientId, client.PlayerGuid, isLocal:false);
+
+            EntityPlayer e = GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), client.PlayerGuid) as EntityPlayer;
+            System.Diagnostics.Debug.Assert(e != null, "e != null");
+            e.OwnerNetworkID = (int) client.ClientId;
+            e.SetDummy();
         }
 
         /// <summary>
@@ -128,11 +145,17 @@ namespace Skyrates.Server.Network
         {
             EventDisconnect evtDisconnect = evt as EventDisconnect;
             System.Diagnostics.Debug.Assert(evtDisconnect != null, "evtDisconnect != null");
-            if (!this.ClientList.TryRemove(evtDisconnect.clientID))
+            ClientData client;
+            if (!this.ClientList.TryRemove(evtDisconnect.clientID, out client))
             {
                 Debug.Log(string.Format("Error: Cannot remove client with client ID {0}", evtDisconnect.clientID));
+                return;
             }
-            // TODO: Remove the player
+
+            Debug.Log(string.Format("Client {0} has disconnected", evtDisconnect.clientID));
+            
+            GameManager.Events.Dispatch(new EventPlayerLeft(client.PlayerGuid));
+
         }
 
         /// <summary>
@@ -156,15 +179,14 @@ namespace Skyrates.Server.Network
             }
         }
 
-        private IEnumerator DispatchGameState()
+        void OnPlayerLeft(GameEvent evt)
         {
-            while (true)
+            Entity entity;
+            if (this.GetEntityTracker().TryGetValue(Entity.Type.Player, ((EventPlayerLeft) evt).PlayerGuid, out entity))
             {
-                EventUpdateGameState evt = new EventUpdateGameState();
-                evt.GenerateData();
-                this.DispatchAll(evt);
-                yield return new WaitForSeconds(this._secondsPerUpdate);
+                UnityEngine.Object.Destroy(entity.gameObject);
             }
+           
         }
 
     }
@@ -236,10 +258,15 @@ namespace Skyrates.Server.Network
         /// </summary>
         /// <param name="clientID"></param>
         /// <returns></returns>
-        public bool TryRemove(uint clientID)
+        public bool TryRemove(uint clientID, out ClientData client)
         {
             bool validID = clientID < this.ClientsData.Length && this.ClientsData[clientID] != null;
-            if (validID) this.ClientsData[clientID] = null;
+            client = null;
+            if (validID)
+            {
+                client = this.ClientsData[clientID];
+                this.ClientsData[clientID] = null;
+            }
             return validID;
         }
 

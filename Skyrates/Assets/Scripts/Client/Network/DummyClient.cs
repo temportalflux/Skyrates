@@ -37,6 +37,16 @@ namespace Skyrates.Client.Network
         {
         }
 
+        public override void SubscribeEvents()
+        {
+            this.HasSubscribed = true;
+        }
+
+        public override void UnsubscribeEvents()
+        {
+            this.HasSubscribed = false;
+        }
+
     }
 
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,6 +26,8 @@ public class SceneLoader : Singleton<SceneLoader>
     /// </summary>
     public struct LoadingSequence
     {
+
+        public SceneData.SceneKey SceneKey;
 
         /// <summary>
         /// The name of the scene loading
@@ -83,6 +87,7 @@ public class SceneLoader : Singleton<SceneLoader>
         // Create the loading sequence
         LoadingSequence sequence = new LoadingSequence
         {
+            SceneKey = sceneKey,
             SceneName = this.SceneData.GetName(sceneKey)
         };
 
@@ -107,6 +112,7 @@ public class SceneLoader : Singleton<SceneLoader>
         // Has finished loading
         sequence.LoadedScene = SceneManager.GetSceneByName(sequence.SceneName);
 
+        GameManager.Events.Dispatch(new EventSceneLoaded(sequence.SceneKey));
     }
 
     /// <summary>

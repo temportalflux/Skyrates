@@ -72,7 +72,7 @@ public class ShipData : ISerializing
 
     public int GetSize()
     {
-        return this.Components.Length * sizeof(int);
+        return sizeof(int) + this.Components.Length * sizeof(int);
     }
 
     public void Serialize(ref byte[] data, ref int lastIndex)

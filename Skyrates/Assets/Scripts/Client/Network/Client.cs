@@ -1,4 +1,6 @@
-﻿using Skyrates.Common.Network;
+﻿using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
+using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
@@ -23,6 +25,7 @@ namespace Skyrates.Client.Network
             NetworkEvents.Instance.ConnectionRejected += this.OnConnectionRejected;
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.HandshakeClientID += this.OnHandshakeClientID;
+            GameManager.Events.PlayerMoved += this.OnPlayerMoved;
         }
 
         public override void UnsubscribeEvents()
@@ -32,6 +35,7 @@ namespace Skyrates.Client.Network
             NetworkEvents.Instance.ConnectionRejected -= this.OnConnectionRejected;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
             NetworkEvents.Instance.HandshakeClientID -= this.OnHandshakeClientID;
+            GameManager.Events.PlayerMoved -= this.OnPlayerMoved;
         }
 
         /// <inheritdoc />
@@ -69,7 +73,12 @@ namespace Skyrates.Client.Network
 
         public void OnDisconnect(NetworkEvent evt)
         {
-            Debug.LogWarning("Server kicked us... do something.");
+            // TODO: Boot user back to main menu
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            UnityEngine.Application.Quit();
+#endif
         }
 
         /// <summary>
@@ -95,6 +104,21 @@ namespace Skyrates.Client.Network
             // TODO: Decouple via events
             SceneLoader.Instance.ActivateNext();
         }
-        
+
+        public void OnPlayerMoved(GameEvent evt)
+        {
+            // On player move, tell server
+            // TODO: Reconsider frequency
+            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventPlayerMoved) evt).Player.Physics));
+        }
+
+        public void DeserializeGameState(byte[] data, ref int lastIndex)
+        {
+            // Entities
+            EntityTracker tracker = NetworkComponent.GetNetwork().GetEntityTracker();
+            tracker.Deserialize(data, ref lastIndex);
+        }
+
+
     }
 }

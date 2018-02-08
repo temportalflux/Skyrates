@@ -1,6 +1,8 @@
 ﻿using Skyrates.Common.Network;
 using System;
 using System.Collections.Generic;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using UnityEngine;
 
 namespace Skyrates.Common.Entity
@@ -110,6 +112,8 @@ namespace Skyrates.Common.Entity
             }
         }
 
+        #region Manager
+
         /// <summary>
         /// Add an entity to the map.
         /// </summary>
@@ -157,51 +161,35 @@ namespace Skyrates.Common.Entity
             return this.Entities.TryGetValue(type, out set) && set.TryGetValue(id, out e);
         }
 
-        /* TODO: Add event for spawning/destroying entities
-        public static void Spawn(GameStateData.ClientData client)
+        #endregion
+
+        #region Events
+
+        public virtual void SubscribeEvents()
         {
-            Debug.Log("Spawning player for client " + client.clientID);
-            SpawnPlayer(client.playerEntityGuid).SetDummy(!client.IsLocalClient);
+            GameManager.Events.EntityInstantiate += this.OnEntityInstantiate;
+            GameManager.Events.EntityDestroy += this.OnEntityDestroy;
         }
 
-        public static Player SpawnPlayer(Guid entityID)
+        public virtual void UnsubscribeEvents()
         {
-            // TODO: This is put on a DoNotDestroyOnLoad object
-            Player player = GameObject.Instantiate(Instance.PlayerPrefab.gameObject, Instance.transform)
-                .GetComponent<Player>();
-
-            player.transform.SetPositionAndRotation(Instance.spawn.position, Instance.spawn.rotation);
-
-            // Generate identifier
-            player.Init(entityID);
-            // Generate ship object
-            player.GenerateShip();
-
-            Instance._playerEntities.Add(player.GetGuid(), player);
-
-            return player;
+            GameManager.Events.EntityInstantiate -= this.OnEntityInstantiate;
+            GameManager.Events.EntityDestroy -= this.OnEntityDestroy;
         }
 
-        public static void Destroy(GameStateData.ClientData client)
+        void OnEntityInstantiate(GameEvent evt)
         {
-            Debug.Log("Destroy player for client " + client.clientID);
-
-            if (client.playerEntityGuidValid)
-            {
-
-                Debug.Assert(Instance._playerEntities.ContainsKey(client.playerEntityGuid),
-                    "Cannot destroy an entity that is not tracked");
-
-                Player player = Instance._playerEntities[client.playerEntityGuid];
-                Instance._playerEntities.Remove(client.playerEntityGuid);
-
-                Destroy(player.gameObject);
-
-            }
-
+            this.Add(((EventEntity) evt).Entity);
         }
-        //*/
 
+        void OnEntityDestroy(GameEvent evt)
+        {
+            Entity ent = ((EventEntity) evt).Entity;
+            this.Remove(ent.TypeData.EntityType, ent.Guid);
+        }
+
+        #endregion
+        
         #region Serializing
 
         /// <summary>

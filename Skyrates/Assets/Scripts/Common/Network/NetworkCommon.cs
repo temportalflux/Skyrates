@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ChampNetPlugin;
+using Skyrates.Client.Game;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
@@ -9,13 +10,6 @@ using UnityEngine;
 
 namespace Skyrates.Common.Network
 {
-
-    /// <summary>
-    /// The function template to which subscribes must adhere.
-    /// </summary>
-    /// <param name="evt">The <see cref="NetworkEvent"/> which has been triggered.</param>
-    //public delegate void NetworkEventDelegate<T>(T evt) where T: NetworkEvent;
-    public delegate void NetworkEventDelegate(NetworkEvent evt);
 
     /// <summary>
     /// The base class for any <see cref="Side"/>d network.
@@ -62,19 +56,20 @@ namespace Skyrates.Common.Network
             NetworkPlugin.Destroy();
         }
 
-        #region Eeehh
-        // TODO: ORganize!!!
+        #region Events in Network
 
         public bool HasSubscribed;
 
         public virtual void SubscribeEvents()
         {
             this.HasSubscribed = true;
+            this.GetEntityTracker().SubscribeEvents();
         }
 
         public virtual void UnsubscribeEvents()
         {
             this.HasSubscribed = false;
+            this.GetEntityTracker().UnsubscribeEvents();
         }
 
         #endregion
@@ -166,6 +161,11 @@ namespace Skyrates.Common.Network
         public void DispatchAll(NetworkEvent evt)
         {
             this.Dispatch(evt, NetworkComponent.GetSession.Address, true);
+        }
+
+        public void DispatchAllImmediate(NetworkEvent evt)
+        {
+            this._dispatcher.Dispatch(evt.Serialize(), NetworkComponent.GetSession.Address, NetworkComponent.GetSession.Port, true);
         }
 
         /// <summary>

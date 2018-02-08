@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 using UnityEngine;
@@ -53,7 +55,7 @@ namespace Skyrates.Common.Network
             {
                 if (GetSession.HandshakeComplete || GetSession.HasValidClientID())
                 {
-                    GetNetwork().Dispatch(new EventDisconnect(GetSession.ClientID));
+                    GetNetwork().DispatchAllImmediate(new EventDisconnect(GetSession.ClientID));
                 }
 
                 GetNetwork().Shutdown();
@@ -66,11 +68,13 @@ namespace Skyrates.Common.Network
         void OnEnable()
         {
             SceneManager.sceneLoaded += this.OnSceneLoaded;
+            SceneManager.sceneUnloaded += this.OnSceneUnloaded;
         }
 
         void OnDisable()
         {
-            SceneManager.sceneUnloaded += this.OnSceneUnLoaded;
+            SceneManager.sceneLoaded -= this.OnSceneLoaded;
+            SceneManager.sceneUnloaded -= this.OnSceneUnloaded;
         }
 
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -78,15 +82,18 @@ namespace Skyrates.Common.Network
             if (this._network != null && !this._network.HasSubscribed)
             {
                 this._network.SubscribeEvents();
+                this.SubscribeEvents();
             }
         }
 
-        void OnSceneUnLoaded(Scene scene)
+        void OnSceneUnloaded(Scene scene)
         {
             if (this._network != null && this._network.HasSubscribed)
             {
                 this._network.UnsubscribeEvents();
+                this.UnsubscribeEvents();
             }
+            this.OnEvtSceneUnloaded(scene);
         }
 
         // Wipes Session and GameState
@@ -165,6 +172,7 @@ namespace Skyrates.Common.Network
 
             this.Session.Mode = mode;
             this.CreateNetworkAndConnect();
+            GameManager.Events.Dispatch(new EventGameStart(mode));
         }
 
         #endregion
@@ -204,6 +212,32 @@ namespace Skyrates.Common.Network
             if (this._network != null)
             {
                 this._network.Update();
+            }
+        }
+
+        void SubscribeEvents()
+        {
+            GameManager.Events.SceneLoaded += this.OnEvtSceneLoaded;
+        }
+
+        void UnsubscribeEvents()
+        {
+            GameManager.Events.SceneLoaded -= this.OnEvtSceneLoaded;
+        }
+
+        void OnEvtSceneLoaded(GameEvent evt)
+        {
+            if (this.Session.IsOwner && ((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
+            {
+                SceneManager.LoadSceneAsync(SceneLoader.Instance.SceneData.WorldNonClient, LoadSceneMode.Additive);
+            }
+        }
+
+        void OnEvtSceneUnloaded(Scene scene)
+        {
+            if (this.Session.IsOwner && scene.name == SceneLoader.Instance.SceneData.GameName)
+            {
+                SceneManager.UnloadSceneAsync(SceneLoader.Instance.SceneData.WorldNonClient);
             }
         }
 
