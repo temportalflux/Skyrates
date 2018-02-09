@@ -19,12 +19,12 @@ namespace Skyrates.Common.AI
 
             // Confgurable
             [SerializeField]
-            public float Speed;
+            public float Modifier;
 
             // Calculates
             public float Value
             {
-                get { return this.Input * this.Speed; }
+                get { return this.Input * this.Modifier; }
             }
         }
 
@@ -49,6 +49,8 @@ namespace Skyrates.Common.AI
         [SerializeField]
         public InputData PlayerInput;
 
+        public float constantSpeed;
+
         public override void GetSteering(SteeringData data, ref PhysicsData physics)
         {
             this.GetInput(ref this.PlayerInput);
@@ -72,18 +74,19 @@ namespace Skyrates.Common.AI
 
         private void Move(SteeringData data, InputData input, ref PhysicsData physicsData)
         {
-            // TODO: Optimize. This can be done via matricies/linear algebra
-            Vector3 cameraForward = data.View.forward.Flatten(Vector3.up).normalized;
-            Vector3 cameraStrafe = data.View.right.Flatten(Vector3.up).normalized;
+            Vector3 forward = data.Render.forward;
             Vector3 vertical = data.View.up.Flatten(Vector3.forward + Vector3.right).normalized;
 
             // For character
             //Vector3 movementForward = cameraForward * this.playerInput.Forward;
+            
             // for ship
-            float forwardSpeed = input.Forward.Value; // + this.constantVelocity;
-            Vector3 movementForward = data.Render.forward * forwardSpeed;
+            // Value in range [0, input.Forward.Modifier] which changes how fast the ship moves forward
+            float forwardSpeed = Mathf.Max(0, input.Forward.Value);
+            // value in range [0, 1] of how much constant velocity to counteract
+            float backpedal = Mathf.Max(0, -input.Forward.Input);
+            Vector3 movementForward = forward * (forwardSpeed + (1 - backpedal) * this.constantSpeed);
 
-            Vector3 movementStrafe = cameraStrafe * input.Strafe.Value;
             Vector3 movementVertical = vertical * input.Vertical.Value;
 
             // for character
@@ -96,7 +99,9 @@ namespace Skyrates.Common.AI
             physicsData.LinearVelocity = movementXYZ;
 
             // for ship movement
-            physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, input.Strafe.Value, 0.0f));
+            float rotation = input.Strafe.Value;
+            //rotation *= (1 - input.Forward.Input) * 0.5f;
+            physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));
 
         }
 

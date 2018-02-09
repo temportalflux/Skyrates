@@ -14,10 +14,11 @@ MonoBehaviour:
   PlayerInput:
     Forward:
       Input: 0
-      Speed: 25
+      Modifier: 15
     Strafe:
       Input: 0
-      Speed: 1.5
+      Modifier: 2
     Vertical:
       Input: 0
-      Speed: 10
+      Modifier: 10
+  constantSpeed: 10

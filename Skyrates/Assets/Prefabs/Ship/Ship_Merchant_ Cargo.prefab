@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4090128990443776}
+  - component: {fileID: 114930885869816634}
   m_Layer: 0
   m_Name: Ship_Merchant_ Cargo
   m_TagString: Untagged
@@ -487,7 +488,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1489820905685972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7158034, y: -0.11781043, z: -8.325928}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4547539375014368}
@@ -970,6 +971,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootParent: {fileID: 1489820905685972}
   loot: {fileID: 1929006556674846, guid: b4a65d513669db449ac460452c2fcc95, type: 2}
+--- !u!114 &114930885869816634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489820905685972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1648610528aec643842e4a3eeca5cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OwnerNetworkID: 0
+  EntityTypeIndex: 1
+  EntityTypeArrayIndex: 0
+  SteeringData:
+    View: {fileID: 0}
+    Render: {fileID: 0}
+  Steering: {fileID: 0}
 --- !u!136 &136560757331414832
 CapsuleCollider:
   m_ObjectHideFlags: 1

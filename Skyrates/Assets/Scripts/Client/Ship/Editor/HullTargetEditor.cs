@@ -41,8 +41,14 @@ namespace Skyrates.Client.Ship
 
                 Transform[] roots = this._instance.Mounts[iComp].Roots;
 
-                this.Array(compType.ToString(), ref ToggleComp[iComp], ref roots,
-                    doBlock: true, GetFieldName: (Transform t) => t == null ? "Pos/Rot" : t.name);
+                ToggleComp[iComp] = this.DrawArray(
+                    compType.ToString(), ref roots,
+                    true, ToggleComp[iComp],
+                    DrawBlock: (t => (Transform)EditorGUILayout.ObjectField(
+                        t == null ? "Pos/Rot" : t.name,
+                        t, typeof(Transform), allowSceneObjects:false
+                    ))
+                );
 
                 this._instance.Mounts[iComp].Roots = roots;
 
