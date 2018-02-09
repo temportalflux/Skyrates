@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4986014796683882}
   - component: {fileID: 54642449414566752}
-  - component: {fileID: 114365753191355872}
   - component: {fileID: 114956092729709676}
   - component: {fileID: 114851400781537040}
   m_Layer: 0
@@ -77,6 +76,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1899464604907308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4225978363135218}
+  - component: {fileID: 114208892904884064}
+  - component: {fileID: 136757596964164068}
+  m_Layer: 12
+  m_Name: Looter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1912161599259622
 GameObject:
   m_ObjectHideFlags: 1
@@ -97,6 +113,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4225978363135218
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899464604907308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4986014796683882}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4296624790975764
 Transform:
   m_ObjectHideFlags: 1
@@ -163,6 +192,7 @@ Transform:
   m_Children:
   - {fileID: 4296624790975764}
   - {fileID: 4626443736001176}
+  - {fileID: 4225978363135218}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -252,20 +282,17 @@ MonoBehaviour:
     Components: 000000000000000000000000000000000000000000000000
     _hasNewData: 0
   Hull: {fileID: 0}
---- !u!114 &114365753191355872
+--- !u!114 &114208892904884064
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1436304090232158}
+  m_GameObject: {fileID: 1899464604907308}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f01790cec19f854eb85b85df0062368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootLayer:
-    serializedVersion: 2
-    m_Bits: 512
   loot: 0
 --- !u!114 &114621202652398174
 MonoBehaviour:
@@ -352,3 +379,16 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912161599259622}
   m_Enabled: 1
+--- !u!136 &136757596964164068
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899464604907308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
