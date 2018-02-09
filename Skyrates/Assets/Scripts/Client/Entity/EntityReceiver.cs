@@ -112,7 +112,8 @@ namespace Skyrates.Common.Entity
                 // The remaining dirty guids are not in the data, and should be removed
                 foreach (Guid guid in dirtyEntities)
                 {
-                    Entity entity = this.Remove(type, guid);
+                    //Entity entity = this.Remove(type, guid);
+                    Entity entity = this.Entities[type].Entities[guid];
                     entity.OnDeserializeFail();
                 }
 
