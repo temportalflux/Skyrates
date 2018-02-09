@@ -11,7 +11,7 @@ using UnityEngine;
 public class EntityPlayer : EntityDynamic
 {
 
-    [BitSerialize(3)]
+    [BitSerialize(5)]
     [HideInInspector]
     public ShipData ShipData;
 
