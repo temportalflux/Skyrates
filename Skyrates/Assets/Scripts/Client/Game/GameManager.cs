@@ -88,7 +88,7 @@ namespace Skyrates.Client.Game
                 entityDynamic.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
             }
 
-            //GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
+            GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
 
             return spawned;
 
