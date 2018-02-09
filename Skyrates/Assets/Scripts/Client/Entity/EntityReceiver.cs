@@ -86,10 +86,12 @@ namespace Skyrates.Common.Entity
                         // entity should be added locally
                         // peak at the type of entity
                         int ownerNetworkId = (int) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
-                        TypeData entityTypeData =
-                            (TypeData)BitSerializeAttribute.Deserialize(new TypeData(), data, ref indexEntityPeak);
+
+                        Entity.Type t = (Entity.Type) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
+                        int index = (int) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
+
                         // Spawn the entity
-                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid);
+                        Entity entity = GameManager.Instance.SpawnEntity(new TypeData(type, index), entityGuid);
                         if (entity != null)
                         {
                             // have the entity fully deserialize
@@ -98,7 +100,7 @@ namespace Skyrates.Common.Entity
                             entity.OnDeserializeSuccess();
                             // Player is dummy for another controller when not spawned by this client (first spawn is via network)
                             // Other occurance can be found when the server gets an accepted handshake and spawns the client's player
-                            if (entityTypeData.EntityType == Entity.Type.Player && ownerNetworkId != NetworkComponent.GetSession.NetworkID)
+                            if (type == Entity.Type.Player && ownerNetworkId != NetworkComponent.GetSession.NetworkID)
                             {
                                 ((EntityPlayer)entity).SetDummy();
                             }
