@@ -83,7 +83,13 @@ namespace Skyrates.Common.Entity
 
         // TODO: Made an editor so these two properties are unessessary
         [BitSerialize(2)]
-        public Type EntityType;
+        public int EntityTypeIndex;
+
+        public Type EntityType
+        {
+            get { return (Entity.Type) EntityTypeIndex; }
+            set { this.EntityTypeIndex = (int) value; }
+        }
         [BitSerialize(3)]
         public int EntityTypeArrayIndex;
 
