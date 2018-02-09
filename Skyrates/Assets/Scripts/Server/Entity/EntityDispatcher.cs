@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -82,6 +84,25 @@ namespace Skyrates.Common.Entity
             // TODO: Remove this tmp shit fro mnetwork testing branh
             lastIndex = lastIndex;
 
+        }
+
+
+        public override void SubscribeEvents()
+        {
+            base.SubscribeEvents();
+            GameManager.Events.EntityStart += this.OnEntityStart;
+        }
+
+        public override void UnsubscribeEvents()
+        {
+            base.UnsubscribeEvents();
+            GameManager.Events.EntityStart -= this.OnEntityStart;
+        }
+
+        // NOTE: Only fired on server side (dispatcher)
+        void OnEntityStart(GameEvent evt)
+        {
+            this.OnEntityStart(((EventEntity) evt).Entity);
         }
 
     }
