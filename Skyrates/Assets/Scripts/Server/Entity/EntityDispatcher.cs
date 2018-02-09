@@ -79,6 +79,9 @@ namespace Skyrates.Common.Entity
                 lastIndex += dataChunk.Length;
             }
 
+            // TODO: Remove this tmp shit fro mnetwork testing branh
+            lastIndex = lastIndex;
+
         }
 
     }
