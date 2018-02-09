@@ -99,7 +99,9 @@ namespace Skyrates.Common.AI
             physicsData.LinearVelocity = movementXYZ;
 
             // for ship movement
-            physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, input.Strafe.Value, 0.0f));
+            float rotation = input.Strafe.Value;
+            //rotation *= (1 - input.Forward.Input) * 0.5f;
+            physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));
 
         }
 

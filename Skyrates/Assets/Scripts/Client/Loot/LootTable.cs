@@ -41,18 +41,21 @@ namespace Skyrates.Client.Loot
         public ShipComponent[] Generate()
         {
             ShipComponent[] loots = new ShipComponent[Random.Range(this.AmountMin, this.AmountMax)];
-            for (int i = 0; i < loots.Length; i++)
+            int iLoot = 0;
+            while (iLoot < loots.Length)
             {
                 float rand = Random.value;
-                int iRow = 0;
-                while (rand > 0 && iRow < this.Table.Length)
+                float sum = 0;
+                foreach (Row row in this.Table)
                 {
-                    rand -= this.Table[iRow++].Percentage;
+                    sum += row.Percentage;
+                    if (rand < sum)
+                    {
+                        loots[iLoot] = row.Item;
+                        iLoot++;
+                        break;
+                    }
                 }
-                if (iRow < this.Table.Length)
-                    loots[i] = this.Table[iRow].Item;
-                else
-                    Debug.Log("Error, loot table gen found null");
             }
             return loots;
         }

@@ -77,6 +77,12 @@ namespace Skyrates.Client.Loot
             ShipComponent[] loots = this.LootTable.Generate();
             foreach (ShipComponent lootItem in loots)
             {
+                if (lootItem == null)
+                {
+                    Debug.LogWarning("Error, loot item null");
+                    continue;
+                }
+
                 Vector3 pos = position + Random.insideUnitSphere * 3;
                 Loot loot = Instantiate(
                     this.LootPrefab.gameObject, pos, Quaternion.identity).GetComponent<Loot>();
