@@ -87,11 +87,19 @@ public class InputInteraction : MonoBehaviour
 
     private void Shoot()
     {
+        // TODO: Optimize this
+        Vector3 forwardAim = this.EntityPlayer.View.forward;
+        Vector3 upAim = this.EntityPlayer.View.up;
         ShipComponent[] components = this.EntityPlayer.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
         foreach (ShipComponent component in components)
         {
             ShipArtillery artillery = (ShipArtillery) component;
-            artillery.Shooter.fireProjectile();
+            Vector3 forwardArtillery = artillery.transform.forward;
+            float dot = Vector3.Dot(forwardAim, forwardArtillery);
+            if (dot > 0.3)
+            {
+                artillery.Shooter.fireProjectile(forwardAim + upAim * 0.02f, this.EntityPlayer.Physics.LinearVelocity);
+            }
         }
     }
 

@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1703261203035558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 23.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4824313298840510}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e6edc05cd2ca346b78629fa37c28c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooter: {fileID: 114805736969207426}
+  Shooter: {fileID: 114805736969207426}
 --- !u!114 &114805736969207426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1408921564785406, guid: 4ec5d27c116c656479dc0ae675f287af,
+  projectilePrefab: {fileID: 1168534752572126, guid: 1e10d234425f2fc4e9ec41a7769168da,
     type: 2}
   spawn: {fileID: 4317586929373498}
-  force: 100000
+  force: 1000

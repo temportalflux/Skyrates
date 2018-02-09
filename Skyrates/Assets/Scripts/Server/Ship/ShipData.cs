@@ -52,6 +52,12 @@ public class ShipData : ISerializing
     [SerializeField]
     private bool _hasNewData = false;
 
+    public bool MustBeRebuilt
+    {
+        get { return this._hasNewData; }
+        set { this._hasNewData = value; }
+    }
+
     public int this[ComponentType key]
     {
         get { return this.Components[(int)key]; }
@@ -104,11 +110,6 @@ public class ShipData : ISerializing
         {
             this.Components = deserializedComponents;
         }
-    }
-
-    public bool MustBeRebuilt()
-    {
-        return this._hasNewData;
     }
 
 }

@@ -81,7 +81,7 @@ namespace Skyrates.Client.Ship
         /// <returns></returns>
         public ShipComponent[] GetGeneratedComponent(ComponentType compType)
         {
-            Debug.Assert((int) ComponentType.Hull == 0);
+            Debug.Assert((int) ComponentType.Hull != 0);
             Debug.Assert(ComponentType.Hull != compType, "Cannot get hull from hull");
             // compType - 1 to account for Hull
             return this.GeneratedComponents[this.GetComponentIndex(compType)];

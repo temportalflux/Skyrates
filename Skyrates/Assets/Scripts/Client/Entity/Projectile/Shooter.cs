@@ -17,13 +17,14 @@ public class Shooter : MonoBehaviour
             "The projectilePrefab of a Shooter MUST have the Projectile MonoBehaviour.");
     }
 
-    public Projectile fireProjectile()
+    public Projectile fireProjectile(Vector3 direction, Vector3 launchVelocity)
     {
         GameObject gameObject = Instantiate(this.projectilePrefab, this.spawn.position, this.spawn.rotation);
 
         Projectile projectile = gameObject.GetComponent<Projectile>();
         projectile.init(this);
-        projectile.addForce(this.transform.forward * this.force);
+        projectile.physics.velocity = launchVelocity;
+        projectile.addForce(direction * this.force);
 
         return projectile;
     }

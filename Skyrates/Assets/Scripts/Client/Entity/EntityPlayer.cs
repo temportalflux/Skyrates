@@ -26,7 +26,7 @@ public class EntityPlayer : EntityDynamic
     void Awake()
     {
         this.ShipRoot.Destroy();
-        this.ShipRoot.Generate();
+        this.ShipData = this.ShipRoot.Generate();
     }
 
     protected override Transform GetView()
@@ -53,16 +53,15 @@ public class EntityPlayer : EntityDynamic
 
     public override bool ShouldDeserialize()
     {
-        this.ShipData = this.ShipRoot.ShipData;
         return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
     }
 
     public override void OnDeserializeSuccess()
     {
-        if (this.ShipRoot.ShipData.MustBeRebuilt())
+        if (this.ShipRoot.ShipData.MustBeRebuilt)
         {
-            // TODO: Rebuild the ship
-            Debug.LogWarning("rebuild ship");
+            this.ShipRoot.Destroy();
+            this.ShipData = this.ShipRoot.Generate(this.ShipData);
         }
     }
 

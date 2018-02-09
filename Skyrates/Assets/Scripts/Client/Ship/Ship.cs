@@ -27,10 +27,13 @@ namespace Skyrates.Client.Ship
             this.ComponentRoot.DestroyChildren();
         }
 
-        public void Generate()
+        public ShipData Generate(ShipData data = null)
         {
-            this.ShipData = this.Blueprint.ShipData;
+            if (data == null) data = this.Blueprint.ShipData;
+            this.ShipData = data;
             this.Hull = this.Blueprint.BuildTo(ref this.ComponentRoot, this.ShipData);
+            this.ShipData.MustBeRebuilt = false;
+            return this.ShipData;
         }
 
     }

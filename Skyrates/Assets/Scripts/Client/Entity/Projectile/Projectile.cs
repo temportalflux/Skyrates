@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
 
     // TODO: Move outside strictly physics
     public Vector3 constantForce;
-    private Rigidbody physics;
+    public Rigidbody physics;
 
     void Start()
     {
