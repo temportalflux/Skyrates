@@ -17,7 +17,7 @@ namespace Skyrates.Common.Entity
         /// The current physics data of this object.
         /// Updated via <see cref="Steering"/>.
         /// </summary>
-        [BitSerialize(2)]
+        [BitSerialize(4)]
         public PhysicsData Physics = new PhysicsData();
 
         /// <summary>
