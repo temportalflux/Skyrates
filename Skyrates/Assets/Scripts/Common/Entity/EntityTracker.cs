@@ -182,6 +182,8 @@ namespace Skyrates.Common.Entity
         void OnEntityInstantiate(GameEvent evt)
         {
             //this.Add(((EventEntity) evt).Entity);
+            // TODO: tmp merge logic to common function?
+            this.OnEntityStart(evt);
         }
 
         void OnEntityStart(GameEvent evt)

@@ -85,7 +85,7 @@ namespace Skyrates.Common.Entity
         public Type EntityType;
         public int EntityTypeArrayIndex;
 
-        void Start()
+        protected virtual void Start()
         {
             if (this.TypeData.EntityType != Type.Player)
             {

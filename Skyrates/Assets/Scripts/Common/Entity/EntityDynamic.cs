@@ -34,6 +34,12 @@ namespace Skyrates.Common.Entity
         /// </summary>
         public Steering Steering;
 
+        protected override void Start()
+        {
+            base.Start();
+            this.Physics.LinearPosition = this.transform.position;
+        }
+
         protected virtual void FixedUpdate()
         {
 
