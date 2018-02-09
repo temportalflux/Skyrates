@@ -37,6 +37,7 @@ namespace Skyrates.Common.Entity
         protected override void Start()
         {
             base.Start();
+            // TODO: fix this for transform.SetPositionAndRotation
             this.Physics.LinearPosition = this.transform.position;
         }
 

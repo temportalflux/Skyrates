@@ -76,18 +76,20 @@ namespace Skyrates.Common.Entity
         [HideInInspector]
         public int OwnerNetworkID;
 
-        [BitSerialize(2)]
-        [SerializeField]
-        [HideInInspector]
-        public TypeData TypeData;
+        //[BitSerialize(2)]
+        //[SerializeField]
+        //[HideInInspector]
+        //public TypeData TypeData;
 
         // TODO: Made an editor so these two properties are unessessary
+        [BitSerialize(2)]
         public Type EntityType;
+        [BitSerialize(3)]
         public int EntityTypeArrayIndex;
 
         protected virtual void Start()
         {
-            if (this.TypeData.EntityType != Type.Player)
+            if (this.EntityType != Type.Player)
             {
                 this.Guid = NewGuid();
                 this.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
@@ -108,7 +110,9 @@ namespace Skyrates.Common.Entity
         public void Init(Guid guid, TypeData typeData)
         {
             this.Guid = guid;
-            this.TypeData = typeData;
+            //this.TypeData = typeData;
+            this.EntityType = typeData.EntityType;
+            this.EntityTypeArrayIndex = typeData.EntityTypeIndex;
         }
 
         public void Init(TypeData typeData)

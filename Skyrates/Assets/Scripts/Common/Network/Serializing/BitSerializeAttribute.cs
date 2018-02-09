@@ -443,10 +443,18 @@ namespace Skyrates.Common.Network
                         {
                             int size = (int)BitSerializeAttribute.Deserialize(0, data, ref start);
 
-                            byte[] guidData = new byte[size];
-                            CopyFrom(data, ref guidData, start, size);
+                            try
+                            {
+                                byte[] guidData = new byte[size];
+                                CopyFrom(data, ref guidData, start, size);
+                                return new Guid(guidData);
+                            }
+                            catch (Exception e)
+                            {
+                                Debug.LogError(e);
+                            }
 
-                            return new Guid(guidData);
+                            return Guid.Empty;
                         }),
                 }
             },
