@@ -78,8 +78,7 @@ namespace Skyrates.Client.Game
             }
 
             if (spawned == null) return null;
-
-            Debug.Log("created " + guid);
+            
             spawned.Init(guid, typeData);
 
             EntityDynamic entityDynamic = spawned as EntityDynamic;

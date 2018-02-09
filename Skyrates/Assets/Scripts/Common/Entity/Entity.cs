@@ -100,8 +100,6 @@ namespace Skyrates.Common.Entity
                 this.Guid = NewGuid();
                 this.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
             }
-            // TODO: Firing this before GameManager.SpawnEntity.EntityInstantiate could result in duplicates in eneity tracker
-            Debug.Log("started " + this.Guid);
             GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityStart, this));
         }
 
