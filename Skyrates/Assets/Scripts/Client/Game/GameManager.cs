@@ -79,6 +79,7 @@ namespace Skyrates.Client.Game
 
             if (spawned == null) return null;
 
+            Debug.Log("created " + guid);
             spawned.Init(guid, typeData);
 
             EntityDynamic entityDynamic = spawned as EntityDynamic;
@@ -87,7 +88,7 @@ namespace Skyrates.Client.Game
                 entityDynamic.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
             }
 
-            GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
+            //GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
 
             return spawned;
 

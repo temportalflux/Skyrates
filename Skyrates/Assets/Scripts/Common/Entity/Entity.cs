@@ -101,7 +101,8 @@ namespace Skyrates.Common.Entity
                 this.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
             }
             // TODO: Firing this before GameManager.SpawnEntity.EntityInstantiate could result in duplicates in eneity tracker
-            //GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityStart, this));
+            Debug.Log("started " + this.Guid);
+            GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityStart, this));
         }
 
         void OnDestroy()
