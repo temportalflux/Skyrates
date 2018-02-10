@@ -113,7 +113,7 @@ namespace Skyrates.Common.Network
         {
             this.Mode = Session.NetworkMode.None;
             this.SetAddressBoth("");
-            this.Port = 0;
+            this.Port = 425; // TOOD: set this to 0
             this.SetClientData(new ClientData(){ClientId = uint.MaxValue , PlayerGuid = Guid.Empty}); // marked as something horrible instead of -1
             this.HandshakeComplete = false;
         }
