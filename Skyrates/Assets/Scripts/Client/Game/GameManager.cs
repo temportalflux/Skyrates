@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Skyrates.Client.Game
 {
@@ -32,12 +28,13 @@ namespace Skyrates.Client.Game
             this._events = new GameEvents();
         }
 
-        #region Spawn Local Player
+        #region Events
 
         void OnEnable()
         {
             Events.SceneLoaded += this.OnSceneLoaded;
         }
+
         void OnDisable()
         {
             Events.SceneLoaded -= this.OnSceneLoaded;
@@ -62,7 +59,7 @@ namespace Skyrates.Client.Game
 
             if (typeData.EntityType == Entity.Type.Player)
             {
-                spawned = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayer>();
+                spawned = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayerShip>();
             }
             else
             {

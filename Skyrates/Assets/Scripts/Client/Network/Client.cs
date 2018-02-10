@@ -109,7 +109,7 @@ namespace Skyrates.Client.Network
         {
             // On player move, tell server
             // TODO: Reconsider frequency
-            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventPlayerMoved) evt).Player.Physics));
+            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventEntityPlayerShip) evt).PlayerShip.Physics));
         }
 
         public void DeserializeGameState(byte[] data, ref int lastIndex)

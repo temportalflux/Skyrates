@@ -16,7 +16,7 @@ namespace Skyrates.Common.Entity
         /// The prefab of players who are created via the network.
         /// </summary>
         [SerializeField]
-        public EntityPlayer PrefabEntityPlayer;
+        public EntityPlayerShip PrefabEntityPlayer;
 
         void OnEnable()
         {

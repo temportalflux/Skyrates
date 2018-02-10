@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Client.Ship;
 using UnityEngine;
 
@@ -35,7 +37,7 @@ public class InputInteraction : MonoBehaviour
 
     public InputData input;
 
-    public EntityPlayer EntityPlayer;
+    public EntityPlayerShip EntityPlayerShip;
     
     void Update()
     {
@@ -88,19 +90,22 @@ public class InputInteraction : MonoBehaviour
     private void Shoot()
     {
         // TODO: Optimize this
-        Vector3 forwardAim = this.EntityPlayer.View.forward;
-        Vector3 upAim = this.EntityPlayer.View.up;
-        ShipComponent[] components = this.EntityPlayer.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
-        foreach (ShipComponent component in components)
+        Vector3 forwardAim = this.EntityPlayerShip.View.forward;
+        Vector3 upAim = this.EntityPlayerShip.View.up;
+        ShipComponent[] components = this.EntityPlayerShip.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
+        ShipArtillery[] evtArtillery = new ShipArtillery[components.Length];
+        Projectile[] evtProjectiles = new Projectile[components.Length];
+        for (int iComponent = 0; iComponent < components.Length; iComponent++)
         {
-            ShipArtillery artillery = (ShipArtillery) component;
-            Vector3 forwardArtillery = artillery.transform.forward;
+            evtArtillery[iComponent] = (ShipArtillery) components[iComponent];
+            Vector3 forwardArtillery = evtArtillery[iComponent].transform.forward;
             float dot = Vector3.Dot(forwardAim, forwardArtillery);
             if (dot > 0.3)
             {
-                artillery.Shooter.fireProjectile(forwardAim + upAim * 0.02f, this.EntityPlayer.Physics.LinearVelocity);
+                evtProjectiles[iComponent] = evtArtillery[iComponent].Shooter.fireProjectile(forwardAim + upAim * 0.02f, this.EntityPlayerShip.Physics.LinearVelocity);
             }
         }
+        GameManager.Events.Dispatch(new EventArtilleryFired(this.EntityPlayerShip, evtArtillery, evtProjectiles));
     }
 
 }
