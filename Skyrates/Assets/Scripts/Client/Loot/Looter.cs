@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client;
 using Skyrates.Client.Loot;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 public class Looter : MonoBehaviour
@@ -39,6 +42,11 @@ public class Looter : MonoBehaviour
 
     public void OnGUI()
     {
+        if (NetworkComponent.GetSession.IsNetworked)
+        {
+            if (NetworkComponent.GetSession.PlayerGuid != this.transform.parent.GetComponent<EntityPlayerShip>().Guid)
+                return;
+        }
         GUIStyle st = new GUIStyle();
         st.fontSize = 50;
         GUI.Label(new Rect(Screen.width - 50, 0, 50, 50), this.loot.ToString(), st);
