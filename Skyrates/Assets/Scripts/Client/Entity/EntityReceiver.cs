@@ -102,7 +102,7 @@ namespace Skyrates.Common.Entity
                             // Other occurance can be found when the server gets an accepted handshake and spawns the client's player
                             if (type == Entity.Type.Player && ownerNetworkId != NetworkComponent.GetSession.NetworkID)
                             {
-                                ((EntityPlayer)entity).SetDummy();
+                                ((EntityPlayerShip)entity).SetDummy();
                             }
                         }
                     }

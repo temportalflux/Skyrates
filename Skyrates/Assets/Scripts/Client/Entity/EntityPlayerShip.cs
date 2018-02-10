@@ -8,7 +8,7 @@ using Skyrates.Common.Network;
 using UnityEngine;
 
 // TODO: Remove
-public class EntityPlayer : EntityDynamic
+public class EntityPlayerShip : EntityDynamic
 {
 
     [BitSerialize(5)]
@@ -48,7 +48,7 @@ public class EntityPlayer : EntityDynamic
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        GameManager.Events.Dispatch(new EventPlayerMoved(this));
+        GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
     }
 
     public override bool ShouldDeserialize()

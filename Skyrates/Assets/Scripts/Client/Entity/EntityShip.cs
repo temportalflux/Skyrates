@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Client.Loot;
 using Skyrates.Client.Ship;
 using UnityEngine;
@@ -7,6 +9,7 @@ using UnityEngine;
 namespace Skyrates.Common.Entity
 {
 
+    // TODO: Player ship should extend this
     public class EntityShip : EntityDynamic
     {
 
@@ -17,35 +20,43 @@ namespace Skyrates.Common.Entity
         // Called when some non-trigger collider with a rigidbody enters
         private void OnTriggerEnter(Collider other)
         {
-
-            bool destroy = false;
+            int damage = 0;
 
             Projectile projectile = other.GetComponent<Projectile>();
             if (projectile != null && !this._markedForDestruction)
             {
-                destroy = true;
+                // TODO: Implement projectile damage
+                damage += 1;//projectile.GetDamage();
+
+                GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, projectile, damage));
+
                 // collider is a projectile
                 Destroy(projectile.gameObject);
             }
 
-            if (other.CompareTag("Ram"))
+            ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
+            if (ram != null && !this._markedForDestruction)
             {
-                //ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
-                destroy = true;
+                // TODO: Implement ram damage
+                damage += 1;//ram.GetDamage();
+                
+                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram, damage));
             }
 
-            if (destroy)
-            {
-                this._markedForDestruction = true;
+            if (damage <= 0) return;
 
-                Vector3 position = this.transform.position;
+            // TODO: Use a health system
+            this._markedForDestruction = true;
 
-                // Deal damage
-                Destroy(this.transform);
+            Vector3 position = this.transform.position;
+                
+            GameManager.Events.Dispatch(new EventEntityShipDamaged(this, damage));
 
-                // Spawn loot
-                this.SpawnLoot(position);
-            }
+            // Deal damage
+            Destroy(this.transform);
+
+            // Spawn loot
+            this.SpawnLoot(position);
 
         }
 
@@ -64,6 +75,7 @@ namespace Skyrates.Common.Entity
                 Loot loot = Instantiate(
                     this.StatBlock.LootPrefab.gameObject, pos, Quaternion.identity).GetComponent<Loot>();
                 loot.Item = lootItem;
+                // TODO: Loot event, loot should be static entity
             }
         }
 
