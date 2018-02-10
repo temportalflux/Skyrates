@@ -11,9 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0d99c03b061784f860c635078e63c3, type: 3}
   m_Name: Session
   m_EditorClassIdentifier: 
-  Address: 184.171.154.43
-  TargetAddress: 192.168.1.146
-  Mode: 2
-  Port: 0
+  Address: 
+  TargetAddress: 
+  Mode: 0
+  Port: 425
   MaxClients: 10
+  ServerTickUpdate: 0
   ClientID: 4294967295
+  HandshakeComplete: 0
