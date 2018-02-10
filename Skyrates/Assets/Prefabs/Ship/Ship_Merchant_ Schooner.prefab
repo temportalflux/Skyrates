@@ -54,6 +54,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4664746602210714}
   - component: {fileID: 114846156284207654}
+  - component: {fileID: 136523901374573854}
+  - component: {fileID: 136944665984715090}
   m_Layer: 0
   m_Name: Ship_Merchant_ Schooner
   m_TagString: Untagged
@@ -172,7 +174,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1003495320685690}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5582284
   m_Height: 5.0475445
   m_Direction: 2
@@ -185,8 +187,34 @@ CapsuleCollider:
   m_GameObject: {fileID: 1003495320685690}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 1.4816008
+  m_Height: 4.330684
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.8146367, z: 0.23544145}
+--- !u!136 &136523901374573854
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594538091122740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.4816008
   m_Height: 4.330684
   m_Direction: 2
   m_Center: {x: 0, y: 0.8146367, z: 0.23544145}
+--- !u!136 &136944665984715090
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594538091122740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5582284
+  m_Height: 5.0475445
+  m_Direction: 2
+  m_Center: {x: 0, y: -1.5385666, z: -0.030694008}
