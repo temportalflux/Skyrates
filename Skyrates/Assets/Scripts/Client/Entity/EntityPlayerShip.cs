@@ -66,8 +66,13 @@ namespace Skyrates.Client
                 this.ShipData = this.ShipRoot.Generate(this.ShipData);
             }
         }
-        
+
         #endregion
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+
+        }
 
     }
 

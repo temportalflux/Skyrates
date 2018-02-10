@@ -17,7 +17,7 @@ namespace Skyrates.Common.Entity
         private bool _markedForDestruction = false;
 
         // Called when some non-trigger collider with a rigidbody enters
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             int damage = 0;
 

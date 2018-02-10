@@ -327,7 +327,7 @@ MonoBehaviour:
     ShootSpeed: 1
     ShootDelay: 1
     ShootDelayMin: 0
-  EntityPlayer: {fileID: 114956092729709676}
+  EntityPlayerShip: {fileID: 114956092729709676}
 --- !u!114 &114943066303382066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,6 +366,7 @@ MonoBehaviour:
     View: {fileID: 0}
     Render: {fileID: 0}
   Steering: {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
+  StatBlock: {fileID: 0}
   ShipData:
     Components: 000000000000000000000000000000000000000000000000
     _hasNewData: 0

@@ -8,8 +8,7 @@ using UnityEngine;
 
 namespace Skyrates.Client
 {
-
-    [RequireComponent(typeof(GameManager))]
+    
     public class AudioDispatcher : MonoBehaviour
     {
 
@@ -44,8 +43,11 @@ namespace Skyrates.Client
 
         private void CreateAudio(Vector3 position, Quaternion rotation, AudioSource prefab)
         {
-            AudioSource spawned = Instantiate(prefab, position, rotation, this.transform);
-            Destroy(spawned, prefab.time);
+            if (prefab != null)
+            {
+                AudioSource spawned = Instantiate(prefab, position, rotation, this.transform);
+                Destroy(spawned, prefab.time);
+            }
         }
 
         void OnEnable()
