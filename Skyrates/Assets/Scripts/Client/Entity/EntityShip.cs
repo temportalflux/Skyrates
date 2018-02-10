@@ -52,7 +52,7 @@ namespace Skyrates.Common.Entity
             GameManager.Events.Dispatch(new EventEntityShipDamaged(this, damage));
 
             // Deal damage
-            Destroy(this.transform);
+            Destroy(this.gameObject);
 
             // Spawn loot
             this.SpawnLoot(position);
