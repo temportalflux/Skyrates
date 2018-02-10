@@ -4,38 +4,15 @@ using Skyrates.Client.Loot;
 using Skyrates.Client.Ship;
 using UnityEngine;
 
-namespace Skyrates.Client.Loot
+namespace Skyrates.Common.Entity
 {
 
-    [RequireComponent(typeof(Collider))]
-    public class Shootable : MonoBehaviour
+    public class EntityShip : EntityDynamic
     {
 
-        // The owner of this shootable (destroyed when shot)
-        public GameObject RootParent;
-
-        public Loot LootPrefab;
-
-        public LootTable LootTable;
+        public ShipStat StatBlock;
 
         private bool _markedForDestruction = false;
-
-        // Requires that all colliders are triggers
-        // Also requires incoming colliders to be rigidbodies
-
-        private void Start()
-        {
-            // TODO: Potentially expensive, and not required
-            this.checkTriggers();
-        }
-
-        private void checkTriggers()
-        {
-            foreach (Collider collider in this.GetComponents<Collider>())
-            {
-                collider.isTrigger = true;
-            }
-        }
 
         // Called when some non-trigger collider with a rigidbody enters
         private void OnTriggerEnter(Collider other)
@@ -64,7 +41,7 @@ namespace Skyrates.Client.Loot
                 Vector3 position = this.transform.position;
 
                 // Deal damage
-                Destroy(this.RootParent);
+                Destroy(this.transform);
 
                 // Spawn loot
                 this.SpawnLoot(position);
@@ -74,7 +51,7 @@ namespace Skyrates.Client.Loot
 
         private void SpawnLoot(Vector3 position)
         {
-            ShipComponent[] loots = this.LootTable.Generate();
+            ShipComponent[] loots = this.StatBlock.Loot.Generate();
             foreach (ShipComponent lootItem in loots)
             {
                 if (lootItem == null)
@@ -85,13 +62,11 @@ namespace Skyrates.Client.Loot
 
                 Vector3 pos = position + Random.insideUnitSphere * 3;
                 Loot loot = Instantiate(
-                    this.LootPrefab.gameObject, pos, Quaternion.identity).GetComponent<Loot>();
+                    this.StatBlock.LootPrefab.gameObject, pos, Quaternion.identity).GetComponent<Loot>();
                 loot.Item = lootItem;
             }
         }
 
     }
 
-
 }
-

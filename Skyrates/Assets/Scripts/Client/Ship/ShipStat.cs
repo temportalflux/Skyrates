@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Loot;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/Ship/Stats")]
@@ -16,6 +17,8 @@ public class ShipStat : ScriptableObject
     public float DamageModifier;
 
     [Tooltip("The amount of loot dropped by the ship")]
-    public int Loot;
+    public LootTable Loot;
+
+    public GameObject LootPrefab;
 
 }
