@@ -16,6 +16,7 @@ namespace Skyrates.Client.Ship
         // data from ShipBuilder used to generate during Generate
         // Only valid after Generate
         [BitSerialize(0)]
+        [HideInInspector]
         public ShipData ShipData;
 
         // The generated object, created during Generate

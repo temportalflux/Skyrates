@@ -142,7 +142,7 @@ namespace Skyrates.Client.Ship
                 {
                     Transform target = targets[iTarget];
                     // Create the object
-                    GameObject built = Instantiate(prefab, target.position, target.rotation, root);
+                    GameObject built = Instantiate(prefab, root);
                     // Tell the built hull that it exists
                     // TODO: Optimize this function to just send in the transform
                     hullBuilt.AddShipComponent(hullPrefab.Mounts, compType, iTarget, built.GetComponent<ShipComponent>());
