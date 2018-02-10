@@ -496,7 +496,7 @@ namespace Skyrates.Common.Network
 
         private static List<BitAttribute> GetBitAttributeFields<T>(T value, Type fieldType = null)
         {
-            List<BitAttribute> attributes = new List<BitAttribute>();
+            List<BitAttribute> allAttributes = new List<BitAttribute>();
 
             // Get the type of the object
             Type type = null;
@@ -511,32 +511,49 @@ namespace Skyrates.Common.Network
             }
             Type subType = type.GetElementType();
             if (subType != null) type = subType;
-
-            // Retreive the fields from the mono instance, sorted by declaration order
-            FieldInfo[] objectFields = type.GetFields(
-                BindingFlags.Instance | BindingFlags.Public // | BindingFlags.NonPublic
-            );
-
-            // search all fields and find the attribute [BitSerialize]
-            for (int i = 0; i < objectFields.Length; i++)
+            
+            // Stack of parent->child types
+            Stack<Type> parentStack = new Stack<Type>();
+            while (type != typeof(object) && type != null)
             {
-                BitSerializeAttribute attribute =
-                    Attribute.GetCustomAttribute(objectFields[i], typeof(BitSerializeAttribute)) as
-                        BitSerializeAttribute;
-
-                // if we detect any attribute
-                if (attribute != null)
-                {
-                    attributes.Add(new BitAttribute {attribute = attribute, field = objectFields[i]});
-                }
+                parentStack.Push(type);
+                type = type.BaseType;
             }
 
-            attributes.Sort(new Comparison<BitAttribute>((a, b) =>
+            while (parentStack.Count > 0)
             {
-                return (int) a.attribute._order - (int) b.attribute._order;
-            }));
+                Type supertype = parentStack.Pop();
 
-            return attributes;
+                List<BitAttribute> attributes = new List<BitAttribute>();
+
+                FieldInfo[] objectFields = supertype.GetFields(
+                    BindingFlags.Instance
+                    | BindingFlags.Public
+                    // | BindingFlags.NonPublic
+                    | BindingFlags.DeclaredOnly
+                );
+
+                foreach (FieldInfo field in objectFields)
+                {
+                    BitSerializeAttribute attribute =
+                        Attribute.GetCustomAttribute(field, typeof(BitSerializeAttribute)) as
+                            BitSerializeAttribute;
+
+                    // if we detect any attribute
+                    if (attribute != null)
+                    {
+                        attributes.Add(new BitAttribute { attribute = attribute, field = field });
+                    }
+                }
+
+                attributes.Sort(new Comparison<BitAttribute>(
+                    (a, b) => (int) a.attribute._order - (int) b.attribute._order
+                ));
+
+                allAttributes.AddRange(attributes);
+            }
+
+            return allAttributes;
         }
 
         /// <summary>

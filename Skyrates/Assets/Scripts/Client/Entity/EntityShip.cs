@@ -8,8 +8,7 @@ using UnityEngine;
 
 namespace Skyrates.Common.Entity
 {
-
-    // TODO: Player ship should extend this
+    
     public class EntityShip : EntityDynamic
     {
 
