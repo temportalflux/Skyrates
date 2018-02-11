@@ -21,6 +21,17 @@ namespace Skyrates.Common.Entity
         void OnEnable()
         {
             this.Setup(Entity.ListableTypes, Entity.ListableClassTypes);
+
+            foreach (Category category in Categories)
+            {
+                for (int i = 0; i < category.Prefabs.Length; i++)
+                {
+                    if (category.Prefabs[i] == null)
+                    {
+                        Debug.LogWarning(string.Format("Entity List prefab of type {0} at index {1} is null. This will break multiplayer.", this.GetKeyFrom(i), i));
+                    }
+                }
+            }
         }
 
         /// <inheritdoc />
