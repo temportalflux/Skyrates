@@ -87,7 +87,7 @@ namespace Skyrates.Common.Entity
             this._rigidbody.velocity = this.Physics.LinearVelocity;
 
             // Update physics position
-            //this.Physics.LinearPosition = this.transform.position;
+            this.Physics.LinearPosition = this.transform.position;
 
             // Update rotational velocity
             this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
@@ -96,7 +96,7 @@ namespace Skyrates.Common.Entity
             this.GetRender().Rotate(this.Physics.RotationVelocity.eulerAngles, Space.World);
 
             // Set rotation
-            this.Physics.RotationPosition = this.transform.rotation;
+            this.Physics.RotationPosition = this.GetRender().rotation;
 
         }
 
@@ -116,7 +116,7 @@ namespace Skyrates.Common.Entity
         {
             base.OnDeserializeSuccess();
             this.transform.position = this.Physics.LinearPosition;
-            this.transform.rotation = this.Physics.RotationPosition;
+            this.GetRender().rotation = this.Physics.RotationPosition;
         }
 
     }
