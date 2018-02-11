@@ -362,7 +362,7 @@ Parsing file /home/travis/build/temportalflux/Skyrates/ChampNet/Ch/home/travis/b
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/HullTargetEditor.cs:15: warning: Compound Skyrates::Client::Ship::HullTargetEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventPlayerLeft.cs:8: warning: Compound Skyrates::Client::Game::Event::EventPlayerLeft is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/LootTable.cs:17: warning: Compound Skyrates::Client::Loot::LootTable::Row is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:9: warning: Compound Shooter is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:10: warning: Compound Shooter is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/ShipBuilderEditor.cs:11: warning: Compound ShipBuilderEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputXbox.cs:6: warning: Compound InputXbox is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitTest.cs:11: warning: Compound Skyrates::Common::Network::Test::BitTest::Sereal is not documented.
@@ -709,10 +709,10 @@ Generating/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:17: warning: Member DamageModifier (variable) of class ShipStat is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:20: warning: Member Loot (variable) of class ShipStat is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:22: warning: Member LootPrefab (variable) of class ShipStat is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:23: warning: Member FireProjectile(Vector3 direction, Vector3 launchVelocity) (function) of class Shooter is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:11: warning: Member projectilePrefab (variable) of class Shooter is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:13: warning: Member spawn (variable) of class Shooter is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:15: warning: Member force (variable) of class Shooter is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:18: warning: Member FireProjectile(Vector3 direction, Vector3 launchVelocity) (function) of class Shooter is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:12: warning: Member projectilePrefab (variable) of class Shooter is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:14: warning: Member spawn (variable) of class Shooter is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs:16: warning: Member force (variable) of class Shooter is not documented.
  code for file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNet/include/ChampNet.h...
 Generating code for file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNet/include/Packet.h...
 Generating code for file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNet/include/Win.h...
@@ -810,7 +810,7 @@ Gene/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/includ
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Audio/AudioDispatcher.cs:42: warning: Member AudioEntityShipHitByRam (variable) of class Skyrates::Client::AudioDispatcher is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:44: warning: Member SetDummy() (function) of class Skyrates::Client::EntityPlayerShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:56: warning: Member ShouldDeserialize() (function) of class Skyrates::Client::EntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:51: warning: Member TakeDamage(float damage) (function) of class Skyrates::Common::Entity::EntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:54: warning: Member TakeDamage(float damage) (function) of class Skyrates::Common::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:110: warning: Member Init(Guid guid, TypeData typeData) (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:118: warning: Member Init(TypeData typeData) (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:16: warning: Member ShipData (variable) of class Skyrates::Client::EntityPlayerShip is not documented.
@@ -1122,7 +1122,7 @@ Generating docs for compound Skyrates::Cli/home/travis/build/temportalflux/Skyra
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityTracker.cs:168: warning: Member SubscribeEvents() (function) of class Skyrates::Common::Entity::EntityTracker is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityTracker.cs:174: warning: Member UnsubscribeEvents() (function) of class Skyrates::Common::Entity::EntityTracker is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityTracker.cs:185: warning: Member OnEntityStart(Entity entity) (function) of class Skyrates::Common::Entity::EntityTracker is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:51: warning: Member TakeDamage(float damage) (function) of class Skyrates::Common::Entity::EntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:54: warning: Member TakeDamage(float damage) (function) of class Skyrates::Common::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:110: warning: Member Init(Guid guid, TypeData typeData) (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:118: warning: Member Init(TypeData typeData) (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:125: warning: Member ShouldDeserialize() (function) of class Skyrates::Common::Entity::Entity is not documented.
@@ -1130,7 +1130,7 @@ Generating docs for compound Skyrates::Cli/home/travis/build/temportalflux/Skyra
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:20: warning: Member Health (variable) of class Skyrates::Common::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:83: warning: Member EntityType (variable) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:22: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:31: warning: Member OnTriggerEnter(Collider other) (function) of class Skyrates::Common::Entity::EntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:34: warning: Member OnTriggerEnter(Collider other) (function) of class Skyrates::Common::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:40: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:50: warning: Member FixedUpdate() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:67: warning: Member GetView() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
@@ -1412,5 +1412,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 1138/65536 hits=6425 misses=1431
+lookup cache used 1138/65536 hits=6425 misses=1432
 finished...
