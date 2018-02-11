@@ -35,5 +35,6 @@ var searchData=
   ['eventsceneloaded',['EventSceneLoaded',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_scene_loaded.html',1,'Skyrates::Client::Game::Event']]],
   ['eventsessionend',['EventSessionEnd',['../class_event_session_end.html',1,'']]],
   ['eventsessionstart',['EventSessionStart',['../class_event_session_start.html',1,'']]],
+  ['eventspawnentityprojectile',['EventSpawnEntityProjectile',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_spawn_entity_projectile.html',1,'Skyrates::Client::Game::Event']]],
   ['eventupdategamestate',['EventUpdateGameState',['../class_skyrates_1_1_server_1_1_network_1_1_event_1_1_event_update_game_state.html',1,'Skyrates::Server::Network::Event']]]
 ];
