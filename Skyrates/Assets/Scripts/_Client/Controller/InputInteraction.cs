@@ -95,7 +95,6 @@ public class InputInteraction : MonoBehaviour
         Vector3 upAim = this.EntityPlayerShip.View.up;
         ShipComponent[] components = this.EntityPlayerShip.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
         ShipArtillery[] evtArtillery = new ShipArtillery[components.Length];
-        Projectile[] evtProjectiles = new Projectile[components.Length];
         for (int iComponent = 0; iComponent < components.Length; iComponent++)
         {
             evtArtillery[iComponent] = (ShipArtillery) components[iComponent];
@@ -103,10 +102,10 @@ public class InputInteraction : MonoBehaviour
             float dot = Vector3.Dot(forwardAim, forwardArtillery);
             if (dot > 0.3)
             {
-                evtProjectiles[iComponent] = evtArtillery[iComponent].Shooter.fireProjectile(forwardAim + upAim * 0.02f, this.EntityPlayerShip.Physics.LinearVelocity);
+                evtArtillery[iComponent].Shooter.FireProjectile(forwardAim + upAim * 0.02f, this.EntityPlayerShip.Physics.LinearVelocity);
             }
         }
-        GameManager.Events.Dispatch(new EventArtilleryFired(this.EntityPlayerShip, evtArtillery, evtProjectiles));
+        GameManager.Events.Dispatch(new EventArtilleryFired(this.EntityPlayerShip, evtArtillery));
     }
 
 }

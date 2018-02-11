@@ -48,15 +48,16 @@ namespace Skyrates.Common.Entity
             // LISTABLES MUST COME FIRST
             Static,
             Dynamic,
+            Projectile,
 
             // Then others...
             Player,
         }
 
-        public static readonly Type[] AllTypes = { Type.Static, Type.Dynamic, Type.Player };
-        public static readonly string[] AllTypesString = { Type.Static.ToString(), Type.Dynamic.ToString(), Type.Player.ToString() };
-        public static readonly object[] ListableTypes = { Type.Static, Type.Dynamic };
-        public static readonly System.Type[] ListableClassTypes = { typeof(Entity), typeof(EntityDynamic) };
+        public static readonly Type[] AllTypes = { Type.Static, Type.Dynamic, Type.Projectile, Type.Player };
+        public static readonly string[] AllTypesString = { Type.Static.ToString(), Type.Dynamic.ToString(), Type.Projectile.ToString(), Type.Player.ToString() };
+        public static readonly object[] ListableTypes = { Type.Static, Type.Dynamic, Type.Projectile };
+        public static readonly System.Type[] ListableClassTypes = { typeof(Entity), typeof(EntityDynamic), typeof(EntityProjectile) };
 
         #endregion
 

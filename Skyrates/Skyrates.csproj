@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -306,7 +304,7 @@
     <Compile Include="Assets\Scripts\Client\Entity\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityReceiver.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShip.cs" />
-    <Compile Include="Assets\Scripts\Client\Entity\Projectile\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\Projectile\EntityProjectile.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Projectile\Shooter.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\EventArtilleryFired.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\EventEntity.cs" />
@@ -328,8 +326,9 @@
     <Compile Include="Assets\Scripts\Client\Network\DummyClient.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeAccept.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeJoin.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestSetPlayerPhysics.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestEntityShipDamaged.cs" />
+    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestSetPlayerPhysics.cs" />
+    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestSpawnEntityProjectile.cs" />
     <Compile Include="Assets\Scripts\Client\Scene\SceneData.cs" />
     <Compile Include="Assets\Scripts\Client\Scene\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Assets\ShipBuilder.cs" />

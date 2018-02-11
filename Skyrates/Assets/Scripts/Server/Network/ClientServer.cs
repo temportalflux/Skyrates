@@ -55,6 +55,9 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeAccept += this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics += this.OnRequestSetPlayerPhysics;
+            NetworkEvents.Instance.RequestSpawnEntityProjectile += this.OnRequestSpawnEntityProjectile;
+            NetworkEvents.Instance.RequestEntityShipDamaged += this.OnRequestEntityShipDamaged;
+
             GameManager.Events.PlayerLeft += this.OnPlayerLeft;
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitByProjectile;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
@@ -67,7 +70,9 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeAccept -= this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics -= this.OnRequestSetPlayerPhysics;
+            NetworkEvents.Instance.RequestSpawnEntityProjectile -= this.OnRequestSpawnEntityProjectile;
             NetworkEvents.Instance.RequestEntityShipDamaged -= this.OnRequestEntityShipDamaged;
+
             GameManager.Events.PlayerLeft -= this.OnPlayerLeft;
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitByProjectile;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
@@ -183,6 +188,18 @@ namespace Skyrates.Server.Network
             if (e != null)
             {
                 e.Physics = evtSetPlayerPhysics.Physics;
+            }
+        }
+
+        public void OnRequestSpawnEntityProjectile(NetworkEvent evt)
+        {
+            EventRequestSpawnEntityProjectile evtSpawn = (EventRequestSpawnEntityProjectile) evt;
+            Entity entity = GameManager.Instance.SpawnEntity(evtSpawn.TypeData, Entity.NewGuid());
+            if (entity != null)
+            {
+                EntityProjectile projectile = (EntityProjectile) entity;
+                projectile.transform.SetPositionAndRotation(evtSpawn.Position, evtSpawn.Rotation);
+                projectile.AddForce(evtSpawn.Velocity);
             }
         }
 

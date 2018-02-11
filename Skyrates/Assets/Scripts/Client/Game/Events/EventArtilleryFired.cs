@@ -8,13 +8,10 @@ namespace Skyrates.Client.Game.Event
 
         public ShipArtillery[] Artillery;
 
-        public Projectile[] Projectiles;
-
-        public EventArtilleryFired(EntityPlayerShip playerShip, ShipArtillery[] artillery, Projectile[] projectiles)
+        public EventArtilleryFired(EntityPlayerShip playerShip, ShipArtillery[] artillery)
             : base(GameEventID.ArtilleryFired, playerShip)
         {
             this.Artillery = artillery;
-            this.Projectiles = projectiles;
         }
 
     }

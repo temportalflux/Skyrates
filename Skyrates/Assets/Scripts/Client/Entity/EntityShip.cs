@@ -30,13 +30,13 @@ namespace Skyrates.Common.Entity
         // Called when some non-trigger collider with a rigidbody enters
         protected virtual void OnTriggerEnter(Collider other)
         {
-            Projectile projectile = other.GetComponent<Projectile>();
-            if (projectile != null)
+            EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
+            if (entityProjectile != null)
             {
-                GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, projectile));
+                GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile));
                 // collider is a projectile
                 // TODO: Owner should destroy based on networking
-                Destroy(projectile.gameObject);
+                Destroy(entityProjectile.gameObject);
             }
 
             ShipFigurehead ram = other.GetComponent<ShipFigurehead>();

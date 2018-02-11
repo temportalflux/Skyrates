@@ -37,6 +37,8 @@ public abstract class PrefabListEditor<TKey, TValue> : Editor where TValue: Mono
 
         PrefabList.Category[] categories = this.Instance.Categories
             ?? new PrefabList.Category[this.Instance.OrderedKeys.Length];
+        if (categories.Length != this.Instance.OrderedKeys.Length)
+            Array.Resize(ref categories, this.Instance.OrderedKeys.Length);
 
         // Get the list of which categories are already folded out
         bool[] keysEnabled = this.GetStaticKeyToggleArray() ?? new bool[categories.Length];

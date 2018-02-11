@@ -182,6 +182,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332c48f3a4deb4b4090b277b6f4b321a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OwnerNetworkID: 0
+  EntityType:
+    EntityTypeAsInt: 2
+    EntityTypeIndex: 0
+  SteeringData:
+    View: {fileID: 0}
+    Render: {fileID: 0}
+  Steering: {fileID: 0}
   Physics: {fileID: 54552983245323448}
 --- !u!136 &136420572548391912
 CapsuleCollider:
