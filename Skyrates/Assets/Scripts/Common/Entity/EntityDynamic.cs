@@ -10,6 +10,7 @@ namespace Skyrates.Common.Entity
     /// By default, this object uses <see cref="Skyrates.Common.AI.Steering"/>, and it is
     /// the assumption that objects which move will use some form of steering.
     /// </summary>
+    [RequireComponent(typeof(Rigidbody))]
     public class EntityDynamic : Entity
     {
 
@@ -34,9 +35,14 @@ namespace Skyrates.Common.Entity
         /// </summary>
         public Steering Steering;
 
+        private Rigidbody _rigidbody;
+
         protected override void Start()
         {
             base.Start();
+            this._rigidbody = this.GetComponent<Rigidbody>();
+            Debug.Assert(this._rigidbody != null, string.Format("{0} has null rigidbody - this is required to move with collisions.", this.name));
+
             // TODO: fix this for transform.SetPositionAndRotation
             this.Physics.LinearPosition = this.transform.position;
         }
@@ -77,15 +83,14 @@ namespace Skyrates.Common.Entity
 
             // Update velocity
             this.Physics.LinearVelocity += this.Physics.LinearAccelleration * deltaTime;
+            
+            // Update position
+            // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+            //this._characterController.Move(this.Physics.LinearVelocity * deltaTime);
+            this._rigidbody.velocity = this.Physics.LinearVelocity;
 
-            //// Update position
-            this.Physics.LinearPosition += this.Physics.LinearVelocity * deltaTime;
-
-            //// Set position
-            this.transform.position = this.Physics.LinearPosition;
-            // TODO: this.rigidbody.velocity = ? maybe
-
-
+            // Update physics position
+            this.Physics.LinearPosition = this.transform.position;
 
             //// Update rotational velocity
             this.Physics.RotationVelocity = Quaternion.Euler(
