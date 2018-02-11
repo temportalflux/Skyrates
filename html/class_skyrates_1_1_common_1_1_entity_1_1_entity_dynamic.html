@@ -105,9 +105,10 @@ Inheritance diagram for Skyrates.Common.Entity.EntityDynamic:</div>
  <div class="center">
   <img src="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.png" usemap="#Skyrates.Common.Entity.EntityDynamic_map" alt=""/>
   <map id="Skyrates.Common.Entity.EntityDynamic_map" name="Skyrates.Common.Entity.EntityDynamic_map">
-<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html" title="Any entity that in the world. Used predominantly for its ability to be syncced via networking..." alt="Skyrates.Common.Entity.Entity" shape="rect" coords="0,56,232,80"/>
-<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html" alt="Skyrates.Common.Entity.EntityShip" shape="rect" coords="0,168,232,192"/>
-<area href="class_skyrates_1_1_client_1_1_entity_player_ship.html" alt="Skyrates.Client.EntityPlayerShip" shape="rect" coords="0,224,232,248"/>
+<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html" title="Any entity that in the world. Used predominantly for its ability to be syncced via networking..." alt="Skyrates.Common.Entity.Entity" shape="rect" coords="121,56,353,80"/>
+<area href="class_entity_projectile.html" alt="EntityProjectile" shape="rect" coords="0,168,232,192"/>
+<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html" alt="Skyrates.Common.Entity.EntityShip" shape="rect" coords="242,168,474,192"/>
+<area href="class_skyrates_1_1_client_1_1_entity_player_ship.html" alt="Skyrates.Client.EntityPlayerShip" shape="rect" coords="242,224,474,248"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -153,6 +154,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_skyrates_1_1_common_1_1_entity_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Skyrates.Common.Entity.Entity</a></td></tr>
 <tr class="memitem:a5c3684b33affb2f12aefedccf02892be inherit pub_types_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <b>Static</b>, 
 <b>Dynamic</b>, 
+<b>Projectile</b>, 
 <b>Player</b>
  }</td></tr>
 <tr class="separator:a5c3684b33affb2f12aefedccf02892be inherit pub_types_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,16 +180,16 @@ static <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html#
 <tr class="separator:ace456648a3f02f014603fd4a0d38e468 inherit pub_static_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Skyrates.Common.Entity.Entity</a></td></tr>
 <tr class="memitem:aa2264aa396ec6c08519c50f6e872596e inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2264aa396ec6c08519c50f6e872596e"></a>
-static readonly Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypes</b> = { Type.Static, Type.Dynamic, Type.Player }</td></tr>
+static readonly Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypes</b> = { Type.Static, Type.Dynamic, Type.Projectile, Type.Player }</td></tr>
 <tr class="separator:aa2264aa396ec6c08519c50f6e872596e inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a824e2b260185ecccfa385b4a80eab46c inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a824e2b260185ecccfa385b4a80eab46c"></a>
-static readonly string[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypesString</b> = { Type.Static.ToString(), Type.Dynamic.ToString(), Type.Player.ToString() }</td></tr>
+static readonly string[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypesString</b> = { Type.Static.ToString(), Type.Dynamic.ToString(), Type.Projectile.ToString(), Type.Player.ToString() }</td></tr>
 <tr class="separator:a824e2b260185ecccfa385b4a80eab46c inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc830384f250e2d5f9b33229d91885ce inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc830384f250e2d5f9b33229d91885ce"></a>
-static readonly object[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableTypes</b> = { Type.Static, Type.Dynamic }</td></tr>
+static readonly object[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableTypes</b> = { Type.Static, Type.Dynamic, Type.Projectile }</td></tr>
 <tr class="separator:adc830384f250e2d5f9b33229d91885ce inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9abf8cce12c295b351195de009cfd007 inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9abf8cce12c295b351195de009cfd007"></a>
-static readonly System.Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableClassTypes</b> = { typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Entity</a>), typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">EntityDynamic</a>) }</td></tr>
+static readonly System.Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableClassTypes</b> = { typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Entity</a>), typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">EntityDynamic</a>), typeof(<a class="el" href="class_entity_projectile.html">EntityProjectile</a>) }</td></tr>
 <tr class="separator:a9abf8cce12c295b351195de009cfd007 inherit pub_static_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('properties_class_skyrates_1_1_common_1_1_entity_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Skyrates.Common.Entity.Entity</a></td></tr>
 <tr class="memitem:a76d0593a8dd6b00bf329fb9693577cef inherit properties_class_skyrates_1_1_common_1_1_entity_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76d0593a8dd6b00bf329fb9693577cef"></a>

@@ -113,8 +113,9 @@ Inheritance diagram for Skyrates.Common.Entity.Entity:</div>
   <map id="Skyrates.Common.Entity.Entity_map" name="Skyrates.Common.Entity.Entity_map">
 <area href="class_a_i_target.html" alt="AITarget" shape="rect" coords="0,112,232,136"/>
 <area href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html" title="Any entity in the world which moves around. By default, this object uses Skyrates.Common.AI.Steering, and it is the assumption that objects which move will use some form of steering. " alt="Skyrates.Common.Entity.EntityDynamic" shape="rect" coords="242,112,474,136"/>
-<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html" alt="Skyrates.Common.Entity.EntityShip" shape="rect" coords="242,168,474,192"/>
-<area href="class_skyrates_1_1_client_1_1_entity_player_ship.html" alt="Skyrates.Client.EntityPlayerShip" shape="rect" coords="242,224,474,248"/>
+<area href="class_entity_projectile.html" alt="EntityProjectile" shape="rect" coords="121,168,353,192"/>
+<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html" alt="Skyrates.Common.Entity.EntityShip" shape="rect" coords="363,168,595,192"/>
+<area href="class_skyrates_1_1_client_1_1_entity_player_ship.html" alt="Skyrates.Client.EntityPlayerShip" shape="rect" coords="363,224,595,248"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -127,6 +128,7 @@ Classes</h2></td></tr>
 Public Types</h2></td></tr>
 <tr class="memitem:a5c3684b33affb2f12aefedccf02892be"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <b>Static</b>, 
 <b>Dynamic</b>, 
+<b>Projectile</b>, 
 <b>Player</b>
  }</td></tr>
 <tr class="separator:a5c3684b33affb2f12aefedccf02892be"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,16 +172,16 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:aa2264aa396ec6c08519c50f6e872596e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2264aa396ec6c08519c50f6e872596e"></a>
-static readonly Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypes</b> = { Type.Static, Type.Dynamic, Type.Player }</td></tr>
+static readonly Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypes</b> = { Type.Static, Type.Dynamic, Type.Projectile, Type.Player }</td></tr>
 <tr class="separator:aa2264aa396ec6c08519c50f6e872596e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a824e2b260185ecccfa385b4a80eab46c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a824e2b260185ecccfa385b4a80eab46c"></a>
-static readonly string[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypesString</b> = { Type.Static.ToString(), Type.Dynamic.ToString(), Type.Player.ToString() }</td></tr>
+static readonly string[]&#160;</td><td class="memItemRight" valign="bottom"><b>AllTypesString</b> = { Type.Static.ToString(), Type.Dynamic.ToString(), Type.Projectile.ToString(), Type.Player.ToString() }</td></tr>
 <tr class="separator:a824e2b260185ecccfa385b4a80eab46c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc830384f250e2d5f9b33229d91885ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc830384f250e2d5f9b33229d91885ce"></a>
-static readonly object[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableTypes</b> = { Type.Static, Type.Dynamic }</td></tr>
+static readonly object[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableTypes</b> = { Type.Static, Type.Dynamic, Type.Projectile }</td></tr>
 <tr class="separator:adc830384f250e2d5f9b33229d91885ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9abf8cce12c295b351195de009cfd007"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9abf8cce12c295b351195de009cfd007"></a>
-static readonly System.Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableClassTypes</b> = { typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Entity</a>), typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">EntityDynamic</a>) }</td></tr>
+static readonly System.Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>ListableClassTypes</b> = { typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Entity</a>), typeof(<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">EntityDynamic</a>), typeof(<a class="el" href="class_entity_projectile.html">EntityProjectile</a>) }</td></tr>
 <tr class="separator:a9abf8cce12c295b351195de009cfd007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
