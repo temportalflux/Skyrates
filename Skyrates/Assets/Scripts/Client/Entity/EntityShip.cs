@@ -4,6 +4,7 @@ using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Loot;
 using Skyrates.Client.Ship;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 namespace Skyrates.Common.Entity
@@ -14,47 +15,54 @@ namespace Skyrates.Common.Entity
 
         public ShipStat StatBlock;
 
-        private bool _markedForDestruction = false;
+        [BitSerialize(0)]
+        public float Health;
+
+        protected override void Start()
+        {
+            base.Start();
+            Debug.Assert(this.StatBlock.Health > 0, string.Format(
+                "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.", this.StatBlock.name));
+            this.Health = this.StatBlock.Health;
+        }
 
         // Called when some non-trigger collider with a rigidbody enters
         protected virtual void OnTriggerEnter(Collider other)
         {
-            int damage = 0;
-
             Projectile projectile = other.GetComponent<Projectile>();
-            if (projectile != null && !this._markedForDestruction)
+            if (projectile != null)
             {
-                // TODO: Implement projectile damage
-                damage += 1;//projectile.GetDamage();
-
-                GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, projectile, damage));
-
+                GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, projectile));
                 // collider is a projectile
+                // TODO: Owner should destroy based on networking
                 Destroy(projectile.gameObject);
             }
 
             ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
-            if (ram != null && !this._markedForDestruction)
+            if (ram != null)
             {
-                // TODO: Implement ram damage
-                damage += 1;//ram.GetDamage();
-                
-                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram, damage));
+                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram));
             }
 
-            if (damage <= 0) return;
+        }
 
-            // TODO: Use a health system
-            this._markedForDestruction = true;
+        // called by network interface events which originate from OnTriggerEnter
+        public void TakeDamage(float damage)
+        {
+            this.Health -= damage;
+
+            GameManager.Events.Dispatch(new EventEntityShipDamaged(this, damage));
+
+            if (this.Health > 0) return;
 
             Vector3 position = this.transform.position;
-                
-            GameManager.Events.Dispatch(new EventEntityShipDamaged(this, damage));
 
             // Deal damage
             Destroy(this.gameObject);
 
             // Spawn loot
+            // NOTE: Since this function is called by the owning client, then loot is spawned on owning client
+            // TODO: Sync loot - make loot entity static
             this.SpawnLoot(position);
 
         }

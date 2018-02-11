@@ -1,4 +1,6 @@
-﻿using Skyrates.Common.Network;
+﻿using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
+using Skyrates.Common.Network;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
 
@@ -40,11 +42,21 @@ namespace Skyrates.Client.Network
         public override void SubscribeEvents()
         {
             this.HasSubscribed = true;
+            GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitBy;
+            GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
         }
 
         public override void UnsubscribeEvents()
         {
             this.HasSubscribed = false;
+            GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitBy;
+            GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
+        }
+
+        public override void OnEntityShipHitBy(GameEvent evt)
+        {
+            EventEntityShipDamaged evtDamaged = (EventEntityShipDamaged) evt;
+            evtDamaged.Ship.TakeDamage(evtDamaged.Damage);
         }
 
     }

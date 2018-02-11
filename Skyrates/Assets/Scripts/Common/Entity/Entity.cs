@@ -81,6 +81,11 @@ namespace Skyrates.Common.Entity
         [SerializeField]
         public TypeData EntityType;
 
+        public bool IsLocallyControlled
+        {
+            get { return this.OwnerNetworkID == NetworkComponent.GetSession.NetworkID; }
+        }
+
         protected virtual void Start()
         {
             if (this.EntityType.EntityType != Type.Player)

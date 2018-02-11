@@ -26,6 +26,8 @@ namespace Skyrates.Client.Network
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.HandshakeClientID += this.OnHandshakeClientID;
             GameManager.Events.PlayerMoved += this.OnPlayerMoved;
+            GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitBy;
+            GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
         }
 
         public override void UnsubscribeEvents()
@@ -36,6 +38,8 @@ namespace Skyrates.Client.Network
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
             NetworkEvents.Instance.HandshakeClientID -= this.OnHandshakeClientID;
             GameManager.Events.PlayerMoved -= this.OnPlayerMoved;
+            GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitBy;
+            GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
         }
 
         /// <inheritdoc />
@@ -105,13 +109,6 @@ namespace Skyrates.Client.Network
             SceneLoader.Instance.ActivateNext();
         }
 
-        public void OnPlayerMoved(GameEvent evt)
-        {
-            // On player move, tell server
-            // TODO: Reconsider frequency
-            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventEntityPlayerShip) evt).PlayerShip.Physics));
-        }
-
         public void DeserializeGameState(byte[] data, ref int lastIndex)
         {
             // Entities
@@ -119,6 +116,23 @@ namespace Skyrates.Client.Network
             tracker.Deserialize(data, ref lastIndex);
         }
 
+        public void OnPlayerMoved(GameEvent evt)
+        {
+            // On player move, tell server
+            // TODO: Reconsider frequency
+            NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventEntityPlayerShip) evt).PlayerShip.Physics));
+        }
+
+        // when any entity is suppossed to be damaged
+        public virtual void OnEntityShipHitBy(GameEvent evt)
+        {
+            EventEntityShipDamaged evtDamaged = (EventEntityShipDamaged) evt;
+            // If we own the target, then we tell server that one of our entities is damaged
+            if (evtDamaged.Ship.IsLocallyControlled)
+            {
+                NetworkComponent.GetNetwork().Dispatch(new EventRequestEntityShipDamaged(evtDamaged.Ship, evtDamaged.Damage));
+            }
+        }
 
     }
 }

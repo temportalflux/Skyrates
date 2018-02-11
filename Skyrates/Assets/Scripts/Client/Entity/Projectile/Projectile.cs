@@ -34,4 +34,10 @@ public class Projectile : MonoBehaviour
         this.GetComponent<Rigidbody>().AddForce(force, ForceMode.Acceleration);
     }
 
+    public float GetDamage()
+    {
+        // TODO: Implement projectile damage
+        return 1;
+    }
+
 }

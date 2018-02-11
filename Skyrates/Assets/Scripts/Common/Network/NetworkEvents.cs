@@ -50,10 +50,12 @@ namespace Skyrates.Common.Network
         //! [Update] Sent to server to update physics data about the player
         RequestSetPlayerPhysics,
 
+        RequestEntityShipDamaged,
+
         #endregion
 
         #region From/To Both
-        
+
         Disconnect,
 
         #endregion
@@ -105,6 +107,7 @@ namespace Skyrates.Common.Network
             {NetworkEventID.HandshakeJoin, typeof(EventHandshakeJoin)},
             {NetworkEventID.HandshakeAccept, typeof(EventHandshakeAccept)},
             {NetworkEventID.RequestSetPlayerPhysics, typeof(EventRequestSetPlayerPhysics)},
+            {NetworkEventID.RequestEntityShipDamaged, typeof(EventRequestEntityShipDamaged)},
 
             #endregion
 
@@ -153,6 +156,7 @@ namespace Skyrates.Common.Network
         public event NetworkEventDelegate HandshakeJoin;
         public event NetworkEventDelegate HandshakeAccept;
         public event NetworkEventDelegate RequestSetPlayerPhysics;
+        public event NetworkEventDelegate RequestEntityShipDamaged;
 
         #endregion
 
@@ -184,7 +188,10 @@ namespace Skyrates.Common.Network
                 #region ClientData
                 case NetworkEventID.HandshakeJoin: return HandshakeJoin;
                 case NetworkEventID.HandshakeAccept: return HandshakeAccept;
-                case NetworkEventID.RequestSetPlayerPhysics: return RequestSetPlayerPhysics;
+                case NetworkEventID.RequestSetPlayerPhysics:
+                    return RequestSetPlayerPhysics;
+                case NetworkEventID.RequestEntityShipDamaged:
+                    return RequestEntityShipDamaged;
                 #endregion
                 #region From/To Both
                 case NetworkEventID.Disconnect: return Disconnect;

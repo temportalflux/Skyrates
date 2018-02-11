@@ -56,6 +56,8 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics += this.OnRequestSetPlayerPhysics;
             GameManager.Events.PlayerLeft += this.OnPlayerLeft;
+            GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitByProjectile;
+            GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
         }
 
         public override void UnsubscribeEvents()
@@ -65,7 +67,10 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeAccept -= this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
             NetworkEvents.Instance.RequestSetPlayerPhysics -= this.OnRequestSetPlayerPhysics;
+            NetworkEvents.Instance.RequestEntityShipDamaged -= this.OnRequestEntityShipDamaged;
             GameManager.Events.PlayerLeft -= this.OnPlayerLeft;
+            GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitByProjectile;
+            GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
         }
 
         /// <inheritdoc />
@@ -181,6 +186,16 @@ namespace Skyrates.Server.Network
             }
         }
 
+        public void OnRequestEntityShipDamaged(NetworkEvent evt)
+        {
+            EventRequestEntityShipDamaged evtDamaged = (EventRequestEntityShipDamaged) evt;
+            Entity entity;
+            if (this.GetEntityTracker().TryGetValue(evtDamaged.EntityType, evtDamaged.EntityGuid, out entity) && entity is EntityShip)
+            {
+                ((EntityShip) entity).TakeDamage(evtDamaged.Damage);
+            }
+        }
+
         void OnPlayerLeft(GameEvent evt)
         {
             Entity entity;
@@ -188,7 +203,30 @@ namespace Skyrates.Server.Network
             {
                 UnityEngine.Object.Destroy(entity.gameObject);
             }
-           
+        }
+
+        // when any entity is suppossed to be damaged
+        public void OnEntityShipHitBy(GameEvent evt)
+        {
+            EventEntityShipDamaged evtDamaged = (EventEntityShipDamaged) evt;
+            // If we own the target, then we tell server that one of our entities is damaged
+            if (evtDamaged.Ship.IsLocallyControlled)
+            {
+                evtDamaged.Ship.TakeDamage(evtDamaged.Damage);
+            }
+        }
+
+        // when any entity is suppossed to be damaged
+        public void OnEntityShipHitByProjectile(GameEvent evt)
+        {
+            this.OnEntityShipHitBy(evt);
+            EventEntityShipHitByProjectile evtDamaged = (EventEntityShipHitByProjectile) evt;
+            /* TODO: Sync projectiles; Projectile is entity and destroyed on impact
+            if (evtDamaged.Projectile.IsLocallyControlled)
+            {
+                evtDamaged.Projectile.TakeDamage(evtDamaged.Projectile.GetHealth());
+            }
+            //*/
         }
 
     }
