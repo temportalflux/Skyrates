@@ -907,8 +907,9 @@ namespace Skyrates.Common.Network
                             {
                                 element = Activator.CreateInstance(subtype);
                             }
-                            catch (Exception e)
+                            catch
                             {
+                                // ignored
                             }
 
                             list.Add(Deserialize(element, data, start, attribute, subtype));
@@ -928,9 +929,11 @@ namespace Skyrates.Common.Network
                             {
                                 key = Activator.CreateInstance(typeKey);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
+                                // ignored
                             }
+
                             key = Deserialize(key, data, start, attribute.fieldsbyGeneric[0], typeKey);
                             start += GetSizeOf(key, attribute.fieldsbyGeneric[0].fields);
                             object value = null;
@@ -963,8 +966,9 @@ namespace Skyrates.Common.Network
                     {
                         element = Activator.CreateInstance(attributeField.info.FieldType);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
+                        // ignored
                     }
 
                     element = Deserialize(element, data, start, attributeField, attributeField.info.FieldType);

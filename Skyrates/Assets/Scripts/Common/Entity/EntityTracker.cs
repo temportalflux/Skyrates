@@ -121,8 +121,8 @@ namespace Skyrates.Common.Entity
         /// <param name="e"></param>
         public bool Add(Entity e)
         {
-            Debug.Assert(this.Entities.ContainsKey(e.EntityType));
-            return this.Entities[e.EntityType].Add(e);
+            Debug.Assert(this.Entities.ContainsKey(e.EntityType.EntityType));
+            return this.Entities[e.EntityType.EntityType].Add(e);
         }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace Skyrates.Common.Entity
         protected void OnEntityStart(Entity entity)
         {
             // double check in case this was already covered by entity instantiate
-            if (!this.ContainsKey(entity.EntityType, entity.Guid))
+            if (!this.ContainsKey(entity.EntityType.EntityType, entity.Guid))
             {
                 this.Add(entity);
             }
@@ -194,7 +194,7 @@ namespace Skyrates.Common.Entity
         void OnEntityDestroy(GameEvent evt)
         {
             Entity ent = ((EventEntity) evt).Entity;
-            this.Remove(ent.EntityType, ent.Guid);
+            this.Remove(ent.EntityType.EntityType, ent.Guid);
         }
 
         #endregion

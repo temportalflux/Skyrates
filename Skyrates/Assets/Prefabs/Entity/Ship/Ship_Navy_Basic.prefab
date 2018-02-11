@@ -172,8 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OwnerNetworkID: 0
-  EntityTypeIndex: 1
-  EntityTypeArrayIndex: 2
+  EntityType:
+    EntityTypeAsInt: 1
+    EntityTypeIndex: 2
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}

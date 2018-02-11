@@ -35,9 +35,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4091563266604122}
   - component: {fileID: 136592726840997954}
-  - component: {fileID: 114818389470642328}
   - component: {fileID: 54835894653791192}
-  - component: {fileID: 75789843726293684}
+  - component: {fileID: 114818389470642328}
   m_Layer: 9
   m_Name: loot_crate_parachute
   m_TagString: Untagged
@@ -160,17 +159,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!75 &75789843726293684
-ConstantForce:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1659970100272724}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 0, z: 0}
-  m_Torque: {x: 0, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &114818389470642328
 MonoBehaviour:
   m_ObjectHideFlags: 1

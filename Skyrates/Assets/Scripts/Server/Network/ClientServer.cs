@@ -132,7 +132,7 @@ namespace Skyrates.Server.Network
 
             ClientData client = this.ClientList[(int) evtAccept.clientID];
 
-            EntityPlayerShip e = GameManager.Instance.SpawnEntity(new TypeData(Entity.Type.Player, -1), client.PlayerGuid) as EntityPlayerShip;
+            EntityPlayerShip e = GameManager.Instance.SpawnEntity(new Entity.TypeData(Entity.Type.Player, -1), client.PlayerGuid) as EntityPlayerShip;
             System.Diagnostics.Debug.Assert(e != null, "e != null");
             e.OwnerNetworkID = (int) client.ClientId;
             e.SetDummy();

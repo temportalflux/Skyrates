@@ -45,7 +45,7 @@ namespace Skyrates.Client.Game
             // TODO: Move this to owner classes (DummyClient & ClientServer)
             if (NetworkComponent.GetSession.IsOwner && ((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
             {
-                Entity e = this.SpawnEntity(new TypeData(Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
+                Entity e = this.SpawnEntity(new Entity.TypeData(Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
                 System.Diagnostics.Debug.Assert(e != null, "e != null");
                 e.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
             }
@@ -53,7 +53,7 @@ namespace Skyrates.Client.Game
 
         #endregion
 
-        public Entity SpawnEntity(TypeData typeData, Guid guid)
+        public Entity SpawnEntity(Entity.TypeData typeData, Guid guid)
         {
             Entity spawned = null;
 

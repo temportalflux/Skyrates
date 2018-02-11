@@ -6,40 +6,40 @@ using UnityEngine;
 
 namespace Skyrates.Common.Entity
 {
-    
-    [Serializable]
-    public class TypeData
-    {
-
-        [BitSerialize(0)]
-        public int EntityTypeAsInt;
-
-        [BitSerialize(1)]
-        public int EntityTypeIndex;
-
-        public Entity.Type EntityType
-        {
-            get { return (Entity.Type) this.EntityTypeAsInt; }
-            set { this.EntityTypeAsInt = (int)value; }
-        }
-        
-        public TypeData(Entity.Type type, int index)
-        {
-            this.EntityType = type;
-            this.EntityTypeIndex = index;
-        }
-
-        public TypeData()
-        {
-        }
-
-    }
-
     /// <summary>
     /// Any entity that in the world. Used predominantly for its ability to be syncced via networking.
     /// </summary>
     public class Entity : MonoBehaviour
     {
+        [Serializable]
+        public class TypeData
+        {
+
+            [BitSerialize(0)]
+            [SerializeField]
+            public int EntityTypeAsInt;
+
+            [BitSerialize(1)]
+            [SerializeField]
+            public int EntityTypeIndex;
+
+            public Entity.Type EntityType
+            {
+                get { return (Entity.Type) this.EntityTypeAsInt; }
+                set { this.EntityTypeAsInt = (int) value; }
+            }
+
+            public TypeData(Entity.Type type, int index)
+            {
+                this.EntityType = type;
+                this.EntityTypeIndex = index;
+            }
+
+            public TypeData()
+            {
+            }
+
+        }
 
         #region Static
 
@@ -54,6 +54,7 @@ namespace Skyrates.Common.Entity
         }
 
         public static readonly Type[] AllTypes = { Type.Static, Type.Dynamic, Type.Player };
+        public static readonly string[] AllTypesString = { Type.Static.ToString(), Type.Dynamic.ToString(), Type.Player.ToString() };
         public static readonly object[] ListableTypes = { Type.Static, Type.Dynamic };
         public static readonly System.Type[] ListableClassTypes = { typeof(Entity), typeof(EntityDynamic) };
 
@@ -76,26 +77,13 @@ namespace Skyrates.Common.Entity
         [HideInInspector]
         public int OwnerNetworkID;
 
-        //[BitSerialize(2)]
-        //[SerializeField]
-        //[HideInInspector]
-        //public TypeData TypeData;
-
-        // TODO: Made an editor so these two properties are unessessary
         [BitSerialize(2)]
-        public int EntityTypeIndex;
-
-        public Type EntityType
-        {
-            get { return (Entity.Type) EntityTypeIndex; }
-            set { this.EntityTypeIndex = (int) value; }
-        }
-        [BitSerialize(3)]
-        public int EntityTypeArrayIndex;
+        [SerializeField]
+        public TypeData EntityType;
 
         protected virtual void Start()
         {
-            if (this.EntityType != Type.Player)
+            if (this.EntityType.EntityType != Type.Player)
             {
                 this.Guid = NewGuid();
                 this.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
@@ -116,9 +104,9 @@ namespace Skyrates.Common.Entity
         public void Init(Guid guid, TypeData typeData)
         {
             this.Guid = guid;
-            //this.TypeData = typeData;
-            this.EntityType = typeData.EntityType;
-            this.EntityTypeArrayIndex = typeData.EntityTypeIndex;
+            this.EntityType = typeData;
+            //this.EntityType = typeData.EntityType;
+            //this.EntityTypeArrayIndex = typeData.EntityTypeIndex;
         }
 
         public void Init(TypeData typeData)

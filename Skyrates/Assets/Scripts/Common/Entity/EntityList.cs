@@ -12,6 +12,9 @@ namespace Skyrates.Common.Entity
     public class EntityList : PrefabList
     {
 
+        // useful only for editor
+        public static EntityList Instance;
+
         /// <summary>
         /// The prefab of players who are created via the network.
         /// </summary>
@@ -20,6 +23,7 @@ namespace Skyrates.Common.Entity
 
         void OnEnable()
         {
+            Instance = this;
             this.Setup(Entity.ListableTypes, Entity.ListableClassTypes);
 
             foreach (Category category in Categories)

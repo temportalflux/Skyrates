@@ -88,11 +88,12 @@ namespace Skyrates.Common.Entity
                         // peak at the type of entity
                         int ownerNetworkId = (int) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
 
-                        Entity.Type t = (Entity.Type) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
-                        int index = (int) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
+                        Entity.TypeData entityTypeData = (Entity.TypeData) BitSerializeAttribute.Deserialize(new Entity.TypeData(), data, ref indexEntityPeak);
+                        //Entity.Type t = (Entity.Type) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
+                        //int index = (int) BitSerializeAttribute.Deserialize(0, data, ref indexEntityPeak);
 
                         // Spawn the entity
-                        Entity entity = GameManager.Instance.SpawnEntity(new TypeData(type, index), entityGuid);
+                        Entity entity = GameManager.Instance.SpawnEntity(entityTypeData, entityGuid);
                         if (entity != null)
                         {
                             // have the entity fully deserialize
