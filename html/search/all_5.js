@@ -28,6 +28,7 @@ var searchData=
   ['eventid',['EventID',['../class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event.html#ac75427f751e432fb3efe4ac0c2289a5f',1,'Skyrates::Common::Network::Event::NetworkEvent']]],
   ['eventplayerleft',['EventPlayerLeft',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_player_left.html',1,'Skyrates::Client::Game::Event']]],
   ['eventraknet',['EventRakNet',['../class_skyrates_1_1_common_1_1_network_1_1_event_1_1_event_rak_net.html',1,'Skyrates::Common::Network::Event']]],
+  ['eventrequestentityshipdamaged',['EventRequestEntityShipDamaged',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_request_entity_ship_damaged.html',1,'Skyrates::Client::Network::Event']]],
   ['eventrequestsetplayerphysics',['EventRequestSetPlayerPhysics',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_request_set_player_physics.html',1,'Skyrates::Client::Network::Event']]],
   ['eventsceneloaded',['EventSceneLoaded',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_scene_loaded.html',1,'Skyrates::Client::Game::Event']]],
   ['eventsessionend',['EventSessionEnd',['../class_event_session_end.html',1,'']]],
