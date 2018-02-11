@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fb6bdd616d8b14186de9c264563d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 2
+  delay: 1
 --- !u!114 &114914087321366488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,8 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332c48f3a4deb4b4090b277b6f4b321a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constantForce: {x: 0, y: 0, z: 0}
-  physics: {fileID: 54552983245323448}
+  Physics: {fileID: 54552983245323448}
 --- !u!136 &136420572548391912
 CapsuleCollider:
   m_ObjectHideFlags: 1

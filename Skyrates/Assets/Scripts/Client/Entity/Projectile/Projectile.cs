@@ -6,6 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     
+    [HideInInspector]
     public Rigidbody Physics;
 
     void Start()
