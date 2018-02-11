@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1168534752572126, guid: 1e10d234425f2fc4e9ec41a7769168da,
-    type: 2}
+  projectilePrefab:
+    EntityTypeAsInt: 2
+    EntityTypeIndex: 0
   spawn: {fileID: 4317586929373498}
   force: 1000

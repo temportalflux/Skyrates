@@ -22,9 +22,12 @@ namespace Skyrates.Common.Entity
         protected override void Start()
         {
             base.Start();
-            Debug.Assert(this.StatBlock.Health > 0, string.Format(
-                "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.", this.StatBlock.name));
-            this.Health = this.StatBlock.Health;
+            if (this.StatBlock != null)
+            {
+                Debug.Assert(this.StatBlock.Health > 0, string.Format(
+                    "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.", this.StatBlock.name));
+                this.Health = this.StatBlock.Health;
+            }
         }
 
         // Called when some non-trigger collider with a rigidbody enters
