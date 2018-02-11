@@ -13,6 +13,7 @@ var searchData=
   ['trygetvalue',['TryGetValue',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html#a0cdadea63f872b1873a92de48641edb5',1,'Skyrates::Common::Entity::EntityTracker']]],
   ['trygetvalue_3c_20t_20_3e',['TryGetValue&lt; T &gt;',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_set.html#adac6d4ae7606732e19a55d68930d9acc',1,'Skyrates::Common::Entity::EntitySet']]],
   ['tryremove',['TryRemove',['../class_skyrates_1_1_server_1_1_network_1_1_client_list.html#a5116345632ab2dba0b87579b72df23d4',1,'Skyrates::Server::Network::ClientList']]],
-  ['typedata',['TypeData',['../class_skyrates_1_1_common_1_1_entity_1_1_type_data.html',1,'Skyrates::Common::Entity']]],
+  ['typedata',['TypeData',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data.html',1,'Skyrates::Common::Entity::Entity']]],
+  ['typedatapropertydrawer',['TypeDataPropertyDrawer',['../class_type_data_property_drawer.html',1,'']]],
   ['types',['Types',['../class_skyrates_1_1_common_1_1_network_1_1_network_events.html#a9360ac6e13813aa04c2f77c18fea5274',1,'Skyrates::Common::Network::NetworkEvents']]]
 ];
