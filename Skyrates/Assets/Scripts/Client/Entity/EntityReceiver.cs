@@ -106,6 +106,11 @@ namespace Skyrates.Common.Entity
                                 ((EntityPlayerShip)entity).SetDummy();
                             }
                         }
+                        else
+                        {
+                            Debug.Log("There was an error spawning an entity, stopping deserialization.");
+                            return;
+                        }
                     }
 
                 }
