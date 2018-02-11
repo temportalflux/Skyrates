@@ -19,8 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4975237205997404}
+  - component: {fileID: 114385028561526264}
+  - component: {fileID: 136434190004448448}
+  - component: {fileID: 136624221166687266}
   m_Layer: 0
-  m_Name: ship_navy_cruiser
+  m_Name: Ship_Navy_Cruiser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,6 +54,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4311465932068558}
+  - component: {fileID: 136069094275189268}
+  - component: {fileID: 136348767414752072}
   m_Layer: 0
   m_Name: render
   m_TagString: Untagged
@@ -64,7 +69,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1717693871684362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -78,8 +83,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502187290277782}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.12, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4311465932068558}
@@ -91,8 +96,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1296444688354658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.61, y: 7.78, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32.17, y: 7.9811044, z: -11.073568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4311465932068558}
@@ -143,3 +148,74 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502187290277782}
   m_Mesh: {fileID: 4300000, guid: fea00a29c0cad94449beec083d2e09af, type: 3}
+--- !u!114 &114385028561526264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296444688354658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OwnerNetworkID: 0
+  EntityTypeIndex: 1
+  EntityTypeArrayIndex: 3
+  SteeringData:
+    View: {fileID: 0}
+    Render: {fileID: 0}
+  Steering: {fileID: 0}
+  StatBlock: {fileID: 11400000, guid: adb9af9b6eaaeab4096427cda231fd7d, type: 2}
+--- !u!136 &136069094275189268
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717693871684362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 1.4816008
+  m_Height: 4.330684
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.8146367, z: 0.23544145}
+--- !u!136 &136348767414752072
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717693871684362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.5582284
+  m_Height: 5.0475445
+  m_Direction: 2
+  m_Center: {x: 0, y: -1.5385666, z: -0.030694008}
+--- !u!136 &136434190004448448
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296444688354658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.8873988
+  m_Height: 13.711211
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.5979207, z: -1.1518207}
+--- !u!136 &136624221166687266
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296444688354658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.1527672
+  m_Height: 13.570695
+  m_Direction: 2
+  m_Center: {x: 0, y: -2.1708565, z: -0.76703787}
