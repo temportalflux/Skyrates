@@ -545,8 +545,8 @@ Finding anchors error: Project logo '/home/travis/build/temportalflux/Skyrates\S
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/EntityProjectile.cs:13: warning: Member Start() (function) of class EntityProjectile is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/EntityProjectile.cs:24: warning: Member FixedUpdate() (function) of class EntityProjectile is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:40: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:67: warning: Member GetView() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:72: warning: Member GetRender() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:64: warning: Member GetView() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:69: warning: Member GetRender() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:47: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:105: warning: Member NewGuid() (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:57: warning: Member AllTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
@@ -820,7 +820,7 @@ Generating docs /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Script
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:32: warning: Member GetView() (function) of class Skyrates::Client::EntityPlayerShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:37: warning: Member GetRender() (function) of class Skyrates::Client::EntityPlayerShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:50: warning: Member FixedUpdate() (function) of class Skyrates::Client::EntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:72: warning: Member OnTriggerEnter(Collider other) (function) of class Skyrates::Client::EntityPlayerShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs:73: warning: Member OnTriggerEnter(Collider other) (function) of class Skyrates::Client::EntityPlayerShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:22: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:40: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:47: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
@@ -1140,9 +1140,9 @@ Generating docs for compound Skyrates::Client/home/travis/build/temportalflux/Sk
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:22: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:34: warning: Member OnTriggerEnter(Collider other) (function) of class Skyrates::Common::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:40: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:50: warning: Member FixedUpdate() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:67: warning: Member GetView() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:72: warning: Member GetRender() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:47: warning: Member FixedUpdate() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:64: warning: Member GetView() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:69: warning: Member GetRender() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:47: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:105: warning: Member NewGuid() (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:57: warning: Member AllTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
@@ -1170,15 +1170,15 @@ Generating docs for compound Skyrates::Client/home/travis/build/temportalflux/Sk
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:20: warning: Member EntityTypeAsInt (variable) of class Skyrates::Common::Entity::Entity::TypeData is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:24: warning: Member EntityTypeIndex (variable) of class Skyrates::Common::Entity::Entity::TypeData is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:26: warning: Member EntityType (property) of class Skyrates::Common::Entity::Entity::TypeData is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:83: warning: Member EntityType (variable) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:40: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:50: warning: Member FixedUpdate() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:67: warning: Member GetView() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:72: warning: Member GetRender() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:47: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:110: warning: Member Init(Guid guid, TypeData typeData) (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:118: warning: Member Init(TypeData typeData) (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:125: warning: Member ShouldDeserialize() (function) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:83: warning: Member EntityType (variable) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:40: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:47: warning: Member FixedUpdate() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:64: warning: Member GetView() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:69: warning: Member GetRender() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:47: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:105: warning: Member NewGuid() (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:57: warning: Member AllTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:58: warning: Member AllTypesString (variable) of class Skyrates::Common::Entity::Entity is not documented.
@@ -1426,5 +1426,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 1145/65536 hits=6462 misses=1443
+lookup cache used 1147/65536 hits=6468 misses=1445
 finished...
