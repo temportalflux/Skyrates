@@ -379,7 +379,7 @@ Parsing file /home/travis/build//home/travis/build/temportalflux/Skyrates/Skyrat
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Controller/InputRotation.cs:8: warning: Compound InputRotation is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Basic/UserControlled.cs:10: warning: Compound Skyrates::Common::AI::UserControlled is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Component/SelfDestruct.cs:6: warning: Compound SelfDestruct is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:11: warning: Compound Skyrates::Client::Network::DummyClient is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:12: warning: Compound Skyrates::Client::Network::DummyClient is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:9: warning: Compound Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitTestNetwork.cs:11: warning: Compound BitTestNetwork::Base is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/ShipComponentListEditor.cs:8: warning: Compound ShipComponentListEditor is not documented.
@@ -950,9 +950,10 @@ Generating docs /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Script
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkCommon.cs:180: warning: Member StartCoroutine(IEnumerator coroutine) (function) of class Skyrates::Common::Network::NetworkCommon is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkCommon.cs:185: warning: Member StopCoroutine(Coroutine coroutine) (function) of class Skyrates::Common::Network::NetworkCommon is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkCommon.cs:37: warning: Member EntityTracker (variable) of class Skyrates::Common::Network::NetworkCommon is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:42: warning: Member SubscribeEvents() (function) of class Skyrates::Client::Network::DummyClient is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:49: warning: Member UnsubscribeEvents() (function) of class Skyrates::Client::Network::DummyClient is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:56: warning: Member OnEntityShipHitBy(GameEvent evt) (function) of class Skyrates::Client::Network::DummyClient is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:43: warning: Member SubscribeEvents() (function) of class Skyrates::Client::Network::DummyClient is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:51: warning: Member UnsubscribeEvents() (function) of class Skyrates::Client::Network::DummyClient is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:59: warning: Member OnRequestSpawnEntityProjectile(GameEvent evt) (function) of class Skyrates::Client::Network::DummyClient is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:71: warning: Member OnEntityShipHitBy(GameEvent evt) (function) of class Skyrates::Client::Network::DummyClient is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:82: warning: Member OnDisconnect(NetworkEvent evt) (function) of class Skyrates::Client::Network::Client is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:116: warning: Member DeserializeGameState(byte[] data, ref int lastIndex) (function) of class Skyrates::Client::Network::Client is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:123: warning: Member OnPlayerMoved(GameEvent evt) (function) of class Skyrates::Client::Network::Client is not documented.
@@ -963,7 +964,7 @@ Generating docs /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Script
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkCommon.cs:180: warning: Member StartCoroutine(IEnumerator coroutine) (function) of class Skyrates::Common::Network::NetworkCommon is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkCommon.cs:185: warning: Member StopCoroutine(Coroutine coroutine) (function) of class Skyrates::Common::Network::NetworkCommon is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkCommon.cs:37: warning: Member EntityTracker (variable) of class Skyrates::Common::Network::NetworkCommon is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:34: warning: The following parameters of Skyrates.Client.Network.DummyClient.Dispatch(NetworkEvent evt, string address, int port, bool broadcast=false) are not documented:
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:35: warning: The following parameters of Skyrates.Client.Network.DummyClient.Dispatch(NetworkEvent evt, string address, int port, bool broadcast=false) are not documented:
   parameter 'broadcast'
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Events/EventHandshakeAccept.cs:19: warning: Member EventHandshakeAccept(uint clientID) (function) of class Skyrates::Client::Network::Event::EventHandshakeAccept is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Event/NetworkEvent.cs:40: warning: Member Serialize() (function) of class Skyrates::Common::Network::Event::NetworkEvent is not documented.
@@ -1426,5 +1427,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 1147/65536 hits=6468 misses=1445
+lookup cache used 1147/65536 hits=6471 misses=1445
 finished...
