@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1b5cfdea1afc49ae38a315af202eb, type: 3}
   m_Name: Stats_Navy_Fighter
   m_EditorClassIdentifier: 
-  Health: 0
-  MoveSpeed: 0
-  DamageModifier: 0
-  Loot: 0
+  Health: 100
+  MoveSpeed: 10
+  DamageModifier: 10
+  Loot: {fileID: 11400000, guid: 7e2e5b2e5c78974408514ab0d76278a8, type: 2}
+  LootPrefab: {fileID: 1659970100272724, guid: b9761cad337ebb642a138349f145f722, type: 2}

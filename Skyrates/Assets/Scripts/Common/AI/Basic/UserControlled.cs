@@ -75,7 +75,7 @@ namespace Skyrates.Common.AI
         private void Move(SteeringData data, InputData input, ref PhysicsData physicsData)
         {
             Vector3 forward = data.Render.forward;
-            Vector3 vertical = data.View.up.Flatten(Vector3.forward + Vector3.right).normalized;
+            Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
 
             // For character
             //Vector3 movementForward = cameraForward * this.playerInput.Forward;
@@ -100,7 +100,7 @@ namespace Skyrates.Common.AI
 
             // for ship movement
             float rotation = input.Strafe.Value;
-            //rotation *= (1 - input.Forward.Input) * 0.5f;
+            rotation *= (1 - input.Forward.Input) * 0.5f;
             physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));
 
         }
