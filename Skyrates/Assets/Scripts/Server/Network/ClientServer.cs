@@ -59,6 +59,7 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.RequestEntityShipDamaged += this.OnRequestEntityShipDamaged;
 
             GameManager.Events.PlayerLeft += this.OnPlayerLeft;
+            GameManager.Events.SpawnEntityProjectile += this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitByProjectile;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
         }
@@ -74,6 +75,7 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.RequestEntityShipDamaged -= this.OnRequestEntityShipDamaged;
 
             GameManager.Events.PlayerLeft -= this.OnPlayerLeft;
+            GameManager.Events.SpawnEntityProjectile -= this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitByProjectile;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
         }
@@ -189,6 +191,12 @@ namespace Skyrates.Server.Network
             {
                 e.Physics = evtSetPlayerPhysics.Physics;
             }
+        }
+
+        public void OnRequestSpawnEntityProjectile(GameEvent evt)
+        {
+            EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
+            this.OnRequestSpawnEntityProjectile(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity));
         }
 
         public void OnRequestSpawnEntityProjectile(NetworkEvent evt)

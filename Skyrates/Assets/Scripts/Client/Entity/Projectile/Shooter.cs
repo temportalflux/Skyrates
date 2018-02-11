@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Client.Network.Event;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
@@ -18,7 +19,7 @@ public class Shooter : MonoBehaviour
     public void FireProjectile(Vector3 direction, Vector3 launchVelocity)
     {
         // TODO: These are fired off one by one, and are often done in batches. This should just be one packet of all the projectiles to spawn.
-        NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(this.projectilePrefab, this.spawn, direction * this.force + launchVelocity));
+        GameManager.Events.Dispatch(new EventSpawnEntityProjectile(this.projectilePrefab, this.spawn, direction * this.force + launchVelocity));
     }
 
 }

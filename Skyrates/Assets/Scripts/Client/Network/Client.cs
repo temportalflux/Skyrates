@@ -25,7 +25,9 @@ namespace Skyrates.Client.Network
             NetworkEvents.Instance.ConnectionRejected += this.OnConnectionRejected;
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
             NetworkEvents.Instance.HandshakeClientID += this.OnHandshakeClientID;
+
             GameManager.Events.PlayerMoved += this.OnPlayerMoved;
+            GameManager.Events.SpawnEntityProjectile += this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
         }
@@ -37,7 +39,9 @@ namespace Skyrates.Client.Network
             NetworkEvents.Instance.ConnectionRejected -= this.OnConnectionRejected;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
             NetworkEvents.Instance.HandshakeClientID -= this.OnHandshakeClientID;
+
             GameManager.Events.PlayerMoved -= this.OnPlayerMoved;
+            GameManager.Events.SpawnEntityProjectile -= this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
         }
@@ -121,6 +125,12 @@ namespace Skyrates.Client.Network
             // On player move, tell server
             // TODO: Reconsider frequency
             NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventEntityPlayerShip) evt).PlayerShip.Physics));
+        }
+
+        public void OnRequestSpawnEntityProjectile(GameEvent evt)
+        {
+            EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
+            NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity));
         }
 
         // when any entity is suppossed to be damaged

@@ -21,7 +21,8 @@ namespace Skyrates.Client.Game.Event
         EntityInstantiate,
         EntityStart,
         EntityDestroy,
-
+        
+        SpawnEntityProjectile,
         ArtilleryFired,
         EntityShipDamaged,
         EntityShipHitByProjectile,
@@ -51,6 +52,7 @@ namespace Skyrates.Client.Game.Event
         public event GameEventDelegate EntityInstantiate;
         public event GameEventDelegate EntityStart;
         public event GameEventDelegate EntityDestroy;
+        public event GameEventDelegate SpawnEntityProjectile;
         public event GameEventDelegate ArtilleryFired;
         public event GameEventDelegate EntityShipDamaged;
         public event GameEventDelegate EntityShipHitByProjectile;
@@ -78,6 +80,8 @@ namespace Skyrates.Client.Game.Event
                     return this.EntityStart;
                 case GameEventID.EntityDestroy:
                     return this.EntityDestroy;
+                case GameEventID.SpawnEntityProjectile:
+                    return this.SpawnEntityProjectile;
                 case GameEventID.ArtilleryFired:
                     return this.ArtilleryFired;
                 case GameEventID.EntityShipDamaged:
