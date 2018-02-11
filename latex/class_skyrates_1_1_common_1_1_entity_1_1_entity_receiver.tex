@@ -1,0 +1,70 @@
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver}{\section{Skyrates.\-Common.\-Entity.\-Entity\-Receiver Class Reference}
+\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver}\index{Skyrates.\-Common.\-Entity.\-Entity\-Receiver@{Skyrates.\-Common.\-Entity.\-Entity\-Receiver}}
+}
+
+
+Implementation of T\-:\-Skyrates.\-Common.\-Entity.\-Entity\-Tracker to handle deserializing entities.  
+
+
+Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-Receiver\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_af1cfb5c70f163aca0fbd0c578ae1e713}{override int \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_af1cfb5c70f163aca0fbd0c578ae1e713}{Get\-Size} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_af1cfb5c70f163aca0fbd0c578ae1e713}
+
+\begin{DoxyCompactList}\small\item\em Returns the size of the packet (the size for a potential byte\mbox{[}\mbox{]}) 
+
+\begin{DoxyReturn}{Returns}
+the integer length of a byte array to hold this event's \-\_\-game\-State\-Data 
+\end{DoxyReturn}
+
+
+Author\-: Dustin Yost  \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Deserialize} (byte\mbox{[}$\,$\mbox{]} data, ref int last\-Index)
+\begin{DoxyCompactList}\small\item\em Paired with \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher_a3e3281a4c3b0890b1519562bee2610d6}{Entity\-Dispatcher.\-Generate\-Data}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Implementation of T\-:\-Skyrates.\-Common.\-Entity.\-Entity\-Tracker to handle deserializing entities. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Receiver@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Receiver}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!Skyrates::Common::Entity::EntityReceiver@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Receiver}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Common.\-Entity.\-Entity\-Receiver.\-Deserialize (
+\begin{DoxyParamCaption}
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{ref int}]{last\-Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}
+
+
+Paired with \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher_a3e3281a4c3b0890b1519562bee2610d6}{Entity\-Dispatcher.\-Generate\-Data}. 
+
+Deserializes \-\_\-game\-State\-Data from a byte array into this event's \-\_\-game\-State\-Data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The \-\_\-game\-State\-Data.\\
+\hline
+{\em last\-Index} & The last index.\\
+\hline
+\end{DoxyParams}
+
+
+Author\-: Dustin Yost  
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker_abca7ae5aba960e5bfc2a0fcd5cb65f74}{Skyrates.\-Common.\-Entity.\-Entity\-Tracker}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Client/\-Entity/Entity\-Receiver.\-cs\end{DoxyCompactItemize}

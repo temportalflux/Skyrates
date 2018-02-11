@@ -1,0 +1,193 @@
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client}{\section{Skyrates.\-Client.\-Network.\-Dummy\-Client Class Reference}
+\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client}\index{Skyrates.\-Client.\-Network.\-Dummy\-Client@{Skyrates.\-Client.\-Network.\-Dummy\-Client}}
+}
+Inheritance diagram for Skyrates.\-Client.\-Network.\-Dummy\-Client\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_client_1_1_network_1_1_dummy_client}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a17e6fc98bf3487cef6ed236401940427}{Connect} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session}{Session} session)
+\begin{DoxyCompactList}\small\item\em Connects the network to some target defined by Session.\-Target\-Address and Session.\-Port. \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_add9e5b4f67f124f67bda717dbc5657e2}{Create} ()
+\begin{DoxyCompactList}\small\item\em Create the network object in the backend. Must use \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_af55cf70c2bcec0b28584f2c0b0660e27}{Destroy} when done. \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_af55cf70c2bcec0b28584f2c0b0660e27}{Destroy} ()
+\begin{DoxyCompactList}\small\item\em Destroy the network object in the backend. Must use \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_add9e5b4f67f124f67bda717dbc5657e2}{Create} beforehand. \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a6e2df63c9102493cacdd16c183f55916}{Shutdown} ()
+\begin{DoxyCompactList}\small\item\em T\-O\-D\-O\-: Does this actually link with Start\-Client/\-Server or with Connect? Shutsdown the network interface. Must be called after \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a2033357a7e9e093baa015bdc234be0a3}{override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a2033357a7e9e093baa015bdc234be0a3}{Start\-And\-Connect} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session}{Session} session)}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a2033357a7e9e093baa015bdc234be0a3}
+
+\begin{DoxyCompactList}\small\item\em Called after \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_a575172eb9f965e181e19649bcce38ca0}{Create} but before \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aa00266a16aa27dfd0eb242c74856a92a}{Destroy} to start the network in its default configuration. Implementation should call \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_a982b732d621ff3f8738319053af8d154}{Start\-Client} or \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_ac1209cf3fc31d2f145678971472ec20c}{Start\-Server}, and \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aa11961a4a6dc22c782552eb96e27c6e1}{Connect} if applicable.  \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a9d69f75af0008f2ae3da1f040814add4}{Start\-Client} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session}{Session} session)
+\begin{DoxyCompactList}\small\item\em Starts the network and sets incoming connections to 1. \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a450524b38c78346452f8f7127c14bc8b}{Start\-Server} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session}{Session} session)
+\begin{DoxyCompactList}\small\item\em Starts the network using Session.\-Port and sets outgoing connections to Session.\-Max\-Clients. \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_ace4de9938d7ca4c3d008f2e9355e96c0}{Dispatch} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt, string address, int port, bool broadcast=false)
+\begin{DoxyCompactList}\small\item\em Enqueues the network event for dispatching. Dispatched during \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a293ecc1918e24e8da6002a2491277333}{Update}. \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a293ecc1918e24e8da6002a2491277333}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates the network, dispatching all current packets and receiving any packets in the network (in that order). \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_aa917662499560c267709d5704f2cdfb1}{override void {\bfseries Subscribe\-Events} ()}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_aa917662499560c267709d5704f2cdfb1}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a369ccdfe91669af037a8aaf2ea4a8aae}{override void {\bfseries Unsubscribe\-Events} ()}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a369ccdfe91669af037a8aaf2ea4a8aae}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a17e6fc98bf3487cef6ed236401940427}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Connect@{Connect}}
+\index{Connect@{Connect}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Connect}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Connect (
+\begin{DoxyParamCaption}
+\item[{{\bf Session}}]{session}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a17e6fc98bf3487cef6ed236401940427}
+
+
+Connects the network to some target defined by Session.\-Target\-Address and Session.\-Port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aa11961a4a6dc22c782552eb96e27c6e1}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_add9e5b4f67f124f67bda717dbc5657e2}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Create@{Create}}
+\index{Create@{Create}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Create}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_add9e5b4f67f124f67bda717dbc5657e2}
+
+
+Create the network object in the backend. Must use \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_af55cf70c2bcec0b28584f2c0b0660e27}{Destroy} when done. 
+
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_a575172eb9f965e181e19649bcce38ca0}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_af55cf70c2bcec0b28584f2c0b0660e27}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Destroy}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_af55cf70c2bcec0b28584f2c0b0660e27}
+
+
+Destroy the network object in the backend. Must use \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_add9e5b4f67f124f67bda717dbc5657e2}{Create} beforehand. 
+
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aa00266a16aa27dfd0eb242c74856a92a}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_ace4de9938d7ca4c3d008f2e9355e96c0}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Dispatch@{Dispatch}}
+\index{Dispatch@{Dispatch}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Dispatch}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Dispatch (
+\begin{DoxyParamCaption}
+\item[{{\bf Network\-Event}}]{evt, }
+\item[{string}]{address, }
+\item[{int}]{port, }
+\item[{bool}]{broadcast = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_ace4de9938d7ca4c3d008f2e9355e96c0}
+
+
+Enqueues the network event for dispatching. Dispatched during \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a293ecc1918e24e8da6002a2491277333}{Update}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & The event.\\
+\hline
+{\em address} & The server address.\\
+\hline
+{\em port} & The server port.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aa8f66da72ba3eb8486641af3c7e9cdb8}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a6e2df63c9102493cacdd16c183f55916}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Shutdown@{Shutdown}}
+\index{Shutdown@{Shutdown}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Shutdown}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a6e2df63c9102493cacdd16c183f55916}
+
+
+T\-O\-D\-O\-: Does this actually link with Start\-Client/\-Server or with Connect? Shutsdown the network interface. Must be called after 
+
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_a328d553ece81ace5ce3fbe07ec86d62a}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a9d69f75af0008f2ae3da1f040814add4}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Start\-Client@{Start\-Client}}
+\index{Start\-Client@{Start\-Client}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Start\-Client}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Start\-Client (
+\begin{DoxyParamCaption}
+\item[{{\bf Session}}]{session}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a9d69f75af0008f2ae3da1f040814add4}
+
+
+Starts the network and sets incoming connections to 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_a982b732d621ff3f8738319053af8d154}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a450524b38c78346452f8f7127c14bc8b}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Start\-Server@{Start\-Server}}
+\index{Start\-Server@{Start\-Server}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Start\-Server}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Start\-Server (
+\begin{DoxyParamCaption}
+\item[{{\bf Session}}]{session}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a450524b38c78346452f8f7127c14bc8b}
+
+
+Starts the network using Session.\-Port and sets outgoing connections to Session.\-Max\-Clients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_ac1209cf3fc31d2f145678971472ec20c}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a293ecc1918e24e8da6002a2491277333}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}!Update@{Update}}
+\index{Update@{Update}!Skyrates::Client::Network::DummyClient@{Skyrates\-::\-Client\-::\-Network\-::\-Dummy\-Client}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Network.\-Dummy\-Client.\-Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_dummy_client_a293ecc1918e24e8da6002a2491277333}
+
+
+Updates the network, dispatching all current packets and receiving any packets in the network (in that order). 
+
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aeeaf913a5fe9ee8cb966271ee864bc08}{Skyrates.\-Common.\-Network.\-Network\-Common}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Client/\-Network/Dummy\-Client.\-cs\end{DoxyCompactItemize}

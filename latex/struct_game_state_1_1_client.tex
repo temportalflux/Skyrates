@@ -1,0 +1,60 @@
+\hypertarget{struct_game_state_1_1_client}{\section{Game\-State\-:\-:Client Struct Reference}
+\label{struct_game_state_1_1_client}\index{Game\-State\-::\-Client@{Game\-State\-::\-Client}}
+}
+
+
+A structure to hold information about each player.  
+
+
+
+
+{\ttfamily \#include $<$Game\-State.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{struct_game_state_1_1_client_a1f13a8c1e037eed9b8b362436d066be0}{int \hyperlink{struct_game_state_1_1_client_a1f13a8c1e037eed9b8b362436d066be0}{get\-Size} () const }\label{struct_game_state_1_1_client_a1f13a8c1e037eed9b8b362436d066be0}
+
+\begin{DoxyCompactList}\small\item\em The maximum length of the Player when serialized into a byte\mbox{[}\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{struct_game_state_1_1_client_aaa255868f031790535fa3d51e3a1fb0f}{bool {\bfseries passed\-Handshake}}\label{struct_game_state_1_1_client_aaa255868f031790535fa3d51e3a1fb0f}
+
+\item 
+\hypertarget{struct_game_state_1_1_client_a9caf2f8f0ce3cf8d082d73b9ec593e36}{unsigned int \hyperlink{struct_game_state_1_1_client_a9caf2f8f0ce3cf8d082d73b9ec593e36}{client\-I\-D}}\label{struct_game_state_1_1_client_a9caf2f8f0ce3cf8d082d73b9ec593e36}
+
+\begin{DoxyCompactList}\small\item\em The client\-I\-D of the controlling client. This is unique across all peers in a network. \end{DoxyCompactList}\item 
+\hypertarget{struct_game_state_1_1_client_a9c31d104128de9c3e61a657d748dcc3d}{bool {\bfseries player\-Entity\-Guid\-Valid}}\label{struct_game_state_1_1_client_a9c31d104128de9c3e61a657d748dcc3d}
+
+\item 
+\hypertarget{struct_game_state_1_1_client_a82922d755f0fd592a90878c16bae119b}{unsigned char {\bfseries player\-Entity\-Guid} \mbox{[}16\mbox{]}}\label{struct_game_state_1_1_client_a82922d755f0fd592a90878c16bae119b}
+
+\item 
+\hypertarget{struct_game_state_1_1_client_a304556b6fb37ad694423f4607ff57a2a}{float \hyperlink{struct_game_state_1_1_client_a304556b6fb37ad694423f4607ff57a2a}{physics\-Position\-X}}\label{struct_game_state_1_1_client_a304556b6fb37ad694423f4607ff57a2a}
+
+\begin{DoxyCompactList}\small\item\em Position X. \end{DoxyCompactList}\item 
+\hypertarget{struct_game_state_1_1_client_a5b1ecccf7a720b6ae80475b5e9b2aab1}{float \hyperlink{struct_game_state_1_1_client_a5b1ecccf7a720b6ae80475b5e9b2aab1}{physics\-Position\-Y}}\label{struct_game_state_1_1_client_a5b1ecccf7a720b6ae80475b5e9b2aab1}
+
+\begin{DoxyCompactList}\small\item\em Position Y. \end{DoxyCompactList}\item 
+\hypertarget{struct_game_state_1_1_client_a8b4fa85d72284fdf8a1381675b386bbe}{float \hyperlink{struct_game_state_1_1_client_a8b4fa85d72284fdf8a1381675b386bbe}{physics\-Position\-Z}}\label{struct_game_state_1_1_client_a8b4fa85d72284fdf8a1381675b386bbe}
+
+\begin{DoxyCompactList}\small\item\em Position Z. \end{DoxyCompactList}\item 
+\hypertarget{struct_game_state_1_1_client_a8d07f2646a2013223b6a1d29a48ee4f3}{float \hyperlink{struct_game_state_1_1_client_a8d07f2646a2013223b6a1d29a48ee4f3}{physics\-Position\-Rotational\-Euler\-X}}\label{struct_game_state_1_1_client_a8d07f2646a2013223b6a1d29a48ee4f3}
+
+\begin{DoxyCompactList}\small\item\em Velocity\-Rotation\-Euler X. \end{DoxyCompactList}\item 
+\hypertarget{struct_game_state_1_1_client_a6ebbe295a6e43d2bae98cf7f39317ed3}{float \hyperlink{struct_game_state_1_1_client_a6ebbe295a6e43d2bae98cf7f39317ed3}{physics\-Position\-Rotational\-Euler\-Y}}\label{struct_game_state_1_1_client_a6ebbe295a6e43d2bae98cf7f39317ed3}
+
+\begin{DoxyCompactList}\small\item\em Velocity\-Rotation\-Euler Y. \end{DoxyCompactList}\item 
+\hypertarget{struct_game_state_1_1_client_a663d14fe1f916ce854aff3bacbb8f4b3}{float \hyperlink{struct_game_state_1_1_client_a663d14fe1f916ce854aff3bacbb8f4b3}{physics\-Position\-Rotational\-Euler\-Z}}\label{struct_game_state_1_1_client_a663d14fe1f916ce854aff3bacbb8f4b3}
+
+\begin{DoxyCompactList}\small\item\em Velocity\-Rotation\-Euler Z. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A structure to hold information about each player. 
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/include/Game\-State.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/source/Game\-State.\-cpp\end{DoxyCompactItemize}

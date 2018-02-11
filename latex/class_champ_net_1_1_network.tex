@@ -1,0 +1,99 @@
+\hypertarget{class_champ_net_1_1_network}{\section{Champ\-Net\-:\-:Network Class Reference}
+\label{class_champ_net_1_1_network}\index{Champ\-Net\-::\-Network@{Champ\-Net\-::\-Network}}
+}
+
+
+Base class for handling all \hyperlink{class_champ_net_1_1_packet}{Champ\-Net\-::\-Packet} data.  
+
+
+
+
+{\ttfamily \#include $<$Champ\-Net.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_1_1_network_a3f98f6ee0fd5617faa5679162195b39a}{typedef void($\ast$ \hyperlink{class_champ_net_1_1_network_a3f98f6ee0fd5617faa5679162195b39a}{Msg\-Call\-Back} )(const char $\ast$message, int color, int size)}\label{class_champ_net_1_1_network_a3f98f6ee0fd5617faa5679162195b39a}
+
+\begin{DoxyCompactList}\small\item\em Function delegate prototype for output callbacks. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_af03ef34820a69b9ef3f2dc3065a29c3f}{typedef char $\ast$ \hyperlink{class_champ_net_1_1_network_af03ef34820a69b9ef3f2dc3065a29c3f}{Data}}\label{class_champ_net_1_1_network_af03ef34820a69b9ef3f2dc3065a29c3f}
+
+\begin{DoxyCompactList}\small\item\em Type Definition for \hyperlink{class_champ_net_1_1_packet}{Champ\-Net\-::\-Packet} data. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a5f153a3f9a1687d10922c946e2f0662e}{typedef unsigned int \hyperlink{class_champ_net_1_1_network_a5f153a3f9a1687d10922c946e2f0662e}{Data\-Size}}\label{class_champ_net_1_1_network_a5f153a3f9a1687d10922c946e2f0662e}
+
+\begin{DoxyCompactList}\small\item\em Type Definition for \hyperlink{class_champ_net_1_1_packet}{Champ\-Net\-::\-Packet} data size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_1_1_network_a3d25e6581e6a53201de1f68ed266724e}{void \hyperlink{class_champ_net_1_1_network_a3d25e6581e6a53201de1f68ed266724e}{send\-Log} (const char $\ast$msg, int color)}\label{class_champ_net_1_1_network_a3d25e6581e6a53201de1f68ed266724e}
+
+\begin{DoxyCompactList}\small\item\em Output to console through the \hyperlink{class_champ_net_1_1_network_a4588391c9f6064ad7fb83a08f0ea02c6}{Network\-::logger} \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_ac0d53751c94ef1df4cee9ce3719432bf}{void \hyperlink{class_champ_net_1_1_network_ac0d53751c94ef1df4cee9ce3719432bf}{init\-Server} (const int port, const int max\-Clients)}\label{class_champ_net_1_1_network_ac0d53751c94ef1df4cee9ce3719432bf}
+
+\begin{DoxyCompactList}\small\item\em Startup the server interface. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_af7bda654a247a00e46d6adcc87c8d65b}{void \hyperlink{class_champ_net_1_1_network_af7bda654a247a00e46d6adcc87c8d65b}{init\-Client} ()}\label{class_champ_net_1_1_network_af7bda654a247a00e46d6adcc87c8d65b}
+
+\begin{DoxyCompactList}\small\item\em Startup the client interface. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a9dbfd1e6e9e5f11720a6e8e41174df1e}{void \hyperlink{class_champ_net_1_1_network_a9dbfd1e6e9e5f11720a6e8e41174df1e}{connect\-To\-Server} (const std\-::string \&address, const int port)}\label{class_champ_net_1_1_network_a9dbfd1e6e9e5f11720a6e8e41174df1e}
+
+\begin{DoxyCompactList}\small\item\em Connect the interface to its destination. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a9cde161aafa694e5fef8d1c3fac3edd3}{void \hyperlink{class_champ_net_1_1_network_a9cde161aafa694e5fef8d1c3fac3edd3}{query\-Address} (Rak\-Net\-::\-System\-Address $\ast$address)}\label{class_champ_net_1_1_network_a9cde161aafa694e5fef8d1c3fac3edd3}
+
+\begin{DoxyCompactList}\small\item\em Fetch the address the peer is bound to. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a29734a6ba6ab488fc9ed9278ae7239d9}{std\-::string \hyperlink{class_champ_net_1_1_network_a29734a6ba6ab488fc9ed9278ae7239d9}{get\-I\-P} ()}\label{class_champ_net_1_1_network_a29734a6ba6ab488fc9ed9278ae7239d9}
+
+\begin{DoxyCompactList}\small\item\em Return the I\-P string from the peer. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a2266d0ef6af69462b1594246cea5b95d}{bool \hyperlink{class_champ_net_1_1_network_a2266d0ef6af69462b1594246cea5b95d}{is\-Active} ()}\label{class_champ_net_1_1_network_a2266d0ef6af69462b1594246cea5b95d}
+
+\begin{DoxyCompactList}\small\item\em Returns true if the network interface (Rak\-Net thread) is active. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a29e2e816288fb30919547e221d2414bf}{int \hyperlink{class_champ_net_1_1_network_a29e2e816288fb30919547e221d2414bf}{get\-Packet\-Count} () const }\label{class_champ_net_1_1_network_a29e2e816288fb30919547e221d2414bf}
+
+\begin{DoxyCompactList}\small\item\em Returns the total number of packets currently cached. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a6d06699d228d77aff9c358f79c76ed56}{void \hyperlink{class_champ_net_1_1_network_a6d06699d228d77aff9c358f79c76ed56}{disconnect} ()}\label{class_champ_net_1_1_network_a6d06699d228d77aff9c358f79c76ed56}
+
+\begin{DoxyCompactList}\small\item\em Shutdown the peer interface. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a1490e576ec8bf76357c56b16658a1aa1}{void \hyperlink{class_champ_net_1_1_network_a1490e576ec8bf76357c56b16658a1aa1}{send\-To} (\hyperlink{class_champ_net_1_1_network_af03ef34820a69b9ef3f2dc3065a29c3f}{Data} data, \hyperlink{class_champ_net_1_1_network_a5f153a3f9a1687d10922c946e2f0662e}{Data\-Size} size, Rak\-Net\-::\-System\-Address $\ast$address, Packet\-Priority $\ast$priority, Packet\-Reliability $\ast$reliability, char channel, bool broadcast, bool timestamp, const \hyperlink{struct_champ_net_1_1_time_stamp}{Time\-Stamp} $\ast$timestamp\-Info=N\-U\-L\-L)}\label{class_champ_net_1_1_network_a1490e576ec8bf76357c56b16658a1aa1}
+
+\begin{DoxyCompactList}\small\item\em Send packet data over Rak\-Net. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_ad24d4552c6b597b5667965c323221aaa}{{\footnotesize template$<$typename T $>$ }\\void \hyperlink{class_champ_net_1_1_network_ad24d4552c6b597b5667965c323221aaa}{send\-To} (T packet, Rak\-Net\-::\-System\-Address $\ast$address, Packet\-Priority $\ast$priority, Packet\-Reliability $\ast$reliability, char channel, bool broadcast, bool timestamp)}\label{class_champ_net_1_1_network_ad24d4552c6b597b5667965c323221aaa}
+
+\begin{DoxyCompactList}\small\item\em Handle sending struct packets to Rak\-Net address. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_abcd324ec71ef70454b7e4476f070c932}{{\footnotesize template$<$typename T $>$ }\\void \hyperlink{class_champ_net_1_1_network_abcd324ec71ef70454b7e4476f070c932}{send\-To} (T packet, Rak\-Net\-::\-System\-Address $\ast$address)}\label{class_champ_net_1_1_network_abcd324ec71ef70454b7e4476f070c932}
+
+\begin{DoxyCompactList}\small\item\em Handle sending struct packets to Rak\-Net address. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_a981aef84fbe239079ea158931e5eeb71}{void \hyperlink{class_champ_net_1_1_network_a981aef84fbe239079ea158931e5eeb71}{fetch\-All\-Packets} ()}\label{class_champ_net_1_1_network_a981aef84fbe239079ea158931e5eeb71}
+
+\begin{DoxyCompactList}\small\item\em Cache all incoming packets (should be run regularly) \end{DoxyCompactList}\item 
+bool \hyperlink{class_champ_net_1_1_network_ae01cddc2981169cda9f4d65661c204f6}{poll\-Packets} (\hyperlink{class_champ_net_1_1_packet}{Packet} $\ast$\&next\-Packet)
+\item 
+\hypertarget{class_champ_net_1_1_network_af31e6a74b5354057bd01c95670e3c7a3}{int \hyperlink{class_champ_net_1_1_network_af31e6a74b5354057bd01c95670e3c7a3}{write\-Timestamps} (char $\ast$buffer, const Rak\-Net\-::\-Time \&time1, const Rak\-Net\-::\-Time \&time2)}\label{class_champ_net_1_1_network_af31e6a74b5354057bd01c95670e3c7a3}
+
+\begin{DoxyCompactList}\small\item\em Write the time stamp to a buffer. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_network_ae298bf9276a935974c0b69bc5011f8dc}{int \hyperlink{class_champ_net_1_1_network_ae298bf9276a935974c0b69bc5011f8dc}{read\-Timestamps} (const char $\ast$buffer, Rak\-Net\-::\-Time \&time1, Rak\-Net\-::\-Time \&time2)}\label{class_champ_net_1_1_network_ae298bf9276a935974c0b69bc5011f8dc}
+
+\begin{DoxyCompactList}\small\item\em Read the time stamp from a buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_1_1_network_a4588391c9f6064ad7fb83a08f0ea02c6}{\hyperlink{class_champ_net_1_1_network_a3f98f6ee0fd5617faa5679162195b39a}{Msg\-Call\-Back} \hyperlink{class_champ_net_1_1_network_a4588391c9f6064ad7fb83a08f0ea02c6}{logger} = N\-U\-L\-L}\label{class_champ_net_1_1_network_a4588391c9f6064ad7fb83a08f0ea02c6}
+
+\begin{DoxyCompactList}\small\item\em The callback for sending logs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base class for handling all \hyperlink{class_champ_net_1_1_packet}{Champ\-Net\-::\-Packet} data. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_champ_net_1_1_network_ae01cddc2981169cda9f4d65661c204f6}{\index{Champ\-Net\-::\-Network@{Champ\-Net\-::\-Network}!poll\-Packets@{poll\-Packets}}
+\index{poll\-Packets@{poll\-Packets}!ChampNet::Network@{Champ\-Net\-::\-Network}}
+\subsubsection[{poll\-Packets}]{\setlength{\rightskip}{0pt plus 5cm}bool Champ\-Net\-::\-Network\-::poll\-Packets (
+\begin{DoxyParamCaption}
+\item[{{\bf Packet} $\ast$\&}]{next\-Packet}
+\end{DoxyParamCaption}
+)}}\label{class_champ_net_1_1_network_ae01cddc2981169cda9f4d65661c204f6}
+Poll the next cached packet Returns true if a packet was found; 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net/include/Champ\-Net.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net/source/Champ\-Net.\-cpp\end{DoxyCompactItemize}

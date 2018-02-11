@@ -1,0 +1,66 @@
+\hypertarget{class_champ_net_1_1_packet}{\section{Champ\-Net\-:\-:Packet Class Reference}
+\label{class_champ_net_1_1_packet}\index{Champ\-Net\-::\-Packet@{Champ\-Net\-::\-Packet}}
+}
+
+
+A class to handle packet data from Rak\-Net.  
+
+
+
+
+{\ttfamily \#include $<$Packet.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_1_1_packet_abc292b1324121a2d367aa7a44275eff5}{\hyperlink{class_champ_net_1_1_packet_abc292b1324121a2d367aa7a44275eff5}{$\sim$\-Packet} ()}\label{class_champ_net_1_1_packet_abc292b1324121a2d367aa7a44275eff5}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_a068e85d829e9fa4b980ec115b40048d3}{void \hyperlink{class_champ_net_1_1_packet_a068e85d829e9fa4b980ec115b40048d3}{copy} (const unsigned char $\ast$\&source, unsigned char $\ast$\&dest, unsigned int length)}\label{class_champ_net_1_1_packet_a068e85d829e9fa4b980ec115b40048d3}
+
+\begin{DoxyCompactList}\small\item\em Create a new char\mbox{[}\mbox{]} at dest, and copies the contents of the range \mbox{[}0, length) from source into dest. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_abe3a5de756c64e6890dcf4b0a95a2db7}{unsigned int \hyperlink{class_champ_net_1_1_packet_abe3a5de756c64e6890dcf4b0a95a2db7}{get\-I\-D} () const }\label{class_champ_net_1_1_packet_abe3a5de756c64e6890dcf4b0a95a2db7}
+
+\begin{DoxyCompactList}\small\item\em Returns the I\-D of this packet (assumed the first byte of data in the packet) \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_a8ab4d17481d7fc08f3c0dc2c48eb9a0a}{void \hyperlink{class_champ_net_1_1_packet_a8ab4d17481d7fc08f3c0dc2c48eb9a0a}{get\-Address} (const char $\ast$\&address, unsigned int \&length)}\label{class_champ_net_1_1_packet_a8ab4d17481d7fc08f3c0dc2c48eb9a0a}
+
+\begin{DoxyCompactList}\small\item\em Sets address and length to the address characters of the ip address. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_a98b70a972a4a956e94f7203bc2f77402}{std\-::string \hyperlink{class_champ_net_1_1_packet_a98b70a972a4a956e94f7203bc2f77402}{get\-Address} ()}\label{class_champ_net_1_1_packet_a98b70a972a4a956e94f7203bc2f77402}
+
+\begin{DoxyCompactList}\small\item\em Returns the const char$\ast$ address as a string (wraps get\-Address(const char$\ast$, unsigned int)) \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_a01e9211c5d6a0080d035ddf969a4efa5}{void \hyperlink{class_champ_net_1_1_packet_a01e9211c5d6a0080d035ddf969a4efa5}{get\-Data} (unsigned char $\ast$\&data, unsigned int \&length)}\label{class_champ_net_1_1_packet_a01e9211c5d6a0080d035ddf969a4efa5}
+
+\begin{DoxyCompactList}\small\item\em Sets data and length to the byte data from the packet. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_a0a8b68fc76f6bfe512244acfef247627}{unsigned int \hyperlink{class_champ_net_1_1_packet_a0a8b68fc76f6bfe512244acfef247627}{get\-Data\-Length} () const }\label{class_champ_net_1_1_packet_a0a8b68fc76f6bfe512244acfef247627}
+
+\begin{DoxyCompactList}\small\item\em Returns the data length (same thing as length in get\-Data) \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_ad336c6b2ff59a0dff1bf7d70f1da9340}{{\footnotesize template$<$typename T $>$ }\\T $\ast$ \hyperlink{class_champ_net_1_1_packet_ad336c6b2ff59a0dff1bf7d70f1da9340}{get\-Packet\-As} (unsigned int \&data\-Size)}\label{class_champ_net_1_1_packet_ad336c6b2ff59a0dff1bf7d70f1da9340}
+
+\begin{DoxyCompactList}\small\item\em Casts the packet data to some structure T, returning the length of data as a reference parameter. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_a41aeb09357d49b53ae2bdb7829a2c7cb}{uint64\-\_\-t \hyperlink{class_champ_net_1_1_packet_a41aeb09357d49b53ae2bdb7829a2c7cb}{get\-Transmit\-Time} () const }\label{class_champ_net_1_1_packet_a41aeb09357d49b53ae2bdb7829a2c7cb}
+
+\begin{DoxyCompactList}\small\item\em Returns the total ms it took to transmit this packet from its original source to its final destination. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_1_1_packet_a0fcefd5ba56854e5a8e3e63a51e3963e}{\hyperlink{struct_champ_net_1_1_time_stamp}{Time\-Stamp} \hyperlink{class_champ_net_1_1_packet_a0fcefd5ba56854e5a8e3e63a51e3963e}{timestamp\-Info}}\label{class_champ_net_1_1_packet_a0fcefd5ba56854e5a8e3e63a51e3963e}
+
+\begin{DoxyCompactList}\small\item\em The timestamp information about this packet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_1_1_packet_ac3f1afb9cc164b535c73e6f5909519ff}{class {\bfseries Packet\-Queue}}\label{class_champ_net_1_1_packet_ac3f1afb9cc164b535c73e6f5909519ff}
+
+\item 
+\hypertarget{class_champ_net_1_1_packet_a88b59289ffd793fecd040d32e397b1e9}{class {\bfseries Network}}\label{class_champ_net_1_1_packet_a88b59289ffd793fecd040d32e397b1e9}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class to handle packet data from Rak\-Net. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net/include/Packet.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net/source/Packet.\-cpp\end{DoxyCompactItemize}

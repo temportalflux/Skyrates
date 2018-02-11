@@ -1,0 +1,103 @@
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client}{\section{Skyrates.\-Client.\-Network.\-Client Class Reference}
+\label{class_skyrates_1_1_client_1_1_network_1_1_client}\index{Skyrates.\-Client.\-Network.\-Client@{Skyrates.\-Client.\-Network.\-Client}}
+}
+
+
+Base class implementation for all Clients\-Data.  
+
+
+Inheritance diagram for Skyrates.\-Client.\-Network.\-Client\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_client_1_1_network_1_1_client}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_a23c86b069c7a1178e002e5a0a5196ca7}{override void {\bfseries Subscribe\-Events} ()}\label{class_skyrates_1_1_client_1_1_network_1_1_client_a23c86b069c7a1178e002e5a0a5196ca7}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_a5c782a9a4d92befaaf7ad3e2842eaae6}{override void {\bfseries Unsubscribe\-Events} ()}\label{class_skyrates_1_1_client_1_1_network_1_1_client_a5c782a9a4d92befaaf7ad3e2842eaae6}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_a7486bac40ef938a4580ad657f1d26276}{override void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_client_a7486bac40ef938a4580ad657f1d26276}{Start\-And\-Connect} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session}{Session} session)}\label{class_skyrates_1_1_client_1_1_network_1_1_client_a7486bac40ef938a4580ad657f1d26276}
+
+\begin{DoxyCompactList}\small\item\em Called after \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_a575172eb9f965e181e19649bcce38ca0}{Create} but before \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aa00266a16aa27dfd0eb242c74856a92a}{Destroy} to start the network in its default configuration. Implementation should call \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_a982b732d621ff3f8738319053af8d154}{Start\-Client} or \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_ac1209cf3fc31d2f145678971472ec20c}{Start\-Server}, and \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_network_common_aa11961a4a6dc22c782552eb96e27c6e1}{Connect} if applicable.  \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_client_a8e264c8e627eace760e2a110b2b39a69}{On\-Connection\-Accepted} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)
+\begin{DoxyCompactList}\small\item\em Receives connection acceptance by Rak\-Net server (implicit). Initates the handshake with Event\-Handshake\-Join. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_client_ac010eecabdf4397ad93d9cae5ea60445}{On\-Connection\-Rejected} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)
+\begin{DoxyCompactList}\small\item\em Receives connection rejection by Rak\-Net server (implicit). \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_a55896d8aa53f613e8b12aa20f5ae8480}{void {\bfseries On\-Disconnect} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)}\label{class_skyrates_1_1_client_1_1_network_1_1_client_a55896d8aa53f613e8b12aa20f5ae8480}
+
+\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_network_1_1_client_a8ef146c33d3ed104d0f937896964d4b2}{On\-Handshake\-Client\-I\-D} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)
+\begin{DoxyCompactList}\small\item\em Receives client I\-D from Event\-Handshake\-Client\-I\-D. Responds with Event\-Handshake\-Accept. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_acd9aff235088112fb7789ba5ada41ccf}{void {\bfseries On\-Player\-Moved} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)}\label{class_skyrates_1_1_client_1_1_network_1_1_client_acd9aff235088112fb7789ba5ada41ccf}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_acb5b8d01c41f570e3e419eee28b39284}{void {\bfseries Deserialize\-Game\-State} (byte\mbox{[}$\,$\mbox{]} data, ref int last\-Index)}\label{class_skyrates_1_1_client_1_1_network_1_1_client_acb5b8d01c41f570e3e419eee28b39284}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Base class implementation for all Clients\-Data. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_a8e264c8e627eace760e2a110b2b39a69}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Client}!On\-Connection\-Accepted@{On\-Connection\-Accepted}}
+\index{On\-Connection\-Accepted@{On\-Connection\-Accepted}!Skyrates::Client::Network::Client@{Skyrates\-::\-Client\-::\-Network\-::\-Client}}
+\subsubsection[{On\-Connection\-Accepted}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Network.\-Client.\-On\-Connection\-Accepted (
+\begin{DoxyParamCaption}
+\item[{{\bf Network\-Event}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_client_a8e264c8e627eace760e2a110b2b39a69}
+
+
+Receives connection acceptance by Rak\-Net server (implicit). Initates the handshake with Event\-Handshake\-Join. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & Event\-Rak\-Net\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_ac010eecabdf4397ad93d9cae5ea60445}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Client}!On\-Connection\-Rejected@{On\-Connection\-Rejected}}
+\index{On\-Connection\-Rejected@{On\-Connection\-Rejected}!Skyrates::Client::Network::Client@{Skyrates\-::\-Client\-::\-Network\-::\-Client}}
+\subsubsection[{On\-Connection\-Rejected}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Network.\-Client.\-On\-Connection\-Rejected (
+\begin{DoxyParamCaption}
+\item[{{\bf Network\-Event}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_client_ac010eecabdf4397ad93d9cae5ea60445}
+
+
+Receives connection rejection by Rak\-Net server (implicit). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & Event\-Rak\-Net\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_client_1_1_network_1_1_client_a8ef146c33d3ed104d0f937896964d4b2}{\index{Skyrates\-::\-Client\-::\-Network\-::\-Client@{Skyrates\-::\-Client\-::\-Network\-::\-Client}!On\-Handshake\-Client\-I\-D@{On\-Handshake\-Client\-I\-D}}
+\index{On\-Handshake\-Client\-I\-D@{On\-Handshake\-Client\-I\-D}!Skyrates::Client::Network::Client@{Skyrates\-::\-Client\-::\-Network\-::\-Client}}
+\subsubsection[{On\-Handshake\-Client\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Network.\-Client.\-On\-Handshake\-Client\-I\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf Network\-Event}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_network_1_1_client_a8ef146c33d3ed104d0f937896964d4b2}
+
+
+Receives client I\-D from Event\-Handshake\-Client\-I\-D. Responds with Event\-Handshake\-Accept. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & Event\-Handshake\-Client\-I\-D\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Client/\-Network/Client.\-cs\end{DoxyCompactItemize}

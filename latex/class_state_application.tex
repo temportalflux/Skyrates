@@ -1,0 +1,121 @@
+\hypertarget{class_state_application}{\section{State\-Application Class Reference}
+\label{class_state_application}\index{State\-Application@{State\-Application}}
+}
+
+
+The information state -\/ handles all persistent data.  
+
+
+
+
+{\ttfamily \#include $<$State\-Application.\-h$>$}
+
+Inheritance diagram for State\-Application\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_state_application}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_state_application_ac3a41cc62a72833dd5ca1ff39ba4a65f}{const void {\bfseries stop\-Running} ()}\label{class_state_application_ac3a41cc62a72833dd5ca1ff39ba4a65f}
+
+\item 
+\hypertarget{class_state_application_ae8509c3504cd3925321875f788483d1b}{const bool {\bfseries is\-Running} () const }\label{class_state_application_ae8509c3504cd3925321875f788483d1b}
+
+\item 
+\hypertarget{class_state_application_a8096cab73eb046ebcfae2f9a9530dde4}{\hyperlink{struct_state_data}{State\-Data} $\ast$ {\bfseries get\-Data} () const }\label{class_state_application_a8096cab73eb046ebcfae2f9a9530dde4}
+
+\item 
+\hypertarget{class_state_application_a9542ff77e227b53e41ed1199b1eb430a}{virtual void {\bfseries on\-Enter\-From} (\hyperlink{class_state_application}{State\-Application} $\ast$previous)}\label{class_state_application_a9542ff77e227b53e41ed1199b1eb430a}
+
+\item 
+\hypertarget{class_state_application_a6b4c68eb272196c0ce78e2edb56ecc80}{virtual void {\bfseries on\-Exit\-To} (\hyperlink{class_state_application}{State\-Application} $\ast$next)}\label{class_state_application_a6b4c68eb272196c0ce78e2edb56ecc80}
+
+\item 
+virtual void \hyperlink{class_state_application_aa23f7bb0379af168a9d261acbb580cc4}{update\-Input} ()
+\item 
+virtual void \hyperlink{class_state_application_a55c3922d9e1be3e3ef39f7252c698fc4}{update\-Network} ()
+\item 
+virtual void \hyperlink{class_state_application_ae8c352707a7a61196ad655f0e357faff}{update\-Game} ()
+\item 
+virtual void \hyperlink{class_state_application_abf6724778903f7f4f9106d4be5a1f9f4}{render} ()
+\item 
+virtual void \hyperlink{class_state_application_a32ae34ecad2716a916e1342a10c1f620}{update\-Game\-For\-Input} (const char $\ast$current, const char $\ast$previous)
+\item 
+virtual void \hyperlink{class_state_application_a386fc53c7629d80d25dc86b2ad431406}{on\-Key\-Down} (int i)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_state_application_a8cfe2f627d024dfa251a10c4b69243c2}{\hyperlink{struct_state_data}{State\-Data} $\ast$ {\bfseries mp\-State}}\label{class_state_application_a8cfe2f627d024dfa251a10c4b69243c2}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The information state -\/ handles all persistent data. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_state_application_a386fc53c7629d80d25dc86b2ad431406}{\index{State\-Application@{State\-Application}!on\-Key\-Down@{on\-Key\-Down}}
+\index{on\-Key\-Down@{on\-Key\-Down}!StateApplication@{State\-Application}}
+\subsubsection[{on\-Key\-Down}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Application\-::on\-Key\-Down (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_state_application_a386fc53c7629d80d25dc86b2ad431406}
+Author\-: Dustin Yost Called when a key is marked as down this update \hypertarget{class_state_application_abf6724778903f7f4f9106d4be5a1f9f4}{\index{State\-Application@{State\-Application}!render@{render}}
+\index{render@{render}!StateApplication@{State\-Application}}
+\subsubsection[{render}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Application\-::render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_state_application_abf6724778903f7f4f9106d4be5a1f9f4}
+Renders the game to the display $\vert$ S\-T\-U\-B 
+
+Reimplemented in \hyperlink{class_state_server_afb476eb4f969490b00944a93157b76c8}{State\-Server}.
+
+\hypertarget{class_state_application_ae8c352707a7a61196ad655f0e357faff}{\index{State\-Application@{State\-Application}!update\-Game@{update\-Game}}
+\index{update\-Game@{update\-Game}!StateApplication@{State\-Application}}
+\subsubsection[{update\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Application\-::update\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_state_application_ae8c352707a7a61196ad655f0e357faff}
+Author\-: Dustin Yost Handles all game updates and responses to input/network updates 
+
+Reimplemented in \hyperlink{class_state_server_afc726acef321e4fd0b9f3aeacb126845}{State\-Server}.
+
+\hypertarget{class_state_application_a32ae34ecad2716a916e1342a10c1f620}{\index{State\-Application@{State\-Application}!update\-Game\-For\-Input@{update\-Game\-For\-Input}}
+\index{update\-Game\-For\-Input@{update\-Game\-For\-Input}!StateApplication@{State\-Application}}
+\subsubsection[{update\-Game\-For\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Application\-::update\-Game\-For\-Input (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{current, }
+\item[{const char $\ast$}]{previous}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_state_application_a32ae34ecad2716a916e1342a10c1f620}
+Author\-: Dustin Yost Updates states according to input updates \hypertarget{class_state_application_aa23f7bb0379af168a9d261acbb580cc4}{\index{State\-Application@{State\-Application}!update\-Input@{update\-Input}}
+\index{update\-Input@{update\-Input}!StateApplication@{State\-Application}}
+\subsubsection[{update\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Application\-::update\-Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_state_application_aa23f7bb0379af168a9d261acbb580cc4}
+Author\-: Dustin Yost Collects all input changes \hypertarget{class_state_application_a55c3922d9e1be3e3ef39f7252c698fc4}{\index{State\-Application@{State\-Application}!update\-Network@{update\-Network}}
+\index{update\-Network@{update\-Network}!StateApplication@{State\-Application}}
+\subsubsection[{update\-Network}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Application\-::update\-Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_state_application_a55c3922d9e1be3e3ef39f7252c698fc4}
+Updates the network $\vert$ S\-T\-U\-B 
+
+Reimplemented in \hyperlink{class_state_server_aceb9a260a5c4a4d46607e8fe71be2667}{State\-Server}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/include/State\-Application.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/source/State\-Application.\-cpp\end{DoxyCompactItemize}

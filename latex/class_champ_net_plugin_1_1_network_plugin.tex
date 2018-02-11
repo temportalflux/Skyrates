@@ -1,0 +1,108 @@
+\hypertarget{class_champ_net_plugin_1_1_network_plugin}{\section{Champ\-Net\-Plugin.\-Network\-Plugin Class Reference}
+\label{class_champ_net_plugin_1_1_network_plugin}\index{Champ\-Net\-Plugin.\-Network\-Plugin@{Champ\-Net\-Plugin.\-Network\-Plugin}}
+}
+
+
+A Unity interface with the C++ plugin under \hyperlink{class_champ_net_1_1_network}{Champ\-Net\-::\-Network} and \hyperlink{namespace_champ_net_plugin}{Champ\-Net\-Plugin}.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a73ca302732b2b578ca661979f1ea6606}{delegate void {\bfseries debug\-Callback} (Int\-Ptr request, int color, int size)}\label{class_champ_net_plugin_1_1_network_plugin_a73ca302732b2b578ca661979f1ea6606}
+
+\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a31e10e1a10604f04a8f8cbaeabff311b}{static int \hyperlink{class_champ_net_plugin_1_1_network_plugin_a31e10e1a10604f04a8f8cbaeabff311b}{Create} ()}\label{class_champ_net_plugin_1_1_network_plugin_a31e10e1a10604f04a8f8cbaeabff311b}
+
+\begin{DoxyCompactList}\small\item\em Create a network to connect with. \end{DoxyCompactList}\item 
+static void \hyperlink{class_champ_net_plugin_1_1_network_plugin_afbc9579060d47c7825a33ccd71c791ee}{Register\-Debug\-Callback} (debug\-Callback callback)
+\begin{DoxyCompactList}\small\item\em Register a callback function for console logs \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_aea8dfdc44c010919eb61a23c203224f9}{static int \hyperlink{class_champ_net_plugin_1_1_network_plugin_aea8dfdc44c010919eb61a23c203224f9}{Destroy} ()}\label{class_champ_net_plugin_1_1_network_plugin_aea8dfdc44c010919eb61a23c203224f9}
+
+\begin{DoxyCompactList}\small\item\em Destroy the network (must call Create prior) (must call when owning object is destroyed) \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a6da04c7618f00dad124d344e57f2e54f}{static int \hyperlink{class_champ_net_plugin_1_1_network_plugin_a6da04c7618f00dad124d344e57f2e54f}{Start\-Server} (int port, int max\-Clients)}\label{class_champ_net_plugin_1_1_network_plugin_a6da04c7618f00dad124d344e57f2e54f}
+
+\begin{DoxyCompactList}\small\item\em Create a server with the specified credentials using this object. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a637460ae0b046802a771697744e657c4}{static int \hyperlink{class_champ_net_plugin_1_1_network_plugin_a637460ae0b046802a771697744e657c4}{Start\-Client} ()}\label{class_champ_net_plugin_1_1_network_plugin_a637460ae0b046802a771697744e657c4}
+
+\begin{DoxyCompactList}\small\item\em Create a client using this object. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a1f89494dbb077c0f5ae9d7564caf7b05}{static int \hyperlink{class_champ_net_plugin_1_1_network_plugin_a1f89494dbb077c0f5ae9d7564caf7b05}{Connect\-To\-Server} (string address, int port)}\label{class_champ_net_plugin_1_1_network_plugin_a1f89494dbb077c0f5ae9d7564caf7b05}
+
+\begin{DoxyCompactList}\small\item\em Connect this Client\-Data to some server using the specified credentials. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a00b84d962f0265cd73fcf5e735357ac7}{static int \hyperlink{class_champ_net_plugin_1_1_network_plugin_a00b84d962f0265cd73fcf5e735357ac7}{Fetch\-Packets} ()}\label{class_champ_net_plugin_1_1_network_plugin_a00b84d962f0265cd73fcf5e735357ac7}
+
+\begin{DoxyCompactList}\small\item\em Fetch all incoming packets. Must call prior to Poll\-Packet. Must be called after Create and before Destroy. Returns the quantity of packets in the queue after fetch. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a0a86f5783bdc9f940c516429fafd83c7}{static Int\-Ptr \hyperlink{class_champ_net_plugin_1_1_network_plugin_a0a86f5783bdc9f940c516429fafd83c7}{Poll\-Packet} (ref bool valid)}\label{class_champ_net_plugin_1_1_network_plugin_a0a86f5783bdc9f940c516429fafd83c7}
+
+\begin{DoxyCompactList}\small\item\em Poll the packet queue. Returns a pointer to the first packet, and removes that packet from the queue. If valid is true, then the packet can be processed, else the packet does not exist (no packets presently in the queue). \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_ab5f62d68a1e0b9c6a88c753616e38b5c}{static Int\-Ptr \hyperlink{class_champ_net_plugin_1_1_network_plugin_ab5f62d68a1e0b9c6a88c753616e38b5c}{Get\-Packet\-Address} (Int\-Ptr packet\-Ref, ref uint length)}\label{class_champ_net_plugin_1_1_network_plugin_ab5f62d68a1e0b9c6a88c753616e38b5c}
+
+\begin{DoxyCompactList}\small\item\em Returns the packet's address, given some valid packet pointer (Call after Poll\-Packet if valid is true). \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a11adc3498dc1678c40249a88710887ae}{static Int\-Ptr \hyperlink{class_champ_net_plugin_1_1_network_plugin_a11adc3498dc1678c40249a88710887ae}{Get\-Packet\-Data} (Int\-Ptr packet\-Ref, ref uint length, ref ulong transmit\-Time)}\label{class_champ_net_plugin_1_1_network_plugin_a11adc3498dc1678c40249a88710887ae}
+
+\begin{DoxyCompactList}\small\item\em Returns the packet's \-\_\-game\-State\-Data, given some valid packet pointer (Call after Poll\-Packet if valid is true). \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a2aa2f283d94acae96d17fac1d84844f4}{static void \hyperlink{class_champ_net_plugin_1_1_network_plugin_a2aa2f283d94acae96d17fac1d84844f4}{Free\-Packet} (Int\-Ptr packet\-Ref)}\label{class_champ_net_plugin_1_1_network_plugin_a2aa2f283d94acae96d17fac1d84844f4}
+
+\begin{DoxyCompactList}\small\item\em Frees the memory of some packet, given some valid packet pointer (Call after Poll\-Packet if valid is true). \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a61ed4431f2d87b66b7cc1a66287225da}{static void \hyperlink{class_champ_net_plugin_1_1_network_plugin_a61ed4431f2d87b66b7cc1a66287225da}{Send\-Byte\-Array} (string address, int port, byte\mbox{[}$\,$\mbox{]} byte\-Array, int byte\-Array\-Size, bool broadcast)}\label{class_champ_net_plugin_1_1_network_plugin_a61ed4431f2d87b66b7cc1a66287225da}
+
+\begin{DoxyCompactList}\small\item\em Send a byte array to the server. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a8fd4e2f13e4abffc393cb1a354b3489a}{static void \hyperlink{class_champ_net_plugin_1_1_network_plugin_a8fd4e2f13e4abffc393cb1a354b3489a}{Disconnect} ()}\label{class_champ_net_plugin_1_1_network_plugin_a8fd4e2f13e4abffc393cb1a354b3489a}
+
+\begin{DoxyCompactList}\small\item\em Disconnect from the interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_champ_net_plugin_1_1_network_plugin_a21cad89e717d5dd351f73711ad5d6eb4}{Set\-Debug\-Callback} ()
+\begin{DoxyCompactList}\small\item\em Sets up the debug callback in \hyperlink{class_champ_net_plugin_1_1_network_plugin_afbc9579060d47c7825a33ccd71c791ee}{Register\-Debug\-Callback(debug\-Callback)} \end{DoxyCompactList}\item 
+static bool \hyperlink{class_champ_net_plugin_1_1_network_plugin_a779f2ef649d218531fc2232f1fd41b89}{Poll\-Packet} (out string address, out byte\mbox{[}$\,$\mbox{]} data, out ulong transmit\-Time)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Unity interface with the C++ plugin under \hyperlink{class_champ_net_1_1_network}{Champ\-Net\-::\-Network} and \hyperlink{namespace_champ_net_plugin}{Champ\-Net\-Plugin}. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a779f2ef649d218531fc2232f1fd41b89}{\index{Champ\-Net\-Plugin\-::\-Network\-Plugin@{Champ\-Net\-Plugin\-::\-Network\-Plugin}!Poll\-Packet@{Poll\-Packet}}
+\index{Poll\-Packet@{Poll\-Packet}!ChampNetPlugin::NetworkPlugin@{Champ\-Net\-Plugin\-::\-Network\-Plugin}}
+\subsubsection[{Poll\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}static bool Champ\-Net\-Plugin.\-Network\-Plugin.\-Poll\-Packet (
+\begin{DoxyParamCaption}
+\item[{out string}]{address, }
+\item[{out byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{out ulong}]{transmit\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_champ_net_plugin_1_1_network_plugin_a779f2ef649d218531fc2232f1fd41b89}
+W\-R\-A\-P\-P\-E\-R M\-E\-T\-H\-O\-D Handles polling the network for packets, and returning the address and \-\_\-game\-State\-Data of that packet. Use instead of Poll\-Packet(bool), Get\-Packet\-Address, Get\-Packet\-Data, and Free\-Packet Copies out the \-\_\-game\-State\-Data from a valid packet, and frees the packet from memory. Returns true if a valid packet was found, else false. \hypertarget{class_champ_net_plugin_1_1_network_plugin_afbc9579060d47c7825a33ccd71c791ee}{\index{Champ\-Net\-Plugin\-::\-Network\-Plugin@{Champ\-Net\-Plugin\-::\-Network\-Plugin}!Register\-Debug\-Callback@{Register\-Debug\-Callback}}
+\index{Register\-Debug\-Callback@{Register\-Debug\-Callback}!ChampNetPlugin::NetworkPlugin@{Champ\-Net\-Plugin\-::\-Network\-Plugin}}
+\subsubsection[{Register\-Debug\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}static void Champ\-Net\-Plugin.\-Network\-Plugin.\-Register\-Debug\-Callback (
+\begin{DoxyParamCaption}
+\item[{debug\-Callback}]{callback}
+\end{DoxyParamCaption}
+)}}\label{class_champ_net_plugin_1_1_network_plugin_afbc9579060d47c7825a33ccd71c791ee}
+
+
+Register a callback function for console logs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_champ_net_plugin_1_1_network_plugin_a21cad89e717d5dd351f73711ad5d6eb4}{\index{Champ\-Net\-Plugin\-::\-Network\-Plugin@{Champ\-Net\-Plugin\-::\-Network\-Plugin}!Set\-Debug\-Callback@{Set\-Debug\-Callback}}
+\index{Set\-Debug\-Callback@{Set\-Debug\-Callback}!ChampNetPlugin::NetworkPlugin@{Champ\-Net\-Plugin\-::\-Network\-Plugin}}
+\subsubsection[{Set\-Debug\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}static void Champ\-Net\-Plugin.\-Network\-Plugin.\-Set\-Debug\-Callback (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_champ_net_plugin_1_1_network_plugin_a21cad89e717d5dd351f73711ad5d6eb4}
+
+
+Sets up the debug callback in \hyperlink{class_champ_net_plugin_1_1_network_plugin_afbc9579060d47c7825a33ccd71c791ee}{Register\-Debug\-Callback(debug\-Callback)} 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-Network/\-Champ\-Net/Network\-Plugin.\-cs\end{DoxyCompactItemize}

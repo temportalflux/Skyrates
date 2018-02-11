@@ -1,0 +1,52 @@
+\hypertarget{class_champ_net_1_1_packet_queue}{\section{Champ\-Net\-:\-:Packet\-Queue Class Reference}
+\label{class_champ_net_1_1_packet_queue}\index{Champ\-Net\-::\-Packet\-Queue@{Champ\-Net\-::\-Packet\-Queue}}
+}
+
+
+{\ttfamily \#include $<$Packet.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_champ_net_1_1_packet_queue_a26d8e8206649764d5c6a947ae90b17b8}{\hyperlink{class_champ_net_1_1_packet_queue_a26d8e8206649764d5c6a947ae90b17b8}{Packet\-Queue} ()}\label{class_champ_net_1_1_packet_queue_a26d8e8206649764d5c6a947ae90b17b8}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_queue_ace2be8c7f79db8eef199b17fff57aecf}{\hyperlink{class_champ_net_1_1_packet_queue_ace2be8c7f79db8eef199b17fff57aecf}{$\sim$\-Packet\-Queue} ()}\label{class_champ_net_1_1_packet_queue_ace2be8c7f79db8eef199b17fff57aecf}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_queue_ad78fb4bda594d1941de0d0b97cb17c8f}{void \hyperlink{class_champ_net_1_1_packet_queue_ad78fb4bda594d1941de0d0b97cb17c8f}{enqueue} (\hyperlink{class_champ_net_1_1_packet}{Packet} $\ast$packet)}\label{class_champ_net_1_1_packet_queue_ad78fb4bda594d1941de0d0b97cb17c8f}
+
+\begin{DoxyCompactList}\small\item\em Pushes a packet onto the end of the list. \end{DoxyCompactList}\item 
+void \hyperlink{class_champ_net_1_1_packet_queue_a775c0b091e646b35b24abd60ed8003e9}{dequeue} (\hyperlink{class_champ_net_1_1_packet}{Packet} $\ast$\&packet)
+\item 
+\hypertarget{class_champ_net_1_1_packet_queue_a58fb470b0b4a6678495c36e89a7d4f58}{void \hyperlink{class_champ_net_1_1_packet_queue_a58fb470b0b4a6678495c36e89a7d4f58}{clear} ()}\label{class_champ_net_1_1_packet_queue_a58fb470b0b4a6678495c36e89a7d4f58}
+
+\begin{DoxyCompactList}\small\item\em Deallocates all packets. \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_queue_a0959c0f0b04096739dbc64ffb3ce5a00}{bool \hyperlink{class_champ_net_1_1_packet_queue_a0959c0f0b04096739dbc64ffb3ce5a00}{is\-Empty} ()}\label{class_champ_net_1_1_packet_queue_a0959c0f0b04096739dbc64ffb3ce5a00}
+
+\begin{DoxyCompactList}\small\item\em Returns true if there are no packets in the queue (count == 0) \end{DoxyCompactList}\item 
+\hypertarget{class_champ_net_1_1_packet_queue_af160b4a4fe3291c9d4bcb64952b4decb}{int \hyperlink{class_champ_net_1_1_packet_queue_af160b4a4fe3291c9d4bcb64952b4decb}{get\-Count} () const }\label{class_champ_net_1_1_packet_queue_af160b4a4fe3291c9d4bcb64952b4decb}
+
+\begin{DoxyCompactList}\small\item\em Returns the quantity of packets in the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class to handle a queue of Packets (wrapped Rak\-Net packets). Operates as a true queue (sub-\/structure of Linked\-List). \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_champ_net_1_1_packet_queue_a775c0b091e646b35b24abd60ed8003e9}{\index{Champ\-Net\-::\-Packet\-Queue@{Champ\-Net\-::\-Packet\-Queue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!ChampNet::PacketQueue@{Champ\-Net\-::\-Packet\-Queue}}
+\subsubsection[{dequeue}]{\setlength{\rightskip}{0pt plus 5cm}void Champ\-Net\-::\-Packet\-Queue\-::dequeue (
+\begin{DoxyParamCaption}
+\item[{{\bf Packet} $\ast$\&}]{packet}
+\end{DoxyParamCaption}
+)}}\label{class_champ_net_1_1_packet_queue_a775c0b091e646b35b24abd60ed8003e9}
+Pops a packet from the front of the list Parameter will be set with the first packet 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net/include/Packet.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net/source/Packet.\-cpp\end{DoxyCompactItemize}

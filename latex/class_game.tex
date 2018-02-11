@@ -1,0 +1,88 @@
+\hypertarget{class_game}{\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+}
+
+
+{\ttfamily \#include $<$Game.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_a09f1b8c714816ee634939b73fe08622d}{Game} (\hyperlink{class_state_application}{State\-Application} $\ast$state)
+\item 
+\hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game} ()}\label{class_game_ad59df6562a58a614fda24622d3715b65}
+
+\begin{DoxyCompactList}\small\item\em Constructor without state. \end{DoxyCompactList}\item 
+\hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}{virtual \hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\-Game} ()}\label{class_game_ae3d112ca6e0e55150d2fdbc704474530}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_game_aa61c0358c2611d00eb47ebf72a88f8c7}{const bool \hyperlink{class_game_aa61c0358c2611d00eb47ebf72a88f8c7}{is\-Running} () const }\label{class_game_aa61c0358c2611d00eb47ebf72a88f8c7}
+
+\begin{DoxyCompactList}\small\item\em Returns if the game is presently in a running state. \end{DoxyCompactList}\item 
+\hypertarget{class_game_ac405429a34ce63322174063442040259}{\hyperlink{struct_state_data}{State\-Data} $\ast$ \hyperlink{class_game_ac405429a34ce63322174063442040259}{get\-Data} () const }\label{class_game_ac405429a34ce63322174063442040259}
+
+\begin{DoxyCompactList}\small\item\em Returns the system data. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_a79df6376b332d63c9eca0dcee30305c3}{update} ()
+\begin{DoxyCompactList}\small\item\em Handles all gameloop updates. \end{DoxyCompactList}\item 
+\hypertarget{class_game_afe06acbc24125f9a7e9d94f7740315fb}{void \hyperlink{class_game_afe06acbc24125f9a7e9d94f7740315fb}{queue\-State} (\hyperlink{class_state_application}{State\-Application} $\ast$next\-State)}\label{class_game_afe06acbc24125f9a7e9d94f7740315fb}
+
+\begin{DoxyCompactList}\small\item\em Sets a state to be transitioned to at the end of the current game loop. \end{DoxyCompactList}\item 
+\hypertarget{class_game_afa29034b42f2825221ffea4fac919363}{void \hyperlink{class_game_afa29034b42f2825221ffea4fac919363}{go\-To\-Next\-State} ()}\label{class_game_afa29034b42f2825221ffea4fac919363}
+
+\begin{DoxyCompactList}\small\item\em Switches states such that {\ttfamily \hyperlink{class_game_a1f85e8206f06c0bd64430effae32c577}{mp\-State} = \hyperlink{class_game_a247b4d7b1656218d90a8544cb674f0b3}{mp\-Next}}, and {\ttfamily \hyperlink{class_game_a247b4d7b1656218d90a8544cb674f0b3}{mp\-Next} = null} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_game_a9518d0c89b6d47d2e3042809bc9c5f6a}{static \hyperlink{class_game}{Game} $\ast$ \hyperlink{class_game_a9518d0c89b6d47d2e3042809bc9c5f6a}{gp\-Game} = N\-U\-L\-L}\label{class_game_a9518d0c89b6d47d2e3042809bc9c5f6a}
+
+\begin{DoxyCompactList}\small\item\em The static singleton instance of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_game_a1f85e8206f06c0bd64430effae32c577}{\hyperlink{class_state_application}{State\-Application} $\ast$ \hyperlink{class_game_a1f85e8206f06c0bd64430effae32c577}{mp\-State}}\label{class_game_a1f85e8206f06c0bd64430effae32c577}
+
+\begin{DoxyCompactList}\small\item\em The current application state of the game. \end{DoxyCompactList}\item 
+\hypertarget{class_game_a247b4d7b1656218d90a8544cb674f0b3}{\hyperlink{class_state_application}{State\-Application} $\ast$ \hyperlink{class_game_a247b4d7b1656218d90a8544cb674f0b3}{mp\-Next}}\label{class_game_a247b4d7b1656218d90a8544cb674f0b3}
+
+\begin{DoxyCompactList}\small\item\em The next application state, if applicable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A base class for all update loop based game information (runs the game) \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_a09f1b8c714816ee634939b73fe08622d}{\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection[{Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\-::\-Game (
+\begin{DoxyParamCaption}
+\item[{{\bf State\-Application} $\ast$}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_game_a09f1b8c714816ee634939b73fe08622d}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em state} & the beginning state\\
+\hline
+\end{DoxyParams}
+Author\-: Dustin Yost A base class for all update loop based game information (runs the game) 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_game_a79df6376b332d63c9eca0dcee30305c3}{\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_game_a79df6376b332d63c9eca0dcee30305c3}
+
+
+Handles all gameloop updates. 
+
+Author\-: Dustin Yost Handles all gameloop updates 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/include/Game.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/source/Game.\-cpp\end{DoxyCompactItemize}

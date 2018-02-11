@@ -1,0 +1,55 @@
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_steering}{\section{Skyrates.\-Common.\-A\-I.\-Steering Class Reference}
+\label{class_skyrates_1_1_common_1_1_a_i_1_1_steering}\index{Skyrates.\-Common.\-A\-I.\-Steering@{Skyrates.\-Common.\-A\-I.\-Steering}}
+}
+
+
+The base class for all steering algorithms. This is object which Entity\-Dynamic uses to control its movement. It is inspector worthy (easy for designers to drag and drop).  
+
+
+Inheritance diagram for Skyrates.\-Common.\-A\-I.\-Steering\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_common_1_1_a_i_1_1_steering}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract void \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a6ed9adbbc920bf10006fe27ae9764045}{Get\-Steering} (\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_data}{Steering\-Data} data, ref \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} physics)
+\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The base class for all steering algorithms. This is object which Entity\-Dynamic uses to control its movement. It is inspector worthy (easy for designers to drag and drop). 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a6ed9adbbc920bf10006fe27ae9764045}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering@{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering}!Get\-Steering@{Get\-Steering}}
+\index{Get\-Steering@{Get\-Steering}!Skyrates::Common::AI::Steering@{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering}}
+\subsubsection[{Get\-Steering}]{\setlength{\rightskip}{0pt plus 5cm}abstract void Skyrates.\-Common.\-A\-I.\-Steering.\-Get\-Steering (
+\begin{DoxyParamCaption}
+\item[{{\bf Steering\-Data}}]{data, }
+\item[{ref {\bf Physics\-Data}}]{physics}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a6ed9adbbc920bf10006fe27ae9764045}
+
+
+Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a449f762839eccc1e7e870ddd6cbbc61c}{Skyrates.\-Common.\-A\-I.\-User\-Controlled}, and \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_seek_add201f296cfd487d2dff9362c8c501bc}{Skyrates.\-Common.\-A\-I.\-Seek}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-A\-I/Steering.\-cs\end{DoxyCompactItemize}

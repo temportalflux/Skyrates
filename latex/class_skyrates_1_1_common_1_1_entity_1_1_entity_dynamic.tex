@@ -1,0 +1,73 @@
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}{\section{Skyrates.\-Common.\-Entity.\-Entity\-Dynamic Class Reference}
+\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}\index{Skyrates.\-Common.\-Entity.\-Entity\-Dynamic@{Skyrates.\-Common.\-Entity.\-Entity\-Dynamic}}
+}
+
+
+Any entity in the world which moves around. By default, this object uses \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering}{Skyrates.\-Common.\-A\-I.\-Steering}, and it is the assumption that objects which move will use some form of steering.  
+
+
+Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-Dynamic\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}{Physics} = new \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data}()
+\begin{DoxyCompactList}\small\item\em The current physics data of this object. Updated via \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a8d35984946a298623b4de895873de43b}{Steering}. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_data}{Steering\-Data} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a60e4edbed3f02c3ba4a7c6150fbad90e}{Steering\-Data} = new \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_data}{Steering\-Data}()
+\begin{DoxyCompactList}\small\item\em The steering data used -\/ info which is specific to this entity and likely used by multiple steering algorithms. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering}{Steering} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a8d35984946a298623b4de895873de43b}{Steering}
+\begin{DoxyCompactList}\small\item\em The actual steering object -\/ set via editor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a0e3f4c361734de124f27ed7d331bd12c}{override void {\bfseries Start} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a0e3f4c361734de124f27ed7d331bd12c}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_adc9f4729654d4c86a404c0ccd966ccd3}{virtual void {\bfseries Fixed\-Update} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_adc9f4729654d4c86a404c0ccd966ccd3}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}{virtual Transform {\bfseries Get\-View} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}{virtual Transform {\bfseries Get\-Render} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Any entity in the world which moves around. By default, this object uses \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering}{Skyrates.\-Common.\-A\-I.\-Steering}, and it is the assumption that objects which move will use some form of steering. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Physics@{Physics}}
+\index{Physics@{Physics}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Physics}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Physics\-Data} Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Physics = new {\bf Physics\-Data}()}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}
+
+
+The current physics data of this object. Updated via \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a8d35984946a298623b4de895873de43b}{Steering}. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a8d35984946a298623b4de895873de43b}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Steering@{Steering}}
+\index{Steering@{Steering}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Steering}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Steering} Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Steering}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a8d35984946a298623b4de895873de43b}
+
+
+The actual steering object -\/ set via editor. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a60e4edbed3f02c3ba4a7c6150fbad90e}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Steering\-Data@{Steering\-Data}}
+\index{Steering\-Data@{Steering\-Data}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Steering\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Steering\-Data} Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Steering\-Data = new {\bf Steering\-Data}()}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a60e4edbed3f02c3ba4a7c6150fbad90e}
+
+
+The steering data used -\/ info which is specific to this entity and likely used by multiple steering algorithms. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-Entity/Entity\-Dynamic.\-cs\end{DoxyCompactItemize}

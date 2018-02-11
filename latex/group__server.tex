@@ -1,0 +1,68 @@
+\hypertarget{group__server}{\section{Server}
+\label{group__server}\index{Server@{Server}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_game}{Game}
+\item 
+class \hyperlink{class_game_state}{Game\-State}
+\item 
+struct \hyperlink{struct_packet_general}{Packet\-General}
+\begin{DoxyCompactList}\small\item\em A general packet with the packet\-I\-D. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_packet_i_d}{Packet\-I\-D}
+\begin{DoxyCompactList}\small\item\em A paccket with an unknown identifier. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_packet_handshake_accept}{Packet\-Handshake\-Accept}
+\item 
+struct \hyperlink{struct_packet_update_physics}{Packet\-Update\-Physics}
+\item 
+class \hyperlink{class_performance_tracker}{Performance\-Tracker}
+\item 
+struct \hyperlink{struct_state_input}{State\-Input}
+\begin{DoxyCompactList}\small\item\em The state of the input keys. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_state_console}{State\-Console}
+\begin{DoxyCompactList}\small\item\em The state of the console window. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_state_network}{State\-Network}
+\begin{DoxyCompactList}\small\item\em The state of the network data. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_state_data}{State\-Data}
+\begin{DoxyCompactList}\small\item\em The data state of all local data. \end{DoxyCompactList}\item 
+class \hyperlink{class_state_server}{State\-Server}
+\begin{DoxyCompactList}\small\item\em The state application for the server (the server has only one state) \end{DoxyCompactList}\item 
+class \hyperlink{class_timer}{Timer}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__server_ga4301bf0fa2a92b524daa9d4d1f9aa9e3}{Message\-I\-Ds} \{ \\*
+{\bfseries I\-D\-\_\-\-N\-O\-N\-E} = Champ\-Net\-Plugin\-:\-:Message\-I\-Ds\-:\-:I\-D\-\_\-\-N\-O\-N\-E, 
+\hyperlink{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a59f5ae9c1d42ffd00714368264eab9b9}{Handshake\-Client\-I\-D}, 
+{\bfseries Update\-Gamestate}, 
+\hyperlink{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3ab1eef7245d0a1b3e7cd8ed83fe0a3f8b}{Handshake\-Join}, 
+\\*
+\hyperlink{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a4e3ac0d64fe8a89bf1ce5dd7b99a3c27}{Handshake\-Accept}, 
+\hyperlink{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a83a27501d9ed8bebed49bcd5bb152f9e}{Update\-Player\-Physics}, 
+{\bfseries Disconnect}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{group__server_ga4301bf0fa2a92b524daa9d4d1f9aa9e3}{\index{Server@{Server}!Message\-I\-Ds@{Message\-I\-Ds}}
+\index{Message\-I\-Ds@{Message\-I\-Ds}!Server@{Server}}
+\subsubsection[{Message\-I\-Ds}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Message\-I\-Ds}}}\label{group__server_ga4301bf0fa2a92b524daa9d4d1f9aa9e3}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Handshake\-Client\-I\-D@{Handshake\-Client\-I\-D}!Server@{Server}}\index{Server@{Server}!Handshake\-Client\-I\-D@{Handshake\-Client\-I\-D}}\item[{\em 
+\hypertarget{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a59f5ae9c1d42ffd00714368264eab9b9}{Handshake\-Client\-I\-D}\label{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a59f5ae9c1d42ffd00714368264eab9b9}
+}]\mbox{[}Handshake.\-2\mbox{]} Sent with the Client's I\-D on connection \index{Handshake\-Join@{Handshake\-Join}!Server@{Server}}\index{Server@{Server}!Handshake\-Join@{Handshake\-Join}}\item[{\em 
+\hypertarget{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3ab1eef7245d0a1b3e7cd8ed83fe0a3f8b}{Handshake\-Join}\label{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3ab1eef7245d0a1b3e7cd8ed83fe0a3f8b}
+}]\mbox{[}Handshake.\-1\mbox{]} Sent to initiate handshake and ask server to join \index{Handshake\-Accept@{Handshake\-Accept}!Server@{Server}}\index{Server@{Server}!Handshake\-Accept@{Handshake\-Accept}}\item[{\em 
+\hypertarget{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a4e3ac0d64fe8a89bf1ce5dd7b99a3c27}{Handshake\-Accept}\label{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a4e3ac0d64fe8a89bf1ce5dd7b99a3c27}
+}]\mbox{[}Handshake.\-3\mbox{]} Sent to tell server that we have accepted the client I\-D (\hyperlink{class_game_state}{Game\-State} updates can begin) \index{Update\-Player\-Physics@{Update\-Player\-Physics}!Server@{Server}}\index{Server@{Server}!Update\-Player\-Physics@{Update\-Player\-Physics}}\item[{\em 
+\hypertarget{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a83a27501d9ed8bebed49bcd5bb152f9e}{Update\-Player\-Physics}\label{group__server_gga4301bf0fa2a92b524daa9d4d1f9aa9e3a83a27501d9ed8bebed49bcd5bb152f9e}
+}]\mbox{[}Update\mbox{]} Sent to server to update physics data about the player \end{description}
+\end{Desc}

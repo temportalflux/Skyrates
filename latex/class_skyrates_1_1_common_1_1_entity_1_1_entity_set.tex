@@ -1,0 +1,144 @@
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set}{\section{Skyrates.\-Common.\-Entity.\-Entity\-Set Class Reference}
+\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set}\index{Skyrates.\-Common.\-Entity.\-Entity\-Set@{Skyrates.\-Common.\-Entity.\-Entity\-Set}}
+}
+
+
+The set of entities tracked via \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker}{Entity\-Tracker}, of a single Entity.\-Type.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ae7c88bc8e606540b024ab26f36c27a89}{{\bfseries Entity\-Set} (Entity.\-Type type)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ae7c88bc8e606540b024ab26f36c27a89}
+
+\item 
+bool \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ada2ceb002fa354ebf1b81a9948bd45c0}{Add} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Entity} e)
+\begin{DoxyCompactList}\small\item\em Add an entity to the tracker. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Entity} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ad1375e6f998ad37978f3c013c7aaaf16}{Remove} (Guid id)
+\begin{DoxyCompactList}\small\item\em Remove an entity from the tracker. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_adac6d4ae7606732e19a55d68930d9acc}{Try\-Get\-Value$<$ T $>$} (Guid id, out T entity)
+\begin{DoxyCompactList}\small\item\em Attempts to find an entity via its Guid in this set. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a3a52474105e7b401c538d7110a6d9f38}{Contains\-Key} (Guid id)
+\begin{DoxyCompactList}\small\item\em Checks if there in an entity with a specific Guid under this set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Entity.\-Type \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a3088854c457442307d007b6d95a6f6c3}{Key}
+\begin{DoxyCompactList}\small\item\em The type that this set contains. \end{DoxyCompactList}\item 
+readonly Dictionary$<$ Guid, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Entity} $>$ \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a10abd171b6f9160186b98922e8a8bbd7}{Entities}
+\begin{DoxyCompactList}\small\item\em The list of entities being tracked, keyed by their Guid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The set of entities tracked via \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker}{Entity\-Tracker}, of a single Entity.\-Type. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ada2ceb002fa354ebf1b81a9948bd45c0}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}!Add@{Add}}
+\index{Add@{Add}!Skyrates::Common::Entity::EntitySet@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}}
+\subsubsection[{Add}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Entity.\-Entity\-Set.\-Add (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ada2ceb002fa354ebf1b81a9948bd45c0}
+
+
+Add an entity to the tracker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a3a52474105e7b401c538d7110a6d9f38}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}!Contains\-Key@{Contains\-Key}}
+\index{Contains\-Key@{Contains\-Key}!Skyrates::Common::Entity::EntitySet@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}}
+\subsubsection[{Contains\-Key}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Entity.\-Entity\-Set.\-Contains\-Key (
+\begin{DoxyParamCaption}
+\item[{Guid}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a3a52474105e7b401c538d7110a6d9f38}
+
+
+Checks if there in an entity with a specific Guid under this set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ad1375e6f998ad37978f3c013c7aaaf16}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}!Remove@{Remove}}
+\index{Remove@{Remove}!Skyrates::Common::Entity::EntitySet@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}}
+\subsubsection[{Remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} Skyrates.\-Common.\-Entity.\-Entity\-Set.\-Remove (
+\begin{DoxyParamCaption}
+\item[{Guid}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_ad1375e6f998ad37978f3c013c7aaaf16}
+
+
+Remove an entity from the tracker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_adac6d4ae7606732e19a55d68930d9acc}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}!Try\-Get\-Value$<$ T $>$@{Try\-Get\-Value$<$ T $>$}}
+\index{Try\-Get\-Value$<$ T $>$@{Try\-Get\-Value$<$ T $>$}!Skyrates::Common::Entity::EntitySet@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}}
+\subsubsection[{Try\-Get\-Value$<$ T $>$}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Entity.\-Entity\-Set.\-Try\-Get\-Value$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{Guid}]{id, }
+\item[{out T}]{entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_adac6d4ae7606732e19a55d68930d9acc}
+
+
+Attempts to find an entity via its Guid in this set. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Entity}]\end{description}
+\end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a10abd171b6f9160186b98922e8a8bbd7}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}!Entities@{Entities}}
+\index{Entities@{Entities}!Skyrates::Common::Entity::EntitySet@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}}
+\subsubsection[{Entities}]{\setlength{\rightskip}{0pt plus 5cm}readonly Dictionary$<$Guid, {\bf Entity}$>$ Skyrates.\-Common.\-Entity.\-Entity\-Set.\-Entities}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a10abd171b6f9160186b98922e8a8bbd7}
+
+
+The list of entities being tracked, keyed by their Guid. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a3088854c457442307d007b6d95a6f6c3}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}!Key@{Key}}
+\index{Key@{Key}!Skyrates::Common::Entity::EntitySet@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Set}}
+\subsubsection[{Key}]{\setlength{\rightskip}{0pt plus 5cm}Entity.\-Type Skyrates.\-Common.\-Entity.\-Entity\-Set.\-Key}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_set_a3088854c457442307d007b6d95a6f6c3}
+
+
+The type that this set contains. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-Entity/Entity\-Tracker.\-cs\end{DoxyCompactItemize}

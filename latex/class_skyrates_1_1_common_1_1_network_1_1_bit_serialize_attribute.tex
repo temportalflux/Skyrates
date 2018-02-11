@@ -1,0 +1,132 @@
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute}{\section{Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute Class Reference}
+\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute}\index{Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute@{Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute}}
+}
+
+
+Handles (de)serializing of specific fields. Valid types include\-: bool, byte, char, (u)short, (u)int, (u)long, float, double, \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{I\-Serializing}, and any composite arrays of the former. If the Mono\-Behaviour being serialized is \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{I\-Serializing}, the \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{I\-Serializing} methods are treated as additions to all fields marked with Bit\-Serialize  
+
+
+Inheritance diagram for Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_attribute_field}{Attribute\-Field}
+\item 
+interface \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_i_serialization_module}{I\-Serialization\-Module}
+\begin{DoxyCompactList}\small\item\em The interface to use Serialization\-Module\{\-T\} in collections without knowing the type. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4}{Serialization\-Module$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em The implementation of \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_i_serialization_module}{I\-Serialization\-Module}, where all the generic \char`\"{}object\char`\"{} fields are objects with the type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a81f2c7592f9dc71172b819000769b08d}{{\bfseries Bit\-Serialize\-Attribute} (uint order=0)}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a81f2c7592f9dc71172b819000769b08d}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a052fde3e3f5b74b5a87405bae98a9a82}{Copy\-To} (ref byte\mbox{[}$\,$\mbox{]} dest, int start, byte\mbox{[}$\,$\mbox{]} source)
+\begin{DoxyCompactList}\small\item\em Write some byte array into another byte array at some offset. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a7894d6399ae5c2a062573bfe151c1ced}{static void {\bfseries Copy\-From} (byte\mbox{[}$\,$\mbox{]} source, ref byte\mbox{[}$\,$\mbox{]} dest, int start, int length)}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a7894d6399ae5c2a062573bfe151c1ced}
+
+\item 
+static int \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a45ac1b652220847483b344647204e3c5}{Get\-Size\-Of$<$ T $>$} (T obj, List$<$ \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_attribute_field}{Attribute\-Field} $>$ fields=null, List$<$ \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_attribute_field}{Attribute\-Field} $>$ generics=null)
+\begin{DoxyCompactList}\small\item\em Attempts to determine the size of some object (effectively sizeof(object)) \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a5eddcab1354989e16d673082f9654776}{static byte\mbox{[}$\,$\mbox{]} {\bfseries Serialize$<$ T $>$} (T obj, byte\mbox{[}$\,$\mbox{]} data=null, int start=0, \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_attribute_field}{Attribute\-Field} attribute=null)}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a5eddcab1354989e16d673082f9654776}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a43d63ebe5d2143df7339de12859b2c1f}{static object {\bfseries Deserialize} (object obj, byte\mbox{[}$\,$\mbox{]} data, int start=0, \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_attribute_field}{Attribute\-Field} attribute=null, Type type\-In=null)}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a43d63ebe5d2143df7339de12859b2c1f}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_abf2e82a6048d0e24b4ba2b2637d5e6ad}{static object {\bfseries Deserialize} (object obj, byte\mbox{[}$\,$\mbox{]} data, ref int start, \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_attribute_field}{Attribute\-Field} attribute=null, Type type\-In=null)}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_abf2e82a6048d0e24b4ba2b2637d5e6ad}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_afad634aa4c413a98c22d0b26d7dad8a6}{\-\_\-order}
+\begin{DoxyCompactList}\small\item\em The numerical order in which attributes are sorted -\/ lowest is first. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ Type, \\*
+\hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_i_serialization_module}{I\-Serialization\-Module} $>$ \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a5804be2d376111418f81ec041b5ddf80}{M\-O\-D\-U\-L\-E\-S}
+\begin{DoxyCompactList}\small\item\em A dictionary of (De)Serialization interfaces for handling how any one type should be handled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles (de)serializing of specific fields. Valid types include\-: bool, byte, char, (u)short, (u)int, (u)long, float, double, \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{I\-Serializing}, and any composite arrays of the former. If the Mono\-Behaviour being serialized is \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{I\-Serializing}, the \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{I\-Serializing} methods are treated as additions to all fields marked with Bit\-Serialize 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a052fde3e3f5b74b5a87405bae98a9a82}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}!Copy\-To@{Copy\-To}}
+\index{Copy\-To@{Copy\-To}!Skyrates::Common::Network::BitSerializeAttribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}}
+\subsubsection[{Copy\-To}]{\setlength{\rightskip}{0pt plus 5cm}static void Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute.\-Copy\-To (
+\begin{DoxyParamCaption}
+\item[{ref byte\mbox{[}$\,$\mbox{]}}]{dest, }
+\item[{int}]{start, }
+\item[{byte\mbox{[}$\,$\mbox{]}}]{source}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a052fde3e3f5b74b5a87405bae98a9a82}
+
+
+Write some byte array into another byte array at some offset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & The \-\_\-game\-State\-Data to copy.\\
+\hline
+{\em start} & The offset in bytes.\\
+\hline
+{\em source} & The \-\_\-game\-State\-Data object to copy into at the offset.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a45ac1b652220847483b344647204e3c5}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}!Get\-Size\-Of$<$ T $>$@{Get\-Size\-Of$<$ T $>$}}
+\index{Get\-Size\-Of$<$ T $>$@{Get\-Size\-Of$<$ T $>$}!Skyrates::Common::Network::BitSerializeAttribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}}
+\subsubsection[{Get\-Size\-Of$<$ T $>$}]{\setlength{\rightskip}{0pt plus 5cm}static int Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute.\-Get\-Size\-Of$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{T}]{obj, }
+\item[{List$<$ {\bf Attribute\-Field} $>$}]{fields = {\ttfamily null}, }
+\item[{List$<$ {\bf Attribute\-Field} $>$}]{generics = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a45ac1b652220847483b344647204e3c5}
+
+
+Attempts to determine the size of some object (effectively sizeof(object)) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The object to size up\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The size of some object, using sizeof for primitive objects, recursive behavior for arrays, and Get\-Size for \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{I\-Serializing}
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_afad634aa4c413a98c22d0b26d7dad8a6}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}!\-\_\-order@{\-\_\-order}}
+\index{\-\_\-order@{\-\_\-order}!Skyrates::Common::Network::BitSerializeAttribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}}
+\subsubsection[{\-\_\-order}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute.\-\_\-order}}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_afad634aa4c413a98c22d0b26d7dad8a6}
+
+
+The numerical order in which attributes are sorted -\/ lowest is first. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a5804be2d376111418f81ec041b5ddf80}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}!M\-O\-D\-U\-L\-E\-S@{M\-O\-D\-U\-L\-E\-S}}
+\index{M\-O\-D\-U\-L\-E\-S@{M\-O\-D\-U\-L\-E\-S}!Skyrates::Common::Network::BitSerializeAttribute@{Skyrates\-::\-Common\-::\-Network\-::\-Bit\-Serialize\-Attribute}}
+\subsubsection[{M\-O\-D\-U\-L\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$Type, {\bf I\-Serialization\-Module}$>$ Skyrates.\-Common.\-Network.\-Bit\-Serialize\-Attribute.\-M\-O\-D\-U\-L\-E\-S\hspace{0.3cm}{\ttfamily [static]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_a5804be2d376111418f81ec041b5ddf80}
+
+
+A dictionary of (De)Serialization interfaces for handling how any one type should be handled. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-Network/\-Serializing/Bit\-Serialize\-Attribute.\-cs\end{DoxyCompactItemize}

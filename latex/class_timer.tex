@@ -1,0 +1,115 @@
+\hypertarget{class_timer}{\section{Timer Class Reference}
+\label{class_timer}\index{Timer@{Timer}}
+}
+
+
+{\ttfamily \#include $<$Timer.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_timer_a5f16e8da27d2a5a5242dead46de05d97}{\hyperlink{class_timer_a5f16e8da27d2a5a5242dead46de05d97}{Timer} ()}\label{class_timer_a5f16e8da27d2a5a5242dead46de05d97}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_a14fa469c4c295c5fa6e66a4ad1092146}{\hyperlink{class_timer_a14fa469c4c295c5fa6e66a4ad1092146}{$\sim$\-Timer} ()}\label{class_timer_a14fa469c4c295c5fa6e66a4ad1092146}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_a3a8b5272198d029779dc9302a54305a8}{void \hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{start} ()}\label{class_timer_a3a8b5272198d029779dc9302a54305a8}
+
+\begin{DoxyCompactList}\small\item\em Starts the timer. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_a63f0eb44b27402196590a03781515dba}{void \hyperlink{class_timer_a63f0eb44b27402196590a03781515dba}{stop} ()}\label{class_timer_a63f0eb44b27402196590a03781515dba}
+
+\begin{DoxyCompactList}\small\item\em Stops the timer. \end{DoxyCompactList}\item 
+double \hyperlink{class_timer_ad306e18f8d8a0296e001683f92d7f86e}{get\-Elapsed\-Time} () const 
+\item 
+void \hyperlink{class_timer_a918584568a93c6cff18e3fddca0c1d44}{sleep\-Until\-Elapsed} (double ms)
+\item 
+void \hyperlink{class_timer_a3697dc7e11780a904fee957f2f1b2a36}{pause} (bool should\-Pause)
+\item 
+double \hyperlink{class_timer_ac2e8200d547385c0bff2d836716b0a2d}{get\-Factor} () const 
+\item 
+void \hyperlink{class_timer_a0e116daa696f3d5cd9dc3d2092606761}{mult\-Factor} (double mult)
+\item 
+void \hyperlink{class_timer_a0da285550f750a5ba6c16e5766785883}{set\-Factor} (double the\-Factor)
+\item 
+\hypertarget{class_timer_a7e8da31c3ef153c7b89ea971a4674476}{void \hyperlink{class_timer_a7e8da31c3ef153c7b89ea971a4674476}{restore\-Last\-Factor} ()}\label{class_timer_a7e8da31c3ef153c7b89ea971a4674476}
+
+\begin{DoxyCompactList}\small\item\em Sets the time scale factor to the most recent value prior to \hyperlink{class_timer_a0e116daa696f3d5cd9dc3d2092606761}{mult\-Factor} or \hyperlink{class_timer_a0da285550f750a5ba6c16e5766785883}{set\-Factor} being called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A high accuracy timer -\/ uses Large Integer to prevent rollover \begin{DoxyAuthor}{Author}
+Dean Lawson -\/ Champlain College 2011 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_timer_ad306e18f8d8a0296e001683f92d7f86e}{\index{Timer@{Timer}!get\-Elapsed\-Time@{get\-Elapsed\-Time}}
+\index{get\-Elapsed\-Time@{get\-Elapsed\-Time}!Timer@{Timer}}
+\subsubsection[{get\-Elapsed\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::get\-Elapsed\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_timer_ad306e18f8d8a0296e001683f92d7f86e}
+Returns how much time has elapsed since start in milliseconds \begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\hypertarget{class_timer_ac2e8200d547385c0bff2d836716b0a2d}{\index{Timer@{Timer}!get\-Factor@{get\-Factor}}
+\index{get\-Factor@{get\-Factor}!Timer@{Timer}}
+\subsubsection[{get\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}double Timer\-::get\-Factor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_timer_ac2e8200d547385c0bff2d836716b0a2d}
+Returns the time scale \begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\hypertarget{class_timer_a0e116daa696f3d5cd9dc3d2092606761}{\index{Timer@{Timer}!mult\-Factor@{mult\-Factor}}
+\index{mult\-Factor@{mult\-Factor}!Timer@{Timer}}
+\subsubsection[{mult\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\-::mult\-Factor (
+\begin{DoxyParamCaption}
+\item[{double}]{mult}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_timer_a0e116daa696f3d5cd9dc3d2092606761}
+Sets the time scale factor 
+\begin{DoxyParams}{Parameters}
+{\em mult} & the multiplier to the current factor ({\ttfamily m\-Factor = m\-Factor $\ast$ mult}). \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_timer_a3697dc7e11780a904fee957f2f1b2a36}{\index{Timer@{Timer}!pause@{pause}}
+\index{pause@{pause}!Timer@{Timer}}
+\subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\-::pause (
+\begin{DoxyParamCaption}
+\item[{bool}]{should\-Pause}
+\end{DoxyParamCaption}
+)}}\label{class_timer_a3697dc7e11780a904fee957f2f1b2a36}
+Pauses the timer. Sets m\-Paused to should\-Pause. \hypertarget{class_timer_a0da285550f750a5ba6c16e5766785883}{\index{Timer@{Timer}!set\-Factor@{set\-Factor}}
+\index{set\-Factor@{set\-Factor}!Timer@{Timer}}
+\subsubsection[{set\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\-::set\-Factor (
+\begin{DoxyParamCaption}
+\item[{double}]{the\-Factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_timer_a0da285550f750a5ba6c16e5766785883}
+Sets the time scale factor 
+\begin{DoxyParams}{Parameters}
+{\em the\-Factor} & the new time scale factor \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_timer_a918584568a93c6cff18e3fddca0c1d44}{\index{Timer@{Timer}!sleep\-Until\-Elapsed@{sleep\-Until\-Elapsed}}
+\index{sleep\-Until\-Elapsed@{sleep\-Until\-Elapsed}!Timer@{Timer}}
+\subsubsection[{sleep\-Until\-Elapsed}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\-::sleep\-Until\-Elapsed (
+\begin{DoxyParamCaption}
+\item[{double}]{ms}
+\end{DoxyParamCaption}
+)}}\label{class_timer_a918584568a93c6cff18e3fddca0c1d44}
+Holds up the current thread until {\ttfamily m\-Elapsed\-Time == ms}. 
+\begin{DoxyParams}{Parameters}
+{\em ms} & the elapsed time to wait for \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/include/Timer.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/source/Timer.\-cpp\end{DoxyCompactItemize}

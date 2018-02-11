@@ -1,0 +1,87 @@
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher}{\section{Skyrates.\-Common.\-Network.\-Packet\-Dispatcher Class Reference}
+\label{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher}\index{Skyrates.\-Common.\-Network.\-Packet\-Dispatcher@{Skyrates.\-Common.\-Network.\-Packet\-Dispatcher}}
+}
+
+
+Handles shipping out packets at the most opportune moment.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a27c614744c8706259d846b8fac24915a}{Enqueue} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt, string address, int port, bool broadcast)
+\begin{DoxyCompactList}\small\item\em Adds data to the event queue to be processed in the next \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a910470f183234eae492e621c9dbdd3fd}{Update} loop. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a910470f183234eae492e621c9dbdd3fd}{Update} ()
+\begin{DoxyCompactList}\small\item\em Dispatches all packet data added by \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a27c614744c8706259d846b8fac24915a}{Enqueue}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a6a6ee829c5387df7cf4a9887b5011e27}{Dispatch} (byte\mbox{[}$\,$\mbox{]} data, string address, int port, bool broadcast)
+\begin{DoxyCompactList}\small\item\em Dispatches the specified event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles shipping out packets at the most opportune moment. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a6a6ee829c5387df7cf4a9887b5011e27}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher@{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher}!Dispatch@{Dispatch}}
+\index{Dispatch@{Dispatch}!Skyrates::Common::Network::PacketDispatcher@{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher}}
+\subsubsection[{Dispatch}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Common.\-Network.\-Packet\-Dispatcher.\-Dispatch (
+\begin{DoxyParamCaption}
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{string}]{address, }
+\item[{int}]{port, }
+\item[{bool}]{broadcast}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a6a6ee829c5387df7cf4a9887b5011e27}
+
+
+Dispatches the specified event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & The event.\\
+\hline
+{\em address} & The server address.\\
+\hline
+{\em port} & The server port.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a27c614744c8706259d846b8fac24915a}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher@{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher}!Enqueue@{Enqueue}}
+\index{Enqueue@{Enqueue}!Skyrates::Common::Network::PacketDispatcher@{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher}}
+\subsubsection[{Enqueue}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Network.\-Packet\-Dispatcher.\-Enqueue (
+\begin{DoxyParamCaption}
+\item[{{\bf Network\-Event}}]{evt, }
+\item[{string}]{address, }
+\item[{int}]{port, }
+\item[{bool}]{broadcast}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a27c614744c8706259d846b8fac24915a}
+
+
+Adds data to the event queue to be processed in the next \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a910470f183234eae492e621c9dbdd3fd}{Update} loop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & \\
+\hline
+{\em address} & \\
+\hline
+{\em port} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a910470f183234eae492e621c9dbdd3fd}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher@{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher}!Update@{Update}}
+\index{Update@{Update}!Skyrates::Common::Network::PacketDispatcher@{Skyrates\-::\-Common\-::\-Network\-::\-Packet\-Dispatcher}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Network.\-Packet\-Dispatcher.\-Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a910470f183234eae492e621c9dbdd3fd}
+
+
+Dispatches all packet data added by \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher_a27c614744c8706259d846b8fac24915a}{Enqueue}. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-Network/Network\-Common.\-cs\end{DoxyCompactItemize}

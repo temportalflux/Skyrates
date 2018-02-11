@@ -1,0 +1,245 @@
+\hypertarget{class_state_server}{\section{State\-Server Class Reference}
+\label{class_state_server}\index{State\-Server@{State\-Server}}
+}
+
+
+The state application for the server (the server has only one state)  
+
+
+
+
+{\ttfamily \#include $<$State\-Server.\-h$>$}
+
+Inheritance diagram for State\-Server\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_state_server}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_state_server_a25f579ea466c99a9acc5b09afee655a3}{\hyperlink{class_state_server_a25f579ea466c99a9acc5b09afee655a3}{State\-Server} ()}\label{class_state_server_a25f579ea466c99a9acc5b09afee655a3}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_state_server_a7f828d9ae6acbbc581b65b18f8ead961}{virtual \hyperlink{class_state_server_a7f828d9ae6acbbc581b65b18f8ead961}{$\sim$\-State\-Server} ()}\label{class_state_server_a7f828d9ae6acbbc581b65b18f8ead961}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_state_server_ae1517f9d264d1fb39c16512477caa83e}{on\-Enter\-From} (\hyperlink{class_state_application}{State\-Application} $\ast$previous) override
+\item 
+virtual void \hyperlink{class_state_server_aceb9a260a5c4a4d46607e8fe71be2667}{update\-Network} () override
+\item 
+void \hyperlink{class_state_server_a8983232b9935b74fda71ed409b45c7fd}{handle\-Packet} (\hyperlink{class_champ_net_1_1_packet}{Champ\-Net\-::\-Packet} $\ast$packet)
+\item 
+virtual void \hyperlink{class_state_server_afc726acef321e4fd0b9f3aeacb126845}{update\-Game} () override
+\item 
+virtual void \hyperlink{class_state_server_afb476eb4f969490b00944a93157b76c8}{render} () override
+\item 
+void \hyperlink{class_state_server_aaeb4f49e47304f186f87f79a3612b085}{start} ()
+\item 
+void \hyperlink{class_state_server_a066a1d342ca796d2f40d273dc375a032}{disconnect} ()
+\item 
+void \hyperlink{class_state_server_ab03b5fe855178bbfa7ec2741b7a08172}{send\-Packet} (const char $\ast$address, char $\ast$data, int data\-Size, bool broadcast)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{class_state_server_a88bda7a0bfd4878781f4676e3b4b19bd}{send\-Packet} (const char $\ast$address, T $\ast$packet, bool broadcast)
+\item 
+void \hyperlink{class_state_server_a4ba2a2bde5a70c0aa50ad936ca88ad44}{send\-Disconnect\-Packet} (const char $\ast$address, bool broadcast)
+\item 
+bool \hyperlink{class_state_server_afcde4aa297197e9f2840d24612501b5a}{find\-Next\-Client\-I\-D} (unsigned int \&id)
+\item 
+bool \hyperlink{class_state_server_a4f6675bef8d34e3e3ffbe3e71e16732e}{add\-Client} (const char $\ast$address, unsigned int \&id)
+\item 
+void \hyperlink{class_state_server_aa1feeeb495d9bf60f5750323e839c02d}{remove\-Client} (unsigned int id)
+\item 
+void \hyperlink{class_state_server_a7d80660aa2ef7ab52ce8c86752abf145}{send\-Game\-State} (unsigned char msg\-I\-D, const char $\ast$sender=N\-U\-L\-L, bool broadcast=true, int client\-I\-D=-\/1)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The state application for the server (the server has only one state) 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_state_server_a4f6675bef8d34e3e3ffbe3e71e16732e}{\index{State\-Server@{State\-Server}!add\-Client@{add\-Client}}
+\index{add\-Client@{add\-Client}!StateServer@{State\-Server}}
+\subsubsection[{add\-Client}]{\setlength{\rightskip}{0pt plus 5cm}bool State\-Server\-::add\-Client (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{address, }
+\item[{unsigned int \&}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_a4f6675bef8d34e3e3ffbe3e71e16732e}
+Adds a client to mp\-Client\-Addresses \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\hypertarget{class_state_server_a066a1d342ca796d2f40d273dc375a032}{\index{State\-Server@{State\-Server}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!StateServer@{State\-Server}}
+\subsubsection[{disconnect}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_a066a1d342ca796d2f40d273dc375a032}
+Disconnects server and notifies clients of disconnection\begin{DoxyAuthor}{Author}
+Dustin Yost
+\end{DoxyAuthor}
+Disconnects server and notifies clients of disconnection \hypertarget{class_state_server_afcde4aa297197e9f2840d24612501b5a}{\index{State\-Server@{State\-Server}!find\-Next\-Client\-I\-D@{find\-Next\-Client\-I\-D}}
+\index{find\-Next\-Client\-I\-D@{find\-Next\-Client\-I\-D}!StateServer@{State\-Server}}
+\subsubsection[{find\-Next\-Client\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}bool State\-Server\-::find\-Next\-Client\-I\-D (
+\begin{DoxyParamCaption}
+\item[{unsigned int \&}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_afcde4aa297197e9f2840d24612501b5a}
+Finds the next available address slot, returning -\/1 if none is found \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\hypertarget{class_state_server_a8983232b9935b74fda71ed409b45c7fd}{\index{State\-Server@{State\-Server}!handle\-Packet@{handle\-Packet}}
+\index{handle\-Packet@{handle\-Packet}!StateServer@{State\-Server}}
+\subsubsection[{handle\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::handle\-Packet (
+\begin{DoxyParamCaption}
+\item[{{\bf Champ\-Net\-::\-Packet} $\ast$}]{packet}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_a8983232b9935b74fda71ed409b45c7fd}
+Handles the usage of all the different packet identifiers\begin{DoxyAuthor}{Author}
+Dustin Yost
+\end{DoxyAuthor}
+Handles the usage of all the different packet identifiers \hypertarget{class_state_server_ae1517f9d264d1fb39c16512477caa83e}{\index{State\-Server@{State\-Server}!on\-Enter\-From@{on\-Enter\-From}}
+\index{on\-Enter\-From@{on\-Enter\-From}!StateServer@{State\-Server}}
+\subsubsection[{on\-Enter\-From}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::on\-Enter\-From (
+\begin{DoxyParamCaption}
+\item[{{\bf State\-Application} $\ast$}]{previous}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{class_state_server_ae1517f9d264d1fb39c16512477caa83e}
+Called when the state is entered \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+
+
+Reimplemented from \hyperlink{class_state_application}{State\-Application}.
+
+\hypertarget{class_state_server_aa1feeeb495d9bf60f5750323e839c02d}{\index{State\-Server@{State\-Server}!remove\-Client@{remove\-Client}}
+\index{remove\-Client@{remove\-Client}!StateServer@{State\-Server}}
+\subsubsection[{remove\-Client}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::remove\-Client (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_aa1feeeb495d9bf60f5750323e839c02d}
+Removes a client from mp\-Client\-Addresses \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\hypertarget{class_state_server_afb476eb4f969490b00944a93157b76c8}{\index{State\-Server@{State\-Server}!render@{render}}
+\index{render@{render}!StateServer@{State\-Server}}
+\subsubsection[{render}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{class_state_server_afb476eb4f969490b00944a93157b76c8}
+Renders things to the server console \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+
+
+Reimplemented from \hyperlink{class_state_application_abf6724778903f7f4f9106d4be5a1f9f4}{State\-Application}.
+
+\hypertarget{class_state_server_a4ba2a2bde5a70c0aa50ad936ca88ad44}{\index{State\-Server@{State\-Server}!send\-Disconnect\-Packet@{send\-Disconnect\-Packet}}
+\index{send\-Disconnect\-Packet@{send\-Disconnect\-Packet}!StateServer@{State\-Server}}
+\subsubsection[{send\-Disconnect\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::send\-Disconnect\-Packet (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{address, }
+\item[{bool}]{broadcast}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_a4ba2a2bde5a70c0aa50ad936ca88ad44}
+Sends clients the notification of server disconnection\begin{DoxyAuthor}{Author}
+Dustin Yost
+\end{DoxyAuthor}
+Sends clients the notification of server disconnection \hypertarget{class_state_server_a7d80660aa2ef7ab52ce8c86752abf145}{\index{State\-Server@{State\-Server}!send\-Game\-State@{send\-Game\-State}}
+\index{send\-Game\-State@{send\-Game\-State}!StateServer@{State\-Server}}
+\subsubsection[{send\-Game\-State}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::send\-Game\-State (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{msg\-I\-D, }
+\item[{const char $\ast$}]{sender = {\ttfamily NULL}, }
+\item[{bool}]{broadcast = {\ttfamily true}, }
+\item[{int}]{client\-I\-D = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_a7d80660aa2ef7ab52ce8c86752abf145}
+Serializes and ships mp\-Game\-State to clients. 
+\begin{DoxyParams}{Parameters}
+{\em msg\-I\-D} & the packet\-I\-D. \\
+\hline
+{\em sender} & \mbox{[}optional\mbox{]} the address to send to, or the address to not send to. \\
+\hline
+{\em broadcast} & \mbox{[}optional\mbox{]} if the packet should be shipped to A\-L\-L connected peers (if true, sender is not shipped to). \\
+\hline
+{\em client\-I\-D} & \mbox{[}optional\mbox{]} the client I\-D to set in place in the \hyperlink{class_game_state}{Game\-State} (see \hyperlink{class_game_state_ab6a18ea584fef4c1fafb8f621c912ca3}{Game\-State\-::serialize\-For\-Client}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\hypertarget{class_state_server_ab03b5fe855178bbfa7ec2741b7a08172}{\index{State\-Server@{State\-Server}!send\-Packet@{send\-Packet}}
+\index{send\-Packet@{send\-Packet}!StateServer@{State\-Server}}
+\subsubsection[{send\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::send\-Packet (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{address, }
+\item[{char $\ast$}]{data, }
+\item[{int}]{data\-Size, }
+\item[{bool}]{broadcast}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_ab03b5fe855178bbfa7ec2741b7a08172}
+Send packet data to the network \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\hypertarget{class_state_server_a88bda7a0bfd4878781f4676e3b4b19bd}{\index{State\-Server@{State\-Server}!send\-Packet@{send\-Packet}}
+\index{send\-Packet@{send\-Packet}!StateServer@{State\-Server}}
+\subsubsection[{send\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void State\-Server\-::send\-Packet (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{address, }
+\item[{T $\ast$}]{packet, }
+\item[{bool}]{broadcast}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_state_server_a88bda7a0bfd4878781f4676e3b4b19bd}
+Cast some general packet type to data \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\hypertarget{class_state_server_aaeb4f49e47304f186f87f79a3612b085}{\index{State\-Server@{State\-Server}!start@{start}}
+\index{start@{start}!StateServer@{State\-Server}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_state_server_aaeb4f49e47304f186f87f79a3612b085}
+Starts the server at whatever address and port are in the state data\begin{DoxyAuthor}{Author}
+Dustin Yost
+\end{DoxyAuthor}
+Starts the server at whatever address and port are in the state data \hypertarget{class_state_server_afc726acef321e4fd0b9f3aeacb126845}{\index{State\-Server@{State\-Server}!update\-Game@{update\-Game}}
+\index{update\-Game@{update\-Game}!StateServer@{State\-Server}}
+\subsubsection[{update\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::update\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{class_state_server_afc726acef321e4fd0b9f3aeacb126845}
+Updates the game every possible tick \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+
+
+Reimplemented from \hyperlink{class_state_application_ae8c352707a7a61196ad655f0e357faff}{State\-Application}.
+
+\hypertarget{class_state_server_aceb9a260a5c4a4d46607e8fe71be2667}{\index{State\-Server@{State\-Server}!update\-Network@{update\-Network}}
+\index{update\-Network@{update\-Network}!StateServer@{State\-Server}}
+\subsubsection[{update\-Network}]{\setlength{\rightskip}{0pt plus 5cm}void State\-Server\-::update\-Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{class_state_server_aceb9a260a5c4a4d46607e8fe71be2667}
+Updates the network\begin{DoxyAuthor}{Author}
+Dustin Yost
+\end{DoxyAuthor}
+Updates the network 
+
+Reimplemented from \hyperlink{class_state_application_a55c3922d9e1be3e3ef39f7252c698fc4}{State\-Application}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/include/State\-Server.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/source/State\-Server.\-cpp\end{DoxyCompactItemize}

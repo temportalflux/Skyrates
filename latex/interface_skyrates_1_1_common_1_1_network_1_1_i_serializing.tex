@@ -1,0 +1,106 @@
+\hypertarget{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}{\section{Skyrates.\-Common.\-Network.\-I\-Serializing Interface Reference}
+\label{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}\index{Skyrates.\-Common.\-Network.\-I\-Serializing@{Skyrates.\-Common.\-Network.\-I\-Serializing}}
+}
+
+
+Implemented for custom use cases which cannot be defined with the \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute}{Bit\-Serialize\-Attribute} usage.  
+
+
+Inheritance diagram for Skyrates.\-Common.\-Network.\-I\-Serializing\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.261261cm]{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a32fb93f3d40a5daec876031ae9406215}{Get\-Size} ()
+\begin{DoxyCompactList}\small\item\em Returns the size of the packet (the size for a potential byte\mbox{[}\mbox{]}) \end{DoxyCompactList}\item 
+void \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a1433635010dc809984bb621d857f9489}{Serialize} (ref byte\mbox{[}$\,$\mbox{]} data, ref int last\-Index)
+\begin{DoxyCompactList}\small\item\em Serializes \-\_\-game\-State\-Data from this event into a byte array \end{DoxyCompactList}\item 
+void \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a7848a41bbac6504e8be9bec00be3608d}{Deserialize} (byte\mbox{[}$\,$\mbox{]} data, ref int last\-Index)
+\begin{DoxyCompactList}\small\item\em Deserializes \-\_\-game\-State\-Data from a byte array into this event's \-\_\-game\-State\-Data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implemented for custom use cases which cannot be defined with the \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute}{Bit\-Serialize\-Attribute} usage. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a7848a41bbac6504e8be9bec00be3608d}{\index{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing@{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!Skyrates::Common::Network::ISerializing@{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Network.\-I\-Serializing.\-Deserialize (
+\begin{DoxyParamCaption}
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{ref int}]{last\-Index}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a7848a41bbac6504e8be9bec00be3608d}
+
+
+Deserializes \-\_\-game\-State\-Data from a byte array into this event's \-\_\-game\-State\-Data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The \-\_\-game\-State\-Data.\\
+\hline
+{\em last\-Index} & The last index.\\
+\hline
+\end{DoxyParams}
+
+
+Author\-: Dustin Yost 
+
+Implemented in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker_abca7ae5aba960e5bfc2a0fcd5cb65f74}{Skyrates.\-Common.\-Entity.\-Entity\-Tracker}, \hyperlink{class_ship_data_a13f9971ec63b0e59d68d2d809a5c5c91}{Ship\-Data}, \hyperlink{class_skyrates_1_1_server_1_1_network_1_1_event_1_1_event_update_game_state_a7718453a6ffac0dbd0e63b7dd112d5d0}{Skyrates.\-Server.\-Network.\-Event.\-Event\-Update\-Game\-State}, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Skyrates.\-Common.\-Entity.\-Entity\-Receiver}, and \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_test_1_1_bit_test_1_1_sereal_aa961fc979c6c086be2d3dc829377c86c}{Skyrates.\-Common.\-Network.\-Test.\-Bit\-Test.\-Sereal}.
+
+\hypertarget{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a32fb93f3d40a5daec876031ae9406215}{\index{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing@{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing}!Get\-Size@{Get\-Size}}
+\index{Get\-Size@{Get\-Size}!Skyrates::Common::Network::ISerializing@{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing}}
+\subsubsection[{Get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Common.\-Network.\-I\-Serializing.\-Get\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a32fb93f3d40a5daec876031ae9406215}
+
+
+Returns the size of the packet (the size for a potential byte\mbox{[}\mbox{]}) 
+
+\begin{DoxyReturn}{Returns}
+the integer length of a byte array to hold this event's \-\_\-game\-State\-Data 
+\end{DoxyReturn}
+
+
+Author\-: Dustin Yost 
+
+Implemented in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker_a1d51788798accc30939140c1b08c9e0e}{Skyrates.\-Common.\-Entity.\-Entity\-Tracker}, \hyperlink{class_ship_data_a9dc62e72a9c972a02f8d504e21ceeaf5}{Ship\-Data}, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher_a16f091819f27f1679cc0b7434793565d}{Skyrates.\-Common.\-Entity.\-Entity\-Dispatcher}, \hyperlink{class_skyrates_1_1_server_1_1_network_1_1_event_1_1_event_update_game_state_aeec7bfb004a337c42cb3040d38abef38}{Skyrates.\-Server.\-Network.\-Event.\-Event\-Update\-Game\-State}, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_af1cfb5c70f163aca0fbd0c578ae1e713}{Skyrates.\-Common.\-Entity.\-Entity\-Receiver}, and \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_test_1_1_bit_test_1_1_sereal_a85e876dc3c76e00117b18a33011aa8a4}{Skyrates.\-Common.\-Network.\-Test.\-Bit\-Test.\-Sereal}.
+
+\hypertarget{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a1433635010dc809984bb621d857f9489}{\index{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing@{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Skyrates::Common::Network::ISerializing@{Skyrates\-::\-Common\-::\-Network\-::\-I\-Serializing}}
+\subsubsection[{Serialize}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Network.\-I\-Serializing.\-Serialize (
+\begin{DoxyParamCaption}
+\item[{ref byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{ref int}]{last\-Index}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_common_1_1_network_1_1_i_serializing_a1433635010dc809984bb621d857f9489}
+
+
+Serializes \-\_\-game\-State\-Data from this event into a byte array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The \-\_\-game\-State\-Data.\\
+\hline
+{\em last\-Index} & The last index.\\
+\hline
+\end{DoxyParams}
+
+
+Author\-: Dustin Yost 
+
+Implemented in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker_a7f4a7f9b73609b7f9fc38f2ef1a94cfe}{Skyrates.\-Common.\-Entity.\-Entity\-Tracker}, \hyperlink{class_ship_data_a6207f2504de150eeb3e7407803cbbddb}{Ship\-Data}, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher_ab2b68b940fbf22e713d149465ac18586}{Skyrates.\-Common.\-Entity.\-Entity\-Dispatcher}, \hyperlink{class_skyrates_1_1_server_1_1_network_1_1_event_1_1_event_update_game_state_a060b8e03d1fe344bb2a4fdc4b0ab5814}{Skyrates.\-Server.\-Network.\-Event.\-Event\-Update\-Game\-State}, and \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_test_1_1_bit_test_1_1_sereal_a67a9e22bccc860f9771c041e92ae9759}{Skyrates.\-Common.\-Network.\-Test.\-Bit\-Test.\-Sereal}.
+
+
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-Network/\-Serializing/I\-Serializing.\-cs\end{DoxyCompactItemize}

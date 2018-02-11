@@ -1,0 +1,171 @@
+\hypertarget{namespace_champ_net_plugin}{\section{Package Champ\-Net\-Plugin}
+\label{namespace_champ_net_plugin}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_champ_net_plugin_1_1_network_plugin}{Network\-Plugin}
+\begin{DoxyCompactList}\small\item\em A Unity interface with the C++ plugin under \hyperlink{class_champ_net_1_1_network}{Champ\-Net\-::\-Network} and \hyperlink{namespace_champ_net_plugin}{Champ\-Net\-Plugin}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespace_champ_net_plugin_a95f023a4e052d535ba21ff3bbb13b24c}{typedef void($\ast$ {\bfseries Func\-Call\-Back} )(const char $\ast$message, int color, int size)}\label{namespace_champ_net_plugin_a95f023a4e052d535ba21ff3bbb13b24c}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821}{Message\-I\-Ds} \{ \\*
+{\bfseries C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T} = 22, 
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D} = 16, 
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-R\-E\-J\-E\-C\-T\-E\-D} = 17, 
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-I\-N\-C\-O\-M\-I\-N\-G} = 19, 
+\\*
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N} = 21, 
+{\bfseries N\-O\-N\-E} = 134, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aecc0564c52e3106cfe012e5533b080da}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N} = I\-D\-\_\-\-N\-E\-W\-\_\-\-I\-N\-C\-O\-M\-I\-N\-G\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a2ed0fbbbbe782bca6c76277c89050ad9}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N} = I\-D\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-N\-O\-T\-I\-F\-I\-C\-A\-T\-I\-O\-N, 
+\\*
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G} = I\-D\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a0295101371b4a70a1c007a4f6e206e1d}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D} = I\-D\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-R\-E\-Q\-U\-E\-S\-T\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D, 
+{\bfseries I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-R\-E\-J\-E\-C\-T\-E\-D} = I\-D\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-T\-T\-E\-M\-P\-T\-\_\-\-F\-A\-I\-L\-E\-D, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d}{I\-D\-\_\-\-N\-O\-N\-E} = I\-D\-\_\-\-U\-S\-E\-R\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-E\-N\-U\-M
+ \}
+\begin{DoxyCompactList}\small\item\em The message I\-Ds accessible by client. Same as the server Message I\-Ds. \end{DoxyCompactList}\item 
+enum \hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821}{Message\-I\-Ds} \{ \\*
+{\bfseries C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T} = 22, 
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D} = 16, 
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-R\-E\-J\-E\-C\-T\-E\-D} = 17, 
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-I\-N\-C\-O\-M\-I\-N\-G} = 19, 
+\\*
+{\bfseries C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N} = 21, 
+{\bfseries N\-O\-N\-E} = 134, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aecc0564c52e3106cfe012e5533b080da}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N} = I\-D\-\_\-\-N\-E\-W\-\_\-\-I\-N\-C\-O\-M\-I\-N\-G\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a2ed0fbbbbe782bca6c76277c89050ad9}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N} = I\-D\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-N\-O\-T\-I\-F\-I\-C\-A\-T\-I\-O\-N, 
+\\*
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G} = I\-D\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a0295101371b4a70a1c007a4f6e206e1d}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D} = I\-D\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-R\-E\-Q\-U\-E\-S\-T\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D, 
+{\bfseries I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-R\-E\-J\-E\-C\-T\-E\-D} = I\-D\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-T\-T\-E\-M\-P\-T\-\_\-\-F\-A\-I\-L\-E\-D, 
+\hyperlink{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d}{I\-D\-\_\-\-N\-O\-N\-E} = I\-D\-\_\-\-U\-S\-E\-R\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-E\-N\-U\-M
+ \}
+\begin{DoxyCompactList}\small\item\em All the Message/\-Packet identifiers used for this implementation. \end{DoxyCompactList}\item 
+enum {\bfseries Color} \{ \\*
+{\bfseries Red}, 
+{\bfseries Green}, 
+{\bfseries Blue}, 
+{\bfseries Black}, 
+\\*
+{\bfseries White}, 
+{\bfseries Yellow}, 
+{\bfseries Orange}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespace_champ_net_plugin_a849f82c5f4de7d9a7cf5d56644a5ebf2}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G int \hyperlink{namespace_champ_net_plugin_a849f82c5f4de7d9a7cf5d56644a5ebf2}{Create} ()}\label{namespace_champ_net_plugin_a849f82c5f4de7d9a7cf5d56644a5ebf2}
+
+\begin{DoxyCompactList}\small\item\em Create a network to connect with. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_a5a62b238f68c59b131074192f76a332f}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G void \hyperlink{namespace_champ_net_plugin_a5a62b238f68c59b131074192f76a332f}{Register\-Debug\-Callback} (Func\-Call\-Back call\-Back)}\label{namespace_champ_net_plugin_a5a62b238f68c59b131074192f76a332f}
+
+\begin{DoxyCompactList}\small\item\em Registers a debug callback for usage in printing logs. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_a7380724b368807f88b5cbe3037a8a9d8}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G int \hyperlink{namespace_champ_net_plugin_a7380724b368807f88b5cbe3037a8a9d8}{Destroy} ()}\label{namespace_champ_net_plugin_a7380724b368807f88b5cbe3037a8a9d8}
+
+\begin{DoxyCompactList}\small\item\em Destroy the network (must call Create prior) (must call when owning object is destroyed) \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_a53b12084325aeaf2abd475f3b5d19627}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G int \hyperlink{namespace_champ_net_plugin_a53b12084325aeaf2abd475f3b5d19627}{Start\-Server} (int port, int max\-Clients)}\label{namespace_champ_net_plugin_a53b12084325aeaf2abd475f3b5d19627}
+
+\begin{DoxyCompactList}\small\item\em Start a server with the specified credentials using this object. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_ab92621bbf98ccf055d3a884220d5577e}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G int \hyperlink{namespace_champ_net_plugin_ab92621bbf98ccf055d3a884220d5577e}{Start\-Client} ()}\label{namespace_champ_net_plugin_ab92621bbf98ccf055d3a884220d5577e}
+
+\begin{DoxyCompactList}\small\item\em Start a client using this object. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_ae65d85077ea14169471c94ef9412db81}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G int \hyperlink{namespace_champ_net_plugin_ae65d85077ea14169471c94ef9412db81}{Connect\-To\-Server} (const char $\ast$address, int port)}\label{namespace_champ_net_plugin_ae65d85077ea14169471c94ef9412db81}
+
+\begin{DoxyCompactList}\small\item\em Connect this C\-L\-I\-E\-N\-T to some server using the specified credentials. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_a6fb34db2c53b323bf7c1ff054de6b5f5}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G int \hyperlink{namespace_champ_net_plugin_a6fb34db2c53b323bf7c1ff054de6b5f5}{Fetch\-Packets} ()}\label{namespace_champ_net_plugin_a6fb34db2c53b323bf7c1ff054de6b5f5}
+
+\begin{DoxyCompactList}\small\item\em Fetch all incoming packets. Must call prior to Poll\-Packet. Must be called after Create and before Destroy. Returns the quantity of packets in the queue after fetch. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_abb7c7dca9d557ab9cd6b29fbb6a75785}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G void $\ast$ \hyperlink{namespace_champ_net_plugin_abb7c7dca9d557ab9cd6b29fbb6a75785}{Poll\-Packet} (bool \&valid\-Packet)}\label{namespace_champ_net_plugin_abb7c7dca9d557ab9cd6b29fbb6a75785}
+
+\begin{DoxyCompactList}\small\item\em Poll the packet queue. Returns a pointer to the first packet, and removes that packet from the queue. If valid is true, then the packet can be processed, else the packet does not exist (no packets presently in the queue). \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_aeada1879c38a3ec33c57b15ba63fa53d}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G const char $\ast$ \hyperlink{namespace_champ_net_plugin_aeada1879c38a3ec33c57b15ba63fa53d}{Get\-Packet\-Address} (void $\ast$packet\-Ptr, unsigned int \&length)}\label{namespace_champ_net_plugin_aeada1879c38a3ec33c57b15ba63fa53d}
+
+\begin{DoxyCompactList}\small\item\em Returns the packet's address, given some valid packet pointer (Call after Poll\-Packet if valid is true). \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_acd1de52a8a043992fd80521d459ba977}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G \\*
+unsigned char $\ast$ \hyperlink{namespace_champ_net_plugin_acd1de52a8a043992fd80521d459ba977}{Get\-Packet\-Data} (void $\ast$packet\-Ptr, unsigned int \&length, unsigned long \&transmit\-Time)}\label{namespace_champ_net_plugin_acd1de52a8a043992fd80521d459ba977}
+
+\begin{DoxyCompactList}\small\item\em Returns the packet's data, given some valid packet pointer (Call after Poll\-Packet if valid is true). \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_a713f269ee3388251cca3c05b331bcb77}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G void \hyperlink{namespace_champ_net_plugin_a713f269ee3388251cca3c05b331bcb77}{Free\-Packet} (void $\ast$packet\-Ptr)}\label{namespace_champ_net_plugin_a713f269ee3388251cca3c05b331bcb77}
+
+\begin{DoxyCompactList}\small\item\em Frees the memory of some packet, given some valid packet pointer (Call after Poll\-Packet if valid is true). \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_ae315c9fac65ee4956d71ab7f2db8a13a}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G void \hyperlink{namespace_champ_net_plugin_ae315c9fac65ee4956d71ab7f2db8a13a}{Send\-Byte\-Array} (const char $\ast$address, int port, char $\ast$byte\-Array, int byte\-Array\-Size, bool broadcast)}\label{namespace_champ_net_plugin_ae315c9fac65ee4956d71ab7f2db8a13a}
+
+\begin{DoxyCompactList}\small\item\em Sends a byte\mbox{[}\mbox{]} of data to some address. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_a50b06a48ff0ffb5f98dc98a8b29546ad}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G void \hyperlink{namespace_champ_net_plugin_a50b06a48ff0ffb5f98dc98a8b29546ad}{Send\-Data} (const char $\ast$address, char $\ast$byte\-Array, int byte\-Array\-Size, Packet\-Priority $\ast$priority, Packet\-Reliability $\ast$reliability, int channel, bool broadcast)}\label{namespace_champ_net_plugin_a50b06a48ff0ffb5f98dc98a8b29546ad}
+
+\begin{DoxyCompactList}\small\item\em Sends a byte\mbox{[}\mbox{]} of data to some address uing Rak\-Net protocols. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_ad73dddb34e26ec660742e00a0d41fee5}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G void \hyperlink{namespace_champ_net_plugin_ad73dddb34e26ec660742e00a0d41fee5}{Disconnect} ()}\label{namespace_champ_net_plugin_ad73dddb34e26ec660742e00a0d41fee5}
+
+\begin{DoxyCompactList}\small\item\em Disconnect from the interface. \end{DoxyCompactList}\item 
+\hypertarget{namespace_champ_net_plugin_af5f2e2b6f71b6e0ddca62b9d7ed7e272}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G const char $\ast$ \hyperlink{namespace_champ_net_plugin_af5f2e2b6f71b6e0ddca62b9d7ed7e272}{Get\-Address} ()}\label{namespace_champ_net_plugin_af5f2e2b6f71b6e0ddca62b9d7ed7e272}
+
+\begin{DoxyCompactList}\small\item\em Returns the current peer interface address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespace_champ_net_plugin_a6f246146f350188f1518f4dedb72f374}{C\-H\-A\-M\-P\-N\-E\-T\-\_\-\-P\-L\-U\-G\-I\-N\-\_\-\-S\-Y\-M\-T\-A\-G \\*
+\hyperlink{class_champ_net_1_1_network}{Champ\-Net\-::\-Network} $\ast$ {\bfseries gp\-Network} = 0}\label{namespace_champ_net_plugin_a6f246146f350188f1518f4dedb72f374}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wraps $<$see cref=\char`\"{}\-Champ\-Net\char`\"{}$>$ for usage as a Unity Plugin and static dll compilation \begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821}{\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!Message\-I\-Ds@{Message\-I\-Ds}}
+\index{Message\-I\-Ds@{Message\-I\-Ds}!ChampNetPlugin@{Champ\-Net\-Plugin}}
+\subsubsection[{Message\-I\-Ds}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Champ\-Net\-Plugin.\-Message\-I\-Ds}}}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821}
+
+
+The message I\-Ds accessible by client. Same as the server Message I\-Ds. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aecc0564c52e3106cfe012e5533b080da}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aecc0564c52e3106cfe012e5533b080da}
+}]Rak\-Net messages (unsued for clients) \index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a2ed0fbbbbe782bca6c76277c89050ad9}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a2ed0fbbbbe782bca6c76277c89050ad9}
+}]The connection was severed. \index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155}
+}]The connection was dropped. \index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a0295101371b4a70a1c007a4f6e206e1d}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a0295101371b4a70a1c007a4f6e206e1d}
+}]Rak\-Net Messages (used for clients) \index{I\-D\-\_\-\-N\-O\-N\-E@{I\-D\-\_\-\-N\-O\-N\-E}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-N\-O\-N\-E@{I\-D\-\_\-\-N\-O\-N\-E}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d}{I\-D\-\_\-\-N\-O\-N\-E}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d}
+}]placeholder -\/ For tracking in C\# script \end{description}
+\end{Desc}
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821}{\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!Message\-I\-Ds@{Message\-I\-Ds}}
+\index{Message\-I\-Ds@{Message\-I\-Ds}!ChampNetPlugin@{Champ\-Net\-Plugin}}
+\subsubsection[{Message\-I\-Ds}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Champ\-Net\-Plugin\-::\-Message\-I\-Ds}}}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821}
+
+
+All the Message/\-Packet identifiers used for this implementation. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aecc0564c52e3106cfe012e5533b080da}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aecc0564c52e3106cfe012e5533b080da}
+}]Rak\-Net messages (unsued for clients) \index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a2ed0fbbbbe782bca6c76277c89050ad9}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a2ed0fbbbbe782bca6c76277c89050ad9}
+}]The connection was severed. \index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-M\-I\-S\-S\-I\-N\-G}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155}
+}]The connection was dropped. \index{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a0295101371b4a70a1c007a4f6e206e1d}{I\-D\-\_\-\-C\-L\-I\-E\-N\-T\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821a0295101371b4a70a1c007a4f6e206e1d}
+}]Rak\-Net Messages (used for clients) \index{I\-D\-\_\-\-N\-O\-N\-E@{I\-D\-\_\-\-N\-O\-N\-E}!Champ\-Net\-Plugin@{Champ\-Net\-Plugin}}\index{Champ\-Net\-Plugin@{Champ\-Net\-Plugin}!I\-D\-\_\-\-N\-O\-N\-E@{I\-D\-\_\-\-N\-O\-N\-E}}\item[{\em 
+\hypertarget{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d}{I\-D\-\_\-\-N\-O\-N\-E}\label{namespace_champ_net_plugin_a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d}
+}]placeholder -\/ For tracking in C\# script \end{description}
+\end{Desc}

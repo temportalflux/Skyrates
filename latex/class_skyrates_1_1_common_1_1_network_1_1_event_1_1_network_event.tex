@@ -1,0 +1,81 @@
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{\section{Skyrates.\-Common.\-Network.\-Event.\-Network\-Event Class Reference}
+\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}\index{Skyrates.\-Common.\-Network.\-Event.\-Network\-Event@{Skyrates.\-Common.\-Network.\-Event.\-Network\-Event}}
+}
+
+
+Any packet/message/event which is sent over the network.  
+
+
+Inheritance diagram for Skyrates.\-Common.\-Network.\-Event.\-Network\-Event\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.432432cm]{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a414cc42ba387e119443091e9924d01f4}{virtual byte\mbox{[}$\,$\mbox{]} {\bfseries Serialize} ()}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a414cc42ba387e119443091e9924d01f4}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_aee813a49a5cd790efdf0f4ad218fec06}{virtual void {\bfseries Deserialize} (byte\mbox{[}$\,$\mbox{]} data)}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_aee813a49a5cd790efdf0f4ad218fec06}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a0c6392daf5577e26be4f0783129a2be2}{object\mbox{[}$\,$\mbox{]} {\bfseries Get\-Attribute} ()}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a0c6392daf5577e26be4f0783129a2be2}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a39656b8cbfffef7942a82d6792e41592}{bool {\bfseries Is\-Sent\-By} (Side side)}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a39656b8cbfffef7942a82d6792e41592}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a9e2411f9fce567505a2823d6e54a7d87}{bool {\bfseries Is\-Received\-By} (Side side)}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a9e2411f9fce567505a2823d6e54a7d87}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+byte \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_ac75427f751e432fb3efe4ac0c2289a5f}{Event\-I\-D}
+\begin{DoxyCompactList}\small\item\em The identifier of this event. Will always line up with something in \hyperlink{namespace_skyrates_1_1_common_1_1_network_a90fc6faa44c44b4284114e861d3e761a}{Network\-Event\-I\-D}. \end{DoxyCompactList}\item 
+string \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a85fa6ba40f7dfa60824d5c0abc841aab}{Source\-Address}
+\begin{DoxyCompactList}\small\item\em The is the I\-P address of the source, usually I\-Pv4. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_abb150b5f12f022b2f2c3ff431179c69d}{Transmit\-Time}
+\begin{DoxyCompactList}\small\item\em How long it took to transmit this packet from dispatcher to receiver in ms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a1e7bee16c343c8e2c06d855f69662f78}{{\bfseries Network\-Event} (\hyperlink{namespace_skyrates_1_1_common_1_1_network_a90fc6faa44c44b4284114e861d3e761a}{Network\-Event\-I\-D} id)}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a1e7bee16c343c8e2c06d855f69662f78}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Any packet/message/event which is sent over the network. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_ac75427f751e432fb3efe4ac0c2289a5f}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event@{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event}!Event\-I\-D@{Event\-I\-D}}
+\index{Event\-I\-D@{Event\-I\-D}!Skyrates::Common::Network::Event::NetworkEvent@{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event}}
+\subsubsection[{Event\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}byte Skyrates.\-Common.\-Network.\-Event.\-Network\-Event.\-Event\-I\-D}}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_ac75427f751e432fb3efe4ac0c2289a5f}
+
+
+The identifier of this event. Will always line up with something in \hyperlink{namespace_skyrates_1_1_common_1_1_network_a90fc6faa44c44b4284114e861d3e761a}{Network\-Event\-I\-D}. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a85fa6ba40f7dfa60824d5c0abc841aab}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event@{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event}!Source\-Address@{Source\-Address}}
+\index{Source\-Address@{Source\-Address}!Skyrates::Common::Network::Event::NetworkEvent@{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event}}
+\subsubsection[{Source\-Address}]{\setlength{\rightskip}{0pt plus 5cm}string Skyrates.\-Common.\-Network.\-Event.\-Network\-Event.\-Source\-Address}}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_a85fa6ba40f7dfa60824d5c0abc841aab}
+
+
+The is the I\-P address of the source, usually I\-Pv4. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_abb150b5f12f022b2f2c3ff431179c69d}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event@{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event}!Transmit\-Time@{Transmit\-Time}}
+\index{Transmit\-Time@{Transmit\-Time}!Skyrates::Common::Network::Event::NetworkEvent@{Skyrates\-::\-Common\-::\-Network\-::\-Event\-::\-Network\-Event}}
+\subsubsection[{Transmit\-Time}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Common.\-Network.\-Event.\-Network\-Event.\-Transmit\-Time}}\label{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event_abb150b5f12f022b2f2c3ff431179c69d}
+
+
+How long it took to transmit this packet from dispatcher to receiver in ms. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-Network/\-Event/Network\-Event.\-cs\end{DoxyCompactItemize}

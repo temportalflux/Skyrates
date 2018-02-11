@@ -1,0 +1,101 @@
+\hypertarget{class_performance_tracker}{\section{Performance\-Tracker Class Reference}
+\label{class_performance_tracker}\index{Performance\-Tracker@{Performance\-Tracker}}
+}
+
+
+{\ttfamily \#include $<$Performance\-Tracker.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_performance_tracker_a3ca7c573d743478e4924f3239f258a70}{\hyperlink{class_performance_tracker_a3ca7c573d743478e4924f3239f258a70}{Performance\-Tracker} ()}\label{class_performance_tracker_a3ca7c573d743478e4924f3239f258a70}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_performance_tracker_a58ca08b74e28ccea87a8ecd6d2d5e7c0}{\hyperlink{class_performance_tracker_a58ca08b74e28ccea87a8ecd6d2d5e7c0}{$\sim$\-Performance\-Tracker} ()}\label{class_performance_tracker_a58ca08b74e28ccea87a8ecd6d2d5e7c0}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{class_performance_tracker_abffee8acc3818592a7011dec4c6100c8}{start\-Tracking} (const std\-::string \&tracker\-Name)
+\item 
+void \hyperlink{class_performance_tracker_ac1dfa09a27f6dd1baeeb8068b009a432}{stop\-Tracking} (const std\-::string \&tracker\-Name)
+\item 
+double \hyperlink{class_performance_tracker_a6197691d9a0e4bce1d69e78a589a31fb}{get\-Elapsed\-Time} (const std\-::string \&tracker\-Name)
+\item 
+void \hyperlink{class_performance_tracker_a0caacd20bc7e668cdfb9ef9567df6aeb}{remove\-Tracker} (const std\-::string \&tracker\-Name)
+\item 
+void \hyperlink{class_performance_tracker_a81acadf369ceab082eea07241eb14866}{clear\-Tracker} (const std\-::string \&tracker\-Name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A timer tracker -\/ tracks concurrent execution times \begin{DoxyAuthor}{Author}
+Dean Lawson -\/ Champlain College 2011 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_performance_tracker_a81acadf369ceab082eea07241eb14866}{\index{Performance\-Tracker@{Performance\-Tracker}!clear\-Tracker@{clear\-Tracker}}
+\index{clear\-Tracker@{clear\-Tracker}!PerformanceTracker@{Performance\-Tracker}}
+\subsubsection[{clear\-Tracker}]{\setlength{\rightskip}{0pt plus 5cm}void Performance\-Tracker\-::clear\-Tracker (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{tracker\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_performance_tracker_a81acadf369ceab082eea07241eb14866}
+Clears a timer (sets elapsed time to 0 and restarts) 
+\begin{DoxyParams}{Parameters}
+{\em tracker\-Name} & the key of the timer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_performance_tracker_a6197691d9a0e4bce1d69e78a589a31fb}{\index{Performance\-Tracker@{Performance\-Tracker}!get\-Elapsed\-Time@{get\-Elapsed\-Time}}
+\index{get\-Elapsed\-Time@{get\-Elapsed\-Time}!PerformanceTracker@{Performance\-Tracker}}
+\subsubsection[{get\-Elapsed\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double Performance\-Tracker\-::get\-Elapsed\-Time (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{tracker\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_performance_tracker_a6197691d9a0e4bce1d69e78a589a31fb}
+Returns the time in ms since the timer was started 
+\begin{DoxyParams}{Parameters}
+{\em tracker\-Name} & the key of the timer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_performance_tracker_a0caacd20bc7e668cdfb9ef9567df6aeb}{\index{Performance\-Tracker@{Performance\-Tracker}!remove\-Tracker@{remove\-Tracker}}
+\index{remove\-Tracker@{remove\-Tracker}!PerformanceTracker@{Performance\-Tracker}}
+\subsubsection[{remove\-Tracker}]{\setlength{\rightskip}{0pt plus 5cm}void Performance\-Tracker\-::remove\-Tracker (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{tracker\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_performance_tracker_a0caacd20bc7e668cdfb9ef9567df6aeb}
+Removes a timer for some key 
+\begin{DoxyParams}{Parameters}
+{\em tracker\-Name} & the key of the timer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_performance_tracker_abffee8acc3818592a7011dec4c6100c8}{\index{Performance\-Tracker@{Performance\-Tracker}!start\-Tracking@{start\-Tracking}}
+\index{start\-Tracking@{start\-Tracking}!PerformanceTracker@{Performance\-Tracker}}
+\subsubsection[{start\-Tracking}]{\setlength{\rightskip}{0pt plus 5cm}void Performance\-Tracker\-::start\-Tracking (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{tracker\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_performance_tracker_abffee8acc3818592a7011dec4c6100c8}
+Begins timer for some key 
+\begin{DoxyParams}{Parameters}
+{\em tracker\-Name} & the key of the timer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_performance_tracker_ac1dfa09a27f6dd1baeeb8068b009a432}{\index{Performance\-Tracker@{Performance\-Tracker}!stop\-Tracking@{stop\-Tracking}}
+\index{stop\-Tracking@{stop\-Tracking}!PerformanceTracker@{Performance\-Tracker}}
+\subsubsection[{stop\-Tracking}]{\setlength{\rightskip}{0pt plus 5cm}void Performance\-Tracker\-::stop\-Tracking (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{tracker\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_performance_tracker_ac1dfa09a27f6dd1baeeb8068b009a432}
+Stops timer at some key 
+\begin{DoxyParams}{Parameters}
+{\em tracker\-Name} & the key of the timer \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/include/Performance\-Tracker.\-h\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Champ\-Net/\-Champ\-Net\-Plugin\-Test/source/Performance\-Tracker.\-cpp\end{DoxyCompactItemize}

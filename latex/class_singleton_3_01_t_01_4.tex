@@ -1,0 +1,111 @@
+\hypertarget{class_singleton_3_01_t_01_4}{\section{Singleton$<$ T $>$ Class Template Reference}
+\label{class_singleton_3_01_t_01_4}\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+}
+
+
+Base class to assist with objects which only occur once in the lifetime of the game  
+
+
+Inheritance diagram for Singleton$<$ T $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.183099cm]{class_singleton_3_01_t_01_4}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_singleton_3_01_t_01_4_aaf243fc3c85154c237fb3086b67ef6ff}{is\-In\-Use} ()
+\begin{DoxyCompactList}\small\item\em Author\-: Dustin Yost Returns if this object is currently being used \end{DoxyCompactList}\item 
+void \hyperlink{class_singleton_3_01_t_01_4_a93ff9802b7793e342ce7e64983a59a0d}{Lock} ()
+\begin{DoxyCompactList}\small\item\em Author\-: Dustin Yost Locks this instance. Flags this object as being used \end{DoxyCompactList}\item 
+void \hyperlink{class_singleton_3_01_t_01_4_a4832d0cc115af2e3fe38947538f17dee}{Unlock} ()
+\begin{DoxyCompactList}\small\item\em Unlocks this instance. Flags this object as not being used \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_singleton_3_01_t_01_4_abd0672430ce6d6c8ae4c01905f4bd4b1}{load\-Singleton} (T inst, ref T static\-Ref)
+\begin{DoxyCompactList}\small\item\em Loads the singleton. Checks for singleton properties, then marks the instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base class to assist with objects which only occur once in the lifetime of the game 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Mono\-Behaviour}]\end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_singleton_3_01_t_01_4_aaf243fc3c85154c237fb3086b67ef6ff}{\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!is\-In\-Use@{is\-In\-Use}}
+\index{is\-In\-Use@{is\-In\-Use}!Singleton< T >@{Singleton$<$ T $>$}}
+\subsubsection[{is\-In\-Use}]{\setlength{\rightskip}{0pt plus 5cm}bool Singleton$<$ T $>$.is\-In\-Use (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_singleton_3_01_t_01_4_aaf243fc3c85154c237fb3086b67ef6ff}
+
+
+Author\-: Dustin Yost Returns if this object is currently being used 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if in\-Use is {\ttfamily true}; otherwise, {\ttfamily false}. 
+\end{DoxyReturn}
+\hypertarget{class_singleton_3_01_t_01_4_abd0672430ce6d6c8ae4c01905f4bd4b1}{\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!load\-Singleton@{load\-Singleton}}
+\index{load\-Singleton@{load\-Singleton}!Singleton< T >@{Singleton$<$ T $>$}}
+\subsubsection[{load\-Singleton}]{\setlength{\rightskip}{0pt plus 5cm}void Singleton$<$ T $>$.load\-Singleton (
+\begin{DoxyParamCaption}
+\item[{T}]{inst, }
+\item[{ref T}]{static\-Ref}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{class_singleton_3_01_t_01_4_abd0672430ce6d6c8ae4c01905f4bd4b1}
+
+
+Loads the singleton. Checks for singleton properties, then marks the instance 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inst} & The instance to check and set\\
+\hline
+{\em static\-Ref} & The singleton reference instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Dustin Yost 
+\end{DoxyAuthor}
+\hypertarget{class_singleton_3_01_t_01_4_a93ff9802b7793e342ce7e64983a59a0d}{\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!Lock@{Lock}}
+\index{Lock@{Lock}!Singleton< T >@{Singleton$<$ T $>$}}
+\subsubsection[{Lock}]{\setlength{\rightskip}{0pt plus 5cm}void Singleton$<$ T $>$.Lock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_singleton_3_01_t_01_4_a93ff9802b7793e342ce7e64983a59a0d}
+
+
+Author\-: Dustin Yost Locks this instance. Flags this object as being used 
+
+\hypertarget{class_singleton_3_01_t_01_4_a4832d0cc115af2e3fe38947538f17dee}{\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!Unlock@{Unlock}}
+\index{Unlock@{Unlock}!Singleton< T >@{Singleton$<$ T $>$}}
+\subsubsection[{Unlock}]{\setlength{\rightskip}{0pt plus 5cm}void Singleton$<$ T $>$.Unlock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_singleton_3_01_t_01_4_a4832d0cc115af2e3fe38947538f17dee}
+
+
+Unlocks this instance. Flags this object as not being used 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Client/\-Util/Singleton.\-cs\end{DoxyCompactItemize}
