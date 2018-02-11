@@ -42,9 +42,6 @@ namespace Skyrates.Common.Entity
             base.Start();
             this._rigidbody = this.GetComponent<Rigidbody>();
             Debug.Assert(this._rigidbody != null, string.Format("{0} has null rigidbody - this is required to move with collisions.", this.name));
-
-            // TODO: fix this for transform.SetPositionAndRotation
-            this.Physics.LinearPosition = this.transform.position;
         }
 
         protected virtual void FixedUpdate()
@@ -82,7 +79,7 @@ namespace Skyrates.Common.Entity
         {
 
             // Update velocity
-            this.Physics.LinearVelocity += this.Physics.LinearAccelleration * deltaTime;
+            this.Integrate(ref this.Physics.LinearVelocity, this.Physics.LinearAccelleration, deltaTime);
             
             // Update position
             // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
@@ -90,23 +87,36 @@ namespace Skyrates.Common.Entity
             this._rigidbody.velocity = this.Physics.LinearVelocity;
 
             // Update physics position
-            this.Physics.LinearPosition = this.transform.position;
+            //this.Physics.LinearPosition = this.transform.position;
 
-            //// Update rotational velocity
-            this.Physics.RotationVelocity = Quaternion.Euler(
-                this.Physics.RotationVelocity.eulerAngles +
-                this.Physics.RotationAccelleration.eulerAngles * deltaTime
-            );
+            // Update rotational velocity
+            this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
 
-            //// Update rotation
-            this.Physics.RotationPosition = Quaternion.Euler(
-                this.Physics.RotationPosition.eulerAngles +
-                this.Physics.RotationVelocity.eulerAngles * deltaTime
-            );
-
-            //// Set rotation
+            // Update rotation
             this.GetRender().Rotate(this.Physics.RotationVelocity.eulerAngles, Space.World);
 
+            // Set rotation
+            this.Physics.RotationPosition = this.transform.rotation;
+
+        }
+
+        private void Integrate(ref Vector3 start, Vector3 amount, float deltaTime)
+        {
+            start += amount * deltaTime;
+        }
+
+        private void Integrate(ref Quaternion start, Quaternion amount, float deltaTime)
+        {
+            Vector3 euler = start.eulerAngles;
+            this.Integrate(ref euler, amount.eulerAngles, deltaTime);
+            start = Quaternion.Euler(euler);
+        }
+
+        public override void OnDeserializeSuccess()
+        {
+            base.OnDeserializeSuccess();
+            this.transform.position = this.Physics.LinearPosition;
+            this.transform.rotation = this.Physics.RotationPosition;
         }
 
     }

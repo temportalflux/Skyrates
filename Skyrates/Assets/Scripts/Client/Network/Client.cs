@@ -130,7 +130,7 @@ namespace Skyrates.Client.Network
         public void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
-            NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity));
+            //NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity));
         }
 
         // when any entity is suppossed to be damaged
@@ -140,7 +140,7 @@ namespace Skyrates.Client.Network
             // If we own the target, then we tell server that one of our entities is damaged
             if (evtDamaged.Ship.IsLocallyControlled)
             {
-                NetworkComponent.GetNetwork().Dispatch(new EventRequestEntityShipDamaged(evtDamaged.Ship, evtDamaged.Damage));
+                //NetworkComponent.GetNetwork().Dispatch(new EventRequestEntityShipDamaged(evtDamaged.Ship, evtDamaged.Damage));
             }
         }
 

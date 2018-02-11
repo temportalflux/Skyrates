@@ -60,6 +60,7 @@ namespace Skyrates.Client
 
         public override void OnDeserializeSuccess()
         {
+            base.OnDeserializeSuccess();
             if (this.ShipRoot.ShipData.MustBeRebuilt)
             {
                 this.ShipRoot.Destroy();
