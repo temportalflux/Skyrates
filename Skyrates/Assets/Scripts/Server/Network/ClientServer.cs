@@ -220,7 +220,7 @@ namespace Skyrates.Server.Network
         public void OnEntityShipHitByProjectile(GameEvent evt)
         {
             this.OnEntityShipHitBy(evt);
-            EventEntityShipHitByProjectile evtDamaged = (EventEntityShipHitByProjectile) evt;
+            //EventEntityShipHitByProjectile evtDamaged = (EventEntityShipHitByProjectile) evt;
             /* TODO: Sync projectiles; Projectile is entity and destroyed on impact
             if (evtDamaged.Projectile.IsLocallyControlled)
             {

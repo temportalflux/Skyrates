@@ -941,9 +941,11 @@ namespace Skyrates.Common.Network
                             {
                                 value = Activator.CreateInstance(typeValue);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
+                                // ignored
                             }
+
                             value = Deserialize(value, data, start, attribute.fieldsbyGeneric[1], typeValue);
                             start += GetSizeOf(value, attribute.fieldsbyGeneric[1].fields);
                             dict[key] = value;

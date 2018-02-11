@@ -7,8 +7,9 @@ using UnityEngine;
 public class AITarget : Entity
 {
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         //this.Init(null); // create the guid
         this.GetComponent<Collider>().isTrigger = true;
     }

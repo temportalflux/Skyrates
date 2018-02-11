@@ -15,6 +15,7 @@ namespace Skyrates.Common.Entity
 
         public ShipStat StatBlock;
 
+        // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [BitSerialize(0)]
         public float Health;
 

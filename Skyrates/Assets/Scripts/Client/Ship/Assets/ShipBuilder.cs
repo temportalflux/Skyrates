@@ -140,7 +140,7 @@ namespace Skyrates.Client.Ship
                 // Generate a component of the current type at each target
                 for (int iTarget = 0; iTarget < targets.Length; iTarget++)
                 {
-                    Transform target = targets[iTarget];
+                    //Transform target = targets[iTarget];
                     // Create the object
                     GameObject built = Instantiate(prefab, root);
                     // Tell the built hull that it exists

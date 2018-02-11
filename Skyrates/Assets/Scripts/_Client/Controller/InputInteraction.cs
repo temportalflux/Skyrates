@@ -80,7 +80,7 @@ public class InputInteraction : MonoBehaviour
             this.Shoot();
 
             // [0, this.input.ShootDelay]
-            float timeDelay = delay * (1 - this.input.ShootInput);
+            //float timeDelay = delay * (1 - this.input.ShootInput);
 
             // TODO: Scale delay
 

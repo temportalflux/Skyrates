@@ -9,11 +9,11 @@ namespace Skyrates.Common.Network
     public class SideOnlyAttribute : Attribute
     {
 
-        private Side _side;
+        public Side Side { get; private set; }
 
         public SideOnlyAttribute(Side side)
         {
-            this._side = side;
+            this.Side = side;
         }
 
     }

@@ -22,9 +22,8 @@ public class Shooter : MonoBehaviour
         GameObject gameObject = Instantiate(this.projectilePrefab, this.spawn.position, this.spawn.rotation);
 
         Projectile projectile = gameObject.GetComponent<Projectile>();
-        projectile.init(this);
-        projectile.physics.velocity = launchVelocity;
-        projectile.addForce(direction * this.force);
+        projectile.Physics.velocity = launchVelocity;
+        projectile.AddForce(direction * this.force);
 
         return projectile;
     }
