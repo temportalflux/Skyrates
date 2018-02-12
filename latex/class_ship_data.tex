@@ -19,8 +19,9 @@ enum {\bfseries Component\-Type} \{ \\*
 {\bfseries Artillery}, 
 {\bfseries Figurehead}, 
 {\bfseries Hull}, 
-{\bfseries Navigation}, 
+{\bfseries Navigation\-Left}, 
 \\*
+{\bfseries Navigation\-Right}, 
 {\bfseries Propulsion}, 
 {\bfseries Sail}
  \}
@@ -49,7 +50,7 @@ static readonly object\mbox{[}$\,$\mbox{]} {\bfseries Component\-Types}
 \item 
 static readonly Component\-Type\mbox{[}$\,$\mbox{]} {\bfseries Non\-Hull\-Components}
 \item 
-\hypertarget{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}{static readonly int\mbox{[}$\,$\mbox{]} {\bfseries Hullless\-Component\-Index} = \{ 0, 1, -\/1, 2, 3, 4 \}}\label{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}
+\hypertarget{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}{static readonly int\mbox{[}$\,$\mbox{]} {\bfseries Hullless\-Component\-Index} = \{ 0, 1, -\/1, 2, 3, 4, 5 \}}\label{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}
 
 \item 
 static readonly Type\mbox{[}$\,$\mbox{]} {\bfseries Component\-Class\-Types}
@@ -176,7 +177,8 @@ Implements \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializin
         typeof(ShipArtillery),
         typeof(ShipFigurehead),
         typeof(ShipHull),
-        typeof(ShipNavigation),
+        typeof(ShipNavigationLeft),
+        typeof(ShipNavigationRight),
         typeof(ShipPropulsion),
         typeof(ShipSail),
     \}
@@ -191,7 +193,8 @@ Implements \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializin
         ComponentType.Artillery,
         ComponentType.Figurehead,
         ComponentType.Hull,
-        ComponentType.Navigation,
+        ComponentType.NavigationLeft,
+        ComponentType.NavigationRight,
         ComponentType.Propulsion,
         ComponentType.Sail,
     \}
@@ -204,7 +207,8 @@ Implements \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializin
 = \{
         ComponentType.Artillery,
         ComponentType.Figurehead,
-        ComponentType.Navigation,
+        ComponentType.NavigationLeft,
+        ComponentType.NavigationRight,
         ComponentType.Propulsion,
         ComponentType.Sail,
     \}

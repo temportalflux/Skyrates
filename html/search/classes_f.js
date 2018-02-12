@@ -19,6 +19,8 @@ var searchData=
   ['shipfigurehead',['ShipFigurehead',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead.html',1,'Skyrates::Client::Ship']]],
   ['shiphull',['ShipHull',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_hull.html',1,'Skyrates::Client::Ship']]],
   ['shipnavigation',['ShipNavigation',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_navigation.html',1,'Skyrates::Client::Ship']]],
+  ['shipnavigationleft',['ShipNavigationLeft',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_navigation_left.html',1,'Skyrates::Client::Ship']]],
+  ['shipnavigationright',['ShipNavigationRight',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_navigation_right.html',1,'Skyrates::Client::Ship']]],
   ['shippropulsion',['ShipPropulsion',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_propulsion.html',1,'Skyrates::Client::Ship']]],
   ['shipsail',['ShipSail',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_sail.html',1,'Skyrates::Client::Ship']]],
   ['shipstat',['ShipStat',['../class_ship_stat.html',1,'']]],

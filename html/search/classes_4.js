@@ -10,6 +10,7 @@ var searchData=
   ['entityreceiver',['EntityReceiver',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver.html',1,'Skyrates::Common::Entity']]],
   ['entityset',['EntitySet',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_set.html',1,'Skyrates::Common::Entity']]],
   ['entityship',['EntityShip',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html',1,'Skyrates::Common::Entity']]],
+  ['entityshipnavy',['EntityShipNavy',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy.html',1,'Skyrates::Client::Entity']]],
   ['entitytracker',['EntityTracker',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html',1,'Skyrates::Common::Entity']]],
   ['eventartilleryfired',['EventArtilleryFired',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html',1,'Skyrates::Client::Game::Event']]],
   ['eventdatetime',['EventDateTime',['../class_event_date_time.html',1,'']]],

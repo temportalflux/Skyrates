@@ -103,17 +103,21 @@ Inheritance diagram for Skyrates.Common.Entity.EntityShip:</div>
  <div class="center">
   <img src="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.png" usemap="#Skyrates.Common.Entity.EntityShip_map" alt=""/>
   <map id="Skyrates.Common.Entity.EntityShip_map" name="Skyrates.Common.Entity.EntityShip_map">
-<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html" title="Any entity in the world which moves around. By default, this object uses Skyrates.Common.AI.Steering, and it is the assumption that objects which move will use some form of steering. " alt="Skyrates.Common.Entity.EntityDynamic" shape="rect" coords="0,112,232,136"/>
-<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html" title="Any entity that in the world. Used predominantly for its ability to be syncced via networking..." alt="Skyrates.Common.Entity.Entity" shape="rect" coords="0,56,232,80"/>
-<area href="class_skyrates_1_1_client_1_1_entity_player_ship.html" alt="Skyrates.Client.EntityPlayerShip" shape="rect" coords="0,224,232,248"/>
+<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html" title="Any entity in the world which moves around. By default, this object uses Skyrates.Common.AI.Steering, and it is the assumption that objects which move will use some form of steering. " alt="Skyrates.Common.Entity.EntityDynamic" shape="rect" coords="121,112,353,136"/>
+<area href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html" title="Any entity that in the world. Used predominantly for its ability to be syncced via networking..." alt="Skyrates.Common.Entity.Entity" shape="rect" coords="121,56,353,80"/>
+<area href="class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy.html" alt="Skyrates.Client.Entity.EntityShipNavy" shape="rect" coords="0,224,232,248"/>
+<area href="class_skyrates_1_1_client_1_1_entity_player_ship.html" alt="Skyrates.Client.EntityPlayerShip" shape="rect" coords="242,224,474,248"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af5534096f797df98b66b2d83e68cc7f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5534096f797df98b66b2d83e68cc7f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>TakeDamage</b> (float damage)</td></tr>
-<tr class="separator:af5534096f797df98b66b2d83e68cc7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5b5a0a66a11d077def4cb2885307e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca5b5a0a66a11d077def4cb2885307e2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>TakeDamage</b> (float damage)</td></tr>
+<tr class="separator:aca5b5a0a66a11d077def4cb2885307e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6020733d9aff38c4afb683e0529eaf48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6020733d9aff38c4afb683e0529eaf48"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Shoot</b> ()</td></tr>
+<tr class="separator:a6020733d9aff38c4afb683e0529eaf48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">Skyrates.Common.Entity.EntityDynamic</a></td></tr>
 <tr class="memitem:aedeb63ce173df35eb21d75161d01028d inherit pub_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#aedeb63ce173df35eb21d75161d01028d">OnDeserializeSuccess</a> ()</td></tr>
 <tr class="memdesc:aedeb63ce173df35eb21d75161d01028d inherit pub_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver.html#a9da0b7c3a8b9e1ed7d10be74ce80482b" title="Paired with EntityDispatcher.GenerateData. ">EntityReceiver.Deserialize</a> when the entity's data was successfully deserialized into it.  <a href="#aedeb63ce173df35eb21d75161d01028d">More...</a><br/></td></tr>
@@ -141,7 +145,7 @@ Public Attributes</h2></td></tr>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>Health</b></td></tr>
 <tr class="separator:af4bb39bce0cf06de062a3676699c5224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">Skyrates.Common.Entity.EntityDynamic</a></td></tr>
-<tr class="memitem:a2cc825f563606d4d565a4b0de1feab19 inherit pub_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a2cc825f563606d4d565a4b0de1feab19">Physics</a> = new <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a>()</td></tr>
+<tr class="memitem:a2cc825f563606d4d565a4b0de1feab19 inherit pub_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a2cc825f563606d4d565a4b0de1feab19">Physics</a></td></tr>
 <tr class="memdesc:a2cc825f563606d4d565a4b0de1feab19 inherit pub_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current physics data of this object. Updated via <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a8d35984946a298623b4de895873de43b" title="The actual steering object - set via editor. ">Steering</a>.  <a href="#a2cc825f563606d4d565a4b0de1feab19">More...</a><br/></td></tr>
 <tr class="separator:a2cc825f563606d4d565a4b0de1feab19 inherit pub_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60e4edbed3f02c3ba4a7c6150fbad90e inherit pub_attribs_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html">SteeringData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a60e4edbed3f02c3ba4a7c6150fbad90e">SteeringData</a> = new <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html">SteeringData</a>()</td></tr>
@@ -169,19 +173,37 @@ override void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()
 <tr class="memitem:aa0550b01a86006271ca0e8b07623662a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0550b01a86006271ca0e8b07623662a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnTriggerEnter</b> (Collider other)</td></tr>
 <tr class="separator:aa0550b01a86006271ca0e8b07623662a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62e661e1e1af2693016f780f09564d40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62e661e1e1af2693016f780f09564d40"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnPreDestroy</b> ()</td></tr>
+<tr class="separator:a62e661e1e1af2693016f780f09564d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e5d44870b4d826e09fa1b8829a611b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68e5d44870b4d826e09fa1b8829a611b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SpawnLoot</b> (Vector3 position)</td></tr>
+<tr class="separator:a68e5d44870b4d826e09fa1b8829a611b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeda9b90389a25ca84e172a0865290d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afeda9b90389a25ca84e172a0865290d4"></a>
+virtual <a class="el" href="class_shooter.html">Shooter</a>[]&#160;</td><td class="memItemRight" valign="bottom"><b>GetArtilleryShooters</b> ()</td></tr>
+<tr class="separator:afeda9b90389a25ca84e172a0865290d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">Skyrates.Common.Entity.EntityDynamic</a></td></tr>
+<tr class="memitem:a2364ce439984919790139305d2d2f91b inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2364ce439984919790139305d2d2f91b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr>
+<tr class="separator:a2364ce439984919790139305d2d2f91b inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e3f4c361734de124f27ed7d331bd12c inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e3f4c361734de124f27ed7d331bd12c"></a>
 override void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
 <tr class="separator:a0e3f4c361734de124f27ed7d331bd12c inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc9f4729654d4c86a404c0ccd966ccd3 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc9f4729654d4c86a404c0ccd966ccd3"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>FixedUpdate</b> ()</td></tr>
 <tr class="separator:adc9f4729654d4c86a404c0ccd966ccd3 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29fdd6f0b967349e6b9efb695f74a647 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29fdd6f0b967349e6b9efb695f74a647"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnDestroy</b> ()</td></tr>
+<tr class="separator:a29fdd6f0b967349e6b9efb695f74a647 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d214d221e4933f54528a707da1cc129 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d214d221e4933f54528a707da1cc129"></a>
 virtual Transform&#160;</td><td class="memItemRight" valign="bottom"><b>GetView</b> ()</td></tr>
 <tr class="separator:a7d214d221e4933f54528a707da1cc129 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad59c47f109bef0238b5303646a59e430 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad59c47f109bef0238b5303646a59e430"></a>
 virtual Transform&#160;</td><td class="memItemRight" valign="bottom"><b>GetRender</b> ()</td></tr>
 <tr class="separator:ad59c47f109bef0238b5303646a59e430 inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a994dbf8d2f10ff4398dbf2f68049205a inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a994dbf8d2f10ff4398dbf2f68049205a">IntegratePhysics</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a994dbf8d2f10ff4398dbf2f68049205a inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrates the current set of physics with the Transform.  <a href="#a994dbf8d2f10ff4398dbf2f68049205a">More...</a><br/></td></tr>
+<tr class="separator:a994dbf8d2f10ff4398dbf2f68049205a inherit pro_methods_class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>

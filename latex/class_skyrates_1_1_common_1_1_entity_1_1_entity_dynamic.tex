@@ -9,7 +9,7 @@ Any entity in the world which moves around. By default, this object uses \hyperl
 Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-Dynamic\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=5.000000cm]{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}
+\includegraphics[height=3.888889cm]{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -20,7 +20,7 @@ override void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}{Physics} = new \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data}()
+\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}{Physics}
 \begin{DoxyCompactList}\small\item\em The current physics data of this object. Updated via \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a8d35984946a298623b4de895873de43b}{Steering}. \end{DoxyCompactList}\item 
 \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_data}{Steering\-Data} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a60e4edbed3f02c3ba4a7c6150fbad90e}{Steering\-Data} = new \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_data}{Steering\-Data}()
 \begin{DoxyCompactList}\small\item\em The steering data used -\/ info which is specific to this entity and likely used by multiple steering algorithms. \end{DoxyCompactList}\item 
@@ -29,10 +29,16 @@ override void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2364ce439984919790139305d2d2f91b}{virtual void {\bfseries Awake} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2364ce439984919790139305d2d2f91b}
+
+\item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a0e3f4c361734de124f27ed7d331bd12c}{override void {\bfseries Start} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a0e3f4c361734de124f27ed7d331bd12c}
 
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_adc9f4729654d4c86a404c0ccd966ccd3}{virtual void {\bfseries Fixed\-Update} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_adc9f4729654d4c86a404c0ccd966ccd3}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a29fdd6f0b967349e6b9efb695f74a647}{virtual void {\bfseries On\-Destroy} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a29fdd6f0b967349e6b9efb695f74a647}
 
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}{virtual Transform {\bfseries Get\-View} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}
@@ -40,7 +46,9 @@ override void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}{virtual Transform {\bfseries Get\-Render} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}
 
-\end{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a994dbf8d2f10ff4398dbf2f68049205a}{Integrate\-Physics} (float delta\-Time)
+\begin{DoxyCompactList}\small\item\em Integrates the current set of physics with the Transform. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
@@ -50,6 +58,26 @@ Any entity in the world which moves around. By default, this object uses \hyperl
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a994dbf8d2f10ff4398dbf2f68049205a}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Integrate\-Physics@{Integrate\-Physics}}
+\index{Integrate\-Physics@{Integrate\-Physics}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Integrate\-Physics}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Integrate\-Physics (
+\begin{DoxyParamCaption}
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a994dbf8d2f10ff4398dbf2f68049205a}
+
+
+Integrates the current set of physics with the Transform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a689b368554044f48d19b20aed42fe104}{Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy}.
+
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!On\-Deserialize\-Success@{On\-Deserialize\-Success}}
 \index{On\-Deserialize\-Success@{On\-Deserialize\-Success}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
 \subsubsection[{On\-Deserialize\-Success}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-On\-Deserialize\-Success (
@@ -70,7 +98,7 @@ Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa
 \subsection{Member Data Documentation}
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Physics@{Physics}}
 \index{Physics@{Physics}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
-\subsubsection[{Physics}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Physics\-Data} Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Physics = new {\bf Physics\-Data}()}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}
+\subsubsection[{Physics}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Physics\-Data} Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Physics}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a2cc825f563606d4d565a4b0de1feab19}
 
 
 The current physics data of this object. Updated via \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a8d35984946a298623b4de895873de43b}{Steering}. 

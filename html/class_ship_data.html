@@ -114,9 +114,10 @@ Public Types</h2></td></tr>
 &#160;&#160;<b>Artillery</b>, 
 <b>Figurehead</b>, 
 <b>Hull</b>, 
-<b>Navigation</b>, 
+<b>NavigationLeft</b>, 
 <br/>
-&#160;&#160;<b>Propulsion</b>, 
+&#160;&#160;<b>NavigationRight</b>, 
+<b>Propulsion</b>, 
 <b>Sail</b>
 <br/>
  }</td></tr>
@@ -150,7 +151,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a5ef95366640e8dc06cb884368a8e41a2"><td class="memItemLeft" align="right" valign="top">static readonly ComponentType[]&#160;</td><td class="memItemRight" valign="bottom"><b>NonHullComponents</b></td></tr>
 <tr class="separator:a5ef95366640e8dc06cb884368a8e41a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86aa2a6240f6c742448db2ce4cf7defe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86aa2a6240f6c742448db2ce4cf7defe"></a>
-static readonly int[]&#160;</td><td class="memItemRight" valign="bottom"><b>HulllessComponentIndex</b> = { 0, 1, -1, 2, 3, 4 }</td></tr>
+static readonly int[]&#160;</td><td class="memItemRight" valign="bottom"><b>HulllessComponentIndex</b> = { 0, 1, -1, 2, 3, 4, 5 }</td></tr>
 <tr class="separator:a86aa2a6240f6c742448db2ce4cf7defe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a725a1caabab53787c0f5ea3e4f71b9cf"><td class="memItemLeft" align="right" valign="top">static readonly Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>ComponentClassTypes</b></td></tr>
 <tr class="separator:a725a1caabab53787c0f5ea3e4f71b9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -355,7 +356,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>this[ComponentType key
 <div class="line">        typeof(ShipArtillery),</div>
 <div class="line">        typeof(ShipFigurehead),</div>
 <div class="line">        typeof(ShipHull),</div>
-<div class="line">        typeof(ShipNavigation),</div>
+<div class="line">        typeof(ShipNavigationLeft),</div>
+<div class="line">        typeof(ShipNavigationRight),</div>
 <div class="line">        typeof(ShipPropulsion),</div>
 <div class="line">        typeof(ShipSail),</div>
 <div class="line">    }</div>
@@ -384,7 +386,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>this[ComponentType key
 <div class="line">        ComponentType.Artillery,</div>
 <div class="line">        ComponentType.Figurehead,</div>
 <div class="line">        ComponentType.Hull,</div>
-<div class="line">        ComponentType.Navigation,</div>
+<div class="line">        ComponentType.NavigationLeft,</div>
+<div class="line">        ComponentType.NavigationRight,</div>
 <div class="line">        ComponentType.Propulsion,</div>
 <div class="line">        ComponentType.Sail,</div>
 <div class="line">    }</div>
@@ -411,7 +414,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>this[ComponentType key
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line">        ComponentType.Artillery,</div>
 <div class="line">        ComponentType.Figurehead,</div>
-<div class="line">        ComponentType.Navigation,</div>
+<div class="line">        ComponentType.NavigationLeft,</div>
+<div class="line">        ComponentType.NavigationRight,</div>
 <div class="line">        ComponentType.Propulsion,</div>
 <div class="line">        ComponentType.Sail,</div>
 <div class="line">    }</div>
