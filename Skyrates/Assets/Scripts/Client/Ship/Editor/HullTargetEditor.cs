@@ -1,51 +1,64 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Ship;
 using UnityEditor;
 using UnityEngine;
 
 using ComponentType = ShipData.ComponentType;
 
-[CustomEditor(typeof(ShipHull))]
-public class HullTargetEditor : Editor
+namespace Skyrates.Client.Ship
 {
 
-    private ShipHull instance;
-
-    static bool[] toggleComp = new bool[ShipData.ComponentTypes.Length];
-
-    public void OnEnable()
+    [CustomEditor(typeof(ShipHull))]
+    public class HullTargetEditor : Editor
     {
-        this.instance = this.target as ShipHull;
-    }
 
-    public override void OnInspectorGUI()
-    {
-        this.ScriptField(this.instance);
+        private ShipHull _instance;
 
-        ShipHull.HullTargets targets = this.instance.targets;
+        private static bool[] ToggleComp = new bool[ShipData.NonHullComponents.Length];
+
+        public void OnEnable()
         {
-            foreach (ComponentType compType in ShipData.ComponentTypes)
-            {
-                if (compType == ComponentType.Hull) continue;
+            this._instance = this.target as ShipHull;
+        }
 
+        public override void OnInspectorGUI()
+        {
+            this.DrawScriptField(this._instance);
+
+            if (this._instance.Mounts == null) this._instance.Mounts = new ShipHull.Mount[ShipData.NonHullComponents.Length];
+            if (this._instance.Mounts.Length != ShipData.NonHullComponents.Length)
+            {
+                Array.Resize(ref this._instance.Mounts, ShipData.NonHullComponents.Length);
+            }
+            if (ToggleComp.Length != ShipData.NonHullComponents.Length)
+                Array.Resize(ref ToggleComp, ShipData.NonHullComponents.Length);
+
+            foreach (ComponentType compType in ShipData.NonHullComponents)
+            {
                 EditorGUILayout.Separator();
 
-                int iComp = (int) compType - 1;
+                int iComp = ShipData.HulllessComponentIndex[(int) compType];
 
-                Transform[] roots = targets.list[iComp].roots;
+                Transform[] roots = this._instance.Mounts[iComp].Roots;
 
-                this.Array(compType.ToString(), ref toggleComp[iComp], ref roots,
-                    doBlock:true, GetFieldName:(Transform t) => t == null ? "Pos/Rot" : t.name);
-                
-                targets.list[iComp].roots = roots;
+                ToggleComp[iComp] = this.DrawArray(
+                    compType.ToString(), ref roots,
+                    true, ToggleComp[iComp],
+                    DrawBlock: (t => (Transform)EditorGUILayout.ObjectField(
+                        t == null ? "Pos/Rot" : t.name,
+                        t, typeof(Transform), allowSceneObjects:true
+                    ))
+                );
+
+                this._instance.Mounts[iComp].Roots = roots;
 
             }
 
+            EditorUtility.SetDirty(this._instance);
         }
-        this.instance.targets = targets;
 
-        EditorUtility.SetDirty(this.instance);
     }
 
 }

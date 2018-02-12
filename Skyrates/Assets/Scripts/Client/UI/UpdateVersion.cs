@@ -12,8 +12,8 @@ public class UpdateVersion : MonoBehaviour {
 
     private void Start()
     {
-        this.versionName.text = this.version.versionName;
-        this.semanticVersion.text = this.version.getSemantic();
+        this.versionName.text = this.version.VersionName;
+        this.semanticVersion.text = this.version.GetSemantic();
     }
 
 }

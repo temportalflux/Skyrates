@@ -27,7 +27,7 @@ public class InputRotation : MonoBehaviour
 
         [Tooltip("The multiple of the input for Vertical")]
         public float VerticalSpeed;
-        
+
         public float Horizontal
         {
             get { return this.HorizontalInput * this.HorizontalSpeed; }
@@ -75,7 +75,7 @@ public class InputRotation : MonoBehaviour
         Vector3 dirHorizontal = this.transform.right;
         dirVertical.y = dirVertical.z = 0;
 
-        
+
         /*
         float rotateDegrees = this.playerInput.Vertical;
         Vector3 currentVector = transform.position - this.pivot.position;

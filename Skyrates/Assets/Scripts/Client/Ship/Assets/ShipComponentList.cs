@@ -1,66 +1,65 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Util;
 using UnityEngine;
 
 using ComponentType = ShipData.ComponentType;
 
-[CreateAssetMenu(menuName = "Stats/Ship Component List")]
-public class ShipComponentList : ScriptableObject
+namespace Skyrates.Client.Ship
 {
 
-    [Serializable]
-    public struct ComponentList
-    {
-        public ShipComponent[] components;
-    }
-
     /// <summary>
-    /// An array keyed by <see cref="ComponentType"/> where values are arrays of ShipComponents.
+    /// The listings of all components used in ships.
+    /// Referenced by <see cref="ShipBuilder"/> and <see cref="ShipData"/> for generating
+    /// ship rigs and syncing them across the network.
     /// </summary>
-    public ComponentList[] components = new ComponentList[ShipData.ComponentTypes.Length];
-
-    public bool[] editor_showComponentArray;
-
-    /// <summary>
-    /// The list of names for an array of components keyed by <see cref="ComponentType"/>.
-    /// Generated from <see cref="components"/>.
-    /// </summary>
-    private string[][] componentNames;
-
-    private void OnEnable()
+    [CreateAssetMenu(menuName = "Data/Ship/List: Components")]
+    public class ShipComponentList : PrefabList
     {
-        this.GenerateNames();
-    }
 
-    public void GenerateNames()
-    {
-        this.componentNames = new string[ShipData.ComponentTypes.Length][];
-        foreach (ComponentType compType in ShipData.ComponentTypes)
+        void OnEnable()
         {
-            ComponentList componentArray = this.components[(int) compType];
-            this.componentNames[(int)compType] = new string[componentArray.components.Length];
-            for (int iComponent = 0; iComponent < componentArray.components.Length; iComponent++)
-            {
-                ShipComponent comp = this.components[(int) compType].components[iComponent];
-                this.componentNames[(int) compType][iComponent] = comp != null ? comp.name : "Null " + iComponent;
-            }
+            this.Setup(ShipData.ComponentTypes, ShipData.ComponentClassTypes);
         }
-    }
 
-    public string[] GetNames(ComponentType compType)
-    {
-        return this.componentNames == null ? new string[0] : this.componentNames[(int) compType];
-    }
+        /// <inheritdoc />
+        public override object GetKeyFrom(int index)
+        {
+            return (ComponentType) index;
+        }
 
-    public ShipComponent GetRawComponent(ComponentType compType, int index)
-    {
-        return this.components[(int) compType].components[index];
-    }
+        /// <inheritdoc />
+        public override int GetIndexFrom(object key)
+        {
+            return (int) key;
+        }
+    
+        /// <summary>
+        /// Returns the ship component of specified type and at a specfic index in the listing.
+        /// </summary>
+        /// <param name="compType"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public ShipComponent GetRawComponent(ComponentType compType, int index)
+        {
+            ShipComponent component = null;
+            this.TryGetValue(compType, index, out component);
+            return component;
+        }
 
-    public T GetComponent<T>(ComponentType compType, int index) where T : ShipComponent
-    {
-        return (T)this.GetRawComponent(compType, index);
+        /// <summary>
+        /// Returns <see cref="GetRawComponent"/> casted to a subclass of <see cref="ShipComponent"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="compType"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public T GetComponent<T>(ComponentType compType, int index) where T : ShipComponent
+        {
+            return (T)this.GetRawComponent(compType, index);
+        }
+
     }
 
 }

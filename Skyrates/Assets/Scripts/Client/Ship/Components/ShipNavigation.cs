@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipNavigation : ShipComponent
+namespace Skyrates.Client.Ship
 {
+    public class ShipNavigation : ShipComponent
+    {
 
+    }
 }

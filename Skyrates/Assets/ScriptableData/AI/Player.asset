@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71cc539b2959f544b1fbde9d95c8c7a, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  PlayerInput:
+    Forward:
+      Input: 0
+      Modifier: 15
+    Strafe:
+      Input: 0
+      Modifier: 2
+    Vertical:
+      Input: 0
+      Modifier: 10
+  constantSpeed: 10

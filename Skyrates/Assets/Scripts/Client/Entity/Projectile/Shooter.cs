@@ -1,31 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
+using Skyrates.Client.Network.Event;
+using Skyrates.Common.Entity;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
 
-    public GameObject projectilePrefab;
+    public Entity.TypeData projectilePrefab;
 
     public Transform spawn;
 
     public float force = 1;
 
-    private void Start()
+    public Vector3 ProjectileDirection()
     {
-        Debug.Assert(this.projectilePrefab.GetComponent<Projectile>() != null,
-            "The projectilePrefab of a Shooter MUST have the Projectile MonoBehaviour.");
+        return this.spawn.forward;
     }
 
-    public Projectile fireProjectile()
+    public void FireProjectile(Vector3 direction, Vector3 launchVelocity)
     {
-        GameObject gameObject = Instantiate(this.projectilePrefab, this.spawn.position, this.spawn.rotation);
-
-        Projectile projectile = gameObject.GetComponent<Projectile>();
-        projectile.init(this);
-        projectile.addForce(this.transform.forward * this.force);
-
-        return projectile;
+        // TODO: These are fired off one by one, and are often done in batches. This should just be one packet of all the projectiles to spawn.
+        GameManager.Events.Dispatch(new EventSpawnEntityProjectile(this.projectilePrefab, this.spawn, launchVelocity, direction * this.force));
     }
 
 }

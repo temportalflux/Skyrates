@@ -1,31 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Skyrates.Common.Network;
 using UnityEngine;
 
-public class PhysicsData
+namespace Skyrates.Common.AI
 {
 
-    // NOT SERIALIZED - set during GameState integration
+    public class PhysicsData
+    {
 
-    // If this motion _gameStateData is controlled by SOME client (not necessarily this client)
-    public bool IsClientControlled;
+        [BitSerialize(0)]
+        public Vector3 LinearPosition = Vector3.zero;
 
-    // The controller's identifier
-    // If IsClientControlled, this references a specific client as the controller
-    // Else, this references some GameObject/AI behavior as controller
-    public System.Guid ControllerID;
+        [BitSerialize(1)]
+        public Vector3 LinearVelocity = Vector3.zero;
 
-    // SERIALIZED
+        [BitSerialize(2)]
+        public Vector3 LinearAccelleration = Vector3.zero;
 
-    [BitSerialize(0)]
-    public Vector3 PositionLinear;
+        [BitSerialize(3)]
+        public Quaternion RotationPosition = Quaternion.identity;
 
-    public Vector3 VelocityLinear;
+        [BitSerialize(4)]
+        public Quaternion RotationVelocity = Quaternion.identity;
 
-    [BitSerialize(1)]
-    public Vector3 PositionRotational;
+        [BitSerialize(5)]
+        public Quaternion RotationAccelleration = Quaternion.identity;
 
-    // TODO: Serialize
-    public Vector3 VelocityRotationEuler;
+        public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
+        {
+            this.LinearPosition = position;
+            this.RotationPosition = rotation;
+        }
+
+    }
 
 }

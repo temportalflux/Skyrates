@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client;
+using Skyrates.Client.Loot;
+using Skyrates.Common.Network;
 using UnityEngine;
 
 public class Looter : MonoBehaviour
 {
-    
-    // meant to be used for raycast (hence mask). must convert bits to compare
-    public LayerMask lootLayer;
 
     public uint loot;
 
@@ -29,18 +30,26 @@ public class Looter : MonoBehaviour
     {
         //Debug.Log(other.gameObject.name + ":" + other.gameObject.layer + "==" + this.lootLayer.value);
         // layermask meant to be used for raycast (hence mask). must convert bits to compare
-        if ((int)this.lootLayer == 1 << other.gameObject.layer)
+        Loot lootObject = other.GetComponent<Loot>();
+        if (lootObject != null)
         {
             // collider is a loot
-            Destroy(other.gameObject);
-            // TODO: Put in gamestate
+            Destroy(lootObject.gameObject);
+            // TODO: Create event
             this.loot++;
         }
     }
 
     public void OnGUI()
     {
-        GUI.Label(new Rect(0, 0, 300, 30), this.loot.ToString());
+        if (NetworkComponent.GetSession.IsNetworked)
+        {
+            if (NetworkComponent.GetSession.PlayerGuid != this.transform.parent.GetComponent<EntityPlayerShip>().Guid)
+                return;
+        }
+        GUIStyle st = new GUIStyle();
+        st.fontSize = 50;
+        GUI.Label(new Rect(Screen.width - 50, 0, 50, 50), this.loot.ToString(), st);
     }
 
 }

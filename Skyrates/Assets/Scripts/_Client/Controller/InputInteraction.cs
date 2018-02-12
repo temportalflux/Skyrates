@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
+using Skyrates.Client.Ship;
 using UnityEngine;
 
 public class InputInteraction : MonoBehaviour
@@ -34,7 +38,7 @@ public class InputInteraction : MonoBehaviour
 
     public InputData input;
 
-    public Player player;
+    public EntityPlayerShip EntityPlayerShip;
     
     void Update()
     {
@@ -50,48 +54,39 @@ public class InputInteraction : MonoBehaviour
 
     private void UpdateInput()
     {
-
-        if (this.input.Shoot > 0.0f)
+        if (this.input.ShootRoutine == null)
         {
-            if (this.input.ShootRoutine == null)
-            {
-                this.input.ShootRoutine = StartCoroutine(this.RoutineShoot(this.input.ShootDelay));
-            }
+            this.input.ShootRoutine = StartCoroutine(this.RoutineShoot());
         }
-        else
-        {
-            if (this.input.ShootRoutine != null)
-            {
-                StopCoroutine(this.input.ShootRoutine);
-                this.input.ShootRoutine = null;
-            }
-        }
-        
     }
 
-    private IEnumerator RoutineShoot(float delay)
+    private IEnumerator RoutineShoot()
     {
+        float timePrevious = Time.time;
+        float timeElapsed = 0.0f;
+        float cooldownRemaining = 0.0f;
         while (true)
         {
+            yield return null;
+
+            timeElapsed = Time.time - timePrevious;
+            timePrevious = Time.time;
+
+            cooldownRemaining = Mathf.Max(0, cooldownRemaining - timeElapsed);
+
+            if (cooldownRemaining > 0.0f || !(this.input.Shoot > 0.0f)) continue;
+
             this.Shoot();
-
-            // [0, this.input.ShootDelay]
-            float timeDelay = delay * (1 - this.input.ShootInput);
-
             // TODO: Scale delay
-
-            yield return new WaitForSeconds(delay);
+            // [0, this.input.ShootDelay]
+            //float timeDelay = delay * (1 - this.input.ShootInput);
+            cooldownRemaining = this.input.ShootDelay;
         }
     }
 
     private void Shoot()
     {
-        ShipComponent[] components = this.player.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
-        foreach (ShipComponent component in components)
-        {
-            ShipArtillery artillery = (ShipArtillery) component;
-            artillery.shooter.fireProjectile();
-        }
+        this.EntityPlayerShip.Shoot();
     }
 
 }

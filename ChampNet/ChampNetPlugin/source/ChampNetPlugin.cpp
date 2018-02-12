@@ -176,7 +176,7 @@ namespace ChampNetPlugin {
 		delete (ChampNet::Packet*)packetPtr;
 	}
 
-	void SendByteArray(const char* address, int port, char* byteArray, int byteArraySize)
+	void SendByteArray(const char* address, int port, char* byteArray, int byteArraySize, bool broadcast)
 	{
 		//gDebugFunc(address, (int)ChampNetPlugin::Color::White, std::strlen(address));
 		//gDebugFunc(byteArray, (int)ChampNetPlugin::Color::White, byteArraySize);
@@ -184,7 +184,7 @@ namespace ChampNetPlugin {
 		s << address << '|' << port;
 		PacketPriority priority = HIGH_PRIORITY;
 		PacketReliability reliability = RELIABLE;
-		SendData(s.str().c_str(), byteArray, byteArraySize, &priority, &reliability, 0, false);
+		SendData(s.str().c_str(), byteArray, byteArraySize, &priority, &reliability, 0, broadcast);
 	}
 
 	void SendData(const char* address, char* byteArray, int byteArraySize, PacketPriority *priority, PacketReliability *reliability, int channel, bool broadcast)
