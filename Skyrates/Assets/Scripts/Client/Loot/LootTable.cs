@@ -34,7 +34,7 @@ namespace Skyrates.Client.Loot
         {
             for (int iRow = 0; iRow < this.Table.Length; iRow++)
             {
-                this.Table[iRow].Percentage = this.Table[iRow].Weight / sumWeight;
+                this.Table[iRow].Percentage = (sumWeight - this.Table[iRow].Weight) / sumWeight;
             }
         }
 
@@ -52,10 +52,10 @@ namespace Skyrates.Client.Loot
                     if (rand < sum)
                     {
                         loots[iLoot] = row.Item;
-                        iLoot++;
                         break;
                     }
                 }
+                iLoot++;
             }
             return loots;
         }

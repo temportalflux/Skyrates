@@ -59,15 +59,13 @@ namespace Skyrates.Common.Entity
 
             if (this.Health > 0) return;
 
-            Vector3 position = this.transform.position;
-
-            // Deal damage
-            Destroy(this.gameObject);
-
             // Spawn loot
             // NOTE: Since this function is called by the owning client, then loot is spawned on owning client
             // TODO: Sync loot - make loot entity static
-            this.SpawnLoot(position);
+            this.SpawnLoot(this.transform.position);
+
+            // Deal damage
+            Destroy(this.gameObject);
 
         }
 
@@ -78,11 +76,10 @@ namespace Skyrates.Common.Entity
             {
                 if (lootItem == null)
                 {
-                    Debug.LogWarning("Error, loot item null");
                     continue;
                 }
 
-                Vector3 pos = position + Random.insideUnitSphere * 3;
+                Vector3 pos = position + Random.insideUnitSphere * this.StatBlock.LootRadius;
                 Loot loot = Instantiate(
                     this.StatBlock.LootPrefab.gameObject, pos, Quaternion.identity).GetComponent<Loot>();
                 loot.Item = lootItem;
@@ -90,6 +87,6 @@ namespace Skyrates.Common.Entity
             }
         }
 
-    }
+        }
 
 }

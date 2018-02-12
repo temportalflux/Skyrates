@@ -36,7 +36,7 @@ namespace Skyrates.Client.Loot
                 GUILayout.FlexibleSpace();
             }
             EditorGUILayout.EndHorizontal();
-
+            
             bool weightsChanged = false;
             int sumWeight = 0;
 
@@ -67,7 +67,7 @@ namespace Skyrates.Client.Loot
 
                         // TODO: Change this
                         row.Item = (ShipComponent)EditorGUILayout.ObjectField(
-                            row.Item, typeof(ShipComponent), allowSceneObjects: false
+                            row.Item, typeof(ShipComponent), allowSceneObjects: true
                         );
                     }
                     EditorGUILayout.EndHorizontal();

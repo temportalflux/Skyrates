@@ -102,7 +102,10 @@ public class InputInteraction : MonoBehaviour
             float dot = Vector3.Dot(forwardAim, forwardArtillery);
             if (dot > 0.3)
             {
-                evtArtillery[iComponent].Shooter.FireProjectile(forwardAim + upAim * 0.02f, this.EntityPlayerShip.Physics.LinearVelocity);
+                Vector3 aimed = forwardAim + upAim * 0.02f;
+                Vector3 straight = forwardArtillery;
+                Vector3 velocity = this.EntityPlayerShip.Physics.LinearVelocity;
+                evtArtillery[iComponent].Shooter.FireProjectile(straight, Vector3.zero);
             }
         }
         GameManager.Events.Dispatch(new EventArtilleryFired(this.EntityPlayerShip, evtArtillery));

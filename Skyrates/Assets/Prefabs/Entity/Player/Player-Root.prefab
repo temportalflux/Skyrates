@@ -2308,7 +2308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab:
-    EntityTypeAsInt: 2
+    EntityTypeAsInt: 0
     EntityTypeIndex: 0
   spawn: {fileID: 4612135179512208}
   force: 1000
@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab:
-    EntityTypeAsInt: 2
+    EntityTypeAsInt: 0
     EntityTypeIndex: 0
   spawn: {fileID: 4164957768589534}
   force: 1000
@@ -2350,7 +2350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e6edc05cd2ca346b78629fa37c28c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shooter: {fileID: 114065063573471978}
+  Shooter: {fileID: 0}
 --- !u!114 &114153909739793410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2376,7 +2376,7 @@ MonoBehaviour:
   ComponentRoot: {fileID: 4717130946942272}
   Blueprint: {fileID: 11400000, guid: 78e837ba4dbe551488ff0d8ad964477b, type: 2}
   ShipData:
-    Components: 000000000000000000000000000000000000000000000000ffffffff
+    Components: 00000000000000000000000000000000000000000000000000000000
     _hasNewData: 0
   Hull: {fileID: 114481508796656936}
 --- !u!114 &114208892904884064
@@ -2413,19 +2413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mounts:
-  - Roots:
-    - {fileID: 4710029904168066}
-    - {fileID: 4297390792936112}
-  - Roots:
-    - {fileID: 4643859998352214}
-  - Roots:
-    - {fileID: 4021984553477930}
-  - Roots:
-    - {fileID: 4361831823449338}
-  - Roots:
-    - {fileID: 4548378952134188}
-  - Roots: []
+  Mounts: []
 --- !u!114 &114482361568255256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2437,7 +2425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e6edc05cd2ca346b78629fa37c28c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shooter: {fileID: 114051508466193270}
+  Shooter: {fileID: 0}
 --- !u!114 &114621202652398174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2514,7 +2502,7 @@ MonoBehaviour:
   StatBlock: {fileID: 0}
   Health: 0
   ShipData:
-    Components: 000000000000000000000000000000000000000000000000
+    Components: 00000000000000000000000000000000000000000000000000000000
     _hasNewData: 0
   View: {fileID: 4296624790975764}
   Render: {fileID: 4626443736001176}

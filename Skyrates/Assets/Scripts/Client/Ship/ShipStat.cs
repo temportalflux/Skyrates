@@ -21,4 +21,6 @@ public class ShipStat : ScriptableObject
 
     public GameObject LootPrefab;
 
+    public float LootRadius = 3;
+
 }
