@@ -31,6 +31,9 @@ namespace Skyrates.Client.Network.Event
         [BitSerialize(6)]
         public Vector3 Velocity;
 
+        [BitSerialize(7)]
+        public Vector3 ImpluseForce;
+
         public Quaternion Rotation
         {
             get { return Quaternion.Euler(this.RotationEuler); }
@@ -41,13 +44,14 @@ namespace Skyrates.Client.Network.Event
         {
         }
 
-        public EventRequestSpawnEntityProjectile(Common.Entity.Entity.TypeData typeData, Transform spawn, Vector3 velocity) : this()
+        public EventRequestSpawnEntityProjectile(Common.Entity.Entity.TypeData typeData, Transform spawn, Vector3 velocity, Vector3 impluseForce) : this()
         {
             this.clientID = NetworkComponent.GetSession.ClientID;
             this.TypeData = typeData;
             this.Position = spawn.position;
             this.Rotation = spawn.rotation;
             this.Velocity = velocity;
+            this.ImpluseForce = impluseForce;
         }
 
     }

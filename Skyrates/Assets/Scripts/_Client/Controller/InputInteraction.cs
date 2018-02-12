@@ -54,61 +54,39 @@ public class InputInteraction : MonoBehaviour
 
     private void UpdateInput()
     {
-
-        if (this.input.Shoot > 0.0f)
+        if (this.input.ShootRoutine == null)
         {
-            if (this.input.ShootRoutine == null)
-            {
-                this.input.ShootRoutine = StartCoroutine(this.RoutineShoot(this.input.ShootDelay));
-            }
+            this.input.ShootRoutine = StartCoroutine(this.RoutineShoot());
         }
-        else
-        {
-            if (this.input.ShootRoutine != null)
-            {
-                StopCoroutine(this.input.ShootRoutine);
-                this.input.ShootRoutine = null;
-            }
-        }
-        
     }
 
-    private IEnumerator RoutineShoot(float delay)
+    private IEnumerator RoutineShoot()
     {
+        float timePrevious = Time.time;
+        float timeElapsed = 0.0f;
+        float cooldownRemaining = 0.0f;
         while (true)
         {
-            this.Shoot();
+            yield return null;
 
+            timeElapsed = Time.time - timePrevious;
+            timePrevious = Time.time;
+
+            cooldownRemaining = Mathf.Max(0, cooldownRemaining - timeElapsed);
+
+            if (cooldownRemaining > 0.0f || !(this.input.Shoot > 0.0f)) continue;
+
+            this.Shoot();
+            // TODO: Scale delay
             // [0, this.input.ShootDelay]
             //float timeDelay = delay * (1 - this.input.ShootInput);
-
-            // TODO: Scale delay
-
-            yield return new WaitForSeconds(delay);
+            cooldownRemaining = this.input.ShootDelay;
         }
     }
 
     private void Shoot()
     {
-        // TODO: Optimize this
-        Vector3 forwardAim = this.EntityPlayerShip.View.forward;
-        Vector3 upAim = this.EntityPlayerShip.View.up;
-        ShipComponent[] components = this.EntityPlayerShip.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
-        ShipArtillery[] evtArtillery = new ShipArtillery[components.Length];
-        for (int iComponent = 0; iComponent < components.Length; iComponent++)
-        {
-            evtArtillery[iComponent] = (ShipArtillery) components[iComponent];
-            Vector3 forwardArtillery = evtArtillery[iComponent].transform.forward;
-            float dot = Vector3.Dot(forwardAim, forwardArtillery);
-            if (dot > 0.3)
-            {
-                Vector3 aimed = forwardAim + upAim * 0.02f;
-                Vector3 straight = forwardArtillery;
-                Vector3 velocity = this.EntityPlayerShip.Physics.LinearVelocity;
-                evtArtillery[iComponent].Shooter.FireProjectile(straight, Vector3.zero);
-            }
-        }
-        GameManager.Events.Dispatch(new EventArtilleryFired(this.EntityPlayerShip, evtArtillery));
+        this.EntityPlayerShip.Shoot();
     }
 
 }

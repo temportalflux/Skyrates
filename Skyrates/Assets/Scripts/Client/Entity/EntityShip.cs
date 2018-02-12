@@ -91,6 +91,27 @@ namespace Skyrates.Common.Entity
             }
         }
 
+        protected virtual Shooter[] GetArtilleryShooters()
+        {
+            return null;
+        }
+        
+        public void Shoot()
+        {
+            // TODO: Optimize this
+            Shooter[] shooters = this.GetArtilleryShooters();
+
+            if (shooters == null || shooters.Length <= 0)
+                return;
+
+            foreach (Shooter shooter in shooters)
+            {
+                shooter.FireProjectile(shooter.ProjectileDirection().normalized, this.Physics.LinearVelocity);
+            }
+
+            GameManager.Events.Dispatch(new EventArtilleryFired(this, shooters));
+        }
+
     }
 
 }

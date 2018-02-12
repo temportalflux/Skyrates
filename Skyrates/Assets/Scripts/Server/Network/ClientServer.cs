@@ -196,7 +196,7 @@ namespace Skyrates.Server.Network
         public void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
-            this.OnRequestSpawnEntityProjectile(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity));
+            this.OnRequestSpawnEntityProjectile(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity, evtSpawn.ImpluseForce));
         }
 
         public void OnRequestSpawnEntityProjectile(NetworkEvent evt)
@@ -206,8 +206,7 @@ namespace Skyrates.Server.Network
             if (entity != null)
             {
                 EntityProjectile projectile = (EntityProjectile) entity;
-                projectile.transform.SetPositionAndRotation(evtSpawn.Position, evtSpawn.Rotation);
-                projectile.AddForce(evtSpawn.Velocity);
+                projectile.Launch(evtSpawn.Position, evtSpawn.Rotation, evtSpawn.Velocity, evtSpawn.ImpluseForce);
             }
         }
 

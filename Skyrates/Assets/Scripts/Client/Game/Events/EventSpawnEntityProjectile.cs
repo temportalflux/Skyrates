@@ -12,11 +12,14 @@ namespace Skyrates.Client.Game.Event
 
         public Vector3 Velocity;
 
-        public EventSpawnEntityProjectile(Common.Entity.Entity.TypeData type, Transform spawn, Vector3 velocity) : base(GameEventID.SpawnEntityProjectile)
+        public Vector3 ImpluseForce;
+
+        public EventSpawnEntityProjectile(Common.Entity.Entity.TypeData type, Transform spawn, Vector3 velocity, Vector3 impluseForce) : base(GameEventID.SpawnEntityProjectile)
         {
             this.TypeData = type;
             this.Spawn = spawn;
             this.Velocity = velocity;
+            this.ImpluseForce = impluseForce;
         }
 
     }

@@ -59,7 +59,11 @@ namespace Skyrates.Client.Game
 
             if (typeData.EntityType == Common.Entity.Entity.Type.Player)
             {
-                spawned = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayerShip>();
+                EntityPlayerShip player = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayerShip>();
+                player.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
+                player.transform.position = player.Physics.LinearPosition;
+                player.transform.rotation = player.Physics.RotationPosition;
+                spawned = player;
             }
             else
             {
@@ -77,12 +81,6 @@ namespace Skyrates.Client.Game
             if (spawned == null) return null;
             
             spawned.Init(guid, typeData);
-
-            EntityDynamic entityDynamic = spawned as EntityDynamic;
-            if (entityDynamic != null)
-            {
-                entityDynamic.Physics.SetPositionAndRotation(this.playerSpawn.position, this.playerSpawn.rotation);
-            }
 
             GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
 

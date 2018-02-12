@@ -12,10 +12,11 @@ namespace Skyrates.Client.Ship
     public class ShipFigurehead : ShipComponent
     {
 
+        public float DamageMultiplier;
+
         public float GetDamage()
         {
-            // TODO: Implement ram damage
-            return 1;
+            return this.DamageMultiplier;
         }
 
     }

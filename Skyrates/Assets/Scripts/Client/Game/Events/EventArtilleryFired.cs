@@ -1,17 +1,18 @@
 ﻿using Skyrates.Client.Ship;
+using Skyrates.Common.Entity;
 
 namespace Skyrates.Client.Game.Event
 {
 
-    public class EventArtilleryFired : EventEntityPlayerShip
+    public class EventArtilleryFired : EventEntity
     {
 
-        public ShipArtillery[] Artillery;
+        public Shooter[] Shooters;
 
-        public EventArtilleryFired(EntityPlayerShip playerShip, ShipArtillery[] artillery)
-            : base(GameEventID.ArtilleryFired, playerShip)
+        public EventArtilleryFired(EntityShip ship, Shooter[] shooters)
+            : base(GameEventID.ArtilleryFired, ship)
         {
-            this.Artillery = artillery;
+            this.Shooters = shooters;
         }
 
     }

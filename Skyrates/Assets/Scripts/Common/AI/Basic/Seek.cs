@@ -22,11 +22,18 @@ namespace Skyrates.Common.AI
         public override void GetSteering(SteeringData data, ref PhysicsData physics)
         {
 
-            physics.LinearAccelleration = data.Target.LinearPosition - physics.LinearPosition;
-            physics.LinearAccelleration.Normalize();
-            physics.LinearAccelleration *= this.AccellerationMax;
+            Vector3 direction = (data.Target.LinearPosition - physics.LinearPosition).normalized;
+            
+            //physics.LinearAccelleration = direction * this.AccellerationMax;
+            physics.LinearVelocity = direction * this.AccellerationMax;
 
-            physics.RotationAccelleration = Quaternion.identity;
+            // Face
+            Vector3 directionXZ = new Vector3(data.Target.LinearPosition.x, physics.LinearPosition.y, data.Target.LinearPosition.z) - physics.LinearPosition;
+            if (directionXZ != Vector3.zero)
+            {
+                Quaternion towardsTarget = Quaternion.LookRotation(directionXZ);
+                physics.RotationPosition = towardsTarget;
+            }
 
         }
 

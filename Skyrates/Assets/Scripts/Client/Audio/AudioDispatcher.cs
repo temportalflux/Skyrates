@@ -68,15 +68,17 @@ namespace Skyrates.Client
         {
             EventArtilleryFired eventArtillery = (EventArtilleryFired) evt;
 
+            if (eventArtillery.Shooters.Length <= 0) return;
+
             // Position average is easy
             Vector3 averagePosition = Vector3.zero;
             // Quaternion average taken from https://answers.unity.com/questions/815266/find-and-average-rotations-together.html
             Quaternion averageRotation = new Quaternion(0, 0, 0, 0);
-            int artilleryCount = eventArtillery.Artillery.Length;
-            foreach (ShipArtillery artillery in eventArtillery.Artillery)
+            int artilleryCount = eventArtillery.Shooters.Length;
+            foreach (Shooter shooter in eventArtillery.Shooters)
             {
-                averagePosition += artillery.transform.position;
-                averageRotation = Quaternion.Slerp(averageRotation, artillery.transform.rotation, 1 / artilleryCount);
+                averagePosition += shooter.transform.position;
+                averageRotation = Quaternion.Slerp(averageRotation, shooter.transform.rotation, 1 / artilleryCount);
             }
             averagePosition /= artilleryCount;
 

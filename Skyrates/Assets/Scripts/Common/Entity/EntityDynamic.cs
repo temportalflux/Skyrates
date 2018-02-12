@@ -61,6 +61,11 @@ namespace Skyrates.Common.Entity
 
         }
 
+        protected virtual void OnDestroy()
+        {
+
+        }
+
         protected virtual Transform GetView()
         {
             return this.transform;
@@ -75,7 +80,7 @@ namespace Skyrates.Common.Entity
         /// Integrates the current set of physics with the <see cref="Transform"/>.
         /// </summary>
         /// <param name="deltaTime"></param>
-        private void IntegratePhysics(float deltaTime)
+        protected virtual void IntegratePhysics(float deltaTime)
         {
 
             // Update velocity

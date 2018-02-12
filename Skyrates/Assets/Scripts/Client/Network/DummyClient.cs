@@ -4,6 +4,7 @@ using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using Skyrates.Common.Network.Event;
 using Skyrates.Server.Network;
+using UnityEngine;
 
 namespace Skyrates.Client.Network
 {
@@ -63,8 +64,7 @@ namespace Skyrates.Client.Network
             if (entity != null)
             {
                 EntityProjectile projectile = (EntityProjectile) entity;
-                projectile.transform.SetPositionAndRotation(evtSpawn.Spawn.position, evtSpawn.Spawn.rotation);
-                projectile.AddForce(evtSpawn.Velocity);
+                projectile.Launch(evtSpawn.Spawn.position, evtSpawn.Spawn.rotation, evtSpawn.Velocity, evtSpawn.ImpluseForce);
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿
+using System.Collections.Generic;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
+using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
@@ -69,6 +71,24 @@ namespace Skyrates.Client
         }
 
         #endregion
+
+        protected override Shooter[] GetArtilleryShooters()
+        {
+            // TODO: Optimize this
+            Vector3 forwardAim = this.GetView().forward;
+            ShipComponent[] components = this.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
+            List<Shooter> evtArtillery = new List<Shooter>();
+            for (int iComponent = 0; iComponent < components.Length; iComponent++)
+            {
+                Vector3 forwardArtillery = components[iComponent].transform.forward;
+                float dot = Vector3.Dot(forwardAim, forwardArtillery);
+                if (dot > 0.3)
+                {
+                    evtArtillery.Add(((ShipArtillery) components[iComponent]).Shooter);
+                }
+            }
+            return evtArtillery.ToArray();
+        }
 
         public override void TakeDamage(float damage)
         {

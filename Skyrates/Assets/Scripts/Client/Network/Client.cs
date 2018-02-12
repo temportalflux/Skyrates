@@ -130,7 +130,7 @@ namespace Skyrates.Client.Network
         public void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
-            NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity));
+            NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity, evtSpawn.ImpluseForce));
         }
 
         // when any entity is suppossed to be damaged

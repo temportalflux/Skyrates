@@ -15,10 +15,17 @@ public class EntityProjectile : EntityDynamic
         base.Start();
         this.PhysicsComponent = this.GetComponent<Rigidbody>();
     }
+
+    public void Launch(Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 impulseForce)
+    {
+        this.transform.SetPositionAndRotation(position, rotation);
+        this.GetComponent<Rigidbody>().velocity = velocity;
+        this.AddForce(impulseForce);
+    }
     
     public void AddForce(Vector3 force)
     {
-        this.GetComponent<Rigidbody>().AddForce(force, ForceMode.Acceleration);
+        this.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
     }
 
     protected override void FixedUpdate()
