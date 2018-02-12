@@ -45,8 +45,8 @@ namespace Skyrates.Client
         {
             if (prefab != null)
             {
-                AudioSource spawned = Instantiate(prefab, position, rotation, this.transform);
-                Destroy(spawned, prefab.time);
+                AudioSource spawned = Instantiate(prefab.gameObject, position, rotation, this.transform).GetComponent<AudioSource>();
+                Destroy(spawned.gameObject, spawned.clip.length);
             }
         }
 
