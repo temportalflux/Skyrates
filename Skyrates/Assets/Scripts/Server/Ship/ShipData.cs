@@ -15,7 +15,7 @@ public class ShipData : ISerializing
 
     public enum ComponentType
     {
-       Artillery, Figurehead, Hull, Navigation, Propulsion, Sail,
+       Artillery, Figurehead, Hull, NavigationLeft, NavigationRight, Propulsion, Sail,
     }
 
     public static readonly object[] ComponentTypes =
@@ -23,25 +23,28 @@ public class ShipData : ISerializing
         ComponentType.Artillery,
         ComponentType.Figurehead,
         ComponentType.Hull,
-        ComponentType.Navigation,
+        ComponentType.NavigationLeft,
+        ComponentType.NavigationRight,
         ComponentType.Propulsion,
         ComponentType.Sail,
     };
     public static readonly ComponentType[] NonHullComponents = {
         ComponentType.Artillery,
         ComponentType.Figurehead,
-        ComponentType.Navigation,
+        ComponentType.NavigationLeft,
+        ComponentType.NavigationRight,
         ComponentType.Propulsion,
         ComponentType.Sail,
     };
-    public static readonly int[] HulllessComponentIndex = { 0, 1, -1, 2, 3, 4 };
+    public static readonly int[] HulllessComponentIndex = { 0, 1, -1, 2, 3, 4, 5 };
 
     public static readonly Type[] ComponentClassTypes =
     {
         typeof(ShipArtillery),
         typeof(ShipFigurehead),
         typeof(ShipHull),
-        typeof(ShipNavigation),
+        typeof(ShipNavigationLeft),
+        typeof(ShipNavigationRight),
         typeof(ShipPropulsion),
         typeof(ShipSail),
     };

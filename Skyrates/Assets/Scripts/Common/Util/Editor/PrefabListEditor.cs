@@ -105,7 +105,7 @@ public abstract class PrefabListEditor<TKey, TValue> : Editor where TValue: Mono
                     MonoBehaviour prev = values[iValue];
                     string valueName = prev == null ? "None" : prev.name;
                     values[iValue] = (TValue)EditorGUILayout.ObjectField(
-                        iValue + ") " + valueName, prev, keyValueType, false);
+                        iValue + ") " + valueName, prev, keyValueType, allowSceneObjects:true);
                     names[iValue] = values[iValue] == null ? "None" : values[iValue].name;
                 }
             }

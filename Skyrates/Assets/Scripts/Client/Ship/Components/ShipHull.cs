@@ -71,8 +71,8 @@ namespace Skyrates.Client.Ship
 
             // Set the transform information on the component from the target
             Mount mount = mounts[this.GetComponentIndex(compType)];
-            comp.transform.position += mount.Roots[index].position;
-            comp.transform.rotation = mount.Roots[index].rotation;
+            comp.transform.position += mount.Roots[index].localPosition;
+            comp.transform.rotation = mount.Roots[index].localRotation;
         }
 
         /// <summary>

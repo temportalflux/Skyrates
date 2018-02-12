@@ -16,7 +16,7 @@ namespace Skyrates.Client.Ship
 
         private ShipHull _instance;
 
-        private static readonly bool[] ToggleComp = new bool[ShipData.NonHullComponents.Length];
+        private static bool[] ToggleComp = new bool[ShipData.NonHullComponents.Length];
 
         public void OnEnable()
         {
@@ -32,6 +32,8 @@ namespace Skyrates.Client.Ship
             {
                 Array.Resize(ref this._instance.Mounts, ShipData.NonHullComponents.Length);
             }
+            if (ToggleComp.Length != ShipData.NonHullComponents.Length)
+                Array.Resize(ref ToggleComp, ShipData.NonHullComponents.Length);
 
             foreach (ComponentType compType in ShipData.NonHullComponents)
             {
@@ -46,7 +48,7 @@ namespace Skyrates.Client.Ship
                     true, ToggleComp[iComp],
                     DrawBlock: (t => (Transform)EditorGUILayout.ObjectField(
                         t == null ? "Pos/Rot" : t.name,
-                        t, typeof(Transform), allowSceneObjects:false
+                        t, typeof(Transform), allowSceneObjects:true
                     ))
                 );
 

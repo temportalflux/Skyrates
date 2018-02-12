@@ -75,10 +75,23 @@ namespace Skyrates.Client.Ship
         /// </summary>
         /// <param name="data">The data to pull from, stored data if null.</param>
         /// <returns></returns>
-        public ShipNavigation GetNavigation(ShipData data = null)
+        public ShipNavigation GetNavigationLeft(ShipData data = null)
         {
-            if (data == null) data = this.ShipData;
-            return (ShipNavigation) this.GetShipComponent(ComponentType.Navigation, data);
+            if (data == null)
+                data = this.ShipData;
+            return (ShipNavigation) this.GetShipComponent(ComponentType.NavigationLeft, data);
+        }
+
+        /// <summary>
+        /// Retrives the ship component <see cref="ShipNavigation"/> from passed or stored data.
+        /// </summary>
+        /// <param name="data">The data to pull from, stored data if null.</param>
+        /// <returns></returns>
+        public ShipNavigation GetNavigationRight(ShipData data = null)
+        {
+            if (data == null)
+                data = this.ShipData;
+            return (ShipNavigation) this.GetShipComponent(ComponentType.NavigationRight, data);
         }
 
         /// <summary>
@@ -143,6 +156,7 @@ namespace Skyrates.Client.Ship
                     //Transform target = targets[iTarget];
                     // Create the object
                     GameObject built = Instantiate(prefab, root);
+                    built.transform.SetPositionAndRotation(hullBuilt.transform.position, hullBuilt.transform.rotation);
                     // Tell the built hull that it exists
                     // TODO: Optimize this function to just send in the transform
                     hullBuilt.AddShipComponent(hullPrefab.Mounts, compType, iTarget, built.GetComponent<ShipComponent>());

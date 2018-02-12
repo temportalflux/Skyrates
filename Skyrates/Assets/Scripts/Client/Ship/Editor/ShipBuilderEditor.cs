@@ -21,6 +21,11 @@ public class ShipBuilderEditor : Editor
     {
         EditorGUILayout.LabelField("Ship Builder");
 
+        if (instance.ShipData.Components.Length != ShipData.ComponentTypes.Length)
+        {
+            Array.Resize(ref instance.ShipData.Components, ShipData.ComponentTypes.Length);
+        }
+
         EditorGUILayout.BeginHorizontal();
         instance.ShipComponentList = (ShipComponentList)EditorGUILayout.ObjectField("Component List", instance.ShipComponentList, typeof(ShipComponentList), false);
         EditorGUILayout.EndHorizontal();
