@@ -51,9 +51,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4090128990443776}
-  - component: {fileID: 114162946403510496}
   - component: {fileID: 136646843823174400}
   - component: {fileID: 54902438066616826}
+  - component: {fileID: 114715913032347708}
   m_Layer: 0
   m_Name: Ship_Merchant_ Cargo
   m_TagString: Untagged
@@ -620,7 +620,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114162946403510496
+--- !u!114 &114715913032347708
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -640,6 +640,7 @@ MonoBehaviour:
     Render: {fileID: 0}
   Steering: {fileID: 0}
   StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
+  Health: 0
 --- !u!136 &136646843823174400
 CapsuleCollider:
   m_ObjectHideFlags: 1

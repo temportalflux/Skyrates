@@ -45,7 +45,7 @@ namespace Skyrates.Client.Game
             // TODO: Move this to owner classes (DummyClient & ClientServer)
             if (NetworkComponent.GetSession.IsOwner && ((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
             {
-                Entity e = this.SpawnEntity(new Entity.TypeData(Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
+                Common.Entity.Entity e = this.SpawnEntity(new Common.Entity.Entity.TypeData(Common.Entity.Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
                 System.Diagnostics.Debug.Assert(e != null, "e != null");
                 e.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
             }
@@ -53,11 +53,11 @@ namespace Skyrates.Client.Game
 
         #endregion
 
-        public Entity SpawnEntity(Entity.TypeData typeData, Guid guid)
+        public Common.Entity.Entity SpawnEntity(Common.Entity.Entity.TypeData typeData, Guid guid)
         {
-            Entity spawned = null;
+            Common.Entity.Entity spawned = null;
 
-            if (typeData.EntityType == Entity.Type.Player)
+            if (typeData.EntityType == Common.Entity.Entity.Type.Player)
             {
                 spawned = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayerShip>();
             }
@@ -66,7 +66,7 @@ namespace Skyrates.Client.Game
                 try
                 {
                     spawned = Instantiate(this.EntityList.Categories[typeData.EntityTypeAsInt]
-                        .Prefabs[typeData.EntityTypeIndex].gameObject).GetComponent<Entity>();
+                        .Prefabs[typeData.EntityTypeIndex].gameObject).GetComponent<Common.Entity.Entity>();
                 }
                 catch (Exception)
                 {

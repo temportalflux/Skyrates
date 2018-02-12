@@ -9,9 +9,9 @@ namespace Skyrates.Client.Game.Event
     public class EventEntity : GameEvent
     {
 
-        public Entity Entity;
+        public Common.Entity.Entity Entity;
 
-        public EventEntity(GameEventID id, Entity entity) : base(id)
+        public EventEntity(GameEventID id, Common.Entity.Entity entity) : base(id)
         {
             this.Entity = entity;
         }

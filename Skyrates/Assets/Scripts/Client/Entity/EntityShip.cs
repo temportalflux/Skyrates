@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Game;
+﻿using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Loot;
 using Skyrates.Client.Ship;
@@ -51,7 +49,7 @@ namespace Skyrates.Common.Entity
         }
 
         // called by network interface events which originate from OnTriggerEnter
-        public void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage)
         {
             this.Health -= damage;
 
@@ -59,17 +57,23 @@ namespace Skyrates.Common.Entity
 
             if (this.Health > 0) return;
 
-            // Spawn loot
-            // NOTE: Since this function is called by the owning client, then loot is spawned on owning client
-            // TODO: Sync loot - make loot entity static
-            this.SpawnLoot(this.transform.position);
+            this.OnPreDestroy();
 
             // Deal damage
             Destroy(this.gameObject);
 
         }
 
-        private void SpawnLoot(Vector3 position)
+        protected virtual void OnPreDestroy()
+        {
+            // Spawn loot
+            // NOTE: Since this function is called by the owning client, then loot is spawned on owning client
+            // TODO: Sync loot - make loot entity static
+            this.SpawnLoot(this.transform.position);
+
+        }
+
+        protected virtual void SpawnLoot(Vector3 position)
         {
             ShipComponent[] loots = this.StatBlock.Loot.Generate();
             foreach (ShipComponent lootItem in loots)
@@ -87,6 +91,6 @@ namespace Skyrates.Common.Entity
             }
         }
 
-        }
+    }
 
 }

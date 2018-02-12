@@ -23,9 +23,9 @@ namespace Skyrates.Client.Network.Event
         [BitSerialize(4)]
         public float Damage;
 
-        public Entity.Type EntityType
+        public Common.Entity.Entity.Type EntityType
         {
-            get { return (Entity.Type) this.EntityTypeAsInt; }
+            get { return (Common.Entity.Entity.Type) this.EntityTypeAsInt; }
             set { this.EntityTypeAsInt = (int) value; }
         }
 

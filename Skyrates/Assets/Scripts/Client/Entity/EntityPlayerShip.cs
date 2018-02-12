@@ -70,9 +70,12 @@ namespace Skyrates.Client
 
         #endregion
 
-        protected override void OnTriggerEnter(Collider other)
+        public override void TakeDamage(float damage)
         {
+        }
 
+        protected override void SpawnLoot(Vector3 position)
+        {
         }
 
     }

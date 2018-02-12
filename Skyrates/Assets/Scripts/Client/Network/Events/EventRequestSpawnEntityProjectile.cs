@@ -17,7 +17,7 @@ namespace Skyrates.Client.Network.Event
         public uint clientID;
 
         [BitSerialize(2)]
-        public Entity.TypeData TypeData;
+        public Common.Entity.Entity.TypeData TypeData;
 
         [BitSerialize(3)]
         public Guid EntityGuid;
@@ -41,7 +41,7 @@ namespace Skyrates.Client.Network.Event
         {
         }
 
-        public EventRequestSpawnEntityProjectile(Entity.TypeData typeData, Transform spawn, Vector3 velocity) : this()
+        public EventRequestSpawnEntityProjectile(Common.Entity.Entity.TypeData typeData, Transform spawn, Vector3 velocity) : this()
         {
             this.clientID = NetworkComponent.GetSession.ClientID;
             this.TypeData = typeData;

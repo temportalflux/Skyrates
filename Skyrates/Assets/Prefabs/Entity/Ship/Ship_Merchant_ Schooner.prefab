@@ -53,10 +53,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4664746602210714}
-  - component: {fileID: 114846156284207654}
   - component: {fileID: 136523901374573854}
   - component: {fileID: 136944665984715090}
   - component: {fileID: 54349007325168094}
+  - component: {fileID: 114303108047845630}
   m_Layer: 0
   m_Name: Ship_Merchant_ Schooner
   m_TagString: Untagged
@@ -163,7 +163,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114846156284207654
+--- !u!114 &114303108047845630
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -183,6 +183,7 @@ MonoBehaviour:
     Render: {fileID: 0}
   Steering: {fileID: 0}
   StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
+  Health: 0
 --- !u!136 &136004417674703406
 CapsuleCollider:
   m_ObjectHideFlags: 1

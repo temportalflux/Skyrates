@@ -52,8 +52,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4741361080320124}
-  - component: {fileID: 114367338274301190}
   - component: {fileID: 54404596633985784}
+  - component: {fileID: 114269295474296904}
   m_Layer: 0
   m_Name: Ship_Navy_Basic
   m_TagString: Untagged
@@ -160,7 +160,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114367338274301190
+--- !u!114 &114269295474296904
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -168,18 +168,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1714927255280634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 575d55c84d5a0054a93ede34d1528435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OwnerNetworkID: 0
   EntityType:
     EntityTypeAsInt: 1
-    EntityTypeIndex: 2
+    EntityTypeIndex: 3
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
-  Steering: {fileID: 0}
+  Steering: {fileID: 11400000, guid: 39694d9de560736458f2c007c5655a9a, type: 2}
   StatBlock: {fileID: 11400000, guid: 898a9b5fec6f72545b401a35af024b6c, type: 2}
+  Health: 0
 --- !u!136 &136967180866509056
 CapsuleCollider:
   m_ObjectHideFlags: 1

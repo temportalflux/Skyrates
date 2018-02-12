@@ -59,7 +59,7 @@ namespace Skyrates.Client.Network
         public void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
-            Entity entity = GameManager.Instance.SpawnEntity(evtSpawn.TypeData, Entity.NewGuid());
+            Common.Entity.Entity entity = GameManager.Instance.SpawnEntity(evtSpawn.TypeData, Common.Entity.Entity.NewGuid());
             if (entity != null)
             {
                 EntityProjectile projectile = (EntityProjectile) entity;

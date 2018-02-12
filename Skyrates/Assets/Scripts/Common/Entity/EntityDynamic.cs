@@ -119,6 +119,15 @@ namespace Skyrates.Common.Entity
             this.GetRender().rotation = this.Physics.RotationPosition;
         }
 
+        private void OnEnable()
+        {
+        }
+
+        private void OnDisable()
+        {
+            
+        }
+
     }
 
 }
