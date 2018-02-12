@@ -19,7 +19,7 @@ namespace Skyrates.Common.Entity
         /// Updated via <see cref="Steering"/>.
         /// </summary>
         [BitSerialize(4)]
-        public PhysicsData Physics = new PhysicsData();
+        public PhysicsData Physics;
 
         /// <summary>
         /// The steering data used - info which is specific to this
@@ -36,6 +36,15 @@ namespace Skyrates.Common.Entity
         public Steering Steering;
 
         private Rigidbody _rigidbody;
+
+        protected virtual void Awake()
+        {
+            this.Physics = new PhysicsData
+            {
+                LinearPosition = this.transform.position,
+                RotationPosition = this.transform.rotation
+            };
+        }
 
         protected override void Start()
         {

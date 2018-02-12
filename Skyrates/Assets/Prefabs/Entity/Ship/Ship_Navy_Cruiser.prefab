@@ -297,7 +297,7 @@ MonoBehaviour:
     EntityTypeAsInt: 2
     EntityTypeIndex: 0
   spawn: {fileID: 4722981139298310}
-  force: 1000
+  force: 0.005
 --- !u!114 &114761233398162100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,6 +322,8 @@ MonoBehaviour:
   Shooters:
   - {fileID: 114832201945137496}
   - {fileID: 114067398138845758}
+  maxDistShoot: 10000
+  maxDistFind: 20000
 --- !u!114 &114832201945137496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,7 +339,7 @@ MonoBehaviour:
     EntityTypeAsInt: 2
     EntityTypeIndex: 0
   spawn: {fileID: 4767101746777976}
-  force: 1000
+  force: 0.005
 --- !u!136 &136069094275189268
 CapsuleCollider:
   m_ObjectHideFlags: 1

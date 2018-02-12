@@ -18,6 +18,8 @@ namespace Skyrates.Client.Entity
 
         private Coroutine _findTarget;
         private Coroutine _shootAtTarget;
+        public float maxDistShoot = 10000;
+        public float maxDistFind = 10000;
 
         protected override void Start()
         {
@@ -29,8 +31,15 @@ namespace Skyrates.Client.Entity
 
         protected override void FixedUpdate()
         {
-            if (this._findTarget == null && this._aiTarget == null)
-                this._findTarget = StartCoroutine(this.FindTarget());
+            if (this._aiTarget == null)
+            {
+                if (this._findTarget == null)
+                    this._findTarget = StartCoroutine(this.FindTarget());
+            }
+            else if ((this._aiTarget.transform.position - this.transform.position).sqrMagnitude > this.maxDistFind)
+            {
+                this._aiTarget = null;
+            }
             this.SteeringData.Target = this._aiTarget == null ? this.Physics : this._aiTarget.Physics;
             base.FixedUpdate();
         }
@@ -60,15 +69,14 @@ namespace Skyrates.Client.Entity
                 float wait = this._aiTarget == null ? 15 : 3;
 
                 float sqrDist = 200;
-                float maxDist = 10000;
                 if (this._aiTarget != null)
                 {
                     sqrDist = (this.transform.position - this._aiTarget.transform.position).sqrMagnitude;
-                    if (sqrDist > maxDist)
+                    if (sqrDist > maxDistShoot)
                         wait = 0.5f;
                 }
                 yield return new WaitForSeconds(wait);
-                if (sqrDist < maxDist)
+                if (sqrDist < maxDistShoot)
                 {
                     this.Shoot();
                 }

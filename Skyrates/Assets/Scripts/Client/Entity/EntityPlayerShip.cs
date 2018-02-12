@@ -25,8 +25,9 @@ namespace Skyrates.Client
 
         public Ship.Ship ShipRoot;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             this.ShipRoot.Destroy();
             this.ShipData = this.ShipRoot.Generate();
         }
