@@ -40,6 +40,7 @@ namespace Skyrates.Client
         public AudioSource AudioArtilleryFired;
         public AudioSource AudioEntityShipHitByProjectile;
         public AudioSource AudioEntityShipHitByRam;
+        public AudioSource AudioOnLootCollected;
 
         private void CreateAudio(Vector3 position, Quaternion rotation, AudioSource prefab)
         {
@@ -55,6 +56,7 @@ namespace Skyrates.Client
             GameManager.Events.ArtilleryFired += this.OnArtilleryFired;
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
+            GameManager.Events.LootCollected += this.OnLootCollected;
         }
 
         void OnDisable()
@@ -62,6 +64,7 @@ namespace Skyrates.Client
             GameManager.Events.ArtilleryFired -= this.OnArtilleryFired;
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
+            GameManager.Events.LootCollected -= this.OnLootCollected;
         }
         
         public void OnArtilleryFired(GameEvent evt)
@@ -117,6 +120,12 @@ namespace Skyrates.Client
             {
                 this.CreateAudio(position, rotation, prefab);
             }
+        }
+
+        public void OnLootCollected(GameEvent evt)
+        {
+            EventLootCollected evtLoot = (EventLootCollected) evt;
+            this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected);
         }
 
     }
