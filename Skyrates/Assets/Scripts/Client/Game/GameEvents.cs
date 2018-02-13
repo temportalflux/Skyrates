@@ -28,6 +28,9 @@ namespace Skyrates.Client.Game.Event
         EntityShipHitByProjectile,
         EntityShipHitByRam,
 
+        EnemyTargetEngage,
+        EnemyTargetDisengage,
+
         #endregion
 
         #region Player
@@ -59,6 +62,8 @@ namespace Skyrates.Client.Game.Event
         public event GameEventDelegate EntityShipDamaged;
         public event GameEventDelegate EntityShipHitByProjectile;
         public event GameEventDelegate EntityShipHitByRam;
+        public event GameEventDelegate EnemyTargetEngage;
+        public event GameEventDelegate EnemyTargetDisengage;
         #endregion
         #region Player
         public event GameEventDelegate PlayerMoved;
@@ -94,6 +99,10 @@ namespace Skyrates.Client.Game.Event
                     return this.EntityShipHitByProjectile;
                 case GameEventID.EntityShipHitByRam:
                     return this.EntityShipHitByRam;
+                case GameEventID.EnemyTargetEngage:
+                    return this.EnemyTargetEngage;
+                case GameEventID.EnemyTargetDisengage:
+                    return this.EnemyTargetDisengage;
                 #endregion
                 #region Player
                 case GameEventID.PlayerMoved:

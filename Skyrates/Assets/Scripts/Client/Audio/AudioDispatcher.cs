@@ -41,6 +41,8 @@ namespace Skyrates.Client
         public AudioSource AudioEntityShipHitByProjectile;
         public AudioSource AudioEntityShipHitByRam;
         public AudioSource AudioOnLootCollected;
+        public AudioSource AudioOnEnemyEngage;
+        public AudioSource AudioOnEnemyDisengage;
 
         private void CreateAudio(Vector3 position, Quaternion rotation, AudioSource prefab)
         {
@@ -57,6 +59,8 @@ namespace Skyrates.Client
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
             GameManager.Events.LootCollected += this.OnLootCollected;
+            GameManager.Events.EnemyTargetEngage += this.OnEnemyEngage;
+            GameManager.Events.EnemyTargetDisengage += this.OnEnemyEngage;
         }
 
         void OnDisable()
@@ -65,6 +69,8 @@ namespace Skyrates.Client
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
             GameManager.Events.LootCollected -= this.OnLootCollected;
+            GameManager.Events.EnemyTargetEngage -= this.OnEnemyEngage;
+            GameManager.Events.EnemyTargetDisengage -= this.OnEnemyEngage;
         }
         
         public void OnArtilleryFired(GameEvent evt)
@@ -125,7 +131,34 @@ namespace Skyrates.Client
         public void OnLootCollected(GameEvent evt)
         {
             EventLootCollected evtLoot = (EventLootCollected) evt;
+            if (!evtLoot.PlayerShip.IsLocallyControlled) return;
             this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected);
+        }
+
+        public void OnEnemyEngage(GameEvent evt)
+        {
+            EventEnemyTargetEngage evtDEngage = (EventEnemyTargetEngage) evt;
+
+            if (evtDEngage.Target.EntityType.EntityType != Common.Entity.Entity.Type.Player) return;
+            if (!evtDEngage.Target.IsLocallyControlled) return;
+
+            switch (evtDEngage.EventID)
+            {
+                case GameEventID.EnemyTargetEngage:
+                    this.CreateAudio(
+                        evtDEngage.Target.transform.position,
+                        evtDEngage.Target.transform.rotation,
+                        this.AudioOnEnemyEngage);
+                    break;
+                case GameEventID.EnemyTargetDisengage:
+                    this.CreateAudio(
+                        evtDEngage.Target.transform.position,
+                        evtDEngage.Target.transform.rotation,
+                        this.AudioOnEnemyDisengage);
+                    break;
+                default:
+                    break;
+            }
         }
 
     }
