@@ -47,21 +47,22 @@ public class InputInteraction : MonoBehaviour
     {
         // ForwardInput is left stick (up/down)
         this.input.ShootRight.Input = Input.GetAxis("xbox_trigger_r");
+        this.input.ShootLeft.Input = Input.GetAxis("xbox_trigger_l");
     }
 
     private void UpdateInput()
     {
         if (this.input.ShootRoutineRight == null)
         {
-            this.input.ShootRoutineRight = StartCoroutine(this.RoutineShoot(ShipData.ComponentType.ArtilleryRight));
+            this.input.ShootRoutineRight = StartCoroutine(this.RoutineShoot(this.input.ShootRight, ShipData.ComponentType.ArtilleryRight));
         }
         if (this.input.ShootRoutineLeft == null)
         {
-            this.input.ShootRoutineLeft = StartCoroutine(this.RoutineShoot(ShipData.ComponentType.ArtilleryLeft));
+            this.input.ShootRoutineLeft = StartCoroutine(this.RoutineShoot(this.input.ShootLeft, ShipData.ComponentType.ArtilleryLeft));
         }
     }
 
-    private IEnumerator RoutineShoot(ShipData.ComponentType artillery)
+    private IEnumerator RoutineShoot(UserControlled.InputConfig input, ShipData.ComponentType artillery)
     {
         float timePrevious = Time.time;
         float timeElapsed = 0.0f;
@@ -75,7 +76,7 @@ public class InputInteraction : MonoBehaviour
 
             cooldownRemaining = Mathf.Max(0, cooldownRemaining - timeElapsed);
 
-            if (cooldownRemaining > 0.0f || !(this.input.ShootRight.Value > 0.0f)) continue;
+            if (cooldownRemaining > 0.0f || !(input.Value > 0.0f)) continue;
 
             this.Shoot(artillery);
 

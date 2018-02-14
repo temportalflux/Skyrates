@@ -352,8 +352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input:
-    ShootInput: 0
-    ShootSpeed: 1
+    ShootRight:
+      Input: 0
+      Modifier: 1
+    ShootLeft:
+      Input: 0
+      Modifier: 1
     ShootDelay: 0.5
     ShootDelayMin: 0
   EntityPlayerShip: {fileID: 114956092729709676}
