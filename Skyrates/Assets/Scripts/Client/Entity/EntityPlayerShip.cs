@@ -100,8 +100,9 @@ namespace Skyrates.Client
             return evtArtillery.ToArray();
         }
 
-        public override void TakeDamage(float damage)
+        protected override bool OnPreDestroy()
         {
+            return false;
         }
 
         protected override void SpawnLoot(Vector3 position)

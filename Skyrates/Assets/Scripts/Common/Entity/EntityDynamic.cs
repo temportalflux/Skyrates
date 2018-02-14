@@ -53,6 +53,11 @@ namespace Skyrates.Common.Entity
             Debug.Assert(this._rigidbody != null, string.Format("{0} has null rigidbody - this is required to move with collisions.", this.name));
         }
 
+        protected virtual void Update()
+        {
+
+        }
+
         protected virtual void FixedUpdate()
         {
 
