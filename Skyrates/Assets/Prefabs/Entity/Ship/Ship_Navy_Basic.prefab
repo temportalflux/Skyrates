@@ -173,6 +173,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -190,6 +191,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -242,8 +244,7 @@ MonoBehaviour:
   StatBlock: {fileID: 11400000, guid: 898a9b5fec6f72545b401a35af024b6c, type: 2}
   ParticleSmoke: {fileID: 198141962496181874}
   ParticleFire: {fileID: 198449453570621352}
-  ParticleOnDestruction: {fileID: 198409131529129162, guid: 2eb4ad8bbf0d3e2409d5bd829f7350db,
-    type: 2}
+  ParticleOnDestruction: {fileID: 0}
   Health: 0
   Shooters: []
   maxDistShoot: 0

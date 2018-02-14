@@ -78,12 +78,12 @@ namespace Skyrates.Client.Entity
                 yield return new WaitForSeconds(wait);
                 if (sqrDist < maxDistShoot)
                 {
-                    this.Shoot();
+                    this.Shoot(ShipData.ComponentType.ArtilleryForward);
                 }
             }
         }
 
-        protected override Shooter[] GetArtilleryShooters()
+        protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
             return this.Shooters;
         }

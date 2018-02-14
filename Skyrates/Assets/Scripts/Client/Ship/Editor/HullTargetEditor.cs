@@ -42,6 +42,7 @@ namespace Skyrates.Client.Ship
                 int iComp = ShipData.HulllessComponentIndex[(int) compType];
 
                 Transform[] roots = this._instance.Mounts[iComp].Roots;
+                if (roots == null) roots = new Transform[0];
 
                 ToggleComp[iComp] = this.DrawArray(
                     compType.ToString(), ref roots,

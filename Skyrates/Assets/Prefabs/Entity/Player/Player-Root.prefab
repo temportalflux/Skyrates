@@ -308,7 +308,7 @@ MonoBehaviour:
   ComponentRoot: {fileID: 4717130946942272}
   Blueprint: {fileID: 11400000, guid: 78e837ba4dbe551488ff0d8ad964477b, type: 2}
   ShipData:
-    Components: 000000000000000000000000000000000000000000000000ffffffff
+    Components: 0000000000000000ffffffff0000000000000000000000000000000000000000ffffffff
     _hasNewData: 0
   Hull: {fileID: 0}
 --- !u!114 &114208892904884064
@@ -352,8 +352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input:
-    ShootInput: 0
-    ShootSpeed: 1
+    ShootRight:
+      Input: 0
+      Modifier: 1
+    ShootLeft:
+      Input: 0
+      Modifier: 1
     ShootDelay: 0.5
     ShootDelayMin: 0
   EntityPlayerShip: {fileID: 114956092729709676}
@@ -397,6 +401,9 @@ MonoBehaviour:
     Render: {fileID: 0}
   Steering: {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
   StatBlock: {fileID: 0}
+  ParticleSmoke: {fileID: 0}
+  ParticleFire: {fileID: 0}
+  ParticleOnDestruction: {fileID: 0}
   Health: 0
   ShipData:
     Components: 00000000000000000000000000000000000000000000000000000000
