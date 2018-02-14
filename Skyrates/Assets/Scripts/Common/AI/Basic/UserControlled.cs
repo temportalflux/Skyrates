@@ -62,10 +62,10 @@ namespace Skyrates.Common.AI
 
             // ForwardInput is left stick (up/down)
             input.Forward.Input = Input.GetAxis("xbox_stick_l_vertical");
-
+            
             // Strafe is left stick (left/right)
             input.Strafe.Input = Input.GetAxis("xbox_stick_l_horizontal");
-
+            
             // Vertical is bumpers
             input.Vertical.Input = Input.GetButton("xbox_bumper_r") ? 1 :
                 Input.GetButton("xbox_bumper_l") ? -1 : 0;
@@ -75,7 +75,8 @@ namespace Skyrates.Common.AI
         private void Move(SteeringData data, InputData input, ref PhysicsData physicsData)
         {
             Vector3 forward = data.Render.forward;
-            Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
+            //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
+            Vector3 vertical = Vector3.up;
 
             // For character
             //Vector3 movementForward = cameraForward * this.playerInput.Forward;
@@ -85,7 +86,9 @@ namespace Skyrates.Common.AI
             float forwardSpeed = Mathf.Max(0, input.Forward.Value);
             // value in range [0, 1] of how much constant velocity to counteract
             float backpedal = Mathf.Max(0, -input.Forward.Input);
-            Vector3 movementForward = forward * (forwardSpeed + (1 - backpedal) * this.constantSpeed);
+
+            float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.constantSpeed);
+            Vector3 movementForward = forward * movementForwardSpeed;
 
             Vector3 movementVertical = vertical * input.Vertical.Value;
 
@@ -99,9 +102,9 @@ namespace Skyrates.Common.AI
             physicsData.LinearVelocity = movementXYZ;
 
             // for ship movement
-            float rotation = input.Strafe.Value;
-            rotation *= (1 - input.Forward.Input) * 0.5f;
-            physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));
+            float rotationY = input.Strafe.Value;
+            //rotationY *= (1 - input.Forward.Input) * 0.5f;
+            physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, rotationY, 0.0f));
 
         }
 

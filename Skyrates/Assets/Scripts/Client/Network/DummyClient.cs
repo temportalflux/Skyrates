@@ -59,7 +59,7 @@ namespace Skyrates.Client.Network
             GameManager.Events.LootCollided -= this.OnLootCollided;
         }
 
-        public void OnRequestSpawnEntityProjectile(GameEvent evt)
+        public override void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
             Common.Entity.Entity entity = GameManager.Instance.SpawnEntity(evtSpawn.TypeData, Common.Entity.Entity.NewGuid());
