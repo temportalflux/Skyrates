@@ -82,20 +82,14 @@ namespace Skyrates.Client
 
         #endregion
 
-        protected override Shooter[] GetArtilleryShooters()
+        protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
             // TODO: Optimize this
-            Vector3 forwardAim = this.GetView().forward;
-            ShipComponent[] components = this.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Artillery);
+            ShipComponent[] components = this.ShipRoot.Hull.GetGeneratedComponent(artillery);
             List<Shooter> evtArtillery = new List<Shooter>();
-            for (int iComponent = 0; iComponent < components.Length; iComponent++)
+            foreach (ShipComponent component in components)
             {
-                Vector3 forwardArtillery = components[iComponent].transform.forward;
-                float dot = Vector3.Dot(forwardAim, forwardArtillery);
-                if (dot > 0.3)
-                {
-                    evtArtillery.Add(((ShipArtillery) components[iComponent]).Shooter);
-                }
+                evtArtillery.Add(((ShipArtillery)component).Shooter);
             }
             return evtArtillery.ToArray();
         }

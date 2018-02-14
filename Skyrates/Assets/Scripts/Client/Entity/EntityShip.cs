@@ -127,15 +127,15 @@ namespace Skyrates.Common.Entity
             }
         }
 
-        protected virtual Shooter[] GetArtilleryShooters()
+        protected virtual Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
             return null;
         }
 
-        public void Shoot()
+        public void Shoot(ShipData.ComponentType artillery)
         {
             // TODO: Optimize this
-            Shooter[] shooters = this.GetArtilleryShooters();
+            Shooter[] shooters = this.GetArtilleryShooters(artillery);
 
             if (shooters == null || shooters.Length <= 0)
                 return;

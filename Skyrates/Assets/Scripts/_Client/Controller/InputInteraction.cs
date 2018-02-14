@@ -5,6 +5,7 @@ using Skyrates.Client;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Ship;
+using Skyrates.Common.AI;
 using UnityEngine;
 
 public class InputInteraction : MonoBehaviour
@@ -15,24 +16,20 @@ public class InputInteraction : MonoBehaviour
     [Serializable]
     public struct InputData
     {
+        
+        [SerializeField]
+        public UserControlled.InputConfig ShootRight;
 
-        // The input which steers the object forward
-        [HideInInspector]
-        public float ShootInput;
+        [SerializeField]
+        public UserControlled.InputConfig ShootLeft;
 
-        public Coroutine ShootRoutine;
+        public Coroutine ShootRoutineRight;
+        public Coroutine ShootRoutineLeft;
 
-        [Tooltip("The multiple of the input for ShootInput")]
-        public float ShootSpeed;
-
+        [SerializeField]
         public float ShootDelay;
-
+        [SerializeField]
         public float ShootDelayMin;
-
-        public float Shoot
-        {
-            get { return this.ShootInput * this.ShootSpeed; }
-        }
         
     }
 
@@ -49,18 +46,22 @@ public class InputInteraction : MonoBehaviour
     private void GetInput()
     {
         // ForwardInput is left stick (up/down)
-        this.input.ShootInput = Input.GetAxis("xbox_trigger_r") * this.input.ShootSpeed;
+        this.input.ShootRight.Input = Input.GetAxis("xbox_trigger_r");
     }
 
     private void UpdateInput()
     {
-        if (this.input.ShootRoutine == null)
+        if (this.input.ShootRoutineRight == null)
         {
-            this.input.ShootRoutine = StartCoroutine(this.RoutineShoot());
+            this.input.ShootRoutineRight = StartCoroutine(this.RoutineShoot(ShipData.ComponentType.ArtilleryRight));
+        }
+        if (this.input.ShootRoutineLeft == null)
+        {
+            this.input.ShootRoutineLeft = StartCoroutine(this.RoutineShoot(ShipData.ComponentType.ArtilleryLeft));
         }
     }
 
-    private IEnumerator RoutineShoot()
+    private IEnumerator RoutineShoot(ShipData.ComponentType artillery)
     {
         float timePrevious = Time.time;
         float timeElapsed = 0.0f;
@@ -74,9 +75,10 @@ public class InputInteraction : MonoBehaviour
 
             cooldownRemaining = Mathf.Max(0, cooldownRemaining - timeElapsed);
 
-            if (cooldownRemaining > 0.0f || !(this.input.Shoot > 0.0f)) continue;
+            if (cooldownRemaining > 0.0f || !(this.input.ShootRight.Value > 0.0f)) continue;
 
-            this.Shoot();
+            this.Shoot(artillery);
+
             // TODO: Scale delay
             // [0, this.input.ShootDelay]
             //float timeDelay = delay * (1 - this.input.ShootInput);
@@ -84,9 +86,9 @@ public class InputInteraction : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    private void Shoot(ShipData.ComponentType artillery)
     {
-        this.EntityPlayerShip.Shoot();
+        this.EntityPlayerShip.Shoot(artillery);
     }
 
 }

@@ -42,10 +42,21 @@ namespace Skyrates.Client.Ship
         /// </summary>
         /// <param name="data">The data to pull from, stored data if null.</param>
         /// <returns></returns>
-        public ShipArtillery GetArtillery(ShipData data = null)
+        public ShipArtillery GetArtilleryLeft(ShipData data = null)
         {
             if (data == null) data = this.ShipData;
-            return (ShipArtillery) this.GetShipComponent(ComponentType.Artillery, data);
+            return (ShipArtillery)this.GetShipComponent(ComponentType.ArtilleryLeft, data);
+        }
+
+        /// <summary>
+        /// Retrives the ship component <see cref="ShipArtillery"/> from passed or stored data.
+        /// </summary>
+        /// <param name="data">The data to pull from, stored data if null.</param>
+        /// <returns></returns>
+        public ShipArtillery GetArtilleryRight(ShipData data = null)
+        {
+            if (data == null) data = this.ShipData;
+            return (ShipArtillery)this.GetShipComponent(ComponentType.ArtilleryRight, data);
         }
 
         /// <summary>
