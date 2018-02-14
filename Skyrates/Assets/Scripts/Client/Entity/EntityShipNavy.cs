@@ -1,11 +1,8 @@
 ﻿using System.Collections;
-using Skyrates.Client.Ship;
-using Skyrates.Common.Entity;
-using Skyrates.Client.Loot;
-using UnityEngine;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
-using Skyrates.Common.Network;
+using Skyrates.Common.Entity;
+using UnityEngine;
 
 namespace Skyrates.Client.Entity
 {
@@ -14,7 +11,7 @@ namespace Skyrates.Client.Entity
 
         public Shooter[] Shooters;
 
-        private EntityDynamic _aiTarget;
+        private EntityShip _aiTarget;
 
         private Coroutine _findTarget;
         private Coroutine _shootAtTarget;
@@ -38,6 +35,7 @@ namespace Skyrates.Client.Entity
             }
             else if ((this._aiTarget.transform.position - this.transform.position).sqrMagnitude > this.maxDistFind)
             {
+                GameManager.Events.Dispatch(EventEnemyTargetEngage.Disengage(this, this._aiTarget));
                 this._aiTarget = null;
             }
             this.SteeringData.Target = this._aiTarget == null ? this.Physics : this._aiTarget.Physics;
@@ -58,6 +56,8 @@ namespace Skyrates.Client.Entity
                 yield return new WaitForSeconds(5);
                 this._aiTarget = FindObjectOfType<EntityPlayerShip>();
             }
+
+            GameManager.Events.Dispatch(EventEnemyTargetEngage.Engage(this, this._aiTarget));
 
             this._findTarget = null;
         }

@@ -1,5 +1,6 @@
 ﻿using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
+using UnityEngine;
 
 namespace Skyrates.Client.Game.Event
 {
@@ -13,6 +14,26 @@ namespace Skyrates.Client.Game.Event
             : base(GameEventID.ArtilleryFired, ship)
         {
             this.Shooters = shooters;
+        }
+
+        public int GetAverageTransform(out Vector3 averagePosition, out Quaternion averageRotation)
+        {
+            averagePosition = Vector3.zero;
+            averageRotation = Quaternion.identity;
+
+            int artilleryCount = this.Shooters.Length;
+            if (artilleryCount <= 0) return 0;
+
+            // Position average is easy
+            // Quaternion average taken from https://answers.unity.com/questions/815266/find-and-average-rotations-together.html
+            foreach (Shooter shooter in this.Shooters)
+            {
+                averagePosition += shooter.transform.position;
+                averageRotation = Quaternion.Slerp(averageRotation, shooter.transform.rotation, 1 / artilleryCount);
+            }
+            averagePosition /= artilleryCount;
+
+            return artilleryCount;
         }
 
     }

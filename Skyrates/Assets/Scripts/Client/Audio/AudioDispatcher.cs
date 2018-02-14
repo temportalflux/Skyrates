@@ -40,6 +40,9 @@ namespace Skyrates.Client
         public AudioSource AudioArtilleryFired;
         public AudioSource AudioEntityShipHitByProjectile;
         public AudioSource AudioEntityShipHitByRam;
+        public AudioSource AudioOnLootCollected;
+        public AudioSource AudioOnEnemyEngage;
+        public AudioSource AudioOnEnemyDisengage;
 
         private void CreateAudio(Vector3 position, Quaternion rotation, AudioSource prefab)
         {
@@ -55,6 +58,9 @@ namespace Skyrates.Client
             GameManager.Events.ArtilleryFired += this.OnArtilleryFired;
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
+            GameManager.Events.LootCollected += this.OnLootCollected;
+            GameManager.Events.EnemyTargetEngage += this.OnEnemyEngage;
+            GameManager.Events.EnemyTargetDisengage += this.OnEnemyEngage;
         }
 
         void OnDisable()
@@ -62,27 +68,22 @@ namespace Skyrates.Client
             GameManager.Events.ArtilleryFired -= this.OnArtilleryFired;
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
+            GameManager.Events.LootCollected -= this.OnLootCollected;
+            GameManager.Events.EnemyTargetEngage -= this.OnEnemyEngage;
+            GameManager.Events.EnemyTargetDisengage -= this.OnEnemyEngage;
         }
         
         public void OnArtilleryFired(GameEvent evt)
         {
             EventArtilleryFired eventArtillery = (EventArtilleryFired) evt;
 
-            if (eventArtillery.Shooters.Length <= 0) return;
-
-            // Position average is easy
-            Vector3 averagePosition = Vector3.zero;
-            // Quaternion average taken from https://answers.unity.com/questions/815266/find-and-average-rotations-together.html
-            Quaternion averageRotation = new Quaternion(0, 0, 0, 0);
-            int artilleryCount = eventArtillery.Shooters.Length;
-            foreach (Shooter shooter in eventArtillery.Shooters)
+            Vector3 averagePosition;
+            Quaternion averageRotation;
+            if (eventArtillery.GetAverageTransform(out averagePosition, out averageRotation) > 0)
             {
-                averagePosition += shooter.transform.position;
-                averageRotation = Quaternion.Slerp(averageRotation, shooter.transform.rotation, 1 / artilleryCount);
+                this.CreateAudio(averagePosition, averageRotation, this.AudioArtilleryFired);
             }
-            averagePosition /= artilleryCount;
 
-            this.CreateAudio(averagePosition, averageRotation, this.AudioArtilleryFired);
         }
 
         public void OnEntityShipHitBy(GameEvent evt)
@@ -116,6 +117,39 @@ namespace Skyrates.Client
             if (prefab != null)
             {
                 this.CreateAudio(position, rotation, prefab);
+            }
+        }
+
+        public void OnLootCollected(GameEvent evt)
+        {
+            EventLootCollected evtLoot = (EventLootCollected) evt;
+            if (!evtLoot.PlayerShip.IsLocallyControlled) return;
+            this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected);
+        }
+
+        public void OnEnemyEngage(GameEvent evt)
+        {
+            EventEnemyTargetEngage evtDEngage = (EventEnemyTargetEngage) evt;
+
+            if (evtDEngage.Target.EntityType.EntityType != Common.Entity.Entity.Type.Player) return;
+            if (!evtDEngage.Target.IsLocallyControlled) return;
+
+            switch (evtDEngage.EventID)
+            {
+                case GameEventID.EnemyTargetEngage:
+                    this.CreateAudio(
+                        evtDEngage.Target.transform.position,
+                        evtDEngage.Target.transform.rotation,
+                        this.AudioOnEnemyEngage);
+                    break;
+                case GameEventID.EnemyTargetDisengage:
+                    this.CreateAudio(
+                        evtDEngage.Target.transform.position,
+                        evtDEngage.Target.transform.rotation,
+                        this.AudioOnEnemyDisengage);
+                    break;
+                default:
+                    break;
             }
         }
 

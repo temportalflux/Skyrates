@@ -17,6 +17,8 @@ namespace Skyrates.Client
         [HideInInspector]
         public ShipData ShipData;
 
+        public LocalData PlayerData;
+
         [Tooltip("The transform which points towards where the forward direction is.")]
         public Transform View;
 
@@ -30,6 +32,13 @@ namespace Skyrates.Client
             base.Awake();
             this.ShipRoot.Destroy();
             this.ShipData = this.ShipRoot.Generate();
+            this.PlayerData.Init();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            this.PlayerData.Init();
         }
 
         protected override Transform GetView()
@@ -91,12 +100,25 @@ namespace Skyrates.Client
             return evtArtillery.ToArray();
         }
 
-        public override void TakeDamage(float damage)
+        protected override bool OnPreDestroy()
         {
+            // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
+            return false;
         }
 
         protected override void SpawnLoot(Vector3 position)
         {
+        }
+
+        public void OnLootCollided(Loot.Loot loot)
+        {
+            // TODO: Add to inventory
+            this.PlayerData.LootCount++;
+
+            GameManager.Events.Dispatch(new EventLootCollected(this, loot));
+            
+            // destroy the loot
+            Destroy(loot.gameObject);
         }
 
     }

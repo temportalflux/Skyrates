@@ -28,12 +28,17 @@ namespace Skyrates.Client.Game.Event
         EntityShipHitByProjectile,
         EntityShipHitByRam,
 
+        EnemyTargetEngage,
+        EnemyTargetDisengage,
+
         #endregion
 
         #region Player
 
         PlayerMoved,
         PlayerLeft,
+        LootCollided,
+        LootCollected,
 
         #endregion
 
@@ -57,10 +62,14 @@ namespace Skyrates.Client.Game.Event
         public event GameEventDelegate EntityShipDamaged;
         public event GameEventDelegate EntityShipHitByProjectile;
         public event GameEventDelegate EntityShipHitByRam;
+        public event GameEventDelegate EnemyTargetEngage;
+        public event GameEventDelegate EnemyTargetDisengage;
         #endregion
         #region Player
         public event GameEventDelegate PlayerMoved;
         public event GameEventDelegate PlayerLeft;
+        public event GameEventDelegate LootCollided;
+        public event GameEventDelegate LootCollected;
         #endregion
 
         public GameEventDelegate Delegate(GameEventID eventID)
@@ -90,12 +99,20 @@ namespace Skyrates.Client.Game.Event
                     return this.EntityShipHitByProjectile;
                 case GameEventID.EntityShipHitByRam:
                     return this.EntityShipHitByRam;
+                case GameEventID.EnemyTargetEngage:
+                    return this.EnemyTargetEngage;
+                case GameEventID.EnemyTargetDisengage:
+                    return this.EnemyTargetDisengage;
                 #endregion
                 #region Player
                 case GameEventID.PlayerMoved:
                     return this.PlayerMoved;
                 case GameEventID.PlayerLeft:
                     return this.PlayerLeft;
+                case GameEventID.LootCollided:
+                    return this.LootCollided;
+                case GameEventID.LootCollected:
+                    return this.LootCollected;
                 #endregion
                 default:
                     Debug.LogWarning(string.Format("No delegate for event {0}", eventID));

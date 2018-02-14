@@ -10,6 +10,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
 
+    [SerializeField]
     public Entity.TypeData projectilePrefab;
 
     public Transform spawn;

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Client;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Client.Loot;
 using Skyrates.Common.Network;
 using UnityEngine;
@@ -9,7 +11,7 @@ using UnityEngine;
 public class Looter : MonoBehaviour
 {
 
-    public uint loot;
+    public EntityPlayerShip Owner;
 
     private void Start()
     {
@@ -33,23 +35,9 @@ public class Looter : MonoBehaviour
         Loot lootObject = other.GetComponent<Loot>();
         if (lootObject != null)
         {
-            // collider is a loot
-            Destroy(lootObject.gameObject);
-            // TODO: Create event
-            this.loot++;
+            // Must be passed off as game event, where networking called OnLootCollided
+            GameManager.Events.Dispatch(new EventLootCollided(this.Owner, lootObject));
         }
-    }
-
-    public void OnGUI()
-    {
-        if (NetworkComponent.GetSession.IsNetworked)
-        {
-            if (NetworkComponent.GetSession.PlayerGuid != this.transform.parent.GetComponent<EntityPlayerShip>().Guid)
-                return;
-        }
-        GUIStyle st = new GUIStyle();
-        st.fontSize = 50;
-        GUI.Label(new Rect(Screen.width - 50, 0, 50, 50), this.loot.ToString(), st);
     }
 
 }

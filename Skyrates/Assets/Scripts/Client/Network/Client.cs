@@ -30,6 +30,7 @@ namespace Skyrates.Client.Network
             GameManager.Events.SpawnEntityProjectile += this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
+            GameManager.Events.LootCollided += this.OnLootCollided;
         }
 
         public override void UnsubscribeEvents()
@@ -44,6 +45,7 @@ namespace Skyrates.Client.Network
             GameManager.Events.SpawnEntityProjectile -= this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitBy;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
+            GameManager.Events.LootCollided -= this.OnLootCollided;
         }
 
         /// <inheritdoc />
@@ -127,7 +129,7 @@ namespace Skyrates.Client.Network
             NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventEntityPlayerShip) evt).PlayerShip.Physics));
         }
 
-        public void OnRequestSpawnEntityProjectile(GameEvent evt)
+        public virtual void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
             NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity, evtSpawn.ImpluseForce));
@@ -141,6 +143,16 @@ namespace Skyrates.Client.Network
             if (evtDamaged.Ship.IsLocallyControlled)
             {
                 NetworkComponent.GetNetwork().Dispatch(new EventRequestEntityShipDamaged(evtDamaged.Ship, evtDamaged.Damage));
+            }
+        }
+
+        public virtual void OnLootCollided(GameEvent evt)
+        {
+            EventLootCollided evtLoot = (EventLootCollided)evt;
+            if (evtLoot.PlayerShip.IsLocallyControlled)
+            {
+                // pass back to player for handling locally
+                evtLoot.PlayerShip.OnLootCollided(evtLoot.Loot);
             }
         }
 

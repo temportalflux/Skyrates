@@ -62,6 +62,7 @@ namespace Skyrates.Server.Network
             GameManager.Events.SpawnEntityProjectile += this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitByProjectile;
             GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
+            GameManager.Events.LootCollided += this.OnLootCollided;
         }
 
         public override void UnsubscribeEvents()
@@ -78,6 +79,7 @@ namespace Skyrates.Server.Network
             GameManager.Events.SpawnEntityProjectile -= this.OnRequestSpawnEntityProjectile;
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitByProjectile;
             GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
+            GameManager.Events.LootCollided -= this.OnLootCollided;
         }
 
         /// <inheritdoc />
@@ -251,6 +253,16 @@ namespace Skyrates.Server.Network
                 evtDamaged.Projectile.TakeDamage(evtDamaged.Projectile.GetHealth());
             }
             //*/
+        }
+
+        public virtual void OnLootCollided(GameEvent evt)
+        {
+            EventLootCollided evtLoot = (EventLootCollided)evt;
+            if (evtLoot.PlayerShip.IsLocallyControlled)
+            {
+                // pass back to player for handling locally
+                evtLoot.PlayerShip.OnLootCollided(evtLoot.Loot);
+            }
         }
 
     }
