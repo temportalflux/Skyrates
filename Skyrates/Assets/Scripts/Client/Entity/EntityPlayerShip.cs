@@ -102,6 +102,7 @@ namespace Skyrates.Client
 
         protected override bool OnPreDestroy()
         {
+            // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
             return false;
         }
 

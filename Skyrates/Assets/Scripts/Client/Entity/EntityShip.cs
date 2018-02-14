@@ -22,6 +22,9 @@ namespace Skyrates.Common.Entity
         [SerializeField]
         public ParticleSystem ParticleFire;
 
+        [SerializeField]
+        public ParticleSystem ParticleOnDestruction;
+
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [BitSerialize(0)]
         public float Health;
@@ -85,12 +88,25 @@ namespace Skyrates.Common.Entity
 
         protected virtual bool OnPreDestroy()
         {
+
+            this.SpawnDestructionParticles();
+
             // Spawn loot
             // NOTE: Since this function is called by the owning client, then loot is spawned on owning client
             // TODO: Sync loot - make loot entity static
             this.SpawnLoot(this.transform.position);
 
             return true;
+        }
+
+        protected virtual void SpawnDestructionParticles()
+        {
+            if (this.ParticleOnDestruction != null)
+            {
+                ParticleSystem particles = Instantiate(this.ParticleOnDestruction.gameObject,
+                    this.transform.position, this.transform.rotation).GetComponent<ParticleSystem>();
+                Destroy(particles.gameObject, particles.main.duration);
+            }
         }
 
         protected virtual void SpawnLoot(Vector3 position)

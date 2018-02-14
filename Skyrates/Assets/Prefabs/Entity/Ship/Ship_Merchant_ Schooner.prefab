@@ -239,7 +239,7 @@ MonoBehaviour:
   OwnerNetworkID: 0
   EntityType:
     EntityTypeAsInt: 1
-    EntityTypeIndex: 0
+    EntityTypeIndex: 1
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
@@ -247,6 +247,8 @@ MonoBehaviour:
   StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
   ParticleSmoke: {fileID: 198870555746277976}
   ParticleFire: {fileID: 198386500022854186}
+  ParticleOnDestruction: {fileID: 198409131529129162, guid: 2eb4ad8bbf0d3e2409d5bd829f7350db,
+    type: 2}
   Health: 0
 --- !u!136 &136004417674703406
 CapsuleCollider:
