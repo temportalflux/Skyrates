@@ -40,7 +40,7 @@ public class UpdateLootCount : MonoBehaviour
     // only fired when the loot is collected locally
     void OnLootCollected(GameEvent evt)
     {
-        Debug.Log("Loot collected");
+        //Debug.Log("Loot collected");
         this.AddLootPlus();
     }
 
