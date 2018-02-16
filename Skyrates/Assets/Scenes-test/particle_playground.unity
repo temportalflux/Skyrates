@@ -247,7 +247,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1672425480
+  randomSeed: -1319916719
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3699,14 +3699,14 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1514113571
+  randomSeed: 694511351
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3851,7 +3851,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4101,7 +4101,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4143,7 +4143,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 75
+    angle: 45
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -4345,7 +4345,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 60
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -4799,7 +4799,7 @@ ParticleSystem:
     sprites:
     - sprite: {fileID: 0}
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -7269,7 +7269,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 699241125
+  randomSeed: 1507949175
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10654,10 +10654,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4748015241685036, guid: b9761cad337ebb642a138349f145f722, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.172
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9761cad337ebb642a138349f145f722, type: 2}
   m_IsPrefabParent: 0
@@ -10699,31 +10695,6 @@ Prefab:
     - target: {fileID: 4834430794773520, guid: 1e10d234425f2fc4e9ec41a7769168da, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198454544784303586, guid: 1e10d234425f2fc4e9ec41a7769168da,
-        type: 2}
-      propertyPath: randomSeed
-      value: 709322905
-      objectReference: {fileID: 0}
-    - target: {fileID: 198454544784303586, guid: 1e10d234425f2fc4e9ec41a7769168da,
-        type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198454544784303586, guid: 1e10d234425f2fc4e9ec41a7769168da,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198454544784303586, guid: 1e10d234425f2fc4e9ec41a7769168da,
-        type: 2}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 198454544784303586, guid: 1e10d234425f2fc4e9ec41a7769168da,
-        type: 2}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e10d234425f2fc4e9ec41a7769168da, type: 2}
@@ -11082,6 +11053,16 @@ Prefab:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
       value: 30.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 198581850032182578, guid: 3b6d6ae160906424f95691284aa7095c,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198581850032182578, guid: 3b6d6ae160906424f95691284aa7095c,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b6d6ae160906424f95691284aa7095c, type: 2}
   m_IsPrefabParent: 0
@@ -11229,14 +11210,14 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1958775090
+  randomSeed: 737596854
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -11381,7 +11362,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -11631,7 +11612,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -11673,7 +11654,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 60
+    angle: 30
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -11875,7 +11856,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 30
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -14584,11 +14565,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4701598605978162, guid: e8c2420ac15498f418e1ba98b2535fa8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.416
+      value: -0.426
       objectReference: {fileID: 0}
     - target: {fileID: 4701598605978162, guid: e8c2420ac15498f418e1ba98b2535fa8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.93
+      value: 0.926
       objectReference: {fileID: 0}
     - target: {fileID: 4701598605978162, guid: e8c2420ac15498f418e1ba98b2535fa8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14613,6 +14594,76 @@ Prefab:
     - target: {fileID: 4701598605978162, guid: e8c2420ac15498f418e1ba98b2535fa8, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198953886622923514, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198953886622923514, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1707919220
+      objectReference: {fileID: 0}
+    - target: {fileID: 198953886622923514, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198953886622923514, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: VelocityModule.z.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198759825330443264, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: randomSeed
+      value: 956516279
+      objectReference: {fileID: 0}
+    - target: {fileID: 198759825330443264, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198759825330443264, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: VelocityModule.z.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198759825330443264, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198953886622923514, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198116836972415752, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1147950526
+      objectReference: {fileID: 0}
+    - target: {fileID: 198116836972415752, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 198116836972415752, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.75686276
+      objectReference: {fileID: 0}
+    - target: {fileID: 198953886622923514, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 198953886622923514, guid: e8c2420ac15498f418e1ba98b2535fa8,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.6117647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8c2420ac15498f418e1ba98b2535fa8, type: 2}
@@ -14797,7 +14848,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2122051128
+  randomSeed: -1375060382
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18742,6 +18793,16 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 49b611e658efbf443b686a4036f74fe3,
         type: 3}
+    - target: {fileID: 198581850032182578, guid: 3b6d6ae160906424f95691284aa7095c,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198581850032182578, guid: 3b6d6ae160906424f95691284aa7095c,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b6d6ae160906424f95691284aa7095c, type: 2}
   m_IsPrefabParent: 0
