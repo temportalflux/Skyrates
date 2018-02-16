@@ -109,6 +109,9 @@ namespace Skyrates.Client
             // TODO: Add to inventory
             this.PlayerData.LootCount++;
 
+            // TODO: Change this
+            this.ShipRoot.Hull.GenerateLoot();
+
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
             
             // destroy the loot

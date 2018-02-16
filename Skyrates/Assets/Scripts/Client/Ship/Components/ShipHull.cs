@@ -36,12 +36,31 @@ namespace Skyrates.Client.Ship
         [SerializeField]
         public Mount[] Mounts;
 
+        [Serializable]
+        public struct LootMount
+        {
+            /// <summary>
+            /// The pos/rot of the object that will be generated.
+            /// </summary>
+            [SerializeField]
+            public Transform Root;
+
+            [SerializeField]
+            public GameObject Prefab;
+
+        }
+
+        [SerializeField]
+        public LootMount[] LootMounts;
+
         #endregion
 
         /// <summary>
         /// The objects generated during <see cref="ShipBuilder.BuiltTo"/>.
         /// </summary>
         private readonly ShipComponent[][] GeneratedComponents = new ShipComponent[ShipData.NonHullComponents.Length][];
+
+        private readonly List<GameObject> GeneratedLoot = new List<GameObject>();
 
         private int GetComponentIndex(ComponentType type)
         {
@@ -88,6 +107,18 @@ namespace Skyrates.Client.Ship
             return this.GeneratedComponents[this.GetComponentIndex(compType)];
         }
 
+        public void GenerateLoot()
+        {
+            int nextIndex = this.GeneratedLoot.Count;
+            if (nextIndex < this.LootMounts.Length)
+            {
+                LootMount mount = this.LootMounts[nextIndex];
+                GameObject generated = Instantiate(mount.Prefab, this.transform);
+                generated.transform.SetPositionAndRotation(mount.Root.position, mount.Root.rotation);
+                generated.transform.localScale = mount.Root.localScale;
+                this.GeneratedLoot.Add(generated);
+            }
+        }
 
     }
 

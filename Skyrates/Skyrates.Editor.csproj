@@ -282,13 +282,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Skyrates.Plugins.csproj">
-      <Project>{0260AA73-0BF3-B1C2-4E3E-EE17FDF3FA6A}</Project>
-      <Name>Skyrates.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="Skyrates.csproj">
       <Project>{F503969E-6AD0-3620-5B86-E9AD55D36447}</Project>
       <Name>Skyrates</Name>
+    </ProjectReference>
+    <ProjectReference Include="Skyrates.Plugins.csproj">
+      <Project>{0260AA73-0BF3-B1C2-4E3E-EE17FDF3FA6A}</Project>
+      <Name>Skyrates.Plugins</Name>
     </ProjectReference>
     <ProjectReference Include="Skyrates.Editor.Plugins.csproj">
       <Project>{58879F17-D95D-5028-A8B6-C151B956FCB1}</Project>
