@@ -106,7 +106,11 @@ public class VFXDispatcher : MonoBehaviour
         Quaternion averageRotation;
         if (eventArtillery.GetAverageTransform(out averagePosition, out averageRotation) > 0)
         {
-            this.Dispatch(DispatchID.ProjectileLaunch, averagePosition, averageRotation);
+            List<ParticleSystem> systems = this.Dispatch(DispatchID.ProjectileLaunch, averagePosition, averageRotation);
+            foreach (ParticleSystem system in systems)
+            {
+                system.transform.parent = eventArtillery.Entity.transform;
+            }
         }
 
     }
@@ -138,7 +142,7 @@ public class VFXDispatcher : MonoBehaviour
             default:
                 return;
         }
-
+        rotation *= Quaternion.Euler(0, 180, 0);
         this.Dispatch(id, position, rotation);
     }
 

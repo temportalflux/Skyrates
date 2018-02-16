@@ -28,8 +28,8 @@ namespace Skyrates.Client.Game.Event
             // Quaternion average taken from https://answers.unity.com/questions/815266/find-and-average-rotations-together.html
             foreach (Shooter shooter in this.Shooters)
             {
-                averagePosition += shooter.transform.position;
-                averageRotation = Quaternion.Slerp(averageRotation, shooter.transform.rotation, 1 / artilleryCount);
+                averagePosition += shooter.spawn.position;
+                averageRotation = Quaternion.Slerp(averageRotation, shooter.spawn.rotation, 1 / artilleryCount);
             }
             averagePosition /= artilleryCount;
 

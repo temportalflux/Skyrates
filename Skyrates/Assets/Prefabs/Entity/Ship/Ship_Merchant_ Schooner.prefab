@@ -247,7 +247,8 @@ MonoBehaviour:
   StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
   ParticleSmoke: {fileID: 198870555746277976}
   ParticleFire: {fileID: 198386500022854186}
-  ParticleOnDestruction: {fileID: 0}
+  ParticleOnDestruction: {fileID: 198409131529129162, guid: 2eb4ad8bbf0d3e2409d5bd829f7350db,
+    type: 2}
   Health: 0
 --- !u!136 &136004417674703406
 CapsuleCollider:
@@ -7038,7 +7039,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: -1937662525, guid: 0ad83000c231d1544bf672e466e6f471, type: 3}
+  - {fileID: 2100000, guid: 32a59e73baff7524dad9bfd5541fe198, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
