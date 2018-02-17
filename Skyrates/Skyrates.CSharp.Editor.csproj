@@ -280,6 +280,9 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>Assets\Plugins\XInputDotNet\Plugins\XInputDotNetPure.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Skyrates.CSharp.csproj">
@@ -314,6 +317,8 @@
     <None Include="Assets\Plugins\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Plugins\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Plugins\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\Plugins\XInputDotNet\Docs.txt" />
+    <None Include="Assets\Plugins\XInputDotNet\MITLicense.txt" />
     <None Include="Assets\Resources\Materials\BasicPBRForJen.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
