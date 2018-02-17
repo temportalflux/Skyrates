@@ -280,6 +280,9 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>Assets/Plugins/XInputDotNet/Plugins/XInputDotNetPure.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\Moments\Moments Recorder\Demo\Scripts\CubeKiller.cs" />
@@ -338,6 +341,7 @@
     <Compile Include="Assets\Plugins\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\Plugins\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Plugins\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\Plugins\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Moments\LICENSE.txt" />
@@ -346,6 +350,8 @@
     <None Include="Assets\Plugins\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Plugins\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Plugins\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\Plugins\XInputDotNet\Docs.txt" />
+    <None Include="Assets\Plugins\XInputDotNet\MITLicense.txt" />
     <None Include="Assets\Resources\Materials\BasicPBRForJen.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

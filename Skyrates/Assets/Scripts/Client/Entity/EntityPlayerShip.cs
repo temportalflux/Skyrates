@@ -53,7 +53,7 @@ namespace Skyrates.Client
             return this.View;
         }
 
-        protected override Transform GetRender()
+        public override Transform GetRender()
         {
             return this.Render;
         }

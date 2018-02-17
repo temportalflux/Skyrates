@@ -85,7 +85,7 @@ namespace Skyrates.Common.Entity
             return this.transform;
         }
 
-        protected virtual Transform GetRender()
+        public virtual Transform GetRender()
         {
             return this.GetView();
         }
