@@ -11,6 +11,8 @@ namespace Skyrates.Client.Loot
 
         public ShipComponent Item;
 
+        public GameObject LootPrefabWithoutSail;
+
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
@@ -35,6 +36,12 @@ namespace Skyrates.Client
             this.PlayerData.Init();
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            StartCoroutine(this.AutoHeal());
+        }
+
         protected override void OnDestroy()
         {
             base.OnDestroy();
@@ -49,6 +56,19 @@ namespace Skyrates.Client
         protected override Transform GetRender()
         {
             return this.Render;
+        }
+
+        IEnumerator AutoHeal()
+        {
+            while (true)
+            {
+                yield return new WaitUntil((() => this.Health < this.StatBlock.Health));
+                while (this.Health < this.StatBlock.Health)
+                {
+                    this.Health++;
+                    yield return new WaitForSeconds(5.0f);
+                }
+            }
         }
 
         #region Network
@@ -110,7 +130,7 @@ namespace Skyrates.Client
             this.PlayerData.LootCount++;
 
             // TODO: Change this
-            this.ShipRoot.Hull.GenerateLoot();
+            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
             
