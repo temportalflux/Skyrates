@@ -10,6 +10,8 @@ public class EntityProjectile : EntityDynamic
     [HideInInspector]
     public Rigidbody PhysicsComponent;
 
+    public float Damage = 2;
+
     protected override void Start()
     {
         base.Start();
@@ -37,8 +39,7 @@ public class EntityProjectile : EntityDynamic
 
     public float GetDamage()
     {
-        // TODO: Implement projectile damage
-        return 1;
+        return this.Damage;
     }
 
 }
