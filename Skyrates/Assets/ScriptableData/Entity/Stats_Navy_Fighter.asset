@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1b5cfdea1afc49ae38a315af202eb, type: 3}
   m_Name: Stats_Navy_Fighter
   m_EditorClassIdentifier: 
-  Health: 30
+  Health: 90
   MoveSpeed: 10
   DamageModifier: 10
   Loot: {fileID: 11400000, guid: 2e4c82205e11c9d4890e695f6c1859e4, type: 2}
   LootRadius: 6
   HealthFeedbackData:
-    SmokeDamage: {x: 5, y: 30}
+    SmokeDamage: {x: 15, y: 90}
     SmokeEmissionAmount: {x: 10, y: 30}
-    FireDamage: {x: 15, y: 30}
+    FireDamage: {x: 45, y: 90}
     FireEmissionAmount: {x: 10, y: 15}

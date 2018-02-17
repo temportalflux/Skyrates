@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1b5cfdea1afc49ae38a315af202eb, type: 3}
   m_Name: Stats_Merchant_Schooner
   m_EditorClassIdentifier: 
-  Health: 15
+  Health: 45
   MoveSpeed: 10
   DamageModifier: 10
   Loot: {fileID: 11400000, guid: 7e2e5b2e5c78974408514ab0d76278a8, type: 2}
   LootRadius: 6
   HealthFeedbackData:
-    SmokeDamage: {x: 2, y: 15}
+    SmokeDamage: {x: 6, y: 45}
     SmokeEmissionAmount: {x: 10, y: 20}
-    FireDamage: {x: 7, y: 15}
+    FireDamage: {x: 20, y: 45}
     FireEmissionAmount: {x: 5, y: 30}
