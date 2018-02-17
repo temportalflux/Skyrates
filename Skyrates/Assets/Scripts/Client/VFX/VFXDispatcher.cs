@@ -151,7 +151,7 @@ public class VFXDispatcher : MonoBehaviour
         EventLootCollected evtLoot = (EventLootCollected) evt;
         if (!evtLoot.PlayerShip.IsLocallyControlled)
             return;
-        this.Dispatch(DispatchID.LootPickup, evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation);
+        this.Dispatch(DispatchID.LootPickup, evtLoot.Entity.transform.position, evtLoot.Entity.transform.rotation);
     }
 
 }
