@@ -40,6 +40,9 @@ namespace Skyrates.Client.Loot
             bool weightsChanged = false;
             int sumWeight = 0;
 
+            if (this._instance.Table == null)
+                this._instance.Table = new LootTable.Row[0];
+
             this.DrawArray(
                 "Table", ref this._instance.Table,
                 togglable:false, isToggled:true,
