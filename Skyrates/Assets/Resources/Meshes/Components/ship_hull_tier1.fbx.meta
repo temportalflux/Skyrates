@@ -1,144 +1,92 @@
 fileFormatVersion: 2
 guid: 44d23e4941f769e48bd268132a3909cd
-timeCreated: 1518389056
-licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: ship_artillery_mount
-    100002: ship_artillery_mountL
-    100004: ship_artillery_mountR
-    100006: ship_artillery_tier1
-    100008: ship_figurehead_tier1
-    100010: ship_hull
-    100012: ship_hull_base
-    100014: ship_hull_cabin
-    100016: ship_hull_figureheadmount
-    100018: ship_hull_floatation
-    100020: ship_hull_stairs
-    100022: //RootNode
-    100024: ship_navigation_mount
-    100026: ship_navigation_mountL
-    100028: ship_navigation_mountR
-    100030: ship_navigation_tier1
-    100032: joint28
-    100034: joint29
-    100036: joint30
-    100038: joint31
-    100040: joint32
-    100042: rig_floatation_tier1
-    100044: ship_artillery_mount1L
-    100046: ship_artillery_mount2L
-    100048: ship_artillery_mount3L
-    100050: ship_artillery_mount4L
-    100052: ship_artillery_mount5L
-    100054: ship_artillery_mount6L
-    100056: ship_navigation_mount1L
-    100058: ship_navigation_mount2L
-    100060: ship_artillery_mount1R
-    100062: ship_artillery_mount2R
-    100064: ship_artillery_mount3R
-    400000: ship_artillery_mount
-    400002: ship_artillery_mountL
-    400004: ship_artillery_mountR
-    400006: ship_artillery_tier1
-    400008: ship_figurehead_tier1
-    400010: ship_hull
-    400012: ship_hull_base
-    400014: ship_hull_cabin
-    400016: ship_hull_figureheadmount
-    400018: ship_hull_floatation
-    400020: ship_hull_stairs
-    400022: //RootNode
-    400024: ship_navigation_mount
-    400026: ship_navigation_mountL
-    400028: ship_navigation_mountR
-    400030: ship_navigation_tier1
-    400032: joint28
-    400034: joint29
-    400036: joint30
-    400038: joint31
-    400040: joint32
-    400042: rig_floatation_tier1
-    400044: ship_artillery_mount1L
-    400046: ship_artillery_mount2L
-    400048: ship_artillery_mount3L
-    400050: ship_artillery_mount4L
-    400052: ship_artillery_mount5L
-    400054: ship_artillery_mount6L
-    400056: ship_navigation_mount1L
-    400058: ship_navigation_mount2L
-    400060: ship_artillery_mount1R
-    400062: ship_artillery_mount2R
-    400064: ship_artillery_mount3R
+    100000: joint28
+    100002: joint29
+    100004: joint30
+    100006: joint31
+    100008: joint32
+    100010: rig_floatation_tier1
+    100012: ship_artillery_mount1L
+    100014: ship_artillery_mount1R
+    100016: ship_artillery_mount2L
+    100018: ship_artillery_mount2R
+    100020: ship_artillery_mount3L
+    100022: ship_artillery_mount3R
+    100024: ship_hull_base
+    100026: ship_hull_cabin
+    100028: ship_hull_figureheadmount
+    100030: ship_hull_floatation
+    100032: ship_hull_stairs
+    100034: //RootNode
+    100036: ship_navigation_mount1L
+    100038: ship_navigation_mount2L
+    400000: joint28
+    400002: joint29
+    400004: joint30
+    400006: joint31
+    400008: joint32
+    400010: rig_floatation_tier1
+    400012: ship_artillery_mount1L
+    400014: ship_artillery_mount1R
+    400016: ship_artillery_mount2L
+    400018: ship_artillery_mount2R
+    400020: ship_artillery_mount3L
+    400022: ship_artillery_mount3R
+    400024: ship_hull_base
+    400026: ship_hull_cabin
+    400028: ship_hull_figureheadmount
+    400030: ship_hull_floatation
+    400032: ship_hull_stairs
+    400034: //RootNode
+    400036: ship_navigation_mount1L
+    400038: ship_navigation_mount2L
     2100000: lambert1
-    2100002: lambert2
-    2300000: ship_artillery_mountL
-    2300002: ship_artillery_mountR
-    2300004: ship_hull_base
-    2300006: ship_hull_cabin
-    2300008: ship_hull_figureheadmount
-    2300010: ship_hull_floatation
-    2300012: ship_hull_stairs
-    2300014: ship_navigation_mountL
-    2300016: ship_navigation_mountR
-    2300018: ship_artillery_mount1L
-    2300020: ship_artillery_mount2L
-    2300022: ship_artillery_mount3L
-    2300024: ship_artillery_mount4L
-    2300026: ship_artillery_mount5L
-    2300028: ship_artillery_mount6L
-    2300030: ship_navigation_mount1L
-    2300032: ship_navigation_mount2L
-    2300034: ship_artillery_mount1R
-    2300036: ship_artillery_mount2R
-    2300038: ship_artillery_mount3R
-    3300000: ship_artillery_mountL
-    3300002: ship_artillery_mountR
-    3300004: ship_hull_base
-    3300006: ship_hull_cabin
-    3300008: ship_hull_figureheadmount
-    3300010: ship_hull_floatation
-    3300012: ship_hull_stairs
-    3300014: ship_navigation_mountL
-    3300016: ship_navigation_mountR
-    3300018: ship_artillery_mount1L
-    3300020: ship_artillery_mount2L
-    3300022: ship_artillery_mount3L
-    3300024: ship_artillery_mount4L
-    3300026: ship_artillery_mount5L
-    3300028: ship_artillery_mount6L
-    3300030: ship_navigation_mount1L
-    3300032: ship_navigation_mount2L
-    3300034: ship_artillery_mount1R
-    3300036: ship_artillery_mount2R
-    3300038: ship_artillery_mount3R
+    2300000: ship_artillery_mount1L
+    2300002: ship_artillery_mount1R
+    2300004: ship_artillery_mount2L
+    2300006: ship_artillery_mount2R
+    2300008: ship_artillery_mount3L
+    2300010: ship_artillery_mount3R
+    2300012: ship_hull_base
+    2300014: ship_hull_cabin
+    2300016: ship_hull_figureheadmount
+    2300018: ship_hull_stairs
+    2300020: ship_navigation_mount1L
+    2300022: ship_navigation_mount2L
+    3300000: ship_artillery_mount1L
+    3300002: ship_artillery_mount1R
+    3300004: ship_artillery_mount2L
+    3300006: ship_artillery_mount2R
+    3300008: ship_artillery_mount3L
+    3300010: ship_artillery_mount3R
+    3300012: ship_hull_base
+    3300014: ship_hull_cabin
+    3300016: ship_hull_figureheadmount
+    3300018: ship_hull_stairs
+    3300020: ship_navigation_mount1L
+    3300022: ship_navigation_mount2L
     4300000: ship_hull_cabin
     4300002: ship_hull_base
     4300004: ship_hull_stairs
     4300006: ship_hull_floatation
-    4300008: ship_artillery_mountR
-    4300010: ship_artillery_mountL
-    4300012: ship_navigation_mountL
-    4300014: ship_navigation_mountR
-    4300016: ship_hull_figureheadmount
-    4300018: ship_artillery_mount1L
-    4300020: ship_artillery_mount2L
-    4300022: ship_artillery_mount3L
-    4300024: ship_artillery_mount4L
-    4300026: ship_artillery_mount5L
-    4300028: ship_artillery_mount6L
-    4300030: ship_navigation_mount1L
-    4300032: ship_navigation_mount2L
-    4300034: ship_artillery_mount3R
-    4300036: ship_artillery_mount2R
-    4300038: ship_artillery_mount1R
-    7400000: FloatationBreathe
+    4300008: ship_artillery_mount1L
+    4300010: ship_artillery_mount2L
+    4300012: ship_artillery_mount3L
+    4300014: ship_artillery_mount3R
+    4300016: ship_artillery_mount2R
+    4300018: ship_artillery_mount1R
+    4300020: ship_navigation_mount1L
+    4300022: ship_navigation_mount2L
+    4300024: ship_hull_figureheadmount
+    7400000: Take 001
     9500000: //RootNode
     13700000: ship_hull_floatation
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -155,42 +103,14 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: FloatationBreathe
-      takeName: Take 001
-      firstFrame: 1
-      lastFrame: 214
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -232,10 +152,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: rig_floatation_tier1
+    rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
