@@ -19,8 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4146906015652790}
-  - component: {fileID: 136012369927790032}
-  - component: {fileID: 136004417674703406}
   m_Layer: 0
   m_Name: render
   m_TagString: Untagged
@@ -71,7 +69,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4664746602210714}
   - component: {fileID: 136523901374573854}
-  - component: {fileID: 136944665984715090}
   - component: {fileID: 54349007325168094}
   - component: {fileID: 114303108047845630}
   m_Layer: 0
@@ -250,32 +247,6 @@ MonoBehaviour:
   ParticleOnDestruction: {fileID: 198409131529129162, guid: 2eb4ad8bbf0d3e2409d5bd829f7350db,
     type: 2}
   Health: 0
---- !u!136 &136004417674703406
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1003495320685690}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5582284
-  m_Height: 5.0475445
-  m_Direction: 2
-  m_Center: {x: 0, y: -1.5385666, z: -0.030694008}
---- !u!136 &136012369927790032
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1003495320685690}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 1.4816008
-  m_Height: 4.330684
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.8146367, z: 0.23544145}
 --- !u!136 &136523901374573854
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -285,23 +256,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.4816008
-  m_Height: 4.330684
+  m_Radius: 2.1613908
+  m_Height: 5.3108463
   m_Direction: 2
-  m_Center: {x: 0, y: 0.8146367, z: 0.23544145}
---- !u!136 &136944665984715090
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1594538091122740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5582284
-  m_Height: 5.0475445
-  m_Direction: 2
-  m_Center: {x: 0, y: -1.5385666, z: -0.030694008}
+  m_Center: {x: 0, y: 0.05580139, z: -0.049121857}
 --- !u!198 &198386500022854186
 ParticleSystem:
   m_ObjectHideFlags: 1
