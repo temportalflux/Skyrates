@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114956092729709676}
   - component: {fileID: 54642449414566752}
   - component: {fileID: 114851400781537040}
+  - component: {fileID: 114826751344152850}
   m_Layer: 15
   m_Name: Player-Root
   m_TagString: Player
@@ -402,6 +403,19 @@ MonoBehaviour:
     VerticalInput: 0
     VerticalSpeed: 2
   pivot: {fileID: 4805465745739734}
+--- !u!114 &114826751344152850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436304090232158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c6ed6aac33a9d43b82912221212936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHitStrength: 1
+  OnHitDuration: 0.5
 --- !u!114 &114851400781537040
 MonoBehaviour:
   m_ObjectHideFlags: 1
