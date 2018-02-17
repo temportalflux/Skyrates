@@ -21,6 +21,9 @@ namespace Skyrates.Client.Loot
             [SerializeField]
             public ShipComponent Item;
 
+            [SerializeField]
+            public GameObject Prefab;
+
             public float Percentage; // generated
         }
 
@@ -38,9 +41,9 @@ namespace Skyrates.Client.Loot
             }
         }
 
-        public ShipComponent[] Generate()
+        public KeyValuePair<ShipComponent, GameObject>[] Generate()
         {
-            ShipComponent[] loots = new ShipComponent[Random.Range(this.AmountMin, this.AmountMax)];
+            KeyValuePair<ShipComponent, GameObject>[] loots = new KeyValuePair<ShipComponent, GameObject>[Random.Range(this.AmountMin, this.AmountMax)];
             int iLoot = 0;
             while (iLoot < loots.Length)
             {
@@ -51,7 +54,7 @@ namespace Skyrates.Client.Loot
                     sum += row.Percentage;
                     if (rand < sum)
                     {
-                        loots[iLoot] = row.Item;
+                        loots[iLoot] = new KeyValuePair<ShipComponent, GameObject>(row.Item, row.Prefab);
                         break;
                     }
                 }

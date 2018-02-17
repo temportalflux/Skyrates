@@ -69,6 +69,9 @@ namespace Skyrates.Client.Loot
                         row.Item = (ShipComponent)EditorGUILayout.ObjectField(
                             row.Item, typeof(ShipComponent), allowSceneObjects: true
                         );
+                        row.Prefab = (GameObject) EditorGUILayout.ObjectField(
+                            row.Prefab, typeof(GameObject), allowSceneObjects: true
+                        );
                     }
                     EditorGUILayout.EndHorizontal();
 
