@@ -44,11 +44,11 @@ namespace Skyrates.Client
         public AudioSource AudioOnEnemyEngage;
         public AudioSource AudioOnEnemyDisengage;
 
-        private void CreateAudio(Vector3 position, Quaternion rotation, AudioSource prefab)
+        private void CreateAudio(Vector3 position, Quaternion rotation, AudioSource prefab, Transform owner)
         {
             if (prefab != null)
             {
-                AudioSource spawned = Instantiate(prefab.gameObject, position, rotation, this.transform).GetComponent<AudioSource>();
+                AudioSource spawned = Instantiate(prefab.gameObject, position, rotation, owner).GetComponent<AudioSource>();
                 Destroy(spawned.gameObject, spawned.clip.length);
             }
         }
@@ -81,7 +81,7 @@ namespace Skyrates.Client
             Quaternion averageRotation;
             if (eventArtillery.GetAverageTransform(out averagePosition, out averageRotation) > 0)
             {
-                this.CreateAudio(averagePosition, averageRotation, this.AudioArtilleryFired);
+                this.CreateAudio(averagePosition, averageRotation, this.AudioArtilleryFired, eventArtillery.Entity.transform);
             }
 
         }
@@ -116,7 +116,7 @@ namespace Skyrates.Client
 
             if (prefab != null)
             {
-                this.CreateAudio(position, rotation, prefab);
+                this.CreateAudio(position, rotation, prefab, this.transform);
             }
         }
 
@@ -124,7 +124,7 @@ namespace Skyrates.Client
         {
             EventLootCollected evtLoot = (EventLootCollected) evt;
             if (!evtLoot.PlayerShip.IsLocallyControlled) return;
-            this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected);
+            this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected, evtLoot.PlayerShip.transform);
         }
 
         public void OnEnemyEngage(GameEvent evt)
@@ -134,23 +134,23 @@ namespace Skyrates.Client
             if (evtDEngage.Target.EntityType.EntityType != Common.Entity.Entity.Type.Player) return;
             if (!evtDEngage.Target.IsLocallyControlled) return;
 
-            switch (evtDEngage.EventID)
-            {
-                case GameEventID.EnemyTargetEngage:
-                    this.CreateAudio(
-                        evtDEngage.Target.transform.position,
-                        evtDEngage.Target.transform.rotation,
-                        this.AudioOnEnemyEngage);
-                    break;
-                case GameEventID.EnemyTargetDisengage:
-                    this.CreateAudio(
-                        evtDEngage.Target.transform.position,
-                        evtDEngage.Target.transform.rotation,
-                        this.AudioOnEnemyDisengage);
-                    break;
-                default:
-                    break;
-            }
+            //switch (evtDEngage.EventID)
+            //{
+            //    case GameEventID.EnemyTargetEngage:
+            //        this.CreateAudio(
+            //            evtDEngage.Target.transform.position,
+            //            evtDEngage.Target.transform.rotation,
+            //            this.AudioOnEnemyEngage, evtDEngage.Target.transform);
+            //        break;
+            //    case GameEventID.EnemyTargetDisengage:
+            //        this.CreateAudio(
+            //            evtDEngage.Target.transform.position,
+            //            evtDEngage.Target.transform.rotation,
+            //            this.AudioOnEnemyDisengage, evtDEngage.Target.transform);
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
     }
