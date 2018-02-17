@@ -143,7 +143,10 @@ public class VFXDispatcher : MonoBehaviour
                 return;
         }
         rotation *= Quaternion.Euler(0, 180, 0);
-        this.Dispatch(id, position, rotation);
+        foreach (ParticleSystem system in this.Dispatch(id, position, rotation))
+        {
+            system.transform.parent = ((EventEntityShipDamaged) evt).Entity.transform;
+        }
     }
 
     private void OnLootCollected(GameEvent evt)
@@ -151,7 +154,10 @@ public class VFXDispatcher : MonoBehaviour
         EventLootCollected evtLoot = (EventLootCollected) evt;
         if (!evtLoot.PlayerShip.IsLocallyControlled)
             return;
-        this.Dispatch(DispatchID.LootPickup, evtLoot.Entity.transform.position, evtLoot.Entity.transform.rotation);
+        foreach (ParticleSystem system in this.Dispatch(DispatchID.LootPickup, evtLoot.Entity.transform.position, evtLoot.Entity.transform.rotation))
+        {
+            system.transform.parent = evtLoot.Entity.transform;
+        }
     }
 
 }
