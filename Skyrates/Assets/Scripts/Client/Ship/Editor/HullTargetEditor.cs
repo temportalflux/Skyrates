@@ -74,6 +74,7 @@ namespace Skyrates.Client.Ship
             EditorUtility.SetDirty(this._instance);
         }
 
+        // https://gist.github.com/bzgeb/3800350
         public void DropAreaGUI()
         {
             Event evt = Event.current;
