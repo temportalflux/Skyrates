@@ -7,17 +7,70 @@ ModelImporter:
   fileIDToRecycleName:
     100000: ship_propulsion_tier1
     100002: //RootNode
+    100004: fin1
+    100006: fin2
+    100008: fin3
+    100010: fin4
+    100012: fin5
+    100014: fin6
+    100016: fin7
+    100018: fin8
+    100020: joint1
+    100022: joint2
+    100024: joint3
+    100026: joint4
+    100028: joint5
+    100030: joint6
+    100032: joint7
+    100034: joint8
+    100036: Paddle1
+    100038: paddle2
+    100040: paddle3
+    100042: Paddle4
+    100044: Paddle5
+    100046: Paddle6
+    100048: Paddle7
+    100050: Paddle8
+    100052: rig_propulsion_tier1
     400000: ship_propulsion_tier1
     400002: //RootNode
+    400004: fin1
+    400006: fin2
+    400008: fin3
+    400010: fin4
+    400012: fin5
+    400014: fin6
+    400016: fin7
+    400018: fin8
+    400020: joint1
+    400022: joint2
+    400024: joint3
+    400026: joint4
+    400028: joint5
+    400030: joint6
+    400032: joint7
+    400034: joint8
+    400036: Paddle1
+    400038: paddle2
+    400040: paddle3
+    400042: Paddle4
+    400044: Paddle5
+    400046: Paddle6
+    400048: Paddle7
+    400050: Paddle8
+    400052: rig_propulsion_tier1
     2100000: lambert1
     2300000: ship_propulsion_tier1
     2300002: //RootNode
     3300000: ship_propulsion_tier1
     3300002: //RootNode
     4300000: ship_propulsion_tier1
+    7400000: Rotate
+    9500000: //RootNode
+    13700000: ship_propulsion_tier1
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -34,14 +87,42 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Rotate
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 209
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -83,13 +164,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: rig_propulsion_tier1
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
