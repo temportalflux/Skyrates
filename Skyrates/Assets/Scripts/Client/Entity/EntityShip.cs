@@ -51,6 +51,11 @@ namespace Skyrates.Common.Entity
         // Called when some non-trigger collider with a rigidbody enters
         protected virtual void OnTriggerEnter(Collider other)
         {
+            if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Enemy")) || (other.CompareTag("Projectile-Player") && this.CompareTag("Player")))
+            {
+                return;
+            }
+
             EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
             if (entityProjectile != null)
             {

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4296624790975764}
   - component: {fileID: 114621202652398174}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114956092729709676}
   - component: {fileID: 54642449414566752}
   - component: {fileID: 114851400781537040}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Player-Root
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4717130946942272}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Components
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4656649870475104}
   - component: {fileID: 198398244148172478}
   - component: {fileID: 199165897054630454}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: particles_ship_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4770238892362380}
   - component: {fileID: 198678392876757944}
   - component: {fileID: 199826489455845754}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: particles_ship_smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4805465745739734}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ViewPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4626443736001176}
   - component: {fileID: 114167662047460524}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 81399405603810628}
   - component: {fileID: 114943066303382066}
   - component: {fileID: 114049429579251050}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -465,7 +465,8 @@ MonoBehaviour:
   StatBlock: {fileID: 11400000, guid: 83d0bef0abd7ff64f89dd28418764559, type: 2}
   ParticleSmoke: {fileID: 198678392876757944}
   ParticleFire: {fileID: 198398244148172478}
-  ParticleOnDestruction: {fileID: 0}
+  ParticleOnDestruction: {fileID: 198409131529129162, guid: 2eb4ad8bbf0d3e2409d5bd829f7350db,
+    type: 2}
   Health: 0
   ShipData:
     Components: 00000000000000000000000000000000000000000000000000000000
@@ -554,7 +555,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1476561058
+  randomSeed: 1186875919
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3921,7 +3922,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 149633670
+  randomSeed: -209938272
   InitialModule:
     serializedVersion: 3
     enabled: 1
