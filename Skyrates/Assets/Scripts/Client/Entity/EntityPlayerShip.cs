@@ -110,7 +110,7 @@ namespace Skyrates.Client
             this.PlayerData.LootCount++;
 
             // TODO: Change this
-            this.ShipRoot.Hull.GenerateLoot();
+            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
             

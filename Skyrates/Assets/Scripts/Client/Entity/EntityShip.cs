@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Loot;
@@ -111,19 +112,18 @@ namespace Skyrates.Common.Entity
 
         protected virtual void SpawnLoot(Vector3 position)
         {
-            ShipComponent[] loots = this.StatBlock.Loot.Generate();
-            foreach (ShipComponent lootItem in loots)
+            KeyValuePair<ShipComponent, GameObject>[] loots = this.StatBlock.Loot.Generate();
+            foreach (KeyValuePair<ShipComponent, GameObject> lootItem in loots)
             {
-                if (lootItem == null)
+                if (lootItem.Key == null || lootItem.Value == null)
                 {
                     continue;
                 }
 
                 Vector3 pos = position + Random.insideUnitSphere * this.StatBlock.LootRadius;
-                Loot loot = Instantiate(
-                    this.StatBlock.LootPrefab.gameObject, pos, Quaternion.identity).GetComponent<Loot>();
-                loot.Item = lootItem;
-                // TODO: Loot event, loot should be static entity
+                Loot loot = Instantiate(lootItem.Value, pos, Quaternion.identity).GetComponent<Loot>();
+                loot.Item = lootItem.Key;
+                // TODO: Loot event, loot should be static entity for networking
             }
         }
 
