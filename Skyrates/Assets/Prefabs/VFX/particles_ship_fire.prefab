@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048159989536924}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.61, y: -0.044000007, z: 0}
+  m_LocalPosition: {x: -10.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1378810911
+  randomSeed: -548096932
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -149,7 +149,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -754,21 +754,15 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0
-          inSlope: 15.966829
-          outSlope: 15.966829
+          value: 1
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.14825933
-          value: 0.87837917
-          inSlope: 2.9256454
-          outSlope: 0.8031734
-          tangentMode: 1
-        - serializedVersion: 2
           time: 1
-          value: 0
-          inSlope: 0.7615614
-          outSlope: 0.7615614
+          value: 1
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -801,15 +795,15 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0
-          inSlope: 1
-          outSlope: 1
+          value: 0.7432461
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
+          value: 0.7432461
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -873,7 +867,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 0
+    separateAxes: 1
   RotationModule:
     enabled: 0
     x:
@@ -1077,10 +1071,10 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 2
-          time: 0.018867493
+          time: 0
           value: 0
-          inSlope: 0
-          outSlope: 0
+          inSlope: 1
+          outSlope: 1
           tangentMode: 0
         - serializedVersion: 2
           time: 1
@@ -1152,9 +1146,9 @@ ParticleSystem:
         m_RotationOrder: 4
     tilesX: 3
     tilesY: 2
-    animationType: 1
+    animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 10
     uvChannelMask: -1
     flipU: 0
     flipV: 0
