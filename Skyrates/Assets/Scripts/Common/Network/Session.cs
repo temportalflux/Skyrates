@@ -99,6 +99,9 @@ namespace Skyrates.Common.Network
             get { return this.Mode != NetworkMode.Standalone; }
         }
 
+        /// <summary>
+        /// If the network mode is not a client (either host or standalone).
+        /// </summary>
         public bool IsOwner
         {
             get { return this.Mode != NetworkMode.Client; }

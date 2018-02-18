@@ -173,7 +173,7 @@ namespace Skyrates.Client.Entity
 
             this.Health = this.StatBlock.Health;
 
-            Transform spawn = GameManager.Instance.playerSpawn;
+            Transform spawn = GameManager.Instance.PlayerSpawn;
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
             this.Physics.RotationPosition = spawn.rotation;
             this.Physics.LinearPosition = spawn.position;

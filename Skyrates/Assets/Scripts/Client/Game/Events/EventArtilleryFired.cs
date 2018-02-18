@@ -7,9 +7,16 @@ using UnityEngine;
 namespace Skyrates.Client.Game.Event
 {
 
+    /// <summary>
+    /// Event dispatched when artillery is fired
+    /// </summary>
     public class EventArtilleryFired : EventEntity
     {
 
+        // TODO: Rename Shooter to Artillery? (will there be non-artillery shooters like guns?)
+        /// <summary>
+        /// The artillery fired.
+        /// </summary>
         public Shooter[] Shooters;
 
         public EventArtilleryFired(EntityShip ship, Shooter[] shooters)
@@ -18,6 +25,12 @@ namespace Skyrates.Client.Game.Event
             this.Shooters = shooters;
         }
 
+        /// <summary>
+        /// Returns the average transform data for all the shooters/artillery
+        /// </summary>
+        /// <param name="averagePosition"></param>
+        /// <param name="averageRotation"></param>
+        /// <returns></returns>
         public int GetAverageTransform(out Vector3 averagePosition, out Quaternion averageRotation)
         {
             averagePosition = Vector3.zero;

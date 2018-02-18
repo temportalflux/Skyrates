@@ -7,6 +7,9 @@ using UnityEngine;
 namespace Skyrates.Client.Game.Event
 {
 
+    /// <summary>
+    /// Dispatched when loot is collected by a local player.
+    /// </summary>
     public class EventLootCollected : EventLootCollided
     {
 
