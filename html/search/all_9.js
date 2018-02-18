@@ -7,6 +7,7 @@ var searchData=
   ['id_5fclient_5fmissing',['ID_CLIENT_MISSING',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155',1,'ChampNetPlugin']]],
   ['id_5fnone',['ID_NONE',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d',1,'ChampNetPlugin']]],
   ['ieventdelegate_3c_20in_20tenumid_2c_20out_20tdelegateclass_20_3e',['IEventDelegate&lt; in TEnumId, out TDelegateClass &gt;',['../interface_i_event_delegate_3_01in_01_t_enum_id_00_01out_01_t_delegate_class_01_4.html',1,'']]],
+  ['init',['Init',['../class_skyrates_1_1_common_1_1_entity_1_1_entity.html#a5cacb91a3691f5a6c4b3087c98f402f9',1,'Skyrates.Common.Entity.Entity.Init(Guid guid, TypeData typeData)'],['../class_skyrates_1_1_common_1_1_entity_1_1_entity.html#a1e1f4bba9e46f3753dda54a9db711a06',1,'Skyrates.Common.Entity.Entity.Init(TypeData typeData)']]],
   ['initclient',['initClient',['../class_champ_net_1_1_network.html#af7bda654a247a00e46d6adcc87c8d65b',1,'ChampNet::Network']]],
   ['initserver',['initServer',['../class_champ_net_1_1_network.html#ac0d53751c94ef1df4cee9ce3719432bf',1,'ChampNet::Network']]],
   ['inputaction',['InputAction',['../class_input_action.html',1,'']]],
@@ -28,6 +29,7 @@ var searchData=
   ['iserializationmodule',['ISerializationModule',['../interface_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_i_serialization_module.html',1,'Skyrates::Common::Network::BitSerializeAttribute']]],
   ['iserializing',['ISerializing',['../interface_skyrates_1_1_common_1_1_network_1_1_i_serializing.html',1,'Skyrates::Common::Network']]],
   ['isinuse',['isInUse',['../class_singleton_3_01_t_01_4.html#aaf243fc3c85154c237fb3086b67ef6ff',1,'Singleton&lt; T &gt;']]],
+  ['islocallycontrolled',['IsLocallyControlled',['../class_skyrates_1_1_common_1_1_entity_1_1_entity.html#a76d0593a8dd6b00bf329fb9693577cef',1,'Skyrates::Common::Entity::Entity']]],
   ['isnetworked',['IsNetworked',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a9502bbd3da8fd21ef48dd05afd2e3743',1,'Skyrates::Common::Network::Session']]],
   ['isrunning',['isRunning',['../class_game.html#aa61c0358c2611d00eb47ebf72a88f8c7',1,'Game']]],
   ['isvalid',['IsValid',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a73011cb9fda86ee41cf5964989d1b9c2',1,'Skyrates::Common::Network::Session']]]

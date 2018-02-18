@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['major',['Major',['../class_version.html#aeaf20290509249554961b91b5f0eb75f',1,'Version']]],
-  ['maxclients',['maxClients',['../struct_state_network.html#a441e11a6962b2ef0f9456c937a1abbb6',1,'StateNetwork::maxClients()'],['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a4d9934f0f98f603daf947afacf49d3fb',1,'Skyrates.Common.Network.Session.MaxClients()']]],
-  ['minor',['Minor',['../class_version.html#a888691997b924984ba335e26e4027a0d',1,'Version']]],
-  ['mode',['Mode',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a659a2e1e5c0bc707eb0e6dcfa17b17a8',1,'Skyrates::Common::Network::Session']]],
-  ['modules',['MODULES',['../class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute.html#a5804be2d376111418f81ec041b5ddf80',1,'Skyrates::Common::Network::BitSerializeAttribute']]],
-  ['mounts',['Mounts',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_hull.html#ae4226c65a2653290aa04aa2b891585ce',1,'Skyrates::Client::Ship::ShipHull']]],
-  ['mpnext',['mpNext',['../class_game.html#a247b4d7b1656218d90a8544cb674f0b3',1,'Game']]],
-  ['mpstate',['mpState',['../class_game.html#a1f85e8206f06c0bd64430effae32c577',1,'Game']]]
+  ['linesizeprevious',['lineSizePrevious',['../struct_state_input.html#ab6d707a36eabe343d0b46838773da8f9',1,'StateInput']]],
+  ['loadedscene',['LoadedScene',['../struct_scene_loader_1_1_loading_sequence.html#a3c9efe1e6b11e88917c0d375faf0100f',1,'SceneLoader::LoadingSequence']]],
+  ['logger',['logger',['../class_champ_net_1_1_network.html#a4588391c9f6064ad7fb83a08f0ea02c6',1,'ChampNet::Network']]],
+  ['lootcount',['LootCount',['../class_skyrates_1_1_client_1_1_data_1_1_local_data.html#aa073e9045fbadc0325944e19305c92e0',1,'Skyrates::Client::Data::LocalData']]],
+  ['lootgoal',['LootGoal',['../class_skyrates_1_1_client_1_1_data_1_1_local_data.html#a5e0d6c1ab2838d69f03d3d1dbbe31450',1,'Skyrates::Client::Data::LocalData']]]
 ];

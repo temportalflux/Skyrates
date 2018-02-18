@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['takedamage',['TakeDamage',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html#a64d1b835a2e8911de33b19d7cd6948fd',1,'Skyrates.Client.Entity.EntityShip.TakeDamage(EventEntityShipDamaged evt)'],['../class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html#abad1336581d008dcdd90f400c91f6089',1,'Skyrates.Client.Entity.EntityShip.TakeDamage(Common.Entity.Entity source, float damage)']]],
   ['target',['Target',['../class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html#af62ca00fa92111adb3380fdaa0ba6a0f',1,'Skyrates::Common::AI::SteeringData']]],
   ['targetaddress',['TargetAddress',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a6d550a6d31777ca6d1d6dfba00c7955b',1,'Skyrates::Common::Network::Session']]],
   ['test',['Test',['../class_skyrates_1_1_client_1_1_util_1_1_test.html',1,'Skyrates::Client::Util']]],

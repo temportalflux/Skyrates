@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outofworldboundary',['OutOfWorldBoundary',['../class_out_of_world_boundary.html',1,'']]]
+  ['outofworldboundary',['OutOfWorldBoundary',['../class_skyrates_1_1_client_1_1_mono_1_1_out_of_world_boundary.html',1,'Skyrates::Client::Mono']]]
 ];

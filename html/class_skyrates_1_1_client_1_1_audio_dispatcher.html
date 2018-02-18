@@ -96,6 +96,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Skyrates.Client.AudioDispatcher Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Observer which spawns audio sources based on game events  
+ <a href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Client.AudioDispatcher:</div>
 <div class="dyncontent">
@@ -107,14 +110,14 @@ Inheritance diagram for Skyrates.Client.AudioDispatcher:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3f32fc26138cfdd53c00b9c5f7e46e4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f32fc26138cfdd53c00b9c5f7e46e4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnArtilleryFired</b> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memitem:a3f32fc26138cfdd53c00b9c5f7e46e4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a3f32fc26138cfdd53c00b9c5f7e46e4f">OnArtilleryFired</a> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memdesc:a3f32fc26138cfdd53c00b9c5f7e46e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when an artillery is fired. Plays <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#ad996cff373d93efc72d30948bf5a30d7" title="Audio played when artillery is fired ">AudioArtilleryFired</a>.  <a href="#a3f32fc26138cfdd53c00b9c5f7e46e4f">More...</a><br/></td></tr>
 <tr class="separator:a3f32fc26138cfdd53c00b9c5f7e46e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1edd4fbe4c6b030ba5f8c92ec9d46a9b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1edd4fbe4c6b030ba5f8c92ec9d46a9b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEntityShipHitBy</b> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memitem:a1edd4fbe4c6b030ba5f8c92ec9d46a9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a1edd4fbe4c6b030ba5f8c92ec9d46a9b">OnEntityShipHitBy</a> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memdesc:a1edd4fbe4c6b030ba5f8c92ec9d46a9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a ship is hit by a projectile or ram. Plays <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a3bcd016090038e5f09c8735ad5cba131" title="Audio played when a ship is hit by a projectile ">AudioEntityShipHitByProjectile</a> or <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a67abfa1ba1df41fd20457865b10b9a4a" title="Audio played when a ship is hit by another ship&#39;s ram ">AudioEntityShipHitByRam</a>, repsectively.  <a href="#a1edd4fbe4c6b030ba5f8c92ec9d46a9b">More...</a><br/></td></tr>
 <tr class="separator:a1edd4fbe4c6b030ba5f8c92ec9d46a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b292fd5211fd4187a687e683b504b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47b292fd5211fd4187a687e683b504b6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnLootCollected</b> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memitem:a47b292fd5211fd4187a687e683b504b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a47b292fd5211fd4187a687e683b504b6">OnLootCollected</a> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memdesc:a47b292fd5211fd4187a687e683b504b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a player picks up loot. Plays <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#ab8a146c252b56f67a02579b6b65bc299" title="Audio played when a player collects loot ">AudioOnLootCollected</a>.  <a href="#a47b292fd5211fd4187a687e683b504b6">More...</a><br/></td></tr>
 <tr class="separator:a47b292fd5211fd4187a687e683b504b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79c4be3f451f8f8c587c6daa8cfcfbde"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79c4be3f451f8f8c587c6daa8cfcfbde"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEnemyEngage</b> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
@@ -122,25 +125,209 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEnemyEngage</b> (<a
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad996cff373d93efc72d30948bf5a30d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad996cff373d93efc72d30948bf5a30d7"></a>
-AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>AudioArtilleryFired</b></td></tr>
+<tr class="memitem:ad996cff373d93efc72d30948bf5a30d7"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#ad996cff373d93efc72d30948bf5a30d7">AudioArtilleryFired</a></td></tr>
+<tr class="memdesc:ad996cff373d93efc72d30948bf5a30d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio played when artillery is fired  <a href="#ad996cff373d93efc72d30948bf5a30d7">More...</a><br/></td></tr>
 <tr class="separator:ad996cff373d93efc72d30948bf5a30d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bcd016090038e5f09c8735ad5cba131"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bcd016090038e5f09c8735ad5cba131"></a>
-AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>AudioEntityShipHitByProjectile</b></td></tr>
+<tr class="memitem:a3bcd016090038e5f09c8735ad5cba131"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a3bcd016090038e5f09c8735ad5cba131">AudioEntityShipHitByProjectile</a></td></tr>
+<tr class="memdesc:a3bcd016090038e5f09c8735ad5cba131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio played when a ship is hit by a projectile  <a href="#a3bcd016090038e5f09c8735ad5cba131">More...</a><br/></td></tr>
 <tr class="separator:a3bcd016090038e5f09c8735ad5cba131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67abfa1ba1df41fd20457865b10b9a4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67abfa1ba1df41fd20457865b10b9a4a"></a>
-AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>AudioEntityShipHitByRam</b></td></tr>
+<tr class="memitem:a67abfa1ba1df41fd20457865b10b9a4a"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a67abfa1ba1df41fd20457865b10b9a4a">AudioEntityShipHitByRam</a></td></tr>
+<tr class="memdesc:a67abfa1ba1df41fd20457865b10b9a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio played when a ship is hit by another ship's ram  <a href="#a67abfa1ba1df41fd20457865b10b9a4a">More...</a><br/></td></tr>
 <tr class="separator:a67abfa1ba1df41fd20457865b10b9a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8a146c252b56f67a02579b6b65bc299"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8a146c252b56f67a02579b6b65bc299"></a>
-AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>AudioOnLootCollected</b></td></tr>
+<tr class="memitem:ab8a146c252b56f67a02579b6b65bc299"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#ab8a146c252b56f67a02579b6b65bc299">AudioOnLootCollected</a></td></tr>
+<tr class="memdesc:ab8a146c252b56f67a02579b6b65bc299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio played when a player collects loot  <a href="#ab8a146c252b56f67a02579b6b65bc299">More...</a><br/></td></tr>
 <tr class="separator:ab8a146c252b56f67a02579b6b65bc299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f4d4827e4638cf83404fc4f557bfef5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f4d4827e4638cf83404fc4f557bfef5"></a>
-AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>AudioOnEnemyEngage</b></td></tr>
+<tr class="memitem:a2f4d4827e4638cf83404fc4f557bfef5"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a2f4d4827e4638cf83404fc4f557bfef5">AudioOnEnemyEngage</a></td></tr>
+<tr class="memdesc:a2f4d4827e4638cf83404fc4f557bfef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio played when enemies engage a player  <a href="#a2f4d4827e4638cf83404fc4f557bfef5">More...</a><br/></td></tr>
 <tr class="separator:a2f4d4827e4638cf83404fc4f557bfef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12f9d81e7271cf0dae71482611df8e03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12f9d81e7271cf0dae71482611df8e03"></a>
-AudioSource&#160;</td><td class="memItemRight" valign="bottom"><b>AudioOnEnemyDisengage</b></td></tr>
+<tr class="memitem:a12f9d81e7271cf0dae71482611df8e03"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a12f9d81e7271cf0dae71482611df8e03">AudioOnEnemyDisengage</a></td></tr>
+<tr class="memdesc:a12f9d81e7271cf0dae71482611df8e03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio played when enemies disengage a player  <a href="#a12f9d81e7271cf0dae71482611df8e03">More...</a><br/></td></tr>
 <tr class="separator:a12f9d81e7271cf0dae71482611df8e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Observer which spawns audio sources based on game events </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3f32fc26138cfdd53c00b9c5f7e46e4f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Skyrates.Client.AudioDispatcher.OnArtilleryFired </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a>&#160;</td>
+          <td class="paramname"><em>evt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when an artillery is fired. Plays <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#ad996cff373d93efc72d30948bf5a30d7" title="Audio played when artillery is fired ">AudioArtilleryFired</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evt</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1edd4fbe4c6b030ba5f8c92ec9d46a9b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Skyrates.Client.AudioDispatcher.OnEntityShipHitBy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a>&#160;</td>
+          <td class="paramname"><em>evt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a ship is hit by a projectile or ram. Plays <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a3bcd016090038e5f09c8735ad5cba131" title="Audio played when a ship is hit by a projectile ">AudioEntityShipHitByProjectile</a> or <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#a67abfa1ba1df41fd20457865b10b9a4a" title="Audio played when a ship is hit by another ship&#39;s ram ">AudioEntityShipHitByRam</a>, repsectively. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evt</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a47b292fd5211fd4187a687e683b504b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Skyrates.Client.AudioDispatcher.OnLootCollected </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a>&#160;</td>
+          <td class="paramname"><em>evt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a player picks up loot. Plays <a class="el" href="class_skyrates_1_1_client_1_1_audio_dispatcher.html#ab8a146c252b56f67a02579b6b65bc299" title="Audio played when a player collects loot ">AudioOnLootCollected</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evt</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ad996cff373d93efc72d30948bf5a30d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioSource Skyrates.Client.AudioDispatcher.AudioArtilleryFired</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Audio played when artillery is fired </p>
+
+</div>
+</div>
+<a class="anchor" id="a3bcd016090038e5f09c8735ad5cba131"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioSource Skyrates.Client.AudioDispatcher.AudioEntityShipHitByProjectile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Audio played when a ship is hit by a projectile </p>
+
+</div>
+</div>
+<a class="anchor" id="a67abfa1ba1df41fd20457865b10b9a4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioSource Skyrates.Client.AudioDispatcher.AudioEntityShipHitByRam</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Audio played when a ship is hit by another ship's ram </p>
+
+</div>
+</div>
+<a class="anchor" id="a12f9d81e7271cf0dae71482611df8e03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioSource Skyrates.Client.AudioDispatcher.AudioOnEnemyDisengage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Audio played when enemies disengage a player </p>
+
+</div>
+</div>
+<a class="anchor" id="a2f4d4827e4638cf83404fc4f557bfef5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioSource Skyrates.Client.AudioDispatcher.AudioOnEnemyEngage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Audio played when enemies engage a player </p>
+
+</div>
+</div>
+<a class="anchor" id="ab8a146c252b56f67a02579b6b65bc299"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioSource Skyrates.Client.AudioDispatcher.AudioOnLootCollected</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Audio played when a player collects loot </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Audio/AudioDispatcher.cs</li>
 </ul>

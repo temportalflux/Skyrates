@@ -1,6 +1,11 @@
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy}{\section{Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy Class Reference}
 \label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy}\index{Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy@{Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy}}
 }
+
+
+Special case of entity ship which is completely controlled by A\-I.  
+
+
 Inheritance diagram for Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,7 +15,7 @@ Inheritance diagram for Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy\-:\begin
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a3e716c406054959be4eee5b259eee3df}{\hyperlink{class_shooter}{Shooter}\mbox{[}$\,$\mbox{]} {\bfseries Shooters}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a3e716c406054959be4eee5b259eee3df}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a3e716c406054959be4eee5b259eee3df}{\hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter}{Shooter}\mbox{[}$\,$\mbox{]} {\bfseries Shooters}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a3e716c406054959be4eee5b259eee3df}
 
 \item 
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a55c9aa1de27939eb381e0dca2409d26a}{float {\bfseries max\-Dist\-Shoot} = 10000}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a55c9aa1de27939eb381e0dca2409d26a}
@@ -31,15 +36,42 @@ Inheritance diagram for Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy\-:\begin
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_af524017b295a99be4257b6cbd3ded232}{override void {\bfseries On\-Destroy} ()}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_af524017b295a99be4257b6cbd3ded232}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_ab3c53268f487acadfa25c518ac90ec66}{override \hyperlink{class_shooter}{Shooter}\mbox{[}$\,$\mbox{]} {\bfseries Get\-Artillery\-Shooters} (Ship\-Data.\-Component\-Type artillery)}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_ab3c53268f487acadfa25c518ac90ec66}
-
-\item 
+override \hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter}{Shooter}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_ab3c53268f487acadfa25c518ac90ec66}{Get\-Artillery\-Shooters} (Ship\-Data.\-Component\-Type artillery)
+\begin{DoxyCompactList}\small\item\em Returns a list of shooters for some artillery component. Null if none exist. \end{DoxyCompactList}\item 
 override void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a689b368554044f48d19b20aed42fe104}{Integrate\-Physics} (float delta\-Time)
 \begin{DoxyCompactList}\small\item\em Integrates the current set of physics with the Transform. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+Special case of entity ship which is completely controlled by A\-I. 
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_ab3c53268f487acadfa25c518ac90ec66}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship\-Navy@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship\-Navy}!Get\-Artillery\-Shooters@{Get\-Artillery\-Shooters}}
+\index{Get\-Artillery\-Shooters@{Get\-Artillery\-Shooters}!Skyrates::Client::Entity::EntityShipNavy@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship\-Navy}}
+\subsubsection[{Get\-Artillery\-Shooters}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf Shooter} \mbox{[}$\,$\mbox{]} Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy.\-Get\-Artillery\-Shooters (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Component\-Type}]{artillery}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_ab3c53268f487acadfa25c518ac90ec66}
+
+
+Returns a list of shooters for some artillery component. Null if none exist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em artillery} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae647437ac479d1758cf5ad5a80c4f89c}{Skyrates.\-Client.\-Entity.\-Entity\-Ship}.
+
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a689b368554044f48d19b20aed42fe104}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship\-Navy@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship\-Navy}!Integrate\-Physics@{Integrate\-Physics}}
 \index{Integrate\-Physics@{Integrate\-Physics}!Skyrates::Client::Entity::EntityShipNavy@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship\-Navy}}
 \subsubsection[{Integrate\-Physics}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy.\-Integrate\-Physics (

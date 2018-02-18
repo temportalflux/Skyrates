@@ -16,7 +16,7 @@ Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Data pertaining to how to find the entity in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_list}{Entity\-List}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,15 +29,12 @@ enum {\bfseries Type} \{ {\bfseries Static},
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}{void {\bfseries Init} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} guid, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data} type\-Data)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}
-
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}{void {\bfseries Init} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data} type\-Data)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}
-
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}{virtual bool {\bfseries Should\-Deserialize} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}
-
-\item 
+void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}{Init} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} guid, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data} type\-Data)
+\begin{DoxyCompactList}\small\item\em Initializes the entity with a specific \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}{Init} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data} type\-Data)
+\begin{DoxyCompactList}\small\item\em Initializes the entity with a new \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}{Should\-Deserialize} ()
+\begin{DoxyCompactList}\small\item\em If this object should receive data sent over the network. \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa5a53dfb527054cd23f69bc8750f59e0}{On\-Deserialize\-Success} ()
 \begin{DoxyCompactList}\small\item\em Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity's data was successfully deserialized into it. \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8cf85f4ac28cf907926eef27148e5124}{On\-Deserialize\-Fail} ()
@@ -45,9 +42,8 @@ virtual void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8cf85f4
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}{static \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} {\bfseries New\-Guid} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}
-
-\end{DoxyCompactItemize}
+static \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}{New\-Guid} ()
+\begin{DoxyCompactList}\small\item\em Creates a unique and fresh I\-D. Guid.\-New\-Guid(). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,7 +66,7 @@ int \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c4
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_adc830384f250e2d5f9b33229d91885ce}{static readonly object\mbox{[}$\,$\mbox{]} {\bfseries Listable\-Types} = \{ Type.\-Static, Type.\-Dynamic, Type.\-Projectile \}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_adc830384f250e2d5f9b33229d91885ce}
 
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9abf8cce12c295b351195de009cfd007}{static readonly System.\-Type\mbox{[}$\,$\mbox{]} {\bfseries Listable\-Class\-Types} = \{ typeof(\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Entity}), typeof(\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}{Entity\-Dynamic}), typeof(\hyperlink{class_entity_projectile}{Entity\-Projectile}) \}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9abf8cce12c295b351195de009cfd007}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9abf8cce12c295b351195de009cfd007}{static readonly System.\-Type\mbox{[}$\,$\mbox{]} {\bfseries Listable\-Class\-Types} = \{ typeof(\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Entity}), typeof(\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}{Entity\-Dynamic}), typeof(\hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_projectile}{Entity\-Projectile}) \}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9abf8cce12c295b351195de009cfd007}
 
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
@@ -78,13 +74,18 @@ int \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c4
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_acb5cc7450eefd4c794e9f72e0a422834}{virtual void {\bfseries Start} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_acb5cc7450eefd4c794e9f72e0a422834}
 
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9a9f1e893f8e853e3177d70eb67a82f6}{virtual void {\bfseries On\-Destroy} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9a9f1e893f8e853e3177d70eb67a82f6}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a888a855cc2fd1a8133a18c085eca65e9}{virtual void {\bfseries Update} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a888a855cc2fd1a8133a18c085eca65e9}
+
 \end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}{bool {\bfseries Is\-Locally\-Controlled}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}
-
-\end{DoxyCompactItemize}
+bool \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}{Is\-Locally\-Controlled}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em If the entity is owned by the current instance (its \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c490c2ddc157e11029}{Owner\-Network\-I\-D} matches the Session.\-Network\-I\-D). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -93,6 +94,55 @@ Any entity that in the world. Used predominantly for its ability to be syncced v
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Init@{Init}}
+\index{Init@{Init}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Entity.\-Entity.\-Init (
+\begin{DoxyParamCaption}
+\item[{{\bf Guid}}]{guid, }
+\item[{{\bf Type\-Data}}]{type\-Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}
+
+
+Initializes the entity with a specific \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em guid} & \\
+\hline
+{\em type\-Data} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Init@{Init}}
+\index{Init@{Init}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Entity.\-Entity.\-Init (
+\begin{DoxyParamCaption}
+\item[{{\bf Type\-Data}}]{type\-Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}
+
+
+Initializes the entity with a new \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\-Data} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!New\-Guid@{New\-Guid}}
+\index{New\-Guid@{New\-Guid}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
+\subsubsection[{New\-Guid}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Guid} Skyrates.\-Common.\-Entity.\-Entity.\-New\-Guid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}
+
+
+Creates a unique and fresh I\-D. Guid.\-New\-Guid(). 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8cf85f4ac28cf907926eef27148e5124}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!On\-Deserialize\-Fail@{On\-Deserialize\-Fail}}
 \index{On\-Deserialize\-Fail@{On\-Deserialize\-Fail}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
 \subsubsection[{On\-Deserialize\-Fail}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Common.\-Entity.\-Entity.\-On\-Deserialize\-Fail (
@@ -117,7 +167,25 @@ Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9
 
 
 
-Reimplemented in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{Skyrates.\-Common.\-Entity.\-Entity\-Dynamic}, and \hyperlink{class_skyrates_1_1_client_1_1_entity_player_ship_ab7106388ce039e10be38c27906372312}{Skyrates.\-Client.\-Entity\-Player\-Ship}.
+Reimplemented in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{Skyrates.\-Common.\-Entity.\-Entity\-Dynamic}, and \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_a150a965f25b65c885fa7629d99e25286}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
+
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Should\-Deserialize@{Should\-Deserialize}}
+\index{Should\-Deserialize@{Should\-Deserialize}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
+\subsubsection[{Should\-Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Skyrates.\-Common.\-Entity.\-Entity.\-Should\-Deserialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}
+
+
+If this object should receive data sent over the network. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_acd0bc1462d5fc25e38969f62877d63b6}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
 
 
 
@@ -135,6 +203,16 @@ A unique identifier for this entity
 
 
 Which client \char`\"{}owns\char`\"{} this entity (sends updates about it). 
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Is\-Locally\-Controlled@{Is\-Locally\-Controlled}}
+\index{Is\-Locally\-Controlled@{Is\-Locally\-Controlled}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
+\subsubsection[{Is\-Locally\-Controlled}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Entity.\-Entity.\-Is\-Locally\-Controlled\hspace{0.3cm}{\ttfamily [get]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}
+
+
+If the entity is owned by the current instance (its \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c490c2ddc157e11029}{Owner\-Network\-I\-D} matches the Session.\-Network\-I\-D). 
 
 
 

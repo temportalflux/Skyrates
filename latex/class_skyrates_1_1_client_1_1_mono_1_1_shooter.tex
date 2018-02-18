@@ -1,0 +1,100 @@
+\hypertarget{class_skyrates_1_1_client_1_1_mono_1_1_shooter}{\section{Skyrates.\-Client.\-Mono.\-Shooter Class Reference}
+\label{class_skyrates_1_1_client_1_1_mono_1_1_shooter}\index{Skyrates.\-Client.\-Mono.\-Shooter@{Skyrates.\-Client.\-Mono.\-Shooter}}
+}
+
+
+Special component which dispatches the Event\-Spawn\-Entity\-Projectile game event.  
+
+
+Inheritance diagram for Skyrates.\-Client.\-Mono.\-Shooter\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_client_1_1_mono_1_1_shooter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector3 \hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a03537e4a716f50d4d294946088264b8e}{Get\-Projectile\-Direction} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction the shooter is facing. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a334e64c05053fd401fa8423e11ad9dd9}{Fire\-Projectile} (Vector3 direction, Vector3 launch\-Velocity)
+\begin{DoxyCompactList}\small\item\em Fires off Event\-Spawn\-Entity\-Projectile with the spawn location, the projectile to fire, and the initial velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Common.\-Entity.\-Entity.\-Type\-Data} \hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a33a43f93da1a0b19f25a6fbe91ed4dd3}{projectile\-Prefab}
+\begin{DoxyCompactList}\small\item\em The prefab of the projectile to launch from this source. \end{DoxyCompactList}\item 
+Transform \hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a2aeb7c35dc048f65e02ccecfc654ab2c}{spawn}
+\begin{DoxyCompactList}\small\item\em The spawn location of the projectile. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter_acbce159e695ee45bd0bb4f7176dda5af}{force} = 1
+\begin{DoxyCompactList}\small\item\em How much force to apply to the projectile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Special component which dispatches the Event\-Spawn\-Entity\-Projectile game event. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a334e64c05053fd401fa8423e11ad9dd9}{\index{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}!Fire\-Projectile@{Fire\-Projectile}}
+\index{Fire\-Projectile@{Fire\-Projectile}!Skyrates::Client::Mono::Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Fire\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Mono.\-Shooter.\-Fire\-Projectile (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{direction, }
+\item[{Vector3}]{launch\-Velocity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a334e64c05053fd401fa8423e11ad9dd9}
+
+
+Fires off Event\-Spawn\-Entity\-Projectile with the spawn location, the projectile to fire, and the initial velocity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & \\
+\hline
+{\em launch\-Velocity} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a03537e4a716f50d4d294946088264b8e}{\index{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}!Get\-Projectile\-Direction@{Get\-Projectile\-Direction}}
+\index{Get\-Projectile\-Direction@{Get\-Projectile\-Direction}!Skyrates::Client::Mono::Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Get\-Projectile\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 Skyrates.\-Client.\-Mono.\-Shooter.\-Get\-Projectile\-Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a03537e4a716f50d4d294946088264b8e}
+
+
+Returns the direction the shooter is facing. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_mono_1_1_shooter_acbce159e695ee45bd0bb4f7176dda5af}{\index{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}!force@{force}}
+\index{force@{force}!Skyrates::Client::Mono::Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}}
+\subsubsection[{force}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Client.\-Mono.\-Shooter.\-force = 1}}\label{class_skyrates_1_1_client_1_1_mono_1_1_shooter_acbce159e695ee45bd0bb4f7176dda5af}
+
+
+How much force to apply to the projectile. 
+
+\hypertarget{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a33a43f93da1a0b19f25a6fbe91ed4dd3}{\index{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}!projectile\-Prefab@{projectile\-Prefab}}
+\index{projectile\-Prefab@{projectile\-Prefab}!Skyrates::Client::Mono::Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}}
+\subsubsection[{projectile\-Prefab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Common.\-Entity.\-Entity.\-Type\-Data} Skyrates.\-Client.\-Mono.\-Shooter.\-projectile\-Prefab}}\label{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a33a43f93da1a0b19f25a6fbe91ed4dd3}
+
+
+The prefab of the projectile to launch from this source. 
+
+\hypertarget{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a2aeb7c35dc048f65e02ccecfc654ab2c}{\index{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}!spawn@{spawn}}
+\index{spawn@{spawn}!Skyrates::Client::Mono::Shooter@{Skyrates\-::\-Client\-::\-Mono\-::\-Shooter}}
+\subsubsection[{spawn}]{\setlength{\rightskip}{0pt plus 5cm}Transform Skyrates.\-Client.\-Mono.\-Shooter.\-spawn}}\label{class_skyrates_1_1_client_1_1_mono_1_1_shooter_a2aeb7c35dc048f65e02ccecfc654ab2c}
+
+
+The spawn location of the projectile. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Client/\-Entity/\-Projectile/Shooter.\-cs\end{DoxyCompactItemize}

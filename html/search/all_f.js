@@ -15,6 +15,7 @@ var searchData=
   ['peersconnected',['peersConnected',['../struct_state_network.html#acad16df2ea00513fd70701fbfa90e329',1,'StateNetwork']]],
   ['performancetracker',['PerformanceTracker',['../class_performance_tracker.html',1,'PerformanceTracker'],['../class_performance_tracker.html#a3ca7c573d743478e4924f3239f258a70',1,'PerformanceTracker::PerformanceTracker()']]],
   ['physics',['Physics',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a2cc825f563606d4d565a4b0de1feab19',1,'Skyrates::Common::Entity::EntityDynamic']]],
+  ['physicscomponent',['PhysicsComponent',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_projectile.html#a9baba166e8c5256933566b23ad721ee5',1,'Skyrates::Client::Entity::EntityProjectile']]],
   ['physicsdata',['PhysicsData',['../class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html',1,'Skyrates::Common::AI']]],
   ['physicspositionrotationaleulerx',['physicsPositionRotationalEulerX',['../struct_game_state_1_1_client.html#a8d07f2646a2013223b6a1d29a48ee4f3',1,'GameState::Client']]],
   ['physicspositionrotationaleulery',['physicsPositionRotationalEulerY',['../struct_game_state_1_1_client.html#a6ebbe295a6e43d2bae98cf7f39317ed3',1,'GameState::Client']]],
@@ -22,6 +23,7 @@ var searchData=
   ['physicspositionx',['physicsPositionX',['../struct_game_state_1_1_client.html#a304556b6fb37ad694423f4607ff57a2a',1,'GameState::Client']]],
   ['physicspositiony',['physicsPositionY',['../struct_game_state_1_1_client.html#a5b1ecccf7a720b6ae80475b5e9b2aab1',1,'GameState::Client']]],
   ['physicspositionz',['physicsPositionZ',['../struct_game_state_1_1_client.html#a8b4fa85d72284fdf8a1381675b386bbe',1,'GameState::Client']]],
+  ['playerdata',['PlayerData',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#a775f40dd5d6c89a50325eaa9dbd605b8',1,'Skyrates::Client::Entity::EntityPlayerShip']]],
   ['playerguid',['PlayerGuid',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a2c3090338ac56475b1a536db879e8ddf',1,'Skyrates.Common.Network.Session.PlayerGuid()'],['../class_skyrates_1_1_server_1_1_network_1_1_client_data.html#acce52e282ee92f76cb67afa116469ebb',1,'Skyrates.Server.Network.ClientData.PlayerGuid()']]],
   ['pollpacket',['PollPacket',['../class_champ_net_plugin_1_1_network_plugin.html#a0a86f5783bdc9f940c516429fafd83c7',1,'ChampNetPlugin.NetworkPlugin.PollPacket(ref bool valid)'],['../class_champ_net_plugin_1_1_network_plugin.html#a779f2ef649d218531fc2232f1fd41b89',1,'ChampNetPlugin.NetworkPlugin.PollPacket(out string address, out byte[] data, out ulong transmitTime)'],['../namespace_champ_net_plugin.html#abb7c7dca9d557ab9cd6b29fbb6a75785',1,'ChampNetPlugin::PollPacket()']]],
   ['pollpackets',['pollPackets',['../class_champ_net_1_1_network.html#ae01cddc2981169cda9f4d65661c204f6',1,'ChampNet::Network']]],
@@ -30,9 +32,10 @@ var searchData=
   ['posy',['posY',['../struct_packet_update_physics.html#aca930e7b03bfe19b9d9ab973a09c1d42',1,'PacketUpdatePhysics']]],
   ['posz',['posZ',['../struct_packet_update_physics.html#a30b73ea55e9f5dff1cbcdacea1113385',1,'PacketUpdatePhysics']]],
   ['prefabdispatcher',['PrefabDispatcher',['../class_prefab_dispatcher.html',1,'']]],
-  ['prefabentityplayer',['PrefabEntityPlayer',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_list.html#acd5f04c525f76e64706d7964bcbfceba',1,'Skyrates::Common::Entity::EntityList']]],
+  ['prefabentityplayer',['PrefabEntityPlayer',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_list.html#ac000d4ac8899bd2b5cf36f22fd7e52ce',1,'Skyrates::Common::Entity::EntityList']]],
   ['prefablist',['PrefabList',['../class_skyrates_1_1_client_1_1_util_1_1_prefab_list.html',1,'Skyrates::Client::Util']]],
   ['prefablisteditor_3c_20tkey_2c_20tvalue_20_3e',['PrefabListEditor&lt; TKey, TValue &gt;',['../class_prefab_list_editor_3_01_t_key_00_01_t_value_01_4.html',1,'']]],
   ['previous',['previous',['../struct_state_input.html#a711e607cf2c158c933b80bfc8caa036a',1,'StateInput']]],
+  ['projectileprefab',['projectilePrefab',['../class_skyrates_1_1_client_1_1_mono_1_1_shooter.html#a33a43f93da1a0b19f25a6fbe91ed4dd3',1,'Skyrates::Client::Mono::Shooter']]],
   ['pulse',['Pulse',['../class_x_input_dispatcher_1_1_pulse.html',1,'XInputDispatcher']]]
 ];

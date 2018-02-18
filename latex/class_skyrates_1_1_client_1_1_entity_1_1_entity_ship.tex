@@ -1,0 +1,252 @@
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship}{\section{Skyrates.\-Client.\-Entity.\-Entity\-Ship Class Reference}
+\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship}\index{Skyrates.\-Client.\-Entity.\-Entity\-Ship@{Skyrates.\-Client.\-Entity.\-Entity\-Ship}}
+}
+
+
+A moving entity which has Ship\-Stats, A\-I, health data, and Ship\-Components.  
+
+
+Inheritance diagram for Skyrates.\-Client.\-Entity.\-Entity\-Ship\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead}{Ship\-Figurehead} \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a08f8bb2a31e9f5cdc7a381d8c56670e3}{Get\-Figurehead} ()
+\begin{DoxyCompactList}\small\item\em Returns the ramming component of the ship, null if none exists. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a64d1b835a2e8911de33b19d7cd6948fd}{Take\-Damage} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged}{Event\-Entity\-Ship\-Damaged} evt)
+\begin{DoxyCompactList}\small\item\em Calls Take\-Damage(\-Entity, float) with data from Event\-Entity\-Ship\-Damaged, and calls Entity\-Ship.\-On\-Ram\-Unsuccessful if the event was a ram and did not reduce this object's health to 0. \end{DoxyCompactList}\item 
+virtual float \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_abad1336581d008dcdd90f400c91f6089}{Take\-Damage} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Common.\-Entity.\-Entity} source, float damage)
+\begin{DoxyCompactList}\small\item\em Called to cause damage to the ship. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ad039d8b72251304fa50236d120bd6a46}{Shoot} (Ship\-Data.\-Component\-Type artillery)
+\begin{DoxyCompactList}\small\item\em Causes all the shooters from \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae647437ac479d1758cf5ad5a80c4f89c}{Get\-Artillery\-Shooters} to fire for some artillery component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ab838d3e99d2f471bbe099b0fbc935f8d}{\hyperlink{class_ship_stat}{Ship\-Stat} {\bfseries Stat\-Block}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ab838d3e99d2f471bbe099b0fbc935f8d}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae31c68fedd2e4e6b818fefe025ea0072}{Particle\-System {\bfseries Particle\-Smoke}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae31c68fedd2e4e6b818fefe025ea0072}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a9e015e6597ba99e2aee3f6e0bdbb302a}{Particle\-System {\bfseries Particle\-Fire}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a9e015e6597ba99e2aee3f6e0bdbb302a}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a3336b2e48083ca6fd5ebf182c7bfb942}{Particle\-System {\bfseries Particle\-On\-Destruction}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a3336b2e48083ca6fd5ebf182c7bfb942}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aaa7c3c847d44489361a79f2365ac0fcb}{float {\bfseries Health}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aaa7c3c847d44489361a79f2365ac0fcb}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a1bef17a64f399068d9afe6ecfde1515e}{override void {\bfseries Start} ()}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a1bef17a64f399068d9afe6ecfde1515e}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aacfa144bb75a4e3cf03c01f24becade2}{override void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aacfa144bb75a4e3cf03c01f24becade2}{Update} ()}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aacfa144bb75a4e3cf03c01f24becade2}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}{virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}{On\-Trigger\-Enter} (Collider other)}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}
+
+\item 
+virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a63408dee1b3e0ed265034e5f6694bae0}{On\-Ram\-Unsucessful} (\hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship}{Entity\-Ship} target)
+\begin{DoxyCompactList}\small\item\em Called when the target still has health after ram. Causes the owner to take some amount of damage (currently 2). \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a5db231429a55f458d4ae3e9f3db2f3f3}{On\-Pre\-Destroy} ()
+\begin{DoxyCompactList}\small\item\em Called right before a ship is destroyed via Take\-Damage(\-Entity, float) \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a5e3dc351137853c425478e0227fa59e5}{Spawn\-Destruction\-Particles} ()
+\begin{DoxyCompactList}\small\item\em Spawns an orphan prefab which contains a particle system for an explosion when this ship has been destoryed. The orphan is destroyed when it is done playing its particles. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae1ad3dab6502ebde62319cd39d4fd18c}{Spawn\-Loot} (Vector3 position)
+\begin{DoxyCompactList}\small\item\em Generates/\-Spawns loot according to the loot table in Stat\-Block. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_skyrates_1_1_client_1_1_mono_1_1_shooter}{Shooter}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae647437ac479d1758cf5ad5a80c4f89c}{Get\-Artillery\-Shooters} (Ship\-Data.\-Component\-Type artillery)
+\begin{DoxyCompactList}\small\item\em Returns a list of shooters for some artillery component. Null if none exist. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_afcebfc228689330fabbbc92a3147bd6e}{Update\-Health\-Particles} ()
+\begin{DoxyCompactList}\small\item\em Updates the diagetic particles based on current health. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A moving entity which has Ship\-Stats, A\-I, health data, and Ship\-Components. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae647437ac479d1758cf5ad5a80c4f89c}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Get\-Artillery\-Shooters@{Get\-Artillery\-Shooters}}
+\index{Get\-Artillery\-Shooters@{Get\-Artillery\-Shooters}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Get\-Artillery\-Shooters}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Shooter} \mbox{[}$\,$\mbox{]} Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Get\-Artillery\-Shooters (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Component\-Type}]{artillery}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae647437ac479d1758cf5ad5a80c4f89c}
+
+
+Returns a list of shooters for some artillery component. Null if none exist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em artillery} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_a05f762bd1722706fcafe61c9819e3613}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}, and \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_ab3c53268f487acadfa25c518ac90ec66}{Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a08f8bb2a31e9f5cdc7a381d8c56670e3}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Get\-Figurehead@{Get\-Figurehead}}
+\index{Get\-Figurehead@{Get\-Figurehead}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Get\-Figurehead}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Ship\-Figurehead} Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Get\-Figurehead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a08f8bb2a31e9f5cdc7a381d8c56670e3}
+
+
+Returns the ramming component of the ship, null if none exists. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_ae82ff64089a164c1554405f636ca5d1c}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a5db231429a55f458d4ae3e9f3db2f3f3}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!On\-Pre\-Destroy@{On\-Pre\-Destroy}}
+\index{On\-Pre\-Destroy@{On\-Pre\-Destroy}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{On\-Pre\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-On\-Pre\-Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a5db231429a55f458d4ae3e9f3db2f3f3}
+
+
+Called right before a ship is destroyed via Take\-Damage(\-Entity, float) 
+
+\begin{DoxyReturn}{Returns}
+True if the object can be destroyed
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_a6ccbcb23466cd4cbe04b207dce57c818}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a63408dee1b3e0ed265034e5f6694bae0}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!On\-Ram\-Unsucessful@{On\-Ram\-Unsucessful}}
+\index{On\-Ram\-Unsucessful@{On\-Ram\-Unsucessful}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{On\-Ram\-Unsucessful}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-On\-Ram\-Unsucessful (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\-Ship}}]{target}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a63408dee1b3e0ed265034e5f6694bae0}
+
+
+Called when the target still has health after ram. Causes the owner to take some amount of damage (currently 2). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ad039d8b72251304fa50236d120bd6a46}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Shoot}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Shoot (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Component\-Type}]{artillery}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ad039d8b72251304fa50236d120bd6a46}
+
+
+Causes all the shooters from \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae647437ac479d1758cf5ad5a80c4f89c}{Get\-Artillery\-Shooters} to fire for some artillery component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em artillery} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a5e3dc351137853c425478e0227fa59e5}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Spawn\-Destruction\-Particles@{Spawn\-Destruction\-Particles}}
+\index{Spawn\-Destruction\-Particles@{Spawn\-Destruction\-Particles}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Spawn\-Destruction\-Particles}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Spawn\-Destruction\-Particles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a5e3dc351137853c425478e0227fa59e5}
+
+
+Spawns an orphan prefab which contains a particle system for an explosion when this ship has been destoryed. The orphan is destroyed when it is done playing its particles. 
+
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae1ad3dab6502ebde62319cd39d4fd18c}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Spawn\-Loot@{Spawn\-Loot}}
+\index{Spawn\-Loot@{Spawn\-Loot}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Spawn\-Loot}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Spawn\-Loot (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae1ad3dab6502ebde62319cd39d4fd18c}
+
+
+Generates/\-Spawns loot according to the loot table in Stat\-Block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_a8c476f6288ed5e7c370db774323dcedf}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
+
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a64d1b835a2e8911de33b19d7cd6948fd}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Take\-Damage@{Take\-Damage}}
+\index{Take\-Damage@{Take\-Damage}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Take\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Take\-Damage (
+\begin{DoxyParamCaption}
+\item[{{\bf Event\-Entity\-Ship\-Damaged}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a64d1b835a2e8911de33b19d7cd6948fd}
+
+
+Calls Take\-Damage(\-Entity, float) with data from Event\-Entity\-Ship\-Damaged, and calls Entity\-Ship.\-On\-Ram\-Unsuccessful if the event was a ram and did not reduce this object's health to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_abad1336581d008dcdd90f400c91f6089}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Take\-Damage@{Take\-Damage}}
+\index{Take\-Damage@{Take\-Damage}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Take\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Take\-Damage (
+\begin{DoxyParamCaption}
+\item[{{\bf Common.\-Entity.\-Entity}}]{source, }
+\item[{float}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_abad1336581d008dcdd90f400c91f6089}
+
+
+Called to cause damage to the ship. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The entity which is causing the damage.\\
+\hline
+{\em damage} & The amount of damage to take.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of health remaining after the attack
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_afcebfc228689330fabbbc92a3147bd6e}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Update\-Health\-Particles@{Update\-Health\-Particles}}
+\index{Update\-Health\-Particles@{Update\-Health\-Particles}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
+\subsubsection[{Update\-Health\-Particles}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Update\-Health\-Particles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_afcebfc228689330fabbbc92a3147bd6e}
+
+
+Updates the diagetic particles based on current health. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Client/\-Entity/Entity\-Ship.\-cs\end{DoxyCompactItemize}

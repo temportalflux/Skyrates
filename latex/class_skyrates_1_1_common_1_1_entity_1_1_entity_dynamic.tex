@@ -15,11 +15,11 @@ Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-Dynamic\-:\begin{fi
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}{virtual Transform {\bfseries Get\-Render} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}
+virtual Transform \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}{Get\-Render} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction/rotation that the entity is facing. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{override void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{On\-Deserialize\-Success} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}
 
-\item 
-override void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{On\-Deserialize\-Success} ()
-\begin{DoxyCompactList}\small\item\em Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity's data was successfully deserialized into it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity's data was successfully deserialized into it.  \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,18 +38,11 @@ override void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a0e3f4c361734de124f27ed7d331bd12c}{override void {\bfseries Start} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a0e3f4c361734de124f27ed7d331bd12c}
 
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ac2da66eb8b689427a0821da3e27452b4}{virtual void {\bfseries Update} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ac2da66eb8b689427a0821da3e27452b4}
-
-\item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_adc9f4729654d4c86a404c0ccd966ccd3}{virtual void {\bfseries Fixed\-Update} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_adc9f4729654d4c86a404c0ccd966ccd3}
 
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a29fdd6f0b967349e6b9efb695f74a647}{virtual void {\bfseries On\-Destroy} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a29fdd6f0b967349e6b9efb695f74a647}
-
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}{virtual Transform {\bfseries Get\-View} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}
-
-\item 
+virtual Transform \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}{Get\-View} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction/rotation that the entity is viewing at (where it is looking from/to). \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a994dbf8d2f10ff4398dbf2f68049205a}{Integrate\-Physics} (float delta\-Time)
 \begin{DoxyCompactList}\small\item\em Integrates the current set of physics with the Transform. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
@@ -61,6 +54,42 @@ Any entity in the world which moves around. By default, this object uses \hyperl
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Get\-Render@{Get\-Render}}
+\index{Get\-Render@{Get\-Render}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Get\-Render}]{\setlength{\rightskip}{0pt plus 5cm}virtual Transform Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Get\-Render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_ad59c47f109bef0238b5303646a59e430}
+
+
+Returns the direction/rotation that the entity is facing. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_a174748de79e607b04d0a319684b87a80}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
+
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Get\-View@{Get\-View}}
+\index{Get\-View@{Get\-View}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Get\-View}]{\setlength{\rightskip}{0pt plus 5cm}virtual Transform Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Get\-View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a7d214d221e4933f54528a707da1cc129}
+
+
+Returns the direction/rotation that the entity is viewing at (where it is looking from/to). 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_ac199ff437bdaae367321990c14977a05}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
+
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_a994dbf8d2f10ff4398dbf2f68049205a}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!Integrate\-Physics@{Integrate\-Physics}}
 \index{Integrate\-Physics@{Integrate\-Physics}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
 \subsubsection[{Integrate\-Physics}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-Integrate\-Physics (
@@ -80,21 +109,6 @@ Integrates the current set of physics with the Transform.
 
 
 Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy_a689b368554044f48d19b20aed42fe104}{Skyrates.\-Client.\-Entity.\-Entity\-Ship\-Navy}.
-
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}!On\-Deserialize\-Success@{On\-Deserialize\-Success}}
-\index{On\-Deserialize\-Success@{On\-Deserialize\-Success}!Skyrates::Common::Entity::EntityDynamic@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity\-Dynamic}}
-\subsubsection[{On\-Deserialize\-Success}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Common.\-Entity.\-Entity\-Dynamic.\-On\-Deserialize\-Success (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}
-
-
-Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity's data was successfully deserialized into it. 
-
-
-
-Reimplemented from \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa5a53dfb527054cd23f69bc8750f59e0}{Skyrates.\-Common.\-Entity.\-Entity}.
 
 
 
