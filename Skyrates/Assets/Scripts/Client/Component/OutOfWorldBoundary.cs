@@ -1,13 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class OutOfWorldBoundary : MonoBehaviour
+namespace Skyrates.Client.Mono
 {
 
-    void OnTriggerEnter(Collider col)
+    /// <summary>
+    /// Kill box for the world.
+    /// </summary>
+    public class OutOfWorldBoundary : UnityEngine.MonoBehaviour
     {
-        Destroy(col.gameObject);
+
+        void OnTriggerEnter(Collider col)
+        {
+            Destroy(col.gameObject);
+        }
+
     }
+
 
 }

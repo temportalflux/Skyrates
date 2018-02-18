@@ -2,6 +2,9 @@
 namespace Skyrates.Client.Game.Event
 {
 
+    /// <summary>
+    /// Dispatched when a scene has finished loading via <see cref="SceneLoader"/>.
+    /// </summary>
     public class EventSceneLoaded : GameEvent
     {
 

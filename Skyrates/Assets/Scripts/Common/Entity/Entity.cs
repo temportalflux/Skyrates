@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyrates.Client.Entity;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network;
@@ -11,18 +12,31 @@ namespace Skyrates.Common.Entity
     /// </summary>
     public class Entity : MonoBehaviour
     {
+
+        /// <summary>
+        /// Data pertaining to how to find the entity in <see cref="EntityList"/>.
+        /// </summary>
         [Serializable]
         public class TypeData
         {
 
+            /// <summary>
+            /// <see cref="Entity.Type"/> as a number for network serialization.
+            /// </summary>
             [BitSerialize(0)]
             [SerializeField]
             public int EntityTypeAsInt;
 
+            /// <summary>
+            /// The index of the entity prefab in <see cref="EntityList"/> under the category of <see cref="EntityType"/>.
+            /// </summary>
             [BitSerialize(1)]
             [SerializeField]
             public int EntityTypeIndex;
 
+            /// <summary>
+            /// The type of entity. Encapsultes <see cref="EntityTypeAsInt"/>.
+            /// </summary>
             public Entity.Type EntityType
             {
                 get { return (Entity.Type) this.EntityTypeAsInt; }
@@ -82,6 +96,9 @@ namespace Skyrates.Common.Entity
         [SerializeField]
         public TypeData EntityType;
 
+        /// <summary>
+        /// If the entity is owned by the current instance (its <see cref="OwnerNetworkID"/> matches the <see cref="Session.NetworkID"/>).
+        /// </summary>
         public bool IsLocallyControlled
         {
             get { return this.OwnerNetworkID == NetworkComponent.GetSession.NetworkID; }
@@ -97,24 +114,41 @@ namespace Skyrates.Common.Entity
             GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityStart, this));
         }
 
-        void OnDestroy()
+        protected virtual void OnDestroy()
         {
             GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityDestroy, this));
         }
-        
+
+        protected virtual void Update()
+        {
+        }
+
+        /// <summary>
+        /// Creates a unique and fresh ID. <see cref="Guid.NewGuid()"/>.
+        /// </summary>
+        /// <returns></returns>
         public static Guid NewGuid()
         {
             return Guid.NewGuid();
         }
 
+        /// <summary>
+        /// Initializes the entity with a specific <see cref="Guid"/> and <see cref="TypeData"/>.
+        /// VERY important for syncing entities over the network.
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="typeData"></param>
         public void Init(Guid guid, TypeData typeData)
         {
             this.Guid = guid;
             this.EntityType = typeData;
-            //this.EntityType = typeData.EntityType;
-            //this.EntityTypeArrayIndex = typeData.EntityTypeIndex;
         }
 
+        /// <summary>
+        /// Initializes the entity with a new <see cref="Guid"/> and <see cref="TypeData"/>.
+        /// VERY important for syncing entities over the network.
+        /// </summary>
+        /// <param name="typeData"></param>
         public void Init(TypeData typeData)
         {
             this.Init(NewGuid(), typeData);
@@ -122,8 +156,13 @@ namespace Skyrates.Common.Entity
 
         #region Network
 
+        /// <summary>
+        /// If this object should receive data sent over the network.
+        /// </summary>
+        /// <returns></returns>
         public virtual bool ShouldDeserialize()
         {
+            // TODO: Check how this affects entity deserializatio in EntityReceiver. Does it skip data and not update the next index?
             return true;
         }
 

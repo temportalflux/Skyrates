@@ -1,10 +1,11 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+﻿using UnityEngine;
 
 namespace Skyrates.Client.Game.Event
 {
 
+    /// <summary>
+    /// All the types of Game Events (each must have their own event delegate).
+    /// </summary>
     public enum GameEventID
     {
 
@@ -44,8 +45,15 @@ namespace Skyrates.Client.Game.Event
 
     }
 
+    /// <summary>
+    /// The template for events of GameEvent.
+    /// </summary>
+    /// <param name="evt"></param>
     public delegate void GameEventDelegate(GameEvent evt);
 
+    /// <summary>
+    /// Dispatcher of <see cref="GameEvent"/> instances, and place for observers to subscribe to events via their delegate.
+    /// </summary>
     public class GameEvents : IEventDelegate<GameEventID, GameEventDelegate>
     {
 
@@ -72,6 +80,11 @@ namespace Skyrates.Client.Game.Event
         public event GameEventDelegate LootCollected;
         #endregion
 
+        /// <summary>
+        /// Get the event delegate for the event ID.
+        /// </summary>
+        /// <param name="eventID"></param>
+        /// <returns></returns>
         public GameEventDelegate Delegate(GameEventID eventID)
         {
             switch (eventID)
@@ -120,6 +133,10 @@ namespace Skyrates.Client.Game.Event
             }
         }
 
+        /// <summary>
+        /// Invoke all subcriptions to the event delegate for the event.
+        /// </summary>
+        /// <param name="evt"></param>
         public void Dispatch(GameEvent evt)
         {
             GameEventDelegate evtDelegate = this.Delegate(evt.EventID);

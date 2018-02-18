@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Entity;
 using Skyrates.Client.Game.Event;
 using UnityEngine;
 
 namespace Skyrates.Client.Game.Event
 {
 
+    /// <summary>
+    /// Dispatched when loot is collected by a local player.
+    /// </summary>
     public class EventLootCollected : EventLootCollided
     {
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyrates.Client.Entity;
 using Skyrates.Client.Game.Event;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
