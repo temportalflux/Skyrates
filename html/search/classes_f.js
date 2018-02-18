@@ -27,6 +27,7 @@ var searchData=
   ['shooter',['Shooter',['../class_shooter.html',1,'']]],
   ['sideonlyattribute',['SideOnlyAttribute',['../class_skyrates_1_1_common_1_1_network_1_1_side_only_attribute.html',1,'Skyrates::Common::Network']]],
   ['singleton_3c_20t_20_3e',['Singleton&lt; T &gt;',['../class_singleton_3_01_t_01_4.html',1,'']]],
+  ['startscene',['StartScene',['../class_start_scene.html',1,'']]],
   ['stateapplication',['StateApplication',['../class_state_application.html',1,'']]],
   ['stateconsole',['StateConsole',['../struct_state_console.html',1,'']]],
   ['statedata',['StateData',['../struct_state_data.html',1,'']]],

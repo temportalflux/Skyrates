@@ -12,7 +12,9 @@ Inheritance diagram for Skyrates.\-Client.\-Ship.\-Ship\-Builder\-:\begin{figure
 \item 
 \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_component}{Ship\-Component} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_ab33531b8d3ab8ea2483a10bf0ae7d08a}{Get\-Ship\-Component} (Component\-Type type, \hyperlink{class_ship_data}{Ship\-Data} data)
 \begin{DoxyCompactList}\small\item\em Return the ship component for the selected category. \end{DoxyCompactList}\item 
-\hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a731fa8b5e65cb34bfc2d8a7ce1375820}{Get\-Artillery} (\hyperlink{class_ship_data}{Ship\-Data} data=null)
+\hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a7c593db37500ee33faf154ac56efdd6d}{Get\-Artillery\-Left} (\hyperlink{class_ship_data}{Ship\-Data} data=null)
+\begin{DoxyCompactList}\small\item\em Retrives the ship component \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} from passed or stored data. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a2800839fe2bd3a7c923bcbc1b94ada95}{Get\-Artillery\-Right} (\hyperlink{class_ship_data}{Ship\-Data} data=null)
 \begin{DoxyCompactList}\small\item\em Retrives the ship component \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} from passed or stored data. \end{DoxyCompactList}\item 
 \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead}{Ship\-Figurehead} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a90dcdabb433c34752b8eaa1462e93bcb}{Get\-Figurehead} (\hyperlink{class_ship_data}{Ship\-Data} data=null)
 \begin{DoxyCompactList}\small\item\em Retrives the ship component \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead}{Ship\-Figurehead} from passed or stored data. \end{DoxyCompactList}\item 
@@ -26,7 +28,7 @@ Inheritance diagram for Skyrates.\-Client.\-Ship.\-Ship\-Builder\-:\begin{figure
 \begin{DoxyCompactList}\small\item\em Retrives the ship component \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_propulsion}{Ship\-Propulsion} from passed or stored data. \end{DoxyCompactList}\item 
 \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_sail}{Ship\-Sail} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a44d9c44d336bb602efe3fd68d5ed81c6}{Get\-Sail} (\hyperlink{class_ship_data}{Ship\-Data} data=null)
 \begin{DoxyCompactList}\small\item\em Retrives the ship component \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_sail}{Ship\-Sail} from passed or stored data. \end{DoxyCompactList}\item 
-\hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_hull}{Ship\-Hull} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a0044eec6a8d989095a6842b6461d7753}{Build\-To} (ref Transform root, \hyperlink{class_ship_data}{Ship\-Data} data=null)
+\hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_hull}{Ship\-Hull} \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_ad04c9d770e3211b063e5a62a7972225b}{Build\-To} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship}{Entity\-Ship} owner, ref Transform root, \hyperlink{class_ship_data}{Ship\-Data} data=null)
 \begin{DoxyCompactList}\small\item\em Builds the current \hyperlink{class_ship_data}{Ship\-Data} as a Game\-Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -38,14 +40,15 @@ Inheritance diagram for Skyrates.\-Client.\-Ship.\-Ship\-Builder\-:\begin{figure
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a0044eec6a8d989095a6842b6461d7753}{\index{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}!Build\-To@{Build\-To}}
+\hypertarget{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_ad04c9d770e3211b063e5a62a7972225b}{\index{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}!Build\-To@{Build\-To}}
 \index{Build\-To@{Build\-To}!Skyrates::Client::Ship::ShipBuilder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}}
 \subsubsection[{Build\-To}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Hull} Skyrates.\-Client.\-Ship.\-Ship\-Builder.\-Build\-To (
 \begin{DoxyParamCaption}
+\item[{{\bf Entity\-Ship}}]{owner, }
 \item[{ref Transform}]{root, }
 \item[{{\bf Ship\-Data}}]{data = {\ttfamily null}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a0044eec6a8d989095a6842b6461d7753}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_ad04c9d770e3211b063e5a62a7972225b}
 
 
 Builds the current \hyperlink{class_ship_data}{Ship\-Data} as a Game\-Object. 
@@ -60,13 +63,32 @@ Builds the current \hyperlink{class_ship_data}{Ship\-Data} as a Game\-Object.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\hypertarget{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a731fa8b5e65cb34bfc2d8a7ce1375820}{\index{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}!Get\-Artillery@{Get\-Artillery}}
-\index{Get\-Artillery@{Get\-Artillery}!Skyrates::Client::Ship::ShipBuilder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}}
-\subsubsection[{Get\-Artillery}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Artillery} Skyrates.\-Client.\-Ship.\-Ship\-Builder.\-Get\-Artillery (
+\hypertarget{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a7c593db37500ee33faf154ac56efdd6d}{\index{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}!Get\-Artillery\-Left@{Get\-Artillery\-Left}}
+\index{Get\-Artillery\-Left@{Get\-Artillery\-Left}!Skyrates::Client::Ship::ShipBuilder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}}
+\subsubsection[{Get\-Artillery\-Left}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Artillery} Skyrates.\-Client.\-Ship.\-Ship\-Builder.\-Get\-Artillery\-Left (
 \begin{DoxyParamCaption}
 \item[{{\bf Ship\-Data}}]{data = {\ttfamily null}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a731fa8b5e65cb34bfc2d8a7ce1375820}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a7c593db37500ee33faf154ac56efdd6d}
+
+
+Retrives the ship component \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} from passed or stored data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to pull from, stored data if null.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a2800839fe2bd3a7c923bcbc1b94ada95}{\index{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}!Get\-Artillery\-Right@{Get\-Artillery\-Right}}
+\index{Get\-Artillery\-Right@{Get\-Artillery\-Right}!Skyrates::Client::Ship::ShipBuilder@{Skyrates\-::\-Client\-::\-Ship\-::\-Ship\-Builder}}
+\subsubsection[{Get\-Artillery\-Right}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Artillery} Skyrates.\-Client.\-Ship.\-Ship\-Builder.\-Get\-Artillery\-Right (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Data}}]{data = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_ship_1_1_ship_builder_a2800839fe2bd3a7c923bcbc1b94ada95}
 
 
 Retrives the ship component \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} from passed or stored data. 

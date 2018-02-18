@@ -20,7 +20,10 @@ struct \hyperlink{struct_scene_loader_1_1_loading_sequence}{Loading\-Sequence}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_scene_loader_a9e0efaf19ed0a6ffbf11a8372794ea56}{Enqueue} (\hyperlink{class_scene_data_a79d397b3deef242a865470283d96f2e6}{Scene\-Data.\-Scene\-Key} scene\-Key)
+\hypertarget{class_scene_loader_a9e0efaf19ed0a6ffbf11a8372794ea56}{void {\bfseries Enqueue} (\hyperlink{class_scene_data_a79d397b3deef242a865470283d96f2e6}{Scene\-Data.\-Scene\-Key} scene\-Key)}\label{class_scene_loader_a9e0efaf19ed0a6ffbf11a8372794ea56}
+
+\item 
+void \hyperlink{class_scene_loader_a2aed11331afc72fc9437dcadb62c67dc}{Enqueue} (\hyperlink{class_scene_data_a79d397b3deef242a865470283d96f2e6}{Scene\-Data.\-Scene\-Key} scene\-Key, Load\-Scene\-Mode mode)
 \begin{DoxyCompactList}\small\item\em Adds a scene to be queued for loading \end{DoxyCompactList}\item 
 void \hyperlink{class_scene_loader_a8d34c08688d084324ae9c3f52c1a7c18}{Activate\-Next} ()
 \begin{DoxyCompactList}\small\item\em Activates the first scene in the loading queue, thereby removing it from the queue and finishing loading. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -54,13 +57,14 @@ Asynchronously loads and unloads scenes
 
 Activates the first scene in the loading queue, thereby removing it from the queue and finishing loading. 
 
-\hypertarget{class_scene_loader_a9e0efaf19ed0a6ffbf11a8372794ea56}{\index{Scene\-Loader@{Scene\-Loader}!Enqueue@{Enqueue}}
+\hypertarget{class_scene_loader_a2aed11331afc72fc9437dcadb62c67dc}{\index{Scene\-Loader@{Scene\-Loader}!Enqueue@{Enqueue}}
 \index{Enqueue@{Enqueue}!SceneLoader@{Scene\-Loader}}
 \subsubsection[{Enqueue}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-Loader.\-Enqueue (
 \begin{DoxyParamCaption}
-\item[{{\bf Scene\-Data.\-Scene\-Key}}]{scene\-Key}
+\item[{{\bf Scene\-Data.\-Scene\-Key}}]{scene\-Key, }
+\item[{Load\-Scene\-Mode}]{mode}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_scene_loader_a9e0efaf19ed0a6ffbf11a8372794ea56}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_scene_loader_a2aed11331afc72fc9437dcadb62c67dc}
 
 
 Adds a scene to be queued for loading 
@@ -68,6 +72,8 @@ Adds a scene to be queued for loading
 
 \begin{DoxyParams}{Parameters}
 {\em scene\-Key} & \\
+\hline
+{\em mode} & \\
 \hline
 \end{DoxyParams}
 

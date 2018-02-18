@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['enqueue',['enqueue',['../class_champ_net_1_1_packet_queue.html#ad78fb4bda594d1941de0d0b97cb17c8f',1,'ChampNet::PacketQueue::enqueue()'],['../class_scene_loader.html#a9e0efaf19ed0a6ffbf11a8372794ea56',1,'SceneLoader.Enqueue()'],['../class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher.html#a27c614744c8706259d846b8fac24915a',1,'Skyrates.Common.Network.PacketDispatcher.Enqueue()']]],
+  ['enqueue',['Enqueue',['../class_scene_loader.html#a2aed11331afc72fc9437dcadb62c67dc',1,'SceneLoader.Enqueue()'],['../class_skyrates_1_1_common_1_1_network_1_1_packet_dispatcher.html#a27c614744c8706259d846b8fac24915a',1,'Skyrates.Common.Network.PacketDispatcher.Enqueue()'],['../class_champ_net_1_1_packet_queue.html#ad78fb4bda594d1941de0d0b97cb17c8f',1,'ChampNet::PacketQueue::enqueue()']]],
   ['entities',['Entities',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_set.html#a10abd171b6f9160186b98922e8a8bbd7',1,'Skyrates.Common.Entity.EntitySet.Entities()'],['../class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html#a49ba7b0d14273f75cc16639d929e41b6',1,'Skyrates.Common.Entity.EntityTracker.Entities()']]],
   ['entity',['Entity',['../class_skyrates_1_1_common_1_1_entity_1_1_entity.html',1,'Skyrates::Common::Entity']]],
   ['entitydispatcher',['EntityDispatcher',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher.html',1,'Skyrates::Common::Entity']]],
@@ -17,6 +17,7 @@ var searchData=
   ['eventartilleryfired',['EventArtilleryFired',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html',1,'Skyrates::Client::Game::Event']]],
   ['eventdatetime',['EventDateTime',['../class_event_date_time.html',1,'']]],
   ['eventdisconnect',['EventDisconnect',['../class_skyrates_1_1_common_1_1_network_1_1_event_1_1_event_disconnect.html',1,'Skyrates::Common::Network::Event']]],
+  ['eventenemytargetengage',['EventEnemyTargetEngage',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_enemy_target_engage.html',1,'Skyrates::Client::Game::Event']]],
   ['evententity',['EventEntity',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity.html',1,'Skyrates::Client::Game::Event']]],
   ['evententityplayership',['EventEntityPlayerShip',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_player_ship.html',1,'Skyrates::Client::Game::Event']]],
   ['evententityship',['EventEntityShip',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship.html',1,'Skyrates::Client::Game::Event']]],
@@ -28,6 +29,8 @@ var searchData=
   ['eventhandshakeclientid',['EventHandshakeClientID',['../class_skyrates_1_1_server_1_1_network_1_1_event_1_1_event_handshake_client_i_d.html',1,'Skyrates::Server::Network::Event']]],
   ['eventhandshakejoin',['EventHandshakeJoin',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_handshake_join.html',1,'Skyrates::Client::Network::Event']]],
   ['eventid',['EventID',['../class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event.html#ac75427f751e432fb3efe4ac0c2289a5f',1,'Skyrates::Common::Network::Event::NetworkEvent']]],
+  ['eventlootcollected',['EventLootCollected',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collected.html',1,'Skyrates::Client::Game::Event']]],
+  ['eventlootcollided',['EventLootCollided',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collided.html',1,'Skyrates::Client::Game::Event']]],
   ['eventplayerleft',['EventPlayerLeft',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_player_left.html',1,'Skyrates::Client::Game::Event']]],
   ['eventraknet',['EventRakNet',['../class_skyrates_1_1_common_1_1_network_1_1_event_1_1_event_rak_net.html',1,'Skyrates::Common::Network::Event']]],
   ['eventrequestentityshipdamaged',['EventRequestEntityShipDamaged',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_request_entity_ship_damaged.html',1,'Skyrates::Client::Network::Event']]],

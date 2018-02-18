@@ -182,7 +182,10 @@ boxfont setfont
 (Skyrates.Client.Game.Event.EventArtilleryFired) cw
 (Skyrates.Client.Game.Event.EventEntityPlayerShip) cw
 (Skyrates.Client.Game.Event.EventEntityShip) cw
+(Skyrates.Client.Game.Event.EventLootCollided) cw
+(Skyrates.Client.Game.Event.EventEnemyTargetEngage) cw
 (Skyrates.Client.Game.Event.EventEntityShipDamaged) cw
+(Skyrates.Client.Game.Event.EventLootCollected) cw
 (Skyrates.Client.Game.Event.EventEntityShipHitByProjectile) cw
 (Skyrates.Client.Game.Event.EventEntityShipHitByRam) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -204,10 +207,13 @@ boundx scalefactor div boundy scalefactor div scale
  (Skyrates.Client.Game.Event.EventSpawnEntityProjectile) 5.000000 3.000000 box
  (Skyrates.Client.Game.Event.EventArtilleryFired) 0.000000 2.000000 box
  (Skyrates.Client.Game.Event.EventEntityPlayerShip) 1.000000 2.000000 box
- (Skyrates.Client.Game.Event.EventEntityShip) 2.000000 2.000000 box
- (Skyrates.Client.Game.Event.EventEntityShipDamaged) 2.000000 1.000000 box
- (Skyrates.Client.Game.Event.EventEntityShipHitByProjectile) 1.500000 0.000000 box
- (Skyrates.Client.Game.Event.EventEntityShipHitByRam) 2.500000 0.000000 box
+ (Skyrates.Client.Game.Event.EventEntityShip) 2.500000 2.000000 box
+ (Skyrates.Client.Game.Event.EventLootCollided) 1.000000 1.000000 box
+ (Skyrates.Client.Game.Event.EventEnemyTargetEngage) 2.000000 1.000000 box
+ (Skyrates.Client.Game.Event.EventEntityShipDamaged) 3.000000 1.000000 box
+ (Skyrates.Client.Game.Event.EventLootCollected) 1.000000 0.000000 box
+ (Skyrates.Client.Game.Event.EventEntityShipHitByProjectile) 2.500000 0.000000 box
+ (Skyrates.Client.Game.Event.EventEntityShipHitByRam) 3.500000 0.000000 box
 
 % ----- relations -----
 
@@ -220,7 +226,7 @@ solid
 solid
 1 1.000000 2.250000 out
 solid
-0.000000 2.000000 3.000000 conn
+0.000000 2.500000 3.000000 conn
 solid
 0 2.000000 3.750000 in
 solid
@@ -234,16 +240,28 @@ solid
 solid
 0 1.000000 2.750000 in
 solid
-0 2.000000 2.750000 in
+1 1.000000 1.250000 out
 solid
-1 2.000000 1.250000 out
+0 2.500000 2.750000 in
+solid
+1 2.500000 1.250000 out
+solid
+2.000000 3.000000 2.000000 conn
+solid
+0 1.000000 1.750000 in
+solid
+1 1.000000 0.250000 out
 solid
 0 2.000000 1.750000 in
 solid
-1 2.000000 0.250000 out
+0 3.000000 1.750000 in
 solid
-1.500000 2.500000 1.000000 conn
+1 3.000000 0.250000 out
 solid
-0 1.500000 0.750000 in
+2.500000 3.500000 1.000000 conn
+solid
+0 1.000000 0.750000 in
 solid
 0 2.500000 0.750000 in
+solid
+0 3.500000 0.750000 in

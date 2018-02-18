@@ -6,6 +6,8 @@
 \item 
 class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired}{Event\-Artillery\-Fired}
 \item 
+class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_enemy_target_engage}{Event\-Enemy\-Target\-Engage}
+\item 
 class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity}{Event\-Entity}
 \item 
 class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_player_ship}{Event\-Entity\-Player\-Ship}
@@ -19,6 +21,10 @@ class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_s
 class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_ram}{Event\-Entity\-Ship\-Hit\-By\-Ram}
 \item 
 class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_game_start}{Event\-Game\-Start}
+\item 
+class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collected}{Event\-Loot\-Collected}
+\item 
+class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collided}{Event\-Loot\-Collided}
 \item 
 class \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_player_left}{Event\-Player\-Left}
 \item 
@@ -46,8 +52,13 @@ enum {\bfseries Game\-Event\-I\-D} \{ \\*
 \\*
 {\bfseries Entity\-Ship\-Hit\-By\-Projectile}, 
 {\bfseries Entity\-Ship\-Hit\-By\-Ram}, 
+{\bfseries Enemy\-Target\-Engage}, 
+{\bfseries Enemy\-Target\-Disengage}, 
+\\*
 {\bfseries Player\-Moved}, 
-{\bfseries Player\-Left}
+{\bfseries Player\-Left}, 
+{\bfseries Loot\-Collided}, 
+{\bfseries Loot\-Collected}
  \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}

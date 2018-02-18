@@ -16,13 +16,16 @@ Inheritance diagram for Ship\-Data\-:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 enum {\bfseries Component\-Type} \{ \\*
-{\bfseries Artillery}, 
+{\bfseries Artillery\-Left}, 
+{\bfseries Artillery\-Right}, 
+{\bfseries Artillery\-Forward}, 
 {\bfseries Figurehead}, 
+\\*
 {\bfseries Hull}, 
 {\bfseries Navigation\-Left}, 
-\\*
 {\bfseries Navigation\-Right}, 
 {\bfseries Propulsion}, 
+\\*
 {\bfseries Sail}
  \}
 \end{DoxyCompactItemize}
@@ -50,7 +53,7 @@ static readonly object\mbox{[}$\,$\mbox{]} {\bfseries Component\-Types}
 \item 
 static readonly Component\-Type\mbox{[}$\,$\mbox{]} {\bfseries Non\-Hull\-Components}
 \item 
-\hypertarget{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}{static readonly int\mbox{[}$\,$\mbox{]} {\bfseries Hullless\-Component\-Index} = \{ 0, 1, -\/1, 2, 3, 4, 5 \}}\label{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}
+\hypertarget{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}{static readonly int\mbox{[}$\,$\mbox{]} {\bfseries Hullless\-Component\-Index} = \{ 0, 1, 2, 3, -\/1, 4, 5, 6, 7 \}}\label{class_ship_data_a86aa2a6240f6c742448db2ce4cf7defe}
 
 \item 
 static readonly Type\mbox{[}$\,$\mbox{]} {\bfseries Component\-Class\-Types}
@@ -175,6 +178,8 @@ Implements \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializin
 =
     \{
         typeof(ShipArtillery),
+        typeof(ShipArtillery),
+        typeof(ShipArtillery),
         typeof(ShipFigurehead),
         typeof(ShipHull),
         typeof(ShipNavigationLeft),
@@ -190,7 +195,9 @@ Implements \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializin
 \begin{DoxyCode}
 =
     \{
-        ComponentType.Artillery,
+        ComponentType.ArtilleryLeft,
+        ComponentType.ArtilleryRight,
+        ComponentType.ArtilleryForward,
         ComponentType.Figurehead,
         ComponentType.Hull,
         ComponentType.NavigationLeft,
@@ -205,7 +212,9 @@ Implements \hyperlink{interface_skyrates_1_1_common_1_1_network_1_1_i_serializin
 {\bfseries Initial value\-:}
 \begin{DoxyCode}
 = \{
-        ComponentType.Artillery,
+        ComponentType.ArtilleryLeft,
+        ComponentType.ArtilleryRight,
+        ComponentType.ArtilleryForward,
         ComponentType.Figurehead,
         ComponentType.NavigationLeft,
         ComponentType.NavigationRight,

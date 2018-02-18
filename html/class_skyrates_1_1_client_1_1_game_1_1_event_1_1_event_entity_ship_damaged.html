@@ -91,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Skyrates.Client.Game.Event.EventEntityShipDamaged Class Reference</div>  </div>
@@ -112,12 +113,12 @@ Inheritance diagram for Skyrates.Client.Game.Event.EventEntityShipDamaged:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86df9e1c60a43a4ff57fdb8480ad4507"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86df9e1c60a43a4ff57fdb8480ad4507"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EventEntityShipDamaged</b> (GameEventID id, <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html">EntityShip</a> ship, float damage)</td></tr>
-<tr class="separator:a86df9e1c60a43a4ff57fdb8480ad4507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a048eb51301e53afe2dcfc8079099a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a048eb51301e53afe2dcfc8079099a6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EventEntityShipDamaged</b> (<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html">EntityShip</a> ship, float damage)</td></tr>
-<tr class="separator:a2a048eb51301e53afe2dcfc8079099a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18f90ff076ba51a0167f4aac10a225cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18f90ff076ba51a0167f4aac10a225cb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventEntityShipDamaged</b> (GameEventID id, <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Common.Entity.Entity</a> source, <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html">EntityShip</a> ship, float damage)</td></tr>
+<tr class="separator:a18f90ff076ba51a0167f4aac10a225cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e157052f0469f3f334d7585bf9023e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e157052f0469f3f334d7585bf9023e7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventEntityShipDamaged</b> (<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Common.Entity.Entity</a> source, <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html">EntityShip</a> target, float damage)</td></tr>
+<tr class="separator:a4e157052f0469f3f334d7585bf9023e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship.html">Skyrates.Client.Game.Event.EventEntityShip</a></td></tr>
 <tr class="memitem:a21ae1f26af04bed9f7fff19e1d997ec3 inherit pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21ae1f26af04bed9f7fff19e1d997ec3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>EventEntityShip</b> (GameEventID id, <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html">EntityShip</a> ship)</td></tr>
@@ -133,6 +134,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a4cd32fb813a20f289425daf9c964d692"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4cd32fb813a20f289425daf9c964d692"></a>
+<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Common.Entity.Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Source</b></td></tr>
+<tr class="separator:a4cd32fb813a20f289425daf9c964d692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e4d02b92dcb9e8b957e70c7857d96d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e4d02b92dcb9e8b957e70c7857d96d7"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>Damage</b></td></tr>
 <tr class="separator:a1e4d02b92dcb9e8b957e70c7857d96d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,8 +149,11 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Damage</b></td></tr>
 GameEventID&#160;</td><td class="memItemRight" valign="bottom"><b>EventID</b></td></tr>
 <tr class="separator:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:abfb55cdb6205f8e4ecf35b8c93ae39b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfb55cdb6205f8e4ecf35b8c93ae39b6"></a>
+<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html">EntityShip</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Target</b><code> [get]</code></td></tr>
+<tr class="separator:abfb55cdb6205f8e4ecf35b8c93ae39b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship"><td colspan="2" onclick="javascript:toggleInherit('properties_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship.html">Skyrates.Client.Game.Event.EventEntityShip</a></td></tr>
 <tr class="memitem:aaac97a0d035d3163af76aa5f67bc9c5c inherit properties_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaac97a0d035d3163af76aa5f67bc9c5c"></a>
 <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_ship.html">EntityShip</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Ship</b><code> [get]</code></td></tr>

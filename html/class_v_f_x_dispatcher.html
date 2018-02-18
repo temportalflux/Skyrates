@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Skyrates: Member List</title>
+<title>Skyrates: VFXDispatcher Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,16 +84,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="class_v_f_x_dispatcher-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Looter Member List</div>  </div>
+<div class="title">VFXDispatcher Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="class_looter.html">Looter</a>, including all inherited members.</p>
-<table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>loot</b> (defined in <a class="el" href="class_looter.html">Looter</a>)</td><td class="entry"><a class="el" href="class_looter.html">Looter</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>OnGUI</b>() (defined in <a class="el" href="class_looter.html">Looter</a>)</td><td class="entry"><a class="el" href="class_looter.html">Looter</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<div class="dynheader">
+Inheritance diagram for VFXDispatcher:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_v_f_x_dispatcher.png" usemap="#VFXDispatcher_map" alt=""/>
+  <map id="VFXDispatcher_map" name="VFXDispatcher_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_f_x_dispatcher_1_1_dispatch_entry.html">DispatchEntry</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4ba7fb6780ffee982eb503b203539e04"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>DispatchID</b> { <b>LootPickup</b>, 
+<b>ProjectileLaunch</b>, 
+<b>ProjectileHit</b>, 
+<b>RamHit</b>
+ }</td></tr>
+<tr class="separator:a4ba7fb6780ffee982eb503b203539e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aa285051e79eb6d52bb01fedbd8a9c29e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa285051e79eb6d52bb01fedbd8a9c29e"></a>
+<a class="el" href="class_v_f_x_dispatcher_1_1_dispatch_entry.html">DispatchEntry</a>[]&#160;</td><td class="memItemRight" valign="bottom"><b>DispatchEntries</b></td></tr>
+<tr class="separator:aa285051e79eb6d52bb01fedbd8a9c29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:abf8c1a40efe6fa86892c804b96b6b1e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf8c1a40efe6fa86892c804b96b6b1e4"></a>
+virtual ParticleSystem&#160;</td><td class="memItemRight" valign="bottom"><b>SpawnPrefab</b> (ParticleSystem prefab, Vector3 position, Quaternion rotation)</td></tr>
+<tr class="separator:abf8c1a40efe6fa86892c804b96b6b1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c00d59e29d0471376f0f606e0f46aeb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c00d59e29d0471376f0f606e0f46aeb"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetDuration</b> (ParticleSystem obj, out float lifetime)</td></tr>
+<tr class="separator:a1c00d59e29d0471376f0f606e0f46aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a778af6b8d64d106a1bcc22535b3d38d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a778af6b8d64d106a1bcc22535b3d38d2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEnable</b> ()</td></tr>
+<tr class="separator:a778af6b8d64d106a1bcc22535b3d38d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ec7de61c63944f0804f64d1b7e983a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78ec7de61c63944f0804f64d1b7e983a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnDisable</b> ()</td></tr>
+<tr class="separator:a78ec7de61c63944f0804f64d1b7e983a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/VFXDispatcher.cs</li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

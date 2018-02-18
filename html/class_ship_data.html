@@ -111,14 +111,17 @@ Inheritance diagram for ShipData:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a3d8f19100d69fe09169c1ffdfe0d6974"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>ComponentType</b> { <br/>
-&#160;&#160;<b>Artillery</b>, 
+&#160;&#160;<b>ArtilleryLeft</b>, 
+<b>ArtilleryRight</b>, 
+<b>ArtilleryForward</b>, 
 <b>Figurehead</b>, 
-<b>Hull</b>, 
-<b>NavigationLeft</b>, 
 <br/>
-&#160;&#160;<b>NavigationRight</b>, 
+&#160;&#160;<b>Hull</b>, 
+<b>NavigationLeft</b>, 
+<b>NavigationRight</b>, 
 <b>Propulsion</b>, 
-<b>Sail</b>
+<br/>
+&#160;&#160;<b>Sail</b>
 <br/>
  }</td></tr>
 <tr class="separator:a3d8f19100d69fe09169c1ffdfe0d6974"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,7 +154,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a5ef95366640e8dc06cb884368a8e41a2"><td class="memItemLeft" align="right" valign="top">static readonly ComponentType[]&#160;</td><td class="memItemRight" valign="bottom"><b>NonHullComponents</b></td></tr>
 <tr class="separator:a5ef95366640e8dc06cb884368a8e41a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86aa2a6240f6c742448db2ce4cf7defe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86aa2a6240f6c742448db2ce4cf7defe"></a>
-static readonly int[]&#160;</td><td class="memItemRight" valign="bottom"><b>HulllessComponentIndex</b> = { 0, 1, -1, 2, 3, 4, 5 }</td></tr>
+static readonly int[]&#160;</td><td class="memItemRight" valign="bottom"><b>HulllessComponentIndex</b> = { 0, 1, 2, 3, -1, 4, 5, 6, 7 }</td></tr>
 <tr class="separator:a86aa2a6240f6c742448db2ce4cf7defe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a725a1caabab53787c0f5ea3e4f71b9cf"><td class="memItemLeft" align="right" valign="top">static readonly Type[]&#160;</td><td class="memItemRight" valign="bottom"><b>ComponentClassTypes</b></td></tr>
 <tr class="separator:a725a1caabab53787c0f5ea3e4f71b9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -354,6 +357,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>this[ComponentType key
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    {</div>
 <div class="line">        typeof(ShipArtillery),</div>
+<div class="line">        typeof(ShipArtillery),</div>
+<div class="line">        typeof(ShipArtillery),</div>
 <div class="line">        typeof(ShipFigurehead),</div>
 <div class="line">        typeof(ShipHull),</div>
 <div class="line">        typeof(ShipNavigationLeft),</div>
@@ -383,7 +388,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>this[ComponentType key
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    {</div>
-<div class="line">        ComponentType.Artillery,</div>
+<div class="line">        ComponentType.ArtilleryLeft,</div>
+<div class="line">        ComponentType.ArtilleryRight,</div>
+<div class="line">        ComponentType.ArtilleryForward,</div>
 <div class="line">        ComponentType.Figurehead,</div>
 <div class="line">        ComponentType.Hull,</div>
 <div class="line">        ComponentType.NavigationLeft,</div>
@@ -412,7 +419,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>this[ComponentType key
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        ComponentType.Artillery,</div>
+<div class="line">        ComponentType.ArtilleryLeft,</div>
+<div class="line">        ComponentType.ArtilleryRight,</div>
+<div class="line">        ComponentType.ArtilleryForward,</div>
 <div class="line">        ComponentType.Figurehead,</div>
 <div class="line">        ComponentType.NavigationLeft,</div>
 <div class="line">        ComponentType.NavigationRight,</div>

@@ -10,16 +10,31 @@ Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-Ship\-:\begin{figur
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aca5b5a0a66a11d077def4cb2885307e2}{virtual void {\bfseries Take\-Damage} (float damage)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aca5b5a0a66a11d077def4cb2885307e2}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a1ad193ad3946e8c0ab9128d1d2c42368}{virtual \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead}{Ship\-Figurehead} {\bfseries Get\-Figurehead} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a1ad193ad3946e8c0ab9128d1d2c42368}
 
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a6020733d9aff38c4afb683e0529eaf48}{void {\bfseries Shoot} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a6020733d9aff38c4afb683e0529eaf48}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a1a0df5a0402dbe8a7d402225121f0084}{virtual void {\bfseries Take\-Damage} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged}{Event\-Entity\-Ship\-Damaged} evt)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a1a0df5a0402dbe8a7d402225121f0084}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a78d58368b61362a3c8fce1eb1b6eeadc}{virtual float {\bfseries Take\-Damage} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Entity} source, float damage)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a78d58368b61362a3c8fce1eb1b6eeadc}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a9283fc63dfbee1d5e87b391e343fea83}{void {\bfseries Shoot} (Ship\-Data.\-Component\-Type artillery)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a9283fc63dfbee1d5e87b391e343fea83}
 
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a11f35fb2c23a46c0c2d4980b1fa3380c}{\hyperlink{class_ship_stat}{Ship\-Stat} {\bfseries Stat\-Block}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a11f35fb2c23a46c0c2d4980b1fa3380c}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a4cb1233356dd80fd6bf5d9e87bafa182}{Particle\-System {\bfseries Particle\-Smoke}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a4cb1233356dd80fd6bf5d9e87bafa182}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aa97245b977a26dafc813732172877e78}{Particle\-System {\bfseries Particle\-Fire}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aa97245b977a26dafc813732172877e78}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a66e829ef8950b65315387b3fd0a92e4a}{Particle\-System {\bfseries Particle\-On\-Destruction}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a66e829ef8950b65315387b3fd0a92e4a}
 
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_af4bb39bce0cf06de062a3676699c5224}{float {\bfseries Health}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_af4bb39bce0cf06de062a3676699c5224}
@@ -31,16 +46,28 @@ Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-Ship\-:\begin{figur
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a6adfbce73ceafc8178a9a433c8f0f4ed}{override void {\bfseries Start} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a6adfbce73ceafc8178a9a433c8f0f4ed}
 
 \item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a2e9cb4002e8be27bd7ee555e2f92e139}{override void {\bfseries Update} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a2e9cb4002e8be27bd7ee555e2f92e139}
+
+\item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aa0550b01a86006271ca0e8b07623662a}{virtual void {\bfseries On\-Trigger\-Enter} (Collider other)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aa0550b01a86006271ca0e8b07623662a}
 
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a62e661e1e1af2693016f780f09564d40}{virtual void {\bfseries On\-Pre\-Destroy} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a62e661e1e1af2693016f780f09564d40}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a754fc7f8928315465438a68aa377f3a1}{virtual void {\bfseries On\-Ram\-Unsucessful} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship}{Entity\-Ship} target)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a754fc7f8928315465438a68aa377f3a1}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a56e073ee7f08605f62fc6aca7552f8a2}{virtual bool {\bfseries On\-Pre\-Destroy} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a56e073ee7f08605f62fc6aca7552f8a2}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aa45e5f97a12991e3640f69fab66b3f2d}{virtual void {\bfseries Spawn\-Destruction\-Particles} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_aa45e5f97a12991e3640f69fab66b3f2d}
 
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a68e5d44870b4d826e09fa1b8829a611b}{virtual void {\bfseries Spawn\-Loot} (Vector3 position)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a68e5d44870b4d826e09fa1b8829a611b}
 
 \item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_afeda9b90389a25ca84e172a0865290d4}{virtual \hyperlink{class_shooter}{Shooter}\mbox{[}$\,$\mbox{]} {\bfseries Get\-Artillery\-Shooters} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_afeda9b90389a25ca84e172a0865290d4}
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_af998b01b2578a6aa22afedc6e74803fe}{virtual \hyperlink{class_shooter}{Shooter}\mbox{[}$\,$\mbox{]} {\bfseries Get\-Artillery\-Shooters} (Ship\-Data.\-Component\-Type artillery)}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_af998b01b2578a6aa22afedc6e74803fe}
+
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a16626e842a5375f9b872b2c16043a2a8}{virtual void {\bfseries Update\-Health\-Particles} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ship_a16626e842a5375f9b872b2c16043a2a8}
 
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
