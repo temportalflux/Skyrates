@@ -10,7 +10,7 @@ namespace Skyrates.Client.Game.Event
         public ShipFigurehead Figurehead;
 
         public EventEntityShipHitByRam(EntityShip ship, ShipFigurehead ram)
-            : base(GameEventID.EntityShipHitByRam, ship, ram.GetDamage())
+            : base(GameEventID.EntityShipHitByRam, ram.Ship, ship, ram.GetDamage())
         {
             this.Figurehead = ram;
         }

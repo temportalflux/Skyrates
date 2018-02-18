@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Skyrates.Common.Entity;
+using UnityEngine;
 
 namespace Skyrates.Client.Ship
 {
@@ -8,6 +9,10 @@ namespace Skyrates.Client.Ship
     /// </summary>
     public class ShipComponent : MonoBehaviour
     {
+
+        [HideInInspector]
+        public EntityShip Ship;
+        
     }
 
 }

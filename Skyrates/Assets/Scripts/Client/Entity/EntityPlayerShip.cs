@@ -32,7 +32,7 @@ namespace Skyrates.Client
         {
             base.Awake();
             this.ShipRoot.Destroy();
-            this.ShipData = this.ShipRoot.Generate();
+            this.ShipData = this.ShipRoot.Generate(this);
             this.PlayerData.Init();
         }
 
@@ -96,7 +96,7 @@ namespace Skyrates.Client
             if (this.ShipRoot.ShipData.MustBeRebuilt)
             {
                 this.ShipRoot.Destroy();
-                this.ShipData = this.ShipRoot.Generate(this.ShipData);
+                this.ShipData = this.ShipRoot.Generate(this, this.ShipData);
             }
         }
 
@@ -127,9 +127,23 @@ namespace Skyrates.Client
             return evtArtillery.ToArray();
         }
 
+        public override ShipFigurehead GetFigurehead()
+        {
+            ShipComponent[] figureheads = this.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Figurehead);
+            return figureheads.Length > 0 ? (ShipFigurehead)figureheads[0] : null;
+        }
+
         protected override bool OnPreDestroy()
         {
             // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
+
+            this.Health = this.StatBlock.Health;
+
+            Transform spawn = GameManager.Instance.playerSpawn;
+            this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
+            this.Physics.RotationPosition = spawn.rotation;
+            this.Physics.LinearPosition = spawn.position;
+
             return false;
         }
 
