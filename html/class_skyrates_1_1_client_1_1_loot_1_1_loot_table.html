@@ -97,6 +97,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Skyrates.Client.Loot.LootTable Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Table for generating randomized loot  
+ <a href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Client.Loot.LootTable:</div>
 <div class="dyncontent">
@@ -109,30 +112,135 @@ Inheritance diagram for Skyrates.Client.Loot.LootTable:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table_1_1_row.html">Row</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A weighted entry in the loot table.  <a href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table_1_1_row.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa7489e9d16bf34c00b173e475a1cb9a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7489e9d16bf34c00b173e475a1cb9a7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CalculatePercentages</b> (float sumWeight)</td></tr>
+<tr class="memitem:aa7489e9d16bf34c00b173e475a1cb9a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#aa7489e9d16bf34c00b173e475a1cb9a7">CalculatePercentages</a> (float sumWeight)</td></tr>
+<tr class="memdesc:aa7489e9d16bf34c00b173e475a1cb9a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the percentage chance of each item in the weighted table.  <a href="#aa7489e9d16bf34c00b173e475a1cb9a7">More...</a><br/></td></tr>
 <tr class="separator:aa7489e9d16bf34c00b173e475a1cb9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca7a0a201797676ec56c3fecd8fa4d91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca7a0a201797676ec56c3fecd8fa4d91"></a>
-KeyValuePair&lt; <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_component.html">ShipComponent</a>, <br class="typebreak"/>
-GameObject &gt;[]&#160;</td><td class="memItemRight" valign="bottom"><b>Generate</b> ()</td></tr>
-<tr class="separator:aca7a0a201797676ec56c3fecd8fa4d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f24f6d81f26862a5aed2b0a14f7e035"><td class="memItemLeft" align="right" valign="top">KeyValuePair&lt; <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_component.html">ShipComponent</a>, <br class="typebreak"/>
+<a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot.html">Loot</a> &gt;[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#a3f24f6d81f26862a5aed2b0a14f7e035">Generate</a> ()</td></tr>
+<tr class="memdesc:a3f24f6d81f26862a5aed2b0a14f7e035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a list of loot items and the prefab with a <a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot.html" title="Any falling loot in the game ">Loot</a> component. The number of loot generated is randomized between <a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#ab20cb118131a30a72bd812c4362b4b1b" title="The minimum amount of loot to generate at a time. ">AmountMin</a> and <a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#a03d5cd741cb0ebf92a7eceb54904e87d" title="The maximum amount of loot to generate at a time. ">AmountMax</a>.  <a href="#a3f24f6d81f26862a5aed2b0a14f7e035">More...</a><br/></td></tr>
+<tr class="separator:a3f24f6d81f26862a5aed2b0a14f7e035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a51353bf82a01b769b9b0174a22e008c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51353bf82a01b769b9b0174a22e008c0"></a>
-<a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table_1_1_row.html">Row</a>[]&#160;</td><td class="memItemRight" valign="bottom"><b>Table</b></td></tr>
+<tr class="memitem:a51353bf82a01b769b9b0174a22e008c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table_1_1_row.html">Row</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#a51353bf82a01b769b9b0174a22e008c0">Table</a></td></tr>
+<tr class="memdesc:a51353bf82a01b769b9b0174a22e008c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of weighted entry.  <a href="#a51353bf82a01b769b9b0174a22e008c0">More...</a><br/></td></tr>
 <tr class="separator:a51353bf82a01b769b9b0174a22e008c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab20cb118131a30a72bd812c4362b4b1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab20cb118131a30a72bd812c4362b4b1b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>AmountMin</b></td></tr>
+<tr class="memitem:ab20cb118131a30a72bd812c4362b4b1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#ab20cb118131a30a72bd812c4362b4b1b">AmountMin</a></td></tr>
+<tr class="memdesc:ab20cb118131a30a72bd812c4362b4b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum amount of loot to generate at a time.  <a href="#ab20cb118131a30a72bd812c4362b4b1b">More...</a><br/></td></tr>
 <tr class="separator:ab20cb118131a30a72bd812c4362b4b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03d5cd741cb0ebf92a7eceb54904e87d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03d5cd741cb0ebf92a7eceb54904e87d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>AmountMax</b></td></tr>
+<tr class="memitem:a03d5cd741cb0ebf92a7eceb54904e87d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#a03d5cd741cb0ebf92a7eceb54904e87d">AmountMax</a></td></tr>
+<tr class="memdesc:a03d5cd741cb0ebf92a7eceb54904e87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum amount of loot to generate at a time.  <a href="#a03d5cd741cb0ebf92a7eceb54904e87d">More...</a><br/></td></tr>
 <tr class="separator:a03d5cd741cb0ebf92a7eceb54904e87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Table for generating randomized loot </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa7489e9d16bf34c00b173e475a1cb9a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Skyrates.Client.Loot.LootTable.CalculatePercentages </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>sumWeight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the percentage chance of each item in the weighted table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sumWeight</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3f24f6d81f26862a5aed2b0a14f7e035"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">KeyValuePair&lt;<a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_component.html">ShipComponent</a>, <a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot.html">Loot</a>&gt; [] Skyrates.Client.Loot.LootTable.Generate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a list of loot items and the prefab with a <a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot.html" title="Any falling loot in the game ">Loot</a> component. The number of loot generated is randomized between <a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#ab20cb118131a30a72bd812c4362b4b1b" title="The minimum amount of loot to generate at a time. ">AmountMin</a> and <a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#a03d5cd741cb0ebf92a7eceb54904e87d" title="The maximum amount of loot to generate at a time. ">AmountMax</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a03d5cd741cb0ebf92a7eceb54904e87d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Skyrates.Client.Loot.LootTable.AmountMax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The maximum amount of loot to generate at a time. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab20cb118131a30a72bd812c4362b4b1b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Skyrates.Client.Loot.LootTable.AmountMin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The minimum amount of loot to generate at a time. </p>
+
+</div>
+</div>
+<a class="anchor" id="a51353bf82a01b769b9b0174a22e008c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_skyrates_1_1_client_1_1_loot_1_1_loot_table_1_1_row.html">Row</a> [] Skyrates.Client.Loot.LootTable.Table</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The list of weighted entry. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/LootTable.cs</li>
 </ul>

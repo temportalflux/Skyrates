@@ -1,0 +1,115 @@
+\hypertarget{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader}{\section{Skyrates.\-Client.\-Scene.\-Scene\-Loader Class Reference}
+\label{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader}\index{Skyrates.\-Client.\-Scene.\-Scene\-Loader@{Skyrates.\-Client.\-Scene.\-Scene\-Loader}}
+}
+
+
+Asynchronously loads and unloads scenes  
+
+
+Inheritance diagram for Skyrates.\-Client.\-Scene.\-Scene\-Loader\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_skyrates_1_1_client_1_1_scene_1_1_scene_loader_1_1_loading_sequence}{Loading\-Sequence}
+\begin{DoxyCompactList}\small\item\em One loading operation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_af80eb4ba6f0dd10364de00ae90886e2f}{Enqueue} (\hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_data_a31ee71a248fd3456a7e655f71f268583}{Scene\-Data.\-Scene\-Key} scene\-Key)
+\begin{DoxyCompactList}\small\item\em Adds a scene to be queued for loading with Load\-Scene\-Mode.\-Single. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a488b8b87e7bde0b749b3bef7250298e8}{Enqueue} (\hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_data_a31ee71a248fd3456a7e655f71f268583}{Scene\-Data.\-Scene\-Key} scene\-Key, Load\-Scene\-Mode mode)
+\begin{DoxyCompactList}\small\item\em Adds a scene to be queued for loading \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a5805907cc29887b3186efc9802bcafbe}{Activate\-Next} ()
+\begin{DoxyCompactList}\small\item\em Activates the first scene in the loading queue, thereby removing it from the queue and finishing loading. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_data}{Scene\-Data} \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a1df3740a539b25e862afdc4eebf4a9b5}{Scene\-Data}
+\begin{DoxyCompactList}\small\item\em The data used to select scenes via \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_data_a31ee71a248fd3456a7e655f71f268583}{Scene\-Data.\-Scene\-Key} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader}{Scene\-Loader} \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a07c9c09ae6a40c74ae63acd958364206}{Instance}
+\begin{DoxyCompactList}\small\item\em The singleton instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Asynchronously loads and unloads scenes 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a5805907cc29887b3186efc9802bcafbe}{\index{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}!Activate\-Next@{Activate\-Next}}
+\index{Activate\-Next@{Activate\-Next}!Skyrates::Client::Scene::SceneLoader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}}
+\subsubsection[{Activate\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Scene.\-Scene\-Loader.\-Activate\-Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a5805907cc29887b3186efc9802bcafbe}
+
+
+Activates the first scene in the loading queue, thereby removing it from the queue and finishing loading. 
+
+\hypertarget{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_af80eb4ba6f0dd10364de00ae90886e2f}{\index{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}!Enqueue@{Enqueue}}
+\index{Enqueue@{Enqueue}!Skyrates::Client::Scene::SceneLoader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}}
+\subsubsection[{Enqueue}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Scene.\-Scene\-Loader.\-Enqueue (
+\begin{DoxyParamCaption}
+\item[{{\bf Scene\-Data.\-Scene\-Key}}]{scene\-Key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_af80eb4ba6f0dd10364de00ae90886e2f}
+
+
+Adds a scene to be queued for loading with Load\-Scene\-Mode.\-Single. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\-Key} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a488b8b87e7bde0b749b3bef7250298e8}{\index{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}!Enqueue@{Enqueue}}
+\index{Enqueue@{Enqueue}!Skyrates::Client::Scene::SceneLoader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}}
+\subsubsection[{Enqueue}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Scene.\-Scene\-Loader.\-Enqueue (
+\begin{DoxyParamCaption}
+\item[{{\bf Scene\-Data.\-Scene\-Key}}]{scene\-Key, }
+\item[{Load\-Scene\-Mode}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a488b8b87e7bde0b749b3bef7250298e8}
+
+
+Adds a scene to be queued for loading 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\-Key} & \\
+\hline
+{\em mode} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a07c9c09ae6a40c74ae63acd958364206}{\index{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}!Instance@{Instance}}
+\index{Instance@{Instance}!Skyrates::Client::Scene::SceneLoader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}}
+\subsubsection[{Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Scene\-Loader} Skyrates.\-Client.\-Scene.\-Scene\-Loader.\-Instance\hspace{0.3cm}{\ttfamily [static]}}}\label{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a07c9c09ae6a40c74ae63acd958364206}
+
+
+The singleton instance 
+
+\hypertarget{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a1df3740a539b25e862afdc4eebf4a9b5}{\index{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}!Scene\-Data@{Scene\-Data}}
+\index{Scene\-Data@{Scene\-Data}!Skyrates::Client::Scene::SceneLoader@{Skyrates\-::\-Client\-::\-Scene\-::\-Scene\-Loader}}
+\subsubsection[{Scene\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Scene\-Data} Skyrates.\-Client.\-Scene.\-Scene\-Loader.\-Scene\-Data}}\label{class_skyrates_1_1_client_1_1_scene_1_1_scene_loader_a1df3740a539b25e862afdc4eebf4a9b5}
+
+
+The data used to select scenes via \hyperlink{class_skyrates_1_1_client_1_1_scene_1_1_scene_data_a31ee71a248fd3456a7e655f71f268583}{Scene\-Data.\-Scene\-Key} 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Client/\-Scene/Scene\-Loader.\-cs\end{DoxyCompactItemize}

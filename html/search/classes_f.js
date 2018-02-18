@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['scenedata',['SceneData',['../class_scene_data.html',1,'']]],
-  ['sceneloader',['SceneLoader',['../class_scene_loader.html',1,'']]],
+  ['scenedata',['SceneData',['../class_skyrates_1_1_client_1_1_scene_1_1_scene_data.html',1,'Skyrates::Client::Scene']]],
+  ['sceneloader',['SceneLoader',['../class_skyrates_1_1_client_1_1_scene_1_1_scene_loader.html',1,'Skyrates::Client::Scene']]],
   ['seek',['Seek',['../class_skyrates_1_1_common_1_1_a_i_1_1_seek.html',1,'Skyrates::Common::AI']]],
   ['selfdestruct',['SelfDestruct',['../class_skyrates_1_1_client_1_1_mono_1_1_self_destruct.html',1,'Skyrates::Client::Mono']]],
   ['sereal',['Sereal',['../class_skyrates_1_1_common_1_1_network_1_1_test_1_1_bit_test_1_1_sereal.html',1,'Skyrates::Common::Network::Test::BitTest']]],

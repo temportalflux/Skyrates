@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['calculatepercentages',['CalculatePercentages',['../class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#aa7489e9d16bf34c00b173e475a1cb9a7',1,'Skyrates::Client::Loot::LootTable']]],
   ['clear',['clear',['../class_champ_net_1_1_packet_queue.html#a58fb470b0b4a6678495c36e89a7d4f58',1,'ChampNet::PacketQueue']]],
   ['cleartracker',['clearTracker',['../class_performance_tracker.html#a81acadf369ceab082eea07241eb14866',1,'PerformanceTracker']]],
   ['connect',['Connect',['../class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#a17e6fc98bf3487cef6ed236401940427',1,'Skyrates.Client.Network.DummyClient.Connect()'],['../class_skyrates_1_1_common_1_1_network_1_1_network_common.html#aa11961a4a6dc22c782552eb96e27c6e1',1,'Skyrates.Common.Network.NetworkCommon.Connect()']]],
