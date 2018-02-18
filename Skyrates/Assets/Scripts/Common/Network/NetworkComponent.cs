@@ -149,6 +149,7 @@ namespace Skyrates.Common.Network
             this.StartGame(Session.NetworkMode.Standalone);
             // Start the world asap
             SceneLoader.Instance.ActivateNext();
+            this.LoadWorldNonClient();
         }
 
         public void StartClient()
@@ -161,11 +162,14 @@ namespace Skyrates.Common.Network
             this.StartGame(Session.NetworkMode.Host);
             // Start the world asap
             SceneLoader.Instance.ActivateNext();
+            this.LoadWorldNonClient();
         }
 
         private void StartGame(Session.NetworkMode mode)
         {
+            SceneLoader.Instance.Enqueue(SceneData.SceneKey.LoadingWorld);
             SceneLoader.Instance.ActivateNext();
+
             SceneLoader.Instance.Enqueue(SceneData.SceneKey.World);
 
             Debug.Log("NetComp: Starting network as " + mode);
@@ -217,19 +221,19 @@ namespace Skyrates.Common.Network
 
         void SubscribeEvents()
         {
-            GameManager.Events.SceneLoaded += this.OnEvtSceneLoaded;
         }
 
         void UnsubscribeEvents()
         {
-            GameManager.Events.SceneLoaded -= this.OnEvtSceneLoaded;
         }
 
-        void OnEvtSceneLoaded(GameEvent evt)
+        void LoadWorldNonClient()
         {
-            if (this.Session.IsOwner && ((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
+            // TODO: Get the game to stop on the laoding scene until both world and world nonclient are fully loaded
+            if (this.Session.IsOwner)
             {
-                SceneManager.LoadSceneAsync(SceneLoader.Instance.SceneData.WorldNonClient, LoadSceneMode.Additive);
+                SceneLoader.Instance.Enqueue(SceneData.SceneKey.WorldNonClient, LoadSceneMode.Additive);
+                SceneLoader.Instance.ActivateNext();
             }
         }
 

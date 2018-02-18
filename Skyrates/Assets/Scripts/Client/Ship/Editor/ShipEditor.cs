@@ -24,7 +24,8 @@ namespace Skyrates.Client.Ship
             if (GUILayout.Button("Build"))
             {
                 this._instance.Destroy();
-                this._instance.Generate();
+                // TODO: Dont generate with no entity
+                this._instance.Generate(null);
             }
 
             EditorUtility.SetDirty(this._instance);

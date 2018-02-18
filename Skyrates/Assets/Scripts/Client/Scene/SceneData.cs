@@ -32,13 +32,26 @@ public class SceneData : ScriptableObject
     public string WorldNonClient;
 
     public readonly Dictionary<SceneKey, string> SceneNames = new Dictionary<SceneKey, string>();
+    public readonly Dictionary<string, SceneKey> NameToScene = new Dictionary<string, SceneKey>();
 
     void OnEnable()
     {
+        this.Init();
+    }
+
+    public void Init()
+    {
+        if (this.SceneNames.Count > 0) return;
+
         SceneNames[SceneKey.MenuMain] = MenuName;
         SceneNames[SceneKey.LoadingWorld] = GameLoading;
         SceneNames[SceneKey.World] = GameName;
         SceneNames[SceneKey.WorldNonClient] = WorldNonClient;
+
+        foreach (KeyValuePair<SceneKey, string> pair in SceneNames)
+        {
+            this.NameToScene[pair.Value] = pair.Key;
+        }
     }
 
     public string GetName(SceneKey sceneKey)

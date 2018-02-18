@@ -73,14 +73,38 @@ namespace Skyrates.Common.Entity
 
         }
 
+        public virtual ShipFigurehead GetFigurehead()
+        {
+            return null;
+        }
+
+        public virtual void TakeDamage(EventEntityShipDamaged evt)
+        {
+            if (this.TakeDamage(evt.Source, evt.Damage) > 0)
+            {
+                EntityShip source = evt.Source as EntityShip;
+                if (source != null)
+                {
+                    source.OnRamUnsucessful(this);
+                }
+            }
+        }
+
+        protected virtual void OnRamUnsucessful(EntityShip target)
+        {
+            // Called when the target still has health after ram
+            // TODO: Calculate something for this
+            this.TakeDamage(target, 2);
+        }
+
         // called by network interface events which originate from OnTriggerEnter
-        public virtual void TakeDamage(float damage)
+        public virtual float TakeDamage(Entity source, float damage)
         {
             this.Health -= damage;
 
-            GameManager.Events.Dispatch(new EventEntityShipDamaged(this, damage));
+            GameManager.Events.Dispatch(new EventEntityShipDamaged(source, this, damage));
 
-            if (this.Health > 0) return;
+            if (this.Health > 0) return this.Health;
 
             this.UpdateHealthParticles();
 
@@ -90,6 +114,7 @@ namespace Skyrates.Common.Entity
                 Destroy(this.gameObject);
             }
 
+            return 0;
         }
 
         protected virtual bool OnPreDestroy()

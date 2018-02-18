@@ -73,7 +73,7 @@ namespace Skyrates.Client.Network
         public override void OnEntityShipHitBy(GameEvent evt)
         {
             EventEntityShipDamaged evtDamaged = (EventEntityShipDamaged) evt;
-            evtDamaged.Ship.TakeDamage(evtDamaged.Damage);
+            evtDamaged.Target.TakeDamage(evtDamaged);
         }
 
         public override void OnLootCollided(GameEvent evt)

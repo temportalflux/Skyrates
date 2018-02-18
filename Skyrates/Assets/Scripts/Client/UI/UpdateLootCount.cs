@@ -24,7 +24,7 @@ public class UpdateLootCount : MonoBehaviour
 
     private void Update()
     {
-        this.LootText.text = this.data.LootCount.ToString();
+        this.LootText.text = string.Format("{0} / {1}", this.data.LootCount, this.data.LootGoal);
     }
 
     private void OnEnable()

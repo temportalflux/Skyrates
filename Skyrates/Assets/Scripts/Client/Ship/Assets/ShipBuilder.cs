@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Entity;
 using UnityEngine;
 
 using ComponentType = ShipData.ComponentType;
@@ -135,13 +136,14 @@ namespace Skyrates.Client.Ship
         /// <param name="root"></param>
         /// <param name="data">The data to use, stored if null</param>
         /// <returns></returns>
-        public ShipHull BuildTo(ref Transform root, ShipData data = null)
+        public ShipHull BuildTo(EntityShip owner, ref Transform root, ShipData data = null)
         {
             if (data == null) data = this.ShipData;
 
             // Create the hull
             ShipHull hullPrefab = (ShipHull) this.GetShipComponent(ComponentType.Hull, data);
             ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHull>();
+            hullBuilt.Ship = owner;
             
             // Create all the remaining components
             foreach (ComponentType compType in ShipData.NonHullComponents)

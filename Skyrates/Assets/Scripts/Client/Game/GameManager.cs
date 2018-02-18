@@ -3,6 +3,7 @@ using Skyrates.Client.Game.Event;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Skyrates.Client.Game
 {
@@ -18,9 +19,12 @@ namespace Skyrates.Client.Game
         }
 
         public EntityList EntityList;
+
         private GameEvents _events;
 
         public Transform playerSpawn;
+
+        public LocalData PlayerData;
 
         void Awake()
         {
@@ -33,21 +37,43 @@ namespace Skyrates.Client.Game
         void OnEnable()
         {
             Events.SceneLoaded += this.OnSceneLoaded;
+            Events.LootCollected += this.OnLootCollected;
         }
 
         void OnDisable()
         {
             Events.SceneLoaded -= this.OnSceneLoaded;
+            Events.LootCollected -= this.OnLootCollected;
         }
 
         void OnSceneLoaded(GameEvent evt)
         {
-            // TODO: Move this to owner classes (DummyClient & ClientServer)
-            if (NetworkComponent.GetSession.IsOwner && ((EventSceneLoaded) evt).Scene == SceneData.SceneKey.World)
+            EventSceneLoaded evtScene = (EventSceneLoaded) evt;
+            switch (evtScene.Scene)
             {
-                Common.Entity.Entity e = this.SpawnEntity(new Common.Entity.Entity.TypeData(Common.Entity.Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
-                System.Diagnostics.Debug.Assert(e != null, "e != null");
-                e.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
+                case SceneData.SceneKey.MenuMain:
+                    break;
+                case SceneData.SceneKey.World:
+                    // TODO: Move this to owner classes (DummyClient & ClientServer)
+                    if (NetworkComponent.GetSession.IsOwner)
+                    {
+                        Common.Entity.Entity e = this.SpawnEntity(new Common.Entity.Entity.TypeData(Common.Entity.Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
+                        System.Diagnostics.Debug.Assert(e != null, "e != null");
+                        e.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void OnLootCollected(GameEvent evt)
+        {
+            // TODO: Remove this
+            if (this.PlayerData.LootCount >= this.PlayerData.LootGoal)
+            {
+                SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
+                SceneLoader.Instance.ActivateNext();
             }
         }
 

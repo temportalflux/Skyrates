@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -28,11 +29,11 @@ namespace Skyrates.Client.Ship
             this.ComponentRoot.DestroyChildren();
         }
 
-        public ShipData Generate(ShipData data = null)
+        public ShipData Generate(EntityShip owner, ShipData data = null)
         {
             if (data == null) data = this.Blueprint.ShipData;
             this.ShipData = data;
-            this.Hull = this.Blueprint.BuildTo(ref this.ComponentRoot, this.ShipData);
+            this.Hull = this.Blueprint.BuildTo(owner, ref this.ComponentRoot, this.ShipData);
             this.ShipData.MustBeRebuilt = false;
             return this.ShipData;
         }
