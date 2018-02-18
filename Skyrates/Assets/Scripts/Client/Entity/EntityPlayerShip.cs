@@ -102,6 +102,19 @@ namespace Skyrates.Client
 
         #endregion
 
+        protected override void OnTriggerEnter(Collider other)
+        {
+            base.OnTriggerEnter(other);
+
+            Loot.Loot lootObject = other.GetComponent<Loot.Loot>();
+            if (lootObject != null)
+            {
+                // Must be passed off as game event, where networking called OnLootCollided
+                GameManager.Events.Dispatch(new EventLootCollided(this, lootObject));
+            }
+
+        }
+
         protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
             // TODO: Optimize this
