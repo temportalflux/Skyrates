@@ -74,12 +74,13 @@ namespace Skyrates.Client.Entity
                     sqrDist = (this.transform.position - this._aiTarget.transform.position).sqrMagnitude;
                     if (sqrDist > maxDistShoot)
                         wait = 0.5f;
+
+                    if (sqrDist < maxDistShoot)
+                    {
+                        this.Shoot(ShipData.ComponentType.ArtilleryForward);
+                    }
                 }
                 yield return new WaitForSeconds(wait);
-                if (sqrDist < maxDistShoot)
-                {
-                    this.Shoot(ShipData.ComponentType.ArtilleryForward);
-                }
             }
         }
 

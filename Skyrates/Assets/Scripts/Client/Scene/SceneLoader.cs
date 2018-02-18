@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using AsyncOperation = UnityEngine.AsyncOperation;
 
 /// <summary>
 /// Asynchronously loads and unloads scenes
@@ -68,21 +70,20 @@ public class SceneLoader : Singleton<SceneLoader>
     {
         this.loadSingleton(this, ref Instance);
         this._loadingScenes = new Queue<LoadingSequence>();
+        this.SceneData.Init();
     }
 
-    void Start()
+    public void Enqueue(SceneData.SceneKey sceneKey)
     {
-        
-        // Load the waiting screen
-        this.Enqueue(SceneData.SceneKey.LoadingWorld);
-
+        this.Enqueue(sceneKey, LoadSceneMode.Single);
     }
 
     /// <summary>
     /// Adds a scene to be queued for loading
     /// </summary>
     /// <param name="sceneKey"></param>
-    public void Enqueue(SceneData.SceneKey sceneKey)
+    /// <param name="mode"></param>
+    public void Enqueue(SceneData.SceneKey sceneKey, LoadSceneMode mode)
     {
         // Create the loading sequence
         LoadingSequence sequence = new LoadingSequence
@@ -92,7 +93,7 @@ public class SceneLoader : Singleton<SceneLoader>
         };
 
         // Start the loading
-        sequence.Operation = SceneManager.LoadSceneAsync(sequence.SceneName, LoadSceneMode.Single);
+        sequence.Operation = SceneManager.LoadSceneAsync(sequence.SceneName, mode);
 
         // DONT ENABLE THE SCENE YET
         sequence.Operation.allowSceneActivation = false;
@@ -120,8 +121,14 @@ public class SceneLoader : Singleton<SceneLoader>
     /// </summary>
     public void ActivateNext()
     {
+        if (this._loadingScenes.Count <= 0)
+        {
+            Debug.LogWarning("Tried to active when no scenes were enqueued");
+            return;
+        }
+
         LoadingSequence sequence = this._loadingScenes.Dequeue();
         sequence.Activate();
     }
-
+    
 }

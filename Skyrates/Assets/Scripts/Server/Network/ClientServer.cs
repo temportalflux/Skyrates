@@ -215,10 +215,19 @@ namespace Skyrates.Server.Network
         public void OnRequestEntityShipDamaged(NetworkEvent evt)
         {
             EventRequestEntityShipDamaged evtDamaged = (EventRequestEntityShipDamaged) evt;
-            Entity entity;
-            if (this.GetEntityTracker().TryGetValue(evtDamaged.EntityType, evtDamaged.EntityGuid, out entity) && entity is EntityShip)
+            Entity entitySource, entityTarget;
+            bool hasSource = this.GetEntityTracker().TryGetValue(
+                evtDamaged.SourceEntityType, evtDamaged.SourceEntityGuid, out entitySource);
+            bool hasTarget = this.GetEntityTracker().TryGetValue(
+                evtDamaged.TargetEntityType, evtDamaged.TargetEntityGuid, out entityTarget);
+            if (hasSource && hasTarget &&
+                (entitySource is EntityShip || entitySource is EntityProjectile) &&
+                entityTarget is EntityShip)
             {
-                ((EntityShip) entity).TakeDamage(evtDamaged.Damage);
+                // TODO: Is it ram or projectile
+                ((EntityShip)entitySource).TakeDamage(evtDamaged.GetAsGameEvent(
+                    ((EntityShip)entitySource), ((EntityShip)entityTarget)
+                ));
             }
         }
 
@@ -238,7 +247,7 @@ namespace Skyrates.Server.Network
             // If we own the target, then we tell server that one of our entities is damaged
             if (evtDamaged.Ship.IsLocallyControlled)
             {
-                evtDamaged.Ship.TakeDamage(evtDamaged.Damage);
+                evtDamaged.Ship.TakeDamage(evtDamaged);
             }
         }
 

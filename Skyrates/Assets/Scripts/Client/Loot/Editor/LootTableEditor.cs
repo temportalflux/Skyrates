@@ -52,8 +52,8 @@ namespace Skyrates.Client.Loot
 
                     EditorGUILayout.BeginHorizontal();
                     {
-                        EditorGUILayout.LabelField((row.Percentage * 100) + "%",
-                            GUILayout.Width(30)
+                        EditorGUILayout.LabelField((row.Percentage * 100).ToString("F1") + "%",
+                            GUILayout.Width(40)
                         );
 
                         GUILayout.FlexibleSpace();

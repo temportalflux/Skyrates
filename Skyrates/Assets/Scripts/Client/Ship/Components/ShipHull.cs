@@ -78,6 +78,8 @@ namespace Skyrates.Client.Ship
             Mount mount = mounts[this.GetComponentIndex(compType)];
             comp.transform.position += mount.Roots[index].localPosition;
             comp.transform.rotation = mount.Roots[index].localRotation;
+
+            comp.Ship = this.Ship;
         }
 
         /// <summary>

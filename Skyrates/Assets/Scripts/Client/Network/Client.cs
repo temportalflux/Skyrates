@@ -142,7 +142,21 @@ namespace Skyrates.Client.Network
             // If we own the target, then we tell server that one of our entities is damaged
             if (evtDamaged.Ship.IsLocallyControlled)
             {
-                NetworkComponent.GetNetwork().Dispatch(new EventRequestEntityShipDamaged(evtDamaged.Ship, evtDamaged.Damage));
+                NetworkEvent outEvt;
+                switch (evt.EventID)
+                {
+                    case GameEventID.EntityShipHitByProjectile:
+                        outEvt = EventRequestEntityShipDamaged.Projectile(
+                            evtDamaged.Source, evtDamaged.Target, evtDamaged.Damage);
+                        break;
+                    case GameEventID.EntityShipHitByRam:
+                        outEvt = EventRequestEntityShipDamaged.Ram(
+                            evtDamaged.Source, evtDamaged.Target, evtDamaged.Damage);
+                        break;
+                    default:
+                        return;
+                }
+                NetworkComponent.GetNetwork().Dispatch(outEvt);
             }
         }
 

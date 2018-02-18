@@ -179,7 +179,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: -1937662525, guid: 0ad83000c231d1544bf672e466e6f471, type: 3}
-  - {fileID: 2062959429, guid: d989c8a93c024f24ea9beb8285f04481, type: 3}
+  - {fileID: -1008493583, guid: d275135284be94d4685833970dcc12f6, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -242,12 +242,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1469859523714304}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.2796592
-  m_Height: 0.9656614
+  m_Radius: 0.45
+  m_Height: 1.24
   m_Direction: 1
-  m_Center: {x: -0.0057231784, y: -0.4778821, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!198 &198591172493144520
 ParticleSystem:
   m_ObjectHideFlags: 1
