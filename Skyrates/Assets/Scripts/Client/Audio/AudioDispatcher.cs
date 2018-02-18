@@ -8,8 +8,11 @@ using UnityEngine;
 
 namespace Skyrates.Client
 {
-    
-    public class AudioDispatcher : MonoBehaviour
+ 
+    /// <summary>
+    /// Observer which spawns audio sources based on game events
+    /// </summary>
+    public class AudioDispatcher : UnityEngine.MonoBehaviour
     {
 
         // TODO: Turn this into an editor thing with dictionaries
@@ -37,22 +40,54 @@ namespace Skyrates.Client
         }
         */
 
+        /// <summary>
+        /// Audio played when artillery is fired
+        /// </summary>
         public AudioSource AudioArtilleryFired;
+        /// <summary>
+        /// Audio played when a ship is hit by a projectile
+        /// </summary>
         public AudioSource AudioEntityShipHitByProjectile;
+        /// <summary>
+        /// Audio played when a ship is hit by another ship's ram
+        /// </summary>
         public AudioSource AudioEntityShipHitByRam;
+        /// <summary>
+        /// Audio played when a player collects loot
+        /// </summary>
         public AudioSource AudioOnLootCollected;
+        /// <summary>
+        /// Audio played when enemies engage a player
+        /// </summary>
+        [Deprecated]
         public AudioSource AudioOnEnemyEngage;
+        /// <summary>
+        /// Audio played when enemies disengage a player
+        /// </summary>
+        [Deprecated]
         public AudioSource AudioOnEnemyDisengage;
 
+        /// <summary>
+        /// Plays a specific audio at a location.
+        /// </summary>
+        /// <param name="position">The position to spawn the prefab at</param>
+        /// <param name="rotation">The rotation of the prefab</param>
+        /// <param name="prefab">The prefab to instantiate</param>
+        /// <param name="owner">The transform to which the prefab audio source is attatched to</param>
         private void CreateAudio(Vector3 position, Quaternion rotation, AudioSource prefab, Transform owner)
         {
             if (prefab != null)
             {
+                // Create the thing
                 AudioSource spawned = Instantiate(prefab.gameObject, position, rotation, owner).GetComponent<AudioSource>();
+                // Kill it when it is done playing
                 Destroy(spawned.gameObject, spawned.clip.length);
             }
         }
-
+        
+        /// <summary>
+        /// Unity event - used to subscribe to game events
+        /// </summary>
         void OnEnable()
         {
             GameManager.Events.ArtilleryFired += this.OnArtilleryFired;
@@ -63,6 +98,9 @@ namespace Skyrates.Client
             GameManager.Events.EnemyTargetDisengage += this.OnEnemyEngage;
         }
 
+        /// <summary>
+        /// Unity event - used to unsubscribe to game events
+        /// </summary>
         void OnDisable()
         {
             GameManager.Events.ArtilleryFired -= this.OnArtilleryFired;
@@ -73,6 +111,10 @@ namespace Skyrates.Client
             GameManager.Events.EnemyTargetDisengage -= this.OnEnemyEngage;
         }
         
+        /// <summary>
+        /// Called when an artillery is fired. Plays <see cref="AudioArtilleryFired"/>.
+        /// </summary>
+        /// <param name="evt"></param>
         public void OnArtilleryFired(GameEvent evt)
         {
             EventArtilleryFired eventArtillery = (EventArtilleryFired) evt;
@@ -86,6 +128,10 @@ namespace Skyrates.Client
 
         }
 
+        /// <summary>
+        /// Called when a ship is hit by a projectile or ram. Plays <see cref="AudioEntityShipHitByProjectile"/> or <see cref="AudioEntityShipHitByRam"/>, repsectively.
+        /// </summary>
+        /// <param name="evt"></param>
         public void OnEntityShipHitBy(GameEvent evt)
         {
             Vector3 position = Vector3.zero;
@@ -120,6 +166,10 @@ namespace Skyrates.Client
             }
         }
 
+        /// <summary>
+        /// Called when a player picks up loot. Plays <see cref="AudioOnLootCollected"/>.
+        /// </summary>
+        /// <param name="evt"></param>
         public void OnLootCollected(GameEvent evt)
         {
             EventLootCollected evtLoot = (EventLootCollected) evt;
@@ -127,6 +177,7 @@ namespace Skyrates.Client
             this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected, evtLoot.PlayerShip.transform);
         }
 
+        [Deprecated]
         public void OnEnemyEngage(GameEvent evt)
         {
             EventEnemyTargetEngage evtDEngage = (EventEnemyTargetEngage) evt;

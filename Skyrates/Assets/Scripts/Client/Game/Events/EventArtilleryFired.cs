@@ -1,4 +1,6 @@
-﻿using Skyrates.Client.Ship;
+﻿using Skyrates.Client.Entity;
+using Skyrates.Client.Mono;
+using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
 using UnityEngine;
 

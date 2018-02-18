@@ -9,7 +9,7 @@ namespace Skyrates.Client.Effects
     // https://www.youtube.com/watch?v=iLlWirdxass
     // https://www.youtube.com/watch?v=TXHK1nPUOBE
     [RequireComponent(typeof(MeshFilter))]
-    public class ArcRender : MonoBehaviour
+    public class ArcRender : UnityEngine.MonoBehaviour
     {
 
         public float Velocity;

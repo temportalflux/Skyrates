@@ -1,4 +1,5 @@
-﻿using Skyrates.Client.Util;
+﻿using Skyrates.Client.Entity;
+using Skyrates.Client.Util;
 using UnityEngine;
 
 namespace Skyrates.Common.Entity
@@ -19,7 +20,7 @@ namespace Skyrates.Common.Entity
         /// The prefab of players who are created via the network.
         /// </summary>
         [SerializeField]
-        public Client.EntityPlayerShip PrefabEntityPlayer;
+        public EntityPlayerShip PrefabEntityPlayer;
 
         void OnEnable()
         {

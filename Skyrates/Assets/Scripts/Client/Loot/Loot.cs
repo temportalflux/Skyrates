@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Skyrates.Client.Loot
 {
 
-    public class Loot : MonoBehaviour
+    public class Loot : UnityEngine.MonoBehaviour
     {
 
         public ShipComponent Item;

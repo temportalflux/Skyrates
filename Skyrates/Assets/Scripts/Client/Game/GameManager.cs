@@ -1,4 +1,6 @@
 ﻿using System;
+using Skyrates.Client.Data;
+using Skyrates.Client.Entity;
 using Skyrates.Client.Game.Event;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
