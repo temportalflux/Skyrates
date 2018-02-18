@@ -435,7 +435,6 @@ Parsing file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTe
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputUnity.cs:6: warning: Compound InputUnity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Server/Network/Event/EventUpdateGameState.cs:13: warning: Compound Skyrates::Server::Network::Event::EventUpdateGameState is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/NetworkEventAttribute.cs:8: warning: Compound NetworkEventAttribute is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:12: warning: Compound Skyrates::Client::Ship::Ship is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Old/ForceLerp.cs:7: warning: Compound ForceLerp is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/VFXDispatcher.cs:9: warning: Compound VFXDispatcher is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Controller/InputInteraction.cs:13: warning: Compound InputInteraction is not documented.
@@ -1087,12 +1086,7 @@ Generating docs f<Dispatch>:1: warning: The following parameters of Skyrates.Cli
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/HullTargetEditor.cs:78: warning: Member DropAreaGUI() (function) of class Skyrates::Client::Ship::HullTargetEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/ShipEditor.cs:15: warning: Member OnEnable() (function) of class Skyrates::Client::Ship::ShipEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/ShipEditor.cs:20: warning: Member OnInspectorGUI() (function) of class Skyrates::Client::Ship::ShipEditor is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:28: warning: Member Destroy() (function) of class Skyrates::Client::Ship::Ship is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:33: warning: Member Generate(EntityShip owner, ShipData data=null) (function) of class Skyrates::Client::Ship::Ship is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:14: warning: Member ComponentRoot (variable) of class Skyrates::Client::Ship::Ship is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:16: warning: Member Blueprint (variable) of class Skyrates::Client::Ship::Ship is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:22: warning: Member ShipData (variable) of class Skyrates::Client::Ship::Ship is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:26: warning: Member Hull (variable) of class Skyrates::Client::Ship::Ship is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:34: warning: Member Hull (variable) of class Skyrates::Client::Ship::Ship is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Prefab/PrefabList.cs:79: warning: Member TestEnum (enumeration) of namespace Skyrates::Client::Util is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Prefab/PrefabList.cs:58: warning: Member TryGetValue< TKey, TValue >(TKey key, int prefabIndex, out TValue prefab) (function) of class Skyrates::Client::Util::PrefabList is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Prefab/PrefabList.cs:71: warning: Member GetNames(object key) (function) of class Skyrates::Client::Util::PrefabList is not documented.
@@ -1412,5 +1406,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 1469/65536 hits=8104 misses=1823
+lookup cache used 1474/65536 hits=8131 misses=1828
 finished...

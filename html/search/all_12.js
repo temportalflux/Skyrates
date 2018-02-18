@@ -59,7 +59,7 @@ var searchData=
   ['shipcomponentlist',['ShipComponentList',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html#a981d21bb8a64a205825b8d50813b897e',1,'Skyrates::Client::Ship::ShipBuilder']]],
   ['shipcomponentlist',['ShipComponentList',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_component_list.html',1,'Skyrates::Client::Ship']]],
   ['shipcomponentlisteditor',['ShipComponentListEditor',['../class_ship_component_list_editor.html',1,'']]],
-  ['shipdata',['ShipData',['../class_ship_data.html',1,'ShipData'],['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#ab036683fcaa1c13312a06631dfff1b42',1,'Skyrates.Client.Entity.EntityPlayerShip.ShipData()'],['../class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html#a14ff4eece1ec5d9bab63c8449939305c',1,'Skyrates.Client.Ship.ShipBuilder.ShipData()']]],
+  ['shipdata',['ShipData',['../class_ship_data.html',1,'ShipData'],['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#ab036683fcaa1c13312a06631dfff1b42',1,'Skyrates.Client.Entity.EntityPlayerShip.ShipData()'],['../class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html#a14ff4eece1ec5d9bab63c8449939305c',1,'Skyrates.Client.Ship.ShipBuilder.ShipData()'],['../class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a34acbbe72da92209ca8a2239b5819553',1,'Skyrates.Client.Ship.Ship.ShipData()']]],
   ['shipeditor',['ShipEditor',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_editor.html',1,'Skyrates::Client::Ship']]],
   ['shipfigurehead',['ShipFigurehead',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead.html',1,'Skyrates::Client::Ship']]],
   ['shiphull',['ShipHull',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_hull.html',1,'Skyrates::Client::Ship']]],

@@ -96,6 +96,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Skyrates.Client.Ship.Ship Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The object which contails all <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_component.html" title="Base class for all components when are generated as a part of a Ship via ShipBuilder. ">ShipComponent</a>s for a specific <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html">ShipBuilder</a> rig.  
+ <a href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Client.Ship.Ship:</div>
 <div class="dyncontent">
@@ -107,28 +110,143 @@ Inheritance diagram for Skyrates.Client.Ship.Ship:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0e10ad8211decc8c7bbb4c9ff49c3e17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e10ad8211decc8c7bbb4c9ff49c3e17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> ()</td></tr>
+<tr class="memitem:a0e10ad8211decc8c7bbb4c9ff49c3e17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a0e10ad8211decc8c7bbb4c9ff49c3e17">Destroy</a> ()</td></tr>
+<tr class="memdesc:a0e10ad8211decc8c7bbb4c9ff49c3e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys all children of the <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a2c9f15ba4d40bfae0e0dd3c7958d4f22" title="The root to which all components are set as children of. ">ComponentRoot</a>.  <a href="#a0e10ad8211decc8c7bbb4c9ff49c3e17">More...</a><br/></td></tr>
 <tr class="separator:a0e10ad8211decc8c7bbb4c9ff49c3e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a126b748f8c3265ab2d054c8c11ded7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a126b748f8c3265ab2d054c8c11ded7"></a>
-<a class="el" href="class_ship_data.html">ShipData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Generate</b> (<a class="el" href="class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html">EntityShip</a> owner, <a class="el" href="class_ship_data.html">ShipData</a> data=null)</td></tr>
+<tr class="memitem:a3a126b748f8c3265ab2d054c8c11ded7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ship_data.html">ShipData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a3a126b748f8c3265ab2d054c8c11ded7">Generate</a> (<a class="el" href="class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html">EntityShip</a> owner, <a class="el" href="class_ship_data.html">ShipData</a> data=null)</td></tr>
+<tr class="memdesc:a3a126b748f8c3265ab2d054c8c11ded7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the ship via the current <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a698461079579d1847c9d8a4fb4688da0" title="The blueprint for this ship. Indicates which components create the ship. ">Blueprint</a>. Stores relevant data in <a class="el" href="class_ship_data.html" title="Data object used to send ship rig data over the network (and for tool usage in editor). Stores references to components as integers for lookup in ShipComponentList. ">ShipData</a> and the actual components put under <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a2c9f15ba4d40bfae0e0dd3c7958d4f22" title="The root to which all components are set as children of. ">ComponentRoot</a>.  <a href="#a3a126b748f8c3265ab2d054c8c11ded7">More...</a><br/></td></tr>
 <tr class="separator:a3a126b748f8c3265ab2d054c8c11ded7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2c9f15ba4d40bfae0e0dd3c7958d4f22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c9f15ba4d40bfae0e0dd3c7958d4f22"></a>
-Transform&#160;</td><td class="memItemRight" valign="bottom"><b>ComponentRoot</b></td></tr>
+<tr class="memitem:a2c9f15ba4d40bfae0e0dd3c7958d4f22"><td class="memItemLeft" align="right" valign="top">Transform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a2c9f15ba4d40bfae0e0dd3c7958d4f22">ComponentRoot</a></td></tr>
+<tr class="memdesc:a2c9f15ba4d40bfae0e0dd3c7958d4f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root to which all components are set as children of.  <a href="#a2c9f15ba4d40bfae0e0dd3c7958d4f22">More...</a><br/></td></tr>
 <tr class="separator:a2c9f15ba4d40bfae0e0dd3c7958d4f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a698461079579d1847c9d8a4fb4688da0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a698461079579d1847c9d8a4fb4688da0"></a>
-<a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html">ShipBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Blueprint</b></td></tr>
+<tr class="memitem:a698461079579d1847c9d8a4fb4688da0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html">ShipBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a698461079579d1847c9d8a4fb4688da0">Blueprint</a></td></tr>
+<tr class="memdesc:a698461079579d1847c9d8a4fb4688da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The blueprint for this ship. Indicates which components create the ship.  <a href="#a698461079579d1847c9d8a4fb4688da0">More...</a><br/></td></tr>
 <tr class="separator:a698461079579d1847c9d8a4fb4688da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34acbbe72da92209ca8a2239b5819553"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34acbbe72da92209ca8a2239b5819553"></a>
-<a class="el" href="class_ship_data.html">ShipData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ShipData</b></td></tr>
+<tr class="memitem:a34acbbe72da92209ca8a2239b5819553"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ship_data.html">ShipData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a34acbbe72da92209ca8a2239b5819553">ShipData</a></td></tr>
+<tr class="memdesc:a34acbbe72da92209ca8a2239b5819553"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespace_skyrates_1_1_client_1_1_data.html">Data</a> from <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html">ShipBuilder</a> used to <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a3a126b748f8c3265ab2d054c8c11ded7" title="Generates the ship via the current Blueprint. Stores relevant data in ShipData and the actual compone...">Generate</a> the ship. Only valid after <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a3a126b748f8c3265ab2d054c8c11ded7" title="Generates the ship via the current Blueprint. Stores relevant data in ShipData and the actual compone...">Generate</a> is called.  <a href="#a34acbbe72da92209ca8a2239b5819553">More...</a><br/></td></tr>
 <tr class="separator:a34acbbe72da92209ca8a2239b5819553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e93f902393de4e6afb24455d1cb7f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34e93f902393de4e6afb24455d1cb7f6"></a>
 <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_hull.html">ShipHull</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Hull</b></td></tr>
 <tr class="separator:a34e93f902393de4e6afb24455d1cb7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The object which contails all <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_component.html" title="Base class for all components when are generated as a part of a Ship via ShipBuilder. ">ShipComponent</a>s for a specific <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html">ShipBuilder</a> rig. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0e10ad8211decc8c7bbb4c9ff49c3e17"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Skyrates.Client.Ship.Ship.Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys all children of the <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a2c9f15ba4d40bfae0e0dd3c7958d4f22" title="The root to which all components are set as children of. ">ComponentRoot</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3a126b748f8c3265ab2d054c8c11ded7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ship_data.html">ShipData</a> Skyrates.Client.Ship.Ship.Generate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html">EntityShip</a>&#160;</td>
+          <td class="paramname"><em>owner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_ship_data.html">ShipData</a>&#160;</td>
+          <td class="paramname"><em>data</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates the ship via the current <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a698461079579d1847c9d8a4fb4688da0" title="The blueprint for this ship. Indicates which components create the ship. ">Blueprint</a>. Stores relevant data in <a class="el" href="class_ship_data.html" title="Data object used to send ship rig data over the network (and for tool usage in editor). Stores references to components as integers for lookup in ShipComponentList. ">ShipData</a> and the actual components put under <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a2c9f15ba4d40bfae0e0dd3c7958d4f22" title="The root to which all components are set as children of. ">ComponentRoot</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td></td></tr>
+    <tr><td class="paramname">data</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a698461079579d1847c9d8a4fb4688da0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html">ShipBuilder</a> Skyrates.Client.Ship.Ship.Blueprint</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The blueprint for this ship. Indicates which components create the ship. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2c9f15ba4d40bfae0e0dd3c7958d4f22"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Transform Skyrates.Client.Ship.Ship.ComponentRoot</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The root to which all components are set as children of. </p>
+
+</div>
+</div>
+<a class="anchor" id="a34acbbe72da92209ca8a2239b5819553"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ship_data.html">ShipData</a> Skyrates.Client.Ship.Ship.ShipData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="namespace_skyrates_1_1_client_1_1_data.html">Data</a> from <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html">ShipBuilder</a> used to <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a3a126b748f8c3265ab2d054c8c11ded7" title="Generates the ship via the current Blueprint. Stores relevant data in ShipData and the actual compone...">Generate</a> the ship. Only valid after <a class="el" href="class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a3a126b748f8c3265ab2d054c8c11ded7" title="Generates the ship via the current Blueprint. Stores relevant data in ShipData and the actual compone...">Generate</a> is called. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs</li>
 </ul>

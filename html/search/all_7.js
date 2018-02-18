@@ -10,7 +10,7 @@ var searchData=
   ['gamemode',['GameMode',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_game_start.html#ad45d0af9906a79fd939914ce8bcf8b57',1,'Skyrates::Client::Game::Event::EventGameStart']]],
   ['gamename',['GameName',['../class_skyrates_1_1_client_1_1_scene_1_1_scene_data.html#a48d1b49f072d6c1962ef98e479018d4d',1,'Skyrates::Client::Scene::SceneData']]],
   ['gamestate',['GameState',['../class_game_state.html',1,'GameState'],['../class_game_state.html#a74a35fb7045c0eee7e68f07c387e2ddf',1,'GameState::GameState()']]],
-  ['generate',['Generate',['../class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#a3f24f6d81f26862a5aed2b0a14f7e035',1,'Skyrates::Client::Loot::LootTable']]],
+  ['generate',['Generate',['../class_skyrates_1_1_client_1_1_loot_1_1_loot_table.html#a3f24f6d81f26862a5aed2b0a14f7e035',1,'Skyrates.Client.Loot.LootTable.Generate()'],['../class_skyrates_1_1_client_1_1_ship_1_1_ship.html#a3a126b748f8c3265ab2d054c8c11ded7',1,'Skyrates.Client.Ship.Ship.Generate()']]],
   ['generatedata',['GenerateData',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html#a4ede7aaa958e764abcf7404c780457f4',1,'Skyrates.Common.Entity.EntityTracker.GenerateData()'],['../class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher.html#a3e3281a4c3b0890b1519562bee2610d6',1,'Skyrates.Common.Entity.EntityDispatcher.GenerateData()']]],
   ['generator',['Generator',['../class_generator.html',1,'']]],
   ['generatoreditor',['GeneratorEditor',['../class_generator_editor.html',1,'']]],

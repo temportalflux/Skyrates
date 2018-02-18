@@ -1,22 +1,8 @@
 var searchData=
 [
-  ['scenedata',['SceneData',['../class_skyrates_1_1_client_1_1_scene_1_1_scene_loader.html#a1df3740a539b25e862afdc4eebf4a9b5',1,'Skyrates::Client::Scene::SceneLoader']]],
-  ['scenename',['SceneName',['../struct_skyrates_1_1_client_1_1_scene_1_1_scene_loader_1_1_loading_sequence.html#a2ec62fc91db13a2c919f5c75f06c515f',1,'Skyrates::Client::Scene::SceneLoader::LoadingSequence']]],
-  ['scenenames',['SceneNames',['../class_skyrates_1_1_client_1_1_scene_1_1_scene_data.html#a557060e5171ba38f4763c95b5e2b9c3c',1,'Skyrates::Client::Scene::SceneData']]],
-  ['senttime_5fremote',['sentTime_remote',['../struct_champ_net_1_1_time_stamp.html#aa99efe10e72f2c086f81e77cc6fbd337',1,'ChampNet::TimeStamp']]],
-  ['servertickupdate',['ServerTickUpdate',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#aa5dc95f5f695af9aa5c0a170036a46b3',1,'Skyrates::Common::Network::Session']]],
-  ['session',['Session',['../class_skyrates_1_1_common_1_1_network_1_1_network_component.html#ab7c94c6c60a85549f3b7d22d1efcab05',1,'Skyrates::Common::Network::NetworkComponent']]],
-  ['shipcomponentlist',['ShipComponentList',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html#a981d21bb8a64a205825b8d50813b897e',1,'Skyrates::Client::Ship::ShipBuilder']]],
-  ['shipdata',['ShipData',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#ab036683fcaa1c13312a06631dfff1b42',1,'Skyrates.Client.Entity.EntityPlayerShip.ShipData()'],['../class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html#a14ff4eece1ec5d9bab63c8449939305c',1,'Skyrates.Client.Ship.ShipBuilder.ShipData()']]],
-  ['shiproot',['ShipRoot',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#ae5ebbb9645fe1bd175dc76bd5ae3b9a0',1,'Skyrates::Client::Entity::EntityPlayerShip']]],
-  ['shooters',['Shooters',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html#a9f5e4a291e93d6611f840341b84a78e6',1,'Skyrates::Client::Game::Event::EventArtilleryFired']]],
-  ['size_5fkeyboard',['SIZE_KEYBOARD',['../struct_state_input.html#acc91adb5a30e828f5fd4be0228a09040',1,'StateInput']]],
-  ['size_5fof_5ftimestamps',['SIZE_OF_TIMESTAMPS',['../namespace_champ_net.html#ae8bece8e869e20f234d9ae67256a735f',1,'ChampNet']]],
-  ['source',['Source',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged.html#a4cd32fb813a20f289425daf9c964d692',1,'Skyrates::Client::Game::Event::EventEntityShipDamaged']]],
-  ['sourceaddress',['SourceAddress',['../class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event.html#a85fa6ba40f7dfa60824d5c0abc841aab',1,'Skyrates::Common::Network::Event::NetworkEvent']]],
-  ['sourceentityguid',['SourceEntityGuid',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_request_entity_ship_damaged.html#ad8fde95b6ab97884c4f9c1bd8e0c5e88',1,'Skyrates::Client::Network::Event::EventRequestEntityShipDamaged']]],
-  ['sourceentitytypeasint',['SourceEntityTypeAsInt',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_request_entity_ship_damaged.html#a91ee85563df3e63d2785eee094198426',1,'Skyrates::Client::Network::Event::EventRequestEntityShipDamaged']]],
-  ['spawn',['spawn',['../class_skyrates_1_1_client_1_1_mono_1_1_shooter.html#a2aeb7c35dc048f65e02ccecfc654ab2c',1,'Skyrates.Client.Mono.Shooter.spawn()'],['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_spawn_entity_projectile.html#a9e08d311140edf6156e30bcb65c3d257',1,'Skyrates.Client.Game.Event.EventSpawnEntityProjectile.Spawn()']]],
-  ['steering',['Steering',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a8d35984946a298623b4de895873de43b',1,'Skyrates::Common::Entity::EntityDynamic']]],
-  ['steeringdata',['SteeringData',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#a60e4edbed3f02c3ba4a7c6150fbad90e',1,'Skyrates::Common::Entity::EntityDynamic']]]
+  ['readdiff_5flocal',['readDiff_local',['../struct_champ_net_1_1_time_stamp.html#aa2e6c532773210386df4ff9d2c5e1f2b',1,'ChampNet::TimeStamp']]],
+  ['render',['Render',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#a47161ace6007067717ff46e5f45ec113',1,'Skyrates::Client::Entity::EntityPlayerShip']]],
+  ['roots',['Roots',['../struct_skyrates_1_1_client_1_1_ship_1_1_ship_hull_1_1_mount.html#a0821e6acb28576b18538cca2f78034d7',1,'Skyrates::Client::Ship::ShipHull::Mount']]],
+  ['rotationeuler',['RotationEuler',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_request_spawn_entity_projectile.html#adf91fb852294daf0456ce0c42ade8139',1,'Skyrates::Client::Network::Event::EventRequestSpawnEntityProjectile']]],
+  ['routine',['Routine',['../struct_skyrates_1_1_client_1_1_scene_1_1_scene_loader_1_1_loading_sequence.html#a40e91dc9afde92c3229df4202f8fc7eb',1,'Skyrates::Client::Scene::SceneLoader::LoadingSequence']]]
 ];
