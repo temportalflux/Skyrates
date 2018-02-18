@@ -143,9 +143,9 @@ namespace Skyrates.Server.Network
 
             System.Diagnostics.Debug.Assert(evtAccept != null, "evtAccept != null");
             
-            Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.clientID));
+            Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.ClientID));
 
-            ClientData client = this.ClientList[(int) evtAccept.clientID];
+            ClientData client = this.ClientList[(int) evtAccept.ClientID];
 
             EntityPlayerShip e = GameManager.Instance.SpawnEntity(new Entity.TypeData(Entity.Type.Player, -1), client.PlayerGuid) as EntityPlayerShip;
             System.Diagnostics.Debug.Assert(e != null, "e != null");
@@ -186,7 +186,7 @@ namespace Skyrates.Server.Network
             System.Diagnostics.Debug.Assert(evtSetPlayerPhysics != null, "evtSetPlayerPhysics != null");
             
             // Get client from gamestate
-            ClientData client = this.ClientList[(int)evtSetPlayerPhysics.clientID];
+            ClientData client = this.ClientList[(int)evtSetPlayerPhysics.ClientID];
 
             // Set physic variables for the player owned by them
             EntityDynamic e = this.GetEntityTracker().Entities[Entity.Type.Player].Entities[client.PlayerGuid] as EntityDynamic;

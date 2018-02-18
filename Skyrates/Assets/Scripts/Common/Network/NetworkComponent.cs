@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Net;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
+using Skyrates.Client.Scene;
 using Skyrates.Common.Network.Event;
-using Skyrates.Server.Network;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

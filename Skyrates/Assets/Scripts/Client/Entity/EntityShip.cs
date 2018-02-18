@@ -192,9 +192,9 @@ namespace Skyrates.Client.Entity
             if (this.StatBlock == null || this.StatBlock.Loot == null) return;
 
             // Generate the loot to spawn
-            KeyValuePair<ShipComponent, GameObject>[] loots = this.StatBlock.Loot.Generate();
+            KeyValuePair<ShipComponent, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
             // Spawn each loot in turn
-            foreach (KeyValuePair<ShipComponent, GameObject> lootItem in loots)
+            foreach (KeyValuePair<ShipComponent, Loot.Loot> lootItem in loots)
             {
                 // If the loot is invalid in some way, discard
                 if (lootItem.Key == null || lootItem.Value == null)
@@ -205,7 +205,7 @@ namespace Skyrates.Client.Entity
                 // Get a random position to spawn it
                 Vector3 pos = position + Random.insideUnitSphere * this.StatBlock.LootRadius;
                 // Create the prefab instance for the loot
-                Loot.Loot loot = Instantiate(lootItem.Value, pos, Quaternion.identity).GetComponent<Loot.Loot>();
+                Loot.Loot loot = Instantiate(lootItem.Value.gameObject, pos, Quaternion.identity).GetComponent<Loot.Loot>();
                 // Set the item the loot contains
                 loot.Item = lootItem.Key;
                 // TODO: Loot event, loot should be static entity for networking

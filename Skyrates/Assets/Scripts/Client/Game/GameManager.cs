@@ -2,6 +2,7 @@
 using Skyrates.Client.Data;
 using Skyrates.Client.Entity;
 using Skyrates.Client.Game.Event;
+using Skyrates.Client.Scene;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;

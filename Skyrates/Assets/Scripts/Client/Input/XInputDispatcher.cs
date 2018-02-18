@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client;
-using Skyrates.Client.Entity;
+﻿using Skyrates.Client.Entity;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using UnityEngine;
@@ -15,93 +12,152 @@ namespace Skyrates.Client.Input
     public class XInputDispatcher : MonoBehaviour
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
         public class Pulse
         {
+            /// <summary>
+            /// 
+            /// </summary>
             public float Duration; // in ms
+            /// <summary>
+            /// 
+            /// </summary>
             public float MotorStart;
+            /// <summary>
+            /// 
+            /// </summary>
             public float MotorEnd;
 
-            private float DurationInv;
-            private float TimeElapsed; // in ms
+            /// <summary>
+            /// 
+            /// </summary>
+            private readonly float _durationInv;
+            /// <summary>
+            /// 
+            /// </summary>
+            private float _timeElapsed; // in ms
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="start"></param>
+            /// <param name="end"></param>
+            /// <param name="duration"></param>
             public Pulse(float start, float end, float duration)
             {
                 this.MotorStart = start;
                 this.MotorEnd = end;
                 this.Duration = duration;
-                this.DurationInv = 1 / this.Duration;
-                this.TimeElapsed = 0;
+                this._durationInv = 1 / this.Duration;
+                this._timeElapsed = 0;
             }
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public float Delta()
             {
-                return Mathf.Min(1.0f, this.TimeElapsed * this.DurationInv);
+                return Mathf.Min(1.0f, this._timeElapsed * this._durationInv);
             }
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="p"></param>
+            /// <param name="delta"></param>
+            /// <returns></returns>
             public static Pulse operator +(Pulse p, float delta)
             {
-                p.TimeElapsed += delta;
+                p._timeElapsed += delta;
                 return p;
             }
         }
 
-        private Pulse left, right;
+        /// <summary>
+        /// 
+        /// </summary>
+        private Pulse _left;
+        /// <summary>
+        /// 
+        /// </summary>
+        private Pulse _right;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public float OnHitStrength = 0.25f;
+        /// <summary>
+        /// 
+        /// </summary>
         public float OnHitDuration = 0.3f;
 
-        void Start()
+        /// <inheritdoc />
+        private void Start()
         {
-            this.left = null;
-            this.right = null;
+            this._left = null;
+            this._right = null;
         }
 
-        void OnEnable()
+        /// <inheritdoc />
+        private void OnEnable()
         {
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityHitByProjectile;
         }
 
-        void OnDisable()
+        /// <inheritdoc />
+        private void OnDisable()
         {
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityHitByProjectile;
         }
 
-        float Lerp(float start, float end, float delta)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="delta"></param>
+        /// <returns></returns>
+        private static float Lerp(float start, float end, float delta)
         {
             return (1 - delta) * start + (delta) * end;
         }
 
-        void FixedUpdate()
+        /// <inheritdoc />
+        private void FixedUpdate()
         {
             float motorLeft = 0;
             float motorRight = 0;
 
-            if (this.left != null)
+            if (this._left != null)
             {
-                motorLeft = Lerp(this.left.MotorStart, this.left.MotorEnd, this.left.Delta());
+                motorLeft = Lerp(this._left.MotorStart, this._left.MotorEnd, this._left.Delta());
 
-                this.left += Time.fixedDeltaTime;
-                if (this.left.Delta() >= 1.0f)
+                this._left += Time.fixedDeltaTime;
+                if (this._left.Delta() >= 1.0f)
                 {
-                    this.left = null;
+                    this._left = null;
                 }
             }
 
-            if (this.right != null)
+            if (this._right != null)
             {
-                motorRight = Lerp(this.right.MotorStart, this.right.MotorEnd, this.right.Delta());
+                motorRight = Lerp(this._right.MotorStart, this._right.MotorEnd, this._right.Delta());
 
-                this.right += Time.fixedDeltaTime;
-                if (this.right.Delta() >= 1.0f)
+                this._right += Time.fixedDeltaTime;
+                if (this._right.Delta() >= 1.0f)
                 {
-                    this.right = null;
+                    this._right = null;
                 }
             }
 
             GamePad.SetVibration(PlayerIndex.One, motorLeft, motorRight);
         }
 
-        void OnEntityHitByProjectile(GameEvent evt)
+        /// <inheritdoc />
+        private void OnEntityHitByProjectile(GameEvent evt)
         {
             EventEntityShipHitByProjectile evtHit = (EventEntityShipHitByProjectile) evt;
 
@@ -119,15 +175,10 @@ namespace Skyrates.Client.Input
             // if orthogonality is < 0, then right side
             // if orthogonality is > 0, then left side
             if (orthogonality < 0)
-                this.PulseOn(ref this.right, this.OnHitStrength, this.OnHitDuration);
+                this._right = new Pulse(this.OnHitStrength, 0, this.OnHitDuration);
             else if (orthogonality > 0)
-                this.PulseOn(ref this.left, this.OnHitStrength, this.OnHitDuration);
+                this._left = new Pulse(this.OnHitStrength, 0, this.OnHitDuration);
 
-        }
-
-        void PulseOn(ref Pulse pulseRef, float strength, float duration)
-        {
-            pulseRef = new Pulse(strength, 0, duration);
         }
 
     }

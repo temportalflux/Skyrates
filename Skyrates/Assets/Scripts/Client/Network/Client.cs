@@ -2,11 +2,10 @@
 using Skyrates.Client.Game.Event;
 using Skyrates.Common.Network;
 using Skyrates.Client.Network.Event;
+using Skyrates.Client.Scene;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
-using Skyrates.Server.Network;
 using Skyrates.Server.Network.Event;
-using UnityEngine;
 
 namespace Skyrates.Client.Network
 {
@@ -18,6 +17,9 @@ namespace Skyrates.Client.Network
     public class Client : NetworkCommon
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void SubscribeEvents()
         {
             base.SubscribeEvents();
@@ -33,6 +35,9 @@ namespace Skyrates.Client.Network
             GameManager.Events.LootCollided += this.OnLootCollided;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void UnsubscribeEvents()
         {
             base.UnsubscribeEvents();
@@ -81,6 +86,10 @@ namespace Skyrates.Client.Network
             UnityEngine.Debug.LogWarning("Connection was rejected... :'(");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="evt"></param>
         public void OnDisconnect(NetworkEvent evt)
         {
             // TODO: Boot user back to main menu
@@ -115,6 +124,11 @@ namespace Skyrates.Client.Network
             SceneLoader.Instance.ActivateNext();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="lastIndex"></param>
         public void DeserializeGameState(byte[] data, ref int lastIndex)
         {
             // Entities
@@ -122,6 +136,10 @@ namespace Skyrates.Client.Network
             tracker.Deserialize(data, ref lastIndex);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="evt"></param>
         public void OnPlayerMoved(GameEvent evt)
         {
             // On player move, tell server
@@ -129,13 +147,20 @@ namespace Skyrates.Client.Network
             NetworkComponent.GetNetwork().Dispatch(new EventRequestSetPlayerPhysics(((EventEntityPlayerShip) evt).PlayerShip.Physics));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="evt"></param>
         public virtual void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
             NetworkComponent.GetNetwork().Dispatch(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity, evtSpawn.ImpluseForce));
         }
 
-        // when any entity is suppossed to be damaged
+        /// <summary>
+        /// Called when any entity is suppossed to be damaged.
+        /// </summary>
+        /// <param name="evt"></param>
         public virtual void OnEntityShipHitBy(GameEvent evt)
         {
             EventEntityShipDamaged evtDamaged = (EventEntityShipDamaged) evt;
@@ -160,6 +185,10 @@ namespace Skyrates.Client.Network
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="evt"></param>
         public virtual void OnLootCollided(GameEvent evt)
         {
             EventLootCollided evtLoot = (EventLootCollided)evt;

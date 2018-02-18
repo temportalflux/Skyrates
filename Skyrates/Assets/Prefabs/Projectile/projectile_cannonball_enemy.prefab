@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fb6bdd616d8b14186de9c264563d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 2
+  Delay: 2
 --- !u!114 &114653715804997438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,6 +222,7 @@ MonoBehaviour:
     Render: {fileID: 0}
   Steering: {fileID: 0}
   PhysicsComponent: {fileID: 0}
+  Damage: 2
 --- !u!136 &136046087991806292
 CapsuleCollider:
   m_ObjectHideFlags: 1
