@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Skyrates
-   &#160;<span id="projectnumber">0.0.3</span>
+   &#160;<span id="projectnumber">0.0.5</span>
    </div>
   </td>
  </tr>
@@ -96,6 +96,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Skyrates.Client.Game.Event.GameEvents Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Dispatcher of <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html" title="General event class used to send information via GameEvents. ">GameEvent</a> instances, and place for observers to subscribe to events via their delegate.  
+ <a href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Client.Game.Event.GameEvents:</div>
 <div class="dyncontent">
@@ -108,11 +111,11 @@ Inheritance diagram for Skyrates.Client.Game.Event.GameEvents:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aef35aef1725ea32473c81becae252e1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef35aef1725ea32473c81becae252e1e"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>Delegate</b> (GameEventID eventID)</td></tr>
+<tr class="memitem:aef35aef1725ea32473c81becae252e1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events.html#aef35aef1725ea32473c81becae252e1e">Delegate</a> (<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a> eventID)</td></tr>
+<tr class="memdesc:aef35aef1725ea32473c81becae252e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the event delegate for the event ID.  <a href="#aef35aef1725ea32473c81becae252e1e">More...</a><br/></td></tr>
 <tr class="separator:aef35aef1725ea32473c81becae252e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a039cc913141b24e8684f16d94b545b01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a039cc913141b24e8684f16d94b545b01"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Dispatch</b> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memitem:a039cc913141b24e8684f16d94b545b01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events.html#a039cc913141b24e8684f16d94b545b01">Dispatch</a> (<a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a> evt)</td></tr>
+<tr class="memdesc:a039cc913141b24e8684f16d94b545b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoke all subcriptions to the event delegate for the event.  <a href="#a039cc913141b24e8684f16d94b545b01">More...</a><br/></td></tr>
 <tr class="separator:a039cc913141b24e8684f16d94b545b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_interface_i_event_delegate_3_01in_01_t_enum_id_00_01out_01_t_delegate_class_01_4"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interface_i_event_delegate_3_01in_01_t_enum_id_00_01out_01_t_delegate_class_01_4')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interface_i_event_delegate_3_01in_01_t_enum_id_00_01out_01_t_delegate_class_01_4.html">IEventDelegate&lt; in TEnumId, out TDelegateClass &gt;</a></td></tr>
 <tr class="memitem:afd5ee1abc156ef7976a91e1caeb073d5 inherit pub_methods_interface_i_event_delegate_3_01in_01_t_enum_id_00_01out_01_t_delegate_class_01_4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd5ee1abc156ef7976a91e1caeb073d5"></a>
@@ -122,54 +125,122 @@ TDelegateClass&#160;</td><td class="memItemRight" valign="bottom"><b>Delegate</b
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:ae734d53366da2f17e2dc5c42109a285f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae734d53366da2f17e2dc5c42109a285f"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>GameStart</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GameStart</b></td></tr>
 <tr class="separator:ae734d53366da2f17e2dc5c42109a285f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0bb9af04f1f457bde57f20a4e77bbf5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0bb9af04f1f457bde57f20a4e77bbf5"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>SceneLoaded</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SceneLoaded</b></td></tr>
 <tr class="separator:ac0bb9af04f1f457bde57f20a4e77bbf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a779a2d3baf2ec4cdbf6d0662bf60a2ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a779a2d3baf2ec4cdbf6d0662bf60a2ac"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EntityInstantiate</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EntityInstantiate</b></td></tr>
 <tr class="separator:a779a2d3baf2ec4cdbf6d0662bf60a2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b2812dc47eea09c77fbc65c65180d2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b2812dc47eea09c77fbc65c65180d2e"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EntityStart</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EntityStart</b></td></tr>
 <tr class="separator:a1b2812dc47eea09c77fbc65c65180d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57d62085271bbfdf48ede68e526cbe82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57d62085271bbfdf48ede68e526cbe82"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EntityDestroy</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EntityDestroy</b></td></tr>
 <tr class="separator:a57d62085271bbfdf48ede68e526cbe82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd89de6863ecb47e66b718a896432d61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd89de6863ecb47e66b718a896432d61"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>SpawnEntityProjectile</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SpawnEntityProjectile</b></td></tr>
 <tr class="separator:afd89de6863ecb47e66b718a896432d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4280bc86ee18132ccb573edd25bc0555"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4280bc86ee18132ccb573edd25bc0555"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>ArtilleryFired</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ArtilleryFired</b></td></tr>
 <tr class="separator:a4280bc86ee18132ccb573edd25bc0555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabf8f827a2ff9600d184b6f01dc9b72e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabf8f827a2ff9600d184b6f01dc9b72e"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EntityShipDamaged</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EntityShipDamaged</b></td></tr>
 <tr class="separator:aabf8f827a2ff9600d184b6f01dc9b72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89d17208f4b6f259f8fc03ead86b6a13"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89d17208f4b6f259f8fc03ead86b6a13"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EntityShipHitByProjectile</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EntityShipHitByProjectile</b></td></tr>
 <tr class="separator:a89d17208f4b6f259f8fc03ead86b6a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a418c2702fb43809be5279b4c0d877972"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a418c2702fb43809be5279b4c0d877972"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EntityShipHitByRam</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EntityShipHitByRam</b></td></tr>
 <tr class="separator:a418c2702fb43809be5279b4c0d877972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d9a7140119620bdad9b0afa73835dfd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d9a7140119620bdad9b0afa73835dfd"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EnemyTargetEngage</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EnemyTargetEngage</b></td></tr>
 <tr class="separator:a3d9a7140119620bdad9b0afa73835dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad05715a702655319528359afe979d48f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad05715a702655319528359afe979d48f"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>EnemyTargetDisengage</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EnemyTargetDisengage</b></td></tr>
 <tr class="separator:ad05715a702655319528359afe979d48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347e7a35ad1bbb862f1a4028c2e375ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a347e7a35ad1bbb862f1a4028c2e375ef"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerMoved</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerMoved</b></td></tr>
 <tr class="separator:a347e7a35ad1bbb862f1a4028c2e375ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dc1bfc1852ff08c98f6c521b96b1b07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dc1bfc1852ff08c98f6c521b96b1b07"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerLeft</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerLeft</b></td></tr>
 <tr class="separator:a5dc1bfc1852ff08c98f6c521b96b1b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fab9c767804b6cc3c12d816708a244d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fab9c767804b6cc3c12d816708a244d"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>LootCollided</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LootCollided</b></td></tr>
 <tr class="separator:a2fab9c767804b6cc3c12d816708a244d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cae2ea48c6b7fe77f44ba7c49255ef6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cae2ea48c6b7fe77f44ba7c49255ef6"></a>
-GameEventDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>LootCollected</b></td></tr>
+<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LootCollected</b></td></tr>
 <tr class="separator:a9cae2ea48c6b7fe77f44ba7c49255ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Dispatcher of <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html" title="General event class used to send information via GameEvents. ">GameEvent</a> instances, and place for observers to subscribe to events via their delegate. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aef35aef1725ea32473c81becae252e1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7">GameEventDelegate</a> Skyrates.Client.Game.Event.GameEvents.Delegate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a>&#160;</td>
+          <td class="paramname"><em>eventID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the event delegate for the event ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventID</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a039cc913141b24e8684f16d94b545b01"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Skyrates.Client.Game.Event.GameEvents.Dispatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">GameEvent</a>&#160;</td>
+          <td class="paramname"><em>evt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Invoke all subcriptions to the event delegate for the event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evt</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs</li>
 </ul>

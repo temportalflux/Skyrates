@@ -1,12 +1,14 @@
 var searchData=
 [
   ['game',['Game',['../class_game.html#a09f1b8c714816ee634939b73fe08622d',1,'Game::Game(StateApplication *state)'],['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()']]],
+  ['gameeventdelegate',['GameEventDelegate',['../namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a448e5d409dc993bd700f2f7f8161adf7',1,'Skyrates::Client::Game::Event']]],
   ['gamestate',['GameState',['../class_game_state.html#a74a35fb7045c0eee7e68f07c387e2ddf',1,'GameState']]],
   ['generatedata',['GenerateData',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html#a4ede7aaa958e764abcf7404c780457f4',1,'Skyrates.Common.Entity.EntityTracker.GenerateData()'],['../class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher.html#a3e3281a4c3b0890b1519562bee2610d6',1,'Skyrates.Common.Entity.EntityDispatcher.GenerateData()']]],
   ['getaddress',['getAddress',['../class_champ_net_1_1_packet.html#a8ab4d17481d7fc08f3c0dc2c48eb9a0a',1,'ChampNet::Packet::getAddress(const char *&amp;address, unsigned int &amp;length)'],['../class_champ_net_1_1_packet.html#a98b70a972a4a956e94f7203bc2f77402',1,'ChampNet::Packet::getAddress()'],['../namespace_champ_net_plugin.html#af5f2e2b6f71b6e0ddca62b9d7ed7e272',1,'ChampNetPlugin::GetAddress()']]],
   ['getartilleryleft',['GetArtilleryLeft',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html#a7c593db37500ee33faf154ac56efdd6d',1,'Skyrates::Client::Ship::ShipBuilder']]],
   ['getartilleryright',['GetArtilleryRight',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_builder.html#a2800839fe2bd3a7c923bcbc1b94ada95',1,'Skyrates::Client::Ship::ShipBuilder']]],
   ['getartilleryshooters',['GetArtilleryShooters',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#a05f762bd1722706fcafe61c9819e3613',1,'Skyrates.Client.Entity.EntityPlayerShip.GetArtilleryShooters()'],['../class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html#ae647437ac479d1758cf5ad5a80c4f89c',1,'Skyrates.Client.Entity.EntityShip.GetArtilleryShooters()'],['../class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_navy.html#ab3c53268f487acadfa25c518ac90ec66',1,'Skyrates.Client.Entity.EntityShipNavy.GetArtilleryShooters()']]],
+  ['getaveragetransform',['GetAverageTransform',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html#a58bb7b842dad16ff93c6702295648238',1,'Skyrates::Client::Game::Event::EventArtilleryFired']]],
   ['getcomponent_3c_20t_20_3e',['GetComponent&lt; T &gt;',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_component_list.html#a090584d5c90d9a0423414a25d26c0a65',1,'Skyrates::Client::Ship::ShipComponentList']]],
   ['getcount',['getCount',['../class_champ_net_1_1_packet_queue.html#af160b4a4fe3291c9d4bcb64952b4decb',1,'ChampNet::PacketQueue']]],
   ['getdamage',['GetDamage',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_projectile.html#a287e94a57d97586e9ef38d2af588129d',1,'Skyrates::Client::Entity::EntityProjectile']]],

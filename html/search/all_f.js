@@ -23,8 +23,10 @@ var searchData=
   ['physicspositionx',['physicsPositionX',['../struct_game_state_1_1_client.html#a304556b6fb37ad694423f4607ff57a2a',1,'GameState::Client']]],
   ['physicspositiony',['physicsPositionY',['../struct_game_state_1_1_client.html#a5b1ecccf7a720b6ae80475b5e9b2aab1',1,'GameState::Client']]],
   ['physicspositionz',['physicsPositionZ',['../struct_game_state_1_1_client.html#a8b4fa85d72284fdf8a1381675b386bbe',1,'GameState::Client']]],
-  ['playerdata',['PlayerData',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#a775f40dd5d6c89a50325eaa9dbd605b8',1,'Skyrates::Client::Entity::EntityPlayerShip']]],
-  ['playerguid',['PlayerGuid',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a2c3090338ac56475b1a536db879e8ddf',1,'Skyrates.Common.Network.Session.PlayerGuid()'],['../class_skyrates_1_1_server_1_1_network_1_1_client_data.html#acce52e282ee92f76cb67afa116469ebb',1,'Skyrates.Server.Network.ClientData.PlayerGuid()']]],
+  ['playerdata',['PlayerData',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship.html#a775f40dd5d6c89a50325eaa9dbd605b8',1,'Skyrates.Client.Entity.EntityPlayerShip.PlayerData()'],['../class_skyrates_1_1_client_1_1_game_1_1_game_manager.html#a370a843db6f1bc3d9a3e9a500aad0775',1,'Skyrates.Client.Game.GameManager.PlayerData()']]],
+  ['playerguid',['PlayerGuid',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_player_left.html#acf2e0404fa31a728d52f9fd12fec8bd3',1,'Skyrates.Client.Game.Event.EventPlayerLeft.PlayerGuid()'],['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a2c3090338ac56475b1a536db879e8ddf',1,'Skyrates.Common.Network.Session.PlayerGuid()'],['../class_skyrates_1_1_server_1_1_network_1_1_client_data.html#acce52e282ee92f76cb67afa116469ebb',1,'Skyrates.Server.Network.ClientData.PlayerGuid()']]],
+  ['playership',['PlayerShip',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_player_ship.html#a6f84598b8e589eeb0e102fcda0a322b9',1,'Skyrates::Client::Game::Event::EventEntityPlayerShip']]],
+  ['playerspawn',['PlayerSpawn',['../class_skyrates_1_1_client_1_1_game_1_1_game_manager.html#ade8d1e4254dfb7141f1365a5751ef987',1,'Skyrates::Client::Game::GameManager']]],
   ['pollpacket',['PollPacket',['../class_champ_net_plugin_1_1_network_plugin.html#a0a86f5783bdc9f940c516429fafd83c7',1,'ChampNetPlugin.NetworkPlugin.PollPacket(ref bool valid)'],['../class_champ_net_plugin_1_1_network_plugin.html#a779f2ef649d218531fc2232f1fd41b89',1,'ChampNetPlugin.NetworkPlugin.PollPacket(out string address, out byte[] data, out ulong transmitTime)'],['../namespace_champ_net_plugin.html#abb7c7dca9d557ab9cd6b29fbb6a75785',1,'ChampNetPlugin::PollPacket()']]],
   ['pollpackets',['pollPackets',['../class_champ_net_1_1_network.html#ae01cddc2981169cda9f4d65661c204f6',1,'ChampNet::Network']]],
   ['port',['port',['../struct_state_network.html#a369a4768473db59ccbd4ba509a61595c',1,'StateNetwork::port()'],['../class_skyrates_1_1_common_1_1_network_1_1_session.html#aed90ad75336095fa3287c961aba40c7b',1,'Skyrates.Common.Network.Session.Port()']]],
@@ -36,6 +38,7 @@ var searchData=
   ['prefablist',['PrefabList',['../class_skyrates_1_1_client_1_1_util_1_1_prefab_list.html',1,'Skyrates::Client::Util']]],
   ['prefablisteditor_3c_20tkey_2c_20tvalue_20_3e',['PrefabListEditor&lt; TKey, TValue &gt;',['../class_prefab_list_editor_3_01_t_key_00_01_t_value_01_4.html',1,'']]],
   ['previous',['previous',['../struct_state_input.html#a711e607cf2c158c933b80bfc8caa036a',1,'StateInput']]],
+  ['projectile',['Projectile',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_projectile.html#a278251a91678e0e27991998354e16455',1,'Skyrates::Client::Game::Event::EventEntityShipHitByProjectile']]],
   ['projectileprefab',['projectilePrefab',['../class_skyrates_1_1_client_1_1_mono_1_1_shooter.html#a33a43f93da1a0b19f25a6fbe91ed4dd3',1,'Skyrates::Client::Mono::Shooter']]],
-  ['pulse',['Pulse',['../class_x_input_dispatcher_1_1_pulse.html',1,'XInputDispatcher']]]
+  ['pulse',['Pulse',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher_1_1_pulse.html',1,'Skyrates::Client::Input::XInputDispatcher']]]
 ];

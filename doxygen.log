@@ -42,7 +42,6 @@ Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyra
 Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Component
 Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Data
 Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity
-Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile
 Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game
 Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events
 Searching for files in directory /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input
@@ -130,16 +129,16 @@ Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/
 Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Data/LocalData.cs...
 Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs...
 Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityPlayerShip.cs...
+Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityProjectile.cs...
+Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityProjectile.cs...
 Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityReceiver.cs...
 Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityReceiver.cs...
 Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs...
 Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs...
 Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShipNavy.cs...
 Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShipNavy.cs...
-Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/EntityProjectile.cs...
-Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/EntityProjectile.cs...
-Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs...
-Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/Shooter.cs...
+Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Shooter.cs...
+Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Shooter.cs...
 Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs...
 Parsing file /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs...
 Preprocessing /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs...
@@ -380,8 +379,8 @@ Preprocessing /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginT
 Parsing file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/Packets.h...
 Preprocessing /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/PerformanceTracker.h...
 Parsing file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/PerformanceTracker.h...
-Preprocessing /home/travis/build/temporta/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:11: warning: Compound Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputSet.cs:28: warning: Compound InputSet::Configuration is not documented.
+Preprocessing /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h...
+Parsing file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/Stat/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputSet.cs:28: warning: Compound InputSet::Configuration is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:12: warning: Compound Skyrates::Common::Network::Session is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputConfig.cs:8: warning: Compound InputConfig is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:29: warning: Compound ShipStat::HealthFeedback is not documented.
@@ -394,9 +393,7 @@ Preprocessing /home/travis/build/temporta/home/travis/build/temportalflux/Skyrat
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Analytics/Event/AnalyticEvent.cs:7: warning: Compound AnalyticEvent is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Prefab/PrefabList.cs:84: warning: Compound Skyrates::Client::Util::Test is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Editor/EntityListEditor.cs:13: warning: Compound Skyrates::Common::Entity::EntityListEditor is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:14: warning: Compound XInputDispatcher::Pulse is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/HullTargetEditor.cs:15: warning: Compound Skyrates::Client::Ship::HullTargetEditor is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventPlayerLeft.cs:8: warning: Compound Skyrates::Client::Game::Event::EventPlayerLeft is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/LootTable.cs:17: warning: Compound Skyrates::Client::Loot::LootTable::Row is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/ShipBuilderEditor.cs:11: warning: Compound ShipBuilderEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputXbox.cs:6: warning: Compound InputXbox is not documented.
@@ -404,76 +401,59 @@ Preprocessing /home/travis/build/temporta/home/travis/build/temportalflux/Skyrat
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/World/Editor/GeneratorEditor.cs:8: warning: Compound GeneratorEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/Packets.h:27: warning: Compound PacketHandshakeAccept is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Prefab/PrefabList.cs:25: warning: Compound Skyrates::Client::Util::PrefabList::Category is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:10: warning: Compound Skyrates::Client::Game::Event::EventLootCollided is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:9: warning: Compound Skyrates::Client::Game::Event::GameEvent is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/ArcRender.cs:13: warning: Compound Skyrates::Client::Effects::ArcRender is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Analytics/Analytics.cs:11: warning: Compound Analytics is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitSerializeAttribute.cs:482: warning: Compound Skyrates::Common::Network::BitSerializeAttribute::AttributeField is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Events/EventRequestSpawnEntityProjectile.cs:14: warning: Compound Skyrates::Client::Network::Event::EventRequestSpawnEntityProjectile is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Basic/UserControlled.cs:33: warning: Compound Skyrates::Common::AI::UserControlled::InputData is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameManager.cs:14: warning: Compound Skyrates::Client::Game::GameManager is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Controller/InputRotation.cs:8: warning: Compound InputRotation is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Basic/UserControlled.cs:10: warning: Compound Skyrates::Common::AI::UserControlled is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/DummyClient.cs:14: warning: Compound Skyrates::Client::Network::DummyClient is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:7: warning: Compound Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/VFXDispatcher.cs:22: warning: Compound VFXDispatcher::DispatchEntry is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitTestNetwork.cs:11: warning: Compound BitTestNetwork::Base is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/StartScene.cs:6: warning: Compound StartScene is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/ShipComponentListEditor.cs:8: warning: Compound ShipComponentListEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Extension/Vector3.cs:9: warning: Compound ExtensionMethods is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Extension/Editor/Editor.cs:11: warning: Compound ExtensionMethods is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/LootPivot.cs:5: warning: Compound LootPivot is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:8: warning: Compound Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Analytics/Event/EventDateTime.cs:6: warning: Compound EventDateTime is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/LootTable.cs:13: warning: Compound Skyrates::Client::Loot::LootTable is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/World/Generator.cs:7: warning: Compound Generator is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/UI/UpdateSessionID.cs:7: warning: Compound UpdateSessionID is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/MainMenu.cs:8: warning: Compound MainMenu is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/SideOnlyAttribute.cs:10: warning: Compound Skyrates::Common::Network::SideOnlyAttribute is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs:9: warning: Compound Skyrates::Client::Game::Event::EventEnemyTargetEngage is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/UI/UpdateLootCount.cs:10: warning: Compound UpdateLootCount is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByProjectile.cs:8: warning: Compound Skyrates::Client::Game::Event::EventEntityShipHitByProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollected.cs:11: warning: Compound Skyrates::Client::Game::Event::EventLootCollected is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputSet.cs:8: warning: Compound InputSet is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitTest2.cs:8: warning: Compound Skyrates::Common::Network::Test::BitTest2 is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:19: warning: Compound Skyrates::Client::Input::XInputDispatcher::Pulse is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Analytics/Event/EventSessionEnd.cs:6: warning: Compound EventSessionEnd is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/Packets.h:37: warning: Compound PacketUpdatePhysics is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitTestNetwork.cs:8: warning: Compound BitTestNetwork is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Editor/TypeDataPropertyDrawer.cs:9: warning: Compound TypeDataPropertyDrawer is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkEvents.cs:75: warning: Compound Skyrates::Common::Network::NetworkEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByRam.cs:9: warning: Compound Skyrates::Client::Game::Event::EventEntityShipHitByRam is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:9: warning: Compound ShipStat is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Old/AITarget.cs:8: warning: Compound AITarget is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSceneLoaded.cs:6: warning: Compound Skyrates::Client::Game::Event::EventSceneLoaded is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Basic/UserControlled.cs:14: warning: Compound Skyrates::Common::AI::UserControlled::InputConfig is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:10: warning: Compound Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:10: warning: Compound Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:11: warning: Compound XInputDispatcher is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Events/EventHandshakeAccept.cs:10: warning: Compound Skyrates::Client::Network::Event::EventHandshakeAccept is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Assets/ShipBuilder.cs:15: warning: Compound Skyrates::Client::Ship::ShipBuilder is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/NetworkTest.cs:9: warning: Compound Skyrates::Client::Network::Test::NetworkTest is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Server/Network/Event/EventHandshakeClientID.cs:10: warning: Compound Skyrates::Server::Network::Event::EventHandshakeClientID is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Editor/ShipEditor.cs:12: warning: Compound Skyrates::Client::Ship::ShipEditor is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:50: warning: Compound Skyrates::Client::Game::Event::GameEvents is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/IEventDelegate.cs:6: warning: Compound IEventDelegate< in TEnumId, out TDelegateClass > is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/UI/UpdateVersion.cs:6: warning: Compound UpdateVersion is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/UI/ButtonHover.cs:8: warning: Compound ButtonHover is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputUnity.cs:6: warning: Compound InputUnity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventGameStart.cs:8: warning: Compound Skyrates::Client::Game::Event::EventGameStart is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Server/Network/Event/EventUpdateGameState.cs:13: warning: Compound Skyrates::Server::Network::Event::EventUpdateGameState is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/NetworkEventAttribute.cs:8: warning: Compound NetworkEventAttribute is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/Ship.cs:12: warning: Compound Skyrates::Client::Ship::Ship is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Old/ForceLerp.cs:7: warning: Compound ForceLerp is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/VFXDispatcher.cs:9: warning: Compound VFXDispatcher is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs:11: warning: Compound Skyrates::Client::Game::Event::EventArtilleryFired is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Controller/InputInteraction.cs:13: warning: Compound InputInteraction is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/Editor/PrefabListEditor.cs:7: warning: Compound PrefabListEditor< TKey, TValue > is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/Editor/LootTableEditor.cs:12: warning: Compound Skyrates::Client::Loot::LootTableEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitTestNetwork.cs:25: warning: Compound BitTestNetwork::Derived is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Server/Physics/PhysicsData.cs:8: warning: Compound Skyrates::Common::AI::PhysicsData is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Events/EventRequestSetPlayerPhysics.cs:10: warning: Compound Skyrates::Client::Network::Event::EventRequestSetPlayerPhysics is not documented.
-lflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h...
-Parsing file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h...
+error: Project logo '/home/travis/build/temportalflux/Skyrates\Skyrates\Assets\Resources\Sprites\logo.png' specified by PROJECT_LOGO does not exist!
+eApplication.h...
 Preprocessing /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h...
 Parsing file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h...
 Preprocessing /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateServer.h...
@@ -543,8 +523,12 @@ Resolving user defined references...
 Finding anchors and sections in the documentation...
 Transferring function references...
 Combining using relations...
-Adding members to indeerror: Project logo '/home/travis/build/temportalflux/Skyrates\Skyrates\Assets\Resources\Sprites\logo.png' specified by PROJECT_LOGO does not exist!
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateServer.h:21: warning: Member MessageIDs (enumeration) of group server is not documented.
+Adding members to index pages...
+Generating style sheet...
+Generating search indices...
+Generating example documentation...
+Generating file sources...
+Generating code for file /home/travis/b/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateServer.h:21: warning: Member MessageIDs (enumeration) of group server is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Old/AITarget.cs:10: warning: Member Start() (function) of class AITarget is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:117: warning: Member OnDestroy() (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:122: warning: Member Update() (function) of class Skyrates::Common::Entity::Entity is not documented.
@@ -684,7 +668,6 @@ Adding members to indeerror: Project logo '/home/travis/build/temportalflux/Skyr
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputConfig.cs:15: warning: Member inputType (variable) of class InputConfig is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputConfig.cs:16: warning: Member descriptor (variable) of class InputConfig is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/_Client/Input/InputConfig.cs:17: warning: Member multiplier (variable) of class InputConfig is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/MainMenu.cs:10: warning: Member StartStandalone() (function) of class MainMenu is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/NetworkEventAttribute.cs:13: warning: Member NetworkEventAttribute(Side sender, Side receiver) (function) of class NetworkEventAttribute is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/NetworkEventAttribute.cs:19: warning: Member GetSender() (function) of class NetworkEventAttribute is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/NetworkEventAttribute.cs:24: warning: Member GetReceiver() (function) of class NetworkEventAttribute is not documented.
@@ -725,12 +708,18 @@ Adding members to indeerror: Project logo '/home/travis/build/temportalflux/Skyr
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:23: warning: Member Loot (variable) of class ShipStat is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:25: warning: Member LootRadius (variable) of class ShipStat is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:51: warning: Member HealthFeedbackData (variable) of class ShipStat is not documented.
-x pages...
-Generating style sheet...
-Generating search indices...
-Generating example documentation...
-Generating file sources...
-Generating code for file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNet/include/ChampNet.h...
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:35: warning: Member SmokeDamage (variable) of class ShipStat::HealthFeedback is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:38: warning: Member SmokeEmissionAmount (variable) of class ShipStat::HealthFeedback is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:42: warning: Member FireDamage (variable) of class ShipStat::HealthFeedback is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:45: warning: Member FireEmissionAmount (variable) of class ShipStat::HealthFeedback is not documented.
+/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:23: warning: Member stopRunning() (function) of class StateApplication is not documented.
+/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:24: warning: Member isRunning() const  (function) of class StateApplication is not documented.
+/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:26: warning: Member getData() const  (function) of class StateApplication is not documented.
+/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:28: warning: Member onEnterFrom(StateApplication *previous) (function) of class StateApplication is not documented.
+/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:30: warning: Member onExitTo(StateApplication *next) (function) of class StateApplication is not documented.
+/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:17: warning: Member mpState (variable) of class StateApplication is not documented.
+/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h:40: warning: Member cursorPosY (variable) of class StateConsole is not documented.
+uild/temportalflux/Skyrates/ChampNet/ChampNet/include/ChampNet.h...
 Generating code for file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNet/include/Packet.h...
 Generating code for file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNet/include/Win.h...
 Generating code for file /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPlugin/include/ChampNetPlugin.h...
@@ -777,7 +766,6 @@ Generating docs for nested compound InputSet::Configuration...
 Generating docs for compound InputUnity...
 Generating docs for compound InputXbox...
 Generating docs for compound LootPivot...
-Generating docs for compound MainMenu...
 Generating docs for compound NetworkEventAttribute...
 Generating docs for compound PacketGeneral...
 Generating docs for compound PacketHandshakeAccept...
@@ -793,18 +781,11 @@ Generating docs for compound ShipBuilderEditor...
 Generating docs for compound ShipComponentListEditor...
 Generating docs for compound ShipData...
 Generating docs for compound ShipStat...
-Gene/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:35: warning: Member SmokeDamage (variable) of class ShipStat::HealthFeedback is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:38: warning: Member SmokeEmissionAmount (variable) of class ShipStat::HealthFeedback is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:42: warning: Member FireDamage (variable) of class ShipStat::HealthFeedback is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Ship/ShipStat.cs:45: warning: Member FireEmissionAmount (variable) of class ShipStat::HealthFeedback is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:23: warning: Member stopRunning() (function) of class StateApplication is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:24: warning: Member isRunning() const  (function) of class StateApplication is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:26: warning: Member getData() const  (function) of class StateApplication is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:28: warning: Member onEnterFrom(StateApplication *previous) (function) of class StateApplication is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:30: warning: Member onExitTo(StateApplication *next) (function) of class StateApplication is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:17: warning: Member mpState (variable) of class StateApplication is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h:40: warning: Member cursorPosY (variable) of class StateConsole is not documented.
-/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h:60: warning: Member mInput (variable) of class StateData is not documented.
+Generating docs for nested compound ShipStat::HealthFeedback...
+Generating docs for compound Singleton< T >...
+Generating docs for compound StateApplication...
+Generating docs for compound StateConsole...
+Generati/home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h:60: warning: Member mInput (variable) of class StateData is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h:61: warning: Member mConsole (variable) of class StateData is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateData.h:62: warning: Member mNetwork (variable) of class StateData is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPluginTest/include/StateApplication.h:23: warning: Member stopRunning() (function) of class StateApplication is not documented.
@@ -831,14 +812,6 @@ Gene/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Shi
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/VFXDispatcher.cs:93: warning: Member OnDisable() (function) of class VFXDispatcher is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/VFXDispatcher.cs:25: warning: Member ID (variable) of class VFXDispatcher::DispatchEntry is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/VFX/VFXDispatcher.cs:28: warning: Member Prefab (variable) of class VFXDispatcher::DispatchEntry is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:45: warning: Member OnHitStrength (variable) of class XInputDispatcher is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:46: warning: Member OnHitDuration (variable) of class XInputDispatcher is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:22: warning: Member Pulse(float start, float end, float duration) (function) of class XInputDispatcher::Pulse is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:31: warning: Member Delta() (function) of class XInputDispatcher::Pulse is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:36: warning: Member operator+(Pulse p, float delta) (function) of class XInputDispatcher::Pulse is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:15: warning: Member Duration (variable) of class XInputDispatcher::Pulse is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:16: warning: Member MotorStart (variable) of class XInputDispatcher::Pulse is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:17: warning: Member MotorEnd (variable) of class XInputDispatcher::Pulse is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPlugin/include/ChampNetPlugin.h:57: warning: Member FuncCallBack)(const char *message, int color, int size) (typedef) of namespace ChampNetPlugin is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPlugin/include/ChampNetPlugin.h:58: warning: Member Color (enumeration) of namespace ChampNetPlugin is not documented.
 /home/travis/build/temportalflux/Skyrates/ChampNet/ChampNetPlugin/source/ChampNetPlugin.cpp:24: warning: Member gpNetwork (variable) of namespace ChampNetPlugin is not documented.
@@ -859,6 +832,17 @@ Gene/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Shi
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:97: warning: Member EntityType (variable) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityShip.cs:37: warning: Member Start() (function) of class Skyrates::Client::Entity::EntityShip is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:52: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:61: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:71: warning: Member AllTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:72: warning: Member AllTypesString (variable) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:73: warning: Member ListableTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:74: warning: Member ListableClassTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:97: warning: Member EntityType (variable) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/EntityProjectile.cs:27: warning: Member Start() (function) of class Skyrates::Client::Entity::EntityProjectile is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:43: warning: Member Awake() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:52: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:117: warning: Member OnDestroy() (function) of class Skyrates::Common::Entity::Entity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:122: warning: Member Update() (function) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:61: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:71: warning: Member AllTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:72: warning: Member AllTypesString (variable) of class Skyrates::Common::Entity::Entity is not documented.
@@ -899,154 +883,99 @@ Gene/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Shi
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:72: warning: Member AllTypesString (variable) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:73: warning: Member ListableTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:74: warning: Member ListableClassTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:97: warning: Member EntityType (variable) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Entity/Projectile/EntityProjectile.cs:27: warning: Member Start() (function) of class Skyrates::Client::Entity::EntityProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:43: warning: Member Awake() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/EntityDynamic.cs:52: warning: Member Start() (function) of class Skyrates::Common::Entity::EntityDynamic is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:117: warning: Member OnDestroy() (function) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:122: warning: Member Update() (function) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:61: warning: Member Type (enumeration) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:71: warning: Member AllTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:72: warning: Member AllTypesString (variable) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:73: warning: Member ListableTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Entity/Entity.cs:74: warning: Member ListableClassTypes (variable) of class Skyrates::Common::Entity::Entity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameManager.cs:84: warning: Member SpawnEntity(Common.Entity.Entity.TypeData typeData, Guid guid) (function) of class Skyrates::Client::Game::GameManager is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameManager.cs:23: warning: Member EntityList (variable) of class Skyrates::Client::Game::GameManager is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameManager.cs:27: warning: Member playerSpawn (variable) of class Skyrates::Client::Game::GameManager is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameManager.cs:29: warning: Member PlayerData (variable) of class Skyrates::Client::Game::GameManager is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameManager.cs:16: warning: Member Instance (variable) of class Skyrates::Client::Game::GameManager is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameManager.cs:18: warning: Member Events (property) of class Skyrates::Client::Game::GameManager is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:9: warning: Member GameEventID (enumeration) of namespace Skyrates::Client::Game::Event is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:47: warning: Member GameEventDelegate(GameEvent evt) (function) of namespace Skyrates::Client::Game::Event is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs:15: warning: Member EventArtilleryFired(EntityShip ship, Shooter[] shooters) (function) of class Skyrates::Client::Game::Event::EventArtilleryFired is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs:21: warning: Member GetAverageTransform(out Vector3 averagePosition, out Quaternion averageRotation) (function) of class Skyrates::Client::Game::Event::EventArtilleryFired is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs:13: warning: Member Shooters (variable) of class Skyrates::Client::Game::Event::EventArtilleryFired is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs:13: warning: Member EventEnemyTargetEngage(GameEventID id, EntityShip owner, EntityShip target) (function) of class Skyrates::Client::Game::Event::EventEnemyTargetEngage is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:21: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs:19: warning: Member Engage(EntityShip owner, EntityShip target) (function) of class Skyrates::Client::Game::Event::EventEnemyTargetEngage is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs:24: warning: Member Disengage(EntityShip owner, EntityShip target) (function) of class Skyrates::Client::Game::Event::EventEnemyTargetEngage is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs:11: warning: Member Target (property) of class Skyrates::Client::Game::Event::EventEnemyTargetEngage is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:13: warning: Member Ship (property) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:20: warning: Member EventEntityPlayerShip(GameEventID id, EntityPlayerShip playerShip) (function) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:12: warning: Member PlayerShip (property) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:21: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:13: warning: Member Ship (property) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:19: warning: Member EventEntityShipDamaged(GameEventID id, Common.Entity.Entity source, EntityShip ship, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:25: warning: Member EventEntityShipDamaged(Common.Entity.Entity source, EntityShip target, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:21: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:10: warning: Member Source (variable) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:17: warning: Member Damage (variable) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:12: warning: Member Target (property) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:13: warning: Member Ship (property) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByProjectile.cs:15: warning: Member EventEntityShipHitByProjectile(EntityShip target, EntityProjectile entityProjectile) (function) of class Skyrates::Client::Game::Event::EventEntityShipHitByProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:19: warning: Member EventEntityShipDamaged(GameEventID id, Common.Entity.Entity source, EntityShip ship, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:25: warning: Member EventEntityShipDamaged(Common.Entity.Entity source, EntityShip target, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:21: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByProjectile.cs:10: warning: Member Projectile (property) of class Skyrates::Client::Game::Event::EventEntityShipHitByProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:12: warning: Member Target (property) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:13: warning: Member Ship (property) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:10: warning: Member Source (variable) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:17: warning: Member Damage (variable) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByRam.cs:13: warning: Member EventEntityShipHitByRam(EntityShip ship, ShipFigurehead ram) (function) of class Skyrates::Client::Game::Event::EventEntityShipHitByRam is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:19: warning: Member EventEntityShipDamaged(GameEventID id, Common.Entity.Entity source, EntityShip ship, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:25: warning: Member EventEntityShipDamaged(Common.Entity.Entity source, EntityShip target, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:21: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByRam.cs:11: warning: Member Figurehead (variable) of class Skyrates::Client::Game::Event::EventEntityShipHitByRam is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:10: warning: Member Source (variable) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:17: warning: Member Damage (variable) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:12: warning: Member Target (property) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:13: warning: Member Ship (property) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventGameStart.cs:12: warning: Member EventGameStart(Session.NetworkMode gameMode) (function) of class Skyrates::Client::Game::Event::EventGameStart is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventGameStart.cs:10: warning: Member GameMode (variable) of class Skyrates::Client::Game::Event::EventGameStart is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollected.cs:13: warning: Member EventLootCollected(EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollected is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:14: warning: Member EventLootCollided(GameEventID id, EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:20: warning: Member EventLootCollided(EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:20: warning: Member EventEntityPlayerShip(GameEventID id, EntityPlayerShip playerShip) (function) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:12: warning: Member Loot (property) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:12: warning: Member PlayerShip (property) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:14: warning: Member EventLootCollided(GameEventID id, EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:20: warning: Member EventLootCollided(EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:20: warning: Member EventEntityPlayerShip(GameEventID id, EntityPlayerShip playerShip) (function) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:14: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:12: warning: Member Loot (property) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:12: warning: Member PlayerShip (property) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:12: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventPlayerLeft.cs:12: warning: Member EventPlayerLeft(Guid guid) (function) of class Skyrates::Client::Game::Event::EventPlayerLeft is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventPlayerLeft.cs:10: warning: Member PlayerGuid (variable) of class Skyrates::Client::Game::Event::EventPlayerLeft is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSceneLoaded.cs:10: warning: Member EventSceneLoaded(SceneData.SceneKey key) (function) of class Skyrates::Client::Game::Event::EventSceneLoaded is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSceneLoaded.cs:8: warning: Member Scene (variable) of class Skyrates::Client::Game::Event::EventSceneLoaded is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:17: warning: Member EventSpawnEntityProjectile(Common.Entity.Entity.TypeData type, Transform spawn, Vector3 velocity, Vector3 impluseForce) (function) of class Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:9: warning: Member TypeData (variable) of class Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:11: warning: Member Spawn (variable) of class Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:13: warning: Member Velocity (variable) of class Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:15: warning: Member ImpluseForce (variable) of class Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:13: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:11: warning: Member EventID (variable) of class Skyrates::Client::Game::Event::GameEvent is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:75: warning: Member Delegate(GameEventID eventID) (function) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:123: warning: Member Dispatch(GameEvent evt) (function) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/MainMenu.cs:16: warning: Member StartStandalone() (function) of class Skyrates::Client::Game::MainMenu is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs:22: warning: Member EventArtilleryFired(EntityShip ship, Shooter[] shooters) (function) of class Skyrates::Client::Game::Event::EventArtilleryFired is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs:16: warning: Member EventEnemyTargetEngage(GameEventID id, EntityShip owner, EntityShip target) (function) of class Skyrates::Client::Game::Event::EventEnemyTargetEngage is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEnemyTargetEngage.cs:14: warning: Member Target (property) of class Skyrates::Client::Game::Event::EventEnemyTargetEngage is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:23: warning: Member EventEntityPlayerShip(GameEventID id, EntityPlayerShip playerShip) (function) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:31: warning: Member EventEntityShipDamaged(GameEventID id, Common.Entity.Entity source, EntityShip ship, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:37: warning: Member EventEntityShipDamaged(Common.Entity.Entity source, EntityShip target, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByProjectile.cs:21: warning: Member EventEntityShipHitByProjectile(EntityShip target, EntityProjectile entityProjectile) (function) of class Skyrates::Client::Game::Event::EventEntityShipHitByProjectile is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:31: warning: Member EventEntityShipDamaged(GameEventID id, Common.Entity.Entity source, EntityShip ship, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:37: warning: Member EventEntityShipDamaged(Common.Entity.Entity source, EntityShip target, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipHitByRam.cs:19: warning: Member EventEntityShipHitByRam(EntityShip ship, ShipFigurehead ram) (function) of class Skyrates::Client::Game::Event::EventEntityShipHitByRam is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:31: warning: Member EventEntityShipDamaged(GameEventID id, Common.Entity.Entity source, EntityShip ship, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShipDamaged.cs:37: warning: Member EventEntityShipDamaged(Common.Entity.Entity source, EntityShip target, float damage) (function) of class Skyrates::Client::Game::Event::EventEntityShipDamaged is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventGameStart.cs:18: warning: Member EventGameStart(Session.NetworkMode gameMode) (function) of class Skyrates::Client::Game::Event::EventGameStart is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollected.cs:16: warning: Member EventLootCollected(EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollected is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:20: warning: Member EventLootCollided(GameEventID id, EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:26: warning: Member EventLootCollided(EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:23: warning: Member EventEntityPlayerShip(GameEventID id, EntityPlayerShip playerShip) (function) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:20: warning: Member EventLootCollided(GameEventID id, EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventLootCollided.cs:26: warning: Member EventLootCollided(EntityPlayerShip playerShip, Loot.Loot loot) (function) of class Skyrates::Client::Game::Event::EventLootCollided is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityPlayerShip.cs:23: warning: Member EventEntityPlayerShip(GameEventID id, EntityPlayerShip playerShip) (function) of class Skyrates::Client::Game::Event::EventEntityPlayerShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntityShip.cs:24: warning: Member EventEntityShip(GameEventID id, EntityShip ship) (function) of class Skyrates::Client::Game::Event::EventEntityShip is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:17: warning: Member EventEntity(GameEventID id, Common.Entity.Entity entity) (function) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventEntity.cs:15: warning: Member Entity (variable) of class Skyrates::Client::Game::Event::EventEntity is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventPlayerLeft.cs:17: warning: Member EventPlayerLeft(Guid guid) (function) of class Skyrates::Client::Game::Event::EventPlayerLeft is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSceneLoaded.cs:13: warning: Member EventSceneLoaded(SceneData.SceneKey key) (function) of class Skyrates::Client::Game::Event::EventSceneLoaded is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSceneLoaded.cs:11: warning: Member Scene (variable) of class Skyrates::Client::Game::Event::EventSceneLoaded is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSpawnEntityProjectile.cs:32: warning: Member EventSpawnEntityProjectile(Common.Entity.Entity.TypeData type, Transform spawn, Vector3 velocity, Vector3 impluseForce) (function) of class Skyrates::Client::Game::Event::EventSpawnEntityProjectile is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs:19: warning: Member GameEvent(GameEventID id) (function) of class Skyrates::Client::Game::Event::GameEvent is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Util/IEventDelegate.cs:8: warning: Member Delegate(TEnumId eventID) (function) of class IEventDelegate< in TEnumId, out TDelegateClass > is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:52: warning: Member GameStart (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:54: warning: Member SceneLoaded (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:57: warning: Member EntityInstantiate (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:58: warning: Member EntityStart (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:59: warning: Member EntityDestroy (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:60: warning: Member SpawnEntityProjectile (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:61: warning: Member ArtilleryFired (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:62: warning: Member EntityShipDamaged (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:63: warning: Member EntityShipHitByProjectile (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:64: warning: Member EntityShipHitByRam (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:65: warning: Member EnemyTargetEngage (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:66: warning: Member EnemyTargetDisengage (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:69: warning: Member PlayerMoved (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:70: warning: Member PlayerLeft (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:71: warning: Member LootCollided (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:72: warning: Member LootCollected (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:60: warning: Member GameStart (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:62: warning: Member SceneLoaded (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:65: warning: Member EntityInstantiate (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:66: warning: Member EntityStart (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:67: warning: Member EntityDestroy (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:68: warning: Member SpawnEntityProjectile (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:69: warning: Member ArtilleryFired (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:70: warning: Member EntityShipDamaged (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:71: warning: Member EntityShipHitByProjectile (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:72: warning: Member EntityShipHitByRam (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:73: warning: Member EnemyTargetEngage (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:74: warning: Member EnemyTargetDisengage (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:77: warning: Member PlayerMoved (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:78: warning: Member PlayerLeft (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:79: warning: Member LootCollided (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/GameEvents.cs:80: warning: Member LootCollected (event) of class Skyrates::Client::Game::Event::GameEvents is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:50: warning: Member OnHitStrength (variable) of class Skyrates::Client::Input::XInputDispatcher is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:51: warning: Member OnHitDuration (variable) of class Skyrates::Client::Input::XInputDispatcher is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:27: warning: Member Pulse(float start, float end, float duration) (function) of class Skyrates::Client::Input::XInputDispatcher::Pulse is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:36: warning: Member Delta() (function) of class Skyrates::Client::Input::XInputDispatcher::Pulse is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:41: warning: Member operator+(Pulse p, float delta) (function) of class Skyrates::Client::Input::XInputDispatcher::Pulse is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:20: warning: Member Duration (variable) of class Skyrates::Client::Input::XInputDispatcher::Pulse is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:21: warning: Member MotorStart (variable) of class Skyrates::Client::Input::XInputDispatcher::Pulse is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Input/XInputDispatcher.cs:22: warning: Member MotorEnd (variable) of class Skyrates::Client::Input::XInputDispatcher::Pulse is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/Editor/LootTableEditor.cs:21: warning: Member OnInspectorGUI() (function) of class Skyrates::Client::Loot::LootTableEditor is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/Loot.cs:12: warning: Member Item (variable) of class Skyrates::Client::Loot::Loot is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/Loot.cs:14: warning: Member LootPrefabWithoutSail (variable) of class Skyrates::Client::Loot::Loot is not documented.
@@ -1059,12 +988,7 @@ Gene/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Shi
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/LootTable.cs:22: warning: Member Item (variable) of class Skyrates::Client::Loot::LootTable::Row is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/LootTable.cs:25: warning: Member Prefab (variable) of class Skyrates::Client::Loot::LootTable::Row is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Loot/LootTable.cs:27: warning: Member Percentage (variable) of class Skyrates::Client::Loot::LootTable::Row is not documented.
-rating docs for nested compound ShipStat::HealthFeedback...
-Generating docs for compound Singleton< T >...
-Generating docs for compound StartScene...
-Generating docs for compound StateApplication...
-Generating docs for compound StateConsole...
-Generating docs for compound StateData...
+ng docs for compound StateData...
 Generating docs for compound StateInput...
 Generating docs for compound StateNetwork...
 Generating docs for compound StateServer...
@@ -1076,8 +1000,6 @@ Generating docs for compound UpdateVersion...
 Generating docs for compound Version...
 Generating docs for compound VFXDispatcher...
 Generating docs for nested compound VFXDispatcher::DispatchEntry...
-Generating docs for compound XInputDispatcher...
-Generating docs for nested compound XInputDispatcher::Pulse...
 Generating namespace index...
 Generating docs for namespace ChampNet
 Generating docs for compound ChampNet::Network...
@@ -1095,11 +1017,13 @@ Generating docs for namespace Skyrates::Client::Effects
 Generating docs for compound Skyrates::Client::Effects::ArcRender...
 Generating docs for namespace Skyrates::Client::Entity
 Generating docs for compound Skyrates::Client::Entity::EntityPlayerShip...
+Generating docs for compound Skyrates::Client::Entity::EntityProjectile...
 Generating docs for compound Skyrates::Client::Entity::EntityShip...
 Generating docs for compound Skyrates::Client::Entity::EntityShipNavy...
-Generating docs for compound Skyrates::Client::Entity::EntityProjectile...
 Generating docs for namespace Skyrates::Client::Game
 Generating docs for compound Skyrates::Client::Game::GameManager...
+Generating docs for compound Skyrates::Client::Game::MainMenu...
+Generating docs for compound Skyrates::Client::Game::StartScene...
 Generating docs for namespace Skyrates::Client::Game::Event
 Generating docs for compound Skyrates::Client::Game::Event::EventArtilleryFired...
 Generating docs for compound Skyrates::Client::Game::Event::EventEnemyTargetEngage...
@@ -1117,6 +1041,9 @@ Generating docs for compound Skyrates::Client::Game::Event::EventSceneLoaded...
 Generating docs for compound Skyrates::Client::Game::Event::EventSpawnEntityProjectile...
 Generating docs for compound Skyrates::Client::Game::Event::GameEvent...
 Generating docs for compound Skyrates::Client::Game::Event::GameEvents...
+Generating docs for namespace Skyrates::Client::Input
+Generating docs for compound Skyrates::Client::Input::XInputDispatcher...
+Generating docs for nested compound Skyrates::Client::Input::XInputDispatcher::Pulse...
 Generating docs for namespace Skyrates::Client::Loot
 Generating docs for compound Skyrates::Client::Loot::LootTableEditor...
 Generating docs for compound Skyrates::Client::Loot::Loot...
@@ -1125,7 +1052,7 @@ Generating docs for nested compound Skyrates::Client::Loot::LootTable::Row...
 Generating docs for namespace Skyrates::Client::Mono
 Generating docs for compound Skyrates::Client::Mono::OutOfWorldBoundary...
 Generating docs for compound Skyrates::Client::Mono::SelfDestruct...
-Generating docs for compound Skyr/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:21: warning: Member SubscribeEvents() (function) of class Skyrates::Client::Network::Client is not documented.
+Generating docs for compound Skyrates::Client::Mo/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:21: warning: Member SubscribeEvents() (function) of class Skyrates::Client::Network::Client is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:36: warning: Member UnsubscribeEvents() (function) of class Skyrates::Client::Network::Client is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:84: warning: Member OnDisconnect(NetworkEvent evt) (function) of class Skyrates::Client::Network::Client is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Network/Client.cs:118: warning: Member DeserializeGameState(byte[] data, ref int lastIndex) (function) of class Skyrates::Client::Network::Client is not documented.
@@ -1366,7 +1293,7 @@ Generating docs for compound Skyr/home/travis/build/temportalflux/Skyrates/Skyra
   parameter 'obj'
   parameter 'fields'
   parameter 'generics'
-ates::Client::Mono::Shooter...
+no::Shooter...
 Generating docs for namespace Skyrates::Client::Network
 Generating docs for compound Skyrates::Client::Network::Client...
 Generating docs for compound Skyrates::Client::Network::DummyClient...
@@ -1424,7 +1351,7 @@ Generating docs for compound Skyrates::Common::Network::PacketReceiver...
 Generating docs for compound Skyrates::Common::Network::NetworkComponent...
 Generating docs for compound Skyrates::Common::Network::NetworkEvents...
 Generating docs for compound Skyrates::Common::Network::BitSerializeAttribute...
-Generating docs for /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitSerializeAttribute.cs:484: warning: Member info (variable) of class Skyrates::Common::Network::BitSerializeAttribute::AttributeField is not documented.
+Generating docs for nested compound /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitSerializeAttribute.cs:484: warning: Member info (variable) of class Skyrates::Common::Network::BitSerializeAttribute::AttributeField is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitSerializeAttribute.cs:485: warning: Member size (variable) of class Skyrates::Common::Network::BitSerializeAttribute::AttributeField is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitSerializeAttribute.cs:486: warning: Member fields (variable) of class Skyrates::Common::Network::BitSerializeAttribute::AttributeField is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitSerializeAttribute.cs:487: warning: Member fieldsbyGeneric (variable) of class Skyrates::Common::Network::BitSerializeAttribute::AttributeField is not documented.
@@ -1434,17 +1361,16 @@ Generating docs for /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Sc
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Serializing/BitSerializeAttribute.cs:103: warning: The following parameters of Skyrates.Common.Network.BitSerializeAttribute.SerializationModule< T >.Deserialize(object obj, byte[] data, int start, Type type) are not documented:
   parameter 'obj'
   parameter 'type'
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:112: warning: Member Init() (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:121: warning: Member HasValidClientID() (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:126: warning: Member SetAddress(string address) (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:131: warning: Member SetTargetAddress(string address) (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:136: warning: Member SetAddressBoth(string address) (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:142: warning: Member SetAddressFrom(UnityEngine.UI.InputField field) (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:147: warning: Member SetTargetAddressFrom(UnityEngine.UI.InputField field) (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:152: warning: Member SetPortFrom(UnityEngine.UI.InputField field) (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:157: warning: Member SetClientData(ClientData data) (function) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:102: warning: Member IsOwner (property) of class Skyrates::Common::Network::Session is not documented.
-/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:107: warning: Member NetworkID (property) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:115: warning: Member Init() (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:124: warning: Member HasValidClientID() (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:129: warning: Member SetAddress(string address) (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:134: warning: Member SetTargetAddress(string address) (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:139: warning: Member SetAddressBoth(string address) (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:145: warning: Member SetAddressFrom(UnityEngine.UI.InputField field) (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:150: warning: Member SetTargetAddressFrom(UnityEngine.UI.InputField field) (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:155: warning: Member SetPortFrom(UnityEngine.UI.InputField field) (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:160: warning: Member SetClientData(ClientData data) (function) of class Skyrates::Common::Network::Session is not documented.
+/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Session.cs:110: warning: Member NetworkID (property) of class Skyrates::Common::Network::Session is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/SideOnlyAttribute.cs:14: warning: Member SideOnlyAttribute(Side side) (function) of class Skyrates::Common::Network::SideOnlyAttribute is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/SideOnlyAttribute.cs:12: warning: Member Side (property) of class Skyrates::Common::Network::SideOnlyAttribute is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Event/EventDisconnect.cs:26: warning: Member EventDisconnect(uint clientID) (function) of class Skyrates::Common::Network::Event::EventDisconnect is not documented.
@@ -1524,7 +1450,7 @@ Generating docs for /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Sc
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Event/NetworkEvent.cs:55: warning: Member IsSentBy(Side side) (function) of class Skyrates::Common::Network::Event::NetworkEvent is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Event/NetworkEvent.cs:66: warning: Member IsReceivedBy(Side side) (function) of class Skyrates::Common::Network::Event::NetworkEvent is not documented.
 /home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/Network/Event/NetworkEvent.cs:32: warning: Member NetworkEvent(NetworkEventID id) (function) of class Skyrates::Common::Network::Event::NetworkEvent is not documented.
-nested compound Skyrates::Common::Network::BitSerializeAttribute::AttributeField...
+Skyrates::Common::Network::BitSerializeAttribute::AttributeField...
 Generating docs for nested compound Skyrates::Common::Network::BitSerializeAttribute::ISerializationModule...
 Generating docs for nested compound Skyrates::Common::Network::BitSerializeAttribute::SerializationModule< T >...
 Generating docs for compound Skyrates::Common::Network::ISerializing...
@@ -1564,5 +1490,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 1339/65536 hits=7520 misses=1683
+lookup cache used 1390/65536 hits=7761 misses=1737
 finished...

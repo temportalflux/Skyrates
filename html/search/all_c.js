@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mainmenu',['MainMenu',['../class_main_menu.html',1,'']]],
+  ['mainmenu',['MainMenu',['../class_skyrates_1_1_client_1_1_game_1_1_main_menu.html',1,'Skyrates::Client::Game']]],
   ['major',['Major',['../class_version.html#aeaf20290509249554961b91b5f0eb75f',1,'Version']]],
   ['maxclients',['MaxClients',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a4d9934f0f98f603daf947afacf49d3fb',1,'Skyrates.Common.Network.Session.MaxClients()'],['../struct_state_network.html#a441e11a6962b2ef0f9456c937a1abbb6',1,'StateNetwork::maxClients()']]],
   ['messageids',['MessageIDs',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821',1,'ChampNetPlugin.MessageIDs()'],['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821',1,'ChampNetPlugin::MessageIDs()'],['../group__server.html#ga4301bf0fa2a92b524daa9d4d1f9aa9e3',1,'MessageIDs():&#160;StateServer.h']]],

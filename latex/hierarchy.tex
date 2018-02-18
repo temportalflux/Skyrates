@@ -45,6 +45,9 @@ This inheritance list is sorted roughly, but not completely, alphabetically\-:\b
 \item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Entity}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Artillery\-Fired}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired}}{}
+\item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Entity\-Ship}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Enemy\-Target\-Engage}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_enemy_target_engage}}{}
 \item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Entity\-Player\-Ship}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_player_ship}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Loot\-Collided}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collided}}{}
@@ -52,9 +55,6 @@ This inheritance list is sorted roughly, but not completely, alphabetically\-:\b
 \item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Loot\-Collected}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collected}}{}
 \end{DoxyCompactList}
 \end{DoxyCompactList}
-\item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Entity\-Ship}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship}}{}
-\begin{DoxyCompactList}
-\item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Enemy\-Target\-Engage}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_enemy_target_engage}}{}
 \item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Entity\-Ship\-Damaged}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Skyrates.\-Client.\-Game.\-Event.\-Event\-Entity\-Ship\-Hit\-By\-Projectile}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_projectile}}{}
@@ -102,6 +102,9 @@ This inheritance list is sorted roughly, but not completely, alphabetically\-:\b
 \end{DoxyCompactList}
 \item \contentsline{section}{Scene\-Loader.\-Loading\-Sequence}{\pageref{struct_scene_loader_1_1_loading_sequence}}{}
 \item Mono\-Behaviour\begin{DoxyCompactList}
+\item \contentsline{section}{Skyrates.\-Client.\-Game.\-Main\-Menu}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_main_menu}}{}
+\item \contentsline{section}{Skyrates.\-Client.\-Game.\-Start\-Scene}{\pageref{class_skyrates_1_1_client_1_1_game_1_1_start_scene}}{}
+\item \contentsline{section}{Skyrates.\-Client.\-Input.\-X\-Input\-Dispatcher}{\pageref{class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher}}{}
 \item \contentsline{section}{Skyrates.\-Common.\-Network.\-Test.\-Bit\-Test}{\pageref{class_skyrates_1_1_common_1_1_network_1_1_test_1_1_bit_test}}{}
 \begin{DoxyCompactList}
 \item \contentsline{section}{Skyrates.\-Common.\-Network.\-Test.\-Bit\-Test2}{\pageref{class_skyrates_1_1_common_1_1_network_1_1_test_1_1_bit_test2}}{}
@@ -115,7 +118,6 @@ This inheritance list is sorted roughly, but not completely, alphabetically\-:\b
 \item \contentsline{section}{Input\-Interaction}{\pageref{class_input_interaction}}{}
 \item \contentsline{section}{Input\-Rotation}{\pageref{class_input_rotation}}{}
 \item \contentsline{section}{Loot\-Pivot}{\pageref{class_loot_pivot}}{}
-\item \contentsline{section}{Main\-Menu}{\pageref{class_main_menu}}{}
 \item \contentsline{section}{Prefab\-Dispatcher}{\pageref{class_prefab_dispatcher}}{}
 \item \contentsline{section}{Singleton$<$ T $>$}{\pageref{class_singleton_3_01_t_01_4}}{}
 \begin{DoxyCompactList}
@@ -159,12 +161,10 @@ This inheritance list is sorted roughly, but not completely, alphabetically\-:\b
 \end{DoxyCompactList}
 \end{DoxyCompactList}
 \end{DoxyCompactList}
-\item \contentsline{section}{Start\-Scene}{\pageref{class_start_scene}}{}
 \item \contentsline{section}{Update\-Loot\-Count}{\pageref{class_update_loot_count}}{}
 \item \contentsline{section}{Update\-Session\-I\-D}{\pageref{class_update_session_i_d}}{}
 \item \contentsline{section}{Update\-Version}{\pageref{class_update_version}}{}
 \item \contentsline{section}{V\-F\-X\-Dispatcher}{\pageref{class_v_f_x_dispatcher}}{}
-\item \contentsline{section}{X\-Input\-Dispatcher}{\pageref{class_x_input_dispatcher}}{}
 \end{DoxyCompactList}
 \item \contentsline{section}{Skyrates.\-Client.\-Ship.\-Ship\-Hull.\-Mount}{\pageref{struct_skyrates_1_1_client_1_1_ship_1_1_ship_hull_1_1_mount}}{}
 \item \contentsline{section}{Champ\-Net\-:\-:Network}{\pageref{class_champ_net_1_1_network}}{}
@@ -202,7 +202,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically\-:\b
 \item Property\-Drawer\begin{DoxyCompactList}
 \item \contentsline{section}{Type\-Data\-Property\-Drawer}{\pageref{class_type_data_property_drawer}}{}
 \end{DoxyCompactList}
-\item \contentsline{section}{X\-Input\-Dispatcher.\-Pulse}{\pageref{class_x_input_dispatcher_1_1_pulse}}{}
+\item \contentsline{section}{Skyrates.\-Client.\-Input.\-X\-Input\-Dispatcher.\-Pulse}{\pageref{class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher_1_1_pulse}}{}
 \item \contentsline{section}{Skyrates.\-Client.\-Loot.\-Loot\-Table.\-Row}{\pageref{class_skyrates_1_1_client_1_1_loot_1_1_loot_table_1_1_row}}{}
 \item Scriptable\-Object\begin{DoxyCompactList}
 \item \contentsline{section}{Scene\-Data}{\pageref{class_scene_data}}{}

@@ -13,5 +13,5 @@ var searchData=
   ['prefabdispatcher',['PrefabDispatcher',['../class_prefab_dispatcher.html',1,'']]],
   ['prefablist',['PrefabList',['../class_skyrates_1_1_client_1_1_util_1_1_prefab_list.html',1,'Skyrates::Client::Util']]],
   ['prefablisteditor_3c_20tkey_2c_20tvalue_20_3e',['PrefabListEditor&lt; TKey, TValue &gt;',['../class_prefab_list_editor_3_01_t_key_00_01_t_value_01_4.html',1,'']]],
-  ['pulse',['Pulse',['../class_x_input_dispatcher_1_1_pulse.html',1,'XInputDispatcher']]]
+  ['pulse',['Pulse',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher_1_1_pulse.html',1,'Skyrates::Client::Input::XInputDispatcher']]]
 ];

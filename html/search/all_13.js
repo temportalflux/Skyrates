@@ -1,7 +1,7 @@
 var searchData=
 [
   ['takedamage',['TakeDamage',['../class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html#a64d1b835a2e8911de33b19d7cd6948fd',1,'Skyrates.Client.Entity.EntityShip.TakeDamage(EventEntityShipDamaged evt)'],['../class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html#abad1336581d008dcdd90f400c91f6089',1,'Skyrates.Client.Entity.EntityShip.TakeDamage(Common.Entity.Entity source, float damage)']]],
-  ['target',['Target',['../class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html#af62ca00fa92111adb3380fdaa0ba6a0f',1,'Skyrates::Common::AI::SteeringData']]],
+  ['target',['Target',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged.html#abfb55cdb6205f8e4ecf35b8c93ae39b6',1,'Skyrates.Client.Game.Event.EventEntityShipDamaged.Target()'],['../class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html#af62ca00fa92111adb3380fdaa0ba6a0f',1,'Skyrates.Common.AI.SteeringData.Target()']]],
   ['targetaddress',['TargetAddress',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#a6d550a6d31777ca6d1d6dfba00c7955b',1,'Skyrates::Common::Network::Session']]],
   ['test',['Test',['../class_skyrates_1_1_client_1_1_util_1_1_test.html',1,'Skyrates::Client::Util']]],
   ['timer',['Timer',['../class_timer.html',1,'Timer'],['../class_timer.html#a5f16e8da27d2a5a5242dead46de05d97',1,'Timer::Timer()']]],
@@ -15,6 +15,7 @@ var searchData=
   ['trygetvalue_3c_20t_20_3e',['TryGetValue&lt; T &gt;',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_set.html#adac6d4ae7606732e19a55d68930d9acc',1,'Skyrates::Common::Entity::EntitySet']]],
   ['tryremove',['TryRemove',['../class_skyrates_1_1_server_1_1_network_1_1_client_list.html#a5116345632ab2dba0b87579b72df23d4',1,'Skyrates::Server::Network::ClientList']]],
   ['typedata',['TypeData',['../class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data.html',1,'Skyrates::Common::Entity::Entity']]],
+  ['typedata',['TypeData',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_spawn_entity_projectile.html#a016797f925bc681a837055b23ee308f2',1,'Skyrates::Client::Game::Event::EventSpawnEntityProjectile']]],
   ['typedatapropertydrawer',['TypeDataPropertyDrawer',['../class_type_data_property_drawer.html',1,'']]],
   ['types',['Types',['../class_skyrates_1_1_common_1_1_network_1_1_network_events.html#a9360ac6e13813aa04c2f77c18fea5274',1,'Skyrates::Common::Network::NetworkEvents']]]
 ];

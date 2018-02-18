@@ -1,6 +1,11 @@
 \hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events}{\section{Skyrates.\-Client.\-Game.\-Event.\-Game\-Events Class Reference}
 \label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events}\index{Skyrates.\-Client.\-Game.\-Event.\-Game\-Events@{Skyrates.\-Client.\-Game.\-Event.\-Game\-Events}}
 }
+
+
+Dispatcher of \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} instances, and place for observers to subscribe to events via their delegate.  
+
+
 Inheritance diagram for Skyrates.\-Client.\-Game.\-Event.\-Game\-Events\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,63 +15,104 @@ Inheritance diagram for Skyrates.\-Client.\-Game.\-Event.\-Game\-Events\-:\begin
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aef35aef1725ea32473c81becae252e1e}{Game\-Event\-Delegate {\bfseries Delegate} (Game\-Event\-I\-D event\-I\-D)}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aef35aef1725ea32473c81becae252e1e}
-
-\item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a039cc913141b24e8684f16d94b545b01}{void {\bfseries Dispatch} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a039cc913141b24e8684f16d94b545b01}
-
-\end{DoxyCompactItemize}
+\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aef35aef1725ea32473c81becae252e1e}{Delegate} (\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a3a7e5dc62ad299d5e53abb4a3e5d5088}{Game\-Event\-I\-D} event\-I\-D)
+\begin{DoxyCompactList}\small\item\em Get the event delegate for the event I\-D. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a039cc913141b24e8684f16d94b545b01}{Dispatch} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)
+\begin{DoxyCompactList}\small\item\em Invoke all subcriptions to the event delegate for the event. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Events}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ae734d53366da2f17e2dc5c42109a285f}{Game\-Event\-Delegate {\bfseries Game\-Start}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ae734d53366da2f17e2dc5c42109a285f}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ae734d53366da2f17e2dc5c42109a285f}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Game\-Start}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ae734d53366da2f17e2dc5c42109a285f}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ac0bb9af04f1f457bde57f20a4e77bbf5}{Game\-Event\-Delegate {\bfseries Scene\-Loaded}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ac0bb9af04f1f457bde57f20a4e77bbf5}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ac0bb9af04f1f457bde57f20a4e77bbf5}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Scene\-Loaded}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ac0bb9af04f1f457bde57f20a4e77bbf5}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a779a2d3baf2ec4cdbf6d0662bf60a2ac}{Game\-Event\-Delegate {\bfseries Entity\-Instantiate}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a779a2d3baf2ec4cdbf6d0662bf60a2ac}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a779a2d3baf2ec4cdbf6d0662bf60a2ac}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Entity\-Instantiate}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a779a2d3baf2ec4cdbf6d0662bf60a2ac}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a1b2812dc47eea09c77fbc65c65180d2e}{Game\-Event\-Delegate {\bfseries Entity\-Start}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a1b2812dc47eea09c77fbc65c65180d2e}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a1b2812dc47eea09c77fbc65c65180d2e}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Entity\-Start}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a1b2812dc47eea09c77fbc65c65180d2e}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a57d62085271bbfdf48ede68e526cbe82}{Game\-Event\-Delegate {\bfseries Entity\-Destroy}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a57d62085271bbfdf48ede68e526cbe82}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a57d62085271bbfdf48ede68e526cbe82}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Entity\-Destroy}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a57d62085271bbfdf48ede68e526cbe82}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_afd89de6863ecb47e66b718a896432d61}{Game\-Event\-Delegate {\bfseries Spawn\-Entity\-Projectile}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_afd89de6863ecb47e66b718a896432d61}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_afd89de6863ecb47e66b718a896432d61}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Spawn\-Entity\-Projectile}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_afd89de6863ecb47e66b718a896432d61}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a4280bc86ee18132ccb573edd25bc0555}{Game\-Event\-Delegate {\bfseries Artillery\-Fired}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a4280bc86ee18132ccb573edd25bc0555}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a4280bc86ee18132ccb573edd25bc0555}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Artillery\-Fired}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a4280bc86ee18132ccb573edd25bc0555}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aabf8f827a2ff9600d184b6f01dc9b72e}{Game\-Event\-Delegate {\bfseries Entity\-Ship\-Damaged}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aabf8f827a2ff9600d184b6f01dc9b72e}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aabf8f827a2ff9600d184b6f01dc9b72e}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Entity\-Ship\-Damaged}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aabf8f827a2ff9600d184b6f01dc9b72e}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a89d17208f4b6f259f8fc03ead86b6a13}{Game\-Event\-Delegate {\bfseries Entity\-Ship\-Hit\-By\-Projectile}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a89d17208f4b6f259f8fc03ead86b6a13}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a89d17208f4b6f259f8fc03ead86b6a13}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Entity\-Ship\-Hit\-By\-Projectile}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a89d17208f4b6f259f8fc03ead86b6a13}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a418c2702fb43809be5279b4c0d877972}{Game\-Event\-Delegate {\bfseries Entity\-Ship\-Hit\-By\-Ram}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a418c2702fb43809be5279b4c0d877972}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a418c2702fb43809be5279b4c0d877972}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Entity\-Ship\-Hit\-By\-Ram}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a418c2702fb43809be5279b4c0d877972}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a3d9a7140119620bdad9b0afa73835dfd}{Game\-Event\-Delegate {\bfseries Enemy\-Target\-Engage}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a3d9a7140119620bdad9b0afa73835dfd}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a3d9a7140119620bdad9b0afa73835dfd}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Enemy\-Target\-Engage}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a3d9a7140119620bdad9b0afa73835dfd}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ad05715a702655319528359afe979d48f}{Game\-Event\-Delegate {\bfseries Enemy\-Target\-Disengage}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ad05715a702655319528359afe979d48f}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ad05715a702655319528359afe979d48f}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Enemy\-Target\-Disengage}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_ad05715a702655319528359afe979d48f}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a347e7a35ad1bbb862f1a4028c2e375ef}{Game\-Event\-Delegate {\bfseries Player\-Moved}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a347e7a35ad1bbb862f1a4028c2e375ef}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a347e7a35ad1bbb862f1a4028c2e375ef}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Player\-Moved}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a347e7a35ad1bbb862f1a4028c2e375ef}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a5dc1bfc1852ff08c98f6c521b96b1b07}{Game\-Event\-Delegate {\bfseries Player\-Left}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a5dc1bfc1852ff08c98f6c521b96b1b07}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a5dc1bfc1852ff08c98f6c521b96b1b07}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Player\-Left}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a5dc1bfc1852ff08c98f6c521b96b1b07}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a2fab9c767804b6cc3c12d816708a244d}{Game\-Event\-Delegate {\bfseries Loot\-Collided}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a2fab9c767804b6cc3c12d816708a244d}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a2fab9c767804b6cc3c12d816708a244d}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Loot\-Collided}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a2fab9c767804b6cc3c12d816708a244d}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a9cae2ea48c6b7fe77f44ba7c49255ef6}{Game\-Event\-Delegate {\bfseries Loot\-Collected}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a9cae2ea48c6b7fe77f44ba7c49255ef6}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a9cae2ea48c6b7fe77f44ba7c49255ef6}{\hyperlink{namespace_skyrates_1_1_client_1_1_game_1_1_event_a448e5d409dc993bd700f2f7f8161adf7}{Game\-Event\-Delegate} {\bfseries Loot\-Collected}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a9cae2ea48c6b7fe77f44ba7c49255ef6}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dispatcher of \hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} instances, and place for observers to subscribe to events via their delegate. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aef35aef1725ea32473c81becae252e1e}{\index{Skyrates\-::\-Client\-::\-Game\-::\-Event\-::\-Game\-Events@{Skyrates\-::\-Client\-::\-Game\-::\-Event\-::\-Game\-Events}!Delegate@{Delegate}}
+\index{Delegate@{Delegate}!Skyrates::Client::Game::Event::GameEvents@{Skyrates\-::\-Client\-::\-Game\-::\-Event\-::\-Game\-Events}}
+\subsubsection[{Delegate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Event\-Delegate} Skyrates.\-Client.\-Game.\-Event.\-Game\-Events.\-Delegate (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Event\-I\-D}}]{event\-I\-D}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_aef35aef1725ea32473c81becae252e1e}
+
+
+Get the event delegate for the event I\-D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event\-I\-D} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a039cc913141b24e8684f16d94b545b01}{\index{Skyrates\-::\-Client\-::\-Game\-::\-Event\-::\-Game\-Events@{Skyrates\-::\-Client\-::\-Game\-::\-Event\-::\-Game\-Events}!Dispatch@{Dispatch}}
+\index{Dispatch@{Dispatch}!Skyrates::Client::Game::Event::GameEvents@{Skyrates\-::\-Client\-::\-Game\-::\-Event\-::\-Game\-Events}}
+\subsubsection[{Dispatch}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Client.\-Game.\-Event.\-Game\-Events.\-Dispatch (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Event}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events_a039cc913141b24e8684f16d94b545b01}
+
+
+Invoke all subcriptions to the event delegate for the event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

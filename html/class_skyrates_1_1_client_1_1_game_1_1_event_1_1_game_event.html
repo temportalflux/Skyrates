@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Skyrates
-   &#160;<span id="projectnumber">0.0.3</span>
+   &#160;<span id="projectnumber">0.0.5</span>
    </div>
   </td>
  </tr>
@@ -96,41 +96,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Skyrates.Client.Game.Event.GameEvent Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>General event class used to send information via <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events.html" title="Dispatcher of GameEvent instances, and place for observers to subscribe to events via their delegate...">GameEvents</a>.  
+ <a href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Client.Game.Event.GameEvent:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.png" usemap="#Skyrates.Client.Game.Event.GameEvent_map" alt=""/>
   <map id="Skyrates.Client.Game.Event.GameEvent_map" name="Skyrates.Client.Game.Event.GameEvent_map">
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity.html" alt="Skyrates.Client.Game.Event.EventEntity" shape="rect" coords="354,56,698,80"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_game_start.html" alt="Skyrates.Client.Game.Event.EventGameStart" shape="rect" coords="708,56,1052,80"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_player_left.html" alt="Skyrates.Client.Game.Event.EventPlayerLeft" shape="rect" coords="1062,56,1406,80"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_scene_loaded.html" alt="Skyrates.Client.Game.Event.EventSceneLoaded" shape="rect" coords="1416,56,1760,80"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_spawn_entity_projectile.html" alt="Skyrates.Client.Game.Event.EventSpawnEntityProjectile" shape="rect" coords="1770,56,2114,80"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html" alt="Skyrates.Client.Game.Event.EventArtilleryFired" shape="rect" coords="0,112,344,136"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_player_ship.html" alt="Skyrates.Client.Game.Event.EventEntityPlayerShip" shape="rect" coords="354,112,698,136"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship.html" alt="Skyrates.Client.Game.Event.EventEntityShip" shape="rect" coords="885,112,1229,136"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collided.html" alt="Skyrates.Client.Game.Event.EventLootCollided" shape="rect" coords="354,168,698,192"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_enemy_target_engage.html" alt="Skyrates.Client.Game.Event.EventEnemyTargetEngage" shape="rect" coords="708,168,1052,192"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged.html" alt="Skyrates.Client.Game.Event.EventEntityShipDamaged" shape="rect" coords="1062,168,1406,192"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collected.html" alt="Skyrates.Client.Game.Event.EventLootCollected" shape="rect" coords="354,224,698,248"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_projectile.html" alt="Skyrates.Client.Game.Event.EventEntityShipHitByProjectile" shape="rect" coords="885,224,1229,248"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_ram.html" alt="Skyrates.Client.Game.Event.EventEntityShipHitByRam" shape="rect" coords="1239,224,1583,248"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity.html" title="Generic event which has an entity. " alt="Skyrates.Client.Game.Event.EventEntity" shape="rect" coords="177,56,521,80"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_game_start.html" title="Dispatched when a game starts (regardless of if the network " alt="Skyrates.Client.Game.Event.EventGameStart" shape="rect" coords="531,56,875,80"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_player_left.html" title="Dispatched when a player leaves the network interface / client disconnects. " alt="Skyrates.Client.Game.Event.EventPlayerLeft" shape="rect" coords="885,56,1229,80"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_scene_loaded.html" title="Dispatched when a scene has finished loading via SceneLoader. " alt="Skyrates.Client.Game.Event.EventSceneLoaded" shape="rect" coords="1239,56,1583,80"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_spawn_entity_projectile.html" title="Dispatched when a projectile should be spawned. " alt="Skyrates.Client.Game.Event.EventSpawnEntityProjectile" shape="rect" coords="1593,56,1937,80"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html" title="Event dispatched when artillery is fired " alt="Skyrates.Client.Game.Event.EventArtilleryFired" shape="rect" coords="0,112,344,136"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship.html" title="An event in which the entity is an EntityShip. " alt="Skyrates.Client.Game.Event.EventEntityShip" shape="rect" coords="354,112,698,136"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_enemy_target_engage.html" title="Event for enmies engaging/disengaging in combat with a player. " alt="Skyrates.Client.Game.Event.EventEnemyTargetEngage" shape="rect" coords="0,168,344,192"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_player_ship.html" title="Generic event in which an entity in the event is a player ship. " alt="Skyrates.Client.Game.Event.EventEntityPlayerShip" shape="rect" coords="354,168,698,192"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged.html" title="An event in which the entity ship is damaged by some other entity. " alt="Skyrates.Client.Game.Event.EventEntityShipDamaged" shape="rect" coords="885,168,1229,192"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collided.html" title="Dispatched when loot is collided with by an EntityPlayerShip. " alt="Skyrates.Client.Game.Event.EventLootCollided" shape="rect" coords="354,224,698,248"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_projectile.html" title="A special case of causing damage to a ship via projectile. " alt="Skyrates.Client.Game.Event.EventEntityShipHitByProjectile" shape="rect" coords="708,224,1052,248"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_ram.html" title="A special case of causing damage to a ship via another ship&#39;s ram. " alt="Skyrates.Client.Game.Event.EventEntityShipHitByRam" shape="rect" coords="1062,224,1406,248"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_loot_collected.html" title="Dispatched when loot is collected by a local player. " alt="Skyrates.Client.Game.Event.EventLootCollected" shape="rect" coords="354,280,698,304"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1ed88bc17b45282c7d2a4de8fc729a77"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ed88bc17b45282c7d2a4de8fc729a77"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameEvent</b> (GameEventID id)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GameEvent</b> (<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a> id)</td></tr>
 <tr class="separator:a1ed88bc17b45282c7d2a4de8fc729a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a193001c33b9858618141589ca39723b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a193001c33b9858618141589ca39723b3"></a>
-GameEventID&#160;</td><td class="memItemRight" valign="bottom"><b>EventID</b></td></tr>
+<tr class="memitem:a193001c33b9858618141589ca39723b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html#a193001c33b9858618141589ca39723b3">EventID</a></td></tr>
+<tr class="memdesc:a193001c33b9858618141589ca39723b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of event that this instance is.  <a href="#a193001c33b9858618141589ca39723b3">More...</a><br/></td></tr>
 <tr class="separator:a193001c33b9858618141589ca39723b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>General event class used to send information via <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_events.html" title="Dispatcher of GameEvent instances, and place for observers to subscribe to events via their delegate...">GameEvents</a>. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a193001c33b9858618141589ca39723b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a> Skyrates.Client.Game.Event.GameEvent.EventID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type of event that this instance is. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/GameEvent.cs</li>
 </ul>

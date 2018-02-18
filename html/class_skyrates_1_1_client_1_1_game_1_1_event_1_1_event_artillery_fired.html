@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Skyrates
-   &#160;<span id="projectnumber">0.0.3</span>
+   &#160;<span id="projectnumber">0.0.5</span>
    </div>
   </td>
  </tr>
@@ -96,14 +96,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Skyrates.Client.Game.Event.EventArtilleryFired Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html">Event</a> dispatched when artillery is fired  
+ <a href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Client.Game.Event.EventArtilleryFired:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.png" usemap="#Skyrates.Client.Game.Event.EventArtilleryFired_map" alt=""/>
   <map id="Skyrates.Client.Game.Event.EventArtilleryFired_map" name="Skyrates.Client.Game.Event.EventArtilleryFired_map">
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity.html" alt="Skyrates.Client.Game.Event.EventEntity" shape="rect" coords="0,56,280,80"/>
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html" alt="Skyrates.Client.Game.Event.GameEvent" shape="rect" coords="0,0,280,24"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity.html" title="Generic event which has an entity. " alt="Skyrates.Client.Game.Event.EventEntity" shape="rect" coords="0,56,280,80"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html" title="General event class used to send information via GameEvents. " alt="Skyrates.Client.Game.Event.GameEvent" shape="rect" coords="0,0,280,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -112,32 +115,94 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a24dc075d0ff12e05a7b9d81cf3262758"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24dc075d0ff12e05a7b9d81cf3262758"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>EventArtilleryFired</b> (<a class="el" href="class_skyrates_1_1_client_1_1_entity_1_1_entity_ship.html">EntityShip</a> ship, <a class="el" href="class_skyrates_1_1_client_1_1_mono_1_1_shooter.html">Shooter</a>[] shooters)</td></tr>
 <tr class="separator:a24dc075d0ff12e05a7b9d81cf3262758"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58bb7b842dad16ff93c6702295648238"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58bb7b842dad16ff93c6702295648238"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetAverageTransform</b> (out Vector3 averagePosition, out Quaternion averageRotation)</td></tr>
+<tr class="memitem:a58bb7b842dad16ff93c6702295648238"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html#a58bb7b842dad16ff93c6702295648238">GetAverageTransform</a> (out Vector3 averagePosition, out Quaternion averageRotation)</td></tr>
+<tr class="memdesc:a58bb7b842dad16ff93c6702295648238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average transform data for all the shooters/artillery  <a href="#a58bb7b842dad16ff93c6702295648238">More...</a><br/></td></tr>
 <tr class="separator:a58bb7b842dad16ff93c6702295648238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity.html">Skyrates.Client.Game.Event.EventEntity</a></td></tr>
 <tr class="memitem:a8510c0be0f900d65b6b106ca3ad6b5b9 inherit pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8510c0be0f900d65b6b106ca3ad6b5b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EventEntity</b> (GameEventID id, <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Common.Entity.Entity</a> entity)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventEntity</b> (<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a> id, <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Common.Entity.Entity</a> entity)</td></tr>
 <tr class="separator:a8510c0be0f900d65b6b106ca3ad6b5b9 inherit pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">Skyrates.Client.Game.Event.GameEvent</a></td></tr>
 <tr class="memitem:a1ed88bc17b45282c7d2a4de8fc729a77 inherit pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ed88bc17b45282c7d2a4de8fc729a77"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameEvent</b> (GameEventID id)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GameEvent</b> (<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a> id)</td></tr>
 <tr class="separator:a1ed88bc17b45282c7d2a4de8fc729a77 inherit pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9f5e4a291e93d6611f840341b84a78e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f5e4a291e93d6611f840341b84a78e6"></a>
-<a class="el" href="class_skyrates_1_1_client_1_1_mono_1_1_shooter.html">Shooter</a>[]&#160;</td><td class="memItemRight" valign="bottom"><b>Shooters</b></td></tr>
+<tr class="memitem:a9f5e4a291e93d6611f840341b84a78e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_client_1_1_mono_1_1_shooter.html">Shooter</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_artillery_fired.html#a9f5e4a291e93d6611f840341b84a78e6">Shooters</a></td></tr>
+<tr class="memdesc:a9f5e4a291e93d6611f840341b84a78e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The artillery fired.  <a href="#a9f5e4a291e93d6611f840341b84a78e6">More...</a><br/></td></tr>
 <tr class="separator:a9f5e4a291e93d6611f840341b84a78e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity.html">Skyrates.Client.Game.Event.EventEntity</a></td></tr>
 <tr class="memitem:ac71d6a532f510ff94d9ff1a0407d48f8 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac71d6a532f510ff94d9ff1a0407d48f8"></a>
 <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Common.Entity.Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b></td></tr>
 <tr class="separator:ac71d6a532f510ff94d9ff1a0407d48f8 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">Skyrates.Client.Game.Event.GameEvent</a></td></tr>
-<tr class="memitem:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a193001c33b9858618141589ca39723b3"></a>
-GameEventID&#160;</td><td class="memItemRight" valign="bottom"><b>EventID</b></td></tr>
+<tr class="memitem:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html#a193001c33b9858618141589ca39723b3">EventID</a></td></tr>
+<tr class="memdesc:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of event that this instance is.  <a href="#a193001c33b9858618141589ca39723b3">More...</a><br/></td></tr>
 <tr class="separator:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html">Event</a> dispatched when artillery is fired </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a58bb7b842dad16ff93c6702295648238"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Skyrates.Client.Game.Event.EventArtilleryFired.GetAverageTransform </td>
+          <td>(</td>
+          <td class="paramtype">out Vector3&#160;</td>
+          <td class="paramname"><em>averagePosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">out Quaternion&#160;</td>
+          <td class="paramname"><em>averageRotation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the average transform data for all the shooters/artillery </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">averagePosition</td><td></td></tr>
+    <tr><td class="paramname">averageRotation</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a9f5e4a291e93d6611f840341b84a78e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_skyrates_1_1_client_1_1_mono_1_1_shooter.html">Shooter</a> [] Skyrates.Client.Game.Event.EventArtilleryFired.Shooters</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The artillery fired. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventArtilleryFired.cs</li>
 </ul>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['networkeventid',['NetworkEventID',['../namespace_skyrates_1_1_common_1_1_network.html#a90fc6faa44c44b4284114e861d3e761a',1,'Skyrates::Common::Network']]],
-  ['networkmode',['NetworkMode',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#ad2f4973bc77af540bd68a428e349fbff',1,'Skyrates::Common::Network::Session']]]
+  ['messageids',['MessageIDs',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821',1,'ChampNetPlugin.MessageIDs()'],['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821',1,'ChampNetPlugin::MessageIDs()'],['../group__server.html#ga4301bf0fa2a92b524daa9d4d1f9aa9e3',1,'MessageIDs():&#160;StateServer.h']]]
 ];

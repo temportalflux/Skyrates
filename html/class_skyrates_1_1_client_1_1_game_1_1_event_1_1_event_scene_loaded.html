@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Skyrates
-   &#160;<span id="projectnumber">0.0.3</span>
+   &#160;<span id="projectnumber">0.0.5</span>
    </div>
   </td>
  </tr>
@@ -96,13 +96,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Skyrates.Client.Game.Event.EventSceneLoaded Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Dispatched when a scene has finished loading via <a class="el" href="class_scene_loader.html" title="Asynchronously loads and unloads scenes ">SceneLoader</a>.  
+ <a href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_scene_loaded.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Client.Game.Event.EventSceneLoaded:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_scene_loaded.png" usemap="#Skyrates.Client.Game.Event.EventSceneLoaded_map" alt=""/>
   <map id="Skyrates.Client.Game.Event.EventSceneLoaded_map" name="Skyrates.Client.Game.Event.EventSceneLoaded_map">
-<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html" alt="Skyrates.Client.Game.Event.GameEvent" shape="rect" coords="0,0,283,24"/>
+<area href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html" title="General event class used to send information via GameEvents. " alt="Skyrates.Client.Game.Event.GameEvent" shape="rect" coords="0,0,283,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -113,7 +116,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a626a0f186114b9ebd5684238e1157319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">Skyrates.Client.Game.Event.GameEvent</a></td></tr>
 <tr class="memitem:a1ed88bc17b45282c7d2a4de8fc729a77 inherit pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ed88bc17b45282c7d2a4de8fc729a77"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameEvent</b> (GameEventID id)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GameEvent</b> (<a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a> id)</td></tr>
 <tr class="separator:a1ed88bc17b45282c7d2a4de8fc729a77 inherit pub_methods_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -122,11 +125,13 @@ Public Attributes</h2></td></tr>
 <a class="el" href="class_scene_data.html#a79d397b3deef242a865470283d96f2e6">SceneData.SceneKey</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Scene</b></td></tr>
 <tr class="separator:af842f8c33a313b1eee1e07ab89816d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html">Skyrates.Client.Game.Event.GameEvent</a></td></tr>
-<tr class="memitem:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a193001c33b9858618141589ca39723b3"></a>
-GameEventID&#160;</td><td class="memItemRight" valign="bottom"><b>EventID</b></td></tr>
+<tr class="memitem:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_skyrates_1_1_client_1_1_game_1_1_event.html#a3a7e5dc62ad299d5e53abb4a3e5d5088">GameEventID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event.html#a193001c33b9858618141589ca39723b3">EventID</a></td></tr>
+<tr class="memdesc:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of event that this instance is.  <a href="#a193001c33b9858618141589ca39723b3">More...</a><br/></td></tr>
 <tr class="separator:a193001c33b9858618141589ca39723b3 inherit pub_attribs_class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Dispatched when a scene has finished loading via <a class="el" href="class_scene_loader.html" title="Asynchronously loads and unloads scenes ">SceneLoader</a>. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Client/Game/Events/EventSceneLoaded.cs</li>
 </ul>
 </div><!-- contents -->
