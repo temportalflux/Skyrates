@@ -12,6 +12,7 @@
 // </author>
 // --------------------------------------------------------------------------------------------------------------------
 
+#if UNITY_EDITOR
 namespace Supyrb.EditorTools
 {
     using UnityEditor;
@@ -121,3 +122,4 @@ namespace Supyrb.EditorTools
         }
     }
 }
+#endif

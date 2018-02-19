@@ -1,33 +1,52 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Data;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
+using Skyrates.Client.Mono;
 using Skyrates.Client.Ship;
-using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
 
-namespace Skyrates.Client
+namespace Skyrates.Client.Entity
 {
 
+    /// <summary>
+    /// The ship that a player controls.
+    /// </summary>
     public class EntityPlayerShip : EntityShip
     {
 
+        /// <summary>
+        /// The network safe data which has information about the modular-ship.
+        /// </summary>
         [BitSerialize(5)]
         [HideInInspector]
         public ShipData ShipData;
 
+        /// <summary>
+        /// The non-networked data local to the player.
+        /// </summary>
         public LocalData PlayerData;
 
+        /// <summary>
+        /// The transform which points towards where the forward direction is.
+        /// </summary>
         [Tooltip("The transform which points towards where the forward direction is.")]
         public Transform View;
 
-        [Tooltip("The root of the render object (must be a child/decendent of this root)")]
+        /// <summary>
+        /// The root of the render object (must be a child/decendent of this root).
+        /// </summary>
+        [Tooltip("The root of the render object (must be a child/decendent of this root).")]
         public Transform Render;
 
+        /// <summary>
+        /// The Ship component which creates the modular ship.
+        /// </summary>
         public Ship.Ship ShipRoot;
 
+        /// <inheritdoc />
         protected override void Awake()
         {
             base.Awake();
@@ -36,28 +55,36 @@ namespace Skyrates.Client
             this.PlayerData.Init();
         }
 
+        /// <inheritdoc />
         protected override void Start()
         {
             base.Start();
             StartCoroutine(this.AutoHeal());
         }
 
+        /// <inheritdoc />
         protected override void OnDestroy()
         {
             base.OnDestroy();
             this.PlayerData.Init();
         }
 
+        /// <inheritdoc />
         protected override Transform GetView()
         {
             return this.View;
         }
 
+        /// <inheritdoc />
         public override Transform GetRender()
         {
             return this.Render;
         }
 
+        /// <summary>
+        /// Auto heals the player ship every 5 secodns while the health is less than max health.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator AutoHeal()
         {
             while (true)
@@ -79,17 +106,20 @@ namespace Skyrates.Client
             this.Steering = null;
         }
 
+        /// <inheritdoc />
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
             GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
         }
 
+        /// <inheritdoc />
         public override bool ShouldDeserialize()
         {
             return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
         }
 
+        /// <inheritdoc />
         public override void OnDeserializeSuccess()
         {
             base.OnDeserializeSuccess();
@@ -102,6 +132,7 @@ namespace Skyrates.Client
 
         #endregion
 
+        /// <inheritdoc />
         protected override void OnTriggerEnter(Collider other)
         {
             base.OnTriggerEnter(other);
@@ -115,6 +146,7 @@ namespace Skyrates.Client
 
         }
 
+        /// <inheritdoc />
         protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
             // TODO: Optimize this
@@ -127,19 +159,21 @@ namespace Skyrates.Client
             return evtArtillery.ToArray();
         }
 
+        /// <inheritdoc />
         public override ShipFigurehead GetFigurehead()
         {
             ShipComponent[] figureheads = this.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Figurehead);
             return figureheads.Length > 0 ? (ShipFigurehead)figureheads[0] : null;
         }
 
+        /// <inheritdoc />
         protected override bool OnPreDestroy()
         {
             // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
 
             this.Health = this.StatBlock.Health;
 
-            Transform spawn = GameManager.Instance.playerSpawn;
+            Transform spawn = GameManager.Instance.PlayerSpawn;
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
             this.Physics.RotationPosition = spawn.rotation;
             this.Physics.LinearPosition = spawn.position;
@@ -147,16 +181,22 @@ namespace Skyrates.Client
             return false;
         }
 
+        /// <inheritdoc />
         protected override void SpawnLoot(Vector3 position)
         {
         }
 
+        /// <summary>
+        /// Called when this object collides with loot.
+        /// Adds loot to the <see cref="PlayerData"/> and updates UI/UX information.
+        /// </summary>
+        /// <param name="loot"></param>
         public void OnLootCollided(Loot.Loot loot)
         {
             // TODO: Add to inventory
             this.PlayerData.LootCount++;
 
-            // TODO: Change this
+            // TODO: do this through event?
             this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));

@@ -4,12 +4,20 @@ using Skyrates.Client.Game;
 using Skyrates.Common.Network;
 using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+namespace Skyrates.Client.Game
 {
 
-    public void StartStandalone()
+    /// <summary>
+    /// MonoBehavior used in the main menu scene to connect the main menu to the <see cref="GameManager"/> & <see cref="NetworkComponent"/>.
+    /// </summary>
+    public class MainMenu : MonoBehaviour
     {
-        NetworkComponent.Instance.StartStandalone();
+
+        public void StartStandalone()
+        {
+            NetworkComponent.Instance.StartStandalone();
+        }
+
     }
 
 }

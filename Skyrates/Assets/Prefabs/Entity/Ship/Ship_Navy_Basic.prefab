@@ -142,8 +142,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714927255280634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.71, y: 7.9521046, z: -11.073568}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 24.71, y: 7.9521046, z: 65.3}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4144529139514880}
   - {fileID: 4297062329248662}
@@ -244,7 +244,7 @@ MonoBehaviour:
   StatBlock: {fileID: 11400000, guid: 898a9b5fec6f72545b401a35af024b6c, type: 2}
   ParticleSmoke: {fileID: 198141962496181874}
   ParticleFire: {fileID: 198449453570621352}
-  ParticleOnDestruction: {fileID: 198409131529129162, guid: 2eb4ad8bbf0d3e2409d5bd829f7350db,
+  ParticleOnDestruction: {fileID: 198727457800810920, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
   Health: 0
   Shooters: []
@@ -3732,7 +3732,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2

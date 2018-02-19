@@ -6,6 +6,9 @@ using UnityEngine;
 namespace Skyrates.Client.Game.Event
 {
 
+    /// <summary>
+    /// Generic event which has an entity.
+    /// </summary>
     public class EventEntity : GameEvent
     {
 

@@ -1,4 +1,5 @@
-﻿using Skyrates.Client.Game;
+﻿using Skyrates.Client.Entity;
+using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
@@ -12,35 +13,45 @@ namespace Skyrates.Client.Network
     public class DummyClient : Client
     {
 
+        /// <inheritdoc />
         public override void Connect(Session session)
         {}
 
+        /// <inheritdoc />
         public override void Create()
         {}
 
+        /// <inheritdoc />
         public override void Destroy()
         {}
 
+        /// <inheritdoc />
         public override void Shutdown()
         {}
 
+        /// <inheritdoc />
         public override void StartAndConnect(Session session)
         {}
 
+        /// <inheritdoc />
         public override void StartClient(Session session)
         {}
 
+        /// <inheritdoc />
         public override void StartServer(Session session)
         {}
 
+        /// <inheritdoc />
         public override void Dispatch(NetworkEvent evt, string address, int port, bool broadcast = false)
         {
         }
 
+        /// <inheritdoc />
         public override void Update()
         {
         }
 
+        /// <inheritdoc />
         public override void SubscribeEvents()
         {
             this.HasSubscribed = true;
@@ -50,6 +61,7 @@ namespace Skyrates.Client.Network
             GameManager.Events.LootCollided += this.OnLootCollided;
         }
 
+        /// <inheritdoc />
         public override void UnsubscribeEvents()
         {
             this.HasSubscribed = false;
@@ -59,6 +71,8 @@ namespace Skyrates.Client.Network
             GameManager.Events.LootCollided -= this.OnLootCollided;
         }
 
+
+        /// <inheritdoc />
         public override void OnRequestSpawnEntityProjectile(GameEvent evt)
         {
             EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
@@ -70,12 +84,14 @@ namespace Skyrates.Client.Network
             }
         }
 
+        /// <inheritdoc />
         public override void OnEntityShipHitBy(GameEvent evt)
         {
             EventEntityShipDamaged evtDamaged = (EventEntityShipDamaged) evt;
             evtDamaged.Target.TakeDamage(evtDamaged);
         }
 
+        /// <inheritdoc />
         public override void OnLootCollided(GameEvent evt)
         {
             EventLootCollided evtLoot = (EventLootCollided) evt;

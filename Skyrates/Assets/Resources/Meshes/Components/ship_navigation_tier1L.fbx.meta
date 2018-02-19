@@ -26,6 +26,14 @@ ModelImporter:
     100036: transform2
     100038: transform3
     100040: transform4
+    100042: rig_navigation_1_1L
+    100044: rig_navigation_1L
+    100046: rig_navigation_2_1L
+    100048: rig_navigation_2L
+    100050: rig_navigation_3_1L
+    100052: rig_navigation_3L
+    100054: rig_navigation_jointL
+    100056: ship_navigation_tierL1
     400000: ship_navigation_tier1 1
     400002: ship_navigation_tier1L
     400004: //RootNode
@@ -47,14 +55,26 @@ ModelImporter:
     400036: transform2
     400038: transform3
     400040: transform4
+    400042: rig_navigation_1_1L
+    400044: rig_navigation_1L
+    400046: rig_navigation_2_1L
+    400048: rig_navigation_2L
+    400050: rig_navigation_3_1L
+    400052: rig_navigation_3L
+    400054: rig_navigation_jointL
+    400056: ship_navigation_tierL1
     2100000: lambert1
     2300000: ship_navigation_tier1L
     2300002: //RootNode
+    2300004: ship_navigation_tierL1
     3300000: ship_navigation_tier1L
     3300002: //RootNode
+    3300004: ship_navigation_tierL1
     4300000: ship_navigation_tier1L
+    4300002: ship_navigation_tierL1
     7400000: Move
     9500000: //RootNode
+    13700000: ship_navigation_tierL1
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -151,13 +171,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: rig_navigation_tierL1
+    rootMotionBoneName: rig_navigation_jointL
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
