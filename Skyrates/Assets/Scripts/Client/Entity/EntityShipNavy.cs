@@ -62,8 +62,19 @@ namespace Skyrates.Client.Entity
             {
                 yield return new WaitForSeconds(5);
                 this._aiTarget = FindObjectOfType<EntityPlayerShip>();
+                if (this._aiTarget != null)
+                {
+                    if ((this._aiTarget.transform.position - this.transform.position).sqrMagnitude > this.maxDistFind)
+                    {
+                        this._aiTarget = null;
+                    }
+                    else
+                    {
+                        Debug.Log(this._aiTarget);
+                    }
+                }
             }
-
+            
             GameManager.Events.Dispatch(EventEnemyTargetEngage.Engage(this, this._aiTarget));
 
             this._findTarget = null;
