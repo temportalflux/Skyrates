@@ -55,7 +55,7 @@ namespace Skyrates.Client.Entity
 
         // Called when some non-trigger collider with a rigidbody enters
         /// <inheritdoc />
-        protected virtual void OnTriggerEnter(Collider other)
+        public virtual void OnTriggerEnter(Collider other)
         {
             if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Enemy")) || (other.CompareTag("Projectile-Player") && this.CompareTag("Player")))
             {

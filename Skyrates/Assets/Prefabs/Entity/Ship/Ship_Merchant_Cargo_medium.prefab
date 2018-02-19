@@ -36,6 +36,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4640996988090882}
+  - component: {fileID: 114208981267262748}
+  - component: {fileID: 54231719846782164}
   m_Layer: 16
   m_Name: Render
   m_TagString: Untagged
@@ -153,6 +155,7 @@ GameObject:
   - component: {fileID: 4424229567732748}
   - component: {fileID: 33376064053823692}
   - component: {fileID: 23035567897847398}
+  - component: {fileID: 64916494670242336}
   m_Layer: 16
   m_Name: polySurface18
   m_TagString: Untagged
@@ -667,6 +670,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501052657863216}
   m_Mesh: {fileID: 4300008, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!54 &54231719846782164
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111445524648428}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &54236140089489992
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -682,6 +700,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!64 &64916494670242336
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824650444293060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300010, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!114 &114208981267262748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111445524648428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fdebacc13b36049bedd7075606f3ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 114879470383505538}
 --- !u!114 &114879470383505538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -715,9 +759,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 1933954907179890}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 9.262631
-  m_Height: 19.750954
+  m_Enabled: 0
+  m_Radius: 9
+  m_Height: 20
   m_Direction: 2
   m_Center: {x: 0, y: 2.5116775, z: -2}
 --- !u!198 &198790762835708286
@@ -780,7 +824,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2093695796
+  randomSeed: -1700826297
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -133,7 +133,7 @@ namespace Skyrates.Client.Entity
         #endregion
 
         /// <inheritdoc />
-        protected override void OnTriggerEnter(Collider other)
+        public override void OnTriggerEnter(Collider other)
         {
             base.OnTriggerEnter(other);
 
