@@ -70,7 +70,7 @@ namespace Skyrates.Client.Entity
                     }
                     else
                     {
-                        Debug.Log(this._aiTarget);
+                        //Debug.Log(this._aiTarget);
                     }
                 }
             }
