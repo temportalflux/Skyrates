@@ -110,8 +110,8 @@ namespace Skyrates.Client.Game
             // TODO: Remove the temporary winstate based on number of loot collected.
             if (this.PlayerData.LootCount >= this.PlayerData.LootGoal)
             {
-                SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
-                SceneLoader.Instance.ActivateNext();
+                //SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
+                //SceneLoader.Instance.ActivateNext();
             }
         }
 
