@@ -241,7 +241,8 @@ namespace Skyrates.Client.Entity
             }
 
             // Dispatch event for the shooters as a whole.
-            GameManager.Events.Dispatch(new EventArtilleryFired(this, shooters));
+            // TODO: Change event name to only be for the player
+            GameManager.Events.Dispatch(new EventArtilleryFired(this, shooters, artillery));
         }
 
         /// <summary>
