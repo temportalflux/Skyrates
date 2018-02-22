@@ -12,32 +12,6 @@ namespace Skyrates.Common.Network
     {
 
         /// <summary>
-        /// Various network modes a game can be in.
-        /// </summary>
-        public enum NetworkMode
-        {
-            /// <summary>
-            /// Game has not started.
-            /// </summary>
-            None,
-
-            /// <summary>
-            /// No networking.
-            /// </summary>
-            Standalone,
-
-            /// <summary>
-            /// Joiner of game: ClientData.
-            /// </summary>
-            Client,
-
-            /// <summary>
-            /// Host of a game: Acts as Server On Top of ClientData.
-            /// </summary>
-            Host,
-        }
-
-        /// <summary>
         /// The IPv4 address of this peer (client or server).
         /// </summary>
         public string Address;
@@ -46,11 +20,6 @@ namespace Skyrates.Common.Network
         /// The IPv4 address of this peer (client or server).
         /// </summary>
         public string TargetAddress;
-
-        /// <summary>
-        /// Identifier which stores what type of game is being run (network wise).
-        /// </summary>
-        public NetworkMode Mode;
 
         /// <summary>
         /// The port of the address.
@@ -67,65 +36,13 @@ namespace Skyrates.Common.Network
         /// Only used when Mode == Host
         /// </summary>
         public float ServerTickUpdate;
-
-        /// <summary>
-        /// The local client ID. Will be INVALID if Mode == Host (host does not have a clientID, it just is).
-        /// </summary>
-        public uint ClientID = 0;
-
-        /// <summary>
-        /// The local client's player GUID.
-        /// </summary>
-        public Guid PlayerGuid = Guid.Empty;
-
-        /// <summary>
-        /// If this client has successfully authenticated with the server.
-        /// </summary>
-        public bool HandshakeComplete = false;
-
-        /// <summary>
-        /// Can this session be considered valid data? True only if the game has started (user has entered world scene)
-        /// </summary>
-        public bool IsValid
-        {
-            get { return this.Mode != NetworkMode.None; }
-        }
-
-        /// <summary>
-        /// If the game session is networked or not (if it is, it is also a client)
-        /// </summary>
-        public bool IsNetworked
-        {
-            get { return this.Mode != NetworkMode.Standalone; }
-        }
-
-        /// <summary>
-        /// If the network mode is not a client (either host or standalone).
-        /// </summary>
-        public bool IsOwner
-        {
-            get { return this.Mode != NetworkMode.Client; }
-        }
-
-        public int NetworkID
-        {
-            get { return this.Mode == NetworkMode.Host ? -1 : (int)this.ClientID; }
-        }
-
+        
         public void Init()
         {
-            this.Mode = Session.NetworkMode.None;
             this.SetAddressBoth("");
-            this.Port = 425; // TOOD: set this to 0
-            this.SetClientData(new ClientData(){ClientId = uint.MaxValue , PlayerGuid = Guid.Empty}); // marked as something horrible instead of -1
-            this.HandshakeComplete = false;
+            this.Port = 425;
         }
-
-        public bool HasValidClientID()
-        {
-            return this.ClientID < uint.MaxValue;
-        }
-
+        
         public void SetAddress(string address)
         {
             this.Address = address;
@@ -156,13 +73,7 @@ namespace Skyrates.Common.Network
         {
             int.TryParse(field.text, out this.Port);
         }
-
-        public void SetClientData(ClientData data)
-        {
-            this.ClientID = data.ClientId;
-            this.PlayerGuid = data.PlayerGuid;
-        }
-
+        
     }
 
 
