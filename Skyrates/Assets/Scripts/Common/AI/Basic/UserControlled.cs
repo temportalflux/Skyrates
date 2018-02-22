@@ -51,6 +51,16 @@ namespace Skyrates.Common.AI
 
         public float constantSpeed;
 
+        [Serializable]
+        public enum Scheme
+        {
+            CURRENT,
+            NORMAL_VERTICAL,
+            INVERTED,
+        }
+
+        public Scheme ControlScheme;
+
         public override void GetSteering(SteeringData data, ref PhysicsData physics)
         {
             this.GetInput(ref this.PlayerInput);
@@ -60,52 +70,106 @@ namespace Skyrates.Common.AI
         private void GetInput(ref InputData input)
         {
 
-            // ForwardInput is left stick (up/down)
-            input.Forward.Input = Input.GetAxis("xbox_stick_l_vertical");
-            
             // Strafe is left stick (left/right)
             input.Strafe.Input = Input.GetAxis("xbox_stick_l_horizontal");
-            
-            // Vertical is bumpers
-            input.Vertical.Input = Input.GetButton("xbox_bumper_r") ? 1 :
-                Input.GetButton("xbox_bumper_l") ? -1 : 0;
 
+            switch (this.ControlScheme)
+            {
+                case Scheme.CURRENT:
+                    {
+                        // ForwardInput is left stick (up/down)
+                        input.Forward.Input = Input.GetAxis("xbox_stick_l_vertical");
+
+                        // Vertical is bumpers
+                        input.Vertical.Input = Input.GetButton("xbox_bumper_r") ? 1 :
+                            Input.GetButton("xbox_bumper_l") ? -1 : 0;
+                    }
+                    break;
+                case Scheme.NORMAL_VERTICAL:
+                    {
+                        // ForwardInput is left stick (up/down)
+                        input.Forward.Input = Input.GetButton("xbox_a") ? 1 :
+                            Input.GetButton("xbox_b") ? -1 : 0;
+
+                        // Vertical is bumpers
+                        input.Vertical.Input = Input.GetAxis("xbox_stick_l_vertical");
+                    }
+                    break;
+                case Scheme.INVERTED:
+                    {
+                        // ForwardInput is left stick (up/down)
+                        input.Forward.Input = Input.GetButton("xbox_a") ? 1 :
+                            Input.GetButton("xbox_b") ? -1 : 0;
+
+                        // Vertical is bumpers
+                        input.Vertical.Input = -Input.GetAxis("xbox_stick_l_vertical");
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void Move(SteeringData data, InputData input, ref PhysicsData physicsData)
         {
-            Vector3 forward = data.Render.forward;
-            //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
-            Vector3 vertical = Vector3.up;
+            switch (this.ControlScheme)
+            {
+                case Scheme.CURRENT:
+                    {
+                        Vector3 forward = data.Render.forward;
+                        //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
+                        Vector3 vertical = Vector3.up;
 
-            // For character
-            //Vector3 movementForward = cameraForward * this.playerInput.Forward;
-            
-            // for ship
-            // Value in range [0, input.Forward.Modifier] which changes how fast the ship moves forward
-            float forwardSpeed = Mathf.Max(0, input.Forward.Value);
-            // value in range [0, 1] of how much constant velocity to counteract
-            float backpedal = Mathf.Max(0, -input.Forward.Input);
+                        // For character
+                        //Vector3 movementForward = cameraForward * this.playerInput.Forward;
 
-            float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.constantSpeed);
-            Vector3 movementForward = forward * movementForwardSpeed;
+                        // for ship
+                        // Value in range [0, input.Forward.Modifier] which changes how fast the ship moves forward
+                        float forwardSpeed = Mathf.Max(0, input.Forward.Value);
+                        // value in range [0, 1] of how much constant velocity to counteract
+                        float backpedal = Mathf.Max(0, -input.Forward.Input);
 
-            Vector3 movementVertical = vertical * input.Vertical.Value;
+                        float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.constantSpeed);
+                        Vector3 movementForward = forward * movementForwardSpeed;
 
-            // for character
-            // Vector3 movementXZ = movementForward + movementStrafe;
-            // for ship
-            Vector3 movementXZ = movementForward;
+                        Vector3 movementVertical = vertical * input.Vertical.Value;
 
-            Vector3 movementXYZ = movementXZ + movementVertical;
+                        // for character
+                        // Vector3 movementXZ = movementForward + movementStrafe;
+                        // for ship
+                        Vector3 movementXZ = movementForward;
 
-            physicsData.LinearVelocity = movementXYZ;
+                        Vector3 movementXYZ = movementXZ + movementVertical;
+
+                        physicsData.LinearVelocity = movementXYZ;
+                    }
+                    break;
+                case Scheme.NORMAL_VERTICAL:
+                case Scheme.INVERTED:
+                    {
+                        Vector3 forward = data.Render.forward;
+                        // Value in range [0, input.Forward.Modifier] which changes how fast the ship moves forward
+                        float forwardSpeed = Mathf.Max(0, input.Forward.Value);
+                        // value in range [0, 1] of how much constant velocity to counteract
+                        float backpedal = Mathf.Max(0, -input.Forward.Input);
+                        float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.constantSpeed);
+                        Vector3 movementForward = forward * movementForwardSpeed;
+                        Vector3 movementXZ = movementForward;
+
+                        Vector3 vertical = Vector3.up;
+                        Vector3 movementVertical = vertical * input.Vertical.Value;
+
+                        physicsData.LinearVelocity = movementXZ + movementVertical;
+                    }
+                    break;
+                default:
+                    break;
+            }
 
             // for ship movement
             float rotationY = input.Strafe.Value;
             rotationY *= (1 - input.Forward.Input) * 0.5f;
             physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, rotationY, 0.0f));
-
         }
 
     }
