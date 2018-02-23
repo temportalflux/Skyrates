@@ -10,14 +10,8 @@ namespace Skyrates.Client.Game.Event
     public class EventGameStart : GameEvent
     {
 
-        /// <summary>
-        /// The type of network game that is being started.
-        /// </summary>
-        public Session.NetworkMode GameMode;
-
-        public EventGameStart(Session.NetworkMode gameMode) : base(GameEventID.GameStart)
+        public EventGameStart() : base(GameEventID.GameStart)
         {
-            this.GameMode = gameMode;
         }
 
     }

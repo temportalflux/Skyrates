@@ -113,23 +113,6 @@ namespace Skyrates.Client.Entity
             GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
         }
 
-        /// <inheritdoc />
-        public override bool ShouldDeserialize()
-        {
-            return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
-        }
-
-        /// <inheritdoc />
-        public override void OnDeserializeSuccess()
-        {
-            base.OnDeserializeSuccess();
-            if (this.ShipRoot.ShipData.MustBeRebuilt)
-            {
-                this.ShipRoot.Destroy();
-                this.ShipData = this.ShipRoot.Generate(this, this.ShipData);
-            }
-        }
-
         #endregion
 
         /// <inheritdoc />
@@ -140,8 +123,7 @@ namespace Skyrates.Client.Entity
             Loot.Loot lootObject = other.GetComponent<Loot.Loot>();
             if (lootObject != null)
             {
-                // Must be passed off as game event, where networking called OnLootCollided
-                GameManager.Events.Dispatch(new EventLootCollided(this, lootObject));
+                this.OnLootCollided(lootObject);
             }
 
         }

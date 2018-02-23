@@ -109,7 +109,10 @@ namespace Skyrates.Client.Entity
             EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
             if (entityProjectile != null)
             {
+                this.TakeDamage(entityProjectile, entityProjectile.GetDamage());
+
                 GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile));
+
                 // collider is a projectile
                 // TODO: Owner should destroy based on networking
                 Destroy(entityProjectile.gameObject);
@@ -118,6 +121,11 @@ namespace Skyrates.Client.Entity
             ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
             if (ram != null)
             {
+                // If ram, and still have health, tell source that ram attack wasn't fully successful
+                if (this.TakeDamage(ram.Ship, ram.GetDamage()) > 0)
+                {
+                    ram.Ship.OnRamUnsucessful(this);
+                }
                 GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram));
             }
 
@@ -135,25 +143,6 @@ namespace Skyrates.Client.Entity
         public virtual ShipFigurehead GetFigurehead()
         {
             return null;
-        }
-
-        /// <summary>
-        /// Calls <see cref="TakeDamage(Entity, float)"/> with data from <see cref="EventEntityShipDamaged"/>,
-        /// and calls <see cref="EntityShip.OnRamUnsuccessful"/> if the event was a ram and did not reduce this object's health to 0.
-        /// </summary>
-        /// <param name="evt"></param>
-        public virtual void TakeDamage(EventEntityShipDamaged evt)
-        {
-            // Take the damage
-            if (this.TakeDamage(evt.Source, evt.Damage) > 0)
-            {
-                // If ram, and still have health, tell source that ram attack wasn't fully successful
-                EntityShip source = evt.Source as EntityShip;
-                if (source != null)
-                {
-                    source.OnRamUnsucessful(this);
-                }
-            }
         }
 
         /// <summary>
@@ -178,15 +167,12 @@ namespace Skyrates.Client.Entity
             // Remove the damage from the health
             this.Health -= damage;
 
-            // Dispatch event that damage on us by source has occured
-            GameManager.Events.Dispatch(new EventEntityShipDamaged(source, this, damage));
-
             // Update particle effects
             this.UpdateHealthParticles();
-
+            
             // If we still have health, stop execution here
             if (this.Health > 0) return this.Health;
-
+            
             // No more health, so try to destroy
 
             // Get whether or not this object should be destroyed

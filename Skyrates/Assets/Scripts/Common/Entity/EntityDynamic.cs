@@ -150,14 +150,6 @@ namespace Skyrates.Common.Entity
             start = Quaternion.Euler(euler);
         }
 
-        /// <inheritdoc />
-        public override void OnDeserializeSuccess()
-        {
-            base.OnDeserializeSuccess();
-            this.transform.position = this.Physics.LinearPosition;
-            this.GetRender().rotation = this.Physics.RotationPosition;
-        }
-
     }
 
 }

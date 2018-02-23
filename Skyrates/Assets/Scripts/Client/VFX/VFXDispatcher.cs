@@ -152,8 +152,6 @@ public class VFXDispatcher : MonoBehaviour
     private void OnLootCollected(GameEvent evt)
     {
         EventLootCollected evtLoot = (EventLootCollected) evt;
-        if (!evtLoot.PlayerShip.IsLocallyControlled)
-            return;
         foreach (ParticleSystem system in this.Dispatch(DispatchID.LootPickup, evtLoot.Entity.transform.position, evtLoot.Entity.transform.rotation))
         {
             system.transform.parent = evtLoot.Entity.transform;

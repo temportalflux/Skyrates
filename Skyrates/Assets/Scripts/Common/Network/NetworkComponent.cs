@@ -43,13 +43,13 @@ namespace Skyrates.Common.Network
 
             this.InitData();
 
-            this.Session.SetAddressBoth(this.GetIP());
-            StartCoroutine(this.CheckIP());
+            //this.Session.SetAddressBoth(this.GetIP());
+            //StartCoroutine(this.CheckIP());
         }
 
         void OnDestroy()
         {
-
+            
             if (this._network != null)
             {
                 if (GetSession.HandshakeComplete || GetSession.HasValidClientID())
@@ -63,7 +63,7 @@ namespace Skyrates.Common.Network
 
             this.InitData();
         }
-
+        
         void OnEnable()
         {
             SceneManager.sceneLoaded += this.OnSceneLoaded;
@@ -81,7 +81,6 @@ namespace Skyrates.Common.Network
             if (this._network != null && !this._network.HasSubscribed)
             {
                 this._network.SubscribeEvents();
-                this.SubscribeEvents();
             }
         }
 
@@ -90,14 +89,12 @@ namespace Skyrates.Common.Network
             if (this._network != null && this._network.HasSubscribed)
             {
                 this._network.UnsubscribeEvents();
-                this.UnsubscribeEvents();
             }
-            this.OnEvtSceneUnloaded(scene);
         }
 
-        // Wipes Session and GameState
         private void InitData()
         {
+            // Wipes Session
             this.Session.Init();
         }
 
@@ -111,7 +108,7 @@ namespace Skyrates.Common.Network
                 return Instance.Session;
             }
         }
-        
+
         public static NetworkCommon GetNetwork()
         {
             return Instance._network;
@@ -145,12 +142,13 @@ namespace Skyrates.Common.Network
 
         public void StartStandalone()
         {
-            this.StartGame(Session.NetworkMode.Standalone);
+            this.StartGame();
             // Start the world asap
             SceneLoader.Instance.ActivateNext();
-            this.LoadWorldNonClient();
+            //this.LoadWorldNonClient();
         }
 
+        /*
         public void StartClient()
         {
             this.StartGame(Session.NetworkMode.Client);
@@ -161,27 +159,25 @@ namespace Skyrates.Common.Network
             this.StartGame(Session.NetworkMode.Host);
             // Start the world asap
             SceneLoader.Instance.ActivateNext();
-            this.LoadWorldNonClient();
+            //this.LoadWorldNonClient();
         }
+        */
 
-        private void StartGame(Session.NetworkMode mode)
+        private void StartGame()
         {
             SceneLoader.Instance.Enqueue(SceneData.SceneKey.LoadingWorld);
             SceneLoader.Instance.ActivateNext();
 
             SceneLoader.Instance.Enqueue(SceneData.SceneKey.World);
-
-            Debug.Log("NetComp: Starting network as " + mode);
-
-            this.Session.Mode = mode;
-            this.CreateNetworkAndConnect();
-            GameManager.Events.Dispatch(new EventGameStart(mode));
+            
+            GameManager.Events.Dispatch(new EventGameStart());
         }
 
         #endregion
 
         #region Start Network
 
+        /*
         public void CreateNetworkAndConnect()
         {
             Debug.Assert(this.Session.IsValid);
@@ -207,43 +203,10 @@ namespace Skyrates.Common.Network
                     return null;
             }
         }
+        */
 
         #endregion
         
-        public void FixedUpdate()
-        {
-            if (this._network != null)
-            {
-                this._network.Update();
-            }
-        }
-
-        void SubscribeEvents()
-        {
-        }
-
-        void UnsubscribeEvents()
-        {
-        }
-
-        void LoadWorldNonClient()
-        {
-            // TODO: Get the game to stop on the laoding scene until both world and world nonclient are fully loaded
-            if (this.Session.IsOwner)
-            {
-                SceneLoader.Instance.Enqueue(SceneData.SceneKey.WorldNonClient, LoadSceneMode.Additive);
-                SceneLoader.Instance.ActivateNext();
-            }
-        }
-
-        void OnEvtSceneUnloaded(Scene scene)
-        {
-            if (this.Session.IsOwner && scene.name == SceneLoader.Instance.SceneData.GameName)
-            {
-                SceneManager.UnloadSceneAsync(SceneLoader.Instance.SceneData.WorldNonClient);
-            }
-        }
-
     }
 
 
