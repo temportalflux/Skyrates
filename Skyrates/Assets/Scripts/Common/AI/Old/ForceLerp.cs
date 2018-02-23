@@ -42,7 +42,7 @@ public class ForceLerp : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         AITarget target = other.GetComponent<AITarget>();
-        if (target != null && target.Guid == this._currentTarget.Guid)
+        if (target == this._currentTarget)
         {
             // Switch state
             switch (this._state)

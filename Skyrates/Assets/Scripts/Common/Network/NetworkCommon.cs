@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using ChampNetPlugin;
-using Skyrates.Client.Game;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network.Event;
-using Skyrates.Server.Network;
 using UnityEngine;
 
 namespace Skyrates.Common.Network
@@ -34,8 +32,6 @@ namespace Skyrates.Common.Network
         /// </summary>
         private PacketReceiver _receiver;
 
-        protected EntityTracker EntityTracker;
-
         /// <summary>
         /// Create the network object in the backend. Must use <see cref="Destroy"/> when done.
         /// </summary>
@@ -43,7 +39,6 @@ namespace Skyrates.Common.Network
         {
             this._dispatcher = new PacketDispatcher();
             this._receiver = new PacketReceiver();
-            this.EntityTracker = null;
             NetworkPlugin.Create();
         }
 
@@ -52,7 +47,6 @@ namespace Skyrates.Common.Network
         /// </summary>
         public virtual void Destroy()
         {
-            this.EntityTracker = null;
             NetworkPlugin.Destroy();
         }
 
@@ -63,13 +57,11 @@ namespace Skyrates.Common.Network
         public virtual void SubscribeEvents()
         {
             this.HasSubscribed = true;
-            this.GetEntityTracker().SubscribeEvents();
         }
 
         public virtual void UnsubscribeEvents()
         {
             this.HasSubscribed = false;
-            this.GetEntityTracker().UnsubscribeEvents();
         }
 
         #endregion
@@ -125,13 +117,6 @@ namespace Skyrates.Common.Network
         /// <param name="port">The server port.</param>
         public virtual void Dispatch(NetworkEvent evt, string address, int port, bool broadcast = false)
         {
-            // Will only allow server sent messages through
-            Session.NetworkMode mode = NetworkComponent.GetSession.Mode;
-            Side side = mode == Session.NetworkMode.Host ? Side.Server : Side.Client;
-            Debug.Assert(evt.IsSentBy(side), string.Format(
-                "{0} sent message attempting to be sent from {1}, these must be mitigated or stopped. {2}",
-                side, side == Side.Client ? Side.Server : Side.Client, (NetworkEventID)evt.EventID
-            ));
             this._dispatcher.Enqueue(evt, address, port, broadcast);
         }
 
@@ -185,11 +170,6 @@ namespace Skyrates.Common.Network
         protected void StopCoroutine(Coroutine coroutine)
         {
             NetworkComponent.Instance.StopCoroutine(coroutine);
-        }
-
-        public EntityTracker GetEntityTracker()
-        {
-            return this.EntityTracker;
         }
 
     }

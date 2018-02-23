@@ -173,7 +173,6 @@ namespace Skyrates.Client
         public void OnLootCollected(GameEvent evt)
         {
             EventLootCollected evtLoot = (EventLootCollected) evt;
-            if (!evtLoot.PlayerShip.IsLocallyControlled) return;
             this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected, evtLoot.PlayerShip.transform);
         }
 
@@ -183,7 +182,6 @@ namespace Skyrates.Client
             EventEnemyTargetEngage evtDEngage = (EventEnemyTargetEngage) evt;
 
             if (evtDEngage.Target.EntityType.EntityType != Common.Entity.Entity.Type.Player) return;
-            if (!evtDEngage.Target.IsLocallyControlled) return;
 
             //switch (evtDEngage.EventID)
             //{

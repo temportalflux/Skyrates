@@ -30,18 +30,18 @@ namespace Skyrates.Common.Network
         /// <summary>
         /// The networking object, clients and client-on-top-of-servers are subclasses
         /// </summary>
-        //private NetworkCommon _network;
+        private NetworkCommon _network;
 
         /// <summary>
         /// Loads the Singleton and instatiates data objects
         /// </summary>
         private void Awake()
         {
-            //this.loadSingleton(this, ref Instance);
+            this.loadSingleton(this, ref Instance);
 
-           // this._network = null;
+            this._network = null;
 
-            //this.InitData();
+            this.InitData();
 
             //this.Session.SetAddressBoth(this.GetIP());
             //StartCoroutine(this.CheckIP());
@@ -49,8 +49,7 @@ namespace Skyrates.Common.Network
 
         void OnDestroy()
         {
-
-            /*
+            
             if (this._network != null)
             {
                 if (GetSession.HandshakeComplete || GetSession.HasValidClientID())
@@ -63,10 +62,8 @@ namespace Skyrates.Common.Network
             }
 
             this.InitData();
-            */
         }
-
-        /*
+        
         void OnEnable()
         {
             SceneManager.sceneLoaded += this.OnSceneLoaded;
@@ -84,7 +81,6 @@ namespace Skyrates.Common.Network
             if (this._network != null && !this._network.HasSubscribed)
             {
                 this._network.SubscribeEvents();
-                this.SubscribeEvents();
             }
         }
 
@@ -93,17 +89,16 @@ namespace Skyrates.Common.Network
             if (this._network != null && this._network.HasSubscribed)
             {
                 this._network.UnsubscribeEvents();
-                this.UnsubscribeEvents();
             }
-            this.OnEvtSceneUnloaded(scene);
         }
-        */
 
-        // Wipes Session and GameState
         private void InitData()
         {
-            //this.Session.Init();
+            // Wipes Session
+            this.Session.Init();
         }
+
+        #region Static
 
         public static Session GetSession
         {
@@ -114,16 +109,12 @@ namespace Skyrates.Common.Network
             }
         }
 
-        /*
-        #region Static
-        
         public static NetworkCommon GetNetwork()
         {
             return Instance._network;
         }
         
         #endregion
-        */
 
         #region IP Helper
 
@@ -216,49 +207,6 @@ namespace Skyrates.Common.Network
 
         #endregion
         
-        /*
-        public void FixedUpdate()
-        {
-            if (this._network != null)
-            {
-                this._network.Update();
-            }
-        }
-        */
-
-        /*
-        void SubscribeEvents()
-        {
-        }
-
-        void UnsubscribeEvents()
-        {
-        }
-        */
-
-        // TODO: Move all world-non-client things into world
-        /*
-        void LoadWorldNonClient()
-        {
-            // TODO: Get the game to stop on the laoding scene until both world and world nonclient are fully loaded
-            if (this.Session.IsOwner)
-            {
-                SceneLoader.Instance.Enqueue(SceneData.SceneKey.WorldNonClient, LoadSceneMode.Additive);
-                SceneLoader.Instance.ActivateNext();
-            }
-        }
-        */
-
-        /*
-        void OnEvtSceneUnloaded(Scene scene)
-        {
-            if (this.Session.IsOwner && scene.name == SceneLoader.Instance.SceneData.GameName)
-            {
-                SceneManager.UnloadSceneAsync(SceneLoader.Instance.SceneData.WorldNonClient);
-            }
-        }
-        */
-
     }
 
 

@@ -87,14 +87,9 @@ namespace Skyrates.Client.Game
                 case SceneData.SceneKey.MenuMain:
                     break;
                 case SceneData.SceneKey.World:
-                    // TODO: Move this to owner classes (DummyClient & ClientServer)
-                    if (NetworkComponent.GetSession.IsOwner)
-                    {
-                        // spawn the player
-                        Common.Entity.Entity e = this.SpawnEntity(new Common.Entity.Entity.TypeData(Common.Entity.Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
-                        System.Diagnostics.Debug.Assert(e != null, "e != null");
-                        e.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
-                    }
+                    // spawn the player
+                    Common.Entity.Entity e = this.SpawnEntity(new Common.Entity.Entity.TypeData(Common.Entity.Entity.Type.Player, -1));
+                    System.Diagnostics.Debug.Assert(e != null, "e != null");
                     break;
                 default:
                     break;
@@ -123,7 +118,7 @@ namespace Skyrates.Client.Game
         /// <param name="typeData"></param>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public Common.Entity.Entity SpawnEntity(Common.Entity.Entity.TypeData typeData, Guid guid)
+        public Common.Entity.Entity SpawnEntity(Common.Entity.Entity.TypeData typeData)
         {
             Common.Entity.Entity spawned = null;
 
@@ -150,7 +145,7 @@ namespace Skyrates.Client.Game
 
             if (spawned == null) return null;
             
-            spawned.Init(guid, typeData);
+            spawned.Init(typeData);
 
             GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
 

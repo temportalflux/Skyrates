@@ -35,8 +35,6 @@ namespace Skyrates.Common.Network
         //! [Handshake.2] Sent with the ClientData's ID on connection
         HandshakeClientID,
 
-        UpdateGamestate,
-
         #endregion
 
         #region ClientData Sent
@@ -46,13 +44,6 @@ namespace Skyrates.Common.Network
 
         //! [Handshake.3] Sent to tell server that we have accepted the client ID (GameState updates can begin)
         HandshakeAccept,
-
-        //! [Update] Sent to server to update physics data about the player
-        RequestSetPlayerPhysics,
-
-        RequestEntityShipDamaged,
-
-        RequestSpawnEntityProjectile,
 
         #endregion
 
@@ -100,7 +91,6 @@ namespace Skyrates.Common.Network
             #region Server
 
             {NetworkEventID.HandshakeClientID, typeof(EventHandshakeClientID)},
-            {NetworkEventID.UpdateGamestate, typeof(EventUpdateGameState)},
 
             #endregion
 
@@ -108,9 +98,6 @@ namespace Skyrates.Common.Network
             
             {NetworkEventID.HandshakeJoin, typeof(EventHandshakeJoin)},
             {NetworkEventID.HandshakeAccept, typeof(EventHandshakeAccept)},
-            {NetworkEventID.RequestSetPlayerPhysics, typeof(EventRequestSetPlayerPhysics)},
-            {NetworkEventID.RequestEntityShipDamaged, typeof(EventRequestEntityShipDamaged)},
-            {NetworkEventID.RequestSpawnEntityProjectile, typeof(EventRequestSpawnEntityProjectile)},
 
             #endregion
 
@@ -150,7 +137,6 @@ namespace Skyrates.Common.Network
         #region Server Sent
 
         public event NetworkEventDelegate HandshakeClientID;
-        public event NetworkEventDelegate UpdateGamestate;
 
         #endregion
 
@@ -158,9 +144,6 @@ namespace Skyrates.Common.Network
         
         public event NetworkEventDelegate HandshakeJoin;
         public event NetworkEventDelegate HandshakeAccept;
-        public event NetworkEventDelegate RequestSetPlayerPhysics;
-        public event NetworkEventDelegate RequestEntityShipDamaged;
-        public event NetworkEventDelegate RequestSpawnEntityProjectile;
 
         #endregion
 
@@ -187,17 +170,10 @@ namespace Skyrates.Common.Network
                 #endregion
                 #region Server
                 case NetworkEventID.HandshakeClientID: return HandshakeClientID;
-                case NetworkEventID.UpdateGamestate: return UpdateGamestate;
                 #endregion
                 #region ClientData
                 case NetworkEventID.HandshakeJoin: return HandshakeJoin;
                 case NetworkEventID.HandshakeAccept: return HandshakeAccept;
-                case NetworkEventID.RequestSetPlayerPhysics:
-                    return RequestSetPlayerPhysics;
-                case NetworkEventID.RequestEntityShipDamaged:
-                    return RequestEntityShipDamaged;
-                case NetworkEventID.RequestSpawnEntityProjectile:
-                    return RequestSpawnEntityProjectile;
                 #endregion
                 #region From/To Both
                 case NetworkEventID.Disconnect: return Disconnect;

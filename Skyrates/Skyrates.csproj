@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -477,7 +479,6 @@
     <Compile Include="Assets\Scripts\Client\Data\LocalData.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityProjectile.cs" />
-    <Compile Include="Assets\Scripts\Client\Entity\EntityReceiver.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShipNavy.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Shooter.cs" />
@@ -503,13 +504,8 @@
     <Compile Include="Assets\Scripts\Client\Input\XInputDispatcher.cs" />
     <Compile Include="Assets\Scripts\Client\Loot\Loot.cs" />
     <Compile Include="Assets\Scripts\Client\Loot\LootTable.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\Client.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\DummyClient.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeAccept.cs" />
     <Compile Include="Assets\Scripts\Client\Network\Events\EventHandshakeJoin.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestEntityShipDamaged.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestSetPlayerPhysics.cs" />
-    <Compile Include="Assets\Scripts\Client\Network\Events\EventRequestSpawnEntityProjectile.cs" />
     <Compile Include="Assets\Scripts\Client\Scene\SceneData.cs" />
     <Compile Include="Assets\Scripts\Client\Scene\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Assets\ShipBuilder.cs" />
@@ -552,7 +548,6 @@
     <Compile Include="Assets\Scripts\Common\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Common\Entity\EntityDynamic.cs" />
     <Compile Include="Assets\Scripts\Common\Entity\EntityList.cs" />
-    <Compile Include="Assets\Scripts\Common\Entity\EntityTracker.cs" />
     <Compile Include="Assets\Scripts\Common\Network\ChampNet\NetworkPlugin.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\EventDisconnect.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\EventRakNet.cs" />
@@ -560,7 +555,6 @@
     <Compile Include="Assets\Scripts\Common\Network\NetworkCommon.cs" />
     <Compile Include="Assets\Scripts\Common\Network\NetworkComponent.cs" />
     <Compile Include="Assets\Scripts\Common\Network\NetworkEvents.cs" />
-    <Compile Include="Assets\Scripts\Common\Network\NetworkTest.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Serializing\BitSerializeAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Serializing\BitTest.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Serializing\BitTest2.cs" />
@@ -576,10 +570,8 @@
     <Compile Include="Assets\Scripts\Common\Util\NetworkEventAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Prefab\PrefabDispatcher.cs" />
     <Compile Include="Assets\Scripts\Common\Util\Prefab\PrefabList.cs" />
-    <Compile Include="Assets\Scripts\Server\Entity\EntityDispatcher.cs" />
     <Compile Include="Assets\Scripts\Server\Network\ClientServer.cs" />
     <Compile Include="Assets\Scripts\Server\Network\Event\EventHandshakeClientID.cs" />
-    <Compile Include="Assets\Scripts\Server\Network\Event\EventUpdateGameState.cs" />
     <Compile Include="Assets\Scripts\Server\Physics\PhysicsData.cs" />
     <Compile Include="Assets\Scripts\Server\Ship\ShipData.cs" />
   </ItemGroup>

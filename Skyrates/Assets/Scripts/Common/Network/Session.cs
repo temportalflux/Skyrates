@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Server.Network;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Skyrates.Common.Network
 {
@@ -10,7 +6,7 @@ namespace Skyrates.Common.Network
     [CreateAssetMenu(menuName = "Data/Session")]
     public class Session : ScriptableObject
     {
-
+        
         /// <summary>
         /// The IPv4 address of this peer (client or server).
         /// </summary>
@@ -33,16 +29,26 @@ namespace Skyrates.Common.Network
         public int MaxClients = 10;
 
         /// <summary>
-        /// Only used when Mode == Host
+        /// The local client ID. Will be INVALID if Mode == Host (host does not have a clientID, it just is).
         /// </summary>
-        public float ServerTickUpdate;
-        
+        public uint ClientID;
+
+        /// <summary>
+        /// If this client has successfully authenticated with the server.
+        /// </summary>
+        public bool HandshakeComplete = false;
+
         public void Init()
         {
             this.SetAddressBoth("");
-            this.Port = 425;
+            this.ClientID = uint.MaxValue; // marked as something horrible instead of -1
         }
-        
+
+        public bool HasValidClientID()
+        {
+            return this.ClientID < uint.MaxValue;
+        }
+
         public void SetAddress(string address)
         {
             this.Address = address;
