@@ -21,11 +21,26 @@ namespace Skyrates.Client.Entity
         [SerializeField]
         public ShipStat StatBlock;
 
-        [SerializeField]
-        public ParticleSystem ParticleSmoke;
+        [Serializable]
+        public class ParticleArea
+        {
+
+            [SerializeField]
+            public BoxCollider Bounds;
+
+            [SerializeField]
+            public ParticleSystem Prefab;
+
+            [HideInInspector]
+            public ParticleSystem Generated;
+
+        }
 
         [SerializeField]
-        public ParticleSystem ParticleFire;
+        public ParticleArea SmokeData;
+
+        [SerializeField]
+        public ParticleArea FireData;
 
         [SerializeField]
         public ParticleSystem ParticleOnDestruction;
@@ -34,7 +49,7 @@ namespace Skyrates.Client.Entity
         public CapsuleCollider LootDropArea;
 
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
-        [BitSerialize(0)]
+        [HideInInspector]
         public float Health;
 
         protected override void Start()
@@ -47,6 +62,8 @@ namespace Skyrates.Client.Entity
                     this.StatBlock.name));
                 this.Health = this.StatBlock.Health;
             }
+            this.InitParticle(ref this.SmokeData);
+            this.InitParticle(ref this.FireData);
         }
         
         /// <inheritdoc />
@@ -54,6 +71,17 @@ namespace Skyrates.Client.Entity
         {
             base.Update();
             this.UpdateHealthParticles();
+        }
+
+        private void InitParticle(ref ParticleArea area)
+        {
+            if (area == null || area.Bounds == null || area.Prefab == null)
+                return;
+
+            area.Generated = Instantiate(area.Prefab.gameObject, area.Bounds.center + this.transform.position, area.Prefab.transform.rotation, this.transform).GetComponent<ParticleSystem>();
+            ParticleSystem.ShapeModule shape = area.Generated.shape;
+            shape.shapeType = ParticleSystemShapeType.Box;
+            shape.scale = area.Bounds.bounds.size;
         }
 
         // Called when some non-trigger collider with a rigidbody enters
@@ -265,7 +293,7 @@ namespace Skyrates.Client.Entity
             float damageTaken = this.StatBlock.Health - this.Health;
 
             // Update smoke particles
-            if (this.ParticleSmoke != null)
+            if (this.SmokeData.Generated != null)
             {
                 float emittedAmountSmoke = 0;
                 // if the damage taken is in the range, when set emittedAmountSmoke
@@ -282,12 +310,14 @@ namespace Skyrates.Client.Entity
                 }
 
                 // set the emission rate
-                ParticleSystem.EmissionModule emissionSmoke = this.ParticleSmoke.emission;
+                ParticleSystem.EmissionModule emissionSmoke = this.SmokeData.Generated.emission;
                 emissionSmoke.rateOverTime = emittedAmountSmoke;
+                if (emittedAmountSmoke > 0)
+                    Debug.Log(emittedAmountSmoke);
             }
 
             // Update fire particles
-            if (this.ParticleFire != null)
+            if (this.FireData.Generated != null)
             {
                 float emiitedAmountFire = 0;
                 // if the damage taken is in the range, when set emiitedAmountFire
@@ -304,7 +334,7 @@ namespace Skyrates.Client.Entity
                 }
 
                 // set the emission rate
-                ParticleSystem.EmissionModule emission = this.ParticleFire.emission;
+                ParticleSystem.EmissionModule emission = this.FireData.Generated.emission;
                 emission.rateOverTime = emiitedAmountFire;
             }
 
