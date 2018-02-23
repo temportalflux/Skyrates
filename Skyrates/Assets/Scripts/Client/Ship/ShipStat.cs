@@ -22,8 +22,6 @@ public class ShipStat : ScriptableObject
     [Tooltip("The amount of loot dropped by the ship")]
     public LootTable Loot;
 
-    public float LootRadius = 3;
-
     [Serializable]
     public class HealthFeedback
     {

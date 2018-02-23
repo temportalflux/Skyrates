@@ -88,11 +88,29 @@ namespace Skyrates.Client.Input
         /// <summary>
         /// 
         /// </summary>
-        public float OnHitStrength = 0.25f;
+        public float OnHitStrength;
         /// <summary>
         /// 
         /// </summary>
-        public float OnHitDuration = 0.3f;
+        public float OnHitDuration;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public float StrengthOnArtilleryFire;
+        /// <summary>
+        /// 
+        /// </summary>
+        public float DurationOnArtilleryFire;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public float StrengthOnRam;
+        /// <summary>
+        /// 
+        /// </summary>
+        public float DurationOnRam;
 
         /// <inheritdoc />
         private void Start()
@@ -105,12 +123,16 @@ namespace Skyrates.Client.Input
         private void OnEnable()
         {
             GameManager.Events.EntityShipHitByProjectile += this.OnEntityHitByProjectile;
+            GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitByRam;
+            GameManager.Events.ArtilleryFired += this.OnArtilleryFired;
         }
 
         /// <inheritdoc />
         private void OnDisable()
         {
             GameManager.Events.EntityShipHitByProjectile -= this.OnEntityHitByProjectile;
+            GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitByRam;
+            GameManager.Events.ArtilleryFired -= this.OnArtilleryFired;
         }
 
         /// <summary>
@@ -179,6 +201,28 @@ namespace Skyrates.Client.Input
             else if (orthogonality > 0)
                 this._left = new Pulse(this.OnHitStrength, 0, this.OnHitDuration);
 
+        }
+
+        private void OnEntityShipHitByRam(GameEvent evt)
+        {
+            // TODO: Rename event for player only
+            this._left = this._right = new Pulse(this.StrengthOnRam, 0, this.DurationOnRam);
+        }
+
+        private void OnArtilleryFired(GameEvent evt)
+        {
+            EventArtilleryFired evtFired = (EventArtilleryFired) evt;
+            switch (evtFired.ComponentType)
+            {
+                case ShipData.ComponentType.ArtilleryRight:
+                    this._right = new Pulse(this.StrengthOnArtilleryFire, 0, this.DurationOnArtilleryFire);
+                    break;
+                case ShipData.ComponentType.ArtilleryLeft:
+                    this._left = new Pulse(this.StrengthOnArtilleryFire, 0, this.DurationOnArtilleryFire);
+                    break;
+                default:
+                    break;
+            }
         }
 
     }
