@@ -555,9 +555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab:
-    EntityTypeAsInt: 2
-    EntityTypeIndex: 0
+  projectilePrefab: {fileID: 114653715804997438, guid: cedb873c8222f8f4daa03ffa5b8848da,
+    type: 2}
   spawn: {fileID: 4722981139298310}
   force: 0.005
 --- !u!114 &114091333524951842
@@ -669,10 +668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575d55c84d5a0054a93ede34d1528435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OwnerNetworkID: 0
-  EntityType:
-    EntityTypeAsInt: 1
-    EntityTypeIndex: 3
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
@@ -708,9 +703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab:
-    EntityTypeAsInt: 2
-    EntityTypeIndex: 0
+  projectilePrefab: {fileID: 114653715804997438, guid: cedb873c8222f8f4daa03ffa5b8848da,
+    type: 2}
   spawn: {fileID: 4767101746777976}
   force: 0.005
 --- !u!136 &136003342465861824
