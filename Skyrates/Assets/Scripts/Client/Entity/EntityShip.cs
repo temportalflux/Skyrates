@@ -30,6 +30,9 @@ namespace Skyrates.Client.Entity
         [SerializeField]
         public ParticleSystem ParticleOnDestruction;
 
+        [SerializeField]
+        public CapsuleCollider LootDropArea;
+
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [BitSerialize(0)]
         public float Health;
@@ -77,6 +80,11 @@ namespace Skyrates.Client.Entity
                 GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram));
             }
 
+        }
+
+        public virtual void OnTriggerExit(Collider other)
+        {
+            
         }
 
         /// <summary>
@@ -203,7 +211,8 @@ namespace Skyrates.Client.Entity
                 }
 
                 // Get a random position to spawn it
-                Vector3 pos = position + Random.insideUnitSphere * this.StatBlock.LootRadius;
+                Vector3 pos = position + this.LootDropArea.center + Vector3.Scale(Random.insideUnitSphere, this.LootDropArea.bounds.size);
+
                 // Create the prefab instance for the loot
                 Loot.Loot loot = Instantiate(lootItem.Value.gameObject, pos, Quaternion.identity).GetComponent<Loot.Loot>();
                 // Set the item the loot contains
