@@ -180,9 +180,7 @@ namespace Skyrates.Client
         public void OnEnemyEngage(GameEvent evt)
         {
             EventEnemyTargetEngage evtDEngage = (EventEnemyTargetEngage) evt;
-
-            if (evtDEngage.Target.EntityType.EntityType != Common.Entity.Entity.Type.Player) return;
-
+            
             //switch (evtDEngage.EventID)
             //{
             //    case GameEventID.EnemyTargetEngage:

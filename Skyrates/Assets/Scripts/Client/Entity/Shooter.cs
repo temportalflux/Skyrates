@@ -17,7 +17,7 @@ namespace Skyrates.Client.Mono
         /// The prefab of the projectile to launch from this source.
         /// </summary>
         [SerializeField]
-        public Common.Entity.Entity.TypeData projectilePrefab;
+        public Common.Entity.Entity projectilePrefab;
 
         /// <summary>
         /// The spawn location of the projectile.
