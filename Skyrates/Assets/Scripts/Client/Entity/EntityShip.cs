@@ -31,6 +31,9 @@ namespace Skyrates.Client.Entity
             [SerializeField]
             public ParticleSystem Prefab;
 
+            [SerializeField]
+            public float Scale;
+
             [HideInInspector]
             public ParticleSystem Generated;
 
@@ -43,7 +46,7 @@ namespace Skyrates.Client.Entity
         public ParticleArea FireData;
 
         [SerializeField]
-        public ParticleSystem ParticleOnDestruction;
+        public GameObject ParticleOnDestruction;
 
         [SerializeField]
         public CapsuleCollider LootDropArea;
@@ -78,10 +81,20 @@ namespace Skyrates.Client.Entity
             if (area == null || area.Bounds == null || area.Prefab == null)
                 return;
 
-            area.Generated = Instantiate(area.Prefab.gameObject, area.Bounds.center + this.transform.position, area.Prefab.transform.rotation, this.transform).GetComponent<ParticleSystem>();
+            area.Generated = Instantiate(area.Prefab.gameObject,
+                area.Bounds.transform.parent
+            ).GetComponent<ParticleSystem>();
+            area.Generated.transform.localPosition = area.Bounds.transform.localPosition;
+            area.Generated.transform.localRotation = area.Bounds.transform.localRotation;
+            
             ParticleSystem.ShapeModule shape = area.Generated.shape;
             shape.shapeType = ParticleSystemShapeType.Box;
-            shape.scale = area.Bounds.bounds.size;
+            shape.scale = Vector3.Scale(area.Bounds.size, area.Bounds.transform.lossyScale);
+            
+            ParticleSystem.MainModule main = area.Generated.main;
+            ParticleSystem.MinMaxCurve size = main.startSize;
+            size.constant = area.Scale;
+            main.startSize = size;
         }
 
         // Called when some non-trigger collider with a rigidbody enters
@@ -211,12 +224,13 @@ namespace Skyrates.Client.Entity
         protected virtual void SpawnDestructionParticles()
         {
             if (this.ParticleOnDestruction == null) return;
-            
+
             // Spawn the prefab WITH NO OWNER (so it isnt destroyed when the object is)
-            ParticleSystem particles = Instantiate(this.ParticleOnDestruction.gameObject,
-                this.transform.position, this.transform.rotation).GetComponent<ParticleSystem>();
+            GameObject particles = Instantiate(this.ParticleOnDestruction,
+                this.transform.position, this.transform.rotation);
+            particles.transform.localScale = Vector3.Scale(particles.transform.localScale, this.transform.localScale);
             // Destory the particle system when it is done playing
-            Destroy(particles.gameObject, particles.main.duration);
+            Destroy(particles.gameObject, particles.GetComponentInChildren<ParticleSystem>().main.duration);
         }
 
         /// <summary>
@@ -312,8 +326,6 @@ namespace Skyrates.Client.Entity
                 // set the emission rate
                 ParticleSystem.EmissionModule emissionSmoke = this.SmokeData.Generated.emission;
                 emissionSmoke.rateOverTime = emittedAmountSmoke;
-                if (emittedAmountSmoke > 0)
-                    Debug.Log(emittedAmountSmoke);
             }
 
             // Update fire particles
