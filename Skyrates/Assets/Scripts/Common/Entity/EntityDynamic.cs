@@ -97,6 +97,7 @@ namespace Skyrates.Common.Entity
         /// <param name="deltaTime"></param>
         protected virtual void IntegratePhysics(float deltaTime)
         {
+            if (this._physics == null) return;
 
             //this.transform.position = this.Physics.LinearPosition;
 

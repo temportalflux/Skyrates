@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Skyrates.Common.AI
 {
 
-    [CreateAssetMenu(menuName = "Data/AI/Basic/Player")]
+    [CreateAssetMenu(menuName = "Data/AI/Player")]
     public class UserControlled : Steering
     {
 
