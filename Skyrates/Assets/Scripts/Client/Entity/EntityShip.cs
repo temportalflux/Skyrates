@@ -15,7 +15,7 @@ namespace Skyrates.Client.Entity
     /// <summary>
     /// A moving entity which has ShipStats, AI, health data, and <see cref="ShipComponent"/>s.
     /// </summary>
-    public class EntityShip : EntityDynamic
+    public class EntityShip : EntityAI
     {
 
         [SerializeField]
