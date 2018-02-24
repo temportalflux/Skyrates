@@ -20,14 +20,14 @@ namespace Skyrates.Client.Entity
 
         private EntityShip _aiTarget;
         
-       // private Coroutine _shootAtTarget;
+        private Coroutine _shootAtTarget;
 
         protected override void Start()
         {
             base.Start();
 
             this._aiTarget = null;
-            //this._shootAtTarget = null;
+            this._shootAtTarget = null;
         }
 
         protected override void FixedUpdate()
@@ -39,11 +39,11 @@ namespace Skyrates.Client.Entity
 
         protected override void OnDestroy()
         {
-        //    if (this._shootAtTarget != null)
-        //    {
-        //        StopCoroutine(this._shootAtTarget);
-        //        this._shootAtTarget = null;
-        //    }
+            if (this._shootAtTarget != null)
+            {
+                StopCoroutine(this._shootAtTarget);
+                this._shootAtTarget = null;
+            }
             base.OnDestroy();
         }
 
@@ -71,43 +71,43 @@ namespace Skyrates.Client.Entity
 
         public void OnEnterAreaShoot(TriggerArea area, Collider other)
         {
-            //if (this._aiTarget == null) return;
+            if (this._aiTarget == null) return;
 
-            //EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            //if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
-            //{
-            //    this._shootAtTarget = StartCoroutine(this.ShootAtTarget());
-            //}
+            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            {
+                this._shootAtTarget = StartCoroutine(this.ShootAtTarget());
+            }
         }
 
         public void OnExitAreaShoot(TriggerArea area, Collider other)
         {
-            //if (this._aiTarget == null) return;
+            if (this._aiTarget == null) return;
 
-            //EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            //if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
-            //{
-            //    if (this._shootAtTarget != null)
-            //    {
-            //        StopCoroutine(this._shootAtTarget);
-            //        this._shootAtTarget = null;
-            //    }
-            //}
+            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            {
+                if (this._shootAtTarget != null)
+                {
+                    StopCoroutine(this._shootAtTarget);
+                    this._shootAtTarget = null;
+                }
+            }
         }
         
-        //IEnumerator ShootAtTarget()
-        //{
-        //    while (true)
-        //    {
-        //        float wait = 3;
+        IEnumerator ShootAtTarget()
+        {
+            while (true)
+            {
+                float wait = 3;
 
-        //        if (this._aiTarget != null)
-        //        {
-        //            this.Shoot(ShipData.ComponentType.ArtilleryForward); 
-        //        }
-        //        yield return new WaitForSeconds(wait);
-        //    }
-        //}
+                if (this._aiTarget != null)
+                {
+                    this.Shoot(ShipData.ComponentType.ArtilleryForward); 
+                }
+                yield return new WaitForSeconds(wait);
+            }
+        }
 
         protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
@@ -117,9 +117,9 @@ namespace Skyrates.Client.Entity
         // TODO: Fix the steering to remove this
         protected override void IntegratePhysics(float deltaTime)
         {
-            //Quaternion rotation = this.Physics.RotationPosition;
+            Quaternion rotation = this.Physics.RotationPosition;
             base.IntegratePhysics(deltaTime);
-            //this.transform.rotation = rotation;
+            this.transform.rotation = rotation;
         }
 
     }

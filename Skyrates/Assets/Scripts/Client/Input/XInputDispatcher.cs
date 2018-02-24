@@ -185,7 +185,7 @@ namespace Skyrates.Client.Input
 
             if (!(evtHit.Ship is EntityPlayerShip)) return;
 
-            Transform target = evtHit.Ship.GetRender();
+            Transform target = evtHit.Ship.GetRender().transform;
             Transform source = evtHit.Projectile.transform;
 
             Vector3 targetToSource = source.position - target.position;

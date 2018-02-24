@@ -39,7 +39,7 @@ namespace Skyrates.Client.Entity
         /// The root of the render object (must be a child/decendent of this root).
         /// </summary>
         [Tooltip("The root of the render object (must be a child/decendent of this root).")]
-        public Transform Render;
+        public Rigidbody Render;
 
         /// <summary>
         /// The Ship component which creates the modular ship.
@@ -76,7 +76,7 @@ namespace Skyrates.Client.Entity
         }
 
         /// <inheritdoc />
-        public override Transform GetRender()
+        public override Rigidbody GetRender()
         {
             return this.Render;
         }

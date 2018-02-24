@@ -19,6 +19,7 @@ namespace Skyrates.Common.Entity
         /// Updated via <see cref="Steering"/>.
         /// </summary>
         [BitSerialize(4)]
+        [SerializeField]
         public PhysicsData Physics;
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace Skyrates.Common.Entity
         protected virtual void FixedUpdate()
         {
             this.SteeringData.View = this.GetView();
-            this.SteeringData.Render = this.GetRender();
+            this.SteeringData.Render = this.GetRender().transform;
         }
 
         /// <summary>
@@ -70,9 +71,9 @@ namespace Skyrates.Common.Entity
         /// Returns the direction/rotation that the entity is facing.
         /// </summary>
         /// <returns></returns>
-        public virtual Transform GetRender()
+        public virtual Rigidbody GetRender()
         {
-            return this.GetView();
+            return this._physics;
         }
 
     }

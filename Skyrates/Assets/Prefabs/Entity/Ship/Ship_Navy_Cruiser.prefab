@@ -678,10 +678,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575d55c84d5a0054a93ede34d1528435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Physics:
+    LinearPosition: {x: 0, y: 0, z: 0}
+    LinearVelocity: {x: 0, y: 0, z: 0}
+    LinearAccelleration: {x: 0, y: 0, z: 0}
+    RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
+    RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
-  Steering: {fileID: 11400000, guid: 5d19c3255f5344d46a09a959f0ef57e9, type: 2}
+    HasTarget: 0
+    Target:
+      LinearPosition: {x: 0, y: 0, z: 0}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      LinearAccelleration: {x: 0, y: 0, z: 0}
+      RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
+      RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
+  Steering:
+  - {fileID: 11400000, guid: 5d19c3255f5344d46a09a959f0ef57e9, type: 2}
+  - {fileID: 11400000, guid: bd2773ae92028ea4eb0b640667188548, type: 2}
   StatBlock: {fileID: 11400000, guid: adb9af9b6eaaeab4096427cda231fd7d, type: 2}
   SmokeData:
     Bounds: {fileID: 65351439239521238}

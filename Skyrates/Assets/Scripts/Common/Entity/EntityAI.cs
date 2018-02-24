@@ -14,17 +14,33 @@ namespace Skyrates.Common.Entity
         /// The actual steering object - set via editor.
         /// </summary>
         [SerializeField]
-        public Steering Steering;
+        public Steering[] Steering;
 
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
 
+            //PhysicsData compiled = new PhysicsData()
+            //{
+            //    LinearPosition = this.Physics.LinearPosition,
+            //    RotationPosition = this.Physics.RotationPosition,
+            //};
             // Update steering on a fixed timestep
-            if (this.Steering != null)
+            foreach (Steering steering in this.Steering)
             {
-                this.Steering.GetSteering(this.SteeringData, ref this.Physics);
+                if (steering != null)
+                {
+                    //PhysicsData physics = new PhysicsData()
+                    //{
+                    //    LinearPosition = this.Physics.LinearPosition,
+                    //    RotationPosition = this.Physics.RotationPosition
+                    //};
+                    //float weight = 1.0f;
+                    steering.GetSteering(this.SteeringData, ref this.Physics);
+                    //compiled += physics * weight;
+                }
             }
+            //this.Physics = compiled;
 
             // Integrate physics from steering and any network updates
             this.IntegratePhysics(Time.fixedDeltaTime);
@@ -53,13 +69,12 @@ namespace Skyrates.Common.Entity
             // Update physics position
             this.Physics.LinearPosition = this.transform.position;
 
-            //this.transform.rotation = this.Physics.RotationPosition;
-
             // Update rotational velocity
-            //this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
+            this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
 
             // Update rotation
-            this.GetRender().Rotate(this.Physics.RotationVelocity.eulerAngles, Space.Self);
+            this.GetRender().transform.Rotate(this.Physics.RotationVelocity.eulerAngles, Space.Self);
+            //this.GetRender().AddTorque(this.Physics.RotationVelocity.eulerAngles * deltaTime, ForceMode.VelocityChange);
 
             // Set rotation
             this.Physics.RotationPosition = this.GetRender().rotation;

@@ -510,9 +510,11 @@
     <Compile Include="Assets\Scripts\Common\AI\FiniteState.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Align.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Arrive.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\LockAt.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Seek.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\Face.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\FollowPath.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\LookAt.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\Pursue.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\Wander.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Flocking\Cohesion.cs" />
