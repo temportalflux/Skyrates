@@ -345,10 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575d55c84d5a0054a93ede34d1528435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OwnerNetworkID: 0
-  EntityType:
-    EntityTypeAsInt: 1
-    EntityTypeIndex: 3
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
@@ -369,8 +365,8 @@ MonoBehaviour:
   LootDropArea: {fileID: 136224280050348248}
   Health: 0
   Shooters: []
-  maxDistShoot: 0
-  maxDistFind: 0
+  rangeFind: {fileID: 0}
+  rangeShoot: {fileID: 0}
 --- !u!114 &114702991569725404
 MonoBehaviour:
   m_ObjectHideFlags: 1
