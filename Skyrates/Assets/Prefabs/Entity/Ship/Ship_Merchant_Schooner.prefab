@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4146906015652790}
   - component: {fileID: 54200539007341228}
   - component: {fileID: 114865962957982574}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 33791433699827376}
   - component: {fileID: 23098489586343236}
   - component: {fileID: 64859034229465736}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: ship_merchant_schooner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4664746602210714}
   - component: {fileID: 54349007325168094}
   - component: {fileID: 114303108047845630}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Ship_Merchant_Schooner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -345,13 +345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OwnerNetworkID: 0
-  EntityType:
-    EntityTypeAsInt: 1
-    EntityTypeIndex: 1
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
+    HasTarget: 0
   Steering: {fileID: 0}
   StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
   SmokeData:

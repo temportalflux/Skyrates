@@ -70,6 +70,11 @@ namespace Skyrates.Common.AI
         private void GetInput(ref InputData input)
         {
 
+            if (Input.GetButtonDown("xbox_button_menu"))
+            {
+                this.ControlScheme = (Scheme) ((((int) this.ControlScheme) + 1) % 3);
+            }
+
             // Strafe is left stick (left/right)
             input.Strafe.Input = Input.GetAxis("xbox_stick_l_horizontal");
 

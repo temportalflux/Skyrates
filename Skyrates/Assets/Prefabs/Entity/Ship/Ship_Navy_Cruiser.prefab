@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4883067017600710}
   - component: {fileID: 136003342465861824}
-  - component: {fileID: 114357528843650500}
+  - component: {fileID: 114297678338458246}
   m_Layer: 10
   m_Name: 'Range: Shoot'
   m_TagString: Untagged
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4957569455620632}
   - component: {fileID: 136909020036280942}
-  - component: {fileID: 114451203794941796}
+  - component: {fileID: 114725774865748140}
   m_Layer: 10
   m_Name: 'Range: Find'
   m_TagString: Untagged
@@ -385,7 +385,7 @@ Transform:
   m_GameObject: {fileID: 1120154268526044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 75, y: 75, z: 75}
   m_Children: []
   m_Father: {fileID: 4073305410172570}
   m_RootOrder: 3
@@ -398,7 +398,7 @@ Transform:
   m_GameObject: {fileID: 1150387369552906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 125, y: 125, z: 125}
   m_Children: []
   m_Father: {fileID: 4073305410172570}
   m_RootOrder: 2
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 114761233398162100}
---- !u!114 &114357528843650500
+--- !u!114 &114297678338458246
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -579,14 +579,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120154268526044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d769804cbfa63846bd19775dbfa8bb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 24da34c0b1a90134fb08ea2117dfecd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventOnTriggerEnter:
+  Enter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114761233398162100}
-        m_MethodName: OnTriggerEnter_AreaShoot
+        m_MethodName: OnEnterAreaShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -596,13 +596,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: TriggerDetector+EventTrigger, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  EventOnTriggerExit:
+    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Exit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114761233398162100}
-        m_MethodName: OnTriggerExit_AreaShoot
+        m_MethodName: OnExitAreaShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -612,9 +617,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: TriggerDetector+EventTrigger, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!114 &114451203794941796
+    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &114725774865748140
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -622,14 +627,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1150387369552906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d769804cbfa63846bd19775dbfa8bb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 24da34c0b1a90134fb08ea2117dfecd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventOnTriggerEnter:
+  Enter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114761233398162100}
-        m_MethodName: OnTriggerEnter_AreaFind
+        m_MethodName: OnEnterAreaFind
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -639,13 +644,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: TriggerDetector+EventTrigger, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  EventOnTriggerExit:
+    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Stay:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Exit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114761233398162100}
-        m_MethodName: OnTriggerExit_AreaFind
+        m_MethodName: OnExitAreaFind
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -655,8 +665,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: TriggerDetector+EventTrigger, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114761233398162100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -671,7 +681,7 @@ MonoBehaviour:
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
-  Steering: {fileID: 11400000, guid: 39694d9de560736458f2c007c5655a9a, type: 2}
+  Steering: {fileID: 11400000, guid: 5d19c3255f5344d46a09a959f0ef57e9, type: 2}
   StatBlock: {fileID: 11400000, guid: adb9af9b6eaaeab4096427cda231fd7d, type: 2}
   SmokeData:
     Bounds: {fileID: 65351439239521238}
@@ -690,8 +700,6 @@ MonoBehaviour:
   Shooters:
   - {fileID: 114832201945137496}
   - {fileID: 114067398138845758}
-  rangeFind: {fileID: 136909020036280942}
-  rangeShoot: {fileID: 136003342465861824}
 --- !u!114 &114832201945137496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -716,8 +724,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 75
-  m_Height: 20
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136909020036280942
@@ -729,8 +737,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 125
-  m_Height: 20
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136965493367469548

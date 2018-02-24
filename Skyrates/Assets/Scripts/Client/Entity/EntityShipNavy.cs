@@ -19,57 +19,35 @@ namespace Skyrates.Client.Entity
         public Shooter[] Shooters;
 
         private EntityShip _aiTarget;
-
-        private Coroutine _findTarget;
-        private Coroutine _shootAtTarget;
-
-        public CapsuleCollider rangeFind;
-        public CapsuleCollider rangeShoot;
-
-        private float maxDistFind;
-        private float maxDistShoot;
+        
+       // private Coroutine _shootAtTarget;
 
         protected override void Start()
         {
             base.Start();
 
-            this.maxDistFind = this.rangeFind != null ? this.rangeFind.radius : 0;
-            this.maxDistFind *= this.maxDistFind;
-            this.maxDistShoot = this.rangeShoot != null ? this.rangeShoot.radius : 1;
-            this.maxDistShoot *= this.maxDistShoot;
-
             this._aiTarget = null;
-            this._findTarget = null;
-            this._shootAtTarget = null;
+            //this._shootAtTarget = null;
         }
 
         protected override void FixedUpdate()
         {
-            if (this._aiTarget == null)
-            {
-                //if (this._findTarget == null && this.maxDistFind > 0)
-                //    this._findTarget = StartCoroutine(this.FindTarget());
-            }
-            else if ((this._aiTarget.transform.position - this.transform.position).sqrMagnitude > this.maxDistFind)
-            {
-                //GameManager.Events.Dispatch(EventEnemyTargetEngage.Disengage(this, this._aiTarget));
-                //this._aiTarget = null;
-            }
-            this.SteeringData.Target = this._aiTarget == null ? this.Physics : this._aiTarget.Physics;
+            this.SteeringData.HasTarget = this._aiTarget != null;
+            this.SteeringData.Target = this.SteeringData.HasTarget ? this._aiTarget.Physics : this.Physics;
             base.FixedUpdate();
         }
 
         protected override void OnDestroy()
         {
-            if (this._shootAtTarget != null)
-            {
-                StopCoroutine(this._shootAtTarget);
-                this._shootAtTarget = null;
-            }
+        //    if (this._shootAtTarget != null)
+        //    {
+        //        StopCoroutine(this._shootAtTarget);
+        //        this._shootAtTarget = null;
+        //    }
             base.OnDestroy();
         }
 
-        public void OnTriggerEnter_AreaFind(Collider other)
+        public void OnEnterAreaFind(TriggerArea area, Collider other)
         {
             if (this._aiTarget != null) return;
 
@@ -80,91 +58,56 @@ namespace Skyrates.Client.Entity
             }
         }
 
-        public void OnTriggerExit_AreaFind(Collider other)
+        public void OnExitAreaFind(TriggerArea area, Collider other)
         {
             if (this._aiTarget == null) return;
 
             EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            if (playerShip != null && playerShip == this._aiTarget)
+            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
             {
                 this._aiTarget = null;
             }
         }
 
-        public void OnTriggerEnter_AreaShoot(Collider other)
+        public void OnEnterAreaShoot(TriggerArea area, Collider other)
         {
-            if (this._aiTarget == null) return;
+            //if (this._aiTarget == null) return;
 
-            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            if (playerShip != null && playerShip == this._aiTarget)
-            {
-                this._shootAtTarget = StartCoroutine(this.ShootAtTarget());
-            }
+            //EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            //if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            //{
+            //    this._shootAtTarget = StartCoroutine(this.ShootAtTarget());
+            //}
         }
 
-        public void OnTriggerExit_AreaShoot(Collider other)
+        public void OnExitAreaShoot(TriggerArea area, Collider other)
         {
-            if (this._aiTarget == null) return;
+            //if (this._aiTarget == null) return;
 
-            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            if (playerShip != null && playerShip == this._aiTarget)
-            {
-                if (this._shootAtTarget != null)
-                {
-                    StopCoroutine(this._shootAtTarget);
-                    this._shootAtTarget = null;
-                }
-            }
+            //EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            //if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            //{
+            //    if (this._shootAtTarget != null)
+            //    {
+            //        StopCoroutine(this._shootAtTarget);
+            //        this._shootAtTarget = null;
+            //    }
+            //}
         }
+        
+        //IEnumerator ShootAtTarget()
+        //{
+        //    while (true)
+        //    {
+        //        float wait = 3;
 
-        IEnumerator FindTarget()
-        {
-            if (this.maxDistFind <= 0) yield break;
-
-            while (this._aiTarget == null)
-            {
-                yield return new WaitForSeconds(5);
-                this._aiTarget = FindObjectOfType<EntityPlayerShip>();
-
-                if (this._aiTarget == null) continue;
-
-                float sqrDist = (this.transform.position - this._aiTarget.transform.position).sqrMagnitude;
-                if (sqrDist > this.maxDistFind)
-                {
-                    this._aiTarget = null;
-                }
-                else
-                {
-                    //Debug.Log(this._aiTarget);
-                }
-            }
-            
-            GameManager.Events.Dispatch(EventEnemyTargetEngage.Engage(this, this._aiTarget));
-
-            this._findTarget = null;
-        }
-
-        IEnumerator ShootAtTarget()
-        {
-            while (true)
-            {
-                float wait = 3;
-
-                if (this._aiTarget != null)
-                {
-                    float sqrDist = (this.transform.position - this._aiTarget.transform.position).sqrMagnitude;
-                    if (sqrDist > maxDistShoot)
-                    {
-                        wait = 0.5f;
-                    }
-                    else
-                    {
-                        this.Shoot(ShipData.ComponentType.ArtilleryForward);
-                    }
-                }
-                yield return new WaitForSeconds(wait);
-            }
-        }
+        //        if (this._aiTarget != null)
+        //        {
+        //            this.Shoot(ShipData.ComponentType.ArtilleryForward); 
+        //        }
+        //        yield return new WaitForSeconds(wait);
+        //    }
+        //}
 
         protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
@@ -174,9 +117,9 @@ namespace Skyrates.Client.Entity
         // TODO: Fix the steering to remove this
         protected override void IntegratePhysics(float deltaTime)
         {
-            Quaternion rotation = this.Physics.RotationPosition;
+            //Quaternion rotation = this.Physics.RotationPosition;
             base.IntegratePhysics(deltaTime);
-            this.transform.rotation = rotation;
+            //this.transform.rotation = rotation;
         }
 
     }

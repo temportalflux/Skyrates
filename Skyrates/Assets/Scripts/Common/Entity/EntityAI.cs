@@ -53,16 +53,16 @@ namespace Skyrates.Common.Entity
             // Update physics position
             this.Physics.LinearPosition = this.transform.position;
 
-            this.transform.rotation = this.Physics.RotationPosition;
+            //this.transform.rotation = this.Physics.RotationPosition;
 
             // Update rotational velocity
-            this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
+            //this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
 
             // Update rotation
             this.GetRender().Rotate(this.Physics.RotationVelocity.eulerAngles, Space.Self);
 
             // Set rotation
-            //this.Physics.RotationPosition = this.GetRender().rotation;
+            this.Physics.RotationPosition = this.GetRender().rotation;
 
         }
 

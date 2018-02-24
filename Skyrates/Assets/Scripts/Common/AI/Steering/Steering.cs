@@ -16,17 +16,14 @@ namespace Skyrates.Common.AI
     public class SteeringData
     {
 
-        // NOT SERIALIZED
-
         public Transform View;
         public Transform Render;
 
-        // SERIALIZED
+        public bool HasTarget = false;
 
         /// <summary>
         /// The location/physics information for the target.
         /// </summary>
-        [BitSerialize(0)]
         [SerializeField]
         public PhysicsData Target = new PhysicsData();
 

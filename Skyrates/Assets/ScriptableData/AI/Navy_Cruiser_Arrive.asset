@@ -8,8 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ebd708508bed624d92021bf9f2b93c4, type: 3}
-  m_Name: Seek
+  m_Script: {fileID: 11500000, guid: dc40d29cdca774241a1dfea95198509b, type: 3}
+  m_Name: Navy_Cruiser_Arrive
   m_EditorClassIdentifier: 
-  MaxAcceleration: 10
-  SeekTargetMultiplier: 1
+  MaxAcceleration: 2
+  MaxSpeed: 5
+  DistanceArriving: 40
+  DistanceArrived: 10
+  AccelerationTime: 0.1

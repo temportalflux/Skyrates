@@ -51,7 +51,12 @@ namespace Skyrates.Common.AI
 
             // Check if we are there, return no steering
             if (distanceSqr < this.DistanceArrived * this.DistanceArrived)
+            {
+                // Slow down till stopped
+                physics.LinearAccelleration = Vector3.zero - physics.LinearVelocity;
+                physics.LinearAccelleration /= this.AccelerationTime;
                 return;
+            }
 
             float targetSpeed;
 

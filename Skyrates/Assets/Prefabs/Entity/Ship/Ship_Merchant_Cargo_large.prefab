@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4381893793768098}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: ship_mechant_cargo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33657672827741906}
   - component: {fileID: 23193726401322226}
   - component: {fileID: 64789573510303450}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4090128990443776}
   - component: {fileID: 54902438066616826}
   - component: {fileID: 114715913032347708}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Ship_Merchant_Cargo_large
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 33839831375560434}
   - component: {fileID: 23067725603819148}
   - component: {fileID: 64418482856933904}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 33273586968524790}
   - component: {fileID: 23339777414844704}
   - component: {fileID: 64595575241730894}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 33045953447969866}
   - component: {fileID: 23402438249296670}
   - component: {fileID: 64916305601408436}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 33212873921186222}
   - component: {fileID: 23074556284326942}
   - component: {fileID: 64307141971392376}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 114264701240378080}
   - component: {fileID: 54364981728020188}
   - component: {fileID: 114879458852745268}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 33650255040548670}
   - component: {fileID: 23938874885362444}
   - component: {fileID: 64115880515628406}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 33950892774930414}
   - component: {fileID: 23073618929392228}
   - component: {fileID: 64566942400039784}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,13 +908,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OwnerNetworkID: 0
-  EntityType:
-    EntityTypeAsInt: 1
-    EntityTypeIndex: 1
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
+    HasTarget: 0
   Steering: {fileID: 0}
   StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
   SmokeData:

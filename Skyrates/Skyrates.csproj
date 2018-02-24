@@ -498,8 +498,8 @@
     <Compile Include="Assets\Scripts\Client\Ship\ShipMesh.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\ShipRenderRoot.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\ShipStat.cs" />
-    <Compile Include="Assets\Scripts\Client\TriggerDetector.cs" />
     <Compile Include="Assets\Scripts\Client\UI\ButtonHover.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\UpdateControlScheme.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateLootCount.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateSessionID.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateVersion.cs" />
@@ -507,6 +507,7 @@
     <Compile Include="Assets\Scripts\Client\VFX\ArcRender.cs" />
     <Compile Include="Assets\Scripts\Client\VFX\VFXDispatcher.cs" />
     <Compile Include="Assets\Scripts\Client\World\Generator.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\FiniteState.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Align.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Arrive.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Seek.cs" />
@@ -520,7 +521,7 @@
     <Compile Include="Assets\Scripts\Common\AI\Steering\Old\AITarget.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Old\ForceLerp.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Steering.cs" />
-    <Compile Include="Assets\Scripts\Common\AI\Steering\UserControlled.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\UserControlled.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Analytics.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Event\AnalyticEvent.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Event\EventDateTime.cs" />
@@ -531,6 +532,7 @@
     <Compile Include="Assets\Scripts\Common\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Common\Entity\EntityAI.cs" />
     <Compile Include="Assets\Scripts\Common\Entity\EntityDynamic.cs" />
+    <Compile Include="Assets\Scripts\Common\Entity\TriggerArea.cs" />
     <Compile Include="Assets\Scripts\Common\Network\ChampNet\NetworkPlugin.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\EventDisconnect.cs" />
     <Compile Include="Assets\Scripts\Common\Network\Event\EventRakNet.cs" />
