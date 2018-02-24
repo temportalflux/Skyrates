@@ -148,7 +148,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2135215834, guid: 7f919a48405683744a2021995ed677d3, type: 3}
+  - {fileID: 2100000, guid: 1395c72b967cfea489f809ac9267eff3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,14 +213,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332c48f3a4deb4b4090b277b6f4b321a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OwnerNetworkID: 0
-  EntityType:
-    EntityTypeAsInt: 2
-    EntityTypeIndex: 0
+  Physics:
+    LinearPosition: {x: 0, y: 0, z: 0}
+    LinearVelocity: {x: 0, y: 0, z: 0}
+    LinearAccelleration: {x: 0, y: 0, z: 0}
+    RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
+    RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
-  Steering: {fileID: 0}
+    HasTarget: 0
+    Target:
+      LinearPosition: {x: 0, y: 0, z: 0}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      LinearAccelleration: {x: 0, y: 0, z: 0}
+      RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
+      RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
   PhysicsComponent: {fileID: 0}
   Damage: 2
 --- !u!136 &136046087991806292
@@ -296,7 +306,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1328968389
+  randomSeed: -1619193949
   InitialModule:
     serializedVersion: 3
     enabled: 1
