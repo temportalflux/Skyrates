@@ -45,4 +45,16 @@ public static partial class ExtensionMethods
         return str + "}";
     }
 
+    // TODO: Move me!!
+    public static bool Contains(this LayerMask mask, int layer)
+    {
+        return (mask.value & (1 << layer)) >> layer == 1;
+    }
+
+    // TODO: Move me!!
+    public static bool Contains(this LayerMask mask, GameObject obj)
+    {
+        return mask.Contains(obj.layer);
+    }
+
 }

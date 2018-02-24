@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4819995780035540}
   - component: {fileID: 33542320723956400}
   - component: {fileID: 23236260234455768}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4640996988090882}
   - component: {fileID: 114208981267262748}
   - component: {fileID: 54231719846782164}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4672352258908842}
   - component: {fileID: 33382454252437122}
   - component: {fileID: 23145687883946342}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4296712030102732}
   - component: {fileID: 33412013079795982}
   - component: {fileID: 23634888191662938}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4473862203198230}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: ship_mechant_cargo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4253169057148336}
   - component: {fileID: 33691213693147528}
   - component: {fileID: 23095498188300400}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4834936931292292}
   - component: {fileID: 33763692825237162}
   - component: {fileID: 23918154799675918}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4387508018117788}
   - component: {fileID: 198884222645506196}
   - component: {fileID: 199464027462277548}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 33376064053823692}
   - component: {fileID: 23035567897847398}
   - component: {fileID: 64916494670242336}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4059139499316668}
   - component: {fileID: 198790762835708286}
   - component: {fileID: 199996787721145690}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4162507451156022}
   - component: {fileID: 33163234624726230}
   - component: {fileID: 23879412473659614}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: polySurface20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 136186000461041622}
   - component: {fileID: 54236140089489992}
   - component: {fileID: 114879470383505538}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: Ship_Merchant_Cargo_medium
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -737,19 +737,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OwnerNetworkID: 0
-  EntityType:
-    EntityTypeAsInt: 1
-    EntityTypeIndex: 1
   SteeringData:
     View: {fileID: 0}
     Render: {fileID: 0}
+    HasTarget: 0
   Steering: {fileID: 0}
   StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
-  ParticleSmoke: {fileID: 198790762835708286}
-  ParticleFire: {fileID: 198884222645506196}
+  SmokeData:
+    Bounds: {fileID: 0}
+    Prefab: {fileID: 0}
+    Scale: 0
+    Generated: {fileID: 0}
+  FireData:
+    Bounds: {fileID: 0}
+    Prefab: {fileID: 0}
+    Scale: 0
+    Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 198727457800810920, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
+  LootDropArea: {fileID: 0}
   Health: 0
 --- !u!136 &136186000461041622
 CapsuleCollider:

@@ -27,7 +27,7 @@ namespace Skyrates.Client.Game
         /// </summary>
         public static GameEvents Events
         {
-            get { return Instance._events; }
+            get { return Instance != null ? Instance._events : new GameEvents(); }
         }
 
         /// <summary>
