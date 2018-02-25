@@ -15,7 +15,7 @@ namespace Skyrates.Common.AI
     {
 
         /// <inheritdoc />
-        public override void GetSteering(SteeringData data, ref PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
             // Calculate the target to delegate to align
 
@@ -26,13 +26,13 @@ namespace Skyrates.Common.AI
 
             // Check for a zero direction, and make no change if so
             if (direction.sqrMagnitude <= 0)
-                return;
+                return physics;
 
             // Put the target together
             data.Target.RotationPosition = Quaternion.LookRotation(direction);
 
             // Delegate to align
-            base.GetSteering(data, ref physics);
+            return base.GetUpdate(data, physics);
         }
 
     }

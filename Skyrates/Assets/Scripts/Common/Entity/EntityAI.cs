@@ -14,33 +14,20 @@ namespace Skyrates.Common.Entity
         /// The actual steering object - set via editor.
         /// </summary>
         [SerializeField]
-        public Steering[] Steering;
+        public Behavior[] Steering;
 
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            //PhysicsData compiled = new PhysicsData()
-            //{
-            //    LinearPosition = this.Physics.LinearPosition,
-            //    RotationPosition = this.Physics.RotationPosition,
-            //};
+            
             // Update steering on a fixed timestep
-            foreach (Steering steering in this.Steering)
+            foreach (Behavior behavior in this.Steering)
             {
-                if (steering != null)
+                if (behavior != null)
                 {
-                    //PhysicsData physics = new PhysicsData()
-                    //{
-                    //    LinearPosition = this.Physics.LinearPosition,
-                    //    RotationPosition = this.Physics.RotationPosition
-                    //};
-                    //float weight = 1.0f;
-                    steering.GetSteering(this.SteeringData, ref this.Physics);
-                    //compiled += physics * weight;
+                    this.Physics = behavior.GetUpdate(this.BehaviorData, this.Physics);
                 }
             }
-            //this.Physics = compiled;
 
             // Integrate physics from steering and any network updates
             this.IntegratePhysics(Time.fixedDeltaTime);

@@ -40,7 +40,7 @@ namespace Skyrates.Common.AI
         public float AccelerationTime;
 
         /// <inheritdoc />
-        public override void GetSteering(SteeringData data, ref PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
             Vector3 direction = data.Target.LinearPosition - physics.LinearPosition;
 
@@ -53,6 +53,8 @@ namespace Skyrates.Common.AI
            // Quaternion dirQ = Quaternion.LookRotation(direction);
             //Quaternion slerp = Quaternion.Slerp(physics.RotationPosition, dirQ, direction.magnitude * MaxSpeed * Time.deltaTime);
             //RenderBuffer.MoveRotation(slerp);
+
+            return physics;
         }
 
     }

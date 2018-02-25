@@ -29,7 +29,7 @@ namespace Skyrates.Common.Entity
         // TODO: Player AI doesn't use a target...?
         //[BitSerialize(3)]
         [HideInInspector]
-        public SteeringData SteeringData = new SteeringData();
+        public BehaviorData BehaviorData = new BehaviorData();
 
         /// <summary>
         /// The component which controls the physics of the entity.
@@ -54,8 +54,8 @@ namespace Skyrates.Common.Entity
 
         protected virtual void FixedUpdate()
         {
-            this.SteeringData.View = this.GetView();
-            this.SteeringData.Render = this.GetRender().transform;
+            this.BehaviorData.View = this.GetView();
+            this.BehaviorData.Render = this.GetRender().transform;
         }
 
         /// <summary>

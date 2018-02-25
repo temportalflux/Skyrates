@@ -40,7 +40,7 @@ namespace Skyrates.Common.AI
         public float AccelerationTime;
 
         /// <inheritdoc />
-        public override void GetSteering(SteeringData data, ref PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
             float currentRotation = physics.RotationPosition.eulerAngles.y;
 
@@ -59,7 +59,7 @@ namespace Skyrates.Common.AI
                 accelleration = 0 - physics.RotationVelocity.eulerAngles.y;
                 accelleration /= this.AccelerationTime;
                 physics.RotationAccelleration = Quaternion.Euler(0, accelleration, 0);
-                return;
+                return physics;
             }
 
             // velocity of rotation
@@ -92,6 +92,8 @@ namespace Skyrates.Common.AI
             }
 
             physics.RotationAccelleration = Quaternion.Euler(0, accelleration, 0);
+
+            return physics;
         }
 
         private float MapToRange(float rotation)

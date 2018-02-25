@@ -61,10 +61,11 @@ namespace Skyrates.Common.AI
 
         public Scheme ControlScheme;
 
-        public override void GetSteering(SteeringData data, ref PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
             this.GetInput(ref this.PlayerInput);
             this.Move(data, this.PlayerInput, ref physics);
+            return physics;
         }
 
         private void GetInput(ref InputData input)
@@ -115,7 +116,7 @@ namespace Skyrates.Common.AI
             }
         }
 
-        private void Move(SteeringData data, InputData input, ref PhysicsData physicsData)
+        private void Move(BehaviorData data, InputData input, ref PhysicsData physicsData)
         {
             switch (this.ControlScheme)
             {

@@ -32,8 +32,8 @@ namespace Skyrates.Client.Entity
 
         protected override void FixedUpdate()
         {
-            this.SteeringData.HasTarget = this._aiTarget != null;
-            this.SteeringData.Target = this.SteeringData.HasTarget ? this._aiTarget.Physics : this.Physics;
+            this.BehaviorData.HasTarget = this._aiTarget != null;
+            this.BehaviorData.Target = this.BehaviorData.HasTarget ? this._aiTarget.Physics : this.Physics;
             base.FixedUpdate();
         }
 

@@ -42,7 +42,7 @@ namespace Skyrates.Common.AI
         public float AccelerationTime;
 
         /// <inheritdoc />
-        public override void GetSteering(SteeringData data, ref PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
             // Direction to the target
             Vector3 direction = data.Target.LinearPosition - physics.LinearPosition;
@@ -55,7 +55,7 @@ namespace Skyrates.Common.AI
                 // Slow down till stopped
                 physics.LinearAccelleration = Vector3.zero - physics.LinearVelocity;
                 physics.LinearAccelleration /= this.AccelerationTime;
-                return;
+                return physics;
             }
 
             float targetSpeed;
@@ -87,6 +87,7 @@ namespace Skyrates.Common.AI
                 physics.LinearAccelleration *= this.MaxAcceleration;
             }
 
+            return physics;
         }
 
     }
