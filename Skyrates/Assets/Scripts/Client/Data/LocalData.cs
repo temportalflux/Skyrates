@@ -49,9 +49,13 @@ namespace Skyrates.Client.Data
             [SerializeField]
             public InputConfig Strafe;
 
+            public float YawAngle;
+
             [Tooltip("Y Axis forward movement")]
             [SerializeField]
             public InputConfig Vertical;
+
+            public float PitchAngle;
 
             [Header("Camera")]
             // The input which steers the object horizontal

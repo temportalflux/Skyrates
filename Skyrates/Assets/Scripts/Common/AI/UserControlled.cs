@@ -55,9 +55,15 @@ namespace Skyrates.Common.AI
             // for ship movement
             float rotationY = input.Strafe.Value;
             rotationY *= (1 - input.Forward.Input) * 0.5f;
-            float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), 10);
+
+            // banking
+            float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), input.YawAngle);
+
+            // pitching (up/down rotation)
+            float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
+
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
-            physicsData.RotationAestetic = new Vector3(0.0f, 0.0f, rotationZ);
+            physicsData.RotationAestetic = new Vector3(rotationX, 0.0f, rotationZ);
         }
 
     }
