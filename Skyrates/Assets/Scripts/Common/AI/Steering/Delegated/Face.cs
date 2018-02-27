@@ -18,7 +18,7 @@ namespace Skyrates.Common.AI
         public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
             // Check for a zero direction, and make no change if so
-            if (physics.LinearVelocity.sqrMagnitude <= 0 || physics.LinearVelocity == Vector3.zero) return;
+            if (physics.LinearVelocity.sqrMagnitude <= 0 || physics.LinearVelocity == Vector3.zero) return physics;
 
             // Put the target together
             data.Target.RotationPosition = Quaternion.LookRotation(physics.LinearVelocity);
