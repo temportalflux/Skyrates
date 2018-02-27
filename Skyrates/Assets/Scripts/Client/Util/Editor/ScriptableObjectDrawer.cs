@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
+// SOURCE: https://forum.unity.com/threads/editor-tool-better-scriptableobject-inspector-editing.484393/
 [CustomPropertyDrawer(typeof(ScriptableObject), true)]
 public class ScriptableObjectDrawer : PropertyDrawer
 {

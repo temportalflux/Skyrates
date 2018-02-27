@@ -19,7 +19,23 @@ public class InputRotation : MonoBehaviour
 
     private void Move()
     {
-
+        if (this.ControllerData.ViewMode != LocalData.CameraMode.FREE && this.ControllerData.input.DPadVertical.Input > 0)
+        {
+            this.ControllerData.ViewMode = LocalData.CameraMode.FREE;
+        }
+        if (this.ControllerData.ViewMode != LocalData.CameraMode.LOCK_DOWN && this.ControllerData.input.DPadVertical.Input < 0)
+        {
+            this.ControllerData.ViewMode = LocalData.CameraMode.LOCK_DOWN;
+        }
+        if (this.ControllerData.ViewMode != LocalData.CameraMode.LOCK_LEFT && this.ControllerData.input.DPadHorizontal.Input < 0)
+        {
+            this.ControllerData.ViewMode = LocalData.CameraMode.LOCK_LEFT;
+        }
+        if (this.ControllerData.ViewMode != LocalData.CameraMode.LOCK_RIGHT && this.ControllerData.input.DPadHorizontal.Input > 0)
+        {
+            this.ControllerData.ViewMode = LocalData.CameraMode.LOCK_RIGHT;
+        }
+        
         // Grab the vertical axis (up)
         Vector3 dirVertical = this.transform.up;
         dirVertical.x = dirVertical.z = 0;

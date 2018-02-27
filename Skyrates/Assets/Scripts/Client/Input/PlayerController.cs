@@ -47,6 +47,9 @@ namespace Skyrates.Client.Input
             // Horizontal is right stick (left/right)
             this.PlayerData.input.CameraHorizontal.Input = UnityEngine.Input.GetAxis("xbox_stick_r_horizontal");
 
+            this.PlayerData.input.DPadHorizontal.Input = UnityEngine.Input.GetAxis("xbox_dpad_horizontal");
+            this.PlayerData.input.DPadVertical.Input = UnityEngine.Input.GetAxis("xbox_dpad_vertical");
+
             // ~~~ Shooting
 
             // ForwardInput is left stick (up/down)
