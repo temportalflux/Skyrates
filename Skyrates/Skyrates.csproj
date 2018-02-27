@@ -440,8 +440,6 @@
     <Compile Include="Assets\3rdParty\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\3rdParty\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\3rdParty\XInputDotNet\Examples\XInputTestCS.cs" />
-    <Compile Include="Assets\Scripts\_Client\Controller\InputInteraction.cs" />
-    <Compile Include="Assets\Scripts\_Client\Controller\InputRotation.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputAction.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputConfig.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputSet.cs" />
@@ -475,6 +473,9 @@
     <Compile Include="Assets\Scripts\Client\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Client\Game\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Client\Game\StartScene.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\InputInteraction.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\InputRotation.cs" />
+    <Compile Include="Assets\Scripts\Client\Input\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Client\Input\XInputDispatcher.cs" />
     <Compile Include="Assets\Scripts\Client\Loot\Loot.cs" />
     <Compile Include="Assets\Scripts\Client\Loot\LootTable.cs" />
@@ -503,6 +504,7 @@
     <Compile Include="Assets\Scripts\Client\UI\UpdateLootCount.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateSessionID.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateVersion.cs" />
+    <Compile Include="Assets\Scripts\Client\Util\DisplayScriptableAttribute.cs" />
     <Compile Include="Assets\Scripts\Client\Util\Singleton.cs" />
     <Compile Include="Assets\Scripts\Client\VFX\ArcRender.cs" />
     <Compile Include="Assets\Scripts\Client\VFX\VFXDispatcher.cs" />

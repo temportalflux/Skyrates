@@ -117,9 +117,10 @@ GameObject:
   - component: {fileID: 4986014796683882}
   - component: {fileID: 54642449414566752}
   - component: {fileID: 114956092729709676}
+  - component: {fileID: 114312103114731230}
+  - component: {fileID: 114264214288976394}
   - component: {fileID: 114851400781537040}
   - component: {fileID: 114826751344152850}
-  - component: {fileID: 114312103114731230}
   - component: {fileID: 136275651844416204}
   m_Layer: 15
   m_Name: Player-Root
@@ -410,6 +411,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3729fda5a6290194ba951a6cf75459e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114264214288976394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436304090232158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5043bfe24c6d5448abc5e35733f3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
 --- !u!114 &114312103114731230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -472,15 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f3cf0d985eebe4fbabb7c7944418d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input:
-    ShootRight:
-      Input: 0
-      Modifier: 1
-    ShootLeft:
-      Input: 0
-      Modifier: 1
-    ShootDelay: 0.5
-    ShootDelayMin: 0
+  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   EntityPlayerShip: {fileID: 114956092729709676}
 --- !u!114 &114943066303382066
 MonoBehaviour:

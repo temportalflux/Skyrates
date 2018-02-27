@@ -6,7 +6,7 @@ using Skyrates.Client.Game.Event;
 using Skyrates.Client.Ship;
 using UnityEngine;
 
-namespace Skyrates.Client
+namespace Skyrates.Client.Audio
 {
  
     /// <summary>

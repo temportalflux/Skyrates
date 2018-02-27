@@ -11,4 +11,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936b12eb40e44a0448251734ea6a1ab7, type: 3}
   m_Name: LocalData
   m_EditorClassIdentifier: 
+  input:
+    Forward:
+      Input: 0
+      Modifier: 2
+    Strafe:
+      Input: 0
+      Modifier: 2
+    Vertical:
+      Input: 0
+      Modifier: 20
+    CameraHorizontal:
+      Input: 0
+      Modifier: 4
+    CameraVertical:
+      Input: 0
+      Modifier: 4
+    ShootRight:
+      Input: 0
+      Modifier: 1
+    ShootLeft:
+      Input: 0
+      Modifier: 1
+    ShootDelay: 0.5
+    ShootDelayMin: 0
+    MainMenu: 0
+    Back: 0
+  ViewMode: 0
   LootCount: 0
+  LootGoal: 0
