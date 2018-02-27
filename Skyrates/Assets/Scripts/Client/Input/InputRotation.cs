@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Skyrates.Client.Data;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,59 +7,14 @@ using UnityEngine;
 // TODO: This is very similar to InputMovement
 public class InputRotation : MonoBehaviour
 {
-
-    /// <summary>
-    /// Structure to contain input values from controllers.
-    /// </summary>
-    [Serializable]
-    public struct InputData
-    {
-
-        // The input which steers the object horizontal
-        [HideInInspector]
-        public float HorizontalInput;
-
-        [Tooltip("The multiple of the input for Horizontal")]
-        public float HorizontalSpeed;
-
-        // The input which steers the object vertical
-        [HideInInspector]
-        public float VerticalInput;
-
-        [Tooltip("The multiple of the input for Vertical")]
-        public float VerticalSpeed;
-
-        public float Horizontal
-        {
-            get { return this.HorizontalInput * this.HorizontalSpeed; }
-        }
-
-        public float Vertical
-        {
-            get { return this.VerticalInput * this.VerticalSpeed; }
-        }
-
-    }
-
-    public InputData playerInput;
+    
+    public LocalData ControllerData;
 
     public Transform pivot;
 
     void Update()
     {
-        this.GetInput();
         this.Move();
-    }
-
-    private void GetInput()
-    {
-
-        // Vertical is right stick (up/down)
-        this.playerInput.VerticalInput = Input.GetAxis("xbox_stick_r_vertical");
-
-        // Horizontal is right stick (left/right)
-        this.playerInput.HorizontalInput = Input.GetAxis("xbox_stick_r_horizontal");
-
     }
 
     private void Move()
@@ -69,7 +25,7 @@ public class InputRotation : MonoBehaviour
         dirVertical.x = dirVertical.z = 0;
 
         // Rotate around the vertical axis
-        this.transform.RotateAround(this.pivot.position, dirVertical, this.playerInput.Horizontal);
+        this.transform.RotateAround(this.pivot.position, dirVertical, this.ControllerData.input.CameraHorizontal.Value);
 
         // Grab the x axis (right)
         Vector3 dirHorizontal = this.transform.right;
@@ -87,7 +43,7 @@ public class InputRotation : MonoBehaviour
         */
 
         // Pivot around the local left/right axis (right of the facing direction)
-        this.transform.RotateAround(this.pivot.position, dirHorizontal, this.playerInput.Vertical);
+        this.transform.RotateAround(this.pivot.position, dirHorizontal, this.ControllerData.input.CameraVertical.Value);
 
     }
 

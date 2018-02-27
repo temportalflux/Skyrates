@@ -72,9 +72,6 @@ namespace Skyrates.Client.Data
             [SerializeField]
             public InputConfig ShootLeft;
 
-            public Coroutine ShootRoutineRight;
-            public Coroutine ShootRoutineLeft;
-
             [SerializeField]
             public float ShootDelay;
             [SerializeField]

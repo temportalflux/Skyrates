@@ -451,11 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec4b65294023b84f86111266f230e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput:
-    HorizontalInput: 0
-    HorizontalSpeed: 4
-    VerticalInput: 0
-    VerticalSpeed: 4
+  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   pivot: {fileID: 4805465745739734}
 --- !u!114 &114826751344152850
 MonoBehaviour:

@@ -20,6 +20,9 @@ namespace Skyrates.Client.Input
 
         public EntityPlayerShip EntityPlayerShip;
 
+        public Coroutine ShootRoutineRight;
+        public Coroutine ShootRoutineLeft;
+
         void Update()
         {
             this.UpdateInput();
@@ -27,13 +30,13 @@ namespace Skyrates.Client.Input
 
         private void UpdateInput()
         {
-            if (this.ControllerData.input.ShootRoutineRight == null)
+            if (this.ShootRoutineRight == null)
             {
-                this.ControllerData.input.ShootRoutineRight = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootRight, ShipData.ComponentType.ArtilleryRight));
+                this.ShootRoutineRight = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootRight, ShipData.ComponentType.ArtilleryRight));
             }
-            if (this.ControllerData.input.ShootRoutineLeft == null)
+            if (this.ShootRoutineLeft == null)
             {
-                this.ControllerData.input.ShootRoutineLeft = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootLeft, ShipData.ComponentType.ArtilleryLeft));
+                this.ShootRoutineLeft = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootLeft, ShipData.ComponentType.ArtilleryLeft));
             }
         }
 
