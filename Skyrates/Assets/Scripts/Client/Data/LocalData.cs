@@ -24,7 +24,7 @@ namespace Skyrates.Client.Data
         /// Set to a random number between 10 and 60 on instantiation and destruction (the latter isn't necessary).
         /// </summary>
         public uint LootGoal;
-
+        
         public void Init()
         {
             this.LootCount = 0;
