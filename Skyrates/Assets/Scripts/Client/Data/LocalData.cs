@@ -66,10 +66,10 @@ namespace Skyrates.Client.Data
             public InputConfig DPadVertical;
 
             [Header("Shooting")]
+            [SerializeField]
             /// <summary>
             /// Input to trigger shooting
             /// </summary>
-            [SerializeField]
             public InputConfig ShootRight;
 
             [SerializeField]

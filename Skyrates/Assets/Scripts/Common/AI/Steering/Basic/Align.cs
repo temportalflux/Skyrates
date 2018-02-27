@@ -56,9 +56,9 @@ namespace Skyrates.Common.AI
             if (rotationSize < this.DistanceArrived)
             {
                 // Slow down till stopped
-                accelleration = 0 - physics.RotationVelocity.eulerAngles.y;
+                accelleration = 0 - physics.RotationVelocity.y;
                 accelleration /= this.AccelerationTime;
-                physics.RotationAccelleration = Quaternion.Euler(0, accelleration, 0);
+                physics.RotationAccelleration = new Vector3(0, accelleration, 0);
                 return physics;
             }
 
@@ -80,7 +80,7 @@ namespace Skyrates.Common.AI
             targetRotation *= rotation / rotationSize;
 
             // Acceleration tries to get to the target rotation
-            accelleration = targetRotation - physics.RotationVelocity.eulerAngles.y;
+            accelleration = targetRotation - physics.RotationVelocity.y;
             accelleration /= this.AccelerationTime;
 
             // Check if the accelleration is too great
@@ -91,7 +91,7 @@ namespace Skyrates.Common.AI
                 accelleration *= this.MaxAcceleration;
             }
 
-            physics.RotationAccelleration = Quaternion.Euler(0, accelleration, 0);
+            physics.RotationAccelleration = new Vector3(0, accelleration, 0);
 
             return physics;
         }

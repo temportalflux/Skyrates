@@ -13,7 +13,7 @@ namespace Skyrates.Common.AI
         [SerializeField]
         public LocalData ControllerData;
 
-        public float constantSpeed;
+        public float ConstantSpeed;
         
         public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
@@ -38,7 +38,7 @@ namespace Skyrates.Common.AI
             // value in range [0, 1] of how much constant velocity to counteract
             float backpedal = Mathf.Max(0, -input.Forward.Input);
 
-            float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.constantSpeed);
+            float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
             Vector3 movementForward = forward * movementForwardSpeed;
 
             Vector3 movementVertical = vertical * input.Vertical.Value;
@@ -55,7 +55,9 @@ namespace Skyrates.Common.AI
             // for ship movement
             float rotationY = input.Strafe.Value;
             rotationY *= (1 - input.Forward.Input) * 0.5f;
-            physicsData.RotationVelocity = Quaternion.Euler(new Vector3(0.0f, rotationY, 0.0f));
+            float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), 10);
+            physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
+            physicsData.RotationAestetic = new Vector3(0.0f, 0.0f, rotationZ);
         }
 
     }

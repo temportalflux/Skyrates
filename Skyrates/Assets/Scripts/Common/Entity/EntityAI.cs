@@ -59,12 +59,16 @@ namespace Skyrates.Common.Entity
             // Update rotational velocity
             this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
 
+            //this.Physics.RotationPosition = this.GetRender().rotation;
+            this.Integrate(ref this.Physics.RotationPosition, this.Physics.RotationVelocity, deltaTime);
+
             // Update rotation
-            this.GetRender().transform.Rotate(this.Physics.RotationVelocity.eulerAngles, Space.Self);
+            //this._physics.AddTorque(this.Physics.RotationVelocity.eulerAngles);
+            this._physics.MoveRotation(this.Physics.RotationPosition);
+            this.GetRender().transform.localRotation = Quaternion.Euler(this.Physics.RotationAestetic);
             //this.GetRender().AddTorque(this.Physics.RotationVelocity.eulerAngles * deltaTime, ForceMode.VelocityChange);
 
             // Set rotation
-            this.Physics.RotationPosition = this.GetRender().rotation;
 
         }
 
@@ -91,6 +95,14 @@ namespace Skyrates.Common.Entity
             // TODO: Move to an extension method.
             Vector3 euler = start.eulerAngles;
             this.Integrate(ref euler, amount.eulerAngles, deltaTime);
+            start = Quaternion.Euler(euler);
+        }
+
+        private void Integrate(ref Quaternion start, Vector3 amount, float deltaTime)
+        {
+            // TODO: Move to an extension method.
+            Vector3 euler = start.eulerAngles;
+            this.Integrate(ref euler, amount, deltaTime);
             start = Quaternion.Euler(euler);
         }
 

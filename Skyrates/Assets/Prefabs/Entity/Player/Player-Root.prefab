@@ -367,7 +367,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &65374456484716522
 BoxCollider:
@@ -521,6 +521,7 @@ MonoBehaviour:
     RotationPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
     RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
+    RotationAestetic: {x: 0, y: 0, z: 0, w: 1}
   BehaviorData:
     View: {fileID: 0}
     Render: {fileID: 0}
@@ -532,6 +533,7 @@ MonoBehaviour:
       RotationPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
       RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
+      RotationAestetic: {x: 0, y: 0, z: 0, w: 1}
   Steering:
   - {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
   StatBlock: {fileID: 11400000, guid: 83d0bef0abd7ff64f89dd28418764559, type: 2}
@@ -554,7 +556,7 @@ MonoBehaviour:
     _hasNewData: 0
   PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   View: {fileID: 4296624790975764}
-  Render: {fileID: 54642449414566752}
+  Render: {fileID: 4717130946942272}
   ShipRoot: {fileID: 114312103114731230}
 --- !u!124 &124033094765310984
 Behaviour:

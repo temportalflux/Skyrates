@@ -17,16 +17,22 @@ MonoBehaviour:
       Modifier: 2
     Strafe:
       Input: 0
-      Modifier: 2
+      Modifier: 0.5
     Vertical:
       Input: 0
       Modifier: 20
     CameraHorizontal:
       Input: 0
-      Modifier: 4
+      Modifier: 2
     CameraVertical:
       Input: 0
-      Modifier: 4
+      Modifier: 2
+    DPadHorizontal:
+      Input: 0
+      Modifier: 1
+    DPadVertical:
+      Input: 0
+      Modifier: 1
     ShootRight:
       Input: 0
       Modifier: 1
@@ -38,5 +44,3 @@ MonoBehaviour:
     MainMenu: 0
     Back: 0
   ViewMode: 0
-  LootCount: 0
-  LootGoal: 0

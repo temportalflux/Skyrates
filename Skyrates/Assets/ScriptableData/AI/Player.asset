@@ -11,15 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71cc539b2959f544b1fbde9d95c8c7a, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  PlayerInput:
-    Forward:
-      Input: 0
-      Modifier: 2
-    Strafe:
-      Input: 0
-      Modifier: 2
-    Vertical:
-      Input: 0
-      Modifier: 20
-  constantSpeed: 10
-  ControlScheme: 0
+  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
+  ConstantSpeed: 10
