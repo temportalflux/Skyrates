@@ -68,7 +68,7 @@ namespace Skyrates.Client.Loot
                             weightsChanged = true;
                         }
 
-                        row.Item = (ShipData.ComponentType)EditorGUILayout.EnumPopup(
+                        row.Item = (ShipData.BrokenComponentType)EditorGUILayout.EnumPopup(
                             row.Item
                         );
                         row.Prefab = (Loot) EditorGUILayout.ObjectField(

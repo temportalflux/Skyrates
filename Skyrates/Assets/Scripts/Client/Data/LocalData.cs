@@ -19,7 +19,7 @@ namespace Skyrates.Client.Data
 
 		public void Init()
         {
-            //TODO: Implement if necessary.
+            //TODO: Implement if necessary, ex: reflection.
         }
 
     }
