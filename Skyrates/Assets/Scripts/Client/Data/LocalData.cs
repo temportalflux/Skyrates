@@ -25,7 +25,12 @@ namespace Skyrates.Client.Data
         /// </summary>
         public uint LootGoal;
 
-        public void Init()
+		/// <summary>
+		/// Manages inventory and items.
+		/// </summary>
+		public Inventory Inventory;
+
+		public void Init()
         {
             this.LootCount = 0;
             this.LootGoal = (uint) Random.Range(10, 60);
