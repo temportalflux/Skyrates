@@ -121,6 +121,7 @@ namespace Skyrates.Client.Data
         public void Init()
         {
             this.ViewMode = CameraMode.FREE;
+            //TODO: Implement if necessary, ex: reflection.
         }
 
     }
