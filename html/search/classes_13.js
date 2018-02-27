@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['xinputdispatcher',['XInputDispatcher',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher.html',1,'Skyrates::Client::Input']]]
+  ['wander',['Wander',['../class_skyrates_1_1_common_1_1_a_i_1_1_wander.html',1,'Skyrates::Common::AI']]],
+  ['weightedsteering',['WeightedSteering',['../class_skyrates_1_1_common_1_1_a_i_1_1_weighted_steering.html',1,'Skyrates::Common::AI']]]
 ];

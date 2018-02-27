@@ -4,7 +4,7 @@
 Inheritance diagram for Skyrates.\-Common.\-A\-I.\-User\-Controlled\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled}
+\includegraphics[height=4.000000cm]{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled}
 \end{center}
 \end{figure}
 \subsection*{Classes}
@@ -14,10 +14,18 @@ class \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_1_1_input
 \item 
 class \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_1_1_input_data}{Input\-Data}
 \end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Scheme} \{ {\bfseries C\-U\-R\-R\-E\-N\-T}, 
+{\bfseries N\-O\-R\-M\-A\-L\-\_\-\-V\-E\-R\-T\-I\-C\-A\-L}, 
+{\bfseries I\-N\-V\-E\-R\-T\-E\-D}
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-override void \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a449f762839eccc1e7e870ddd6cbbc61c}{Get\-Steering} (\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_data}{Steering\-Data} data, ref \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} physics)
+override \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_aa4c5fd1d3a7a9b8e8836bc03e986d4a5}{Get\-Update} (\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_behavior_data}{Behavior\-Data} data, \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} physics)
 \begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -27,18 +35,21 @@ override void \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a5e500dc66280d7a3bae4283f26ca5af7}{float {\bfseries constant\-Speed}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a5e500dc66280d7a3bae4283f26ca5af7}
 
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a0d673217731707b95b402c1b21c22467}{Scheme {\bfseries Control\-Scheme}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a0d673217731707b95b402c1b21c22467}
+
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a449f762839eccc1e7e870ddd6cbbc61c}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-User\-Controlled@{Skyrates\-::\-Common\-::\-A\-I\-::\-User\-Controlled}!Get\-Steering@{Get\-Steering}}
-\index{Get\-Steering@{Get\-Steering}!Skyrates::Common::AI::UserControlled@{Skyrates\-::\-Common\-::\-A\-I\-::\-User\-Controlled}}
-\subsubsection[{Get\-Steering}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Common.\-A\-I.\-User\-Controlled.\-Get\-Steering (
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_aa4c5fd1d3a7a9b8e8836bc03e986d4a5}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-User\-Controlled@{Skyrates\-::\-Common\-::\-A\-I\-::\-User\-Controlled}!Get\-Update@{Get\-Update}}
+\index{Get\-Update@{Get\-Update}!Skyrates::Common::AI::UserControlled@{Skyrates\-::\-Common\-::\-A\-I\-::\-User\-Controlled}}
+\subsubsection[{Get\-Update}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf Physics\-Data} Skyrates.\-Common.\-A\-I.\-User\-Controlled.\-Get\-Update (
 \begin{DoxyParamCaption}
-\item[{{\bf Steering\-Data}}]{data, }
-\item[{ref {\bf Physics\-Data}}]{physics}
+\item[{{\bf Behavior\-Data}}]{data, }
+\item[{{\bf Physics\-Data}}]{physics}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a449f762839eccc1e7e870ddd6cbbc61c}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_aa4c5fd1d3a7a9b8e8836bc03e986d4a5}
 
 
 Called to request updated physics. Recommend running on a fixed time step. 
@@ -52,10 +63,10 @@ Called to request updated physics. Recommend running on a fixed time step.
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a6ed9adbbc920bf10006fe27ae9764045}{Skyrates.\-Common.\-A\-I.\-Steering}.
+Implements \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_behavior_ae905e75f0456dececef5a5bccea7bcf7}{Skyrates.\-Common.\-A\-I.\-Behavior}.
 
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-A\-I/\-Basic/User\-Controlled.\-cs\end{DoxyCompactItemize}
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-A\-I/User\-Controlled.\-cs\end{DoxyCompactItemize}

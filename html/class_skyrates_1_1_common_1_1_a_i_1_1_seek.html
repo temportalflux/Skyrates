@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Full force steering - just go for it. Derived from Artifical Intelligence for Games 2nd Editin Ian Millington &amp; John Funge  
+<p>Full force steering - just go for it.  
  <a href="class_skyrates_1_1_common_1_1_a_i_1_1_seek.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Skyrates.Common.AI.Seek:</div>
@@ -105,25 +105,35 @@ Inheritance diagram for Skyrates.Common.AI.Seek:</div>
  <div class="center">
   <img src="class_skyrates_1_1_common_1_1_a_i_1_1_seek.png" usemap="#Skyrates.Common.AI.Seek_map" alt=""/>
   <map id="Skyrates.Common.AI.Seek_map" name="Skyrates.Common.AI.Seek_map">
-<area href="class_skyrates_1_1_common_1_1_a_i_1_1_steering.html" title="The base class for all steering algorithms. This is object which EntityDynamic uses to control its mo..." alt="Skyrates.Common.AI.Steering" shape="rect" coords="0,56,180,80"/>
+<area href="class_skyrates_1_1_common_1_1_a_i_1_1_steering.html" title="The base class for all steering algorithms. This is object which EntityDynamic uses to control its mo..." alt="Skyrates.Common.AI.Steering" shape="rect" coords="0,112,184,136"/>
+<area href="class_skyrates_1_1_common_1_1_a_i_1_1_behavior.html" title="The base class for all ai behaviors. " alt="Skyrates.Common.AI.Behavior" shape="rect" coords="0,56,184,80"/>
+<area href="class_skyrates_1_1_common_1_1_a_i_1_1_pursue.html" title="Alters the target&#39;s position to account for where they will be, then delegates steering to Seek..." alt="Skyrates.Common.AI.Pursue" shape="rect" coords="0,224,184,248"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:add201f296cfd487d2dff9362c8c501bc"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_seek.html#add201f296cfd487d2dff9362c8c501bc">GetSteering</a> (<a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html">SteeringData</a> data, ref <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a> physics)</td></tr>
-<tr class="separator:add201f296cfd487d2dff9362c8c501bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed4d8c27e1d2fbd18a7616291be6c8b5"><td class="memItemLeft" align="right" valign="top">override <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_seek.html#aed4d8c27e1d2fbd18a7616291be6c8b5">GetUpdate</a> (<a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_behavior_data.html">BehaviorData</a> data, <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a> physics)</td></tr>
+<tr class="separator:aed4d8c27e1d2fbd18a7616291be6c8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_skyrates_1_1_common_1_1_a_i_1_1_steering"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_skyrates_1_1_common_1_1_a_i_1_1_steering')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering.html">Skyrates.Common.AI.Steering</a></td></tr>
+<tr class="memitem:a02f18e51c00d42e95e328020d3203c31 inherit pub_methods_class_skyrates_1_1_common_1_1_a_i_1_1_steering"><td class="memItemLeft" align="right" valign="top">Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering.html#a02f18e51c00d42e95e328020d3203c31">GetLookOrientation</a> (<a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a> physics)</td></tr>
+<tr class="memdesc:a02f18e51c00d42e95e328020d3203c31 inherit pub_methods_class_skyrates_1_1_common_1_1_a_i_1_1_steering"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the orientation to look at if velocity is present.  <a href="#a02f18e51c00d42e95e328020d3203c31">More...</a><br/></td></tr>
+<tr class="separator:a02f18e51c00d42e95e328020d3203c31 inherit pub_methods_class_skyrates_1_1_common_1_1_a_i_1_1_steering"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a115d898000952d1eedfe33a4b7a33046"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a115d898000952d1eedfe33a4b7a33046"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>AccellerationMax</b></td></tr>
-<tr class="separator:a115d898000952d1eedfe33a4b7a33046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a5c4d978290a44ef258d6f68ffbe6c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_seek.html#a08a5c4d978290a44ef258d6f68ffbe6c">MaxAcceleration</a></td></tr>
+<tr class="memdesc:a08a5c4d978290a44ef258d6f68ffbe6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceleration coefficient in the target direction.  <a href="#a08a5c4d978290a44ef258d6f68ffbe6c">More...</a><br/></td></tr>
+<tr class="separator:a08a5c4d978290a44ef258d6f68ffbe6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a983175b5865affa4083800267adf4ae5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_seek.html#a983175b5865affa4083800267adf4ae5">SeekTargetMultiplier</a> = 1</td></tr>
+<tr class="memdesc:a983175b5865affa4083800267adf4ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies the target direction (which is then normalized). This value will have no effect regardless of nominal value. However, setting this to a negative (-1) will turn seek into flee.  <a href="#a983175b5865affa4083800267adf4ae5">More...</a><br/></td></tr>
+<tr class="separator:a983175b5865affa4083800267adf4ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Full force steering - just go for it. Derived from Artifical Intelligence for Games 2nd Editin Ian Millington &amp; John Funge </p>
+<div class="textblock"><p>Full force steering - just go for it. </p>
+<p>Derived from pg 57 of Artifical Intelligence for Games 2nd Edition Ian Millington &amp; John Funge </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="add201f296cfd487d2dff9362c8c501bc"></a>
+<a class="anchor" id="aed4d8c27e1d2fbd18a7616291be6c8b5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -131,15 +141,15 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>AccellerationMax</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">override void Skyrates.Common.AI.Seek.GetSteering </td>
+          <td class="memname">override <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a> Skyrates.Common.AI.Seek.GetUpdate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html">SteeringData</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_behavior_data.html">BehaviorData</a>&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ref <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_physics_data.html">PhysicsData</a>&#160;</td>
           <td class="paramname"><em>physics</em>&#160;</td>
         </tr>
         <tr>
@@ -163,12 +173,43 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>AccellerationMax</b>
 </dl>
  <a href="https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior">https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior</a> </p>
 
-<p>Implements <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering.html#a6ed9adbbc920bf10006fe27ae9764045">Skyrates.Common.AI.Steering</a>.</p>
+<p>Implements <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_behavior.html#ae905e75f0456dececef5a5bccea7bcf7">Skyrates.Common.AI.Behavior</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_pursue.html#ab504e85e4e66a580205dd71c74df030d">Skyrates.Common.AI.Pursue</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a08a5c4d978290a44ef258d6f68ffbe6c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Skyrates.Common.AI.Seek.MaxAcceleration</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acceleration coefficient in the target direction. </p>
+
+</div>
+</div>
+<a class="anchor" id="a983175b5865affa4083800267adf4ae5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Skyrates.Common.AI.Seek.SeekTargetMultiplier = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplies the target direction (which is then normalized). This value will have no effect regardless of nominal value. However, setting this to a negative (-1) will turn seek into flee. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Basic/Seek.cs</li>
+<li>/home/travis/build/temportalflux/Skyrates/Skyrates/Assets/Scripts/Common/AI/Steering/Basic/Seek.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

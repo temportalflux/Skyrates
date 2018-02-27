@@ -4,6 +4,7 @@ var searchData=
   ['sceneloader',['SceneLoader',['../class_skyrates_1_1_client_1_1_scene_1_1_scene_loader.html',1,'Skyrates::Client::Scene']]],
   ['seek',['Seek',['../class_skyrates_1_1_common_1_1_a_i_1_1_seek.html',1,'Skyrates::Common::AI']]],
   ['selfdestruct',['SelfDestruct',['../class_skyrates_1_1_client_1_1_mono_1_1_self_destruct.html',1,'Skyrates::Client::Mono']]],
+  ['separation',['Separation',['../class_separation.html',1,'']]],
   ['sereal',['Sereal',['../class_skyrates_1_1_common_1_1_network_1_1_test_1_1_bit_test_1_1_sereal.html',1,'Skyrates::Common::Network::Test::BitTest']]],
   ['serializationmodule_3c_20t_20_3e',['SerializationModule&lt; T &gt;',['../class_skyrates_1_1_common_1_1_network_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4.html',1,'Skyrates::Common::Network::BitSerializeAttribute']]],
   ['session',['Session',['../class_skyrates_1_1_common_1_1_network_1_1_session.html',1,'Skyrates::Common::Network']]],
@@ -18,10 +19,12 @@ var searchData=
   ['shipeditor',['ShipEditor',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_editor.html',1,'Skyrates::Client::Ship']]],
   ['shipfigurehead',['ShipFigurehead',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead.html',1,'Skyrates::Client::Ship']]],
   ['shiphull',['ShipHull',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_hull.html',1,'Skyrates::Client::Ship']]],
+  ['shipmesh',['ShipMesh',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_mesh.html',1,'Skyrates::Client::Ship']]],
   ['shipnavigation',['ShipNavigation',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_navigation.html',1,'Skyrates::Client::Ship']]],
   ['shipnavigationleft',['ShipNavigationLeft',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_navigation_left.html',1,'Skyrates::Client::Ship']]],
   ['shipnavigationright',['ShipNavigationRight',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_navigation_right.html',1,'Skyrates::Client::Ship']]],
   ['shippropulsion',['ShipPropulsion',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_propulsion.html',1,'Skyrates::Client::Ship']]],
+  ['shiprenderroot',['ShipRenderRoot',['../class_ship_render_root.html',1,'']]],
   ['shipsail',['ShipSail',['../class_skyrates_1_1_client_1_1_ship_1_1_ship_sail.html',1,'Skyrates::Client::Ship']]],
   ['shipstat',['ShipStat',['../class_ship_stat.html',1,'']]],
   ['shooter',['Shooter',['../class_skyrates_1_1_client_1_1_mono_1_1_shooter.html',1,'Skyrates::Client::Mono']]],
@@ -35,5 +38,5 @@ var searchData=
   ['statenetwork',['StateNetwork',['../struct_state_network.html',1,'']]],
   ['stateserver',['StateServer',['../class_state_server.html',1,'']]],
   ['steering',['Steering',['../class_skyrates_1_1_common_1_1_a_i_1_1_steering.html',1,'Skyrates::Common::AI']]],
-  ['steeringdata',['SteeringData',['../class_skyrates_1_1_common_1_1_a_i_1_1_steering_data.html',1,'Skyrates::Common::AI']]]
+  ['steeringweight',['SteeringWeight',['../class_skyrates_1_1_common_1_1_a_i_1_1_weighted_steering_1_1_steering_weight.html',1,'Skyrates::Common::AI::WeightedSteering']]]
 ];

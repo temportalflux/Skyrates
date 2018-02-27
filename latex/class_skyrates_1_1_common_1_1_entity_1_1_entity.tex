@@ -9,66 +9,9 @@ Any entity that in the world. Used predominantly for its ability to be syncced v
 Inheritance diagram for Skyrates.\-Common.\-Entity.\-Entity\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.888889cm]{class_skyrates_1_1_common_1_1_entity_1_1_entity}
+\includegraphics[height=4.666667cm]{class_skyrates_1_1_common_1_1_entity_1_1_entity}
 \end{center}
 \end{figure}
-\subsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-class \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}
-\begin{DoxyCompactList}\small\item\em Data pertaining to how to find the entity in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_list}{Entity\-List}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Types}
-\begin{DoxyCompactItemize}
-\item 
-enum {\bfseries Type} \{ {\bfseries Static}, 
-{\bfseries Dynamic}, 
-{\bfseries Projectile}, 
-{\bfseries Player}
- \}
-\end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}{Init} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} guid, \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data} type\-Data)
-\begin{DoxyCompactList}\small\item\em Initializes the entity with a specific \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. \end{DoxyCompactList}\item 
-void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}{Init} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data} type\-Data)
-\begin{DoxyCompactList}\small\item\em Initializes the entity with a new \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. \end{DoxyCompactList}\item 
-virtual bool \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}{Should\-Deserialize} ()
-\begin{DoxyCompactList}\small\item\em If this object should receive data sent over the network. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa5a53dfb527054cd23f69bc8750f59e0}{On\-Deserialize\-Success} ()
-\begin{DoxyCompactList}\small\item\em Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity's data was successfully deserialized into it. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8cf85f4ac28cf907926eef27148e5124}{On\-Deserialize\-Fail} ()
-\begin{DoxyCompactList}\small\item\em Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity was not found in the server state and thus should be removed. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}{New\-Guid} ()
-\begin{DoxyCompactList}\small\item\em Creates a unique and fresh I\-D. Guid.\-New\-Guid(). \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-Guid \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid}
-\begin{DoxyCompactList}\small\item\em A unique identifier for this entity \end{DoxyCompactList}\item 
-int \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c490c2ddc157e11029}{Owner\-Network\-I\-D}
-\begin{DoxyCompactList}\small\item\em Which client \char`\"{}owns\char`\"{} this entity (sends updates about it). \end{DoxyCompactList}\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8ef114b37dd21d60738f10e02ace66a2}{\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data} {\bfseries Entity\-Type}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8ef114b37dd21d60738f10e02ace66a2}
-
-\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa2264aa396ec6c08519c50f6e872596e}{static readonly Type\mbox{[}$\,$\mbox{]} {\bfseries All\-Types} = \{ Type.\-Static, Type.\-Dynamic, Type.\-Projectile, Type.\-Player \}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa2264aa396ec6c08519c50f6e872596e}
-
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a824e2b260185ecccfa385b4a80eab46c}{static readonly string\mbox{[}$\,$\mbox{]} {\bfseries All\-Types\-String} = \{ Type.\-Static.\-To\-String(), Type.\-Dynamic.\-To\-String(), Type.\-Projectile.\-To\-String(), Type.\-Player.\-To\-String() \}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a824e2b260185ecccfa385b4a80eab46c}
-
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_adc830384f250e2d5f9b33229d91885ce}{static readonly object\mbox{[}$\,$\mbox{]} {\bfseries Listable\-Types} = \{ Type.\-Static, Type.\-Dynamic, Type.\-Projectile \}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_adc830384f250e2d5f9b33229d91885ce}
-
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9abf8cce12c295b351195de009cfd007}{static readonly System.\-Type\mbox{[}$\,$\mbox{]} {\bfseries Listable\-Class\-Types} = \{ typeof(\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Entity}), typeof(\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic}{Entity\-Dynamic}), typeof(\hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_projectile}{Entity\-Projectile}) \}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a9abf8cce12c295b351195de009cfd007}
-
-\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -81,138 +24,10 @@ int \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c4
 \hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a888a855cc2fd1a8133a18c085eca65e9}{virtual void {\bfseries Update} ()}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a888a855cc2fd1a8133a18c085eca65e9}
 
 \end{DoxyCompactItemize}
-\subsection*{Properties}
-\begin{DoxyCompactItemize}
-\item 
-bool \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}{Is\-Locally\-Controlled}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\begin{DoxyCompactList}\small\item\em If the entity is owned by the current instance (its \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c490c2ddc157e11029}{Owner\-Network\-I\-D} matches the Session.\-Network\-I\-D). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Any entity that in the world. Used predominantly for its ability to be syncced via networking. 
-
-
-
-\subsection{Member Function Documentation}
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Init@{Init}}
-\index{Init@{Init}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Entity.\-Entity.\-Init (
-\begin{DoxyParamCaption}
-\item[{{\bf Guid}}]{guid, }
-\item[{{\bf Type\-Data}}]{type\-Data}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a5cacb91a3691f5a6c4b3087c98f402f9}
-
-
-Initializes the entity with a specific \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em guid} & \\
-\hline
-{\em type\-Data} & \\
-\hline
-\end{DoxyParams}
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Init@{Init}}
-\index{Init@{Init}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Common.\-Entity.\-Entity.\-Init (
-\begin{DoxyParamCaption}
-\item[{{\bf Type\-Data}}]{type\-Data}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a1e1f4bba9e46f3753dda54a9db711a06}
-
-
-Initializes the entity with a new \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{Guid} and \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_1_1_type_data}{Type\-Data}. V\-E\-R\-Y important for syncing entities over the network. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em type\-Data} & \\
-\hline
-\end{DoxyParams}
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!New\-Guid@{New\-Guid}}
-\index{New\-Guid@{New\-Guid}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{New\-Guid}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Guid} Skyrates.\-Common.\-Entity.\-Entity.\-New\-Guid (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ace456648a3f02f014603fd4a0d38e468}
-
-
-Creates a unique and fresh I\-D. Guid.\-New\-Guid(). 
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8cf85f4ac28cf907926eef27148e5124}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!On\-Deserialize\-Fail@{On\-Deserialize\-Fail}}
-\index{On\-Deserialize\-Fail@{On\-Deserialize\-Fail}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{On\-Deserialize\-Fail}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Common.\-Entity.\-Entity.\-On\-Deserialize\-Fail (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a8cf85f4ac28cf907926eef27148e5124}
-
-
-Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity was not found in the server state and thus should be removed. 
-
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa5a53dfb527054cd23f69bc8750f59e0}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!On\-Deserialize\-Success@{On\-Deserialize\-Success}}
-\index{On\-Deserialize\-Success@{On\-Deserialize\-Success}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{On\-Deserialize\-Success}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Common.\-Entity.\-Entity.\-On\-Deserialize\-Success (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa5a53dfb527054cd23f69bc8750f59e0}
-
-
-Called by \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver_a9da0b7c3a8b9e1ed7d10be74ce80482b}{Entity\-Receiver.\-Deserialize} when the entity's data was successfully deserialized into it. 
-
-
-
-Reimplemented in \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic_aedeb63ce173df35eb21d75161d01028d}{Skyrates.\-Common.\-Entity.\-Entity\-Dynamic}, and \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_a150a965f25b65c885fa7629d99e25286}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
-
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Should\-Deserialize@{Should\-Deserialize}}
-\index{Should\-Deserialize@{Should\-Deserialize}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{Should\-Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Skyrates.\-Common.\-Entity.\-Entity.\-Should\-Deserialize (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_aa207bcb5c4e7ac19983bee537dfee751}
-
-
-If this object should receive data sent over the network. 
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-
-
-Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_acd0bc1462d5fc25e38969f62877d63b6}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
-
-
-
-\subsection{Member Data Documentation}
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Guid@{Guid}}
-\index{Guid@{Guid}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{Guid}]{\setlength{\rightskip}{0pt plus 5cm}Guid Skyrates.\-Common.\-Entity.\-Entity.\-Guid}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_ae32af79e6a33bed16aeb0455078885c8}
-
-
-A unique identifier for this entity 
-
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c490c2ddc157e11029}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Owner\-Network\-I\-D@{Owner\-Network\-I\-D}}
-\index{Owner\-Network\-I\-D@{Owner\-Network\-I\-D}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{Owner\-Network\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Common.\-Entity.\-Entity.\-Owner\-Network\-I\-D}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c490c2ddc157e11029}
-
-
-Which client \char`\"{}owns\char`\"{} this entity (sends updates about it). 
-
-
-
-\subsection{Property Documentation}
-\hypertarget{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}{\index{Skyrates\-::\-Common\-::\-Entity\-::\-Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}!Is\-Locally\-Controlled@{Is\-Locally\-Controlled}}
-\index{Is\-Locally\-Controlled@{Is\-Locally\-Controlled}!Skyrates::Common::Entity::Entity@{Skyrates\-::\-Common\-::\-Entity\-::\-Entity}}
-\subsubsection[{Is\-Locally\-Controlled}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Entity.\-Entity.\-Is\-Locally\-Controlled\hspace{0.3cm}{\ttfamily [get]}}}\label{class_skyrates_1_1_common_1_1_entity_1_1_entity_a76d0593a8dd6b00bf329fb9693577cef}
-
-
-If the entity is owned by the current instance (its \hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity_a855cbcf588c2b4c490c2ddc157e11029}{Owner\-Network\-I\-D} matches the Session.\-Network\-I\-D). 
 
 
 

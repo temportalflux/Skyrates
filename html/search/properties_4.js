@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rotation',['Rotation',['../class_skyrates_1_1_client_1_1_network_1_1_event_1_1_event_request_spawn_entity_projectile.html#a3790f220495dc59e2d11e3c1ff7c57b5',1,'Skyrates::Client::Network::Event::EventRequestSpawnEntityProjectile']]]
+  ['target',['Target',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged.html#abfb55cdb6205f8e4ecf35b8c93ae39b6',1,'Skyrates::Client::Game::Event::EventEntityShipDamaged']]]
 ];

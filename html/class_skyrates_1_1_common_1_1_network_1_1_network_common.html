@@ -92,7 +92,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_skyrates_1_1_common_1_1_network_1_1_network_common-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Skyrates.Common.Network.NetworkCommon Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -107,9 +106,7 @@ Inheritance diagram for Skyrates.Common.Network.NetworkCommon:</div>
  <div class="center">
   <img src="class_skyrates_1_1_common_1_1_network_1_1_network_common.png" usemap="#Skyrates.Common.Network.NetworkCommon_map" alt=""/>
   <map id="Skyrates.Common.Network.NetworkCommon_map" name="Skyrates.Common.Network.NetworkCommon_map">
-<area href="class_skyrates_1_1_client_1_1_network_1_1_client.html" title="Base class implementation for all ClientsData. " alt="Skyrates.Client.Network.Client" shape="rect" coords="0,56,261,80"/>
-<area href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html" alt="Skyrates.Server.Network.ClientServer" shape="rect" coords="271,56,532,80"/>
-<area href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html" alt="Skyrates.Client.Network.DummyClient" shape="rect" coords="0,112,261,136"/>
+<area href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html" alt="Skyrates.Server.Network.ClientServer" shape="rect" coords="0,56,261,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -160,9 +157,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DispatchAllImmediate<
 <tr class="memitem:aeeaf913a5fe9ee8cb966271ee864bc08"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#aeeaf913a5fe9ee8cb966271ee864bc08">Update</a> ()</td></tr>
 <tr class="memdesc:aeeaf913a5fe9ee8cb966271ee864bc08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the network, dispatching all current packets and receiving any packets in the network (in that order).  <a href="#aeeaf913a5fe9ee8cb966271ee864bc08">More...</a><br/></td></tr>
 <tr class="separator:aeeaf913a5fe9ee8cb966271ee864bc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a5e3ec0296bff9c7507de2e205f14c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a5e3ec0296bff9c7507de2e205f14c7"></a>
-<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html">EntityTracker</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetEntityTracker</b> ()</td></tr>
-<tr class="separator:a3a5e3ec0296bff9c7507de2e205f14c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -178,12 +172,6 @@ Coroutine&#160;</td><td class="memItemRight" valign="bottom"><b>StartCoroutine</
 <tr class="memitem:a75687f01ff0549a508696e38e55bbb32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75687f01ff0549a508696e38e55bbb32"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>StopCoroutine</b> (Coroutine coroutine)</td></tr>
 <tr class="separator:a75687f01ff0549a508696e38e55bbb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a97cfa2e4a42597caef5376bff59e84e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97cfa2e4a42597caef5376bff59e84e9"></a>
-<a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html">EntityTracker</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EntityTracker</b></td></tr>
-<tr class="separator:a97cfa2e4a42597caef5376bff59e84e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base class for any Sided network. TODO: This naming is too vague essentially this is the base class for both client and server network systems. All messages/events are routed through this class <a href="https://blog.codinghorror.com/i-shall-call-it-somethingmanager/">https://blog.codinghorror.com/i-shall-call-it-somethingmanager/</a> </p>
@@ -219,8 +207,6 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#a17e6fc98bf3487cef6ed236401940427">Skyrates.Client.Network.DummyClient</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a575172eb9f965e181e19649bcce38ca0"></a>
@@ -246,7 +232,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Create the network object in the backend. Must use <a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#aa00266a16aa27dfd0eb242c74856a92a" title="Destroy the network object in the backend. Must use Create beforehand. ">Destroy</a> when done. </p>
 
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html#ac463029e68748fb812055a0d1de5d573">Skyrates.Server.Network.ClientServer</a>, and <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#add9e5b4f67f124f67bda717dbc5657e2">Skyrates.Client.Network.DummyClient</a>.</p>
+<p>Reimplemented in <a class="el" href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html#ac463029e68748fb812055a0d1de5d573">Skyrates.Server.Network.ClientServer</a>.</p>
 
 </div>
 </div>
@@ -273,7 +259,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Destroy the network object in the backend. Must use <a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#a575172eb9f965e181e19649bcce38ca0" title="Create the network object in the backend. Must use Destroy when done. ">Create</a> beforehand. </p>
 
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html#a4013571313a1149fea8254d61fec476a">Skyrates.Server.Network.ClientServer</a>, and <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#af55cf70c2bcec0b28584f2c0b0660e27">Skyrates.Client.Network.DummyClient</a>.</p>
+<p>Reimplemented in <a class="el" href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html#a4013571313a1149fea8254d61fec476a">Skyrates.Server.Network.ClientServer</a>.</p>
 
 </div>
 </div>
@@ -330,8 +316,6 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#ace4de9938d7ca4c3d008f2e9355e96c0">Skyrates.Client.Network.DummyClient</a>.</p>
 
 </div>
 </div>
@@ -471,8 +455,6 @@ Protected Attributes</h2></td></tr>
 
 <p>TODO: Does this actually link with StartClient/Server or with Connect? Shutsdown the network interface. Must be called after </p>
 
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#a6e2df63c9102493cacdd16c183f55916">Skyrates.Client.Network.DummyClient</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6cbb9a1ca4aaa056654300abed7de642"></a>
@@ -499,7 +481,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Called after <a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#a575172eb9f965e181e19649bcce38ca0" title="Create the network object in the backend. Must use Destroy when done. ">Create</a> but before <a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#aa00266a16aa27dfd0eb242c74856a92a" title="Destroy the network object in the backend. Must use Create beforehand. ">Destroy</a> to start the network in its default configuration. Implementation should call <a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#a982b732d621ff3f8738319053af8d154" title="Starts the network and sets incoming connections to 1. ">StartClient</a> or <a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#ac1209cf3fc31d2f145678971472ec20c" title="Starts the network using Session.Port and sets outgoing connections to Session.MaxClients. ">StartServer</a>, and <a class="el" href="class_skyrates_1_1_common_1_1_network_1_1_network_common.html#aa11961a4a6dc22c782552eb96e27c6e1" title="Connects the network to some target defined by Session.TargetAddress and Session.Port. ">Connect</a> if applicable. </p>
 
-<p>Implemented in <a class="el" href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html#a1ef405c40beac7461286169c5c6898fb">Skyrates.Server.Network.ClientServer</a>, <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_client.html#a7486bac40ef938a4580ad657f1d26276">Skyrates.Client.Network.Client</a>, and <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#a2033357a7e9e093baa015bdc234be0a3">Skyrates.Client.Network.DummyClient</a>.</p>
+<p>Implemented in <a class="el" href="class_skyrates_1_1_server_1_1_network_1_1_client_server.html#a1ef405c40beac7461286169c5c6898fb">Skyrates.Server.Network.ClientServer</a>.</p>
 
 </div>
 </div>
@@ -533,8 +515,6 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#a9d69f75af0008f2ae3da1f040814add4">Skyrates.Client.Network.DummyClient</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac1209cf3fc31d2f145678971472ec20c"></a>
@@ -567,8 +547,6 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#a450524b38c78346452f8f7127c14bc8b">Skyrates.Client.Network.DummyClient</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aeeaf913a5fe9ee8cb966271ee864bc08"></a>
@@ -593,8 +571,6 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Updates the network, dispatching all current packets and receiving any packets in the network (in that order). </p>
-
-<p>Reimplemented in <a class="el" href="class_skyrates_1_1_client_1_1_network_1_1_dummy_client.html#a293ecc1918e24e8da6002a2491277333">Skyrates.Client.Network.DummyClient</a>.</p>
 
 </div>
 </div>

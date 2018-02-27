@@ -9,14 +9,14 @@ The base class for all steering algorithms. This is object which Entity\-Dynamic
 Inheritance diagram for Skyrates.\-Common.\-A\-I.\-Steering\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{class_skyrates_1_1_common_1_1_a_i_1_1_steering}
+\includegraphics[height=1.750000cm]{class_skyrates_1_1_common_1_1_a_i_1_1_steering}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-abstract void \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a6ed9adbbc920bf10006fe27ae9764045}{Get\-Steering} (\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_data}{Steering\-Data} data, ref \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} physics)
-\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Quaternion \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a02f18e51c00d42e95e328020d3203c31}{Get\-Look\-Orientation} (\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} physics)
+\begin{DoxyCompactList}\small\item\em Returns the orientation to look at if velocity is present. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -25,31 +25,29 @@ The base class for all steering algorithms. This is object which Entity\-Dynamic
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a6ed9adbbc920bf10006fe27ae9764045}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering@{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering}!Get\-Steering@{Get\-Steering}}
-\index{Get\-Steering@{Get\-Steering}!Skyrates::Common::AI::Steering@{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering}}
-\subsubsection[{Get\-Steering}]{\setlength{\rightskip}{0pt plus 5cm}abstract void Skyrates.\-Common.\-A\-I.\-Steering.\-Get\-Steering (
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a02f18e51c00d42e95e328020d3203c31}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering@{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering}!Get\-Look\-Orientation@{Get\-Look\-Orientation}}
+\index{Get\-Look\-Orientation@{Get\-Look\-Orientation}!Skyrates::Common::AI::Steering@{Skyrates\-::\-Common\-::\-A\-I\-::\-Steering}}
+\subsubsection[{Get\-Look\-Orientation}]{\setlength{\rightskip}{0pt plus 5cm}Quaternion Skyrates.\-Common.\-A\-I.\-Steering.\-Get\-Look\-Orientation (
 \begin{DoxyParamCaption}
-\item[{{\bf Steering\-Data}}]{data, }
-\item[{ref {\bf Physics\-Data}}]{physics}
+\item[{{\bf Physics\-Data}}]{physics}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a6ed9adbbc920bf10006fe27ae9764045}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_steering_a02f18e51c00d42e95e328020d3203c31}
 
 
-Called to request updated physics. Recommend running on a fixed time step. 
+Returns the orientation to look at if velocity is present. 
+
+Derived from \href{https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior}{\tt https\-://gamedev.\-stackexchange.\-com/questions/121469/unity3d-\/smooth-\/rotation-\/for-\/seek-\/steering-\/behavior}. Derived from pg 49 of Artifical Intelligence for Games 2nd Edition Ian Millington \& John Funge 
 
 
 \begin{DoxyParams}{Parameters}
-{\em data} & data specfic to the owner\\
-\hline
-{\em physics} & the data that is steering the owner\\
+{\em physics} & \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 
-
-Implemented in \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_user_controlled_a449f762839eccc1e7e870ddd6cbbc61c}{Skyrates.\-Common.\-A\-I.\-User\-Controlled}, and \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_seek_add201f296cfd487d2dff9362c8c501bc}{Skyrates.\-Common.\-A\-I.\-Seek}.
-
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-A\-I/Steering.\-cs\end{DoxyCompactItemize}
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-A\-I/\-Steering/Steering.\-cs\end{DoxyCompactItemize}

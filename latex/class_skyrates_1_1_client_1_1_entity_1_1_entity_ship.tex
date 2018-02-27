@@ -9,16 +9,25 @@ A moving entity which has Ship\-Stats, A\-I, health data, and Ship\-Components.
 Inheritance diagram for Skyrates.\-Client.\-Entity.\-Entity\-Ship\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=5.000000cm]{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship}
+\includegraphics[height=6.000000cm]{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_1_1_particle_area}{Particle\-Area}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}{virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}{On\-Trigger\-Enter} (Collider other)}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aec4ab41b8d13d876b9b2716bb45f8d72}{virtual void {\bfseries On\-Trigger\-Exit} (Collider other)}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aec4ab41b8d13d876b9b2716bb45f8d72}
+
+\item 
 virtual \hyperlink{class_skyrates_1_1_client_1_1_ship_1_1_ship_figurehead}{Ship\-Figurehead} \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a08f8bb2a31e9f5cdc7a381d8c56670e3}{Get\-Figurehead} ()
 \begin{DoxyCompactList}\small\item\em Returns the ramming component of the ship, null if none exists. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a64d1b835a2e8911de33b19d7cd6948fd}{Take\-Damage} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship_damaged}{Event\-Entity\-Ship\-Damaged} evt)
-\begin{DoxyCompactList}\small\item\em Calls Take\-Damage(\-Entity, float) with data from Event\-Entity\-Ship\-Damaged, and calls Entity\-Ship.\-On\-Ram\-Unsuccessful if the event was a ram and did not reduce this object's health to 0. \end{DoxyCompactList}\item 
 virtual float \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_abad1336581d008dcdd90f400c91f6089}{Take\-Damage} (\hyperlink{class_skyrates_1_1_common_1_1_entity_1_1_entity}{Common.\-Entity.\-Entity} source, float damage)
 \begin{DoxyCompactList}\small\item\em Called to cause damage to the ship. \end{DoxyCompactList}\item 
 void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ad039d8b72251304fa50236d120bd6a46}{Shoot} (Ship\-Data.\-Component\-Type artillery)
@@ -29,13 +38,16 @@ void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ad039d8b722
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ab838d3e99d2f471bbe099b0fbc935f8d}{\hyperlink{class_ship_stat}{Ship\-Stat} {\bfseries Stat\-Block}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ab838d3e99d2f471bbe099b0fbc935f8d}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae31c68fedd2e4e6b818fefe025ea0072}{Particle\-System {\bfseries Particle\-Smoke}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ae31c68fedd2e4e6b818fefe025ea0072}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a39b84fe563d98802619451a21c2f0323}{\hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_1_1_particle_area}{Particle\-Area} {\bfseries Smoke\-Data}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a39b84fe563d98802619451a21c2f0323}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a9e015e6597ba99e2aee3f6e0bdbb302a}{Particle\-System {\bfseries Particle\-Fire}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a9e015e6597ba99e2aee3f6e0bdbb302a}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_abe46fb936db0dfa5f24d018c3e1a72a8}{\hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_1_1_particle_area}{Particle\-Area} {\bfseries Fire\-Data}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_abe46fb936db0dfa5f24d018c3e1a72a8}
 
 \item 
-\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a3336b2e48083ca6fd5ebf182c7bfb942}{Particle\-System {\bfseries Particle\-On\-Destruction}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a3336b2e48083ca6fd5ebf182c7bfb942}
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ab132aa92f9d4ee25ef3e0780aff9e9e6}{Game\-Object {\bfseries Particle\-On\-Destruction}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ab132aa92f9d4ee25ef3e0780aff9e9e6}
+
+\item 
+\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a3bb28cd51cf7c03b548ba3f17dd7f5d2}{Capsule\-Collider {\bfseries Loot\-Drop\-Area}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a3bb28cd51cf7c03b548ba3f17dd7f5d2}
 
 \item 
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aaa7c3c847d44489361a79f2365ac0fcb}{float {\bfseries Health}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aaa7c3c847d44489361a79f2365ac0fcb}
@@ -48,9 +60,6 @@ void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_ad039d8b722
 
 \item 
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aacfa144bb75a4e3cf03c01f24becade2}{override void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aacfa144bb75a4e3cf03c01f24becade2}{Update} ()}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_aacfa144bb75a4e3cf03c01f24becade2}
-
-\item 
-\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}{virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}{On\-Trigger\-Enter} (Collider other)}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a8d087e5b03b8573f56e3da6fd15720a0}
 
 \item 
 virtual void \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a63408dee1b3e0ed265034e5f6694bae0}{On\-Ram\-Unsucessful} (\hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship}{Entity\-Ship} target)
@@ -196,22 +205,6 @@ Generates/\-Spawns loot according to the loot table in Stat\-Block.
 
 Reimplemented in \hyperlink{class_skyrates_1_1_client_1_1_entity_1_1_entity_player_ship_a8c476f6288ed5e7c370db774323dcedf}{Skyrates.\-Client.\-Entity.\-Entity\-Player\-Ship}.
 
-\hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a64d1b835a2e8911de33b19d7cd6948fd}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Take\-Damage@{Take\-Damage}}
-\index{Take\-Damage@{Take\-Damage}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
-\subsubsection[{Take\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Take\-Damage (
-\begin{DoxyParamCaption}
-\item[{{\bf Event\-Entity\-Ship\-Damaged}}]{evt}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_a64d1b835a2e8911de33b19d7cd6948fd}
-
-
-Calls Take\-Damage(\-Entity, float) with data from Event\-Entity\-Ship\-Damaged, and calls Entity\-Ship.\-On\-Ram\-Unsuccessful if the event was a ram and did not reduce this object's health to 0. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em evt} & \\
-\hline
-\end{DoxyParams}
 \hypertarget{class_skyrates_1_1_client_1_1_entity_1_1_entity_ship_abad1336581d008dcdd90f400c91f6089}{\index{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}!Take\-Damage@{Take\-Damage}}
 \index{Take\-Damage@{Take\-Damage}!Skyrates::Client::Entity::EntityShip@{Skyrates\-::\-Client\-::\-Entity\-::\-Entity\-Ship}}
 \subsubsection[{Take\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Skyrates.\-Client.\-Entity.\-Entity\-Ship.\-Take\-Damage (

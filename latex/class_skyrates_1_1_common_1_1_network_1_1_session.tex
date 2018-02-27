@@ -7,15 +7,6 @@ Inheritance diagram for Skyrates.\-Common.\-Network.\-Session\-:\begin{figure}[H
 \includegraphics[height=2.000000cm]{class_skyrates_1_1_common_1_1_network_1_1_session}
 \end{center}
 \end{figure}
-\subsection*{Public Types}
-\begin{DoxyCompactItemize}
-\item 
-enum \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbff}{Network\-Mode} \{ \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa6adf97f83acf6453d4a6a4b1070f3754}{Network\-Mode.\-None}, 
-\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa5c80f101108a356211fcb26b3f83eabb}{Network\-Mode.\-Standalone}, 
-\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa577d7068826de925ea2aec01dbadf5e4}{Network\-Mode.\-Client}, 
-\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffac2ca16d048ec66e04bca283eab048ec2}{Network\-Mode.\-Host}
- \}
-\begin{DoxyCompactList}\small\item\em Various network modes a game can be in. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,9 +33,6 @@ enum \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af
 \item 
 \hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_a764278ea696340505adeb6a927f46458}{void {\bfseries Set\-Port\-From} (Unity\-Engine.\-U\-I.\-Input\-Field field)}\label{class_skyrates_1_1_common_1_1_network_1_1_session_a764278ea696340505adeb6a927f46458}
 
-\item 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_ad262e811e482f06dcba65d8afc70abd3}{void {\bfseries Set\-Client\-Data} (\hyperlink{class_skyrates_1_1_server_1_1_network_1_1_client_data}{Client\-Data} data)}\label{class_skyrates_1_1_common_1_1_network_1_1_session_ad262e811e482f06dcba65d8afc70abd3}
-
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -53,55 +41,14 @@ string \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ac6ecaf40c7c
 \begin{DoxyCompactList}\small\item\em The I\-Pv4 address of this peer (client or server). \end{DoxyCompactList}\item 
 string \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_a6d550a6d31777ca6d1d6dfba00c7955b}{Target\-Address}
 \begin{DoxyCompactList}\small\item\em The I\-Pv4 address of this peer (client or server). \end{DoxyCompactList}\item 
-\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbff}{Network\-Mode} \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_a659a2e1e5c0bc707eb0e6dcfa17b17a8}{Mode}
-\begin{DoxyCompactList}\small\item\em Identifier which stores what type of game is being run (network wise). \end{DoxyCompactList}\item 
 int \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_aed90ad75336095fa3287c961aba40c7b}{Port}
 \begin{DoxyCompactList}\small\item\em The port of the address. \end{DoxyCompactList}\item 
 int \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_a4d9934f0f98f603daf947afacf49d3fb}{Max\-Clients} = 10
 \begin{DoxyCompactList}\small\item\em The maximum amount of clients allowed to connect to the server. Only used when Mode == Host. \end{DoxyCompactList}\item 
-float \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_aa5dc95f5f695af9aa5c0a170036a46b3}{Server\-Tick\-Update}
-\begin{DoxyCompactList}\small\item\em Only used when Mode == Host \end{DoxyCompactList}\item 
-uint \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_aac06adc8a6108e66ce1c465f60d9f95e}{Client\-I\-D} = 0
+uint \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_aac06adc8a6108e66ce1c465f60d9f95e}{Client\-I\-D}
 \begin{DoxyCompactList}\small\item\em The local client I\-D. Will be I\-N\-V\-A\-L\-I\-D if Mode == Host (host does not have a client\-I\-D, it just is). \end{DoxyCompactList}\item 
-Guid \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_a2c3090338ac56475b1a536db879e8ddf}{Player\-Guid} = Guid.\-Empty
-\begin{DoxyCompactList}\small\item\em The local client's player G\-U\-I\-D. \end{DoxyCompactList}\item 
 bool \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_aa819705fe7a825f718a25cf932471a47}{Handshake\-Complete} = false
 \begin{DoxyCompactList}\small\item\em If this client has successfully authenticated with the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Properties}
-\begin{DoxyCompactItemize}
-\item 
-bool \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_a73011cb9fda86ee41cf5964989d1b9c2}{Is\-Valid}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\begin{DoxyCompactList}\small\item\em Can this session be considered valid data? True only if the game has started (user has entered world scene) \end{DoxyCompactList}\item 
-bool \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_a9502bbd3da8fd21ef48dd05afd2e3743}{Is\-Networked}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\begin{DoxyCompactList}\small\item\em If the game session is networked or not (if it is, it is also a client) \end{DoxyCompactList}\item 
-bool \hyperlink{class_skyrates_1_1_common_1_1_network_1_1_session_a207a8acade7599cf44c03735c2604938}{Is\-Owner}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\begin{DoxyCompactList}\small\item\em If the network mode is not a client (either host or standalone). \end{DoxyCompactList}\item 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_ab543841394906d3be36e93be1de1413c}{int {\bfseries Network\-I\-D}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_ab543841394906d3be36e93be1de1413c}
-
-\end{DoxyCompactItemize}
-
-
-\subsection{Member Enumeration Documentation}
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbff}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Network\-Mode@{Network\-Mode}}
-\index{Network\-Mode@{Network\-Mode}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Network\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Skyrates.\-Common.\-Network.\-Session.\-Network\-Mode}}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbff}
-
-
-Various network modes a game can be in. 
-
-\begin{Desc}
-\item[Enumerator]\par
-\begin{description}
-\index{None@{None}!Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!None@{None}}\item[{\em 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa6adf97f83acf6453d4a6a4b1070f3754}{None}\label{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa6adf97f83acf6453d4a6a4b1070f3754}
-}]\hyperlink{class_game}{Game} has not started. \index{Standalone@{Standalone}!Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Standalone@{Standalone}}\item[{\em 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa5c80f101108a356211fcb26b3f83eabb}{Standalone}\label{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa5c80f101108a356211fcb26b3f83eabb}
-}]No networking. \index{Client@{Client}!Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Client@{Client}}\item[{\em 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa577d7068826de925ea2aec01dbadf5e4}{Client}\label{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffa577d7068826de925ea2aec01dbadf5e4}
-}]Joiner of game\-: Client\-Data. \index{Host@{Host}!Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Host@{Host}}\item[{\em 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffac2ca16d048ec66e04bca283eab048ec2}{Host}\label{class_skyrates_1_1_common_1_1_network_1_1_session_ad2f4973bc77af540bd68a428e349fbffac2ca16d048ec66e04bca283eab048ec2}
-}]Host of a game\-: Acts as \hyperlink{namespace_skyrates_1_1_server}{Server} On Top of Client\-Data. \end{description}
-\end{Desc}
 
 
 \subsection{Member Data Documentation}
@@ -114,7 +61,7 @@ The I\-Pv4 address of this peer (client or server).
 
 \hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_aac06adc8a6108e66ce1c465f60d9f95e}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Client\-I\-D@{Client\-I\-D}}
 \index{Client\-I\-D@{Client\-I\-D}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Client\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Common.\-Network.\-Session.\-Client\-I\-D = 0}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_aac06adc8a6108e66ce1c465f60d9f95e}
+\subsubsection[{Client\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Common.\-Network.\-Session.\-Client\-I\-D}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_aac06adc8a6108e66ce1c465f60d9f95e}
 
 
 The local client I\-D. Will be I\-N\-V\-A\-L\-I\-D if Mode == Host (host does not have a client\-I\-D, it just is). 
@@ -133,20 +80,6 @@ If this client has successfully authenticated with the server.
 
 The maximum amount of clients allowed to connect to the server. Only used when Mode == Host. 
 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_a659a2e1e5c0bc707eb0e6dcfa17b17a8}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Mode@{Mode}}
-\index{Mode@{Mode}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Network\-Mode} Skyrates.\-Common.\-Network.\-Session.\-Mode}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_a659a2e1e5c0bc707eb0e6dcfa17b17a8}
-
-
-Identifier which stores what type of game is being run (network wise). 
-
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_a2c3090338ac56475b1a536db879e8ddf}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Player\-Guid@{Player\-Guid}}
-\index{Player\-Guid@{Player\-Guid}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Player\-Guid}]{\setlength{\rightskip}{0pt plus 5cm}Guid Skyrates.\-Common.\-Network.\-Session.\-Player\-Guid = Guid.\-Empty}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_a2c3090338ac56475b1a536db879e8ddf}
-
-
-The local client's player G\-U\-I\-D. 
-
 \hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_aed90ad75336095fa3287c961aba40c7b}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Port@{Port}}
 \index{Port@{Port}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
 \subsubsection[{Port}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Common.\-Network.\-Session.\-Port}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_aed90ad75336095fa3287c961aba40c7b}
@@ -154,43 +87,12 @@ The local client's player G\-U\-I\-D.
 
 The port of the address. 
 
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_aa5dc95f5f695af9aa5c0a170036a46b3}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Server\-Tick\-Update@{Server\-Tick\-Update}}
-\index{Server\-Tick\-Update@{Server\-Tick\-Update}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Server\-Tick\-Update}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Common.\-Network.\-Session.\-Server\-Tick\-Update}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_aa5dc95f5f695af9aa5c0a170036a46b3}
-
-
-Only used when Mode == Host 
-
 \hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_a6d550a6d31777ca6d1d6dfba00c7955b}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Target\-Address@{Target\-Address}}
 \index{Target\-Address@{Target\-Address}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
 \subsubsection[{Target\-Address}]{\setlength{\rightskip}{0pt plus 5cm}string Skyrates.\-Common.\-Network.\-Session.\-Target\-Address}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_a6d550a6d31777ca6d1d6dfba00c7955b}
 
 
 The I\-Pv4 address of this peer (client or server). 
-
-
-
-\subsection{Property Documentation}
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_a9502bbd3da8fd21ef48dd05afd2e3743}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Is\-Networked@{Is\-Networked}}
-\index{Is\-Networked@{Is\-Networked}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Is\-Networked}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Network.\-Session.\-Is\-Networked\hspace{0.3cm}{\ttfamily [get]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_a9502bbd3da8fd21ef48dd05afd2e3743}
-
-
-If the game session is networked or not (if it is, it is also a client) 
-
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_a207a8acade7599cf44c03735c2604938}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Is\-Owner@{Is\-Owner}}
-\index{Is\-Owner@{Is\-Owner}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Is\-Owner}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Network.\-Session.\-Is\-Owner\hspace{0.3cm}{\ttfamily [get]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_a207a8acade7599cf44c03735c2604938}
-
-
-If the network mode is not a client (either host or standalone). 
-
-\hypertarget{class_skyrates_1_1_common_1_1_network_1_1_session_a73011cb9fda86ee41cf5964989d1b9c2}{\index{Skyrates\-::\-Common\-::\-Network\-::\-Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}!Is\-Valid@{Is\-Valid}}
-\index{Is\-Valid@{Is\-Valid}!Skyrates::Common::Network::Session@{Skyrates\-::\-Common\-::\-Network\-::\-Session}}
-\subsubsection[{Is\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Common.\-Network.\-Session.\-Is\-Valid\hspace{0.3cm}{\ttfamily [get]}}}\label{class_skyrates_1_1_common_1_1_network_1_1_session_a73011cb9fda86ee41cf5964989d1b9c2}
-
-
-Can this session be considered valid data? True only if the game has started (user has entered world scene) 
 
 
 

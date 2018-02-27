@@ -1,0 +1,90 @@
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_arrive}{\section{Skyrates.\-Common.\-A\-I.\-Arrive Class Reference}
+\label{class_skyrates_1_1_common_1_1_a_i_1_1_arrive}\index{Skyrates.\-Common.\-A\-I.\-Arrive@{Skyrates.\-Common.\-A\-I.\-Arrive}}
+}
+
+
+Accelerates to the target and slows down as it gets closer.  
+
+
+Inheritance diagram for Skyrates.\-Common.\-A\-I.\-Arrive\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_skyrates_1_1_common_1_1_a_i_1_1_arrive}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a535360b8f486e9caac870c184a5470b8}{override \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a535360b8f486e9caac870c184a5470b8}{Get\-Update} (\hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_behavior_data}{Behavior\-Data} data, \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_physics_data}{Physics\-Data} physics)}\label{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a535360b8f486e9caac870c184a5470b8}
+
+\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a97aaffa0306389d11c5d75faf0d3f7c9}{Max\-Acceleration}
+\begin{DoxyCompactList}\small\item\em Acceleration coefficient in the target direction. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a85ab230f89389f96567f11f0fc70d666}{Max\-Speed}
+\begin{DoxyCompactList}\small\item\em The maximum nominal velocity. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a5e20a0f88fbed311dfa8df2f469f6c3f}{Distance\-Arriving}
+\begin{DoxyCompactList}\small\item\em The radius at which to start slowing down. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_aed0ecb85d42852c1c08903a897241773}{Distance\-Arrived}
+\begin{DoxyCompactList}\small\item\em The radius at which to stop. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a7af8e494ae9c995e173e25e4af34f442}{Acceleration\-Time}
+\begin{DoxyCompactList}\small\item\em The amount of time it takes to accelerate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Accelerates to the target and slows down as it gets closer. 
+
+Derived from pg 61 of Artifical Intelligence for Games 2nd Edition Ian Millington \& John Funge 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a7af8e494ae9c995e173e25e4af34f442}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}!Acceleration\-Time@{Acceleration\-Time}}
+\index{Acceleration\-Time@{Acceleration\-Time}!Skyrates::Common::AI::Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}}
+\subsubsection[{Acceleration\-Time}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Common.\-A\-I.\-Arrive.\-Acceleration\-Time}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a7af8e494ae9c995e173e25e4af34f442}
+
+
+The amount of time it takes to accelerate. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_aed0ecb85d42852c1c08903a897241773}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}!Distance\-Arrived@{Distance\-Arrived}}
+\index{Distance\-Arrived@{Distance\-Arrived}!Skyrates::Common::AI::Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}}
+\subsubsection[{Distance\-Arrived}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Common.\-A\-I.\-Arrive.\-Distance\-Arrived}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_aed0ecb85d42852c1c08903a897241773}
+
+
+The radius at which to stop. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a5e20a0f88fbed311dfa8df2f469f6c3f}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}!Distance\-Arriving@{Distance\-Arriving}}
+\index{Distance\-Arriving@{Distance\-Arriving}!Skyrates::Common::AI::Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}}
+\subsubsection[{Distance\-Arriving}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Common.\-A\-I.\-Arrive.\-Distance\-Arriving}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a5e20a0f88fbed311dfa8df2f469f6c3f}
+
+
+The radius at which to start slowing down. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a97aaffa0306389d11c5d75faf0d3f7c9}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}!Max\-Acceleration@{Max\-Acceleration}}
+\index{Max\-Acceleration@{Max\-Acceleration}!Skyrates::Common::AI::Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}}
+\subsubsection[{Max\-Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Common.\-A\-I.\-Arrive.\-Max\-Acceleration}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a97aaffa0306389d11c5d75faf0d3f7c9}
+
+
+Acceleration coefficient in the target direction. 
+
+\hypertarget{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a85ab230f89389f96567f11f0fc70d666}{\index{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}!Max\-Speed@{Max\-Speed}}
+\index{Max\-Speed@{Max\-Speed}!Skyrates::Common::AI::Arrive@{Skyrates\-::\-Common\-::\-A\-I\-::\-Arrive}}
+\subsubsection[{Max\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Common.\-A\-I.\-Arrive.\-Max\-Speed}}\label{class_skyrates_1_1_common_1_1_a_i_1_1_arrive_a85ab230f89389f96567f11f0fc70d666}
+
+
+The maximum nominal velocity. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Common/\-A\-I/\-Steering/\-Basic/Arrive.\-cs\end{DoxyCompactItemize}

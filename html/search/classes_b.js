@@ -6,6 +6,5 @@ var searchData=
   ['networkevent',['NetworkEvent',['../class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event.html',1,'Skyrates::Common::Network::Event']]],
   ['networkeventattribute',['NetworkEventAttribute',['../class_network_event_attribute.html',1,'']]],
   ['networkevents',['NetworkEvents',['../class_skyrates_1_1_common_1_1_network_1_1_network_events.html',1,'Skyrates::Common::Network']]],
-  ['networkplugin',['NetworkPlugin',['../class_champ_net_plugin_1_1_network_plugin.html',1,'ChampNetPlugin']]],
-  ['networktest',['NetworkTest',['../class_skyrates_1_1_client_1_1_network_1_1_test_1_1_network_test.html',1,'Skyrates::Client::Network::Test']]]
+  ['networkplugin',['NetworkPlugin',['../class_champ_net_plugin_1_1_network_plugin.html',1,'ChampNetPlugin']]]
 ];

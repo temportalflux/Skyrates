@@ -30,27 +30,7 @@ void \hyperlink{class_skyrates_1_1_server_1_1_network_1_1_client_server_a616e25d
 void \hyperlink{class_skyrates_1_1_server_1_1_network_1_1_client_server_a78530cef0b66221a02afb62711ff8fe0}{On\-Handshake\-Accept} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)
 \begin{DoxyCompactList}\small\item\em Receives a handshake request of Event\-Handshake\-Accept. Copies client's player System.\-Guid and marks them as valid. Does not respond, but client can now start processing \hyperlink{class_game_state}{Game\-State} updates via Event\-Update\-Game\-State. \end{DoxyCompactList}\item 
 void \hyperlink{class_skyrates_1_1_server_1_1_network_1_1_client_server_a2c69e29494aa3decead4ed8546ad8c6a}{On\-Disconnect} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)
-\begin{DoxyCompactList}\small\item\em Receives a notification that a client has disconnected via Event\-Disconnect. Removes the client via its I\-D from the client list. \end{DoxyCompactList}\item 
-void \hyperlink{class_skyrates_1_1_server_1_1_network_1_1_client_server_ab12fc7b88d98e13c6ea6bd00badde39f}{On\-Request\-Set\-Player\-Physics} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)
-\begin{DoxyCompactList}\small\item\em Receives request from client to set the player physics via Event\-Request\-Set\-Player\-Physics. Sets the physics of the player associated with the given client. \end{DoxyCompactList}\item 
-\hypertarget{class_skyrates_1_1_server_1_1_network_1_1_client_server_a49c44061421a811ab338e27f2ab46ed3}{void {\bfseries On\-Request\-Spawn\-Entity\-Projectile} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)}\label{class_skyrates_1_1_server_1_1_network_1_1_client_server_a49c44061421a811ab338e27f2ab46ed3}
-
-\item 
-\hypertarget{class_skyrates_1_1_server_1_1_network_1_1_client_server_a7c651e02a480935105cfb169f68395b4}{void {\bfseries On\-Request\-Spawn\-Entity\-Projectile} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)}\label{class_skyrates_1_1_server_1_1_network_1_1_client_server_a7c651e02a480935105cfb169f68395b4}
-
-\item 
-\hypertarget{class_skyrates_1_1_server_1_1_network_1_1_client_server_a6391f98a3985073546d38b4523eca432}{void {\bfseries On\-Request\-Entity\-Ship\-Damaged} (\hyperlink{class_skyrates_1_1_common_1_1_network_1_1_event_1_1_network_event}{Network\-Event} evt)}\label{class_skyrates_1_1_server_1_1_network_1_1_client_server_a6391f98a3985073546d38b4523eca432}
-
-\item 
-\hypertarget{class_skyrates_1_1_server_1_1_network_1_1_client_server_a7e9f838c7e76be903bb2a591c5d3d2f0}{void {\bfseries On\-Entity\-Ship\-Hit\-By} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)}\label{class_skyrates_1_1_server_1_1_network_1_1_client_server_a7e9f838c7e76be903bb2a591c5d3d2f0}
-
-\item 
-\hypertarget{class_skyrates_1_1_server_1_1_network_1_1_client_server_a0e87759acd9e27ba50d11645b54ce662}{void {\bfseries On\-Entity\-Ship\-Hit\-By\-Projectile} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)}\label{class_skyrates_1_1_server_1_1_network_1_1_client_server_a0e87759acd9e27ba50d11645b54ce662}
-
-\item 
-\hypertarget{class_skyrates_1_1_server_1_1_network_1_1_client_server_ad30e4dc5b1b1e385e3bffd7d45aa6b43}{virtual void {\bfseries On\-Loot\-Collided} (\hyperlink{class_skyrates_1_1_client_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)}\label{class_skyrates_1_1_server_1_1_network_1_1_client_server_ad30e4dc5b1b1e385e3bffd7d45aa6b43}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Receives a notification that a client has disconnected via Event\-Disconnect. Removes the client via its I\-D from the client list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -112,22 +92,6 @@ Receives a handshake request of Event\-Handshake\-Join. Generates client I\-D an
 
 \begin{DoxyParams}{Parameters}
 {\em evt} & Event\-Handshake\-Join\\
-\hline
-\end{DoxyParams}
-\hypertarget{class_skyrates_1_1_server_1_1_network_1_1_client_server_ab12fc7b88d98e13c6ea6bd00badde39f}{\index{Skyrates\-::\-Server\-::\-Network\-::\-Client\-Server@{Skyrates\-::\-Server\-::\-Network\-::\-Client\-Server}!On\-Request\-Set\-Player\-Physics@{On\-Request\-Set\-Player\-Physics}}
-\index{On\-Request\-Set\-Player\-Physics@{On\-Request\-Set\-Player\-Physics}!Skyrates::Server::Network::ClientServer@{Skyrates\-::\-Server\-::\-Network\-::\-Client\-Server}}
-\subsubsection[{On\-Request\-Set\-Player\-Physics}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Server.\-Network.\-Client\-Server.\-On\-Request\-Set\-Player\-Physics (
-\begin{DoxyParamCaption}
-\item[{{\bf Network\-Event}}]{evt}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_server_1_1_network_1_1_client_server_ab12fc7b88d98e13c6ea6bd00badde39f}
-
-
-Receives request from client to set the player physics via Event\-Request\-Set\-Player\-Physics. Sets the physics of the player associated with the given client. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em evt} & \\
 \hline
 \end{DoxyParams}
 

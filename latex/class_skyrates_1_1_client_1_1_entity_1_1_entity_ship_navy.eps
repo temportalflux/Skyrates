@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 416.666667
+%%BoundingBox: 0 0 500 500.000000
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,12 +19,12 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 1.200000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 1.000000 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 5 def
+/rows 6 def
 /cols 1 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
@@ -175,6 +175,7 @@ boxfont setfont
 1 boundaspect scale
 (Skyrates.Client.Entity.EntityShipNavy) cw
 (Skyrates.Client.Entity.EntityShip) cw
+(Skyrates.Common.Entity.EntityAI) cw
 (Skyrates.Common.Entity.EntityDynamic) cw
 (Skyrates.Common.Entity.Entity) cw
 (MonoBehaviour) cw
@@ -191,9 +192,10 @@ boundx scalefactor div boundy scalefactor div scale
 
  (Skyrates.Client.Entity.EntityShipNavy) 0.000000 0.000000 box
  (Skyrates.Client.Entity.EntityShip) 0.000000 1.000000 box
- (Skyrates.Common.Entity.EntityDynamic) 0.000000 2.000000 box
- (Skyrates.Common.Entity.Entity) 0.000000 3.000000 box
- (MonoBehaviour) 0.000000 4.000000 box
+ (Skyrates.Common.Entity.EntityAI) 0.000000 2.000000 box
+ (Skyrates.Common.Entity.EntityDynamic) 0.000000 3.000000 box
+ (Skyrates.Common.Entity.Entity) 0.000000 4.000000 box
+ (MonoBehaviour) 0.000000 5.000000 box
 
 % ----- relations -----
 
@@ -213,3 +215,7 @@ solid
 0 0.000000 3.000000 out
 solid
 1 0.000000 4.000000 in
+solid
+0 0.000000 4.000000 out
+solid
+1 0.000000 5.000000 in

@@ -95,28 +95,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver.html">EntityReceiver</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of T:Skyrates.Common.Entity.EntityTracker to handle deserializing entities.  <a href="class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_list_editor.html">EntityListEditor</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html">Entity</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Any entity that in the world. Used predominantly for its ability to be syncced via networking.  <a href="class_skyrates_1_1_common_1_1_entity_1_1_entity.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_a_i.html">EntityAI</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html">EntityDynamic</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Any entity in the world which moves around. By default, this object uses <a class="el" href="class_skyrates_1_1_common_1_1_a_i_1_1_steering.html" title="The base class for all steering algorithms. This is object which EntityDynamic uses to control its mo...">Skyrates.Common.AI.Steering</a>, and it is the assumption that objects which move will use some form of steering.  <a href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dynamic.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_list.html">EntityList</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of all entity prefabs (all spawnable entities). ASSUME: All entites which are networked have a prefab in this list.  <a href="class_skyrates_1_1_common_1_1_entity_1_1_entity_list.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_set.html">EntitySet</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The set of entities tracked via <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html" title="A tracker which watches all entities which are synced over the network. Implemented by EntityDispatch...">EntityTracker</a>, of a single Entity.Type.  <a href="class_skyrates_1_1_common_1_1_entity_1_1_entity_set.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html">EntityTracker</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A tracker which watches all entities which are synced over the network. Implemented by <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher.html" title="Implementation of T:Skyrates.Common.Entity.EntityTracker, which is able to serialize entities for dis...">EntityDispatcher</a> and <a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_receiver.html" title="Implementation of T:Skyrates.Common.Entity.EntityTracker to handle deserializing entities. ">EntityReceiver</a> to handle serializing and deserializing entities.  <a href="class_skyrates_1_1_common_1_1_entity_1_1_entity_tracker.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher.html">EntityDispatcher</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of T:Skyrates.Common.Entity.EntityTracker, which is able to serialize entities for dispatching to clients.  <a href="class_skyrates_1_1_common_1_1_entity_1_1_entity_dispatcher.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_common_1_1_entity_1_1_trigger_area.html">TriggerArea</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

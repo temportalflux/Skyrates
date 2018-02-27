@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['handshakeaccept',['HandshakeAccept',['../group__server.html#gga4301bf0fa2a92b524daa9d4d1f9aa9e3a4e3ac0d64fe8a89bf1ce5dd7b99a3c27',1,'HandshakeAccept():&#160;StateServer.h'],['../namespace_skyrates_1_1_common_1_1_network.html#a90fc6faa44c44b4284114e861d3e761aa687268a9c39eb0452e4bf727ebc788f0',1,'Skyrates.Common.Network.HandshakeAccept()']]],
-  ['handshakeclientid',['HandshakeClientID',['../group__server.html#gga4301bf0fa2a92b524daa9d4d1f9aa9e3a59f5ae9c1d42ffd00714368264eab9b9',1,'HandshakeClientID():&#160;StateServer.h'],['../namespace_skyrates_1_1_common_1_1_network.html#a90fc6faa44c44b4284114e861d3e761aa908d5d0d1dcdac6a031195157436dbc3',1,'Skyrates.Common.Network.HandshakeClientID()']]],
-  ['handshakejoin',['HandshakeJoin',['../group__server.html#gga4301bf0fa2a92b524daa9d4d1f9aa9e3ab1eef7245d0a1b3e7cd8ed83fe0a3f8b',1,'HandshakeJoin():&#160;StateServer.h'],['../namespace_skyrates_1_1_common_1_1_network.html#a90fc6faa44c44b4284114e861d3e761aae1ed8fdcd01caace5506395496004e93',1,'Skyrates.Common.Network.HandshakeJoin()']]],
-  ['host',['Host',['../class_skyrates_1_1_common_1_1_network_1_1_session.html#ad2f4973bc77af540bd68a428e349fbffac2ca16d048ec66e04bca283eab048ec2',1,'Skyrates::Common::Network::Session']]]
+  ['id_5fclient_5fconnection',['ID_CLIENT_CONNECTION',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821aecc0564c52e3106cfe012e5533b080da',1,'ChampNetPlugin']]],
+  ['id_5fclient_5fconnection_5faccepted',['ID_CLIENT_CONNECTION_ACCEPTED',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821a0295101371b4a70a1c007a4f6e206e1d',1,'ChampNetPlugin']]],
+  ['id_5fclient_5fdisconnection',['ID_CLIENT_DISCONNECTION',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821a2ed0fbbbbe782bca6c76277c89050ad9',1,'ChampNetPlugin']]],
+  ['id_5fclient_5fmissing',['ID_CLIENT_MISSING',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821a31932f93b241ffddf903d32af0fc2155',1,'ChampNetPlugin']]],
+  ['id_5fnone',['ID_NONE',['../namespace_champ_net_plugin.html#a2ade5cfa7cf6c25ab7236c6b54a57821aad940f5ef8633f353088061ccf06623d',1,'ChampNetPlugin']]]
 ];
