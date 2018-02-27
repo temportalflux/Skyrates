@@ -28,10 +28,10 @@ namespace Skyrates.Client.Loot
             public int Weight;
 
             /// <summary>
-            /// The item prefab to be stored in the loot.
+            /// The item component type to be stored in the loot.
             /// </summary>
             [SerializeField]
-            public ShipComponent Item;
+            public ShipData.ComponentType Item;
 
             /// <summary>
             /// The prefabed <see cref="Loot"/> to be spawned.
@@ -78,10 +78,10 @@ namespace Skyrates.Client.Loot
         /// The number of loot generated is randomized between <see cref="AmountMin"/> and <see cref="AmountMax"/>.
         /// </summary>
         /// <returns></returns>
-        public KeyValuePair<ShipComponent, Loot>[] Generate()
+        public KeyValuePair<ShipData.ComponentType, Loot>[] Generate()
         {
             // Create the array
-            KeyValuePair<ShipComponent, Loot>[] loots = new KeyValuePair<ShipComponent, Loot>[Random.Range(this.AmountMin, this.AmountMax)];
+            KeyValuePair<ShipData.ComponentType, Loot>[] loots = new KeyValuePair<ShipData.ComponentType, Loot>[Random.Range(this.AmountMin, this.AmountMax)];
             for (int iLoot = 0; iLoot < loots.Length; iLoot++)
             {
                 // Randomize the threshold for this loot entry
@@ -95,7 +95,7 @@ namespace Skyrates.Client.Loot
                     if (rand < sum)
                     {
                         // Set the loot entry and continue with generation
-                        loots[iLoot] = new KeyValuePair<ShipComponent, Loot>(row.Item, row.Prefab);
+                        loots[iLoot] = new KeyValuePair<ShipData.ComponentType, Loot>(row.Item, row.Prefab);
                         break;
                     }
                 }

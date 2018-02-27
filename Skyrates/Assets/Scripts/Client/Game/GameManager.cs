@@ -61,14 +61,12 @@ namespace Skyrates.Client.Game
         private void OnEnable()
         {
             Events.SceneLoaded += this.OnSceneLoaded;
-            Events.LootCollected += this.OnLootCollected;
         }
 
         /// <inheritdoc />
         private void OnDisable()
         {
             Events.SceneLoaded -= this.OnSceneLoaded;
-            Events.LootCollected -= this.OnLootCollected;
         }
 
         /// <summary>
@@ -92,20 +90,6 @@ namespace Skyrates.Client.Game
                     break;
                 default:
                     break;
-            }
-        }
-
-        /// <summary>
-        /// Called when a player collects a loot. Used to check win-state.
-        /// </summary>
-        /// <param name="evt"></param>
-        private void OnLootCollected(GameEvent evt)
-        {
-            // TODO: Remove the temporary winstate based on number of loot collected.
-            if (this.PlayerData.LootCount >= this.PlayerData.LootGoal)
-            {
-                //SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
-                //SceneLoader.Instance.ActivateNext();
             }
         }
 

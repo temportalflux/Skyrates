@@ -13,7 +13,7 @@ namespace Skyrates.Client.Data
     [Serializable]
     public class LocalData : ScriptableObject
     {
-
+        
         [Serializable]
         public class InputConfig
         {
@@ -103,27 +103,16 @@ namespace Skyrates.Client.Data
         /// The current state of the player's camera
         /// </summary>
         [Header("Controls")]
+        [HideInInspector]
         public CameraMode ViewMode;
 
         /// <summary>
-        /// The amount of loot currently collected.
-        /// Value is 0 during instantiation and destruction.
+        /// Manages inventory and items.
         /// </summary>
-        [Header("Loot")]
-        public uint LootCount;
+        public Inventory Inventory;
 
-        // TODO: Temporary
-        /// <summary>
-        /// The amount of loot to collect for the "winstate" to occur.
-        /// Set to a random number between 10 and 60 on instantiation and destruction (the latter isn't necessary).
-        /// </summary>
-        public uint LootGoal;
-        
         public void Init()
         {
-            this.LootCount = 0;
-            this.LootGoal = (uint) UnityEngine.Random.Range(10, 60);
-
             this.ViewMode = CameraMode.FREE;
         }
 
