@@ -175,8 +175,7 @@ namespace Skyrates.Client.Entity
         /// <param name="loot"></param>
         public void OnLootCollided(Loot.Loot loot)
         {
-            // TODO: Add to inventory
-            this.PlayerData.LootCount++;
+            this.PlayerData.Inventory.Add(loot.Item);
 
             // TODO: do this through event?
             this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail);

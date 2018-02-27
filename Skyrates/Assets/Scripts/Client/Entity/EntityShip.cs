@@ -228,12 +228,12 @@ namespace Skyrates.Client.Entity
             if (this.StatBlock == null || this.StatBlock.Loot == null) return;
 
             // Generate the loot to spawn
-            KeyValuePair<ShipComponent, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
+            KeyValuePair<ShipData.ComponentType, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
             // Spawn each loot in turn
-            foreach (KeyValuePair<ShipComponent, Loot.Loot> lootItem in loots)
+            foreach (KeyValuePair<ShipData.ComponentType, Loot.Loot> lootItem in loots)
             {
                 // If the loot is invalid in some way, discard
-                if (lootItem.Key == null || lootItem.Value == null)
+                if (lootItem.Value == null)
                 {
                     continue;
                 }

@@ -2,6 +2,7 @@
 
 namespace Skyrates.Client.Data
 {
+	[Serializable]
 	public class Inventory
 	{
 		/// <summary>
