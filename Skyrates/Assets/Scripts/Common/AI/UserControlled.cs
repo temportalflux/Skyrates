@@ -39,6 +39,7 @@ namespace Skyrates.Common.AI
             float backpedal = Mathf.Max(0, -input.Forward.Input);
 
             float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
+            this.ControllerData.MovementSpeed = movementForwardSpeed;
             Vector3 movementForward = forward * movementForwardSpeed;
 
             Vector3 movementVertical = vertical * input.Vertical.Value;

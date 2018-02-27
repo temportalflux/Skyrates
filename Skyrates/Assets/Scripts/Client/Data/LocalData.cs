@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 namespace Skyrates.Client.Data
 {
@@ -117,6 +118,20 @@ namespace Skyrates.Client.Data
         /// Manages inventory and items.
         /// </summary>
         public Inventory Inventory;
+
+        // TODO: Get from total speed of player
+        public float SpeedMin
+        {
+            get { return 0; }
+        }
+        // TODO: Get from total speed of player
+        public float SpeedMax
+        {
+            get { return 30; }
+        }
+
+        // TODO: This is set via UserControlled AI - this should be calculated on input update
+        public float MovementSpeed;
 
         public void Init()
         {
