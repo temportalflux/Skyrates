@@ -19,20 +19,26 @@ namespace Skyrates.Client.UI
 		public LocalData PlayerData;
 		public Button Button;
 		public Text Text;
-		public ShipData.BrokenComponentType type; //Type of the button, shows what item type it aligns to.
+		public ShipData.BrokenComponentType Type; //Type of the button, shows what item type it aligns to.
 
 		public DebugType DebugType; //Remove or add, for debugging purposes.
 
 		//Adds item to local data.
 		void AddItem()
 		{
-			Debug.Log(string.Format("Added {0} unit(s) to {1}", PlayerData.Inventory.Add(type), type));
+			Debug.Log(string.Format("Added {0} unit(s) to {1}", PlayerData.Inventory.Add(Type), GetName(Type)));
 		}
 
 		//Removes item to local data.
 		void RemoveItem()
 		{
-			Debug.Log(string.Format("Removed {0} unit(s) from {1}", PlayerData.Inventory.Remove(type), type));
+			Debug.Log(string.Format("Removed {0} unit(s) from {1}", PlayerData.Inventory.Remove(Type), GetName(Type)));
+		}
+
+		//Helper method to shorten the code a bit.
+		private string GetName(ShipData.BrokenComponentType brokenComponent)
+		{
+			return Inventory.GetName(Type);
 		}
 
 		void Start()
@@ -50,6 +56,7 @@ namespace Skyrates.Client.UI
 			}
 		}
 
+
 		void Update()
 		{
 			switch (DebugType)
@@ -57,10 +64,10 @@ namespace Skyrates.Client.UI
 				default:
 				case DebugType.None:
 					//Text.text = string.Format("{0}: {1} Units", type, PlayerData.Inventory.GetAmount(type)); //For debugging.
-					Text.text = PlayerData.Inventory.GetAmount(type).ToString(); //For ingame.
+					Text.text = PlayerData.Inventory.GetAmount(Type).ToString(); //For ingame.
 					break;
 				case DebugType.Add:
-					Text.text = string.Format("Add {0} Unit", type);
+					Text.text = string.Format("Add {0} Unit", GetName(Type));
 					break;
 			}
 		}

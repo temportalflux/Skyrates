@@ -63,6 +63,7 @@ public class ShipData : ISerializing
 		Invalid = -1,
 		Artillery,
 		Figurehead,
+		Hull, //Hull Armor
 		Navigation,
 		Propulsion,
 		Sail,
@@ -72,13 +73,13 @@ public class ShipData : ISerializing
 	{
 		BrokenComponentType.Artillery,
 		BrokenComponentType.Figurehead,
+		BrokenComponentType.Hull,
 		BrokenComponentType.Navigation,
 		BrokenComponentType.Propulsion,
-		BrokenComponentType.Sail,
 	};
 
-	//TODO: Refactor to dictionary or reflection if we ever have to change even just one of these.
-	public static readonly BrokenComponentType[] ComponentTypeToBrokenComponentType = { BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Figurehead, BrokenComponentType.Invalid, BrokenComponentType.Navigation, BrokenComponentType.Navigation, BrokenComponentType.Propulsion, BrokenComponentType.Sail};
+	//TODO: Refactor to dictionary or reflection if we ever have to change these often.
+	public static readonly BrokenComponentType[] ComponentTypeToBrokenComponentType = { BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Figurehead, BrokenComponentType.Hull, BrokenComponentType.Navigation, BrokenComponentType.Navigation, BrokenComponentType.Propulsion, BrokenComponentType.Invalid };
 
 	[SerializeField]
     public int[] Components = new int[ComponentTypes.Length];

@@ -69,5 +69,15 @@ namespace Skyrates.Client.Data
 			return ShipData.ComponentTypeToBrokenComponentType[(uint)component];
 		}
 
+		/// <summary>
+		/// Gets the name of a certain broken component type.
+		/// </summary>
+		/// <returns>The name of the broken component type.</returns>
+		public static string GetName(ShipData.BrokenComponentType brokenComponent)
+		{
+			//We have to use this because Unity's .NET version is outdated and does not contain the Display attribute for enums.
+			return brokenComponent == ShipData.BrokenComponentType.Hull ? "Hull Armor" : brokenComponent.ToString();
+		}
+
 	}
 }
