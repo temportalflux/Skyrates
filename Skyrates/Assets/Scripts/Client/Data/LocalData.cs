@@ -19,7 +19,8 @@ namespace Skyrates.Client.Data
 
 		public void Init()
         {
-            //TODO: Implement if necessary, ex: reflection.
+			//TODO: Implement reflection if we need to refactor due to the time it takes for the current non-DRY solution.
+			Inventory.Clear(); //Needed in order to reset player data in editor.  Could remove from builds with a preprocessor macro if we wanted to.
         }
 
     }

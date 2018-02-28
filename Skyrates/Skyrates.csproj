@@ -466,7 +466,6 @@
     <Compile Include="Assets\3rdParty\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\3rdParty\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\3rdParty\XInputDotNet\Examples\XInputTestCS.cs" />
-    <Compile Include="Assets\Scripts\Client\Data\Inventory.cs" />
     <Compile Include="Assets\Scripts\_Client\Controller\InputInteraction.cs" />
     <Compile Include="Assets\Scripts\_Client\Controller\InputRotation.cs" />
     <Compile Include="Assets\Scripts\_Client\Input\InputAction.cs" />
@@ -477,6 +476,7 @@
     <Compile Include="Assets\Scripts\Client\Audio\AudioDispatcher.cs" />
     <Compile Include="Assets\Scripts\Client\Component\OutOfWorldBoundary.cs" />
     <Compile Include="Assets\Scripts\Client\Component\SelfDestruct.cs" />
+    <Compile Include="Assets\Scripts\Client\Data\Inventory.cs" />
     <Compile Include="Assets\Scripts\Client\Data\LocalData.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityProjectile.cs" />
@@ -526,6 +526,7 @@
     <Compile Include="Assets\Scripts\Client\Ship\ShipRenderRoot.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\ShipStat.cs" />
     <Compile Include="Assets\Scripts\Client\UI\ButtonHover.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\TestInventoryButton.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateControlScheme.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateLootCount.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateSessionID.cs" />

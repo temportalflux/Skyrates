@@ -1,0 +1,68 @@
+﻿using Skyrates.Client.Data;
+using Skyrates.Client.Game;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Skyrates.Client.UI
+{
+	public enum DebugType
+	{
+		//For testing purposes only.  No Doxygen.
+		None, //Currently removes by default
+		Add
+	}
+	public class TestInventoryButton : MonoBehaviour
+	{
+		//For testing purposes only.  No Doxygen.
+		public LocalData PlayerData;
+		public Button Button;
+		public Text Text;
+		public ShipData.BrokenComponentType type; //Type of the button, shows what item type it aligns to.
+
+		public DebugType DebugType; //Remove or add, for debugging purposes.
+
+		//Adds item to local data.
+		void AddItem()
+		{
+			Debug.Log(string.Format("Added {0} unit(s) to {1}", PlayerData.Inventory.Add(type), type));
+		}
+
+		//Removes item to local data.
+		void RemoveItem()
+		{
+			Debug.Log(string.Format("Removed {0} unit(s) from {1}", PlayerData.Inventory.Remove(type), type));
+		}
+
+		void Start()
+		{
+			PlayerData.Init(); //For testing purposes, reset the player data.
+			switch (DebugType)
+			{
+				default:
+				case DebugType.None:
+					Button.onClick.AddListener(RemoveItem);
+					break;
+				case DebugType.Add:
+					Button.onClick.AddListener(AddItem);
+					break;
+			}
+		}
+
+		void Update()
+		{
+			switch (DebugType)
+			{
+				default:
+				case DebugType.None:
+					//Text.text = string.Format("{0}: {1} Units", type, PlayerData.Inventory.GetAmount(type)); //For debugging.
+					Text.text = PlayerData.Inventory.GetAmount(type).ToString(); //For ingame.
+					break;
+				case DebugType.Add:
+					Text.text = string.Format("Add {0} Unit", type);
+					break;
+			}
+		}
+	}
+}
