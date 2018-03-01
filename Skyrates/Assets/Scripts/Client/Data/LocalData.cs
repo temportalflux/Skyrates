@@ -119,6 +119,8 @@ namespace Skyrates.Client.Data
         /// </summary>
         public Inventory Inventory;
 
+        public float SpeedInitial;
+
         // TODO: Get from total speed of player
         public float SpeedMin
         {
@@ -127,11 +129,21 @@ namespace Skyrates.Client.Data
         // TODO: Get from total speed of player
         public float SpeedMax
         {
-            get { return 30; }
+            get { return 60; }
         }
 
         // TODO: This is set via UserControlled AI - this should be calculated on input update
         public float MovementSpeed;
+
+        public void Awake()
+        {
+            this.MovementSpeed = 0.0f;
+        }
+
+        public void OnDestroy()
+        {
+            this.MovementSpeed = 0.0f;
+        }
 
         public void Init()
         {

@@ -14,7 +14,7 @@ MonoBehaviour:
   input:
     Forward:
       Input: 0
-      Modifier: 2
+      Modifier: 0.25
     Strafe:
       Input: 0
       Modifier: 15
@@ -46,3 +46,5 @@ MonoBehaviour:
     MainMenu: 0
     Back: 0
   ViewMode: 0
+  SpeedInitial: 20
+  MovementSpeed: 8.910358

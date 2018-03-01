@@ -12,9 +12,30 @@ namespace Skyrates.Common.AI
 
         [SerializeField]
         public LocalData ControllerData;
-
-        public float ConstantSpeed;
         
+        public float ConstantSpeed;
+
+        private float Speed
+        {
+            get { return this.ConstantSpeed; }
+            set
+            {
+                this.ConstantSpeed = value;
+                this.ConstantSpeed = Mathf.Min(this.ConstantSpeed, this.ControllerData.SpeedMax);
+                this.ConstantSpeed = Mathf.Max(this.ConstantSpeed, this.ControllerData.SpeedMin);
+            }
+        }
+
+        public void Awake()
+        {
+            this.Speed = this.ControllerData.SpeedInitial;
+        }
+
+        public void OnDestroy()
+        {
+            this.Speed = 0.0f;
+        }
+
         public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
         {
             this.Move(data, ref physics);
@@ -29,6 +50,8 @@ namespace Skyrates.Common.AI
             //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
             Vector3 vertical = Vector3.up;
 
+            this.Speed += input.Forward.Value;
+            
             // For character
             //Vector3 movementForward = cameraForward * this.playerInput.Forward;
 
@@ -38,16 +61,15 @@ namespace Skyrates.Common.AI
             // value in range [0, 1] of how much constant velocity to counteract
             float backpedal = Mathf.Max(0, -input.Forward.Input);
 
-            float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
-            this.ControllerData.MovementSpeed = movementForwardSpeed;
-            Vector3 movementForward = forward * movementForwardSpeed;
+            //float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
+            this.ControllerData.MovementSpeed = this.ConstantSpeed;
 
             Vector3 movementVertical = vertical * input.Vertical.Value;
 
             // for character
             // Vector3 movementXZ = movementForward + movementStrafe;
             // for ship
-            Vector3 movementXZ = movementForward;
+            Vector3 movementXZ = forward * this.ControllerData.MovementSpeed;
 
             Vector3 movementXYZ = movementXZ + movementVertical;
 
