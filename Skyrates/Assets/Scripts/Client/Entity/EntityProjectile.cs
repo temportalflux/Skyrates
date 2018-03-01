@@ -19,12 +19,19 @@ namespace Skyrates.Client.Entity
         [HideInInspector]
         public Rigidbody PhysicsComponent;
 
-        /// <summary>
-        /// The baseline amount of damage this projectile does.
-        /// </summary>
-        public float Damage = 2;
+		[Tooltip("The base damage of the figurehead's ram")]
+		public float Attack;
 
-        protected override void Start()
+		/// <summary>
+		/// Gets the base damage of the projectile.
+		/// </summary>
+		/// <returns>The base damage of the projectile</returns>
+		public float GetAttack()
+		{
+			return this.Attack;
+		}
+
+		protected override void Start()
         {
             base.Start();
             this.PhysicsComponent = this.GetComponent<Rigidbody>();
@@ -63,15 +70,6 @@ namespace Skyrates.Client.Entity
             this.Physics.LinearPosition = this.transform.position;
             this.Physics.LinearVelocity = this.PhysicsComponent.velocity;
             this.Physics.RotationPosition = this.transform.rotation;
-        }
-
-        /// <summary>
-        /// Returns the amount of damage the projectile does to things it hits.
-        /// </summary>
-        /// <returns></returns>
-        public float GetDamage()
-        {
-            return this.Damage;
         }
 
     }

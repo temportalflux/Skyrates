@@ -9,13 +9,10 @@ public class ShipStat : ScriptableObject
 {
 
     [Tooltip("The amount of damage the ship can take")]
-    public int Health;
+    public int MaxHealth;
 
     [Tooltip("The speed at which the ship moves")]
     public float MoveSpeed;
-
-    [Tooltip("The modifier for how much damage the ship does")]
-    public float DamageModifier;
 
     [Header("Loot")]
 
@@ -47,5 +44,22 @@ public class ShipStat : ScriptableObject
     [Header("Effects")]
     [SerializeField]
     public HealthFeedback HealthFeedbackData;
+
+	public float CalculateDamage(float attack, float defense, float protection)
+	{
+		//TODO: Add penetration (attack multiplier, the opposite of protection) if wanted.
+		//TODO: Add critical hit if wanted.
+		return Mathf.Max(
+						(attack - defense) * //Subtract defense from attack and multiply the total by the protection formula.
+						((100.0f - Mathf.Clamp(protection, 0.0f, 100.0f))  //Reverse the range from 0-100 to 100-0
+						/ 100.0f) //Squish the range from 100-0 to 1-0
+						, 1.0f); //Can't take less than 1 damage.
+	}
+
+	public float CaclulateRecoil(float damage)
+	{
+		float recoilMultiplier = 0.01f; //Putting this here for now.  Can move or tweak it later.
+		return Mathf.Max(damage * recoilMultiplier, 1.0f);
+	}
 
 }

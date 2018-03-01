@@ -60,10 +60,10 @@ namespace Skyrates.Client.Entity
             base.Start();
             if (this.StatBlock != null)
             {
-                Debug.Assert(this.StatBlock.Health > 0, string.Format(
+                Debug.Assert(this.StatBlock.MaxHealth > 0, string.Format(
                     "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
                     this.StatBlock.name));
-                this.Health = this.StatBlock.Health;
+                this.Health = this.StatBlock.MaxHealth;
             }
             this.InitParticle(ref this.SmokeData);
             this.InitParticle(ref this.FireData);
@@ -106,27 +106,31 @@ namespace Skyrates.Client.Entity
                 return;
             }
 
-            EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
-            if (entityProjectile != null)
-            {
-                this.TakeDamage(entityProjectile, entityProjectile.GetDamage());
+			ShipHull hullArmor = this.GetComponent<ShipHull>();
 
-                GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile));
+			EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
+			if (entityProjectile != null)
+            {
+                this.TakeDamage(entityProjectile, this.StatBlock.CalculateDamage(entityProjectile.GetAttack(), hullArmor.GetDefense(), hullArmor.GetProtection()));
+
+				GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile));
 
                 // collider is a projectile
                 // TODO: Owner should destroy based on networking
                 Destroy(entityProjectile.gameObject);
             }
 
-            ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
-            if (ram != null)
+            ShipFigurehead figurehead = other.GetComponent<ShipFigurehead>();
+			if (figurehead != null && hullArmor != null) //We shouldn't have the hull be null ever, so no fallback here.
             {
-                // If ram, and still have health, tell source that ram attack wasn't fully successful
-                if (this.TakeDamage(ram.Ship, ram.GetDamage()) > 0)
+				float damage = 0;
+				// If ram, and still have health, tell source that ram attack wasn't fully successful
+				if (this.TakeDamage(figurehead.Ship, damage = this.StatBlock.CalculateDamage(figurehead.GetAttack(), hullArmor.GetDefense(), hullArmor.GetProtection())) > 0)
                 {
-                    ram.Ship.OnRamUnsucessful(this);
+					//We know that the health taken was our full amount because our health is not 0, so we don't need to recalculate the amount of damage we actually took.
+                    figurehead.Ship.OnRamUnsucessful(this, damage);
                 }
-                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram));
+                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, figurehead));
             }
 
         }
@@ -150,10 +154,10 @@ namespace Skyrates.Client.Entity
         /// Causes the owner to take some amount of damage (currently 2).
         /// </summary>
         /// <param name="target"></param>
-        protected virtual void OnRamUnsucessful(EntityShip target)
+        protected virtual void OnRamUnsucessful(EntityShip target, float damage)
         {
-            // TODO: Calculate the damage to take when ramming is unsuccesful.
-            this.TakeDamage(target, 2);
+			//Calculate the damage to take when ramming is unsuccesful.
+            this.TakeDamage(target, this.StatBlock.CaclulateRecoil(damage));
         }
 
         /// <summary>
@@ -228,12 +232,12 @@ namespace Skyrates.Client.Entity
             if (this.StatBlock == null || this.StatBlock.Loot == null) return;
 
             // Generate the loot to spawn
-            KeyValuePair<ShipComponent, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
+            KeyValuePair<ShipData.BrokenComponentType, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
             // Spawn each loot in turn
-            foreach (KeyValuePair<ShipComponent, Loot.Loot> lootItem in loots)
+            foreach (KeyValuePair<ShipData.BrokenComponentType, Loot.Loot> lootItem in loots)
             {
                 // If the loot is invalid in some way, discard
-                if (lootItem.Key == null || lootItem.Value == null)
+                if (lootItem.Key == ShipData.BrokenComponentType.Invalid || lootItem.Value == null)
                 {
                     continue;
                 }
@@ -290,7 +294,7 @@ namespace Skyrates.Client.Entity
             if (this.StatBlock == null) return;
 
             // get the amount of damage currently taken (diff in health vs max health)
-            float damageTaken = this.StatBlock.Health - this.Health;
+            float damageTaken = this.StatBlock.MaxHealth - this.Health;
 
             // Update smoke particles
             if (this.SmokeData.Generated != null)
