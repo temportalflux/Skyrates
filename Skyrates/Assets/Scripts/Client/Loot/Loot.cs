@@ -15,7 +15,7 @@ namespace Skyrates.Client.Loot
         /// <summary>
         /// The item contained in the "loot-crate"
         /// </summary>
-        public ShipComponent Item;
+        public ShipData.BrokenComponentType Item;
 
         /// <summary>
         /// The prefab of this loot without its sail

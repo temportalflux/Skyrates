@@ -12,23 +12,15 @@ namespace Skyrates.Client.Data
     public class LocalData : ScriptableObject
     {
 
-        /// <summary>
-        /// The amount of loot currently collected.
-        /// Value is 0 during instantiation and destruction.
-        /// </summary>
-        public uint LootCount;
+		/// <summary>
+		/// Manages inventory and items.
+		/// </summary>
+		public Inventory Inventory;
 
-        // TODO: Temporary
-        /// <summary>
-        /// The amount of loot to collect for the "winstate" to occur.
-        /// Set to a random number between 10 and 60 on instantiation and destruction (the latter isn't necessary).
-        /// </summary>
-        public uint LootGoal;
-        
-        public void Init()
+		public void Init()
         {
-            this.LootCount = 0;
-            this.LootGoal = (uint) Random.Range(10, 60);
+			//TODO: Implement reflection if we need to refactor due to the time it takes for the current non-DRY solution.
+			Inventory.Clear(); //Needed in order to reset player data in editor.  Could remove from builds with a preprocessor macro if we wanted to.
         }
 
     }
