@@ -27,11 +27,14 @@ namespace Skyrates.Common.AI
 
         [BitSerialize(4)]
         [SerializeField]
-        public Quaternion RotationVelocity = Quaternion.identity;
+        public Vector3 RotationVelocity = Vector3.zero;
 
         [BitSerialize(5)]
         [SerializeField]
-        public Quaternion RotationAccelleration = Quaternion.identity;
+        public Vector3 RotationAccelleration = Vector3.zero;
+
+        [SerializeField]
+        public Vector3 RotationAestetic = Vector3.zero;
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
@@ -47,8 +50,8 @@ namespace Skyrates.Common.AI
                 LinearVelocity = data.LinearVelocity * weight,
                 LinearAccelleration = data.LinearAccelleration * weight,
                 RotationPosition = data.RotationPosition,
-                RotationVelocity = Quaternion.Euler(data.RotationVelocity.eulerAngles * weight),
-                RotationAccelleration = Quaternion.Euler(data.RotationAccelleration.eulerAngles * weight),
+                RotationVelocity = data.RotationVelocity * weight,
+                RotationAccelleration = data.RotationAccelleration * weight,
             };
         }
 
@@ -60,8 +63,8 @@ namespace Skyrates.Common.AI
                 LinearVelocity = a.LinearVelocity + b.LinearVelocity,
                 LinearAccelleration = a.LinearAccelleration + b.LinearAccelleration,
                 RotationPosition = a.RotationPosition,
-                RotationVelocity = Quaternion.Euler(a.RotationVelocity.eulerAngles + b.RotationVelocity.eulerAngles),
-                RotationAccelleration = Quaternion.Euler(a.RotationAccelleration.eulerAngles + b.RotationAccelleration.eulerAngles),
+                RotationVelocity = a.RotationVelocity + b.RotationVelocity,
+                RotationAccelleration = a.RotationAccelleration + b.RotationAccelleration,
             };
         }
 

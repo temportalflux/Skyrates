@@ -71,9 +71,9 @@ namespace Skyrates.Common.Entity
         /// Returns the direction/rotation that the entity is facing.
         /// </summary>
         /// <returns></returns>
-        public virtual Rigidbody GetRender()
+        public virtual Transform GetRender()
         {
-            return this._physics;
+            return this.GetView();
         }
 
     }
