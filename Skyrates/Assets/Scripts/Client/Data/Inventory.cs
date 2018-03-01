@@ -8,7 +8,7 @@ namespace Skyrates.Client.Data
 		/// <summary>
 		/// The amount of each item in the inventory.
 		/// </summary>
-		private uint[] ItemCounts = new uint[ShipData.BrokenComponentTypes.Length];
+		private uint[] _itemCounts = new uint[ShipData.BrokenComponentTypes.Length];
 
 		/// <summary>
 		/// Adds an amount of items to the inventory.  Amount defaults to 1.
@@ -16,7 +16,7 @@ namespace Skyrates.Client.Data
 		/// <returns>Amount of items actually added.</returns>
 		public uint Add(ShipData.BrokenComponentType brokenComponent, uint amount = 1)
 		{
-			ItemCounts[(uint)brokenComponent] += amount;
+			_itemCounts[(uint)brokenComponent] += amount;
 			return amount;
 		}
 
@@ -26,9 +26,29 @@ namespace Skyrates.Client.Data
 		/// <returns>Amount of items actually removed.</returns>
 		public uint Remove(ShipData.BrokenComponentType brokenComponent, uint amount = 1)
 		{
-			amount = Math.Min(amount, ItemCounts[(uint)brokenComponent]);
-			ItemCounts[(uint)brokenComponent] -= amount;
+			amount = Math.Min(amount, _itemCounts[(uint)brokenComponent]);
+			_itemCounts[(uint)brokenComponent] -= amount;
 			return amount;
+		}
+
+		/// <summary>
+		/// Clears all items from the inventory.
+		/// </summary>
+		/// <returns>Amount of items actually removed.</returns>
+		public uint Clear()
+		{
+			uint amount = TotalAmount();
+			Array.Clear(_itemCounts, 0, _itemCounts.Length);
+			return amount;
+		}
+
+		/// <summary>
+		/// Gets the amount of items of all component types in inventory.
+		/// </summary>
+		/// <returns>Amount of items of all component types in inventory..</returns>
+		public uint TotalAmount()
+		{
+			return (uint)_itemCounts.Length;
 		}
 
 		/// <summary>
@@ -37,7 +57,7 @@ namespace Skyrates.Client.Data
 		/// <returns>Amount of items of component type in inventory.</returns>
 		public uint GetAmount(ShipData.BrokenComponentType brokenComponent)
 		{
-			return ItemCounts[(uint)brokenComponent];
+			return _itemCounts[(uint)brokenComponent];
 		}
 
 		/// <summary>
@@ -47,6 +67,16 @@ namespace Skyrates.Client.Data
 		public static ShipData.BrokenComponentType ComponentToBrokenComponent(ShipData.ComponentType component)
 		{
 			return ShipData.ComponentTypeToBrokenComponentType[(uint)component];
+		}
+
+		/// <summary>
+		/// Gets the name of a certain broken component type.
+		/// </summary>
+		/// <returns>The name of the broken component type.</returns>
+		public static string GetName(ShipData.BrokenComponentType brokenComponent)
+		{
+			//We have to use this because Unity's .NET version is outdated and does not contain the Display attribute for enums.
+			return brokenComponent == ShipData.BrokenComponentType.Hull ? "Hull Armor" : brokenComponent.ToString();
 		}
 
 	}
