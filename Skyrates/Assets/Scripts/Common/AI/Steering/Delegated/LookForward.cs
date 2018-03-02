@@ -10,8 +10,8 @@ namespace Skyrates.Common.AI
     /// Artifical Intelligence for Games 2nd Edition
     /// Ian Millington & John Funge
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Delegated/LookAt")]
-    public class LookAt : Align
+    [CreateAssetMenu(menuName = "Data/AI/Delegated/LookForward")]
+    public class LookForward : Align
     {
 
         /// <inheritdoc />
@@ -32,9 +32,7 @@ namespace Skyrates.Common.AI
             data.Target.RotationPosition = Quaternion.LookRotation(direction);
 
             // Delegate to align
-            base.GetUpdate(ref data, ref physics, deltaTime);
-
-            return pData;
+            return base.GetUpdate(ref data, ref physics, deltaTime, pData);
         }
 
     }

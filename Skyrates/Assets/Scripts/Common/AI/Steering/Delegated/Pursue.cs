@@ -46,8 +46,7 @@ namespace Skyrates.Common.AI
             // Put the target together
             data.Target.LinearPosition += data.Target.LinearVelocity * prediction;
 
-            base.GetUpdate(ref data,ref  physics, deltaTime);
-            return pData;
+            return base.GetUpdate(ref data,ref  physics, deltaTime, pData);
         }
 
     }

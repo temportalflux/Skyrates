@@ -67,7 +67,7 @@ namespace Skyrates.Common.AI
                 RotationAccelleration = a.RotationAccelleration + b.RotationAccelleration,
             };
         }
-
+        
     }
 
 }

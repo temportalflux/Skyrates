@@ -22,11 +22,9 @@ namespace Skyrates.Common.AI
 
             // Put the target together
             data.Target.RotationPosition = Quaternion.LookRotation(physics.LinearVelocity);
-            
-            // Delegate to align
-            base.GetUpdate(ref data, ref physics, deltaTime);
 
-            return pData;
+            // Delegate to align
+            return base.GetUpdate(ref data, ref physics, deltaTime, pData);
         }
 
     }

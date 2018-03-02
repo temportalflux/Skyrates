@@ -113,12 +113,10 @@ namespace Skyrates.Common.Entity
             this.Integrate(ref this.Physics.RotationPosition, this.Physics.RotationVelocity, deltaTime);
 
             // Update rotation
-            //this._physics.AddTorque(this.Physics.RotationVelocity.eulerAngles);
+            //this._physics.AddTorque(this.Physics.RotationVelocity);
             this._physics.MoveRotation(this.Physics.RotationPosition);
             this.GetRender().transform.localRotation = Quaternion.Euler(this.Physics.RotationAestetic);
             //this.GetRender().AddTorque(this.Physics.RotationVelocity.eulerAngles * deltaTime, ForceMode.VelocityChange);
-
-            // Set rotation
 
         }
 
