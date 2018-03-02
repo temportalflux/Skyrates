@@ -25,7 +25,7 @@ namespace Skyrates.Common.Entity
             {
                 if (behavior != null)
                 {
-                    this.Physics = behavior.GetUpdate(this.BehaviorData, this.Physics);
+                    this.Physics = behavior.GetUpdate(this.BehaviorData, this.Physics, Time.fixedDeltaTime);
                 }
             }
 

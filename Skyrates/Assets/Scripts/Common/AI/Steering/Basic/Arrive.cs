@@ -42,7 +42,7 @@ namespace Skyrates.Common.AI
         public float AccelerationTime;
 
         /// <inheritdoc />
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
         {
             // Direction to the target
             Vector3 direction = data.Target.LinearPosition - physics.LinearPosition;

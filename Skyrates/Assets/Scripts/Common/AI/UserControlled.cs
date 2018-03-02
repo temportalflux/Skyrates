@@ -36,7 +36,7 @@ namespace Skyrates.Common.AI
             this.Speed = 0.0f;
         }
 
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
         {
             this.Move(data, ref physics);
             return physics;

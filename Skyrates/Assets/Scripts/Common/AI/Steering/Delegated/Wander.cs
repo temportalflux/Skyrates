@@ -15,7 +15,7 @@ namespace Skyrates.Common.AI
     {
 
         /// <inheritdoc />
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
         {
             // TODO: Implement Wander steering
             return physics;

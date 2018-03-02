@@ -40,7 +40,7 @@ namespace Skyrates.Common.AI
         public float AccelerationTime;
 
         /// <inheritdoc />
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
         {
             float currentRotation = physics.RotationPosition.eulerAngles.y;
 

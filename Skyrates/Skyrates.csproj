@@ -513,7 +513,9 @@
     <Compile Include="Assets\Scripts\Client\VFX\VFXDispatcher.cs" />
     <Compile Include="Assets\Scripts\Client\World\Generator.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Behavior.cs" />
-    <Compile Include="Assets\Scripts\Common\AI\FiniteState.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\States\State.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\States\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\States\StateTrigger.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Align.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Arrive.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\LockAt.cs" />

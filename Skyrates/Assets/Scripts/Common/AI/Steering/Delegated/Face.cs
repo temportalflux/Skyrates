@@ -15,7 +15,7 @@ namespace Skyrates.Common.AI
     {
 
         /// <inheritdoc />
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
+        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
         {
             // Check for a zero direction, and make no change if so
             if (physics.LinearVelocity.sqrMagnitude <= 0 || physics.LinearVelocity == Vector3.zero) return physics;
@@ -24,7 +24,7 @@ namespace Skyrates.Common.AI
             data.Target.RotationPosition = Quaternion.LookRotation(physics.LinearVelocity);
             
             // Delegate to align
-            return base.GetUpdate(data, physics);
+            return base.GetUpdate(data, physics, deltaTime);
         }
 
     }
