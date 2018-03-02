@@ -36,10 +36,10 @@ namespace Skyrates.Common.AI
             this.Speed = 0.0f;
         }
 
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
+        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
         {
             this.Move(data, ref physics);
-            return physics;
+            return pData;
         }
 
         private void Move(BehaviorData data, ref PhysicsData physicsData)

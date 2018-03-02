@@ -15,7 +15,7 @@ namespace Skyrates.Common.AI
     {
 
         /// <inheritdoc />
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
+        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
         {
             // Calculate the target to delegate to align
 
@@ -32,7 +32,9 @@ namespace Skyrates.Common.AI
             data.Target.RotationPosition = Quaternion.LookRotation(direction);
 
             // Delegate to align
-            return base.GetUpdate(data, physics, deltaTime);
+            base.GetUpdate(ref data, ref physics, deltaTime);
+
+            return pData;
         }
 
     }

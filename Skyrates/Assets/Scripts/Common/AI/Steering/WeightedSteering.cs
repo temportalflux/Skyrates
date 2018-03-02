@@ -29,7 +29,7 @@ namespace Skyrates.Common.AI
 
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
+        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persistentData)
         {
             PhysicsData compiled = new PhysicsData()
             {
@@ -47,12 +47,12 @@ namespace Skyrates.Common.AI
                         LinearPosition = physics.LinearPosition,
                         RotationPosition = physics.RotationPosition,
                     };
-                    physicsNext = weightedSteering.Steering.GetUpdate(data, physicsNext, deltaTime);
+                    weightedSteering.Steering.GetUpdate(ref data, ref physicsNext, deltaTime);
                     compiled += physicsNext * weightedSteering.Weight;
                 }
             }
 
-            return compiled;
+            return persistentData;
         }
 
     }

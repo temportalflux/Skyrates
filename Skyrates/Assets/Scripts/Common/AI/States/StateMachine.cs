@@ -12,9 +12,19 @@ namespace Skyrates.Common.AI
     /// Ian Millington & John Funge
     /// </summary>
     [CreateAssetMenu(menuName = "Data/AI/Control/State Machine")]
-    public class StateMachine : Behavior
+    public class StateMachine : BehaviorTimed
     {
-        
+
+        public class PersistentDataTimedSm : PersistentDataTimed
+        {
+
+            /// <summary>
+            /// The current index of the state being run (-1 if idle)
+            /// </summary>
+            public int StateIndex;
+
+        }
+
         /// <summary>
         /// The default behavior when no state is available.
         /// </summary>
@@ -26,121 +36,71 @@ namespace Skyrates.Common.AI
         /// </summary>
         [SerializeField]
         public State[] States;
-
-        /// <summary>
-        /// How many seconds between state checks.
-        /// </summary>
-        public float StateCheckFrequency = 1.0f;
-
-        /// <summary>
-        /// Scatters the state checks by offseting the start time by a
-        /// random amount of seconds between 0 and <see cref="StateCheckFrequency"/>.
-        /// </summary>
-        public bool ScatterStateChecks = true;
         
-        /// <summary>
-        /// The current index of the state being run (-1 if idle)
-        /// </summary>
-        private int _stateIndex;
-
-        /// <summary>
-        /// The amount of time since the states where last checked.
-        /// </summary>
-        private float _stateCheckTimeElapsed;
+        public override void AddPersistentDataTo(ref BehaviorData behavioralData)
+        {
+            base.AddPersistentDataTo(ref behavioralData);
+            if (this.IdleBehavior != null) this.IdleBehavior.AddPersistentDataTo(ref behavioralData);
+            foreach (State state in this.States)
+            {
+                if (state.Behavior != null) state.Behavior.AddPersistentDataTo(ref behavioralData);
+            }
+        }
 
         /// <summary>
         /// Returns the current state of the state machine, null if state machine is in its idle behavior.
         /// </summary>
-        private State CurrentState
+        public State GetCurrentState(PersistentDataTimedSm dataTimed)
         {
-            get { return this._stateIndex < 0 ? null : this.States[this._stateIndex]; }
+            return dataTimed.StateIndex < 0 ? null : this.States[dataTimed.StateIndex];
         }
 
         /// <summary>
         /// Returns the current running behavior.
         /// </summary>
-        private Behavior CurrentBehavior
+        public Behavior GetCurrentBehavior(PersistentDataTimedSm dataTimed)
         {
-            get { return this._stateIndex < 0 ? this.IdleBehavior : this.CurrentState.Behavior; }
+            return dataTimed.StateIndex < 0 ? this.IdleBehavior : this.GetCurrentState(dataTimed).Behavior;
         }
 
-        private void OnEnable()
+        public override object CreatePersistentData()
         {
-            // Set state to default value
-            this._stateIndex = -1;
-            this._stateCheckTimeElapsed = this.ScatterStateChecks ? Random.Range(0, this.StateCheckFrequency) : 0.0f;
-        }
-
-        private void OnDisable()
-        {
-            // Set state to default value
-            this._stateIndex = -1;
-            this._stateCheckTimeElapsed = 0.0f;
+            PersistentDataTimed dataTimed = (PersistentDataTimed)base.CreatePersistentData();
+            return new PersistentDataTimedSm()
+            {
+                StateIndex = -1,
+                ExecuteTimeElapsed = dataTimed.ExecuteTimeElapsed
+            };
         }
 
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics, float deltaTime)
+        protected override PersistentDataTimed UpdateTimed(ref BehaviorData data, ref PhysicsData physics, float deltaTime, PersistentDataTimed persist)
         {
-            this.TryUpdateState(data, physics, deltaTime);
-            return this.CurrentBehavior != null
-                ? this.CurrentBehavior.GetUpdate(data, physics, deltaTime)
-                : physics;
-        }
+            PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm) persist;
 
-        /// <summary>
-        /// If necessary, checks time elapsed since last update, and checks state triggers as necessary.
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="physics"></param>
-        /// <param name="deltaTime"></param>
-        private void TryUpdateState(BehaviorData data, PhysicsData physics, float deltaTime)
-        {
-            // Check to see if the timer is used
-            if (this.StateCheckFrequency > 0.0f)
-            {
-                // Add time
-                this._stateCheckTimeElapsed += deltaTime;
-
-                // If not enough time has elapsed, return
-                if (this._stateCheckTimeElapsed < this.StateCheckFrequency)
-                    return;
-
-                // Otherwise, decrement the time elapsed
-                this._stateCheckTimeElapsed -= this.StateCheckFrequency;
-            }
-
-            // And check for updates
-            this.UpdateState(data, physics);
-        }
-
-        /// <summary>
-        /// Checks all triggers if the current state should exit and another state should enter.
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="physics"></param>
-        private void UpdateState(BehaviorData data, PhysicsData physics)
-        {
             // Try to exit the state
-            if (this.CurrentState != null && this.CurrentState.CanExit(data, physics))
+            State currentState = this.GetCurrentState(customDataTimed);
+            if (currentState != null && currentState.CanExit(data, physics))
             {
-                this.ExitCurrentState(data, physics);
+                this.ExitCurrentState(ref data, ref customDataTimed, physics);
             }
 
-            if (this.CurrentState == null)
+            if (this.GetCurrentState(customDataTimed) == null)
             {
                 // Try to find a new state
                 for (int iState = 0; iState < this.States.Length; iState++)
                 {
                     // Check if the state can be entered
                     if (!this.States[iState].CanEnter(data, physics)) continue;
-                    
+
                     // Enter the state
-                    this.EnterState(iState, data, physics);
-                    return;
+                    this.EnterState(iState, ref data, ref customDataTimed, physics);
+                    return customDataTimed;
                 }
             }
 
+            return customDataTimed;
         }
 
         /// <summary>
@@ -148,10 +108,10 @@ namespace Skyrates.Common.AI
         /// </summary>
         /// <param name="data"></param>
         /// <param name="physics"></param>
-        private void ExitCurrentState(BehaviorData data, PhysicsData physics)
+        private void ExitCurrentState(ref BehaviorData data, ref PersistentDataTimedSm persist, PhysicsData physics)
         {
-            this.CurrentState.Exit(data, physics);
-            this._stateIndex = -1;
+            this.GetCurrentState(persist).Exit(ref data, physics);
+            persist.StateIndex = -1;
         }
 
         /// <summary>
@@ -160,12 +120,12 @@ namespace Skyrates.Common.AI
         /// <param name="iState"></param>
         /// <param name="data"></param>
         /// <param name="physics"></param>
-        private void EnterState(int iState, BehaviorData data, PhysicsData physics)
+        private void EnterState(int iState, ref BehaviorData data, ref PersistentDataTimedSm persist, PhysicsData physics)
         {
-            this._stateIndex = iState;
-            this.CurrentState.Enter(data, physics);
+            persist.StateIndex = iState;
+            this.GetCurrentState(persist).Enter(ref data, physics);
         }
-
+        
     }
 
 }

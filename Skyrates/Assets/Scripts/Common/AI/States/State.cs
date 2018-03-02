@@ -65,9 +65,9 @@ namespace Skyrates.Common.AI
         /// </summary>
         /// <param name="data"></param>
         /// <param name="physics"></param>
-        public void Enter(BehaviorData data, PhysicsData physics)
+        public void Enter(ref BehaviorData data, PhysicsData physics)
         {
-            this.Behavior.OnStateEnter(data, physics);
+            this.Behavior.OnEnter(ref data, physics);
         }
 
         /// <summary>
@@ -75,9 +75,9 @@ namespace Skyrates.Common.AI
         /// </summary>
         /// <param name="data"></param>
         /// <param name="physics"></param>
-        public void Exit(BehaviorData data, PhysicsData physics)
+        public void Exit(ref BehaviorData data, PhysicsData physics)
         {
-            this.Behavior.OnStateExit(data, physics);
+            this.Behavior.OnExit(ref data, physics);
         }
 
     }
