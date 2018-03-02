@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514916627633858}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4146906015652790}
@@ -202,8 +202,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1594538091122740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.7, y: 7.9811044, z: -11.073568}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 5.93, y: 0, z: 4.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4146906015652790}
   - {fileID: 4178705661537488}
@@ -345,11 +345,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SteeringData:
+  Physics:
+    LinearPosition: {x: 0, y: 0, z: 0}
+    LinearVelocity: {x: 0, y: 0, z: 0}
+    LinearAccelleration: {x: 0, y: 0, z: 0}
+    RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationVelocity: {x: 0, y: 0, z: 0}
+    RotationAccelleration: {x: 0, y: 0, z: 0}
+    RotationAestetic: {x: 0, y: 0, z: 0}
+  BehaviorData:
     View: {fileID: 0}
     Render: {fileID: 0}
     HasTarget: 0
-  Steering: {fileID: 0}
+    Target:
+      LinearPosition: {x: 0, y: 0, z: 0}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      LinearAccelleration: {x: 0, y: 0, z: 0}
+      RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationVelocity: {x: 0, y: 0, z: 0}
+      RotationAccelleration: {x: 0, y: 0, z: 0}
+      RotationAestetic: {x: 0, y: 0, z: 0}
+  Steering:
+  - {fileID: 0}
   StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
   SmokeData:
     Bounds: {fileID: 65901688769280030}
@@ -386,7 +403,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.3360049
-  m_Height: 4.729103
+  m_Radius: 2.865274
+  m_Height: 9.530201
   m_Direction: 2
-  m_Center: {x: 0, y: -0.8756949, z: -0.017598724}
+  m_Center: {x: 0, y: 0.65357447, z: -0.23456478}
