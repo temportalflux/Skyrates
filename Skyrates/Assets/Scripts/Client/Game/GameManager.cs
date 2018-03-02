@@ -27,13 +27,8 @@ namespace Skyrates.Client.Game
         /// </summary>
         public static GameEvents Events
         {
-            get { return Instance._events; }
+            get { return Instance != null ? Instance._events : new GameEvents(); }
         }
-
-        /// <summary>
-        /// The list of entity prefabs.
-        /// </summary>
-        public EntityList EntityList;
 
         /// <summary>
         /// The <see cref="GameEvents"/> dispatcher.
@@ -51,6 +46,8 @@ namespace Skyrates.Client.Game
         /// </summary>
         public LocalData PlayerData;
 
+        public EntityPlayerShip PlayerPrefab;
+
         /// <inheritdoc />
         private void Awake()
         {
@@ -64,14 +61,12 @@ namespace Skyrates.Client.Game
         private void OnEnable()
         {
             Events.SceneLoaded += this.OnSceneLoaded;
-            Events.LootCollected += this.OnLootCollected;
         }
 
         /// <inheritdoc />
         private void OnDisable()
         {
             Events.SceneLoaded -= this.OnSceneLoaded;
-            Events.LootCollected -= this.OnLootCollected;
         }
 
         /// <summary>
@@ -87,31 +82,14 @@ namespace Skyrates.Client.Game
                 case SceneData.SceneKey.MenuMain:
                     break;
                 case SceneData.SceneKey.World:
-                    // TODO: Move this to owner classes (DummyClient & ClientServer)
-                    if (NetworkComponent.GetSession.IsOwner)
-                    {
-                        // spawn the player
-                        Common.Entity.Entity e = this.SpawnEntity(new Common.Entity.Entity.TypeData(Common.Entity.Entity.Type.Player, -1), NetworkComponent.GetSession.PlayerGuid);
-                        System.Diagnostics.Debug.Assert(e != null, "e != null");
-                        e.OwnerNetworkID = NetworkComponent.GetSession.NetworkID;
-                    }
+                    // spawn the player
+                    EntityPlayerShip player = this.SpawnEntity(this.PlayerPrefab) as EntityPlayerShip;
+                    player.Physics.SetPositionAndRotation(this.PlayerSpawn.position, this.PlayerSpawn.rotation);
+                    player.transform.position = player.Physics.LinearPosition;
+                    player.transform.rotation = player.Physics.RotationPosition;
                     break;
                 default:
                     break;
-            }
-        }
-
-        /// <summary>
-        /// Called when a player collects a loot. Used to check win-state.
-        /// </summary>
-        /// <param name="evt"></param>
-        private void OnLootCollected(GameEvent evt)
-        {
-            // TODO: Remove the temporary winstate based on number of loot collected.
-            if (this.PlayerData.LootCount >= this.PlayerData.LootGoal)
-            {
-                SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
-                SceneLoader.Instance.ActivateNext();
             }
         }
 
@@ -123,34 +101,13 @@ namespace Skyrates.Client.Game
         /// <param name="typeData"></param>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public Common.Entity.Entity SpawnEntity(Common.Entity.Entity.TypeData typeData, Guid guid)
+        public Common.Entity.Entity SpawnEntity(Common.Entity.Entity prefab)
         {
-            Common.Entity.Entity spawned = null;
+            Debug.Assert(prefab != null);
 
-            if (typeData.EntityType == Common.Entity.Entity.Type.Player)
-            {
-                EntityPlayerShip player = Instantiate(this.EntityList.PrefabEntityPlayer.gameObject).GetComponent<EntityPlayerShip>();
-                player.Physics.SetPositionAndRotation(this.PlayerSpawn.position, this.PlayerSpawn.rotation);
-                player.transform.position = player.Physics.LinearPosition;
-                player.transform.rotation = player.Physics.RotationPosition;
-                spawned = player;
-            }
-            else
-            {
-                try
-                {
-                    spawned = Instantiate(this.EntityList.Categories[typeData.EntityTypeAsInt]
-                        .Prefabs[typeData.EntityTypeIndex].gameObject).GetComponent<Common.Entity.Entity>();
-                }
-                catch (Exception)
-                {
-                    Debug.Log(string.Format("Error, cannot spawn entity type {0}", typeData.EntityType));
-                }
-            }
-
-            if (spawned == null) return null;
+            Common.Entity.Entity spawned = Instantiate(prefab.gameObject).GetComponent<Common.Entity.Entity>();
             
-            spawned.Init(guid, typeData);
+            if (spawned == null) return null;
 
             GameManager.Events.Dispatch(new EventEntity(GameEventID.EntityInstantiate, spawned));
 

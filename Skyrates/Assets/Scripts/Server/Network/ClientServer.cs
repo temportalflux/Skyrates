@@ -22,11 +22,6 @@ namespace Skyrates.Server.Network
         /// </summary>
         public ClientList ClientList;
 
-        /// <summary>
-        /// How many seconds are between game state dispatches
-        /// </summary>
-        private float _secondsPerUpdate;
-
         public static ClientServer Instance()
         {
             return NetworkComponent.GetNetwork() as ClientServer;
@@ -37,7 +32,6 @@ namespace Skyrates.Server.Network
         {
             base.Create();
             this.ClientList = null;
-            this._secondsPerUpdate = 0.0f;
         }
 
         /// <inheritdoc />
@@ -46,7 +40,6 @@ namespace Skyrates.Server.Network
             this.Dispatch(new EventDisconnect());
             base.Destroy();
             this.ClientList = null;
-            this._secondsPerUpdate = 0.0f;
         }
 
         public override void SubscribeEvents()
@@ -55,15 +48,6 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeJoin += this.OnHandshakeJoin;
             NetworkEvents.Instance.HandshakeAccept += this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect += this.OnDisconnect;
-            NetworkEvents.Instance.RequestSetPlayerPhysics += this.OnRequestSetPlayerPhysics;
-            NetworkEvents.Instance.RequestSpawnEntityProjectile += this.OnRequestSpawnEntityProjectile;
-            NetworkEvents.Instance.RequestEntityShipDamaged += this.OnRequestEntityShipDamaged;
-
-            GameManager.Events.PlayerLeft += this.OnPlayerLeft;
-            GameManager.Events.SpawnEntityProjectile += this.OnRequestSpawnEntityProjectile;
-            GameManager.Events.EntityShipHitByProjectile += this.OnEntityShipHitByProjectile;
-            GameManager.Events.EntityShipHitByRam += this.OnEntityShipHitBy;
-            GameManager.Events.LootCollided += this.OnLootCollided;
         }
 
         public override void UnsubscribeEvents()
@@ -72,15 +56,6 @@ namespace Skyrates.Server.Network
             NetworkEvents.Instance.HandshakeJoin -= this.OnHandshakeJoin;
             NetworkEvents.Instance.HandshakeAccept -= this.OnHandshakeAccept;
             NetworkEvents.Instance.Disconnect -= this.OnDisconnect;
-            NetworkEvents.Instance.RequestSetPlayerPhysics -= this.OnRequestSetPlayerPhysics;
-            NetworkEvents.Instance.RequestSpawnEntityProjectile -= this.OnRequestSpawnEntityProjectile;
-            NetworkEvents.Instance.RequestEntityShipDamaged -= this.OnRequestEntityShipDamaged;
-
-            GameManager.Events.PlayerLeft -= this.OnPlayerLeft;
-            GameManager.Events.SpawnEntityProjectile -= this.OnRequestSpawnEntityProjectile;
-            GameManager.Events.EntityShipHitByProjectile -= this.OnEntityShipHitByProjectile;
-            GameManager.Events.EntityShipHitByRam -= this.OnEntityShipHitBy;
-            GameManager.Events.LootCollided -= this.OnLootCollided;
         }
 
         /// <inheritdoc />
@@ -89,25 +64,6 @@ namespace Skyrates.Server.Network
             this.StartServer(session);
 
             this.ClientList = new ClientList(session.MaxClients);
-            this._secondsPerUpdate = session.ServerTickUpdate;
-            this.EntityTracker = new EntityDispatcher();
-            
-            // Set local player guid
-            NetworkComponent.GetSession.PlayerGuid = Entity.NewGuid();
-            NetworkComponent.GetSession.HandshakeComplete = true;
-
-            this.StartCoroutine(this.DispatchGameState());
-        }
-
-        private IEnumerator DispatchGameState()
-        {
-            while (true)
-            {
-                EventUpdateGameState evt = new EventUpdateGameState();
-                evt.GenerateData();
-                this.DispatchAll(evt);
-                yield return new WaitForSeconds(this._secondsPerUpdate);
-            }
         }
 
         /// <summary>
@@ -126,7 +82,7 @@ namespace Skyrates.Server.Network
                 return;
             }
 
-            Debug.Log(string.Format("Client {0} ({1}) joined, sending GUID {2}", client.ClientId, client.Address, client.PlayerGuid));
+            Debug.Log(string.Format("Client {0} ({1}) joined", client.ClientId, client.Address));
             
             this.Dispatch(new EventHandshakeClientID(client), evt.SourceAddress);
         }
@@ -141,16 +97,9 @@ namespace Skyrates.Server.Network
         {
             EventHandshakeAccept evtAccept = evt as EventHandshakeAccept;
 
-            System.Diagnostics.Debug.Assert(evtAccept != null, "evtAccept != null");
+            Debug.Assert(evtAccept != null, "evtAccept != null");
             
             Debug.Log(string.Format("Client {0} has confirmed handshake.", evtAccept.ClientID));
-
-            ClientData client = this.ClientList[(int) evtAccept.ClientID];
-
-            EntityPlayerShip e = GameManager.Instance.SpawnEntity(new Entity.TypeData(Entity.Type.Player, -1), client.PlayerGuid) as EntityPlayerShip;
-            System.Diagnostics.Debug.Assert(e != null, "e != null");
-            e.OwnerNetworkID = (int) client.ClientId;
-            e.SetDummy();
         }
 
         /// <summary>
@@ -161,7 +110,7 @@ namespace Skyrates.Server.Network
         public void OnDisconnect(NetworkEvent evt)
         {
             EventDisconnect evtDisconnect = evt as EventDisconnect;
-            System.Diagnostics.Debug.Assert(evtDisconnect != null, "evtDisconnect != null");
+            Debug.Assert(evtDisconnect != null, "evtDisconnect != null");
             ClientData client;
             if (!this.ClientList.TryRemove(evtDisconnect.clientID, out client))
             {
@@ -170,109 +119,6 @@ namespace Skyrates.Server.Network
             }
 
             Debug.Log(string.Format("Client {0} has disconnected", evtDisconnect.clientID));
-            
-            GameManager.Events.Dispatch(new EventPlayerLeft(client.PlayerGuid));
-
-        }
-
-        /// <summary>
-        /// Receives request from client to set the player physics via <see cref="EventRequestSetPlayerPhysics"/>.
-        /// Sets the physics of the player associated with the given client.
-        /// </summary>
-        /// <param name="evt"></param>
-        public void OnRequestSetPlayerPhysics(NetworkEvent evt)
-        {
-            EventRequestSetPlayerPhysics evtSetPlayerPhysics = evt as EventRequestSetPlayerPhysics;
-            System.Diagnostics.Debug.Assert(evtSetPlayerPhysics != null, "evtSetPlayerPhysics != null");
-            
-            // Get client from gamestate
-            ClientData client = this.ClientList[(int)evtSetPlayerPhysics.ClientID];
-
-            // Set physic variables for the player owned by them
-            EntityDynamic e = this.GetEntityTracker().Entities[Entity.Type.Player].Entities[client.PlayerGuid] as EntityDynamic;
-            if (e != null)
-            {
-                e.Physics = evtSetPlayerPhysics.Physics;
-            }
-        }
-
-        public void OnRequestSpawnEntityProjectile(GameEvent evt)
-        {
-            EventSpawnEntityProjectile evtSpawn = (EventSpawnEntityProjectile) evt;
-            this.OnRequestSpawnEntityProjectile(new EventRequestSpawnEntityProjectile(evtSpawn.TypeData, evtSpawn.Spawn, evtSpawn.Velocity, evtSpawn.ImpluseForce));
-        }
-
-        public void OnRequestSpawnEntityProjectile(NetworkEvent evt)
-        {
-            EventRequestSpawnEntityProjectile evtSpawn = (EventRequestSpawnEntityProjectile) evt;
-            Entity entity = GameManager.Instance.SpawnEntity(evtSpawn.TypeData, Entity.NewGuid());
-            if (entity != null)
-            {
-                EntityProjectile projectile = (EntityProjectile) entity;
-                projectile.Launch(evtSpawn.Position, evtSpawn.Rotation, evtSpawn.Velocity, evtSpawn.ImpluseForce);
-            }
-        }
-
-        public void OnRequestEntityShipDamaged(NetworkEvent evt)
-        {
-            EventRequestEntityShipDamaged evtDamaged = (EventRequestEntityShipDamaged) evt;
-            Entity entitySource, entityTarget;
-            bool hasSource = this.GetEntityTracker().TryGetValue(
-                evtDamaged.SourceEntityType, evtDamaged.SourceEntityGuid, out entitySource);
-            bool hasTarget = this.GetEntityTracker().TryGetValue(
-                evtDamaged.TargetEntityType, evtDamaged.TargetEntityGuid, out entityTarget);
-            if (hasSource && hasTarget &&
-                (entitySource is EntityShip || entitySource is EntityProjectile) &&
-                entityTarget is EntityShip)
-            {
-                // TODO: Is it ram or projectile
-                ((EntityShip)entitySource).TakeDamage(evtDamaged.GetAsGameEvent(
-                    ((EntityShip)entitySource), ((EntityShip)entityTarget)
-                ));
-            }
-        }
-
-        void OnPlayerLeft(GameEvent evt)
-        {
-            Entity entity;
-            if (this.GetEntityTracker().TryGetValue(Entity.Type.Player, ((EventPlayerLeft) evt).PlayerGuid, out entity))
-            {
-                UnityEngine.Object.Destroy(entity.gameObject);
-            }
-        }
-
-        // when any entity is suppossed to be damaged
-        public void OnEntityShipHitBy(GameEvent evt)
-        {
-            EventEntityShipDamaged evtDamaged = (EventEntityShipDamaged) evt;
-            // If we own the target, then we tell server that one of our entities is damaged
-            if (evtDamaged.Ship.IsLocallyControlled)
-            {
-                evtDamaged.Ship.TakeDamage(evtDamaged);
-            }
-        }
-
-        // when any entity is suppossed to be damaged
-        public void OnEntityShipHitByProjectile(GameEvent evt)
-        {
-            this.OnEntityShipHitBy(evt);
-            //EventEntityShipHitByProjectile evtDamaged = (EventEntityShipHitByProjectile) evt;
-            /* TODO: Sync projectiles; Projectile is entity and destroyed on impact
-            if (evtDamaged.Projectile.IsLocallyControlled)
-            {
-                evtDamaged.Projectile.TakeDamage(evtDamaged.Projectile.GetHealth());
-            }
-            //*/
-        }
-
-        public virtual void OnLootCollided(GameEvent evt)
-        {
-            EventLootCollided evtLoot = (EventLootCollided)evt;
-            if (evtLoot.PlayerShip.IsLocallyControlled)
-            {
-                // pass back to player for handling locally
-                evtLoot.PlayerShip.OnLootCollided(evtLoot.Loot);
-            }
         }
 
     }
@@ -295,12 +141,6 @@ namespace Skyrates.Server.Network
         /// </summary>
         [BitSerialize(0)]
         public uint ClientId;
-
-        /// <summary>
-        /// The <see cref="Guid"/> (inheirently unique) of the client's player entity.
-        /// </summary>
-        [BitSerialize(1)]
-        public Guid PlayerGuid;
 
     }
 
@@ -334,7 +174,7 @@ namespace Skyrates.Server.Network
             {
                 if (this.ClientsData[clientID] != null) continue;
                 // create connecting client
-                this.ClientsData[clientID] = client = new ClientData {Address = address, ClientId = clientID, PlayerGuid = Entity.NewGuid()};
+                this.ClientsData[clientID] = client = new ClientData {Address = address, ClientId = clientID};
                 return true;
             }
             return false;

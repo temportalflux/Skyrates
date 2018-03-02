@@ -19,73 +19,91 @@ namespace Skyrates.Client.Entity
         public Shooter[] Shooters;
 
         private EntityShip _aiTarget;
-
-        private Coroutine _findTarget;
+        
         private Coroutine _shootAtTarget;
-        public float maxDistShoot = 10000;
-        public float maxDistFind = 10000;
 
         protected override void Start()
         {
             base.Start();
+
             this._aiTarget = null;
-            this._findTarget = null;
-            this._shootAtTarget = StartCoroutine(this.ShootAtTarget());
+            this._shootAtTarget = null;
         }
 
         protected override void FixedUpdate()
         {
-            if (this._aiTarget == null)
-            {
-                if (this._findTarget == null)
-                    this._findTarget = StartCoroutine(this.FindTarget());
-            }
-            else if ((this._aiTarget.transform.position - this.transform.position).sqrMagnitude > this.maxDistFind)
-            {
-                GameManager.Events.Dispatch(EventEnemyTargetEngage.Disengage(this, this._aiTarget));
-                this._aiTarget = null;
-            }
-            this.SteeringData.Target = this._aiTarget == null ? this.Physics : this._aiTarget.Physics;
+            this.BehaviorData.HasTarget = this._aiTarget != null;
+            this.BehaviorData.Target = this.BehaviorData.HasTarget ? this._aiTarget.Physics : this.Physics;
             base.FixedUpdate();
         }
 
         protected override void OnDestroy()
         {
-            StopCoroutine(this._shootAtTarget);
-            this._shootAtTarget = null;
+            if (this._shootAtTarget != null)
+            {
+                StopCoroutine(this._shootAtTarget);
+                this._shootAtTarget = null;
+            }
             base.OnDestroy();
         }
 
-        IEnumerator FindTarget()
+        public void OnEnterAreaFind(TriggerArea area, Collider other)
         {
-            while (this._aiTarget == null)
+            if (this._aiTarget != null) return;
+
+            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            if (playerShip != null)
             {
-                yield return new WaitForSeconds(5);
-                this._aiTarget = FindObjectOfType<EntityPlayerShip>();
+                this._aiTarget = playerShip;
             }
-
-            GameManager.Events.Dispatch(EventEnemyTargetEngage.Engage(this, this._aiTarget));
-
-            this._findTarget = null;
         }
 
+        public void OnExitAreaFind(TriggerArea area, Collider other)
+        {
+            if (this._aiTarget == null) return;
+
+            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            {
+                this._aiTarget = null;
+            }
+        }
+
+        public void OnEnterAreaShoot(TriggerArea area, Collider other)
+        {
+            if (this._aiTarget == null) return;
+
+            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            {
+                this._shootAtTarget = StartCoroutine(this.ShootAtTarget());
+            }
+        }
+
+        public void OnExitAreaShoot(TriggerArea area, Collider other)
+        {
+            if (this._aiTarget == null) return;
+
+            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
+            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            {
+                if (this._shootAtTarget != null)
+                {
+                    StopCoroutine(this._shootAtTarget);
+                    this._shootAtTarget = null;
+                }
+            }
+        }
+        
         IEnumerator ShootAtTarget()
         {
             while (true)
             {
-                float wait = this._aiTarget == null ? 15 : 3;
+                float wait = 3;
 
-                float sqrDist = 200;
                 if (this._aiTarget != null)
                 {
-                    sqrDist = (this.transform.position - this._aiTarget.transform.position).sqrMagnitude;
-                    if (sqrDist > maxDistShoot)
-                        wait = 0.5f;
-
-                    if (sqrDist < maxDistShoot)
-                    {
-                        this.Shoot(ShipData.ComponentType.ArtilleryForward);
-                    }
+                    this.Shoot(ShipData.ComponentType.ArtilleryForward); 
                 }
                 yield return new WaitForSeconds(wait);
             }

@@ -57,8 +57,31 @@ public class ShipData : ISerializing
         typeof(ShipPropulsion),
         typeof(ShipSail),
     };
-    
-    [SerializeField]
+
+	public enum BrokenComponentType
+	{
+		Invalid = -1,
+		Artillery,
+		Figurehead,
+		Hull, //Hull Armor
+		Navigation,
+		Propulsion,
+		Sail,
+	}
+
+	public static readonly BrokenComponentType[] BrokenComponentTypes =
+	{
+		BrokenComponentType.Artillery,
+		BrokenComponentType.Figurehead,
+		BrokenComponentType.Hull,
+		BrokenComponentType.Navigation,
+		BrokenComponentType.Propulsion,
+	};
+
+	//TODO: Refactor to dictionary or reflection if we ever have to change these often.
+	public static readonly BrokenComponentType[] ComponentTypeToBrokenComponentType = { BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Figurehead, BrokenComponentType.Hull, BrokenComponentType.Navigation, BrokenComponentType.Navigation, BrokenComponentType.Propulsion, BrokenComponentType.Invalid };
+
+	[SerializeField]
     public int[] Components = new int[ComponentTypes.Length];
 
     [SerializeField]

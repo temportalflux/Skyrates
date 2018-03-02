@@ -12,7 +12,7 @@ namespace Skyrates.Client.Game.Event
         /// <summary>
         /// The data of the projectile.
         /// </summary>
-        public Common.Entity.Entity.TypeData TypeData;
+        public GameObject Prefab;
 
         /// <summary>
         /// The location/rotation/scale of the projectile.
@@ -29,9 +29,9 @@ namespace Skyrates.Client.Game.Event
         /// </summary>
         public Vector3 ImpluseForce;
 
-        public EventSpawnEntityProjectile(Common.Entity.Entity.TypeData type, Transform spawn, Vector3 velocity, Vector3 impluseForce) : base(GameEventID.SpawnEntityProjectile)
+        public EventSpawnEntityProjectile(GameObject prefab, Transform spawn, Vector3 velocity, Vector3 impluseForce) : base(GameEventID.SpawnEntityProjectile)
         {
-            this.TypeData = type;
+            this.Prefab = prefab;
             this.Spawn = spawn;
             this.Velocity = velocity;
             this.ImpluseForce = impluseForce;

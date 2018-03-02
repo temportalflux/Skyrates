@@ -6,7 +6,7 @@ using Skyrates.Client.Game.Event;
 using Skyrates.Client.Ship;
 using UnityEngine;
 
-namespace Skyrates.Client
+namespace Skyrates.Client.Audio
 {
  
     /// <summary>
@@ -173,7 +173,6 @@ namespace Skyrates.Client
         public void OnLootCollected(GameEvent evt)
         {
             EventLootCollected evtLoot = (EventLootCollected) evt;
-            if (!evtLoot.PlayerShip.IsLocallyControlled) return;
             this.CreateAudio(evtLoot.Loot.transform.position, evtLoot.Loot.transform.rotation, this.AudioOnLootCollected, evtLoot.PlayerShip.transform);
         }
 
@@ -181,10 +180,7 @@ namespace Skyrates.Client
         public void OnEnemyEngage(GameEvent evt)
         {
             EventEnemyTargetEngage evtDEngage = (EventEnemyTargetEngage) evt;
-
-            if (evtDEngage.Target.EntityType.EntityType != Common.Entity.Entity.Type.Player) return;
-            if (!evtDEngage.Target.IsLocallyControlled) return;
-
+            
             //switch (evtDEngage.EventID)
             //{
             //    case GameEventID.EnemyTargetEngage:

@@ -4,9 +4,11 @@ using Skyrates.Client.Data;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Mono;
+using Skyrates.Client.Scene;
 using Skyrates.Client.Ship;
 using Skyrates.Common.Network;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Skyrates.Client.Entity
 {
@@ -98,50 +100,41 @@ namespace Skyrates.Client.Entity
             }
         }
 
-        #region Network
-        
-        public void SetDummy()
-        {
-            this.View.gameObject.SetActive(false);
-            this.Steering = null;
-        }
-
         /// <inheritdoc />
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
             GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
-        }
 
-        /// <inheritdoc />
-        public override bool ShouldDeserialize()
-        {
-            return this.OwnerNetworkID != NetworkComponent.GetSession.NetworkID;
-        }
+            // TODO: Make events for these
 
-        /// <inheritdoc />
-        public override void OnDeserializeSuccess()
-        {
-            base.OnDeserializeSuccess();
-            if (this.ShipRoot.ShipData.MustBeRebuilt)
+            if (this.PlayerData.input.MainMenu)
             {
-                this.ShipRoot.Destroy();
-                this.ShipData = this.ShipRoot.Generate(this, this.ShipData);
+                // Go back to main menu                
+                SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
+                SceneLoader.Instance.ActivateNext();
+            }
+
+            if (this.PlayerData.input.Back)
+            {
+                // Exit the game
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();          
+#endif
             }
         }
 
-        #endregion
-
         /// <inheritdoc />
-        protected override void OnTriggerEnter(Collider other)
+        public override void OnTriggerEnter(Collider other)
         {
             base.OnTriggerEnter(other);
 
             Loot.Loot lootObject = other.GetComponent<Loot.Loot>();
             if (lootObject != null)
             {
-                // Must be passed off as game event, where networking called OnLootCollided
-                GameManager.Events.Dispatch(new EventLootCollided(this, lootObject));
+                this.OnLootCollided(lootObject);
             }
 
         }
@@ -193,8 +186,7 @@ namespace Skyrates.Client.Entity
         /// <param name="loot"></param>
         public void OnLootCollided(Loot.Loot loot)
         {
-            // TODO: Add to inventory
-            this.PlayerData.LootCount++;
+            this.PlayerData.Inventory.Add(loot.Item);
 
             // TODO: do this through event?
             this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail);

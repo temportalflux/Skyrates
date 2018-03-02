@@ -19,7 +19,6 @@ namespace Skyrates.Client.Scene
             MenuMain,
             LoadingWorld,
             World,
-            WorldNonClient,
         }
 
         /// <summary>
@@ -38,12 +37,6 @@ namespace Skyrates.Client.Scene
         /// </summary>
         [Tooltip("The name of the main game scene (what scene is loaded when the player goes to pkay)")]
         public string GameName;
-
-        /// <summary>
-        /// The name of the non-client world scene (additively loaded with <see cref="GameName"/>).
-        /// </summary>
-        [Tooltip("Where all objects go when they are only owned by server")]
-        public string WorldNonClient;
 
         /// <summary>
         /// List of scenes from SceneKey to their scene name.
@@ -70,7 +63,6 @@ namespace Skyrates.Client.Scene
             SceneNames[SceneKey.MenuMain] = MenuName;
             SceneNames[SceneKey.LoadingWorld] = GameLoading;
             SceneNames[SceneKey.World] = GameName;
-            SceneNames[SceneKey.WorldNonClient] = WorldNonClient;
 
             foreach (KeyValuePair<SceneKey, string> pair in SceneNames)
             {

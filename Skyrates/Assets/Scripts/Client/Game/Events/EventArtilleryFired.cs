@@ -19,10 +19,13 @@ namespace Skyrates.Client.Game.Event
         /// </summary>
         public Shooter[] Shooters;
 
-        public EventArtilleryFired(EntityShip ship, Shooter[] shooters)
+        public ShipData.ComponentType ComponentType;
+
+        public EventArtilleryFired(EntityShip ship, Shooter[] shooters, ShipData.ComponentType type)
             : base(GameEventID.ArtilleryFired, ship)
         {
             this.Shooters = shooters;
+            this.ComponentType = type;
         }
 
         /// <summary>

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4802283521243552}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4202811877453266}
   - component: {fileID: 33536537202507576}
   - component: {fileID: 23786474712948950}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ship_figurehead_tier1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4994107269497014}
   - component: {fileID: 114577496410885204}
   - component: {fileID: 136503020931902346}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ship_figurehead_tier1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: -1008493583, guid: d275135284be94d4685833970dcc12f6, type: 3}
+  - {fileID: 2100000, guid: e02edc4645b8d644da04b04929d24f45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277a715eeb3d13b4ea3dd0f3baf16c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ship: {fileID: 0}
   DamageMultiplier: 10
 --- !u!136 &136503020931902346
 CapsuleCollider:

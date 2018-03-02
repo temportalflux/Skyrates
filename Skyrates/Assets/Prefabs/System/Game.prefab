@@ -65,13 +65,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1252162703871152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 112, y: 6620.6, z: -94.6}
+  m_LocalRotation: {x: -0, y: -0.94295394, z: -0, w: 0.3329233}
+  m_LocalPosition: {x: 527, y: 6410, z: -310}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4192473713234230}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -141.10701, z: 0}
 --- !u!114 &114427000181606736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,9 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fd27df31ccf0445aea72aea064ea37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntityList: {fileID: 11400000, guid: b6034e3d2f820554d946bb96ab438c39, type: 2}
   PlayerSpawn: {fileID: 4545498475819514}
   PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
+  PlayerPrefab: {fileID: 114956092729709676, guid: d88c0b9ab5a4d2149b7dabb71bbb4949,
+    type: 2}
 --- !u!114 &114859560446856648
 MonoBehaviour:
   m_ObjectHideFlags: 1

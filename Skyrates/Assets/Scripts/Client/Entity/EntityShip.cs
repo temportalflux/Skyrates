@@ -15,23 +15,44 @@ namespace Skyrates.Client.Entity
     /// <summary>
     /// A moving entity which has ShipStats, AI, health data, and <see cref="ShipComponent"/>s.
     /// </summary>
-    public class EntityShip : EntityDynamic
+    public class EntityShip : EntityAI
     {
 
         [SerializeField]
         public ShipStat StatBlock;
 
-        [SerializeField]
-        public ParticleSystem ParticleSmoke;
+        [Serializable]
+        public class ParticleArea
+        {
+
+            [SerializeField]
+            public BoxCollider Bounds;
+
+            [SerializeField]
+            public ParticleSystem Prefab;
+
+            [SerializeField]
+            public float Scale;
+
+            [HideInInspector]
+            public ParticleSystem Generated;
+
+        }
 
         [SerializeField]
-        public ParticleSystem ParticleFire;
+        public ParticleArea SmokeData;
 
         [SerializeField]
-        public ParticleSystem ParticleOnDestruction;
+        public ParticleArea FireData;
+
+        [SerializeField]
+        public GameObject ParticleOnDestruction;
+
+        [SerializeField]
+        public CapsuleCollider LootDropArea;
 
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
-        [BitSerialize(0)]
+        [HideInInspector]
         public float Health;
 
         protected override void Start()
@@ -44,6 +65,8 @@ namespace Skyrates.Client.Entity
                     this.StatBlock.name));
                 this.Health = this.StatBlock.Health;
             }
+            this.InitParticle(ref this.SmokeData);
+            this.InitParticle(ref this.FireData);
         }
         
         /// <inheritdoc />
@@ -53,9 +76,30 @@ namespace Skyrates.Client.Entity
             this.UpdateHealthParticles();
         }
 
+        private void InitParticle(ref ParticleArea area)
+        {
+            if (area == null || area.Bounds == null || area.Prefab == null)
+                return;
+
+            area.Generated = Instantiate(area.Prefab.gameObject,
+                area.Bounds.transform.parent
+            ).GetComponent<ParticleSystem>();
+            area.Generated.transform.localPosition = area.Bounds.transform.localPosition;
+            area.Generated.transform.localRotation = area.Bounds.transform.localRotation;
+            
+            ParticleSystem.ShapeModule shape = area.Generated.shape;
+            shape.shapeType = ParticleSystemShapeType.Box;
+            shape.scale = Vector3.Scale(area.Bounds.size, area.Bounds.transform.lossyScale);
+            
+            ParticleSystem.MainModule main = area.Generated.main;
+            ParticleSystem.MinMaxCurve size = main.startSize;
+            size.constant = area.Scale;
+            main.startSize = size;
+        }
+
         // Called when some non-trigger collider with a rigidbody enters
         /// <inheritdoc />
-        protected virtual void OnTriggerEnter(Collider other)
+        public virtual void OnTriggerEnter(Collider other)
         {
             if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Enemy")) || (other.CompareTag("Projectile-Player") && this.CompareTag("Player")))
             {
@@ -65,7 +109,10 @@ namespace Skyrates.Client.Entity
             EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
             if (entityProjectile != null)
             {
+                this.TakeDamage(entityProjectile, entityProjectile.GetDamage());
+
                 GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile));
+
                 // collider is a projectile
                 // TODO: Owner should destroy based on networking
                 Destroy(entityProjectile.gameObject);
@@ -74,9 +121,19 @@ namespace Skyrates.Client.Entity
             ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
             if (ram != null)
             {
+                // If ram, and still have health, tell source that ram attack wasn't fully successful
+                if (this.TakeDamage(ram.Ship, ram.GetDamage()) > 0)
+                {
+                    ram.Ship.OnRamUnsucessful(this);
+                }
                 GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram));
             }
 
+        }
+
+        public virtual void OnTriggerExit(Collider other)
+        {
+            
         }
 
         /// <summary>
@@ -86,25 +143,6 @@ namespace Skyrates.Client.Entity
         public virtual ShipFigurehead GetFigurehead()
         {
             return null;
-        }
-
-        /// <summary>
-        /// Calls <see cref="TakeDamage(Entity, float)"/> with data from <see cref="EventEntityShipDamaged"/>,
-        /// and calls <see cref="EntityShip.OnRamUnsuccessful"/> if the event was a ram and did not reduce this object's health to 0.
-        /// </summary>
-        /// <param name="evt"></param>
-        public virtual void TakeDamage(EventEntityShipDamaged evt)
-        {
-            // Take the damage
-            if (this.TakeDamage(evt.Source, evt.Damage) > 0)
-            {
-                // If ram, and still have health, tell source that ram attack wasn't fully successful
-                EntityShip source = evt.Source as EntityShip;
-                if (source != null)
-                {
-                    source.OnRamUnsucessful(this);
-                }
-            }
         }
 
         /// <summary>
@@ -129,15 +167,12 @@ namespace Skyrates.Client.Entity
             // Remove the damage from the health
             this.Health -= damage;
 
-            // Dispatch event that damage on us by source has occured
-            GameManager.Events.Dispatch(new EventEntityShipDamaged(source, this, damage));
-
             // Update particle effects
             this.UpdateHealthParticles();
-
+            
             // If we still have health, stop execution here
             if (this.Health > 0) return this.Health;
-
+            
             // No more health, so try to destroy
 
             // Get whether or not this object should be destroyed
@@ -175,12 +210,13 @@ namespace Skyrates.Client.Entity
         protected virtual void SpawnDestructionParticles()
         {
             if (this.ParticleOnDestruction == null) return;
-            
+
             // Spawn the prefab WITH NO OWNER (so it isnt destroyed when the object is)
-            ParticleSystem particles = Instantiate(this.ParticleOnDestruction.gameObject,
-                this.transform.position, this.transform.rotation).GetComponent<ParticleSystem>();
+            GameObject particles = Instantiate(this.ParticleOnDestruction,
+                this.transform.position, this.transform.rotation);
+            particles.transform.localScale = Vector3.Scale(particles.transform.localScale, this.transform.localScale);
             // Destory the particle system when it is done playing
-            Destroy(particles.gameObject, particles.main.duration);
+            Destroy(particles.gameObject, particles.GetComponentInChildren<ParticleSystem>().main.duration);
         }
 
         /// <summary>
@@ -192,18 +228,19 @@ namespace Skyrates.Client.Entity
             if (this.StatBlock == null || this.StatBlock.Loot == null) return;
 
             // Generate the loot to spawn
-            KeyValuePair<ShipComponent, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
+            KeyValuePair<ShipData.BrokenComponentType, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
             // Spawn each loot in turn
-            foreach (KeyValuePair<ShipComponent, Loot.Loot> lootItem in loots)
+            foreach (KeyValuePair<ShipData.BrokenComponentType, Loot.Loot> lootItem in loots)
             {
                 // If the loot is invalid in some way, discard
-                if (lootItem.Key == null || lootItem.Value == null)
+                if (lootItem.Key == ShipData.BrokenComponentType.Invalid || lootItem.Value == null)
                 {
                     continue;
                 }
 
                 // Get a random position to spawn it
-                Vector3 pos = position + Random.insideUnitSphere * this.StatBlock.LootRadius;
+                Vector3 pos = position + this.LootDropArea.center + Vector3.Scale(Random.insideUnitSphere, this.LootDropArea.bounds.size);
+
                 // Create the prefab instance for the loot
                 Loot.Loot loot = Instantiate(lootItem.Value.gameObject, pos, Quaternion.identity).GetComponent<Loot.Loot>();
                 // Set the item the loot contains
@@ -241,7 +278,8 @@ namespace Skyrates.Client.Entity
             }
 
             // Dispatch event for the shooters as a whole.
-            GameManager.Events.Dispatch(new EventArtilleryFired(this, shooters));
+            // TODO: Change event name to only be for the player
+            GameManager.Events.Dispatch(new EventArtilleryFired(this, shooters, artillery));
         }
 
         /// <summary>
@@ -255,7 +293,7 @@ namespace Skyrates.Client.Entity
             float damageTaken = this.StatBlock.Health - this.Health;
 
             // Update smoke particles
-            if (this.ParticleSmoke != null)
+            if (this.SmokeData.Generated != null)
             {
                 float emittedAmountSmoke = 0;
                 // if the damage taken is in the range, when set emittedAmountSmoke
@@ -272,12 +310,12 @@ namespace Skyrates.Client.Entity
                 }
 
                 // set the emission rate
-                ParticleSystem.EmissionModule emissionSmoke = this.ParticleSmoke.emission;
+                ParticleSystem.EmissionModule emissionSmoke = this.SmokeData.Generated.emission;
                 emissionSmoke.rateOverTime = emittedAmountSmoke;
             }
 
             // Update fire particles
-            if (this.ParticleFire != null)
+            if (this.FireData.Generated != null)
             {
                 float emiitedAmountFire = 0;
                 // if the damage taken is in the range, when set emiitedAmountFire
@@ -294,7 +332,7 @@ namespace Skyrates.Client.Entity
                 }
 
                 // set the emission rate
-                ParticleSystem.EmissionModule emission = this.ParticleFire.emission;
+                ParticleSystem.EmissionModule emission = this.FireData.Generated.emission;
                 emission.rateOverTime = emiitedAmountFire;
             }
 

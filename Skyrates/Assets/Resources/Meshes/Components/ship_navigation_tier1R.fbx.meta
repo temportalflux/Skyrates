@@ -1,74 +1,36 @@
 fileFormatVersion: 2
-guid: e692eb2f19cf76641a920703b0515ba7
-timeCreated: 1518389057
-licenseType: Pro
+guid: ac51d611e029b574fb6792a07045521a
+timeCreated: 1519066641
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: ship_navigation_tier1 1
-    100002: ship_navigation_tier1R
-    100004: //RootNode
-    100006: rig_navigation_tierL1
-    100008: rod1L
-    100010: rod2L
-    100012: rod3L
-    100014: ship_navigation_tier1
-    100016: ship_navigation_tier3
-    100018: ship_navigation_tier7
-    100020: transform1
-    100022: rig_navigation_tierR2
-    100024: rod1R
-    100026: rod2R
-    100028: rod3R
-    100030: ship_navigation
-    100032: ship_navigation_tierR1
-    100034: rig_navigation_1_1R
-    100036: rig_navigation_1R
-    100038: rig_navigation_2_1R
-    100040: rig_navigation_2R
-    100042: rig_navigation_3_1R
-    100044: rig_navigation_3R
-    100046: rig_navigation_jointR
-    400000: ship_navigation_tier1 1
-    400002: ship_navigation_tier1R
-    400004: //RootNode
-    400006: rig_navigation_tierL1
-    400008: rod1L
-    400010: rod2L
-    400012: rod3L
-    400014: ship_navigation_tier1
-    400016: ship_navigation_tier3
-    400018: ship_navigation_tier7
-    400020: transform1
-    400022: rig_navigation_tierR2
-    400024: rod1R
-    400026: rod2R
-    400028: rod3R
-    400030: ship_navigation
-    400032: ship_navigation_tierR1
-    400034: rig_navigation_1_1R
-    400036: rig_navigation_1R
-    400038: rig_navigation_2_1R
-    400040: rig_navigation_2R
-    400042: rig_navigation_3_1R
-    400044: rig_navigation_3R
-    400046: rig_navigation_jointR
-    2100000: lambert1
-    2300000: ship_navigation_tier1R
-    2300002: //RootNode
-    2300004: ship_navigation_tier7
-    3300000: ship_navigation_tier1R
-    3300002: //RootNode
-    3300004: ship_navigation_tier7
-    4300000: ship_navigation_tier1R
-    4300002: ship_navigation_tier7
-    4300004: ship_navigation_tierR1
+    100000: rig_navigation_1_1L
+    100002: rig_navigation_1R
+    100004: rig_navigation_2_1L
+    100006: rig_navigation_2R
+    100008: rig_navigation_3_1L
+    100010: rig_navigation_3R
+    100012: rig_navigation_jointR
+    100014: //RootNode
+    100016: ship_navigation_tierR1
+    400000: rig_navigation_1_1L
+    400002: rig_navigation_1R
+    400004: rig_navigation_2_1L
+    400006: rig_navigation_2R
+    400008: rig_navigation_3_1L
+    400010: rig_navigation_3R
+    400012: rig_navigation_jointR
+    400014: //RootNode
+    400016: ship_navigation_tierR1
+    2100000: lambert2
+    4300000: ship_navigation_tierR1
     7400000: Move
     9500000: //RootNode
     13700000: ship_navigation_tierR1
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -78,15 +40,14 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Avatar creation failed:\n\tCannot find root motion transform
-      'rig_navigation_tierR2'.\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -163,10 +124,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: rig_navigation_jointR
+    rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

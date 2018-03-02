@@ -68,9 +68,8 @@ namespace Skyrates.Client.Loot
                             weightsChanged = true;
                         }
 
-                        // TODO: Change this
-                        row.Item = (ShipComponent)EditorGUILayout.ObjectField(
-                            row.Item, typeof(ShipComponent), allowSceneObjects: true
+                        row.Item = (ShipData.BrokenComponentType)EditorGUILayout.EnumPopup(
+                            row.Item
                         );
                         row.Prefab = (Loot) EditorGUILayout.ObjectField(
                             row.Prefab, typeof(Loot), allowSceneObjects: true
