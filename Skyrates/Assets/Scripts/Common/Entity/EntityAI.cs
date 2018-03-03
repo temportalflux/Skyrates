@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Skyrates.Common.Entity
 {
 
-    public class EntityAI : EntityDynamic
+    public class EntityAI : EntityDynamic, DistanceCollidable
     {
 
         /// <summary>
@@ -172,6 +172,11 @@ namespace Skyrates.Common.Entity
         /// <param name="other"></param>
         /// <param name="maxDistance"></param>
         public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
+        {
+            
+        }
+
+        public virtual void OnOverlapWith(GameObject other, float radius)
         {
             
         }

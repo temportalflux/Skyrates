@@ -6,6 +6,25 @@ using UnityEngine;
 namespace Skyrates.Client.Entity
 {
 
+    public interface DistanceCollidable
+    {
+
+        /// <summary>
+        /// Called from source on the colliable that has entered the area around source
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="radius"></param>
+        void OnEnterEntityRadius(EntityAI source, float radius);
+
+        /// <summary>
+        /// When we move into an area such that other has entered our area
+        /// </summary>
+        /// <param name="other"></param>
+        /// <param name="radius"></param>
+        void OnOverlapWith(GameObject other, float radius);
+
+    }
+
     [RequireComponent(typeof(EntityAI))]
     public class DistanceCollider : MonoBehaviour
     {
@@ -13,6 +32,8 @@ namespace Skyrates.Client.Entity
         public float Radius;
 
         public LayerMask CollisionLayers;
+        
+        public Color Color;
 
         public float Frequency;
 
@@ -25,7 +46,7 @@ namespace Skyrates.Client.Entity
 #if UNITY_EDITOR
         void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.blue;
+            Gizmos.color = this.Color;
             Gizmos.DrawWireSphere(transform.position, this.Radius);
         }
 #endif
@@ -49,10 +70,14 @@ namespace Skyrates.Client.Entity
 
         private void ExecuteAlertCollisions()
         {
-            foreach (Collider other in Physics.OverlapSphere(this.transform.position, this.Radius))
+            foreach (Collider other in Physics.OverlapSphere(this.transform.position, this.Radius, this.CollisionLayers))
             {
-                EntityAI entity = other.gameObject.GetComponent<EntityAI>();
-                entity.OnEnterEntityRadius(this._owner, this.Radius);
+                DistanceCollidable collidable = other.gameObject.GetComponent<DistanceCollidable>();
+                if (collidable != null)
+                {
+                    collidable.OnEnterEntityRadius(this._owner, this.Radius);
+                    this._owner.OnOverlapWith(other.gameObject, this.Radius);
+                }
             }
         }
 
