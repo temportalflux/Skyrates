@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Skyrates.Common.AI.Formation;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
@@ -18,6 +19,9 @@ namespace Skyrates.Common.AI
     {
         
         public Waypoint[] InitialTargets;
+
+        public FormationOwner FormationOwner;
+        public int FormationSlot;
 
         [HideInInspector]
         public Transform View;
@@ -41,7 +45,7 @@ namespace Skyrates.Common.AI
         
         public object this[Guid guid]
         {
-            get { return this.PersistentData[guid]; }
+            get { return this.PersistentData.ContainsKey(guid) ? this.PersistentData[guid] : null; }
             set { this.PersistentData[guid] = value; }
         }
         
@@ -86,7 +90,7 @@ namespace Skyrates.Common.AI
         /// <param name="deltaTime"></param>
         public void GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime)
         {
-            object persistent = data[this.GetPersistentDataGuid()];
+            object persistent = data[this.GetPersistentDataGuid()] ?? this.CreatePersistentData();
             data[this.GetPersistentDataGuid()] = this.GetUpdate(ref data, ref physics, deltaTime, persistent);
         }
 
