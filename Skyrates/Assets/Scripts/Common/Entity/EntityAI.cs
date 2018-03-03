@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Entity;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using UnityEngine;
@@ -11,21 +12,71 @@ namespace Skyrates.Common.Entity
     {
 
         /// <summary>
+        /// The steering data used - info which is specific to this
+        /// entity and likely used by multiple steering algorithms.
+        /// </summary>
+        public BehaviorData BehaviorData;
+
+        /// <summary>
         /// The actual steering object - set via editor.
         /// </summary>
         [SerializeField]
         public Behavior[] Steering;
 
+
+        protected override void Start()
+        {
+            base.Start();
+            this.BehaviorData.Target = new PhysicsData();
+
+            this.UpdateBehaviorData();
+
+            foreach (Behavior behavior in this.Steering)
+            {
+                if (behavior == null) continue;
+
+                // Init the object and its persistent data
+                behavior.AddPersistentDataTo(ref this.BehaviorData);
+
+                // Enter the state
+                behavior.OnEnter(ref this.BehaviorData, this.Physics);
+            }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            foreach (Behavior behavior in this.Steering)
+            {
+                if (behavior == null) continue;
+
+                // Exit the state
+                behavior.OnExit(ref this.BehaviorData, this.Physics);
+
+                // Remove any persistent data
+                this.BehaviorData.Remove(behavior.GetPersistentDataGuid());
+            }
+        }
+
+        protected virtual void UpdateBehaviorData()
+        {
+            this.BehaviorData.View = this.GetView();
+            this.BehaviorData.Render = this.GetRender().transform;
+        }
+        
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-            
+
+            this.UpdateBehaviorData();
+
             // Update steering on a fixed timestep
             foreach (Behavior behavior in this.Steering)
             {
                 if (behavior != null)
                 {
-                    this.Physics = behavior.GetUpdate(this.BehaviorData, this.Physics);
+                    behavior.GetUpdate(ref this.BehaviorData, ref this.Physics, Time.fixedDeltaTime);
                 }
             }
 
@@ -63,12 +114,10 @@ namespace Skyrates.Common.Entity
             this.Integrate(ref this.Physics.RotationPosition, this.Physics.RotationVelocity, deltaTime);
 
             // Update rotation
-            //this._physics.AddTorque(this.Physics.RotationVelocity.eulerAngles);
+            //this._physics.AddTorque(this.Physics.RotationVelocity);
             this._physics.MoveRotation(this.Physics.RotationPosition);
             this.GetRender().transform.localRotation = Quaternion.Euler(this.Physics.RotationAestetic);
             //this.GetRender().AddTorque(this.Physics.RotationVelocity.eulerAngles * deltaTime, ForceMode.VelocityChange);
-
-            // Set rotation
 
         }
 
@@ -104,6 +153,18 @@ namespace Skyrates.Common.Entity
             Vector3 euler = start.eulerAngles;
             this.Integrate(ref euler, amount, deltaTime);
             start = Quaternion.Euler(euler);
+        }
+
+        /// <summary>
+        /// Called when some other entity detects that this entity is now less
+        /// than maxDistance away from them.
+        /// <see cref="DistanceCollider"/>.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <param name="maxDistance"></param>
+        public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
+        {
+            
         }
 
     }

@@ -117,9 +117,9 @@ namespace Skyrates.Client.Entity
         // TODO: Fix the steering to remove this
         protected override void IntegratePhysics(float deltaTime)
         {
-            Quaternion rotation = this.Physics.RotationPosition;
+            //Quaternion rotation = this.Physics.RotationPosition;
             base.IntegratePhysics(deltaTime);
-            this.transform.rotation = rotation;
+            //this.transform.rotation = rotation;
         }
 
     }

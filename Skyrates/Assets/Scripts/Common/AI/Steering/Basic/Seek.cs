@@ -28,14 +28,14 @@ namespace Skyrates.Common.AI
 
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
+        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
         {
             // Get direction from this unit to the target
             physics.LinearAccelleration = (data.Target.LinearPosition - physics.LinearPosition) * this.SeekTargetMultiplier;
             physics.LinearAccelleration.Normalize();
             // Set velocity to a scalar in the desired direction
             physics.LinearAccelleration *= this.MaxAcceleration;
-            return physics;
+            return pData;
         }
 
     }

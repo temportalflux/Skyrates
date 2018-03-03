@@ -474,6 +474,7 @@
     <Compile Include="Assets\Scripts\Client\Component\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Client\Data\Inventory.cs" />
     <Compile Include="Assets\Scripts\Client\Data\LocalData.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\DistanceCollider.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityProjectile.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShip.cs" />
@@ -538,14 +539,17 @@
     <Compile Include="Assets\Scripts\Client\VFX\VFXDispatcher.cs" />
     <Compile Include="Assets\Scripts\Client\World\Generator.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Behavior.cs" />
-    <Compile Include="Assets\Scripts\Common\AI\FiniteState.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\BehaviorTimed.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\States\State.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\States\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\States\StateTransition.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Align.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Arrive.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\LockAt.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Seek.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\Face.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\FollowPath.cs" />
-    <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\LookAt.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\LookForward.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\Pursue.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Delegated\Wander.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Flocking\Cohesion.cs" />
@@ -555,6 +559,8 @@
     <Compile Include="Assets\Scripts\Common\AI\Steering\Old\ForceLerp.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Steering.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\WeightedSteering.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Targetting\Waypoint.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Targetting\WaypointTargets.cs" />
     <Compile Include="Assets\Scripts\Common\AI\UserControlled.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Analytics.cs" />
     <Compile Include="Assets\Scripts\Common\Analytics\Event\AnalyticEvent.cs" />
