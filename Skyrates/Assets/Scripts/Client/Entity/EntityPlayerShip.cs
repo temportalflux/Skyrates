@@ -126,17 +126,13 @@ namespace Skyrates.Client.Entity
             }
         }
 
-        /// <inheritdoc />
-        public override void OnTriggerEnter(Collider other)
+        public override void OnOverlapWith(GameObject other, float radius)
         {
-            base.OnTriggerEnter(other);
-
             Loot.Loot lootObject = other.GetComponent<Loot.Loot>();
             if (lootObject != null)
             {
                 this.OnLootCollided(lootObject);
             }
-
         }
 
         /// <inheritdoc />
