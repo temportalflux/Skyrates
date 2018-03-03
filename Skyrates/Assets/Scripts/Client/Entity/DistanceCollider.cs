@@ -39,7 +39,7 @@ namespace Skyrates.Client.Entity
 
         private IEnumerator AlertCollisions()
         {
-            while (true)
+            while (this.gameObject != null)
             {
                 yield return new WaitForSeconds(this.Frequency + this._delay);
                 this._delay = 0.0f;
