@@ -30,7 +30,10 @@ namespace Skyrates.Client.Input
             // ~~~ Movement
 
             // ForwardInput is left stick (up/down)
-            this.PlayerData.input.Forward.Input = UnityEngine.Input.GetAxis("xbox_stick_l_vertical");
+            //this.PlayerData.input.Forward.Input = UnityEngine.Input.GetAxis("xbox_stick_l_vertical");
+            float fwd = UnityEngine.Input.GetButton("xbox_a") ? 1 : 0;
+            float bkwd = UnityEngine.Input.GetButton("xbox_b") ? 1 : 0;
+            this.PlayerData.input.Forward.Input = fwd + -bkwd;
 
             // Strafe is left stick (left/right)
             this.PlayerData.input.Strafe.Input = UnityEngine.Input.GetAxis("xbox_stick_l_horizontal");
