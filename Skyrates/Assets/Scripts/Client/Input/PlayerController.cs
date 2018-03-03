@@ -33,14 +33,16 @@ namespace Skyrates.Client.Input
             //this.PlayerData.input.Forward.Input = UnityEngine.Input.GetAxis("xbox_stick_l_vertical");
             float fwd = UnityEngine.Input.GetButton("xbox_a") ? 1 : 0;
             float bkwd = UnityEngine.Input.GetButton("xbox_b") ? 1 : 0;
-            this.PlayerData.input.Forward.Input = fwd + -bkwd;
+            this.PlayerData.input.Forward.Input = fwd - bkwd;
 
             // Strafe is left stick (left/right)
             this.PlayerData.input.Strafe.Input = UnityEngine.Input.GetAxis("xbox_stick_l_horizontal");
 
             // Vertical is bumpers
-            this.PlayerData.input.Vertical.Input = UnityEngine.Input.GetButton("xbox_bumper_r") ? 1 :
-                UnityEngine.Input.GetButton("xbox_bumper_l") ? -1 : 0;
+            float right = UnityEngine.Input.GetButton("xbox_bumper_r") ? 1 : 0;
+            float left = UnityEngine.Input.GetButton("xbox_bumper_l") ? 1 : 0;
+            //this.PlayerData.input.Vertical.Input = right - left;
+            this.PlayerData.input.Vertical.Input = UnityEngine.Input.GetAxis("xbox_stick_l_vertical");
 
             // ~~~ Camera
 
