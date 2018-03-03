@@ -66,7 +66,6 @@ public class ShipData : ISerializing
 		Hull, //Hull Armor
 		Navigation,
 		Propulsion,
-		Sail,
 	}
 
 	public static readonly BrokenComponentType[] BrokenComponentTypes =
