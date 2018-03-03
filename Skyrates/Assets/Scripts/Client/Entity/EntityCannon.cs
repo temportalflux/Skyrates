@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Skyrates.Client.Entity
 {
 	[RequireComponent(typeof(Shooter))] //No inheritance because we don't want to accidentally call FireProjectile when we actually meant to shoot.
-	class EntityCannon : MonoBehaviour
+	public class EntityCannon : MonoBehaviour
 	{
 		/// <summary>
 		/// The amount of extra tilt in degrees needed in a direction to make the target.
@@ -35,7 +35,7 @@ namespace Skyrates.Client.Entity
 		void Start()
 		{
 			this._shooter = GetComponent<Shooter>();
-			//StartCoroutine(ShootEverySecond()); //For debugging purposes.
+			StartCoroutine(ShootEverySecond()); //For debugging purposes.
 		}
 
 		/*void Update()
@@ -84,7 +84,7 @@ namespace Skyrates.Client.Entity
 		}
 
 		/// <summary>
-		/// Fires one projectile from this cannon
+		/// Fires one projectile from this cannon.
 		/// </summary>
 		public void Shoot()
 		{
