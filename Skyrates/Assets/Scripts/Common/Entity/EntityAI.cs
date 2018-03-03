@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Entity;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using UnityEngine;
@@ -152,6 +153,18 @@ namespace Skyrates.Common.Entity
             Vector3 euler = start.eulerAngles;
             this.Integrate(ref euler, amount, deltaTime);
             start = Quaternion.Euler(euler);
+        }
+
+        /// <summary>
+        /// Called when some other entity detects that this entity is now less
+        /// than maxDistance away from them.
+        /// <see cref="DistanceCollider"/>.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <param name="maxDistance"></param>
+        public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
+        {
+            
         }
 
     }
