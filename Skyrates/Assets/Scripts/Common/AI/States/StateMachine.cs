@@ -30,13 +30,20 @@ namespace Skyrates.Common.AI
         /// </summary>
         [SerializeField]
         public Behavior IdleBehavior;
+
+        [SerializeField]
+        public StateTransition[] Transitions;
         
         /// <summary>
         /// All of the possible states.
         /// </summary>
         [SerializeField]
         public State[] States;
-        
+
+#if UNITY_EDITOR
+        public string[] StateNames;
+#endif
+
         public override void AddPersistentDataTo(ref BehaviorData behavioralData)
         {
             base.AddPersistentDataTo(ref behavioralData);
@@ -52,7 +59,7 @@ namespace Skyrates.Common.AI
         /// </summary>
         public State GetCurrentState(PersistentDataTimedSm dataTimed)
         {
-            return dataTimed.StateIndex < 0 ? null : this.States[dataTimed.StateIndex];
+            return this.GetState(dataTimed.StateIndex);
         }
 
         /// <summary>
@@ -73,33 +80,36 @@ namespace Skyrates.Common.AI
             };
         }
 
+        public State GetState(int index)
+        {
+            return index < 0 ? null : this.States[index];
+        }
+
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
         protected override PersistentDataTimed UpdateTimed(ref BehaviorData data, ref PhysicsData physics, float deltaTime, PersistentDataTimed persist)
         {
             PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm) persist;
 
-            // Try to exit the state
             State currentState = this.GetCurrentState(customDataTimed);
-            if (currentState != null && currentState.CanExit(data, physics))
+
+            // Get the list of transitions, depending on if we are in idle or some state
+            StateTransition[] transitionsToCheck = currentState != null ? currentState.Transitions : this.Transitions;
+
+            // Try to transition out of the current state (idle or otherwise)
+            foreach (StateTransition transition in transitionsToCheck)
             {
+                // Check if we can enter some state via the transition, if not, continue the loop
+                if (!transition.CanEnter(data, physics)) continue;
+
+                // Can enter the state defined by the transition, so exit the current state
                 this.ExitCurrentState(ref data, ref customDataTimed, physics);
+                // And enter the destination state set in the transition
+                this.EnterState(transition.StateDestination, ref data, ref customDataTimed, physics);
+
+                break;
             }
-
-            if (this.GetCurrentState(customDataTimed) == null)
-            {
-                // Try to find a new state
-                for (int iState = 0; iState < this.States.Length; iState++)
-                {
-                    // Check if the state can be entered
-                    if (!this.States[iState].CanEnter(data, physics)) continue;
-
-                    // Enter the state
-                    this.EnterState(iState, ref data, ref customDataTimed, physics);
-                    return customDataTimed;
-                }
-            }
-
+            
             return customDataTimed;
         }
 

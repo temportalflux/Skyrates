@@ -48,7 +48,7 @@ namespace Skyrates.Client.Ship
                 ToggleComp[iComp] = this.DrawArray(
                     compType.ToString(), ref roots,
                     true, ToggleComp[iComp],
-                    DrawBlock: (t => (Transform)EditorGUILayout.ObjectField(
+                    DrawBlock: ((t, i) => (Transform)EditorGUILayout.ObjectField(
                         t == null ? "Pos/Rot" : t.name,
                         t, typeof(Transform), allowSceneObjects:true
                     ))
@@ -63,8 +63,8 @@ namespace Skyrates.Client.Ship
 
             this.DropAreaGUI();
 
-            ToggleLootMounts = this.DrawArray("Loot", ref this._instance.LootMounts, togglable:true, isToggled:ToggleLootMounts,
-                DrawBlock:(mount =>
+            ToggleLootMounts = this.DrawArray("Loot", ref this._instance.LootMounts, togglable: true, isToggled: ToggleLootMounts,
+                DrawBlock: ((mount, i) =>
                 {
                     mount = (Transform) EditorGUILayout.ObjectField("Pos/Rot/Scale", mount, typeof(Transform), allowSceneObjects: true);
                     return mount;
