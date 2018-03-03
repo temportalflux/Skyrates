@@ -22,20 +22,26 @@ namespace Skyrates.Client.Entity
 		/// </summary>
 		public float ShootSpeed; //We use speed instead of velocity to simplify shooting.
 
+		/// <summary>
+		/// The target position to shoot at.
+		/// </summary>
 		public Vector3 TargetPosition;
 
+		/// <summary>
+		/// The <see cref="Shooter"/> used to fire projectiles.
+		/// </summary>
 		private Shooter _shooter;
 		
 		void Start()
 		{
-			_shooter = GetComponent<Shooter>();
-			StartCoroutine(ShootEverySecond());
+			this._shooter = GetComponent<Shooter>();
+			//StartCoroutine(ShootEverySecond()); //For debugging purposes.
 		}
 
-		void Update()
+		/*void Update()
 		{
 			Debug.DrawLine(_shooter.spawn.position, TargetPosition); //For debugging purposes.
-		}
+		}*/
 
 		/// <summary>
 		///Function for testing that shoots periodically.
@@ -56,21 +62,21 @@ namespace Skyrates.Client.Entity
 		/// </summary>
 		public void CalculateArc()
 		{
-			Vector3 distanceVector = (TargetPosition - _shooter.spawn.position);
-			Vector3 forward = (TargetPosition - _shooter.spawn.position).normalized;
+			Vector3 distanceVector = (this.TargetPosition - this._shooter.spawn.position);
+			Vector3 forward = (this.TargetPosition - this._shooter.spawn.position).normalized;
 			Vector3 up = Vector3.up;
 			Vector3 right = Vector3.Cross(forward, up);
-			ArcAxis = right;
+			this.ArcAxis = right;
 			float gravity = Physics.gravity.y;
-			float speed = ShootSpeed;
+			float speed = this.ShootSpeed;
 			
 			distanceVector.y = 0.0f;
-			float xSqr = Mathf.Min(ShootSpeed * ShootSpeed, distanceVector.sqrMagnitude);
-			float y = (TargetPosition.y - _shooter.spawn.position.y);
+			float xSqr = Mathf.Min(this.ShootSpeed * this.ShootSpeed, distanceVector.sqrMagnitude);
+			float y = (this.TargetPosition.y - this._shooter.spawn.position.y);
 			//Formula found here: https://gamedev.stackexchange.com/questions/17467/calculating-velocity-needed-to-hit-target-in-parabolic-arc by jonas
 			float substitution = (speed * speed * speed * speed) -
 				gravity * (gravity * (xSqr) + 2 * y * (speed * speed));
-			ArcAngle = Mathf.Atan2(((speed * speed) + Mathf.Sqrt(substitution)), (gravity * Mathf.Sqrt(xSqr))) * Mathf.Rad2Deg - 90.0f; //Negate because positive Y is up, not negative. +90 because origin angle is 0, not +/-90.
+			this.ArcAngle = Mathf.Atan2(((speed * speed) + Mathf.Sqrt(substitution)), (gravity * Mathf.Sqrt(xSqr))) * Mathf.Rad2Deg - 90.0f; //Negate because positive Y is up, not negative. +90 because origin angle is 0, not +/-90.
 			//TODO: See if there is some way to get rid of these square roots.;
 			//TODO: Calculate velocity from impulse force at impact time and add it to the equation (add to velocity), if force makes enough of a difference and we want to calculate the difference in arc automatically.
 			//TODO: Calculate velocity lost due to deceleration/damping at impact time and add it to the equation (add to velocity), if it makes enough of a difference, etc.
@@ -82,9 +88,9 @@ namespace Skyrates.Client.Entity
 		/// </summary>
 		public void Shoot()
 		{
-			Vector3 direction = Quaternion.AngleAxis(ArcAngle, ArcAxis) * (TargetPosition - _shooter.spawn.position).normalized;
-			_shooter.spawn.rotation = Quaternion.LookRotation(direction);
-			_shooter.FireProjectile(direction, ShootSpeed * direction);
+			Vector3 direction = Quaternion.AngleAxis(this.ArcAngle, this.ArcAxis) * (this.TargetPosition - this._shooter.spawn.position).normalized;
+			this._shooter.spawn.rotation = Quaternion.LookRotation(direction);
+			this._shooter.FireProjectile(direction, this.ShootSpeed * direction);
 		}
 	}
 }
