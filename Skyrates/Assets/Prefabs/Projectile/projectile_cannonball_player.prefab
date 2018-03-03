@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fb6bdd616d8b14186de9c264563d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 2
+  Delay: 4
 --- !u!114 &114509081520697296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,19 +218,9 @@ MonoBehaviour:
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
     RotationPosition: {x: 0, y: 0, z: 0, w: 1}
-    RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
-    RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
-  SteeringData:
-    View: {fileID: 0}
-    Render: {fileID: 0}
-    HasTarget: 0
-    Target:
-      LinearPosition: {x: 0, y: 0, z: 0}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      LinearAccelleration: {x: 0, y: 0, z: 0}
-      RotationPosition: {x: 0, y: 0, z: 0, w: 1}
-      RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
-      RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
+    RotationVelocity: {x: 0, y: 0, z: 0}
+    RotationAccelleration: {x: 0, y: 0, z: 0}
+    RotationAestetic: {x: 0, y: 0, z: 0}
   PhysicsComponent: {fileID: 0}
   Damage: 2
 --- !u!136 &136933438053157366

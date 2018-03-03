@@ -394,11 +394,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42c25627d666de47af6f415c9e76507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 3.32
+  Radius: 30
   CollisionLayers:
     serializedVersion: 2
-    m_Bits: 512
-  Color: {r: 0, g: 0, b: 1, a: 1}
+    m_Bits: 1638400
+  Color: {r: 1, g: 0, b: 0, a: 1}
   Frequency: 1
   ScatterExecution: 0
 --- !u!114 &114264214288976394
@@ -484,11 +484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42c25627d666de47af6f415c9e76507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 3.32
+  Radius: 3
   CollisionLayers:
     serializedVersion: 2
     m_Bits: 512
-  Color: {r: 0, g: 0, b: 1, a: 1}
+  Color: {r: 0.9793103, g: 1, b: 0, a: 1}
   Frequency: 1
   ScatterExecution: 0
 --- !u!114 &114943066303382066
@@ -560,7 +560,7 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  LootDropArea: {fileID: 0}
+  LootDropRadius: 0
   Health: 0
   ShipData:
     Components: 00000000000000000000000000000000000000000000000000000000
