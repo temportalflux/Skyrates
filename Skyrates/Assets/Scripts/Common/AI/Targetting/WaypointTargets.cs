@@ -39,6 +39,8 @@ namespace Skyrates.Common.AI
         {
             PersistentDataWaypoints data = (PersistentDataWaypoints)persist;
 
+            if (behavior.InitialTargets.Length <= 0) return data;
+
             Waypoint currentWaypoint = behavior.InitialTargets[data.CurrentInitialTarget];
             // Check distance to current waypoint
             if ((currentWaypoint.transform.position - physics.LinearPosition).sqrMagnitude <
