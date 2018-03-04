@@ -38,6 +38,7 @@ namespace Skyrates.Common.AI.Formation
                     return transform;
                 }));
 
+            EditorUtility.SetDirty(this._instance);
         }
 
     }
