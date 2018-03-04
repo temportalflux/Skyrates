@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e74e64eddc278c54e95e2904ed15ecaa, type: 3}
-  m_Name: Navy_State_Passive
+  m_Name: Navy_Basic_Broadside_State
   m_EditorClassIdentifier: 
-  StateName: Passive
+  StateName: Broadside
   Transitions: []
-  Behavior: {fileID: 0}
+  Behavior: {fileID: 11400000, guid: ba8876dbdbaae7a409d171d072008842, type: 2}

@@ -85,6 +85,14 @@ namespace Skyrates.Common.AI
             return index < 0 ? null : this.States[index];
         }
 
+        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persist)
+        {
+            persist = base.GetUpdate(ref data, ref physics, deltaTime, persist);
+            PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm) persist;
+            this.GetCurrentBehavior(customDataTimed).GetUpdate(ref data, ref physics, deltaTime);
+            return persist;
+        }
+
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
         protected override PersistentDataTimed UpdateTimed(ref BehaviorData data, ref PhysicsData physics, float deltaTime, PersistentDataTimed persist)

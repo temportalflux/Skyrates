@@ -22,7 +22,7 @@ namespace Skyrates.Common.AI
             public float Weight;
 
             [SerializeField]
-            public Steering Steering;
+            public Behavior Behavior;
         }
 
         public SteeringWeight[] Steerings;
@@ -47,7 +47,7 @@ namespace Skyrates.Common.AI
                         LinearPosition = physics.LinearPosition,
                         RotationPosition = physics.RotationPosition,
                     };
-                    weightedSteering.Steering.GetUpdate(ref data, ref physicsNext, deltaTime);
+                    weightedSteering.Behavior.GetUpdate(ref data, ref physicsNext, deltaTime);
                     compiled += physicsNext * weightedSteering.Weight;
                 }
             }

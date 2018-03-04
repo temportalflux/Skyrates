@@ -64,15 +64,6 @@ namespace Skyrates.Common.Entity
         {
             this.BehaviorData.View = this.GetView();
             this.BehaviorData.Render = this.GetRender().transform;
-
-            if (this.BehaviorData.FormationOwner != null)
-            {
-                PhysicsData target = this.BehaviorData.FormationOwner.GetTarget(this.BehaviorData.FormationSlot);
-                if (target != null)
-                {
-                    this.BehaviorData.Target = target;
-                }
-            }
         }
         
         protected override void FixedUpdate()

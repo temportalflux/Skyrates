@@ -9,14 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3244fa7438d67ca40ac9308bdb785922, type: 3}
-  m_Name: Navy_FSM_Underling
+  m_Name: Navy_Basic_FSM
   m_EditorClassIdentifier: 
   ExecuteFrequency: 1
   ScatterExecute: 1
-  IdleBehavior: {fileID: 0}
-  Transitions:
-  - {fileID: 0}
+  IdleBehavior: {fileID: 11400000, guid: 755c90049f8ba8541b8d632d9c8e2959, type: 2}
+  Transitions: []
   States:
-  - {fileID: 11400000, guid: f9aba8263c3703b45b62d7dcca293c7a, type: 2}
+  - {fileID: 11400000, guid: 54e5c45ff8e117848a969f7c86a4050a, type: 2}
+  - {fileID: 11400000, guid: 4a9f020a7f017934490276f034f0d559, type: 2}
   StateNames:
-  - Passive
+  - Pursue
+  - Broadside

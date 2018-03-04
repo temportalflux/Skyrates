@@ -10,8 +10,10 @@ namespace Skyrates.Common.AI
     public abstract class StateTransition : ScriptableObject
     {
 
+        [HideInInspector]
         public int StateSource;
 
+        [HideInInspector]
         public int StateDestination;
 
         public State GetStateSource(StateMachine machine)

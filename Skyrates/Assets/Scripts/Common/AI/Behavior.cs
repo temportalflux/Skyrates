@@ -28,8 +28,7 @@ namespace Skyrates.Common.AI
 
         [HideInInspector]
         public Transform Render;
-
-        [HideInInspector]
+        
         public bool HasTarget = false;
 
         /// <summary>

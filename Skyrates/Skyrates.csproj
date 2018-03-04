@@ -520,9 +520,11 @@
     <Compile Include="Assets\Scripts\Common\AI\Behavior.cs" />
     <Compile Include="Assets\Scripts\Common\AI\BehaviorTimed.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Formation\FormationOwner.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Formation\UpdateTargetFormation.cs" />
     <Compile Include="Assets\Scripts\Common\AI\States\State.cs" />
     <Compile Include="Assets\Scripts\Common\AI\States\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Common\AI\States\StateTransition.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\States\Transitions\TransitionTargetExists.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Align.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\Arrive.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Basic\LockAt.cs" />
@@ -538,6 +540,7 @@
     <Compile Include="Assets\Scripts\Common\AI\Steering\Old\AITarget.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Old\ForceLerp.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\Steering.cs" />
+    <Compile Include="Assets\Scripts\Common\AI\Steering\SteeringPipeline.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Steering\WeightedSteering.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Targetting\Waypoint.cs" />
     <Compile Include="Assets\Scripts\Common\AI\Targetting\WaypointTargets.cs" />

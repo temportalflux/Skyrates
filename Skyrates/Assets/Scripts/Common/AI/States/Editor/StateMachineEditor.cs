@@ -93,11 +93,15 @@ namespace Skyrates.Common.AI
             if (ToggleTransitions)
             {
                 EditorGUI.indentLevel++;
+
                 if (ToggleTransitionStates.Length != this._stateMachine.States.Length)
                 {
                     Array.Resize(ref ToggleTransitionStates, this._stateMachine.States.Length);
                     Array.Resize(ref ToggleTransitionEntries, this._stateMachine.States.Length);
                 }
+
+
+
                 for (int iState = 0; iState < this._stateMachine.States.Length; iState++)
                 {
                     State state = this._stateMachine.States[iState];
@@ -136,33 +140,8 @@ namespace Skyrates.Common.AI
                             //   Array.Resize(ref ToggleTransitionEntries[iState], state.Transitions.Length);
 
                             EditorGUI.indentLevel++;
-                            EditorGUILayout.BeginHorizontal();
-
-                            if (transition != null)
-                            {
-                                State stateDest = transition.GetStateDestination(this._stateMachine);
-                                string str = state.StateName + " -> " +
-                                             (stateDest == null ? "NONE" : stateDest.StateName);
-                                entryToggles[i] = EditorGUILayout.Foldout(entryToggles[i], str);
-                            }
-                            else
-                            {
-                                EditorGUILayout.LabelField(i.ToString());
-                            }
-
-                            //this.RenderEditor(ref transition, ref entryToggles[i]);
-                            transition = (StateTransition)EditorGUILayout.ObjectField(
-                                transition, typeof(StateTransition),
-                                allowSceneObjects: false);
-
-                            if (transition != null)
-                            {
-
-                                transition.StateDestination = EditorGUILayout.Popup(transition.StateDestination, this._stateMachine.StateNames);
-
-                            }
-
-                            EditorGUILayout.EndHorizontal();
+                            
+                            this.DrawTransition(transition, transition == null ? i.ToString() : state.StateName, ref entryToggles[i]);
 
                             EditorGUI.indentLevel--;
                             return transition;
@@ -174,6 +153,32 @@ namespace Skyrates.Common.AI
             }
 
             EditorUtility.SetDirty(this._stateMachine);
+        }
+
+        private void DrawTransition(StateTransition transition, string stateName, ref bool toggled)
+        {
+            EditorGUILayout.BeginHorizontal();
+
+            if (transition != null)
+            {
+                State stateDest = transition.GetStateDestination(this._stateMachine);
+                string str = stateName + " -> " +
+                             (stateDest == null ? "NONE" : stateDest.StateName);
+                toggled = EditorGUILayout.Foldout(toggled, str);
+            }
+
+            EditorGUILayout.EndHorizontal();
+
+            transition = (StateTransition) EditorGUILayout.ObjectField(
+                transition, typeof(StateTransition),
+                allowSceneObjects: false);
+
+            if (transition != null)
+            {
+
+                transition.StateDestination = EditorGUILayout.Popup(transition.StateDestination, this._stateMachine.StateNames);
+
+            }
         }
 
         private void RenderEditor<T>(ref T data, ref bool toggled) where T:UnityEngine.Object
