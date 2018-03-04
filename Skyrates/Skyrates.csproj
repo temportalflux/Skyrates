@@ -451,13 +451,17 @@
     <Compile Include="Assets\Scripts\Client\Data\Inventory.cs" />
     <Compile Include="Assets\Scripts\Client\Data\LocalData.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\DistanceCollider.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\EntityCannon.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityProjectile.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShipMerchant.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShipNavy.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShipNPC.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\LookLinearVelocity.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\Shooter.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\TestCannonRotation.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\TestShooterRotation.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\EventArtilleryFired.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\EventEnemyTargetEngage.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Events\EventEntity.cs" />

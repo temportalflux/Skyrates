@@ -46,13 +46,12 @@ namespace Skyrates.Client.Mono
         public void FireProjectile(Vector3 direction, Vector3 launchVelocity)
         {
             // TODO: These are fired off one by one, and are often done in batches. This should just be one packet of all the projectiles to spawn.
-            Common.Entity.Entity entity = GameManager.Instance.SpawnEntity(this.projectilePrefab);
+            Common.Entity.Entity entity = GameManager.Instance.SpawnEntity(this.projectilePrefab); //TODO: Use an object pool if possible.
             if (entity != null)
             {
                 EntityProjectile projectile = (EntityProjectile)entity;
                 projectile.Launch(this.spawn.position, this.spawn.rotation, launchVelocity, direction * this.force);
             }
         }
-
-    }
+	}
 }
