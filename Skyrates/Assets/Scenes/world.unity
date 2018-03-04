@@ -3497,6 +3497,11 @@ Prefab:
       propertyPath: m_Name
       value: Ship_Navy_Basic (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: BehaviorData.FormationSlot
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c10bc748916e84c878981affe3298b, type: 2}
   m_IsPrefabParent: 0
@@ -6560,11 +6565,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1341464026}
     m_Modifications:
-    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
-        type: 2}
-      propertyPath: Steering.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
       propertyPath: m_LocalPosition.x
       value: -25
@@ -6597,33 +6597,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1714927255280634, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_Name
-      value: Ship_Navy_Basic (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
         type: 2}
       propertyPath: BehaviorData.FormationOwner
       value: 
       objectReference: {fileID: 561143690}
-    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
-        type: 2}
-      propertyPath: Steering.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 19c9022d9701ff74a84489d17593243f,
-        type: 2}
+    - target: {fileID: 1714927255280634, guid: 78c10bc748916e84c878981affe3298b, type: 2}
+      propertyPath: m_Name
+      value: Ship_Navy_Basic (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
         type: 2}
       propertyPath: BehaviorData.FormationSlot
@@ -7889,11 +7871,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1341464026}
     m_Modifications:
-    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
-        type: 2}
-      propertyPath: Steering.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 50
@@ -7926,33 +7903,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1714927255280634, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_Name
-      value: Ship_Navy_Basic (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
         type: 2}
       propertyPath: BehaviorData.FormationOwner
       value: 
       objectReference: {fileID: 561143690}
-    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
-        type: 2}
-      propertyPath: Steering.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 19c9022d9701ff74a84489d17593243f,
-        type: 2}
+    - target: {fileID: 1714927255280634, guid: 78c10bc748916e84c878981affe3298b, type: 2}
+      propertyPath: m_Name
+      value: Ship_Navy_Basic (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
         type: 2}
       propertyPath: BehaviorData.FormationSlot
@@ -8685,11 +8644,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1341464026}
     m_Modifications:
-    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
-        type: 2}
-      propertyPath: Steering.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
       propertyPath: m_LocalPosition.x
       value: -50
@@ -8722,37 +8676,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1714927255280634, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_Name
-      value: Ship_Navy_Basic (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4741361080320124, guid: 78c10bc748916e84c878981affe3298b, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
         type: 2}
       propertyPath: BehaviorData.FormationOwner
       value: 
       objectReference: {fileID: 561143690}
-    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
-        type: 2}
-      propertyPath: Steering.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 19c9022d9701ff74a84489d17593243f,
-        type: 2}
-    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
-        type: 2}
-      propertyPath: BehaviorData.FormationSlot
-      value: 3
+    - target: {fileID: 1714927255280634, guid: 78c10bc748916e84c878981affe3298b, type: 2}
+      propertyPath: m_Name
+      value: Ship_Navy_Basic (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c10bc748916e84c878981affe3298b, type: 2}

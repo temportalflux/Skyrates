@@ -29,7 +29,17 @@ namespace Skyrates.Client.Entity
     public class DistanceCollider : MonoBehaviour
     {
 
-        public float Radius;
+        public enum DistanceMode
+        {
+            Sphere,
+            Box,
+        }
+
+        public DistanceMode Mode;
+
+        public float RadiusSphere;
+
+        public Vector3 RadiusBox;
 
         public LayerMask CollisionLayers;
         
@@ -47,7 +57,17 @@ namespace Skyrates.Client.Entity
         void OnDrawGizmosSelected()
         {
             Gizmos.color = this.Color;
-            Gizmos.DrawWireSphere(transform.position, this.Radius);
+            switch (this.Mode)
+            {
+                case DistanceMode.Sphere:
+                    Gizmos.DrawWireSphere(this.transform.position, this.RadiusSphere);
+                    break;
+                case DistanceMode.Box:
+                    Gizmos.DrawWireCube(this.transform.position, this.RadiusBox);
+                    break;
+                default:
+                    break;
+            }
         }
 #endif
 
@@ -70,13 +90,25 @@ namespace Skyrates.Client.Entity
 
         private void ExecuteAlertCollisions()
         {
-            foreach (Collider other in Physics.OverlapSphere(this.transform.position, this.Radius, this.CollisionLayers))
+            Collider[] colliders;
+            switch (this.Mode)
+            {
+                case DistanceMode.Sphere:
+                    colliders = Physics.OverlapSphere(this.transform.position, this.RadiusSphere, this.CollisionLayers);
+                    break;
+                case DistanceMode.Box:
+                    colliders = Physics.OverlapBox(this.transform.position, this.RadiusBox, this.transform.rotation, this.CollisionLayers);
+                    break;
+                default:
+                    return;
+            }
+            foreach (Collider other in colliders)
             {
                 DistanceCollidable collidable = other.gameObject.GetComponent<DistanceCollidable>();
                 if (collidable != null)
                 {
-                    collidable.OnEnterEntityRadius(this._owner, this.Radius);
-                    this._owner.OnOverlapWith(other.gameObject, this.Radius);
+                    collidable.OnEnterEntityRadius(this._owner, this.RadiusSphere);
+                    this._owner.OnOverlapWith(other.gameObject, this.RadiusSphere);
                 }
             }
         }
