@@ -53,6 +53,8 @@ public static partial class ExtensionMethods
         Func<T, int, string> GetFieldName = null,
         Func<T, int, T> DrawBlock = null)
     {
+        if (array == null) array = new T[0];
+
         int size = array.Length;
 
         if (entryToggles == null) entryToggles = new bool[size];
@@ -95,7 +97,7 @@ public static partial class ExtensionMethods
         {
             for (int i = 0; i < size; i++)
             {
-                if (canToggleEntries) EditorGUI.indentLevel++;
+                EditorGUI.indentLevel++;
                 if (canToggleEntries)
                 {
                     entryToggles[i] = EditorGUILayout.Foldout(entryToggles[i],
@@ -105,7 +107,7 @@ public static partial class ExtensionMethods
                 {
                     array[i] = DrawBlock(array[i], i);
                 }
-                if (canToggleEntries) EditorGUI.indentLevel--;
+                EditorGUI.indentLevel--;
             }
         }
 
@@ -164,6 +166,47 @@ public static partial class ExtensionMethods
 
         return toggle;
     }
+
+    // https://gist.github.com/bzgeb/3800350
+    public static void DrawArrayArea<T>(this Editor editor,
+        string label, ref T[] target, Func<GameObject, T> getElementFrom)
+    {
+        Event evt = Event.current;
+        Rect drop_area = GUILayoutUtility.GetRect(0.0f, 20.0f, GUILayout.ExpandWidth(true));
+        GUI.Box(drop_area, label);
+
+        switch (evt.type)
+        {
+            case EventType.DragUpdated:
+            case EventType.DragPerform:
+                if (!drop_area.Contains(evt.mousePosition))
+                    return;
+
+                DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+
+                if (evt.type == EventType.DragPerform)
+                {
+                    DragAndDrop.AcceptDrag();
+
+                    List<T> elements = new List<T>();
+                    foreach (Object draggedObject in DragAndDrop.objectReferences)
+                    {
+                        if (draggedObject is GameObject)
+                        {
+                            elements.Add(getElementFrom(draggedObject as GameObject));
+                        }
+                        else
+                        {
+                            Debug.Log(string.Format("{0} is no game object", draggedObject));
+                        }
+                    }
+                    target = elements.ToArray();
+                }
+                break;
+        }
+    }
+
+
 #endif
 
 }
