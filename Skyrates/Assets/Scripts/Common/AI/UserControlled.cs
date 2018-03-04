@@ -77,7 +77,7 @@ namespace Skyrates.Common.AI
 
             // for ship movement
             float rotationY = input.Strafe.Value;
-            rotationY *= (1 - input.Forward.Input) * 0.5f;
+            //rotationY *= (1 - input.Forward.Input) * 0.5f;
 
             // banking
             float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), input.YawAngle);
