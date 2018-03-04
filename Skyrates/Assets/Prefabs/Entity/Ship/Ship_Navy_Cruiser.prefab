@@ -393,8 +393,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1296444688354658}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.7, y: 0, z: -11.073568}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: -70}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4311465932068558}
   - {fileID: 4562853253172884}
@@ -655,11 +655,12 @@ MonoBehaviour:
     RotationPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationVelocity: {x: 0, y: 0, z: 0}
     RotationAccelleration: {x: 0, y: 0, z: 0}
-    RotationAestetic: {x: 0, y: 0, z: 0}
+    HasAesteticRotation: 0
+    RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
   BehaviorData:
     InitialTargets: []
     FormationOwner: {fileID: 0}
-    FormationSlot: 0
+    FormationSlot: 4
     View: {fileID: 0}
     Render: {fileID: 0}
     HasTarget: 0
@@ -670,10 +671,11 @@ MonoBehaviour:
       RotationPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationVelocity: {x: 0, y: 0, z: 0}
       RotationAccelleration: {x: 0, y: 0, z: 0}
-      RotationAestetic: {x: 0, y: 0, z: 0}
+      HasAesteticRotation: 0
+      RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
   Steering:
   - {fileID: 11400000, guid: 5d19c3255f5344d46a09a959f0ef57e9, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: feeb63102741db04bb03bc107f617dcb, type: 2}
   StatBlock: {fileID: 11400000, guid: adb9af9b6eaaeab4096427cda231fd7d, type: 2}
   SmokeData:
     Bounds: {fileID: 65351439239521238}

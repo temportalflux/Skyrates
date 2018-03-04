@@ -42,8 +42,6 @@ namespace Skyrates.Common.AI
         /// <inheritdoc />
         public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persistentData)
         {
-            physics.RotationPosition = data.Target.RotationPosition;
-            return persistentData;
             float currentRotation = physics.RotationPosition.eulerAngles.y;
 
             // Get the naive direction to the target
@@ -60,7 +58,7 @@ namespace Skyrates.Common.AI
                 // Slow down till stopped
                 accelleration = 0 - physics.RotationVelocity.y;
                 accelleration /= this.AccelerationTime;
-                //physics.RotationAccelleration = new Vector3(0, accelleration, 0);
+                physics.RotationAccelleration = new Vector3(0, accelleration, 0);
                 return persistentData;
             }
 
@@ -95,7 +93,7 @@ namespace Skyrates.Common.AI
                 accelleration *= this.MaxAcceleration;
             }
 
-            //physics.RotationAccelleration = new Vector3(0, accelleration, 0);
+            physics.RotationAccelleration = new Vector3(0, accelleration, 0);
 
             return persistentData;
         }

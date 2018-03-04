@@ -8,10 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71cc539b2959f544b1fbde9d95c8c7a, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 37e7183fbdf979346a2b63961e73cbe1, type: 3}
+  m_Name: LookForward
   m_EditorClassIdentifier: 
-  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
-  SpeedMax: 60
-  SpeedInitial: 20
-  ConstantSpeed: 25.8632
+  MaxAcceleration: 5
+  MaxSpeed: 25
+  DistanceArriving: 25
+  DistanceArrived: 10
+  AccelerationTime: 0.1
