@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Utility;
 using Skyrates.Client.Entity;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
@@ -119,14 +120,16 @@ namespace Skyrates.Common.Entity
             // Update rotational velocity
             this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
 
-            //this.Physics.RotationPosition = this.GetRender().rotation;
             this.Integrate(ref this.Physics.RotationPosition, this.Physics.RotationVelocity, deltaTime);
 
             // Update rotation
-            //this._physics.AddTorque(this.Physics.RotationVelocity);
             this._physics.MoveRotation(this.Physics.RotationPosition);
-            this.GetRender().transform.localRotation = Quaternion.Euler(this.Physics.RotationAestetic);
-            //this.GetRender().AddTorque(this.Physics.RotationVelocity.eulerAngles * deltaTime, ForceMode.VelocityChange);
+
+            // TODO: Delegate to subclass maybe?
+            if (this.Physics.HasAesteticRotation)
+            {
+                this.GetRender().transform.localRotation = this.Physics.RotationAesteticPosition;
+            }
 
         }
 

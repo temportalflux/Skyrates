@@ -62,7 +62,7 @@ namespace Cinemachine
                 EditorGUI.PropertyField(rect, heightProp, new GUIContent("Height"));
                 rect.x += rect.width + hSpace;
                 SerializedProperty radiusProp = orbit.FindPropertyRelative(() => Target.m_Orbits[i].m_Radius);
-                EditorGUI.PropertyField(rect, radiusProp, new GUIContent("Radius"));
+                EditorGUI.PropertyField(rect, radiusProp, new GUIContent("RadiusSphere"));
                 EditorGUIUtility.labelWidth = oldWidth; 
             }
             if (EditorGUI.EndChangeCheck())

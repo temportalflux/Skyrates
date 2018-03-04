@@ -38,6 +38,7 @@ namespace Skyrates.Common.AI
 
         public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
         {
+            physics.HasAesteticRotation = true;
             this.Move(data, ref physics);
             return pData;
         }
@@ -86,7 +87,7 @@ namespace Skyrates.Common.AI
             float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
 
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
-            physicsData.RotationAestetic = new Vector3(rotationX, 0.0f, rotationZ);
+            physicsData.RotationAesteticPosition = Quaternion.Euler(rotationX, 0.0f, rotationZ);
         }
 
     }

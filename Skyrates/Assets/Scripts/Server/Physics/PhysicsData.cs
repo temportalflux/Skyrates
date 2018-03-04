@@ -33,8 +33,10 @@ namespace Skyrates.Common.AI
         [SerializeField]
         public Vector3 RotationAccelleration = Vector3.zero;
 
+        public bool HasAesteticRotation = false;
+
         [SerializeField]
-        public Vector3 RotationAestetic = Vector3.zero;
+        public Quaternion RotationAesteticPosition = Quaternion.identity;
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
