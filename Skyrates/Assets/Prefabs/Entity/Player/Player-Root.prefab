@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mode: 0
-  RadiusSphere: 30
+  RadiusSphere: 100
   RadiusBox: {x: 0, y: 0, z: 0}
   CollisionLayers:
     serializedVersion: 2
@@ -493,7 +493,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   Color: {r: 0.9793103, g: 1, b: 0, a: 1}
-  Frequency: 1
+  Frequency: 0.15
   ScatterExecution: 1
 --- !u!114 &114943066303382066
 MonoBehaviour:
