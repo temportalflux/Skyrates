@@ -40,7 +40,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1439396955032846
 GameObject:
   m_ObjectHideFlags: 1
@@ -52,23 +52,6 @@ GameObject:
   - component: {fileID: 65650341326461750}
   m_Layer: 17
   m_Name: Smoke
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1453775763702274
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4793560947797042}
-  - component: {fileID: 136592094596876238}
-  - component: {fileID: 114539541283876674}
-  m_Layer: 10
-  m_Name: 'Range: Shoot'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,23 +108,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1683758363767968
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4049564075471216}
-  - component: {fileID: 136811495054865712}
-  - component: {fileID: 114217121916265348}
-  m_Layer: 10
-  m_Name: 'Range: Find'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1714927255280634
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,19 +156,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4049564075471216
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1683758363767968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 150, y: 150, z: 150}
-  m_Children: []
-  m_Father: {fileID: 4739846600331500}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4144529139514880
 Transform:
   m_ObjectHideFlags: 1
@@ -237,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493425632653566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.007}
+  m_LocalPosition: {x: 0, y: 0.65, z: 2.007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4455530427761126}
@@ -283,8 +236,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4517656572020972}
-  - {fileID: 4049564075471216}
-  - {fileID: 4793560947797042}
   m_Father: {fileID: 4741361080320124}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,19 +267,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4144529139514880}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4793560947797042
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453775763702274}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 150, y: 150, z: 150}
-  m_Children: []
-  m_Father: {fileID: 4739846600331500}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4943880658580202
 Transform:
@@ -454,54 +392,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.51251, y: 5.4534, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114217121916265348
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1683758363767968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24da34c0b1a90134fb08ea2117dfecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114269295474296904}
-        m_MethodName: OnEnterAreaFind
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Exit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114269295474296904}
-        m_MethodName: OnExitAreaFind
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114269295474296904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,6 +446,8 @@ MonoBehaviour:
     type: 2}
   LootDropRadius: 5
   Health: 0
+  Shooters:
+  - {fileID: 114271004218291994}
 --- !u!114 &114271004218291994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -571,54 +463,6 @@ MonoBehaviour:
     type: 2}
   spawn: {fileID: 4455530427761126}
   force: 0.005
---- !u!114 &114539541283876674
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453775763702274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24da34c0b1a90134fb08ea2117dfecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114269295474296904}
-        m_MethodName: OnEnterAreaShoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Stay:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Exit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114269295474296904}
-        m_MethodName: OnExitAreaShoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Common.Entity.TriggerArea+EventTrigger, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114702991569725404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -631,29 +475,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 114269295474296904}
---- !u!136 &136592094596876238
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453775763702274}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136811495054865712
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1683758363767968}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

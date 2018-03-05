@@ -13,24 +13,29 @@ namespace Skyrates.Client.Entity
     /// </summary>
     public class EntityShipNavy : EntityShipNPC
     {
-        
-        IEnumerator ShootAtTarget()
-        {
-            while (true)
-            {
-                float wait = 3;
 
-                //if (this._aiTarget != null)
-                //{
-                //    this.Shoot(ShipData.ComponentType.ArtilleryForward); 
-                //}
-                yield return new WaitForSeconds(wait);
+        private Coroutine _shootAt;
+
+        protected override void StartShooting(EntityPlayerShip target, float maxDistance)
+        {
+            if (this._shootAt == null)
+            {
+                this._shootAt = StartCoroutine(this.ShootAtTarget(target, maxDistance));
             }
         }
 
-        protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
+        IEnumerator ShootAtTarget(EntityPlayerShip target, float maxDistance)
         {
-            return null;//this.Shooters;
+            float maxDistSq = maxDistance * maxDistance;
+            Vector3 direction = (target.transform.position - this.transform.position);
+            while (target && gameObject && direction.sqrMagnitude <= maxDistSq)
+            {
+                float wait = 2;
+                this.Shoot(ShipData.ComponentType.ArtilleryForward, direction);
+                yield return new WaitForSeconds(wait);
+                direction = (target.transform.position - this.transform.position);
+            }
+            this._shootAt = null;
         }
 
     }

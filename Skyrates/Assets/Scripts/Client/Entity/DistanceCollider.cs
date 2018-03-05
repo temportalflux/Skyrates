@@ -104,11 +104,14 @@ namespace Skyrates.Client.Entity
             }
             foreach (Collider other in colliders)
             {
-                DistanceCollidable collidable = other.gameObject.GetComponent<DistanceCollidable>();
-                if (collidable != null)
+                DistanceCollidable[] collidables = other.gameObject.GetComponentsInParent<DistanceCollidable>();
+                foreach (DistanceCollidable collidable in collidables)
                 {
-                    collidable.OnEnterEntityRadius(this._owner, this.RadiusSphere);
-                    this._owner.OnOverlapWith(other.gameObject, this.RadiusSphere);
+                    if (collidable != null)
+                    {
+                        collidable.OnEnterEntityRadius(this._owner, this.RadiusSphere);
+                        this._owner.OnOverlapWith(other.gameObject, this.RadiusSphere);
+                    }
                 }
             }
         }

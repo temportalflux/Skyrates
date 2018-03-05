@@ -265,6 +265,25 @@ namespace Skyrates.Client.Entity
         /// <param name="artillery"></param>
         public void Shoot(ShipData.ComponentType artillery)
         {
+            this.Shoot(artillery, (shooter => shooter.GetProjectileDirection().normalized));
+        }
+
+        /// <summary>
+        /// Causes all the shooters from <see cref="GetArtilleryShooters"/> to fire for some artillery component.
+        /// </summary>
+        /// <param name="artillery"></param>
+        public void Shoot(ShipData.ComponentType artillery, Vector3 allDirection)
+        {
+            allDirection.Normalize();
+            this.Shoot(artillery, (shooter => allDirection));
+        }
+
+        /// <summary>
+        /// Causes all the shooters from <see cref="GetArtilleryShooters"/> to fire for some artillery component.
+        /// </summary>
+        /// <param name="artillery"></param>
+        public void Shoot(ShipData.ComponentType artillery, Func<Shooter, Vector3> getDirection)
+        {
             // TODO: Optimize this
             Shooter[] shooters = this.GetArtilleryShooters(artillery);
 
@@ -274,7 +293,7 @@ namespace Skyrates.Client.Entity
             // Tell each shooter to fire
             foreach (Shooter shooter in shooters)
             {
-                shooter.FireProjectile(shooter.GetProjectileDirection().normalized, this.Physics.LinearVelocity);
+                shooter.FireProjectile(getDirection(shooter), this.Physics.LinearVelocity);
             }
 
             // Dispatch event for the shooters as a whole.
