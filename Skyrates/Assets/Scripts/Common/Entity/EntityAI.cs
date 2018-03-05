@@ -95,24 +95,17 @@ namespace Skyrates.Common.Entity
             if (this._physics == null)
                 return;
 
-            //this.transform.position = this.Physics.LinearPosition;
-
-            // Update velocity
-            this.Integrate(ref this.Physics.LinearVelocity, this.Physics.LinearAccelleration, deltaTime);
-
-            // Update position
+            // Integrate the velocities and accellerations
+            this.Physics.Integrate(deltaTime);
+            
+            // Use rigidbody to apply velocity
             // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
             //this._characterController.Move(this.Physics.LinearVelocity * deltaTime);
             this._physics.velocity = this.Physics.LinearVelocity;
 
-            // Update physics position
+            // Retroactively update position due to rigidbody
             this.Physics.LinearPosition = this.transform.position;
-
-            // Update rotational velocity
-            this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
-
-            this.Integrate(ref this.Physics.RotationPosition, this.Physics.RotationVelocity, deltaTime);
-
+            
             // Update rotation
             this._physics.MoveRotation(this.Physics.RotationPosition);
 
@@ -122,40 +115,6 @@ namespace Skyrates.Common.Entity
                 this.GetRender().transform.localRotation = this.Physics.RotationAesteticPosition;
             }
 
-        }
-
-        /// <summary>
-        /// Integrates a Vector3 by another Vector3 over time.
-        /// </summary>
-        /// <param name="start"></param>
-        /// <param name="amount"></param>
-        /// <param name="deltaTime"></param>
-        private void Integrate(ref Vector3 start, Vector3 amount, float deltaTime)
-        {
-            // TODO: Move to an extension method.
-            start += amount * deltaTime;
-        }
-
-        /// <summary>
-        /// Integrates a Quaternion by another Quaternion over time.
-        /// </summary>
-        /// <param name="start"></param>
-        /// <param name="amount"></param>
-        /// <param name="deltaTime"></param>
-        private void Integrate(ref Quaternion start, Quaternion amount, float deltaTime)
-        {
-            // TODO: Move to an extension method.
-            Vector3 euler = start.eulerAngles;
-            this.Integrate(ref euler, amount.eulerAngles, deltaTime);
-            start = Quaternion.Euler(euler);
-        }
-
-        private void Integrate(ref Quaternion start, Vector3 amount, float deltaTime)
-        {
-            // TODO: Move to an extension method.
-            Vector3 euler = start.eulerAngles;
-            this.Integrate(ref euler, amount, deltaTime);
-            start = Quaternion.Euler(euler);
         }
 
         /// <summary>

@@ -26,12 +26,12 @@ namespace Skyrates.Common.AI
             }
         }
 
-        public void Awake()
+        public void OnEnable()
         {
             this.Speed = this.ControllerData.SpeedInitial;
         }
 
-        public void OnDestroy()
+        public void OnDisable()
         {
             this.Speed = 0.0f;
         }
@@ -85,7 +85,7 @@ namespace Skyrates.Common.AI
 
             // pitching (up/down rotation)
             float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
-
+            
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
             physicsData.RotationAesteticPosition = Quaternion.Euler(rotationX, 0.0f, rotationZ);
         }

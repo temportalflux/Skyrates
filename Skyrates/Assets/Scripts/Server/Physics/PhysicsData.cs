@@ -69,6 +69,22 @@ namespace Skyrates.Common.AI
                 RotationAccelleration = a.RotationAccelleration + b.RotationAccelleration,
             };
         }
+
+        public void Integrate(float deltaTime)
+        {
+            // Update linear velocity
+            ExtensionMethods.Integrate(ref this.LinearVelocity, this.LinearAccelleration, deltaTime);
+
+            // Update linear position
+            ExtensionMethods.Integrate(ref this.LinearPosition, this.LinearVelocity, deltaTime);
+
+            // Update rotational velocity
+            ExtensionMethods.Integrate(ref this.RotationVelocity, this.RotationAccelleration, deltaTime);
+
+            // Update rotational position
+            ExtensionMethods.Integrate(ref this.RotationPosition, this.RotationVelocity, deltaTime);
+
+        }
         
     }
 

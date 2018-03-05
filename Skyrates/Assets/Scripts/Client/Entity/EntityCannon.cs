@@ -1,11 +1,16 @@
 ﻿using Skyrates.Client.Mono;
 using System.Collections;
+using Skyrates.Common.AI;
+using Skyrates.Common.Entity;
 using UnityEngine;
+using Zios;
 
 namespace Skyrates.Client.Entity
 {
-	[RequireComponent(typeof(Shooter))] //No inheritance because we don't want to accidentally call FireProjectile when we actually meant to shoot.
-	public class EntityCannon : MonoBehaviour
+
+    //No inheritance because we don't want to accidentally call FireProjectile when we actually meant to shoot.
+    [RequireComponent(typeof(Shooter))]
+	public class EntityCannon : Common.Entity.Entity, DistanceCollidable
 	{
 		/// <summary>
 		/// The amount of extra tilt in degrees needed in a direction to make the target.
@@ -27,52 +32,198 @@ namespace Skyrates.Client.Entity
 		/// </summary>
 		public Vector3 TargetPosition;
 
+        /// <summary>
+        /// The number of seconds per shot fired.
+        /// </summary>
+	    public float RateOfFire;
+
 		/// <summary>
 		/// The <see cref="Shooter"/> used to fire projectiles.
 		/// </summary>
 		private Shooter _shooter;
-		
-		void Start()
-		{
-			this._shooter = GetComponent<Shooter>();
-			StartCoroutine(ShootEverySecond()); //For debugging purposes.
+
+        /// <summary>
+        /// Used to move the cannon over time to look at the target
+        /// </summary>
+	    public Behavior RotationBehavior;
+
+	    public GameObject CannonVerticalComponent;
+
+	    private BehaviorData BehaviorData;
+	    private PhysicsData PhysicsData;
+	    private Quaternion originalRotation;
+	    private Coroutine FollowAndFireAtRoutine;
+
+
+        private Quaternion Rotation
+	    {
+	        get
+	        {
+	            return Quaternion.Euler(
+	                this.CannonVerticalComponent.transform.rotation.x,
+	                this.transform.rotation.y, 0.0f
+	            );
+	        }
+	        set
+	        {
+	            this.transform.rotation = Quaternion.Euler(value.eulerAngles.x, value.eulerAngles.y, 0.0f);
+	            this.CannonVerticalComponent.transform.rotation = Quaternion.Euler(value.eulerAngles.x, 0.0f, 0.0f);
+	        }
+	    }
+
+	    protected override void Start()
+        {
+            base.Start();
+            this.BehaviorData = new BehaviorData();
+            this.PhysicsData = new PhysicsData();
+            // x component goes to vertical rotation
+            // y component goes to base
+            this.originalRotation = this.Rotation;
+            this.FollowAndFireAtRoutine = null;
+
+            this._shooter = GetComponent<Shooter>();
+			
+            //StartCoroutine(ShootEverySecond()); //For debugging purposes.
 		}
 
-		/*void Update()
-		{
-			Debug.DrawLine(_shooter.spawn.position, TargetPosition); //For debugging purposes.
-		}*/
+	    public void OnEnterEntityRadius(EntityAI source, float radius)
+	    {
+	        if (source is EntityPlayerShip)
+	        {
+                // Only fire at the first who entered the radius
+	            if (this.FollowAndFireAtRoutine == null)
+	            {
+	                this.FollowAndFireAtRoutine = StartCoroutine(this.FollowAndFireAt(source, radius));
+                }
+            }
+	    }
 
-		/// <summary>
-		///Function for testing that shoots periodically.
-		/// </summary>
-		IEnumerator ShootEverySecond()
+	    public void OnOverlapWith(GameObject other, float radius)
+	    {
+	    }
+
+	    IEnumerator FollowAndFireAt(EntityAI target, float maxDistance)
+	    {
+            // Get the total distance that the target is allowed to be away from
+	        float maxDistSq = maxDistance * maxDistance;
+
+            // Initalize physics data
+            {
+	            this.PhysicsData.LinearPosition = this.transform.position;
+	            this.PhysicsData.LinearVelocity = Vector3.zero;
+                this.PhysicsData.LinearAccelleration = Vector3.zero;
+	            this.PhysicsData.RotationPosition = this.Rotation;
+                this.PhysicsData.RotationVelocity = Vector3.zero;
+                this.PhysicsData.RotationAccelleration = Vector3.zero;
+                this.PhysicsData.HasAesteticRotation = false;
+                this.PhysicsData.RotationAesteticPosition = Quaternion.identity;
+            }
+            // Initalize the behavior data
+	        {
+	            this.BehaviorData.View = this.transform;
+	            this.BehaviorData.Render = this.transform;
+	            this.BehaviorData.HasTarget = true;
+	        }
+
+	        float timePrevious = Time.time;
+            // the amount of time since last fire projectile
+	        float timeElapsed = 0.0f;
+
+            while (target && (target.transform.position - this.transform.position).sqrMagnitude <= maxDistSq)
+            {
+                float deltaTime = Time.time - timePrevious;
+                timePrevious = Time.time;
+
+                // Update the behavior data
+                {
+                    this.BehaviorData.Target = target.Physics.Copy();
+
+                    // Determine the angle and rotation we want to be at to get a good shot
+                    //this.CalculateArc(this.BehaviorData.Target.LinearPosition, this.ShootSpeed);
+
+	            }
+                // Get the updated physics from the behavior
+	            {
+	                this.RotationBehavior.GetUpdate(ref this.BehaviorData, ref this.PhysicsData, deltaTime);
+	            }
+                // Rotate the cannon to its destination
+	            {
+	                this.PhysicsData.Integrate(deltaTime);
+	                this.Rotation = this.PhysicsData.RotationPosition;
+	            }
+                // Fire at the target, if enough time has passed
+                {
+                    timeElapsed += deltaTime;
+                    if (timeElapsed >= this.RateOfFire)
+                    {
+                        timeElapsed -= this.RateOfFire;
+                        //Debug.Log("FIRE");
+                        this._shooter.FireProjectile(
+                             (target.transform.position - this.transform.position).normalized,
+                             Vector3.zero
+                        );
+                    }
+                }
+
+	            yield return null;
+	        }
+
+	        this.BehaviorData.HasTarget = false;
+            
+            /*
+            // Return cannon to original orientation (originRotation)
+	        timePrevious = Time.time;
+            // the amount of time progressed in the quaternion lerp (to return cannon to original rotation)
+	        timeElapsed = 0.0f;
+	        Quaternion startRot = this.PhysicsData.RotationPosition;
+            // MAGIC: cannons should return to their original rotation within 2 seconds
+	        float maxRotationTime = 2.0f;
+	        float maxRotationTimeInv = 1 / maxRotationTime;
+            while (timeElapsed <= 1.0f)
+            {
+                float deltaTime = Time.time - timePrevious;
+                timePrevious = Time.time;
+                timeElapsed = Mathf.Min(1.0f, timeElapsed + deltaTime);
+                this.Rotation = Quaternion.Lerp(startRot, this.originalRotation, timeElapsed * maxRotationTimeInv);
+            }
+            */
+
+            // done launching at some target, who is now out of range
+	        this.FollowAndFireAtRoutine = null;
+	    }
+
+
+        /// <summary>
+        ///Function for testing that shoots periodically.
+        /// </summary>
+        IEnumerator ShootEverySecond()
 		{
 			while (this && gameObject)
 			{
-				CalculateArc();
-				Shoot();
+				//CalculateArc(this.TargetPosition, this.ShootSpeed);
+				//Shoot(this.ArcAngle, this.ArcAxis, this.TargetPosition, this.ShootSpeed);
 				yield return new WaitForSeconds(1);
 			}
 
 		}
 
 		/// <summary>
-		/// Automatically calculates and sets arc angle and axis based on gravity and distance over time (speed), in the forward direction. This does not take into account impulse force or deceleration/damping, so adjust accordingly.
+		/// Automatically calculates and sets arc angle and axis based on gravity and distance
+		/// over time (speed/velocity), in the forward direction.
+		/// This does not take into account impulse force or deceleration/damping.
 		/// </summary>
-		public void CalculateArc()
+		public void CalculateArc(Vector3 target, float speed)
 		{
-			Vector3 distanceVector = (this.TargetPosition - this._shooter.spawn.position);
-			Vector3 forward = (this.TargetPosition - this._shooter.spawn.position).normalized;
+			Vector3 distanceVector = (target - this._shooter.spawn.position);
+			Vector3 forward = (target - this._shooter.spawn.position).normalized;
 			Vector3 up = Vector3.up;
 			Vector3 right = Vector3.Cross(forward, up);
 			this.ArcAxis = right;
 			float gravity = Physics.gravity.y;
-			float speed = this.ShootSpeed;
 			
 			distanceVector.y = 0.0f;
 			float xSqr = Mathf.Min(this.ShootSpeed * this.ShootSpeed, distanceVector.sqrMagnitude);
-			float y = (this.TargetPosition.y - this._shooter.spawn.position.y);
+			float y = (target.y - this._shooter.spawn.position.y);
 			//Formula found here: https://gamedev.stackexchange.com/questions/17467/calculating-velocity-needed-to-hit-target-in-parabolic-arc by jonas
 			float substitution = (speed * speed * speed * speed) -
 				gravity * (gravity * (xSqr) + 2 * y * (speed * speed));
@@ -86,11 +237,12 @@ namespace Skyrates.Client.Entity
 		/// <summary>
 		/// Fires one projectile from this cannon.
 		/// </summary>
-		public void Shoot()
+		public void Shoot(float arcAngle, Vector3 arcAxis, Vector3 target, float speed)
 		{
-			Vector3 direction = Quaternion.AngleAxis(this.ArcAngle, this.ArcAxis) * (this.TargetPosition - this._shooter.spawn.position).normalized;
+			Vector3 direction = Quaternion.AngleAxis(arcAngle, arcAxis) * (target - this._shooter.spawn.position).normalized;
 			this._shooter.spawn.rotation = Quaternion.LookRotation(direction);
-			this._shooter.FireProjectile(direction, this.ShootSpeed * direction);
+			this._shooter.FireProjectile(direction, speed * direction);
 		}
+
 	}
 }

@@ -10,18 +10,26 @@ namespace Skyrates.Common.AI
     /// Artifical Intelligence for Games 2nd Edition
     /// Ian Millington & John Funge
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Delegated/LookForward")]
-    public class LookForward : Align
+    [CreateAssetMenu(menuName = "Data/AI/Delegated/Face Target")]
+    public class FaceTarget : Align
     {
 
         /// <inheritdoc />
         public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
         {
+            // Calculate the target to delegate to align
+
+            // Work out direction to target
+            Vector3 direction = data.Target.LinearPosition - physics.LinearPosition;
+            direction.y = 0;
+            direction.Normalize();
+
             // Check for a zero direction, and make no change if so
-            if (physics.LinearVelocity.sqrMagnitude <= 0 || physics.LinearVelocity == Vector3.zero) return physics;
+            if (direction.sqrMagnitude <= 0)
+                return physics;
 
             // Put the target together
-            data.Target.RotationPosition = Quaternion.LookRotation(physics.LinearVelocity);
+            data.Target.RotationPosition = Quaternion.LookRotation(direction);
 
             // Delegate to align
             return base.GetUpdate(ref data, ref physics, deltaTime, pData);
