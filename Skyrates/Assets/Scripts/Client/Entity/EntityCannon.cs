@@ -3,7 +3,6 @@ using System.Collections;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using UnityEngine;
-using Zios;
 
 namespace Skyrates.Client.Entity
 {
@@ -141,7 +140,7 @@ namespace Skyrates.Client.Entity
                     // Determine the angle and rotation we want to be at to get a good shot
                     //this.CalculateArc(this.BehaviorData.Target.LinearPosition, this.ShootSpeed);
 
-	            }
+                }
                 // Get the updated physics from the behavior
 	            {
 	                this.RotationBehavior.GetUpdate(ref this.BehaviorData, ref this.PhysicsData, deltaTime);

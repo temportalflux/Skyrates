@@ -44,6 +44,19 @@ namespace Skyrates.Common.AI
             this.RotationPosition = rotation;
         }
 
+        public PhysicsData Copy()
+        {
+            return new PhysicsData
+            {
+                LinearPosition = LinearPosition,
+                LinearVelocity = LinearVelocity,
+                LinearAccelleration = LinearAccelleration,
+                RotationPosition = RotationPosition,
+                RotationVelocity = RotationVelocity,
+                RotationAccelleration = RotationAccelleration,
+            };
+        }
+
         public static PhysicsData operator*(PhysicsData data, float weight)
         {
             return new PhysicsData

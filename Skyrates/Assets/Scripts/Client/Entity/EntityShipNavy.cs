@@ -31,7 +31,7 @@ namespace Skyrates.Client.Entity
             while (target && gameObject && direction.sqrMagnitude <= maxDistSq)
             {
                 float wait = 2;
-                this.Shoot(ShipData.ComponentType.ArtilleryForward, direction);
+                this.Shoot(ShipData.ComponentType.ArtilleryForward, direction + target.Physics.LinearVelocity * 1.5f);
                 yield return new WaitForSeconds(wait);
                 direction = (target.transform.position - this.transform.position);
             }
