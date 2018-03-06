@@ -27,16 +27,34 @@ namespace Skyrates.Common.AI
 
         [BitSerialize(4)]
         [SerializeField]
-        public Quaternion RotationVelocity = Quaternion.identity;
+        public Vector3 RotationVelocity = Vector3.zero;
 
         [BitSerialize(5)]
         [SerializeField]
-        public Quaternion RotationAccelleration = Quaternion.identity;
+        public Vector3 RotationAccelleration = Vector3.zero;
+
+        public bool HasAesteticRotation = false;
+
+        [SerializeField]
+        public Quaternion RotationAesteticPosition = Quaternion.identity;
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
             this.LinearPosition = position;
             this.RotationPosition = rotation;
+        }
+
+        public PhysicsData Copy()
+        {
+            return new PhysicsData
+            {
+                LinearPosition = LinearPosition,
+                LinearVelocity = LinearVelocity,
+                LinearAccelleration = LinearAccelleration,
+                RotationPosition = RotationPosition,
+                RotationVelocity = RotationVelocity,
+                RotationAccelleration = RotationAccelleration,
+            };
         }
 
         public static PhysicsData operator*(PhysicsData data, float weight)
@@ -47,8 +65,8 @@ namespace Skyrates.Common.AI
                 LinearVelocity = data.LinearVelocity * weight,
                 LinearAccelleration = data.LinearAccelleration * weight,
                 RotationPosition = data.RotationPosition,
-                RotationVelocity = Quaternion.Euler(data.RotationVelocity.eulerAngles * weight),
-                RotationAccelleration = Quaternion.Euler(data.RotationAccelleration.eulerAngles * weight),
+                RotationVelocity = data.RotationVelocity * weight,
+                RotationAccelleration = data.RotationAccelleration * weight,
             };
         }
 
@@ -60,11 +78,27 @@ namespace Skyrates.Common.AI
                 LinearVelocity = a.LinearVelocity + b.LinearVelocity,
                 LinearAccelleration = a.LinearAccelleration + b.LinearAccelleration,
                 RotationPosition = a.RotationPosition,
-                RotationVelocity = Quaternion.Euler(a.RotationVelocity.eulerAngles + b.RotationVelocity.eulerAngles),
-                RotationAccelleration = Quaternion.Euler(a.RotationAccelleration.eulerAngles + b.RotationAccelleration.eulerAngles),
+                RotationVelocity = a.RotationVelocity + b.RotationVelocity,
+                RotationAccelleration = a.RotationAccelleration + b.RotationAccelleration,
             };
         }
 
+        public void Integrate(float deltaTime)
+        {
+            // Update linear velocity
+            ExtensionMethods.Integrate(ref this.LinearVelocity, this.LinearAccelleration, deltaTime);
+
+            // Update linear position
+            ExtensionMethods.Integrate(ref this.LinearPosition, this.LinearVelocity, deltaTime);
+
+            // Update rotational velocity
+            ExtensionMethods.Integrate(ref this.RotationVelocity, this.RotationAccelleration, deltaTime);
+
+            // Update rotational position
+            ExtensionMethods.Integrate(ref this.RotationPosition, this.RotationVelocity, deltaTime);
+
+        }
+        
     }
 
 }

@@ -45,9 +45,8 @@ namespace Skyrates.Client.Loot
 
             this.DrawArray(
                 "Table", ref this._instance.Table,
-                togglable:false, isToggled:true,
-                DrawBlock: (row =>
-                {
+                togglable: false, isToggled: true,
+                DrawBlock: ((row, i) => {
                     if (row == null) row = new LootTable.Row();
 
                     EditorGUILayout.BeginHorizontal();
@@ -68,11 +67,10 @@ namespace Skyrates.Client.Loot
                             weightsChanged = true;
                         }
 
-                        // TODO: Change this
-                        row.Item = (ShipComponent)EditorGUILayout.ObjectField(
-                            row.Item, typeof(ShipComponent), allowSceneObjects: true
+                        row.Item = (ShipData.BrokenComponentType)EditorGUILayout.EnumPopup(
+                            row.Item
                         );
-                        row.Prefab = (Loot) EditorGUILayout.ObjectField(
+                        row.Prefab = (Loot)EditorGUILayout.ObjectField(
                             row.Prefab, typeof(Loot), allowSceneObjects: true
                         );
                     }

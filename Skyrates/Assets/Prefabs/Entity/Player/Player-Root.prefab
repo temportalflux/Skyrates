@@ -76,22 +76,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1293795432056116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4252369217146120}
-  - component: {fileID: 136219276975619210}
-  m_Layer: 12
-  m_Name: LootCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1396071759121474
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,10 +101,13 @@ GameObject:
   - component: {fileID: 4986014796683882}
   - component: {fileID: 54642449414566752}
   - component: {fileID: 114956092729709676}
+  - component: {fileID: 114312103114731230}
+  - component: {fileID: 114264214288976394}
   - component: {fileID: 114851400781537040}
   - component: {fileID: 114826751344152850}
-  - component: {fileID: 114312103114731230}
   - component: {fileID: 136275651844416204}
+  - component: {fileID: 114086127015448946}
+  - component: {fileID: 114898848616841254}
   m_Layer: 15
   m_Name: Player-Root
   m_TagString: Player
@@ -203,19 +190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4986014796683882}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4252369217146120
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293795432056116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4986014796683882}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4296624790975764
 Transform:
@@ -306,14 +280,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436304090232158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.16, y: 11.404209, z: -22.147137}
+  m_LocalPosition: {x: -6.2, y: 11.404209, z: -22.147137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4717130946942272}
   - {fileID: 4805465745739734}
   - {fileID: 4517181614569566}
   - {fileID: 4138122604163328}
-  - {fileID: 4252369217146120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -366,7 +339,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &65374456484716522
 BoxCollider:
@@ -410,6 +383,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3729fda5a6290194ba951a6cf75459e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114086127015448946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436304090232158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42c25627d666de47af6f415c9e76507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 0
+  RadiusSphere: 900
+  RadiusBox: {x: 0, y: 0, z: 0}
+  CollisionLayers:
+    serializedVersion: 2
+    m_Bits: 1638400
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  Frequency: 1
+  ScatterExecution: 1
+--- !u!114 &114264214288976394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436304090232158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5043bfe24c6d5448abc5e35733f3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
 --- !u!114 &114312103114731230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,11 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec4b65294023b84f86111266f230e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput:
-    HorizontalInput: 0
-    HorizontalSpeed: 4
-    VerticalInput: 0
-    VerticalSpeed: 4
+  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   pivot: {fileID: 4805465745739734}
 --- !u!114 &114826751344152850
 MonoBehaviour:
@@ -472,16 +473,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f3cf0d985eebe4fbabb7c7944418d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input:
-    ShootRight:
-      Input: 0
-      Modifier: 1
-    ShootLeft:
-      Input: 0
-      Modifier: 1
-    ShootDelay: 0.5
-    ShootDelayMin: 0
+  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   EntityPlayerShip: {fileID: 114956092729709676}
+--- !u!114 &114898848616841254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436304090232158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42c25627d666de47af6f415c9e76507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 1
+  RadiusSphere: 3
+  RadiusBox: {x: 5, y: 3, z: 5}
+  CollisionLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  Color: {r: 0.9793103, g: 1, b: 0, a: 1}
+  Frequency: 0.1
+  ScatterExecution: 1
 --- !u!114 &114943066303382066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,9 +531,14 @@ MonoBehaviour:
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
     RotationPosition: {x: 0, y: 0, z: 0, w: 1}
-    RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
-    RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
+    RotationVelocity: {x: 0, y: 0, z: 0}
+    RotationAccelleration: {x: 0, y: 0, z: 0}
+    HasAesteticRotation: 0
+    RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
   BehaviorData:
+    InitialTargets: []
+    FormationOwner: {fileID: 0}
+    FormationSlot: 0
     View: {fileID: 0}
     Render: {fileID: 0}
     HasTarget: 0
@@ -529,8 +547,10 @@ MonoBehaviour:
       LinearVelocity: {x: 0, y: 0, z: 0}
       LinearAccelleration: {x: 0, y: 0, z: 0}
       RotationPosition: {x: 0, y: 0, z: 0, w: 1}
-      RotationVelocity: {x: 0, y: 0, z: 0, w: 1}
-      RotationAccelleration: {x: 0, y: 0, z: 0, w: 1}
+      RotationVelocity: {x: 0, y: 0, z: 0}
+      RotationAccelleration: {x: 0, y: 0, z: 0}
+      HasAesteticRotation: 0
+      RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
   Steering:
   - {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
   StatBlock: {fileID: 11400000, guid: 83d0bef0abd7ff64f89dd28418764559, type: 2}
@@ -546,14 +566,14 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  LootDropArea: {fileID: 0}
+  LootDropRadius: 0
   Health: 0
   ShipData:
     Components: 00000000000000000000000000000000000000000000000000000000
     _hasNewData: 0
   PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   View: {fileID: 4296624790975764}
-  Render: {fileID: 54642449414566752}
+  Render: {fileID: 4717130946942272}
   ShipRoot: {fileID: 114312103114731230}
 --- !u!124 &124033094765310984
 Behaviour:
@@ -575,19 +595,6 @@ CapsuleCollider:
   m_Height: 3.5
   m_Direction: 2
   m_Center: {x: 0, y: -0.15, z: -0.15}
---- !u!136 &136219276975619210
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293795432056116}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 5
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136275651844416204
 CapsuleCollider:
   m_ObjectHideFlags: 1

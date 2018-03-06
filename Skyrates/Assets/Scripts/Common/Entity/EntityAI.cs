@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Utility;
+using Skyrates.Client.Entity;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using UnityEngine;
@@ -7,8 +9,14 @@ using UnityEngine;
 namespace Skyrates.Common.Entity
 {
 
-    public class EntityAI : EntityDynamic
+    public class EntityAI : EntityDynamic, DistanceCollidable
     {
+
+        /// <summary>
+        /// The steering data used - info which is specific to this
+        /// entity and likely used by multiple steering algorithms.
+        /// </summary>
+        public BehaviorData BehaviorData;
 
         /// <summary>
         /// The actual steering object - set via editor.
@@ -16,16 +24,60 @@ namespace Skyrates.Common.Entity
         [SerializeField]
         public Behavior[] Steering;
 
+
+        protected override void Start()
+        {
+            base.Start();
+            this.BehaviorData.Target = new PhysicsData();
+
+            this.UpdateBehaviorData();
+
+            foreach (Behavior behavior in this.Steering)
+            {
+                if (behavior == null) continue;
+
+                // Init the object and its persistent data
+                behavior.AddPersistentDataTo(ref this.BehaviorData);
+
+                // Enter the state
+                behavior.OnEnter(ref this.BehaviorData, this.Physics);
+            }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            foreach (Behavior behavior in this.Steering)
+            {
+                if (behavior == null) continue;
+
+                // Exit the state
+                behavior.OnExit(ref this.BehaviorData, this.Physics);
+
+                // Remove any persistent data
+                this.BehaviorData.Remove(behavior.GetPersistentDataGuid());
+            }
+        }
+
+        protected virtual void UpdateBehaviorData()
+        {
+            this.BehaviorData.View = this.GetView();
+            this.BehaviorData.Render = this.GetRender().transform;
+        }
+        
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-            
+
+            this.UpdateBehaviorData();
+
             // Update steering on a fixed timestep
             foreach (Behavior behavior in this.Steering)
             {
                 if (behavior != null)
                 {
-                    this.Physics = behavior.GetUpdate(this.BehaviorData, this.Physics);
+                    behavior.GetUpdate(ref this.BehaviorData, ref this.Physics, Time.fixedDeltaTime);
                 }
             }
 
@@ -43,55 +95,43 @@ namespace Skyrates.Common.Entity
             if (this._physics == null)
                 return;
 
-            //this.transform.position = this.Physics.LinearPosition;
-
-            // Update velocity
-            this.Integrate(ref this.Physics.LinearVelocity, this.Physics.LinearAccelleration, deltaTime);
-
-            // Update position
+            // Integrate the velocities and accellerations
+            this.Physics.Integrate(deltaTime);
+            
+            // Use rigidbody to apply velocity
             // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
             //this._characterController.Move(this.Physics.LinearVelocity * deltaTime);
             this._physics.velocity = this.Physics.LinearVelocity;
 
-            // Update physics position
+            // Retroactively update position due to rigidbody
             this.Physics.LinearPosition = this.transform.position;
-
-            // Update rotational velocity
-            this.Integrate(ref this.Physics.RotationVelocity, this.Physics.RotationAccelleration, deltaTime);
-
+            
             // Update rotation
-            this.GetRender().transform.Rotate(this.Physics.RotationVelocity.eulerAngles, Space.Self);
-            //this.GetRender().AddTorque(this.Physics.RotationVelocity.eulerAngles * deltaTime, ForceMode.VelocityChange);
+            this._physics.MoveRotation(this.Physics.RotationPosition);
 
-            // Set rotation
-            this.Physics.RotationPosition = this.GetRender().rotation;
+            // TODO: Delegate to subclass maybe?
+            if (this.Physics.HasAesteticRotation)
+            {
+                this.GetRender().transform.localRotation = this.Physics.RotationAesteticPosition;
+            }
 
         }
 
         /// <summary>
-        /// Integrates a Vector3 by another Vector3 over time.
+        /// Called when some other entity detects that this entity is now less
+        /// than maxDistance away from them.
+        /// <see cref="DistanceCollider"/>.
         /// </summary>
-        /// <param name="start"></param>
-        /// <param name="amount"></param>
-        /// <param name="deltaTime"></param>
-        private void Integrate(ref Vector3 start, Vector3 amount, float deltaTime)
+        /// <param name="other"></param>
+        /// <param name="maxDistance"></param>
+        public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
         {
-            // TODO: Move to an extension method.
-            start += amount * deltaTime;
+            
         }
 
-        /// <summary>
-        /// Integrates a Quaternion by another Quaternion over time.
-        /// </summary>
-        /// <param name="start"></param>
-        /// <param name="amount"></param>
-        /// <param name="deltaTime"></param>
-        private void Integrate(ref Quaternion start, Quaternion amount, float deltaTime)
+        public virtual void OnOverlapWith(GameObject other, float radius)
         {
-            // TODO: Move to an extension method.
-            Vector3 euler = start.eulerAngles;
-            this.Integrate(ref euler, amount.eulerAngles, deltaTime);
-            start = Quaternion.Euler(euler);
+            
         }
 
     }

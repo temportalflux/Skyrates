@@ -11,115 +11,31 @@ namespace Skyrates.Client.Entity
     /// <summary>
     /// Special case of entity ship which is completely controlled by AI.
     /// </summary>
-    public class EntityShipNavy : EntityShip
+    public class EntityShipNavy : EntityShipNPC
     {
 
-        // TODO: Revamp this class with better AI
+        private Coroutine _shootAt;
 
-        public Shooter[] Shooters;
-
-        private EntityShip _aiTarget;
-        
-        private Coroutine _shootAtTarget;
-
-        protected override void Start()
+        protected override void StartShooting(EntityPlayerShip target, float maxDistance)
         {
-            base.Start();
-
-            this._aiTarget = null;
-            this._shootAtTarget = null;
-        }
-
-        protected override void FixedUpdate()
-        {
-            this.BehaviorData.HasTarget = this._aiTarget != null;
-            this.BehaviorData.Target = this.BehaviorData.HasTarget ? this._aiTarget.Physics : this.Physics;
-            base.FixedUpdate();
-        }
-
-        protected override void OnDestroy()
-        {
-            if (this._shootAtTarget != null)
+            if (this._shootAt == null)
             {
-                StopCoroutine(this._shootAtTarget);
-                this._shootAtTarget = null;
-            }
-            base.OnDestroy();
-        }
-
-        public void OnEnterAreaFind(TriggerArea area, Collider other)
-        {
-            if (this._aiTarget != null) return;
-
-            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            if (playerShip != null)
-            {
-                this._aiTarget = playerShip;
+                this._shootAt = StartCoroutine(this.ShootAtTarget(target, maxDistance));
             }
         }
 
-        public void OnExitAreaFind(TriggerArea area, Collider other)
+        IEnumerator ShootAtTarget(EntityPlayerShip target, float maxDistance)
         {
-            if (this._aiTarget == null) return;
-
-            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
+            float maxDistSq = maxDistance * maxDistance;
+            Vector3 direction = (target.transform.position - this.transform.position);
+            while (target && gameObject && direction.sqrMagnitude <= maxDistSq)
             {
-                this._aiTarget = null;
-            }
-        }
-
-        public void OnEnterAreaShoot(TriggerArea area, Collider other)
-        {
-            if (this._aiTarget == null) return;
-
-            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
-            {
-                this._shootAtTarget = StartCoroutine(this.ShootAtTarget());
-            }
-        }
-
-        public void OnExitAreaShoot(TriggerArea area, Collider other)
-        {
-            if (this._aiTarget == null) return;
-
-            EntityPlayerShip playerShip = other.GetComponent<EntityPlayerShip>();
-            if (playerShip != null && playerShip.GetInstanceID() == this._aiTarget.GetInstanceID())
-            {
-                if (this._shootAtTarget != null)
-                {
-                    StopCoroutine(this._shootAtTarget);
-                    this._shootAtTarget = null;
-                }
-            }
-        }
-        
-        IEnumerator ShootAtTarget()
-        {
-            while (true)
-            {
-                float wait = 3;
-
-                if (this._aiTarget != null)
-                {
-                    this.Shoot(ShipData.ComponentType.ArtilleryForward); 
-                }
+                float wait = 2;
+                this.Shoot(ShipData.ComponentType.ArtilleryForward, direction + target.Physics.LinearVelocity * 1.5f);
                 yield return new WaitForSeconds(wait);
+                direction = (target.transform.position - this.transform.position);
             }
-        }
-
-        protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
-        {
-            return this.Shooters;
-        }
-
-        // TODO: Fix the steering to remove this
-        protected override void IntegratePhysics(float deltaTime)
-        {
-            Quaternion rotation = this.Physics.RotationPosition;
-            base.IntegratePhysics(deltaTime);
-            this.transform.rotation = rotation;
+            this._shootAt = null;
         }
 
     }

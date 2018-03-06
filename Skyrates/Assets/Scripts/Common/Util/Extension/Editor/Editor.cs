@@ -34,20 +34,36 @@ public static partial class ExtensionMethods
         GUI.enabled = true;
     }
 
-    public static bool DrawArray<T>(this Editor editor, 
-        string label, ref T[] array,
-        bool togglable = true,
-        bool isToggled = true,
-        Func<T, T> DrawBlock = null
-    )
+    public static bool DrawArray<T>(this Editor editor, string label, ref T[] array,
+        bool togglable = true, bool isToggled = true,
+        Func<T, int, T> DrawBlock = null)
     {
+        bool[] toggles = new bool[0];
+        return editor.DrawArray(label, ref array,
+            togglable, isToggled,
+            false, ref toggles,
+            GetFieldName: null,
+            DrawBlock: DrawBlock
+        );
+    }
+
+    public static bool DrawArray<T>(this Editor editor, string label, ref T[] array,
+        bool canToggleBlock, bool blockToggle,
+        bool canToggleEntries, ref bool[] entryToggles,
+        Func<T, int, string> GetFieldName = null,
+        Func<T, int, T> DrawBlock = null)
+    {
+        if (array == null) array = new T[0];
+
         int size = array.Length;
+
+        if (entryToggles == null) entryToggles = new bool[size];
 
         EditorGUILayout.BeginHorizontal();
         {
-            if (togglable)
+            if (canToggleBlock)
             {
-                isToggled = EditorGUILayout.Foldout(isToggled, label);
+                blockToggle = EditorGUILayout.Foldout(blockToggle, label);
             }
             else
             {
@@ -73,22 +89,33 @@ public static partial class ExtensionMethods
             EditorGUILayout.EndHorizontal();
 
             System.Array.Resize(ref array, size);
+            System.Array.Resize(ref entryToggles, size);
         }
         EditorGUILayout.EndHorizontal();
 
-        if (isToggled && DrawBlock != null)
+        if (blockToggle && DrawBlock != null)
         {
             for (int i = 0; i < size; i++)
             {
-                array[i] = DrawBlock(array[i]);
+                EditorGUI.indentLevel++;
+                if (canToggleEntries)
+                {
+                    entryToggles[i] = EditorGUILayout.Foldout(entryToggles[i],
+                        GetFieldName == null ? i.ToString() : GetFieldName(array[i], i));
+                }
+                if (!canToggleEntries || entryToggles[i])
+                {
+                    array[i] = DrawBlock(array[i], i);
+                }
+                EditorGUI.indentLevel--;
             }
         }
 
-        return isToggled;
+        return blockToggle;
     }
 
     public static bool DrawArray<T>(this Editor editor, string label, ref T[] array,
-        bool toggle, bool allowToggle = true, bool doBlock = true, Func<T, string> GetFieldName = null) where T: Object
+        bool toggle, bool allowToggle = true, bool doBlock = true, Func<T, int, string> GetFieldName = null) where T: Object
     {
         int size = array.Length;
 
@@ -133,12 +160,53 @@ public static partial class ExtensionMethods
         {
             for (int i = 0; i < size; i++)
             {
-                array[i] = (T)EditorGUILayout.ObjectField(GetFieldName(array[i]), array[i], typeof(T), true);
+                array[i] = (T)EditorGUILayout.ObjectField(GetFieldName(array[i], i), array[i], typeof(T), true);
             }
         }
 
         return toggle;
     }
+
+    // https://gist.github.com/bzgeb/3800350
+    public static void DrawArrayArea<T>(this Editor editor,
+        string label, ref T[] target, Func<GameObject, T> getElementFrom)
+    {
+        Event evt = Event.current;
+        Rect drop_area = GUILayoutUtility.GetRect(0.0f, 20.0f, GUILayout.ExpandWidth(true));
+        GUI.Box(drop_area, label);
+
+        switch (evt.type)
+        {
+            case EventType.DragUpdated:
+            case EventType.DragPerform:
+                if (!drop_area.Contains(evt.mousePosition))
+                    return;
+
+                DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+
+                if (evt.type == EventType.DragPerform)
+                {
+                    DragAndDrop.AcceptDrag();
+
+                    List<T> elements = new List<T>();
+                    foreach (Object draggedObject in DragAndDrop.objectReferences)
+                    {
+                        if (draggedObject is GameObject)
+                        {
+                            elements.Add(getElementFrom(draggedObject as GameObject));
+                        }
+                        else
+                        {
+                            Debug.Log(string.Format("{0} is no game object", draggedObject));
+                        }
+                    }
+                    target = elements.ToArray();
+                }
+                break;
+        }
+    }
+
+
 #endif
 
 }

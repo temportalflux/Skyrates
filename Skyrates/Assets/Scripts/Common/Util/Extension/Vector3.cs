@@ -18,6 +18,37 @@ public static partial class ExtensionMethods
         return vector - Vector3.Project(vector, axis);
     }
 
+    /// <summary>
+    /// Integrates a Vector3 by another Vector3 over time.
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="amount"></param>
+    /// <param name="deltaTime"></param>
+    public static void Integrate(ref Vector3 start, Vector3 amount, float deltaTime)
+    {
+        start += amount * deltaTime;
+    }
+
+    // TODO: Move me!!
+    public static void Integrate(ref Quaternion start, Vector3 amount, float deltaTime)
+    {
+        Vector3 euler = start.eulerAngles;
+        ExtensionMethods.Integrate(ref euler, amount, deltaTime);
+        start = Quaternion.Euler(euler);
+    }
+
+    /// <summary>
+    /// Integrates a Quaternion by another Quaternion over time.
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="amount"></param>
+    /// <param name="deltaTime"></param>
+    // TODO: Move me!!
+    public static void Integrate(ref Quaternion start, Quaternion amount, float deltaTime)
+    {
+        ExtensionMethods.Integrate(ref start, amount.eulerAngles, deltaTime);
+    }
+
     // TODO: Move me!!
     public static Transform DestroyChildren(this Transform transform)
     {

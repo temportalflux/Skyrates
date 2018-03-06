@@ -93,22 +93,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1516350216383298
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4546208490699668}
-  - component: {fileID: 136079073033564422}
-  m_Layer: 17
-  m_Name: Loot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1594538091122740
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4664746602210714}
   - component: {fileID: 54349007325168094}
-  - component: {fileID: 114303108047845630}
+  - component: {fileID: 114793905451201544}
   m_Layer: 19
   m_Name: Ship_Merchant_Schooner
   m_TagString: Enemy
@@ -150,7 +134,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4546208490699668}
   - {fileID: 4833468724107160}
   - {fileID: 4278444893120648}
   m_Father: {fileID: 4664746602210714}
@@ -167,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4178705661537488}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4394796367709872
 Transform:
@@ -176,23 +159,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514916627633858}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4146906015652790}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4546208490699668
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516350216383298}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4178705661537488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4664746602210714
@@ -202,8 +172,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1594538091122740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.7, y: 7.9811044, z: -11.073568}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: -16.7, y: 301.53, z: -11.073568}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4146906015652790}
   - {fileID: 4178705661537488}
@@ -221,7 +191,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4178705661537488}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!23 &23098489586343236
 MeshRenderer:
@@ -334,7 +304,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 3.6, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114303108047845630
+--- !u!114 &114793905451201544
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -342,28 +312,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 1594538091122740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8417354a78f3ae648852e4ebed4fef71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SteeringData:
+  Physics:
+    LinearPosition: {x: 0, y: 0, z: 0}
+    LinearVelocity: {x: 0, y: 0, z: 0}
+    LinearAccelleration: {x: 0, y: 0, z: 0}
+    RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationVelocity: {x: 0, y: 0, z: 0}
+    RotationAccelleration: {x: 0, y: 0, z: 0}
+    HasAesteticRotation: 0
+    RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+  BehaviorData:
+    InitialTargets: []
+    FormationOwner: {fileID: 0}
+    FormationSlot: 0
     View: {fileID: 0}
     Render: {fileID: 0}
     HasTarget: 0
-  Steering: {fileID: 0}
+    Target:
+      LinearPosition: {x: 0, y: 0, z: 0}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      LinearAccelleration: {x: 0, y: 0, z: 0}
+      RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationVelocity: {x: 0, y: 0, z: 0}
+      RotationAccelleration: {x: 0, y: 0, z: 0}
+      HasAesteticRotation: 0
+      RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+  Steering:
+  - {fileID: 11400000, guid: 3cfa66560efacb945a89eda0827aaca6, type: 2}
+  - {fileID: 11400000, guid: d28e2b63627064c4a8861180a7a0e0b9, type: 2}
   StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
   SmokeData:
     Bounds: {fileID: 65901688769280030}
     Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
-    Scale: 10
+    Scale: 1
     Generated: {fileID: 0}
   FireData:
     Bounds: {fileID: 65793449233492780}
     Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
-    Scale: 10
+    Scale: 1
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  LootDropArea: {fileID: 136079073033564422}
+  LootDropRadius: 2
   Health: 0
 --- !u!114 &114865962957982574
 MonoBehaviour:
@@ -376,17 +369,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db733378c9bac94b848f10b802b9d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Owner: {fileID: 114303108047845630}
---- !u!136 &136079073033564422
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516350216383298}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.3360049
-  m_Height: 4.729103
-  m_Direction: 2
-  m_Center: {x: 0, y: -0.8756949, z: -0.017598724}
+  Owner: {fileID: 114793905451201544}

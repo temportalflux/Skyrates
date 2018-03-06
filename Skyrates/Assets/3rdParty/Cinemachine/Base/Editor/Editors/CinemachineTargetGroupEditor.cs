@@ -58,7 +58,7 @@ namespace Cinemachine.Editor
                     EditorGUI.LabelField(rect, "Weight");
 
                     pos.x += rect.width + hBigSpace; rect.position = pos;
-                    EditorGUI.LabelField(rect, "Radius");
+                    EditorGUI.LabelField(rect, "RadiusSphere");
                 };
 
             mTargetList.drawElementCallback

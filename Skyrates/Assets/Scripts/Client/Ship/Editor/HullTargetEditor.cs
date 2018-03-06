@@ -48,7 +48,7 @@ namespace Skyrates.Client.Ship
                 ToggleComp[iComp] = this.DrawArray(
                     compType.ToString(), ref roots,
                     true, ToggleComp[iComp],
-                    DrawBlock: (t => (Transform)EditorGUILayout.ObjectField(
+                    DrawBlock: ((t, i) => (Transform)EditorGUILayout.ObjectField(
                         t == null ? "Pos/Rot" : t.name,
                         t, typeof(Transform), allowSceneObjects:true
                     ))
@@ -63,8 +63,8 @@ namespace Skyrates.Client.Ship
 
             this.DropAreaGUI();
 
-            ToggleLootMounts = this.DrawArray("Loot", ref this._instance.LootMounts, togglable:true, isToggled:ToggleLootMounts,
-                DrawBlock:(mount =>
+            ToggleLootMounts = this.DrawArray("Loot", ref this._instance.LootMounts, togglable: true, isToggled: ToggleLootMounts,
+                DrawBlock: ((mount, i) =>
                 {
                     mount = (Transform) EditorGUILayout.ObjectField("Pos/Rot/Scale", mount, typeof(Transform), allowSceneObjects: true);
                     return mount;
@@ -77,39 +77,8 @@ namespace Skyrates.Client.Ship
         // https://gist.github.com/bzgeb/3800350
         public void DropAreaGUI()
         {
-            Event evt = Event.current;
-            Rect drop_area = GUILayoutUtility.GetRect(0.0f, 20.0f, GUILayout.ExpandWidth(true));
-            GUI.Box(drop_area, "Drag loot set");
-
-            switch (evt.type)
-            {
-                case EventType.DragUpdated:
-                case EventType.DragPerform:
-                    if (!drop_area.Contains(evt.mousePosition))
-                        return;
-
-                    DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
-
-                    if (evt.type == EventType.DragPerform)
-                    {
-                        DragAndDrop.AcceptDrag();
-
-                        List<Transform> newLootArray = new List<Transform>();
-                        foreach (object dragged_object in DragAndDrop.objectReferences)
-                        {
-                            if (dragged_object is GameObject)
-                            {
-                                newLootArray.Add((dragged_object as GameObject).transform);
-                            }
-                            else
-                            {
-                                Debug.Log(string.Format("{0} is no game object", dragged_object));
-                            }
-                        }
-                        this._instance.LootMounts = newLootArray.ToArray();
-                    }
-                    break;
-            }
+            this.DrawArrayArea("Drag loot set", ref this._instance.LootMounts,
+                (o => o.transform));
         }
 
     }

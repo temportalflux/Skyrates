@@ -39,48 +39,88 @@ namespace Skyrates.Common.AI
         /// </summary>
         public float AccelerationTime;
 
+        public bool AlignX = false;
+        public bool AlignY = true;
+        public bool AlignZ = false;
+
         /// <inheritdoc />
-        public override PhysicsData GetUpdate(BehaviorData data, PhysicsData physics)
+        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persistentData)
         {
             float currentRotation = physics.RotationPosition.eulerAngles.y;
 
+            if (AlignX)
+            {
+                this.DoAlign(
+                    physics.RotationPosition.eulerAngles.x,
+                    physics.RotationVelocity.x,
+                    data.Target.RotationPosition.eulerAngles.x,
+                    out physics.RotationVelocity.x,
+                    out physics.RotationAccelleration.x
+                );
+            }
+
+            if (AlignY)
+            {
+                this.DoAlign(
+                    physics.RotationPosition.eulerAngles.y,
+                    physics.RotationVelocity.y,
+                    data.Target.RotationPosition.eulerAngles.y,
+                    out physics.RotationVelocity.y,
+                    out physics.RotationAccelleration.y
+                );
+            }
+
+            if (AlignZ)
+            {
+                this.DoAlign(
+                    physics.RotationPosition.eulerAngles.z,
+                    physics.RotationVelocity.z,
+                    data.Target.RotationPosition.eulerAngles.z,
+                    out physics.RotationVelocity.z,
+                    out physics.RotationAccelleration.z
+                );
+            }
+
+            return persistentData;
+        }
+
+        private void DoAlign(float currentRotation,
+            float currentVelocity, float targetRotation,
+            out float velocity, out float accelleration)
+        {
             // Get the naive direction to the target
-            float rotation = data.Target.RotationPosition.eulerAngles.y - currentRotation;
+            float rotation = targetRotation - currentRotation;
 
             // Map the result to the (-pi, pi) interval
             rotation = MapToRange(rotation);
             float rotationSize = Mathf.Abs(rotation);
 
-            float accelleration;
             // Check if we are there, return no ste4ering
             if (rotationSize < this.DistanceArrived)
             {
                 // Slow down till stopped
-                accelleration = 0 - physics.RotationVelocity.eulerAngles.y;
+                accelleration = 0 - currentVelocity;
                 accelleration /= this.AccelerationTime;
-                physics.RotationAccelleration = Quaternion.Euler(0, accelleration, 0);
-                return physics;
+                velocity = currentVelocity;
+                return;
             }
-
-            // velocity of rotation
-            float targetRotation;
 
             // If we are outside the slowRadius, then use maximum rotation
             if (rotationSize > this.DistanceArriving)
             {
-                targetRotation = this.MaxSpeed;
+                velocity = this.MaxSpeed;
             }
             // Otherwise calculate a scaled rotation
             else
             {
-                targetRotation = this.MaxSpeed * rotationSize / this.DistanceArriving;
+                velocity = this.MaxSpeed * rotationSize / this.DistanceArriving;
             }
 
             // The final target rotation combines speed and direction
-            targetRotation *= rotation / rotationSize;
+            velocity *= rotation / rotationSize;
 
             // Acceleration tries to get to the target rotation
-            accelleration = targetRotation - physics.RotationVelocity.eulerAngles.y;
+            accelleration = velocity - currentVelocity;
             accelleration /= this.AccelerationTime;
 
             // Check if the accelleration is too great
@@ -90,10 +130,7 @@ namespace Skyrates.Common.AI
                 accelleration /= absAccel;
                 accelleration *= this.MaxAcceleration;
             }
-
-            physics.RotationAccelleration = Quaternion.Euler(0, accelleration, 0);
-
-            return physics;
+            
         }
 
         private float MapToRange(float rotation)
@@ -108,7 +145,7 @@ namespace Skyrates.Common.AI
             }
             return rotation;
         }
-
+        
     }
 
 }

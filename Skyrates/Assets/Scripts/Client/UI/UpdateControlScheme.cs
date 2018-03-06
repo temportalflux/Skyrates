@@ -19,7 +19,7 @@ public class UpdateControlScheme : MonoBehaviour
 
     private void Update()
     {
-        this.render.text = this.source.ControlScheme.ToString();
+        //this.render.text = this.source.ControlScheme.ToString();
     }
 
 }

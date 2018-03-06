@@ -4,9 +4,11 @@ using Skyrates.Client.Data;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Mono;
+using Skyrates.Client.Scene;
 using Skyrates.Client.Ship;
 using Skyrates.Common.Network;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Skyrates.Client.Entity
 {
@@ -39,7 +41,7 @@ namespace Skyrates.Client.Entity
         /// The root of the render object (must be a child/decendent of this root).
         /// </summary>
         [Tooltip("The root of the render object (must be a child/decendent of this root).")]
-        public Rigidbody Render;
+        public Transform Render;
 
         /// <summary>
         /// The Ship component which creates the modular ship.
@@ -76,7 +78,7 @@ namespace Skyrates.Client.Entity
         }
 
         /// <inheritdoc />
-        public override Rigidbody GetRender()
+        public override Transform GetRender()
         {
             return this.Render;
         }
@@ -98,34 +100,39 @@ namespace Skyrates.Client.Entity
             }
         }
 
-        #region Network
-        
-        public void SetDummy()
-        {
-            this.View.gameObject.SetActive(false);
-            this.Steering = null;
-        }
-
         /// <inheritdoc />
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
             GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
+
+            // TODO: Make events for these
+
+            if (this.PlayerData.input.MainMenu)
+            {
+                // Go back to main menu                
+                SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
+                SceneLoader.Instance.ActivateNext();
+            }
+
+            if (this.PlayerData.input.Back)
+            {
+                // Exit the game
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();          
+#endif
+            }
         }
 
-        #endregion
-
-        /// <inheritdoc />
-        public override void OnTriggerEnter(Collider other)
+        public override void OnOverlapWith(GameObject other, float radius)
         {
-            base.OnTriggerEnter(other);
-
             Loot.Loot lootObject = other.GetComponent<Loot.Loot>();
             if (lootObject != null)
             {
                 this.OnLootCollided(lootObject);
             }
-
         }
 
         /// <inheritdoc />

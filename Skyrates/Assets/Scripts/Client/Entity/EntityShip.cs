@@ -49,7 +49,7 @@ namespace Skyrates.Client.Entity
         public GameObject ParticleOnDestruction;
 
         [SerializeField]
-        public CapsuleCollider LootDropArea;
+        public float LootDropRadius;
 
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [HideInInspector]
@@ -243,7 +243,7 @@ namespace Skyrates.Client.Entity
                 }
 
                 // Get a random position to spawn it
-                Vector3 pos = position + this.LootDropArea.center + Vector3.Scale(Random.insideUnitSphere, this.LootDropArea.bounds.size);
+                Vector3 pos = position + Vector3.Scale(Random.insideUnitSphere, Vector3.one * this.LootDropRadius);
 
                 // Create the prefab instance for the loot
                 Loot.Loot loot = Instantiate(lootItem.Value.gameObject, pos, Quaternion.identity).GetComponent<Loot.Loot>();
@@ -269,6 +269,25 @@ namespace Skyrates.Client.Entity
         /// <param name="artillery"></param>
         public void Shoot(ShipData.ComponentType artillery)
         {
+            this.Shoot(artillery, (shooter => shooter.GetProjectileDirection().normalized));
+        }
+
+        /// <summary>
+        /// Causes all the shooters from <see cref="GetArtilleryShooters"/> to fire for some artillery component.
+        /// </summary>
+        /// <param name="artillery"></param>
+        public void Shoot(ShipData.ComponentType artillery, Vector3 allDirection)
+        {
+            allDirection.Normalize();
+            this.Shoot(artillery, (shooter => allDirection));
+        }
+
+        /// <summary>
+        /// Causes all the shooters from <see cref="GetArtilleryShooters"/> to fire for some artillery component.
+        /// </summary>
+        /// <param name="artillery"></param>
+        public void Shoot(ShipData.ComponentType artillery, Func<Shooter, Vector3> getDirection)
+        {
             // TODO: Optimize this
             Shooter[] shooters = this.GetArtilleryShooters(artillery);
 
@@ -278,7 +297,7 @@ namespace Skyrates.Client.Entity
             // Tell each shooter to fire
             foreach (Shooter shooter in shooters)
             {
-                shooter.FireProjectile(shooter.GetProjectileDirection().normalized, this.Physics.LinearVelocity);
+                shooter.FireProjectile(getDirection(shooter), this.Physics.LinearVelocity);
             }
 
             // Dispatch event for the shooters as a whole.

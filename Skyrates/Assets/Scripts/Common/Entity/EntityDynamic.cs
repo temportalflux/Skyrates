@@ -18,18 +18,8 @@ namespace Skyrates.Common.Entity
         /// The current physics data of this object.
         /// Updated via <see cref="Steering"/>.
         /// </summary>
-        [BitSerialize(4)]
         [SerializeField]
         public PhysicsData Physics;
-
-        /// <summary>
-        /// The steering data used - info which is specific to this
-        /// entity and likely used by multiple steering algorithms.
-        /// </summary>
-        // TODO: Player AI doesn't use a target...?
-        //[BitSerialize(3)]
-        [HideInInspector]
-        public BehaviorData BehaviorData = new BehaviorData();
 
         /// <summary>
         /// The component which controls the physics of the entity.
@@ -54,8 +44,6 @@ namespace Skyrates.Common.Entity
 
         protected virtual void FixedUpdate()
         {
-            this.BehaviorData.View = this.GetView();
-            this.BehaviorData.Render = this.GetRender().transform;
         }
 
         /// <summary>
@@ -71,9 +59,9 @@ namespace Skyrates.Common.Entity
         /// Returns the direction/rotation that the entity is facing.
         /// </summary>
         /// <returns></returns>
-        public virtual Rigidbody GetRender()
+        public virtual Transform GetRender()
         {
-            return this._physics;
+            return this.GetView();
         }
 
     }
