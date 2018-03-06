@@ -28,7 +28,7 @@ namespace Cinemachine
         [DocumentationSorting(4.01f, DocumentationSortingAttribute.Level.UserRef)]
         public enum FramingMode
         {
-            /// <summary>Consider only the horizontal dimension.  Vertical framing is ignored.</summary>
+            /// <summary>Consider only the horizontal dimension.  MoveVertical framing is ignored.</summary>
             Horizontal,
             /// <summary>Consider only the vertical dimension.  Horizontal framing is ignored.</summary>
             Vertical,
@@ -37,7 +37,7 @@ namespace Cinemachine
         };
 
         /// <summary>What screen dimensions to consider when framing</summary>
-        [Tooltip("What screen dimensions to consider when framing.  Can be Horizontal, Vertical, or both")]
+        [Tooltip("What screen dimensions to consider when framing.  Can be Horizontal, MoveVertical, or both")]
         public FramingMode m_FramingMode = FramingMode.HorizontalAndVertical;
 
         /// <summary>How aggressively the camera tries to frame the group.

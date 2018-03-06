@@ -21,14 +21,14 @@ namespace Skyrates.Common.AI
             set
             {
                 this.ConstantSpeed = value;
-                this.ConstantSpeed = Mathf.Min(this.ConstantSpeed, this.ControllerData.SpeedMax);
-                this.ConstantSpeed = Mathf.Max(this.ConstantSpeed, this.ControllerData.SpeedMin);
+                this.ConstantSpeed = Mathf.Min(this.ConstantSpeed, this.ControllerData.StateData.SpeedMax);
+                this.ConstantSpeed = Mathf.Max(this.ConstantSpeed, this.ControllerData.StateData.SpeedMin);
             }
         }
 
         public void OnEnable()
         {
-            this.Speed = this.ControllerData.SpeedInitial;
+            this.Speed = this.ControllerData.StateData.SpeedInitial;
         }
 
         public void OnDisable()
@@ -45,40 +45,40 @@ namespace Skyrates.Common.AI
 
         private void Move(BehaviorData data, ref PhysicsData physicsData)
         {
-            LocalData.InputData input = this.ControllerData.input;
+            LocalData.Input input = this.ControllerData.InputData;
 
             Vector3 forward = data.Render.forward;
             //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
             Vector3 vertical = Vector3.up;
 
-            this.Speed += input.Forward.Value;
+            this.Speed += input.MoveForward.Value;
             
             // For character
-            //Vector3 movementForward = cameraForward * this.playerInput.Forward;
+            //Vector3 movementForward = cameraForward * this.playerInput.MoveForward;
 
             // for ship
-            // Value in range [0, input.Forward.Modifier] which changes how fast the ship moves forward
-            float forwardSpeed = Mathf.Max(0, input.Forward.Value);
+            // Value in range [0, input.MoveForward.Modifier] which changes how fast the ship moves forward
+            float forwardSpeed = Mathf.Max(0, input.MoveForward.Value);
             // value in range [0, 1] of how much constant velocity to counteract
-            float backpedal = Mathf.Max(0, -input.Forward.Input);
+            float backpedal = Mathf.Max(0, -input.MoveForward.Input);
 
             //float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
-            this.ControllerData.MovementSpeed = this.ConstantSpeed;
+            this.ControllerData.StateData.MovementSpeed = this.ConstantSpeed;
 
-            Vector3 movementVertical = vertical * input.Vertical.Value;
+            Vector3 movementVertical = vertical * input.MoveVertical.Value;
 
             // for character
             // Vector3 movementXZ = movementForward + movementStrafe;
             // for ship
-            Vector3 movementXZ = forward * this.ControllerData.MovementSpeed;
+            Vector3 movementXZ = forward * this.ControllerData.StateData.MovementSpeed;
 
             Vector3 movementXYZ = movementXZ + movementVertical;
 
             physicsData.LinearVelocity = movementXYZ;
 
             // for ship movement
-            float rotationY = input.Strafe.Value;
-            //rotationY *= (1 - input.Forward.Input) * 0.5f;
+            float rotationY = input.TurnY.Value;
+            //rotationY *= (1 - input.MoveForward.Input) * 0.5f;
 
             // banking
             float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), input.YawAngle);
