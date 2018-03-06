@@ -40,21 +40,22 @@ namespace Skyrates.Client.Data
         [Serializable]
         public struct InputData
         {
+
             [Header("Movement")]
             // The input which steers the object forward
             [Tooltip("XZ Plan forward movement")]
             [SerializeField]
-            public InputConfig Forward;
+            public InputConfig MoveForward;
 
             [Tooltip("XZ Plan forward movement")]
             [SerializeField]
-            public InputConfig Strafe;
+            public InputConfig TurnY;
 
             public float YawAngle;
 
             [Tooltip("Y Axis forward movement")]
             [SerializeField]
-            public InputConfig Vertical;
+            public InputConfig MoveVertical;
 
             public float PitchAngle;
 
@@ -67,30 +68,9 @@ namespace Skyrates.Client.Data
             [SerializeField]
             public InputConfig CameraVertical;
 
-            public InputConfig DPadHorizontal;
-            public InputConfig DPadVertical;
+            public bool IsShooting;
 
-            [Header("Shooting")]
-            [SerializeField]
-            /// <summary>
-            /// Input to trigger shooting
-            /// </summary>
-            public InputConfig ShootRight;
-
-            [SerializeField]
-            public InputConfig ShootLeft;
-
-            [SerializeField]
-            public float ShootDelay;
-            [SerializeField]
-            public float ShootDelayMin;
-
-            [Header("Menu")]
-            [SerializeField]
-            public bool MainMenu;
-
-            [SerializeField]
-            public bool Back;
+            public float AimScale;
 
         }
 

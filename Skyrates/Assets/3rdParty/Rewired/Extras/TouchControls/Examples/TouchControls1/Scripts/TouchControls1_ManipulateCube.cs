@@ -28,8 +28,8 @@ namespace Rewired.Demos {
             // Subscribe to input events
             player.AddInputEventDelegate(OnMoveReceivedX, UpdateLoopType.Update, InputActionEventType.AxisActive, "Horizontal");
             player.AddInputEventDelegate(OnMoveReceivedX, UpdateLoopType.Update, InputActionEventType.AxisInactive, "Horizontal");
-            player.AddInputEventDelegate(OnMoveReceivedY, UpdateLoopType.Update, InputActionEventType.AxisActive, "Vertical");
-            player.AddInputEventDelegate(OnMoveReceivedY, UpdateLoopType.Update, InputActionEventType.AxisInactive, "Vertical");
+            player.AddInputEventDelegate(OnMoveReceivedY, UpdateLoopType.Update, InputActionEventType.AxisActive, "MoveVertical");
+            player.AddInputEventDelegate(OnMoveReceivedY, UpdateLoopType.Update, InputActionEventType.AxisInactive, "MoveVertical");
             player.AddInputEventDelegate(OnCycleColor, UpdateLoopType.Update, InputActionEventType.ButtonJustPressed, "CycleColor");
             player.AddInputEventDelegate(OnCycleColorReverse, UpdateLoopType.Update, InputActionEventType.ButtonJustPressed, "CycleColorReverse");
             player.AddInputEventDelegate(OnRotationReceivedX, UpdateLoopType.Update, InputActionEventType.AxisActive, "RotateHorizontal");

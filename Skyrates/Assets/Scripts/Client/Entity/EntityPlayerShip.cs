@@ -105,25 +105,6 @@ namespace Skyrates.Client.Entity
         {
             base.FixedUpdate();
             GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
-
-            // TODO: Make events for these
-
-            if (this.PlayerData.input.MainMenu)
-            {
-                // Go back to main menu                
-                SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
-                SceneLoader.Instance.ActivateNext();
-            }
-
-            if (this.PlayerData.input.Back)
-            {
-                // Exit the game
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit();          
-#endif
-            }
         }
 
         public override void OnOverlapWith(GameObject other, float radius)

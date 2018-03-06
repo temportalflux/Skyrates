@@ -3,6 +3,9 @@ using Skyrates.Common.AI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Rewired;
+using Skyrates.Client.Entity;
+using Skyrates.Client.Scene;
 using UnityEngine;
 
 namespace Skyrates.Client.Input
@@ -19,53 +22,229 @@ namespace Skyrates.Client.Input
         /// </summary>
         public LocalData PlayerData;
 
-        void Update()
+        public EntityPlayerShip EntityPlayerShip;
+
+        public Transform Camera;
+
+        public Transform CameraPivot;
+
+        private Rewired.Player _controller;
+
+        private Rewired.Player Controller
         {
-            this.GetInput();
+            get
+            {
+                if (this._controller == null)
+                    this._controller = ReInput.players.GetPlayer(0);
+                return this._controller;
+            }
         }
 
-        private void GetInput()
+        void Awake()
         {
+            // unneccessary flag, only used to init the contorller data
+            this.Controller.isPlaying = true;
+        }
 
-            // ~~~ Movement
+        void OnEnable()
+        {
+            this.Controller.AddInputEventDelegate(this.OnInputMenu, UpdateLoopType.Update, "Menu");
+            this.Controller.AddInputEventDelegate(this.OnInputExit, UpdateLoopType.Update, "Exit");
+            this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Free");
+            this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Starboard");
+            this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Port");
+            this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Down");
+            this.Controller.AddInputEventDelegate(this.OnInputFire, UpdateLoopType.Update, "Fire");
+            this.Controller.AddInputEventDelegate(this.OnInputAim, UpdateLoopType.Update, "Aim");
+            this.Controller.AddInputEventDelegate(this.OnInputReload, UpdateLoopType.Update, "Reload:Main");
+            this.Controller.AddInputEventDelegate(this.OnInputReload, UpdateLoopType.Update, "Reload:Alt");
+        }
 
-            // ForwardInput is left stick (up/down)
-            //this.PlayerData.input.Forward.Input = UnityEngine.Input.GetAxis("xbox_stick_l_vertical");
-            float fwd = UnityEngine.Input.GetButton("xbox_a") ? 1 : 0;
-            float bkwd = UnityEngine.Input.GetButton("xbox_b") ? 1 : 0;
-            this.PlayerData.input.Forward.Input = fwd - bkwd;
+        void OnDisable()
+        {
+            this.Controller.RemoveInputEventDelegate(this.OnInputMenu);
+            this.Controller.RemoveInputEventDelegate(this.OnInputExit);
+            this.Controller.RemoveInputEventDelegate(this.OnInputCameraMode);
+        }
 
-            // Strafe is left stick (left/right)
-            this.PlayerData.input.Strafe.Input = UnityEngine.Input.GetAxis("xbox_stick_l_horizontal");
+        void OnInputMenu(InputActionEventData evt)
+        {
+            if (!evt.GetButtonDown()) return;
+            
+            // Go back to main menu                
+            SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
+            SceneLoader.Instance.ActivateNext();
+        }
 
-            // Vertical is bumpers
-            float right = UnityEngine.Input.GetButton("xbox_bumper_r") ? 1 : 0;
-            float left = UnityEngine.Input.GetButton("xbox_bumper_l") ? 1 : 0;
-            //this.PlayerData.input.Vertical.Input = right - left;
-            this.PlayerData.input.Vertical.Input = UnityEngine.Input.GetAxis("xbox_stick_l_vertical");
+        void OnInputExit(InputActionEventData evt)
+        {
+            if (!evt.GetButtonDown()) return;
+            
+            // Exit the game
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();          
+#endif
+        }
 
-            // ~~~ Camera
+        void OnInputCameraMode(InputActionEventData evt)
+        {
+            switch (evt.actionName)
+            {
+                case "Mode:Free":
+                    this.PlayerData.ViewMode = LocalData.CameraMode.FREE;
+                    break;
+                case "Mode:Starboard":
+                    this.PlayerData.ViewMode = LocalData.CameraMode.LOCK_RIGHT;
+                    break;
+                case "Mode:Port":
+                    this.PlayerData.ViewMode = LocalData.CameraMode.LOCK_LEFT;
+                    break;
+                case "Mode:Down":
+                    this.PlayerData.ViewMode = LocalData.CameraMode.LOCK_DOWN;
+                    break;
+            }
+            // TODO: Snap camera
+        }
 
-            // Vertical is right stick (up/down)
-            this.PlayerData.input.CameraVertical.Input = UnityEngine.Input.GetAxis("xbox_stick_r_vertical");
+        void OnInputFire(InputActionEventData evt)
+        {
+            ShipData.ComponentType compType;
+            switch (this.PlayerData.ViewMode)
+            {
+                case LocalData.CameraMode.LOCK_RIGHT:
+                case LocalData.CameraMode.FREE:
+                    compType = ShipData.ComponentType.ArtilleryRight;
+                    break;
+                case LocalData.CameraMode.LOCK_LEFT:
+                    compType = ShipData.ComponentType.ArtilleryLeft;
+                    break;
+                default:
+                    return;
+            }
+            this.ToggleShooting(evt.GetAxis() > 0.0f, compType);
+        }
 
-            // Horizontal is right stick (left/right)
-            this.PlayerData.input.CameraHorizontal.Input = UnityEngine.Input.GetAxis("xbox_stick_r_horizontal");
+        void OnInputAim(InputActionEventData evt)
+        {
+            switch (this.PlayerData.ViewMode)
+            {
+                case LocalData.CameraMode.FREE:
+                    //this.PlayerData.input.AimScale = evt.GetAxis();
+                    this.ToggleShooting(evt.GetAxis() > 0.0f, ShipData.ComponentType.ArtilleryLeft);
+                    break;
+                case LocalData.CameraMode.LOCK_DOWN:
+                    this.ToggleBombing(evt.GetAxis() > 0.0f);
+                    break;
+                default:
+                    break;
+            }
+        }
 
-            this.PlayerData.input.DPadHorizontal.Input = UnityEngine.Input.GetAxis("xbox_dpad_horizontal");
-            this.PlayerData.input.DPadVertical.Input = UnityEngine.Input.GetAxis("xbox_dpad_vertical");
+        void OnInputReload(InputActionEventData evt)
+        {
+            if (evt.actionName == "Reload:Alt")
+            {
+                if (this.PlayerData.ViewMode == LocalData.CameraMode.FREE)
+                {
+                    // TODO: Fire reload event (main false, alt true)
+                }
+            }
+            else
+            {
+                // TODO: Fire reload event (main true, alt false)
+            }
+        }
 
-            // ~~~ Shooting
+        private void Update()
+        {
+            this.GetInput();
+            this.ProcessInput();
+        }
 
-            // ForwardInput is left stick (up/down)
-            this.PlayerData.input.ShootRight.Input = UnityEngine.Input.GetAxis("xbox_trigger_r");
-            this.PlayerData.input.ShootLeft.Input = UnityEngine.Input.GetAxis("xbox_trigger_l");
+        void GetInput()
+        {
+            // Forward
+            float fwd = this._controller.GetButton("Boost") ? 1 : 0;
+            float bkwd = this._controller.GetButton("Brake") ? 1 : 0;
+            this.PlayerData.input.MoveForward.Input = fwd - bkwd;
 
-            // ~~~ Menu
+            // Turning
+            this.PlayerData.input.TurnY.Input = this._controller.GetAxis("Turn Horizontal");
 
-            this.PlayerData.input.MainMenu = UnityEngine.Input.GetButtonDown("xbox_button_menu");
-            this.PlayerData.input.Back = UnityEngine.Input.GetButtonDown("xbox_button_view");
+            // Move vertical
+            this.PlayerData.input.MoveVertical.Input = this._controller.GetAxis("Move MoveVertical");
 
+            // Camera
+            if (this.PlayerData.ViewMode == LocalData.CameraMode.FREE)
+            {
+                this.PlayerData.input.CameraVertical.Input = -this._controller.GetAxis("Move Camera MoveVertical");
+                this.PlayerData.input.CameraHorizontal.Input = this._controller.GetAxis("Move Camera Horizontal");
+            }
+            else
+            {
+                this.PlayerData.input.CameraVertical.Input =
+                    this.PlayerData.input.CameraHorizontal.Input = 0.0f;
+            }
+        }
+
+        void ProcessInput()
+        {
+            this.ProcessCamera();
+        }
+
+        void ProcessCamera()
+        {
+            // Grab the vertical axis (up)
+            Vector3 dirVertical = this.Camera.up;
+            dirVertical.x = dirVertical.z = 0;
+
+            // Rotate around the vertical axis
+            this.Camera.RotateAround(this.CameraPivot.position, dirVertical, this.PlayerData.input.CameraHorizontal.Value);
+
+            // Grab the x axis (right)
+            Vector3 dirHorizontal = this.Camera.right;
+            dirVertical.y = dirVertical.z = 0;
+
+
+            /*
+            float rotateDegrees = this.playerInput.MoveVertical;
+            Vector3 currentVector = transform.position - this.pivot.position;
+            currentVector.y = 0;
+            Vector3 iVec = this.transform.forward.Flatten(Vector3.up);
+            float angleBetween = Vector3.Angle(iVec, currentVector) * (Vector3.Cross(iVec, currentVector).y > 0 ? 1 : -1);
+            float newAngle = Mathf.Clamp(angleBetween + rotateDegrees, -90, 40);
+            rotateDegrees = newAngle - angleBetween;
+            */
+
+            // Pivot around the local left/right axis (right of the facing direction)
+            this.Camera.RotateAround(this.CameraPivot.position, dirHorizontal, this.PlayerData.input.CameraVertical.Value);
+        }
+
+        private void ToggleShooting(bool isShooting, ShipData.ComponentType artillery)
+        {
+            bool wasShooting = this.PlayerData.input.IsShooting;
+            this.PlayerData.input.IsShooting = isShooting;
+
+            if (!wasShooting && isShooting)
+            {
+                // start shooting
+            }
+            else if (wasShooting && !isShooting)
+            {
+                // stop shooting
+            }
+        }
+
+        private void Shoot(ShipData.ComponentType artillery)
+        {
+            this.EntityPlayerShip.Shoot(artillery);
+        }
+
+        private void ToggleBombing(bool isBombing)
+        {
+            // TODO: Implement bombing
         }
 
     }

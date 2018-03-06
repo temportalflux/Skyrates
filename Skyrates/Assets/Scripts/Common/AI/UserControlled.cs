@@ -51,21 +51,21 @@ namespace Skyrates.Common.AI
             //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
             Vector3 vertical = Vector3.up;
 
-            this.Speed += input.Forward.Value;
+            this.Speed += input.MoveForward.Value;
             
             // For character
-            //Vector3 movementForward = cameraForward * this.playerInput.Forward;
+            //Vector3 movementForward = cameraForward * this.playerInput.MoveForward;
 
             // for ship
-            // Value in range [0, input.Forward.Modifier] which changes how fast the ship moves forward
-            float forwardSpeed = Mathf.Max(0, input.Forward.Value);
+            // Value in range [0, input.MoveForward.Modifier] which changes how fast the ship moves forward
+            float forwardSpeed = Mathf.Max(0, input.MoveForward.Value);
             // value in range [0, 1] of how much constant velocity to counteract
-            float backpedal = Mathf.Max(0, -input.Forward.Input);
+            float backpedal = Mathf.Max(0, -input.MoveForward.Input);
 
             //float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
             this.ControllerData.MovementSpeed = this.ConstantSpeed;
 
-            Vector3 movementVertical = vertical * input.Vertical.Value;
+            Vector3 movementVertical = vertical * input.MoveVertical.Value;
 
             // for character
             // Vector3 movementXZ = movementForward + movementStrafe;
@@ -77,8 +77,8 @@ namespace Skyrates.Common.AI
             physicsData.LinearVelocity = movementXYZ;
 
             // for ship movement
-            float rotationY = input.Strafe.Value;
-            //rotationY *= (1 - input.Forward.Input) * 0.5f;
+            float rotationY = input.TurnY.Value;
+            //rotationY *= (1 - input.MoveForward.Input) * 0.5f;
 
             // banking
             float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), input.YawAngle);

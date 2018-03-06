@@ -139,7 +139,7 @@ namespace UnityEditor.PostProcessing
                     Handles.DrawLine(B, J);
                     Handles.DrawLine(C, I);
 
-                    // Vertical ticks
+                    // MoveVertical ticks
                     Handles.DrawLine(A, new Vector3(A.x - kTickSize, A.y));
                     Handles.DrawLine(N, new Vector3(N.x - kTickSize, N.y));
                     Handles.DrawLine(M, new Vector3(M.x - kTickSize, M.y));
