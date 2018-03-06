@@ -58,6 +58,8 @@ namespace Skyrates.Client.Input
             this.Controller.AddInputEventDelegate(this.OnInputAim, UpdateLoopType.Update, "Aim");
             this.Controller.AddInputEventDelegate(this.OnInputReload, UpdateLoopType.Update, "Reload:Main");
             this.Controller.AddInputEventDelegate(this.OnInputReload, UpdateLoopType.Update, "Reload:Alt");
+            this.Controller.AddInputEventDelegate(this.OnInputInteract, UpdateLoopType.Update, "Interact");
+            this.Controller.AddInputEventDelegate(this.OnInputSwitchWeapon, UpdateLoopType.Update, "Switch Weapon");
         }
 
         void OnDisable()
@@ -90,19 +92,20 @@ namespace Skyrates.Client.Input
 
         void OnInputCameraMode(InputActionEventData evt)
         {
+            if (!evt.GetButtonDown()) return;
             switch (evt.actionName)
             {
                 case "Mode:Free":
-                    this.PlayerData.ViewMode = LocalData.CameraMode.FREE;
+                    this.PlayerData.StateData.ViewMode = LocalData.CameraMode.FREE;
                     break;
                 case "Mode:Starboard":
-                    this.PlayerData.ViewMode = LocalData.CameraMode.LOCK_RIGHT;
+                    this.PlayerData.StateData.ViewMode = LocalData.CameraMode.LOCK_RIGHT;
                     break;
                 case "Mode:Port":
-                    this.PlayerData.ViewMode = LocalData.CameraMode.LOCK_LEFT;
+                    this.PlayerData.StateData.ViewMode = LocalData.CameraMode.LOCK_LEFT;
                     break;
                 case "Mode:Down":
-                    this.PlayerData.ViewMode = LocalData.CameraMode.LOCK_DOWN;
+                    this.PlayerData.StateData.ViewMode = LocalData.CameraMode.LOCK_DOWN;
                     break;
             }
             // TODO: Snap camera
@@ -111,7 +114,7 @@ namespace Skyrates.Client.Input
         void OnInputFire(InputActionEventData evt)
         {
             ShipData.ComponentType compType;
-            switch (this.PlayerData.ViewMode)
+            switch (this.PlayerData.StateData.ViewMode)
             {
                 case LocalData.CameraMode.LOCK_RIGHT:
                 case LocalData.CameraMode.FREE:
@@ -128,7 +131,7 @@ namespace Skyrates.Client.Input
 
         void OnInputAim(InputActionEventData evt)
         {
-            switch (this.PlayerData.ViewMode)
+            switch (this.PlayerData.StateData.ViewMode)
             {
                 case LocalData.CameraMode.FREE:
                     //this.PlayerData.input.AimScale = evt.GetAxis();
@@ -144,23 +147,89 @@ namespace Skyrates.Client.Input
 
         void OnInputReload(InputActionEventData evt)
         {
-            if (evt.actionName == "Reload:Alt")
+            if (!evt.GetButtonDown()) return;
+
+            bool found;
+            ShipData.ComponentType reloadTarget = this.GetActiveReloadTarget(evt.actionName == "Reload:Main", out found);
+            if (found)
             {
-                if (this.PlayerData.ViewMode == LocalData.CameraMode.FREE)
+                switch (reloadTarget)
                 {
-                    // TODO: Fire reload event (main false, alt true)
+                    case ShipData.ComponentType.ArtilleryRight:
+                        if (this.PlayerData.StateData.ShootingDataStarboardCanReload)
+                        {
+                            if (this.PlayerData.StateData.ShootingDataStarboardPercentReloaded >=
+                                this.PlayerData.StateData.ShootDelayActiveReloadStart &&
+                                this.PlayerData.StateData.ShootingDataStarboardPercentReloaded <=
+                                this.PlayerData.StateData.ShootDelayActiveReloadEnd)
+                            {
+                                this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
+                            }
+                            else
+                            {
+                                this.PlayerData.StateData.ShootingDataStarboardCanReload = false;
+                            }
+                        }
+                        break;
+                    case ShipData.ComponentType.ArtilleryLeft:
+                        if (this.PlayerData.StateData.ShootingDataPortCanReload)
+                        {
+                            if (this.PlayerData.StateData.ShootingDataPortPercentReloaded >=
+                                this.PlayerData.StateData.ShootDelayActiveReloadStart &&
+                                this.PlayerData.StateData.ShootingDataPortPercentReloaded <=
+                                this.PlayerData.StateData.ShootDelayActiveReloadEnd)
+                            {
+                                this.PlayerData.StateData.ShootingDataPortPercentReloaded = 1.0f;
+                            }
+                            else
+                            {
+                                this.PlayerData.StateData.ShootingDataPortCanReload = false;
+                            }
+                        }
+                        break;
                 }
             }
-            else
+        }
+
+        ShipData.ComponentType GetActiveReloadTarget(bool main, out bool found)
+        {
+            found = true;
+
+            if (this.PlayerData.StateData.ViewMode == LocalData.CameraMode.FREE)
             {
-                // TODO: Fire reload event (main true, alt false)
+                return main ? ShipData.ComponentType.ArtilleryRight : ShipData.ComponentType.ArtilleryLeft;
             }
+            else if(main)
+            {
+                switch (this.PlayerData.StateData.ViewMode)
+                {
+                    case LocalData.CameraMode.LOCK_LEFT:
+                        return ShipData.ComponentType.ArtilleryLeft;
+                    case LocalData.CameraMode.LOCK_RIGHT:
+                        return ShipData.ComponentType.ArtilleryRight;
+                    default: break;
+                }
+            }
+            found = false;
+            return ShipData.ComponentType.Hull;
+        }
+
+        void OnInputInteract(InputActionEventData evt)
+        {
+            if (!evt.GetButtonDown()) return;
+            Debug.Log("Interact");
+        }
+
+        void OnInputSwitchWeapon(InputActionEventData evt)
+        {
+            if (!evt.GetButtonDown()) return;
+            Debug.Log("Switch Weapon");
         }
 
         private void Update()
         {
             this.GetInput();
-            this.ProcessInput();
+            this.ProcessInput(Time.deltaTime);
         }
 
         void GetInput()
@@ -168,30 +237,31 @@ namespace Skyrates.Client.Input
             // Forward
             float fwd = this._controller.GetButton("Boost") ? 1 : 0;
             float bkwd = this._controller.GetButton("Brake") ? 1 : 0;
-            this.PlayerData.input.MoveForward.Input = fwd - bkwd;
+            this.PlayerData.InputData.MoveForward.Input = fwd - bkwd;
 
             // Turning
-            this.PlayerData.input.TurnY.Input = this._controller.GetAxis("Turn Horizontal");
+            this.PlayerData.InputData.TurnY.Input = this._controller.GetAxis("Turn Horizontal");
 
             // Move vertical
-            this.PlayerData.input.MoveVertical.Input = this._controller.GetAxis("Move MoveVertical");
+            this.PlayerData.InputData.MoveVertical.Input = this._controller.GetAxis("Move Vertical");
 
             // Camera
-            if (this.PlayerData.ViewMode == LocalData.CameraMode.FREE)
+            if (this.PlayerData.StateData.ViewMode == LocalData.CameraMode.FREE)
             {
-                this.PlayerData.input.CameraVertical.Input = -this._controller.GetAxis("Move Camera MoveVertical");
-                this.PlayerData.input.CameraHorizontal.Input = this._controller.GetAxis("Move Camera Horizontal");
+                this.PlayerData.InputData.CameraVertical.Input = -this._controller.GetAxis("Move Camera Vertical");
+                this.PlayerData.InputData.CameraHorizontal.Input = this._controller.GetAxis("Move Camera Horizontal");
             }
             else
             {
-                this.PlayerData.input.CameraVertical.Input =
-                    this.PlayerData.input.CameraHorizontal.Input = 0.0f;
+                this.PlayerData.InputData.CameraVertical.Input =
+                    this.PlayerData.InputData.CameraHorizontal.Input = 0.0f;
             }
         }
 
-        void ProcessInput()
+        void ProcessInput(float deltaTime)
         {
             this.ProcessCamera();
+            this.ProcessActiveReload(deltaTime);
         }
 
         void ProcessCamera()
@@ -201,7 +271,7 @@ namespace Skyrates.Client.Input
             dirVertical.x = dirVertical.z = 0;
 
             // Rotate around the vertical axis
-            this.Camera.RotateAround(this.CameraPivot.position, dirVertical, this.PlayerData.input.CameraHorizontal.Value);
+            this.Camera.RotateAround(this.CameraPivot.position, dirVertical, this.PlayerData.InputData.CameraHorizontal.Value);
 
             // Grab the x axis (right)
             Vector3 dirHorizontal = this.Camera.right;
@@ -219,21 +289,51 @@ namespace Skyrates.Client.Input
             */
 
             // Pivot around the local left/right axis (right of the facing direction)
-            this.Camera.RotateAround(this.CameraPivot.position, dirHorizontal, this.PlayerData.input.CameraVertical.Value);
+            this.Camera.RotateAround(this.CameraPivot.position, dirHorizontal, this.PlayerData.InputData.CameraVertical.Value);
+        }
+
+        void ProcessActiveReload(float deltaTime)
+        {
+            float deltaAmt = deltaTime / this.PlayerData.StateData.ShootDelay;
+            this.PlayerData.StateData.ShootingDataStarboardPercentReloaded =
+                Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataStarboardPercentReloaded + deltaAmt);
+            this.PlayerData.StateData.ShootingDataPortPercentReloaded =
+                Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataPortPercentReloaded + deltaAmt);
         }
 
         private void ToggleShooting(bool isShooting, ShipData.ComponentType artillery)
         {
-            bool wasShooting = this.PlayerData.input.IsShooting;
-            this.PlayerData.input.IsShooting = isShooting;
+            if (!isShooting) return;
 
-            if (!wasShooting && isShooting)
+            float percentReloaded;
+            switch (artillery)
             {
-                // start shooting
+                case ShipData.ComponentType.ArtilleryRight:
+                    percentReloaded = this.PlayerData.StateData.ShootingDataStarboardPercentReloaded;
+                    break;
+                case ShipData.ComponentType.ArtilleryLeft:
+                    percentReloaded = this.PlayerData.StateData.ShootingDataPortPercentReloaded;
+                    break;
+                default:
+                    return;
             }
-            else if (wasShooting && !isShooting)
+
+            if (percentReloaded < 1.0f) return;
+
+            this.Shoot(artillery);
+            percentReloaded = 0.0f;
+
+            // TODO: Do I need this to update the values?
+            switch (artillery)
             {
-                // stop shooting
+                case ShipData.ComponentType.ArtilleryRight:
+                    this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = percentReloaded;
+                    this.PlayerData.StateData.ShootingDataStarboardCanReload = true;
+                    break;
+                case ShipData.ComponentType.ArtilleryLeft:
+                    this.PlayerData.StateData.ShootingDataPortPercentReloaded = percentReloaded;
+                    this.PlayerData.StateData.ShootingDataPortCanReload = true;
+                    break;
             }
         }
 

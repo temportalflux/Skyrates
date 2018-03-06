@@ -21,14 +21,14 @@ namespace Skyrates.Common.AI
             set
             {
                 this.ConstantSpeed = value;
-                this.ConstantSpeed = Mathf.Min(this.ConstantSpeed, this.ControllerData.SpeedMax);
-                this.ConstantSpeed = Mathf.Max(this.ConstantSpeed, this.ControllerData.SpeedMin);
+                this.ConstantSpeed = Mathf.Min(this.ConstantSpeed, this.ControllerData.StateData.SpeedMax);
+                this.ConstantSpeed = Mathf.Max(this.ConstantSpeed, this.ControllerData.StateData.SpeedMin);
             }
         }
 
         public void OnEnable()
         {
-            this.Speed = this.ControllerData.SpeedInitial;
+            this.Speed = this.ControllerData.StateData.SpeedInitial;
         }
 
         public void OnDisable()
@@ -45,7 +45,7 @@ namespace Skyrates.Common.AI
 
         private void Move(BehaviorData data, ref PhysicsData physicsData)
         {
-            LocalData.InputData input = this.ControllerData.input;
+            LocalData.Input input = this.ControllerData.InputData;
 
             Vector3 forward = data.Render.forward;
             //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
@@ -63,14 +63,14 @@ namespace Skyrates.Common.AI
             float backpedal = Mathf.Max(0, -input.MoveForward.Input);
 
             //float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
-            this.ControllerData.MovementSpeed = this.ConstantSpeed;
+            this.ControllerData.StateData.MovementSpeed = this.ConstantSpeed;
 
             Vector3 movementVertical = vertical * input.MoveVertical.Value;
 
             // for character
             // Vector3 movementXZ = movementForward + movementStrafe;
             // for ship
-            Vector3 movementXZ = forward * this.ControllerData.MovementSpeed;
+            Vector3 movementXZ = forward * this.ControllerData.StateData.MovementSpeed;
 
             Vector3 movementXYZ = movementXZ + movementVertical;
 
