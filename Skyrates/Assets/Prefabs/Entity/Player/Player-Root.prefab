@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 114956092729709676}
   - component: {fileID: 114312103114731230}
   - component: {fileID: 114264214288976394}
-  - component: {fileID: 114851400781537040}
   - component: {fileID: 114826751344152850}
   - component: {fileID: 136275651844416204}
   - component: {fileID: 114086127015448946}
@@ -280,7 +279,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436304090232158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.2, y: 11.404209, z: -22.147137}
+  m_LocalPosition: {x: 4.105682, y: -2.374228, z: -0.7979393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4717130946942272}
@@ -415,6 +414,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
+  EntityPlayerShip: {fileID: 114956092729709676}
+  Camera: {fileID: 4296624790975764}
+  CameraPivot: {fileID: 4805465745739734}
 --- !u!114 &114312103114731230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -462,19 +464,6 @@ MonoBehaviour:
   DurationOnArtilleryFire: 0.25
   StrengthOnRam: 1
   DurationOnRam: 0.75
---- !u!114 &114851400781537040
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1436304090232158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f3cf0d985eebe4fbabb7c7944418d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
-  EntityPlayerShip: {fileID: 114956092729709676}
 --- !u!114 &114898848616841254
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -32,16 +32,17 @@ namespace Skyrates.Client.Input
         {
             if (this.ShootRoutineRight == null)
             {
-                this.ShootRoutineRight = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootRight, ShipData.ComponentType.ArtilleryRight));
+                //this.ShootRoutineRight = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootRight, ShipData.ComponentType.ArtilleryRight));
             }
             if (this.ShootRoutineLeft == null)
             {
-                this.ShootRoutineLeft = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootLeft, ShipData.ComponentType.ArtilleryLeft));
+                //this.ShootRoutineLeft = StartCoroutine(this.RoutineShoot(this.ControllerData.input.ShootLeft, ShipData.ComponentType.ArtilleryLeft));
             }
         }
 
         private IEnumerator RoutineShoot(LocalData.InputConfig input, ShipData.ComponentType artillery)
         {
+            yield break;
             float timePrevious = Time.time;
             float timeElapsed = 0.0f;
             float cooldownRemaining = 0.0f;
@@ -62,7 +63,7 @@ namespace Skyrates.Client.Input
                 // TODO: Scale delay
                 // [0, this.input.ShootDelay]
                 //float timeDelay = delay * (1 - this.input.ShootInput);
-                cooldownRemaining = this.ControllerData.input.ShootDelay;
+                //cooldownRemaining = this.ControllerData.input.ShootDelay;
             }
         }
 

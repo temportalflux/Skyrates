@@ -69,9 +69,9 @@ namespace Cinemachine
         [Tooltip("Horizontal screen position for target. The camera will rotate to position the tracked object here.")]
         public float m_ScreenX = 0.5f;
 
-        /// <summary>Vertical screen position for target, The camera will rotate to to position the tracked object here</summary>
+        /// <summary>MoveVertical screen position for target, The camera will rotate to to position the tracked object here</summary>
         [Range(0f, 1f)]
-        [Tooltip("Vertical screen position for target, The camera will rotate to position the tracked object here.")]
+        [Tooltip("MoveVertical screen position for target, The camera will rotate to position the tracked object here.")]
         public float m_ScreenY = 0.5f;
 
         /// <summary>Camera will not rotate horizontally if the target is within this range of the position</summary>

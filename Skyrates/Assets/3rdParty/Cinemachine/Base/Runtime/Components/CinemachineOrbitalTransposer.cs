@@ -91,9 +91,9 @@ namespace Cinemachine
             }
         };
 
-        /// <summary>The definition of Forward.  Camera will follow behind.</summary>
+        /// <summary>The definition of MoveForward.  Camera will follow behind.</summary>
         [Space]
-        [Tooltip("The definition of Forward.  Camera will follow behind.")]
+        [Tooltip("The definition of MoveForward.  Camera will follow behind.")]
         public Heading m_Heading = new Heading(Heading.HeadingDefinition.TargetForward, 4, 0);
 
         /// <summary>Controls how automatic orbit recentering occurs</summary>

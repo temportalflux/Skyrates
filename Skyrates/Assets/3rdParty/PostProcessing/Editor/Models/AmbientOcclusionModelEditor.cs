@@ -33,7 +33,7 @@ namespace UnityEditor.PostProcessing
             EditorGUILayout.PropertyField(m_SampleCount);
             EditorGUILayout.PropertyField(m_Downsampling);
             EditorGUILayout.PropertyField(m_ForceForwardCompatibility);
-            EditorGUILayout.PropertyField(m_HighPrecision, EditorGUIHelper.GetContent("High Precision (Forward)"));
+            EditorGUILayout.PropertyField(m_HighPrecision, EditorGUIHelper.GetContent("High Precision (MoveForward)"));
 
             using (new EditorGUI.DisabledGroupScope(m_ForceForwardCompatibility.boolValue))
                 EditorGUILayout.PropertyField(m_AmbientOnly, EditorGUIHelper.GetContent("Ambient Only (Deferred + HDR)"));

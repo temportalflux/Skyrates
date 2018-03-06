@@ -84,9 +84,9 @@ namespace Cinemachine
         [Tooltip("Horizontal screen position for target. The camera will move to position the tracked object here.")]
         public float m_ScreenX = 0.5f;
 
-        /// <summary>Vertical screen position for target, The camera will move to to position the tracked object here</summary>
+        /// <summary>MoveVertical screen position for target, The camera will move to to position the tracked object here</summary>
         [Range(0f, 1f)]
-        [Tooltip("Vertical screen position for target, The camera will move to position the tracked object here.")]
+        [Tooltip("MoveVertical screen position for target, The camera will move to position the tracked object here.")]
         public float m_ScreenY = 0.5f;
 
         /// <summary>The distance along the camera axis that will be maintained from the Follow target</summary>
@@ -140,7 +140,7 @@ namespace Cinemachine
         [DocumentationSorting(4.01f, DocumentationSortingAttribute.Level.UserRef)]
         public enum FramingMode
         {
-            /// <summary>Consider only the horizontal dimension.  Vertical framing is ignored.</summary>
+            /// <summary>Consider only the horizontal dimension.  MoveVertical framing is ignored.</summary>
             Horizontal,
             /// <summary>Consider only the vertical dimension.  Horizontal framing is ignored.</summary>
             Vertical,
@@ -152,7 +152,7 @@ namespace Cinemachine
 
         /// <summary>What screen dimensions to consider when framing</summary>
         [Space]
-        [Tooltip("What screen dimensions to consider when framing.  Can be Horizontal, Vertical, or both")]
+        [Tooltip("What screen dimensions to consider when framing.  Can be Horizontal, MoveVertical, or both")]
         [FormerlySerializedAs("m_FramingMode")]
         public FramingMode m_GroupFramingMode = FramingMode.HorizontalAndVertical;
 

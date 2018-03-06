@@ -84,7 +84,7 @@ namespace Cinemachine
         /// <summary>
         /// Explicit constructor for this LensSettings
         /// </summary>
-        /// <param name="fov">The Vertical field of view</param>
+        /// <param name="fov">The MoveVertical field of view</param>
         /// <param name="orthographicSize">If orthographic, this is the half-height of the screen</param>
         /// <param name="nearClip">The near clip plane</param>
         /// <param name="farClip">The far clip plane</param>
