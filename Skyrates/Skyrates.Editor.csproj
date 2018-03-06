@@ -280,6 +280,15 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="Rewired_Editor">
+      <HintPath>Assets\3rdParty\Rewired\Internal\Libraries\Editor\Rewired_Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Core">
+      <HintPath>Assets\3rdParty\Rewired\Internal\Libraries\Runtime\Rewired_Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Windows_Lib">
+      <HintPath>Assets\3rdParty\Rewired\Internal\Libraries\Runtime\Rewired_Windows_Lib.dll</HintPath>
+    </Reference>
     <Reference Include="XInputDotNetPure">
       <HintPath>Assets\3rdParty\XInputDotNet\Plugins\XInputDotNetPure.dll</HintPath>
     </Reference>
@@ -370,6 +379,18 @@
     <Compile Include="Assets\3rdParty\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\3rdParty\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\3rdParty\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Extras\ControlMapper\Scripts\Editor\ControlMapperInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Extras\ControlMapper\Scripts\Editor\CustomButtonInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Extras\ControlMapper\Scripts\Editor\CustomSliderInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Extras\ControlMapper\Scripts\Editor\CustomToggleInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Extras\TouchControls\Scripts\Editor\MenuCommands.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Internal\Scripts\Editor\CustomInspectors\ControllerDataFilesInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Internal\Scripts\Editor\CustomInspectors\CustomInspector_External.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Internal\Scripts\Editor\CustomInspectors\HardwareJoystickMapInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Internal\Scripts\Editor\CustomInspectors\HardwareJoystickTemplateMapInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Internal\Scripts\Editor\CustomInspectors\InputManagerInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Internal\Scripts\Editor\CustomInspectors\UserDataStore_PlayerPrefsInspector.cs" />
+    <Compile Include="Assets\3rdParty\Rewired\Internal\Scripts\Editor\UnityEditorBridge.cs" />
     <Compile Include="Assets\3rdParty\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Compile Include="Assets\Scripts\Client\Loot\Editor\LootTableEditor.cs" />
     <Compile Include="Assets\Scripts\Client\Ship\Editor\HullTargetEditor.cs" />
@@ -429,6 +450,11 @@
     <None Include="Assets\3rdParty\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\3rdParty\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\3rdParty\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\3rdParty\Rewired\Documentation\ReadMe.txt" />
+    <None Include="Assets\3rdParty\Rewired\Documentation\ReleaseNotes.txt" />
+    <None Include="Assets\3rdParty\Rewired\Documentation\licences.txt" />
+    <None Include="Assets\3rdParty\Rewired\Extras\TouchControls\Shaders\ColorShift.shader" />
+    <None Include="Assets\3rdParty\Rewired\Internal\Libraries\Runtime\Rewired_Core.XML" />
     <None Include="Assets\3rdParty\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\3rdParty\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\3rdParty\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
