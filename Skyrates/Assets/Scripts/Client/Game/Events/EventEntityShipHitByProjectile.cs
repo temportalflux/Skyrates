@@ -19,7 +19,7 @@ namespace Skyrates.Client.Game.Event
         }
 
         public EventEntityShipHitByProjectile(EntityShip target, EntityProjectile entityProjectile)
-            : base(GameEventID.EntityShipHitByProjectile, entityProjectile, target, entityProjectile.GetDamage())
+            : base(GameEventID.EntityShipHitByProjectile, entityProjectile, target, entityProjectile.GetAttack())
         {
         }
         

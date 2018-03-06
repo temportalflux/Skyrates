@@ -109,11 +109,12 @@ namespace Skyrates.Client.Entity
 			ShipHull hullArmor = this.GetComponent<ShipHull>();
 
 			EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
+			float damage = 0;
 			if (entityProjectile != null)
             {
-                this.TakeDamage(entityProjectile, this.StatBlock.CalculateDamage(entityProjectile.GetAttack(), hullArmor.GetDefense(), hullArmor.GetProtection()));
+                this.TakeDamage(entityProjectile, damage = this.StatBlock.CalculateDamage(entityProjectile.GetAttack(), hullArmor.GetDefense(), hullArmor.GetProtection()));
 
-				GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile));
+				GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile, damage));
 
                 // collider is a projectile
                 // TODO: Owner should destroy based on networking
@@ -123,14 +124,13 @@ namespace Skyrates.Client.Entity
             ShipFigurehead figurehead = other.GetComponent<ShipFigurehead>();
 			if (figurehead != null && hullArmor != null) //We shouldn't have the hull be null ever, so no fallback here.
             {
-				float damage = 0;
 				// If ram, and still have health, tell source that ram attack wasn't fully successful
 				if (this.TakeDamage(figurehead.Ship, damage = this.StatBlock.CalculateDamage(figurehead.GetAttack(), hullArmor.GetDefense(), hullArmor.GetProtection())) > 0)
                 {
 					//We know that the health taken was our full amount because our health is not 0, so we don't need to recalculate the amount of damage we actually took.
                     figurehead.Ship.OnRamUnsucessful(this, damage);
                 }
-                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, figurehead));
+                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, figurehead, damage));
             }
 
         }
