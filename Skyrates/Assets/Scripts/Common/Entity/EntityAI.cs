@@ -97,22 +97,26 @@ namespace Skyrates.Common.Entity
 
             // Integrate the velocities and accellerations
             this.Physics.Integrate(deltaTime);
-            
-            // Use rigidbody to apply velocity
-            // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
-            //this._characterController.Move(this.Physics.LinearVelocity * deltaTime);
-            this._physics.velocity = this.Physics.LinearVelocity;
 
-            // Retroactively update position due to rigidbody
-            this.Physics.LinearPosition = this.transform.position;
-            
-            // Update rotation
-            this._physics.MoveRotation(this.Physics.RotationPosition);
+            // Position
+            {
+                // Use rigidbody to apply velocity
+                // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+                //this._characterController.Move(this.Physics.LinearVelocity * deltaTime);
+                this._physics.velocity = this.Physics.Linear.Velocity;
 
+                // Retroactively update position due to rigidbody
+                this.Physics.Linear.Position = this.transform.position;
+            }
+
+            // Rotation
+            this._physics.MoveRotation(this.Physics.Rotation.Position);
+
+            // Rotation Aestetic
             // TODO: Delegate to subclass maybe?
             if (this.Physics.HasAesteticRotation)
             {
-                this.GetRender().transform.localRotation = this.Physics.RotationAesteticPosition;
+                this.GetRender().transform.localRotation = this.Physics.RotationAestetic.Position;
             }
 
         }

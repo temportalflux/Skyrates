@@ -19,10 +19,14 @@ MonoBehaviour:
       Input: 0
       Modifier: 25
     YawAngle: 15
+    YawAngleSpeed: 10
+    YawAngleDeadZone: 0.15
     MoveVertical:
       Input: 0
       Modifier: 5
     PitchAngle: 5
+    PitchAngleSpeed: 15
+    PitchAngleDeadZone: 0.15
     CameraHorizontal:
       Input: 0
       Modifier: 2
@@ -38,7 +42,7 @@ MonoBehaviour:
     MovementSpeed: 0
     ViewMode: 0
     ShootingDataStarboardPercentReloaded: 1
-    ShootingDataStarboardCanReload: 1
+    ShootingDataStarboardCanReload: 0
     ShootingDataPortPercentReloaded: 1
     ShootingDataPortCanReload: 0
     ShootDelayActiveReloadStart: 0.2

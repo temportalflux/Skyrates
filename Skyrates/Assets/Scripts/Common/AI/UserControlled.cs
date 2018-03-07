@@ -87,24 +87,29 @@ namespace Skyrates.Common.AI
             float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
             
             physicsData.Rotation.Velocity = new Vector3(0.0f, rotationY, 0.0f);
+            
+            Vector3 currentRotation = physicsData.RotationAestetic.Position.eulerAngles;
 
-            Vector3 desiredBankingVec = new Vector3(rotationX, 0.0f, rotationZ);
-            Vector3 currentRotationVec = physicsData.RotationAestetic.Position.eulerAngles;
-            currentRotationVec.y = 0.0f;
-            Quaternion desiredBankingQuat = Quaternion.Euler(desiredBankingVec);
-            Quaternion currentRotationQuat = Quaternion.Euler(desiredBankingVec);
-            float angleBetweenCurrentAndTargetBanking = Quaternion.Angle(currentRotationQuat, desiredBankingQuat);
-            if (angleBetweenCurrentAndTargetBanking > 5f)
-            {
-                Vector3 angleDiff = desiredBankingVec - currentRotationVec;
-                angleDiff *= 0.1f;
-                physicsData.RotationAestetic.Velocity = angleDiff;
-            }
-            else
-            {
-                physicsData.RotationAestetic.Velocity = Vector3.zero;
-            }
+            LerpRotation(currentRotation.z,
+                Mathf.Abs(input.TurnY.Input) > this.ControllerData.InputData.YawAngleDeadZone ? rotationZ : 0,
+                this.ControllerData.InputData.YawAngleSpeed,
+                ref physicsData.RotationAestetic.Velocity.z
+            );
+            LerpRotation(currentRotation.x,
+                Mathf.Abs(input.MoveVertical.Input) > this.ControllerData.InputData.PitchAngleDeadZone ? rotationX : 0,
+                this.ControllerData.InputData.PitchAngleSpeed,
+                ref physicsData.RotationAestetic.Velocity.x
+            );
 
+        }
+
+        private void LerpRotation(float current, float target, float speed, ref float velocity)
+        {
+            float rotation = target - current;
+            rotation = ((int)(Align.MapToRange(rotation) * 100)) * 0.01f;
+            float rotationSize = Mathf.Abs(rotation);
+            float dir = rotationSize > 0.0f ? rotation / rotationSize : 0.0f;
+            velocity = speed * dir;
         }
 
     }
