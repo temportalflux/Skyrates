@@ -86,8 +86,25 @@ namespace Skyrates.Common.AI
             // pitching (up/down rotation)
             float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
             
-            physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
-            physicsData.RotationAesteticPosition = Quaternion.Euler(rotationX, 0.0f, rotationZ);
+            physicsData.Rotation.Velocity = new Vector3(0.0f, rotationY, 0.0f);
+
+            Vector3 desiredBankingVec = new Vector3(rotationX, 0.0f, rotationZ);
+            Vector3 currentRotationVec = physicsData.RotationAestetic.Position.eulerAngles;
+            currentRotationVec.y = 0.0f;
+            Quaternion desiredBankingQuat = Quaternion.Euler(desiredBankingVec);
+            Quaternion currentRotationQuat = Quaternion.Euler(desiredBankingVec);
+            float angleBetweenCurrentAndTargetBanking = Quaternion.Angle(currentRotationQuat, desiredBankingQuat);
+            if (angleBetweenCurrentAndTargetBanking > 5f)
+            {
+                Vector3 angleDiff = desiredBankingVec - currentRotationVec;
+                angleDiff *= 0.1f;
+                physicsData.RotationAestetic.Velocity = angleDiff;
+            }
+            else
+            {
+                physicsData.RotationAestetic.Velocity = Vector3.zero;
+            }
+
         }
 
     }

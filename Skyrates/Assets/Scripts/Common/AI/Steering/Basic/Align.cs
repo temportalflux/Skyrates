@@ -54,8 +54,8 @@ namespace Skyrates.Common.AI
                     physics.RotationPosition.eulerAngles.x,
                     physics.RotationVelocity.x,
                     data.Target.RotationPosition.eulerAngles.x,
-                    out physics.RotationVelocity.x,
-                    out physics.RotationAccelleration.x
+                    out physics.Rotation.Velocity.x,
+                    out physics.Rotation.Acceleration.x
                 );
             }
 
@@ -65,8 +65,8 @@ namespace Skyrates.Common.AI
                     physics.RotationPosition.eulerAngles.y,
                     physics.RotationVelocity.y,
                     data.Target.RotationPosition.eulerAngles.y,
-                    out physics.RotationVelocity.y,
-                    out physics.RotationAccelleration.y
+                    out physics.Rotation.Velocity.y,
+                    out physics.Rotation.Acceleration.y
                 );
             }
 
@@ -76,8 +76,8 @@ namespace Skyrates.Common.AI
                     physics.RotationPosition.eulerAngles.z,
                     physics.RotationVelocity.z,
                     data.Target.RotationPosition.eulerAngles.z,
-                    out physics.RotationVelocity.z,
-                    out physics.RotationAccelleration.z
+                    out physics.Rotation.Velocity.z,
+                    out physics.Rotation.Acceleration.z
                 );
             }
 

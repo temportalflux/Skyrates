@@ -9,34 +9,108 @@ namespace Skyrates.Common.AI
     public class PhysicsData
     {
 
-        [BitSerialize(0)]
-        [SerializeField]
-        public Vector3 LinearPosition = Vector3.zero;
+        [Serializable]
+        public class Integrals
+        {
 
-        [BitSerialize(1)]
-        [SerializeField]
-        public Vector3 LinearVelocity = Vector3.zero;
+            [SerializeField]
+            public Vector3 Velocity = Vector3.zero;
 
-        [BitSerialize(2)]
-        [SerializeField]
-        public Vector3 LinearAccelleration = Vector3.zero;
+            [SerializeField]
+            public Vector3 Acceleration = Vector3.zero;
 
-        [BitSerialize(3)]
-        [SerializeField]
-        public Quaternion RotationPosition = Quaternion.identity;
+            public virtual void Integrate(float deltaTime)
+            {
+                ExtensionMethods.Integrate(ref this.Velocity, this.Acceleration, deltaTime);
+            }
 
-        [BitSerialize(4)]
-        [SerializeField]
-        public Vector3 RotationVelocity = Vector3.zero;
+        }
 
-        [BitSerialize(5)]
+        [Serializable]
+        public class LinearIntegrals : Integrals
+        {
+
+            [SerializeField]
+            public Vector3 Position = Vector3.zero;
+
+            public override void Integrate(float deltaTime)
+            {
+                base.Integrate(deltaTime);
+                ExtensionMethods.Integrate(ref this.Position, this.Velocity, deltaTime);
+            }
+
+        }
+
+        [Serializable]
+        public class RotationalIntegrals : Integrals
+        {
+
+            [SerializeField]
+            public Quaternion Position = Quaternion.identity;
+
+            public override void Integrate(float deltaTime)
+            {
+                base.Integrate(deltaTime);
+                ExtensionMethods.Integrate(ref this.Position, this.Velocity, deltaTime);
+            }
+
+        }
+
         [SerializeField]
-        public Vector3 RotationAccelleration = Vector3.zero;
+        public LinearIntegrals Linear = new LinearIntegrals();
+
+        [SerializeField]
+        public RotationalIntegrals Rotation = new RotationalIntegrals();
+
+        [SerializeField]
+        public RotationalIntegrals RotationAestetic = new RotationalIntegrals();
+        
+        public Vector3 LinearPosition
+        {
+            get { return this.Linear.Position; }
+            set { this.Linear.Position = value; }
+        }
+        
+        public Vector3 LinearVelocity
+        {
+            get { return this.Linear.Velocity; }
+            set { this.Linear.Velocity = value; }
+        }
+        
+        public Vector3 LinearAccelleration
+        {
+            get { return this.Linear.Acceleration; }
+            set { this.Linear.Acceleration = value; }
+        }
+        
+        public Quaternion RotationPosition
+        {
+            get { return this.Rotation.Position; }
+            set { this.Rotation.Position = value; }
+        }
+
+        public Vector3 RotationVelocity
+        {
+            get { return this.Rotation.Velocity; }
+            set { this.Rotation.Velocity = value; }
+        }
+
+        public Vector3 RotationAccelleration
+        {
+            get { return this.Rotation.Velocity; }
+            set { this.Rotation.Velocity = value; }
+        }
 
         public bool HasAesteticRotation = false;
 
+        public Quaternion RotationAesteticPosition
+        {
+            get { return this.RotationAestetic.Position; }
+            set { this.RotationAestetic.Position = value; }
+        }
+
         [SerializeField]
-        public Quaternion RotationAesteticPosition = Quaternion.identity;
+        public Vector3 RotationAesteticVelocity = Vector3.zero;
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
@@ -85,18 +159,9 @@ namespace Skyrates.Common.AI
 
         public void Integrate(float deltaTime)
         {
-            // Update linear velocity
-            ExtensionMethods.Integrate(ref this.LinearVelocity, this.LinearAccelleration, deltaTime);
-
-            // Update linear position
-            ExtensionMethods.Integrate(ref this.LinearPosition, this.LinearVelocity, deltaTime);
-
-            // Update rotational velocity
-            ExtensionMethods.Integrate(ref this.RotationVelocity, this.RotationAccelleration, deltaTime);
-
-            // Update rotational position
-            ExtensionMethods.Integrate(ref this.RotationPosition, this.RotationVelocity, deltaTime);
-
+            this.Linear.Integrate(deltaTime);
+            this.Rotation.Integrate(deltaTime);
+            this.RotationAestetic.Integrate(deltaTime);
         }
         
     }
