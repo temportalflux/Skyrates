@@ -42,7 +42,7 @@ namespace Skyrates.Client.Entity
 			this.CanvasObject.SetActive(false);
 			foreach (UpgradeButton button in Game.GameManager.Instance.UpgradeManager.UpgradeMenuButtons)
 			{
-				button.AddUpgradeListener();
+				button.AddUpgradeListener(player);
 			}
 			Game.GameManager.Instance.UpgradeManager.UpgradeMenu.SetActive(true);
 		}

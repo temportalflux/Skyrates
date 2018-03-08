@@ -156,12 +156,19 @@ namespace Skyrates.Client.Entity
         {
         }
 
-        /// <summary>
-        /// Called when this object collides with loot.
-        /// Adds loot to the <see cref="PlayerData"/> and updates UI/UX information.
-        /// </summary>
-        /// <param name="loot"></param>
-        public void OnLootCollided(Loot.Loot loot)
+		//TODO: Doxygen
+		public override ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
+		{
+			if (type == ShipData.ComponentType.Hull) return new ShipComponent[] { this.ShipRoot.Hull };
+			else return this.ShipRoot.Hull.GetGeneratedComponent(type);
+		}
+
+		/// <summary>
+		/// Called when this object collides with loot.
+		/// Adds loot to the <see cref="PlayerData"/> and updates UI/UX information.
+		/// </summary>
+		/// <param name="loot"></param>
+		public void OnLootCollided(Loot.Loot loot)
         {
             this.PlayerData.Inventory.Add(loot.Item);
 

@@ -76,6 +76,13 @@ namespace Skyrates.Client.Entity
             this.UpdateHealthParticles();
         }
 
+		//TODO: Doxygen
+		public virtual ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
+		{
+			if (type == ShipData.ComponentType.Hull) return new ShipComponent[] { this.GetComponentInChildren<ShipHull>() };
+			else return this.GetComponentInChildren<ShipHull>().GetGeneratedComponent(type);
+		}
+
         private void InitParticle(ref ParticleArea area)
         {
             if (area == null || area.Bounds == null || area.Prefab == null)
@@ -106,7 +113,7 @@ namespace Skyrates.Client.Entity
                 return;
             }
 
-			ShipHull hullArmor = this.GetComponent<ShipHull>();
+			ShipHull hullArmor = this.GetShipComponentsOfType(ShipData.ComponentType.Hull)[0] as ShipHull;
 
 			EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
 			float damage = 0;
