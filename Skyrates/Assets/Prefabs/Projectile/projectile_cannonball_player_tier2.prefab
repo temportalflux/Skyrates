@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114447081506730672}
   - component: {fileID: 136933438053157366}
   m_Layer: 14
-  m_Name: projectile_cannonball_player
+  m_Name: projectile_cannonball_player_tier2
   m_TagString: Projectile-Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
   PhysicsComponent: {fileID: 0}
-  Attack: 2
+  Attack: 4
 --- !u!136 &136933438053157366
 CapsuleCollider:
   m_ObjectHideFlags: 1
