@@ -97,8 +97,8 @@ namespace Skyrates.Common.AI
 
         public Vector3 RotationAccelleration
         {
-            get { return this.Rotation.Velocity; }
-            set { this.Rotation.Velocity = value; }
+            get { return this.Rotation.Acceleration; }
+            set { this.Rotation.Acceleration = value; }
         }
 
         public bool HasAesteticRotation = false;
@@ -108,9 +108,12 @@ namespace Skyrates.Common.AI
             get { return this.RotationAestetic.Position; }
             set { this.RotationAestetic.Position = value; }
         }
-
-        [SerializeField]
-        public Vector3 RotationAesteticVelocity = Vector3.zero;
+        
+        public Vector3 RotationAesteticVelocity
+        {
+            get { return this.RotationAestetic.Velocity; }
+            set { this.RotationAestetic.Velocity = value; }
+        }
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
