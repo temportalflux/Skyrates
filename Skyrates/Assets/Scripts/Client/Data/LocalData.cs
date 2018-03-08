@@ -115,9 +115,20 @@ namespace Skyrates.Client.Data
 
             // TODO: Condense this into an object keyed by ArtilleryComponent
             public float ShootingDataStarboardPercentReloaded;
+            public bool ShootingDataStarboardIsReloading;
             public bool ShootingDataStarboardCanReload;
+            public bool ShootingDataStarboardIsReloaded
+            {
+                get { return this.ShootingDataStarboardPercentReloaded >= 1.0f; }
+            }
+
             public float ShootingDataPortPercentReloaded;
+            public bool ShootingDataPortIsReloading;
             public bool ShootingDataPortCanReload;
+            public bool ShootingDataPortIsReloaded
+            {
+                get { return this.ShootingDataPortPercentReloaded >= 1.0f; }
+            }
 
             [Header("Active Reload")]
             [Range(0.0f, 1.0f)]
@@ -137,23 +148,27 @@ namespace Skyrates.Client.Data
         /// </summary>
         public Inventory Inventory;
 
-        public void Awake()
+        public void OnEnable()
         {
             this.StateData.MovementSpeed = 0.0f;
 
             this.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
+            this.StateData.ShootingDataStarboardIsReloading = false;
             this.StateData.ShootingDataStarboardCanReload = false;
             this.StateData.ShootingDataPortPercentReloaded = 1.0f;
+            this.StateData.ShootingDataPortIsReloading = false;
             this.StateData.ShootingDataPortCanReload = false;
         }
 
-        public void OnDestroy()
+        public void OnDisable()
         {
             this.StateData.MovementSpeed = 0.0f;
 
             this.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
+            this.StateData.ShootingDataStarboardIsReloading = false;
             this.StateData.ShootingDataStarboardCanReload = false;
             this.StateData.ShootingDataPortPercentReloaded = 1.0f;
+            this.StateData.ShootingDataPortIsReloading = false;
             this.StateData.ShootingDataPortCanReload = false;
         }
 

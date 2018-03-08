@@ -145,34 +145,51 @@ namespace Skyrates.Client.Input
                 switch (reloadTarget)
                 {
                     case ShipData.ComponentType.ArtilleryRight:
-                        if (this.PlayerData.StateData.ShootingDataStarboardCanReload)
+                        if (!this.PlayerData.StateData.ShootingDataStarboardIsReloading)
                         {
-                            if (this.PlayerData.StateData.ShootingDataStarboardPercentReloaded >=
-                                this.PlayerData.StateData.ShootDelayActiveReloadStart &&
-                                this.PlayerData.StateData.ShootingDataStarboardPercentReloaded <=
-                                this.PlayerData.StateData.ShootDelayActiveReloadEnd)
+                            this.PlayerData.StateData.ShootingDataStarboardIsReloading = true;
+                            this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = 0.0f;
+                        }
+                        else
+                        {
+                            if (this.PlayerData.StateData.ShootingDataStarboardCanReload)
                             {
-                                this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
-                            }
-                            else
-                            {
-                                this.PlayerData.StateData.ShootingDataStarboardCanReload = false;
+                                if (this.PlayerData.StateData.ShootingDataStarboardPercentReloaded >=
+                                    this.PlayerData.StateData.ShootDelayActiveReloadStart &&
+                                    this.PlayerData.StateData.ShootingDataStarboardPercentReloaded <=
+                                    this.PlayerData.StateData.ShootDelayActiveReloadEnd)
+                                {
+                                    this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
+                                }
+                                else
+                                {
+                                    this.PlayerData.StateData.ShootingDataStarboardCanReload = false;
+                                }
                             }
                         }
                         break;
                     case ShipData.ComponentType.ArtilleryLeft:
-                        if (this.PlayerData.StateData.ShootingDataPortCanReload)
+                        if (!this.PlayerData.StateData.ShootingDataPortIsReloading)
                         {
-                            if (this.PlayerData.StateData.ShootingDataPortPercentReloaded >=
-                                this.PlayerData.StateData.ShootDelayActiveReloadStart &&
-                                this.PlayerData.StateData.ShootingDataPortPercentReloaded <=
-                                this.PlayerData.StateData.ShootDelayActiveReloadEnd)
+                            this.PlayerData.StateData.ShootingDataPortIsReloading = true;
+                            this.PlayerData.StateData.ShootingDataPortPercentReloaded = 0.0f;
+                        }
+                        else
+                        {
+                            if (this.PlayerData.StateData.ShootingDataPortCanReload)
                             {
-                                this.PlayerData.StateData.ShootingDataPortPercentReloaded = 1.0f;
-                            }
-                            else
-                            {
-                                this.PlayerData.StateData.ShootingDataPortCanReload = false;
+                                if (this.PlayerData.StateData.ShootingDataPortPercentReloaded >=
+                                    this.PlayerData.StateData.ShootDelayActiveReloadStart &&
+                                    this.PlayerData.StateData.ShootingDataPortPercentReloaded <=
+                                    this.PlayerData.StateData.ShootDelayActiveReloadEnd)
+                                {
+                                    this.PlayerData.StateData.ShootingDataPortPercentReloaded = 1.0f;
+                                }
+                                else
+                                {
+                                    this.PlayerData.StateData.ShootingDataPortCanReload = false;
+                                }
+
                             }
                         }
                         break;
@@ -267,17 +284,36 @@ namespace Skyrates.Client.Input
         void ProcessActiveReload(float deltaTime)
         {
             float deltaAmt = deltaTime / this.PlayerData.StateData.ShootDelay;
-            this.PlayerData.StateData.ShootingDataStarboardPercentReloaded =
-                Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataStarboardPercentReloaded + deltaAmt);
-            this.PlayerData.StateData.ShootingDataPortPercentReloaded =
-                Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataPortPercentReloaded + deltaAmt);
+
+            if (this.PlayerData.StateData.ShootingDataStarboardIsReloading)
+            {
+                this.PlayerData.StateData.ShootingDataStarboardPercentReloaded =
+                    Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataStarboardPercentReloaded + deltaAmt);
+                if (this.PlayerData.StateData.ShootingDataStarboardPercentReloaded >= 1.0f)
+                {
+                    this.PlayerData.StateData.ShootingDataStarboardCanReload = false;
+                    this.PlayerData.StateData.ShootingDataStarboardIsReloading = false;
+                }
+            }
+
+            if (this.PlayerData.StateData.ShootingDataPortIsReloading)
+            {
+                this.PlayerData.StateData.ShootingDataPortPercentReloaded =
+                    Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataPortPercentReloaded + deltaAmt);
+                if (this.PlayerData.StateData.ShootingDataPortPercentReloaded >= 1.0f)
+                {
+                    this.PlayerData.StateData.ShootingDataPortCanReload = false;
+                    this.PlayerData.StateData.ShootingDataPortIsReloading = false;
+                }
+            }
+
         }
 
         private void ToggleShooting(bool isShooting, ShipData.ComponentType artillery)
         {
             if (!isShooting) return;
 
-            float percentReloaded;
+            float percentReloaded = 0.0f;
             switch (artillery)
             {
                 case ShipData.ComponentType.ArtilleryRight:
@@ -289,22 +325,24 @@ namespace Skyrates.Client.Input
                 default:
                     return;
             }
-
+            
             if (percentReloaded < 1.0f) return;
+            percentReloaded = 0.0f;
 
             this.Shoot(artillery);
-            percentReloaded = 0.0f;
 
             // TODO: Do I need this to update the values?
             switch (artillery)
             {
                 case ShipData.ComponentType.ArtilleryRight:
-                    this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = percentReloaded;
                     this.PlayerData.StateData.ShootingDataStarboardCanReload = true;
+                    this.PlayerData.StateData.ShootingDataStarboardIsReloading = false;
+                    this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = percentReloaded;
                     break;
                 case ShipData.ComponentType.ArtilleryLeft:
-                    this.PlayerData.StateData.ShootingDataPortPercentReloaded = percentReloaded;
                     this.PlayerData.StateData.ShootingDataPortCanReload = true;
+                    this.PlayerData.StateData.ShootingDataPortIsReloading = false;
+                    this.PlayerData.StateData.ShootingDataPortPercentReloaded = percentReloaded;
                     break;
             }
 
@@ -314,6 +352,7 @@ namespace Skyrates.Client.Input
                 this.PlayerData.StateData.ShootDelayActiveReloadStart,
                 this.PlayerData.StateData.ShootDelayActiveReloadEnd
             ));
+
         }
 
         private void Shoot(ShipData.ComponentType artillery)
