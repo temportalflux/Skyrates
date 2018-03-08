@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Entity;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using UnityEngine;
@@ -57,7 +58,11 @@ public class CameraShake : MonoBehaviour
 
     void OnHitBy(GameEvent evt)
     {
-        this._shakeDuration = this.ShakeDuration;
+        EventEntityShipHitByProjectile evtHit = (EventEntityShipHitByProjectile) evt;
+        if (evtHit.Ship is EntityPlayerShip)
+        {
+            this._shakeDuration = this.ShakeDuration;
+        }
     }
 
 }
