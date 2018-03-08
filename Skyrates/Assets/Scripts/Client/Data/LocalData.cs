@@ -80,7 +80,11 @@ namespace Skyrates.Client.Data
 
 			public float AimScale;
 
-        }
+			public float AdditionalTurnPercent;
+
+			public float AdditionalMovePercent;
+
+		}
 
         /// <summary>
         /// The possible states the player's camera can be in

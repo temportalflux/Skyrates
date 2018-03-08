@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Skyrates.Client.Entity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -104,6 +105,24 @@ namespace Skyrates.Client.Ship
             comp.transform.rotation = mount.Roots[index].localRotation;
 
             comp.Ship = this.Ship;
+			//Special cases to set bonuses for navigation and propulsion components.
+			EntityPlayerShip playerShip = comp.Ship as EntityPlayerShip;
+			if (playerShip)
+			{
+				ShipNavigationLeft navigationComp = comp as ShipNavigationLeft; //Could also use ShipNavigation, but this lets us skip half of the adds, which is ideally 1.
+				if (navigationComp)
+				{
+					playerShip.PlayerData.InputData.AdditionalTurnPercent = navigationComp.AdditionalTurnPercent;
+				}
+				else
+				{
+					ShipPropulsion propulsionComp = comp as ShipPropulsion;
+					if (propulsionComp)
+					{
+						playerShip.PlayerData.InputData.AdditionalMovePercent = propulsionComp.AdditionalMovePercent;
+					}
+				}
+			}
         }
 
         /// <summary>

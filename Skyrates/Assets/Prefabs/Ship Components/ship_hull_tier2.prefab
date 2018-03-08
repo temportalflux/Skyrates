@@ -3360,7 +3360,7 @@ GameObject:
   - component: {fileID: 4640063721161936}
   - component: {fileID: 114758782782990720}
   m_Layer: 18
-  m_Name: ship_hull_tier1
+  m_Name: ship_hull_tier2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10565,7 +10565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
-  TierIndex: 0
+  TierIndex: 1
   Mounts:
   - Roots:
     - {fileID: 4021603651666208}
@@ -10823,8 +10823,8 @@ MonoBehaviour:
   - {fileID: 4814407333399972}
   - {fileID: 4772343923761694}
   - {fileID: 4199088623296334}
-  Defense: 0
-  Protection: 0
+  Defense: 1
+  Protection: 10
 --- !u!114 &114763424253116764
 MonoBehaviour:
   m_ObjectHideFlags: 1
