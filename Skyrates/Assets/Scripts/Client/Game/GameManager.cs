@@ -49,8 +49,13 @@ namespace Skyrates.Client.Game
 
         public EntityPlayerShip PlayerPrefab;
 
-        /// <inheritdoc />
-        private void Awake()
+		/// <summary>
+		/// Upgrade manager, used for a single point of entry into the upgrade menu.
+		/// </summary>
+		public UpgradeManager UpgradeManager;
+
+		/// <inheritdoc />
+		private void Awake()
         {
             this.loadSingleton(this, ref Instance);
             this._events = new GameEvents();

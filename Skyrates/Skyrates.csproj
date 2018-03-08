@@ -272,25 +272,25 @@
       <HintPath>Assets/3rdParty/XInputDotNet/Plugins/XInputDotNetPure.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/joshua.greaves/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/joshua.greaves/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/joshua.greaves/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Analytics">
-      <HintPath>C:/Users/joshua.greaves/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+      <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/joshua.greaves/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/joshua.greaves/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/joshua.greaves/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/dustin.yost/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -498,8 +498,10 @@
     <Compile Include="Assets\Scripts\Client\Component\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Client\Data\Inventory.cs" />
     <Compile Include="Assets\Scripts\Client\Data\LocalData.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\CanvasWorldSpaceToScreenSpace.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\DistanceCollider.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityCannon.cs" />
+    <Compile Include="Assets\Scripts\Client\Entity\EntityMooring.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityProjectile.cs" />
     <Compile Include="Assets\Scripts\Client\Entity\EntityShip.cs" />
@@ -531,6 +533,7 @@
     <Compile Include="Assets\Scripts\Client\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Client\Game\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Client\Game\StartScene.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\UpgradeManager.cs" />
     <Compile Include="Assets\Scripts\Client\Input\InputInteraction.cs" />
     <Compile Include="Assets\Scripts\Client\Input\InputRotation.cs" />
     <Compile Include="Assets\Scripts\Client\Input\PlayerController.cs" />
@@ -565,6 +568,7 @@
     <Compile Include="Assets\Scripts\Client\UI\UpdateLootCount.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateSessionID.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UpdateVersion.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\UpgradeButton.cs" />
     <Compile Include="Assets\Scripts\Client\Util\DisplayScriptableAttribute.cs" />
     <Compile Include="Assets\Scripts\Client\Util\Singleton.cs" />
     <Compile Include="Assets\Scripts\Client\VFX\ArcRender.cs" />
@@ -639,7 +643,6 @@
     <Compile Include="Assets\Scripts\Server\Ship\ShipData.cs" />
     <Compile Include="Assets\UIFillCutoffBar.cs" />
     <Compile Include="Assets\UIGameplay.cs" />
-    <Compile Include="Assets\UIScroller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\Cinemachine\ReleaseNotes.txt" />
