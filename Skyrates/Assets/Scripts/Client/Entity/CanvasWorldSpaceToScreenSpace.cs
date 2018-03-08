@@ -10,14 +10,21 @@ namespace Skyrates.Client.Entity
 		public Transform Target;
 		public Vector3 Offset;
 
-		void Start()
+		void Awake()
 		{
 			_rectTransform = GetComponent<RectTransform>();
 		}
-		
+
+		void Start()
+		{
+			//TODO: DRY, put this in a function instead.
+			_rectTransform.anchoredPosition = Camera.main.WorldToScreenPoint(Target.transform.position + Offset) - new Vector3(Screen.width / 2.0f, Screen.height / 2.0f); //For middle-aligned text.
+		}
+
 
 		void Update()
 		{
+			//TODO: DRY, put this in a function instead.
 			_rectTransform.anchoredPosition = Camera.main.WorldToScreenPoint(Target.transform.position + Offset) - new Vector3(Screen.width / 2.0f, Screen.height / 2.0f); //For middle-aligned text.
 		}
 	}

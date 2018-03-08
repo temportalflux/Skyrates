@@ -543,7 +543,7 @@ MonoBehaviour:
   RadiusBox: {x: 0, y: 0, z: 0}
   CollisionLayers:
     serializedVersion: 2
-    m_Bits: 1638400
+    m_Bits: 10027008
   Color: {r: 1, g: 0, b: 0, a: 1}
   Frequency: 1
   ScatterExecution: 1
@@ -673,6 +673,7 @@ MonoBehaviour:
     RotationAccelleration: {x: 0, y: 0, z: 0}
     HasAesteticRotation: 0
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationAesteticVelocity: {x: 0, y: 0, z: 0}
   BehaviorData:
     InitialTargets: []
     FormationOwner: {fileID: 0}
@@ -689,6 +690,7 @@ MonoBehaviour:
       RotationAccelleration: {x: 0, y: 0, z: 0}
       HasAesteticRotation: 0
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationAesteticVelocity: {x: 0, y: 0, z: 0}
   Steering:
   - {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
   StatBlock: {fileID: 11400000, guid: 83d0bef0abd7ff64f89dd28418764559, type: 2}

@@ -272,6 +272,7 @@ namespace Skyrates.Client.Input
                 this.PlayerData.InputData.CameraVertical.Input =
                     this.PlayerData.InputData.CameraHorizontal.Input = 0.0f;
             }
+			this.PlayerData.InputData.IsInteractingOnThisFrame = this._controller.GetButtonDown("Interact");
         }
 
         void ProcessInput(float deltaTime)

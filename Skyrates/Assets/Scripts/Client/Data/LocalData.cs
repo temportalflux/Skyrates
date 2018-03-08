@@ -76,7 +76,9 @@ namespace Skyrates.Client.Data
 
             public bool IsShooting;
 
-            public float AimScale;
+			public bool IsInteractingOnThisFrame;
+
+			public float AimScale;
 
         }
 
