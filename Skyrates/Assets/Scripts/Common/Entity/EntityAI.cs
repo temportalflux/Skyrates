@@ -103,20 +103,20 @@ namespace Skyrates.Common.Entity
                 // Use rigidbody to apply velocity
                 // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
                 //this._characterController.Move(this.Physics.LinearVelocity * deltaTime);
-                this._physics.velocity = this.Physics.Linear.Velocity;
+                this._physics.velocity = this.Physics.LinearVelocity;
 
                 // Retroactively update position due to rigidbody
-                this.Physics.Linear.Position = this.transform.position;
+                this.Physics.LinearPosition = this.transform.position;
             }
 
             // Rotation
-            this._physics.MoveRotation(this.Physics.Rotation.Position);
+            this._physics.MoveRotation(this.Physics.RotationPosition);
 
             // Rotation Aestetic
             // TODO: Delegate to subclass maybe?
             if (this.Physics.HasAesteticRotation)
             {
-                this.GetRender().transform.localRotation = this.Physics.RotationAestetic.Position;
+                this.GetRender().transform.localRotation = this.Physics.RotationAesteticPosition;
             }
 
         }

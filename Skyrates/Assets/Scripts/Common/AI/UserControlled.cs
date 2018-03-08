@@ -86,19 +86,19 @@ namespace Skyrates.Common.AI
             // pitching (up/down rotation)
             float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
             
-            physicsData.Rotation.Velocity = new Vector3(0.0f, rotationY, 0.0f);
+            physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
             
-            Vector3 currentRotation = physicsData.RotationAestetic.Position.eulerAngles;
+            Vector3 currentRotation = physicsData.RotationAesteticPosition.eulerAngles;
 
             LerpRotation(currentRotation.z,
                 Mathf.Abs(input.TurnY.Input) > this.ControllerData.InputData.YawAngleDeadZone ? rotationZ : 0,
                 this.ControllerData.InputData.YawAngleSpeed,
-                ref physicsData.RotationAestetic.Velocity.z
+                ref physicsData.RotationAesteticVelocity.z
             );
             LerpRotation(currentRotation.x,
                 Mathf.Abs(input.MoveVertical.Input) > this.ControllerData.InputData.PitchAngleDeadZone ? rotationX : 0,
                 this.ControllerData.InputData.PitchAngleSpeed,
-                ref physicsData.RotationAestetic.Velocity.x
+                ref physicsData.RotationAesteticVelocity.x
             );
 
         }
