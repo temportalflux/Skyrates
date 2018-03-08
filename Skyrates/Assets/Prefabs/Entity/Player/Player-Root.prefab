@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4296624790975764}
-  - component: {fileID: 114218548741451398}
+  - component: {fileID: 114621202652398174}
   m_Layer: 15
   m_Name: View
   m_TagString: Untagged
@@ -547,21 +547,6 @@ MonoBehaviour:
   Color: {r: 1, g: 0, b: 0, a: 1}
   Frequency: 1
   ScatterExecution: 1
---- !u!114 &114218548741451398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1199482204315226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2aec70a8c0cf0140b0778a9cab056db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 4741259884216756}
-  ShakeDuration: 0.5
-  shakeAmount: 0.1
-  decreaseFactor: 1
 --- !u!114 &114264214288976394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -598,6 +583,19 @@ MonoBehaviour:
     Components: 0000000000000000ffffffff0000000000000000000000000000000000000000ffffffff
     _hasNewData: 0
   Hull: {fileID: 0}
+--- !u!114 &114621202652398174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1199482204315226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec4b65294023b84f86111266f230e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
+  pivot: {fileID: 4805465745739734}
 --- !u!114 &114826751344152850
 MonoBehaviour:
   m_ObjectHideFlags: 1
