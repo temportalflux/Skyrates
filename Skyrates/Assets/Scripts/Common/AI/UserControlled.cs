@@ -65,19 +65,19 @@ namespace Skyrates.Common.AI
             //float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
             this.ControllerData.StateData.MovementSpeed = this.ConstantSpeed;
 
-            Vector3 movementVertical = vertical * input.MoveVertical.Value;
+            Vector3 movementVertical = vertical * input.MoveVertical.Value * ((100.0f + input.AdditionalMovePercent) / 100.0f);
 
             // for character
             // Vector3 movementXZ = movementForward + movementStrafe;
             // for ship
-            Vector3 movementXZ = forward * this.ControllerData.StateData.MovementSpeed;
+            Vector3 movementXZ = forward * this.ControllerData.StateData.MovementSpeed * ((100.0f + input.AdditionalMovePercent) / 100.0f); ;
 
             Vector3 movementXYZ = movementXZ + movementVertical;
 
             physicsData.LinearVelocity = movementXYZ;
 
             // for ship movement
-            float rotationY = input.TurnY.Value;
+            float rotationY = input.TurnY.Value * ((100.0f + input.AdditionalTurnPercent) / 100.0f); ;
             //rotationY *= (1 - input.MoveForward.Input) * 0.5f;
 
             // banking

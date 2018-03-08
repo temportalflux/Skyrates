@@ -76,9 +76,15 @@ namespace Skyrates.Client.Data
 
             public bool IsShooting;
 
-            public float AimScale;
+			public bool IsInteractingOnThisFrame;
 
-        }
+			public float AimScale;
+
+			public float AdditionalTurnPercent;
+
+			public float AdditionalMovePercent;
+
+		}
 
         /// <summary>
         /// The possible states the player's camera can be in
