@@ -15,7 +15,6 @@ namespace Skyrates.Client.Entity
 		private bool _active;
 		private bool _upgrading;
 		public GameObject CanvasObject;
-		public float DetectionRadius = 15.0f;
 
 		protected override void Start()
 		{
@@ -30,8 +29,7 @@ namespace Skyrates.Client.Entity
 				EntityPlayerShip player = source as EntityPlayerShip;
 				if (player)
 				{
-					float radiusSqr = DetectionRadius * DetectionRadius; //Avoid square root.  It is slow
-					if ((player.transform.position - this.transform.position).sqrMagnitude <= radiusSqr) this.StartCoroutine(this.PlayerDistanceOverlap(player, radius));
+					this.StartCoroutine(this.PlayerDistanceOverlap(player, radius));
 				}
 			}
 		}
@@ -60,12 +58,10 @@ namespace Skyrates.Client.Entity
 
 		IEnumerator PlayerDistanceOverlap(EntityPlayerShip player, float radius)
 		{
-			float radiusSqr = DetectionRadius * DetectionRadius; //Avoid square root.  It is slow
-
 			this.CanvasObject.SetActive(true);
 			this._active = true;
 
-			while (this && this._active && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radiusSqr)
+			while (this && this._active && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radius)
 			{
 				if(player.PlayerData.InputData.IsInteractingOnThisFrame)
 				{
