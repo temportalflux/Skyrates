@@ -16,6 +16,8 @@ namespace Skyrates.Client.Entity
 
         private Coroutine _shootAt;
 
+        public float ShootDelay = 7.0f;
+
         protected override void StartShooting(EntityPlayerShip target, float maxDistance)
         {
             if (this._shootAt == null)
@@ -30,9 +32,8 @@ namespace Skyrates.Client.Entity
             Vector3 direction = (target.transform.position - this.transform.position);
             while (target && gameObject && direction.sqrMagnitude <= maxDistSq)
             {
-                float wait = 2;
                 this.Shoot(ShipData.ComponentType.ArtilleryForward, direction + target.Physics.LinearVelocity * 1.5f);
-                yield return new WaitForSeconds(wait);
+                yield return new WaitForSeconds(this.ShootDelay);
                 direction = (target.transform.position - this.transform.position);
             }
             this._shootAt = null;

@@ -87,7 +87,29 @@ namespace Skyrates.Common.AI
             float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
             
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
-            physicsData.RotationAesteticPosition = Quaternion.Euler(rotationX, 0.0f, rotationZ);
+            
+            Vector3 currentRotation = physicsData.RotationAesteticPosition.eulerAngles;
+
+            LerpRotation(currentRotation.z,
+                Mathf.Abs(input.TurnY.Input) > this.ControllerData.InputData.YawAngleDeadZone ? rotationZ : 0,
+                this.ControllerData.InputData.YawAngleSpeed,
+                ref physicsData.RotationAesteticVelocity.z
+            );
+            LerpRotation(currentRotation.x,
+                Mathf.Abs(input.MoveVertical.Input) > this.ControllerData.InputData.PitchAngleDeadZone ? rotationX : 0,
+                this.ControllerData.InputData.PitchAngleSpeed,
+                ref physicsData.RotationAesteticVelocity.x
+            );
+
+        }
+
+        private void LerpRotation(float current, float target, float speed, ref float velocity)
+        {
+            float rotation = target - current;
+            rotation = ((int)(Align.MapToRange(rotation) * 100)) * 0.01f;
+            float rotationSize = Mathf.Abs(rotation);
+            float dir = rotationSize > 0.0f ? rotation / rotationSize : 0.0f;
+            velocity = speed * dir;
         }
 
     }

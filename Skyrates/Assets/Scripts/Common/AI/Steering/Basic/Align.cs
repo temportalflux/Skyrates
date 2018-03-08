@@ -133,7 +133,7 @@ namespace Skyrates.Common.AI
             
         }
 
-        private float MapToRange(float rotation)
+        public static float MapToRange(float rotation)
         {
             rotation %= 360.0f;
             if (Mathf.Abs(rotation) > 180.0f)

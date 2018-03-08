@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Rewired;
 using Skyrates.Client.Entity;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Client.Scene;
 using UnityEngine;
 
@@ -27,6 +29,11 @@ namespace Skyrates.Client.Input
         public Transform Camera;
 
         public Transform CameraPivot;
+
+        public Transform CameraModeFree;
+        public Transform CameraModeStarboard;
+        public Transform CameraModePort;
+        public Transform CameraModeDown;
 
         private Rewired.Player _controller;
 
@@ -93,22 +100,31 @@ namespace Skyrates.Client.Input
         void OnInputCameraMode(InputActionEventData evt)
         {
             if (!evt.GetButtonDown()) return;
+
+            Transform cameraState = this.Camera.transform;
             switch (evt.actionName)
             {
                 case "Mode:Free":
                     this.PlayerData.StateData.ViewMode = LocalData.CameraMode.FREE;
+                    cameraState = this.CameraModeFree;
                     break;
                 case "Mode:Starboard":
                     this.PlayerData.StateData.ViewMode = LocalData.CameraMode.LOCK_RIGHT;
+                    cameraState = this.CameraModeStarboard;
                     break;
                 case "Mode:Port":
                     this.PlayerData.StateData.ViewMode = LocalData.CameraMode.LOCK_LEFT;
+                    cameraState = this.CameraModePort;
                     break;
                 case "Mode:Down":
                     this.PlayerData.StateData.ViewMode = LocalData.CameraMode.LOCK_DOWN;
+                    cameraState = this.CameraModeDown;
                     break;
             }
-            // TODO: Snap camera
+            
+            // TODO: Slerp camera
+            this.Camera.SetPositionAndRotation(cameraState.position, cameraState.rotation);
+
         }
 
         void OnInputFire(InputActionEventData evt)
@@ -335,6 +351,13 @@ namespace Skyrates.Client.Input
                     this.PlayerData.StateData.ShootingDataPortCanReload = true;
                     break;
             }
+
+            GameManager.Events.Dispatch(new EventActiveReloadBegin(
+                this.EntityPlayerShip,
+                artillery == ShipData.ComponentType.ArtilleryRight,
+                this.PlayerData.StateData.ShootDelayActiveReloadStart,
+                this.PlayerData.StateData.ShootDelayActiveReloadEnd
+            ));
         }
 
         private void Shoot(ShipData.ComponentType artillery)

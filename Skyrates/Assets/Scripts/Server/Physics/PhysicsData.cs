@@ -1,5 +1,4 @@
-﻿using Skyrates.Common.Network;
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Skyrates.Common.AI
@@ -9,34 +8,23 @@ namespace Skyrates.Common.AI
     public class PhysicsData
     {
 
-        [BitSerialize(0)]
-        [SerializeField]
         public Vector3 LinearPosition = Vector3.zero;
-
-        [BitSerialize(1)]
-        [SerializeField]
+        
         public Vector3 LinearVelocity = Vector3.zero;
-
-        [BitSerialize(2)]
-        [SerializeField]
+        
         public Vector3 LinearAccelleration = Vector3.zero;
-
-        [BitSerialize(3)]
-        [SerializeField]
+        
         public Quaternion RotationPosition = Quaternion.identity;
-
-        [BitSerialize(4)]
-        [SerializeField]
+        
         public Vector3 RotationVelocity = Vector3.zero;
-
-        [BitSerialize(5)]
-        [SerializeField]
+        
         public Vector3 RotationAccelleration = Vector3.zero;
 
         public bool HasAesteticRotation = false;
-
-        [SerializeField]
+        
         public Quaternion RotationAesteticPosition = Quaternion.identity;
+        
+        public Vector3 RotationAesteticVelocity = Vector3.zero;
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
@@ -54,10 +42,12 @@ namespace Skyrates.Common.AI
                 RotationPosition = RotationPosition,
                 RotationVelocity = RotationVelocity,
                 RotationAccelleration = RotationAccelleration,
+                RotationAesteticPosition = RotationAesteticPosition,
+                RotationAesteticVelocity = RotationAesteticVelocity,
             };
         }
 
-        public static PhysicsData operator*(PhysicsData data, float weight)
+        public static PhysicsData operator *(PhysicsData data, float weight)
         {
             return new PhysicsData
             {
@@ -67,10 +57,12 @@ namespace Skyrates.Common.AI
                 RotationPosition = data.RotationPosition,
                 RotationVelocity = data.RotationVelocity * weight,
                 RotationAccelleration = data.RotationAccelleration * weight,
+                RotationAesteticPosition = data.RotationAesteticPosition,
+                RotationAesteticVelocity = data.RotationAesteticVelocity * weight,
             };
         }
 
-        public static PhysicsData operator+(PhysicsData a, PhysicsData b)
+        public static PhysicsData operator +(PhysicsData a, PhysicsData b)
         {
             return new PhysicsData
             {
@@ -80,6 +72,8 @@ namespace Skyrates.Common.AI
                 RotationPosition = a.RotationPosition,
                 RotationVelocity = a.RotationVelocity + b.RotationVelocity,
                 RotationAccelleration = a.RotationAccelleration + b.RotationAccelleration,
+                RotationAesteticPosition = a.RotationAesteticPosition,
+                RotationAesteticVelocity = a.RotationAesteticVelocity + b.RotationAesteticVelocity,
             };
         }
 
@@ -97,8 +91,11 @@ namespace Skyrates.Common.AI
             // Update rotational position
             ExtensionMethods.Integrate(ref this.RotationPosition, this.RotationVelocity, deltaTime);
 
+            // Update rotational position
+            ExtensionMethods.Integrate(ref this.RotationAesteticPosition, this.RotationAesteticVelocity, deltaTime);
+
         }
-        
+
     }
 
 }
