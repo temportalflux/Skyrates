@@ -60,10 +60,10 @@ namespace Skyrates.Client.Entity
             base.Start();
             if (this.StatBlock != null)
             {
-                Debug.Assert(this.StatBlock.Health > 0, string.Format(
+                Debug.Assert(this.StatBlock.MaxHealth > 0, string.Format(
                     "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
                     this.StatBlock.name));
-                this.Health = this.StatBlock.Health;
+                this.Health = this.StatBlock.MaxHealth;
             }
             this.InitParticle(ref this.SmokeData);
             this.InitParticle(ref this.FireData);
@@ -75,6 +75,13 @@ namespace Skyrates.Client.Entity
             base.Update();
             this.UpdateHealthParticles();
         }
+
+		//TODO: Doxygen
+		public virtual ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
+		{
+			if (type == ShipData.ComponentType.Hull) return new ShipComponent[] { this.GetComponentInChildren<ShipHull>() };
+			else return this.GetComponentInChildren<ShipHull>().GetGeneratedComponent(type);
+		}
 
         private void InitParticle(ref ParticleArea area)
         {
@@ -106,27 +113,31 @@ namespace Skyrates.Client.Entity
                 return;
             }
 
-            EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
-            if (entityProjectile != null)
-            {
-                this.TakeDamage(entityProjectile, entityProjectile.GetDamage());
+			ShipHull hullArmor = this.GetShipComponentsOfType(ShipData.ComponentType.Hull)[0] as ShipHull;
 
-                GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile));
+			EntityProjectile entityProjectile = other.GetComponent<EntityProjectile>();
+			float damage = 0;
+			if (entityProjectile != null)
+            {
+                this.TakeDamage(entityProjectile, damage = this.StatBlock.CalculateDamage(entityProjectile.GetAttack(), hullArmor ? hullArmor.GetDefense() : 0.0f, hullArmor ? hullArmor.GetProtection() : 0.0f)); //Enemies don't have hull armor, so they don't get defense or protection for now.
+
+				GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile, damage));
 
                 // collider is a projectile
                 // TODO: Owner should destroy based on networking
                 Destroy(entityProjectile.gameObject);
             }
 
-            ShipFigurehead ram = other.GetComponent<ShipFigurehead>();
-            if (ram != null)
+            ShipFigurehead figurehead = other.GetComponent<ShipFigurehead>();
+			if (figurehead != null)
             {
-                // If ram, and still have health, tell source that ram attack wasn't fully successful
-                if (this.TakeDamage(ram.Ship, ram.GetDamage()) > 0)
-                {
-                    ram.Ship.OnRamUnsucessful(this);
+				// If ram, and still have health, tell source that ram attack wasn't fully successful
+				if (this.TakeDamage(figurehead.Ship, damage = this.StatBlock.CalculateDamage(figurehead.GetAttack(), hullArmor ? hullArmor.GetDefense() : 0.0f, hullArmor ? hullArmor.GetProtection() : 0.0f)) > 0) //Enemies don't have hull armor, so they don't get defense or protection for now.
+				{
+					//We know that the health taken was our full amount because our health is not 0, so we don't need to recalculate the amount of damage we actually took.
+                    figurehead.Ship.OnRamUnsucessful(this, damage);
                 }
-                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, ram));
+                GameManager.Events.Dispatch(new EventEntityShipHitByRam(this, figurehead, damage));
             }
 
         }
@@ -150,10 +161,10 @@ namespace Skyrates.Client.Entity
         /// Causes the owner to take some amount of damage (currently 2).
         /// </summary>
         /// <param name="target"></param>
-        protected virtual void OnRamUnsucessful(EntityShip target)
+        protected virtual void OnRamUnsucessful(EntityShip target, float damage)
         {
-            // TODO: Calculate the damage to take when ramming is unsuccesful.
-            this.TakeDamage(target, 2);
+			//Calculate the damage to take when ramming is unsuccesful.
+            this.TakeDamage(target, this.StatBlock.CaclulateRecoil(damage));
         }
 
         /// <summary>
@@ -309,7 +320,7 @@ namespace Skyrates.Client.Entity
             if (this.StatBlock == null) return;
 
             // get the amount of damage currently taken (diff in health vs max health)
-            float damageTaken = this.StatBlock.Health - this.Health;
+            float damageTaken = this.StatBlock.MaxHealth - this.Health;
 
             // Update smoke particles
             if (this.SmokeData.Generated != null)

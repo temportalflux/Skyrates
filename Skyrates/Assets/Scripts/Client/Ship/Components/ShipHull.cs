@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Skyrates.Client.Entity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,7 +49,31 @@ namespace Skyrates.Client.Ship
 
         private readonly List<GameObject> GeneratedLoot = new List<GameObject>();
 
-        private int GetComponentIndex(ComponentType type)
+		[Tooltip("The base amount of damage subtracted from damage taken")]
+		public float Defense;
+
+		[Tooltip("The percentage of damage subtracted from damage taken")]
+		public float Protection;
+
+		/// <summary>
+		/// Gets the amount of damage subtracted from damage taken.
+		/// </summary>
+		/// <returns>The amount of damage subtracted from damage taken</returns>
+		public float GetDefense()
+		{
+			return this.Defense;
+		}
+
+		/// <summary>
+		/// Gets the percentage of damage subtracted from damage taken.
+		/// </summary>
+		/// <returns>The percentage of damage subtracted from damage taken</returns>
+		public float GetProtection()
+		{
+			return this.Protection;
+		}
+
+		private int GetComponentIndex(ComponentType type)
         {
             return ShipData.HulllessComponentIndex[(int) type];
         }
@@ -76,10 +101,29 @@ namespace Skyrates.Client.Ship
 
             // Set the transform information on the component from the target
             Mount mount = mounts[this.GetComponentIndex(compType)];
-            comp.transform.position += mount.Roots[index].localPosition;
-            comp.transform.rotation = mount.Roots[index].localRotation;
+
+            comp.transform.localPosition += mount.Roots[index].localPosition;
+            comp.transform.localRotation = mount.Roots[index].localRotation;
 
             comp.Ship = this.Ship;
+			//Special cases to set bonuses for navigation and propulsion components.
+			EntityPlayerShip playerShip = comp.Ship as EntityPlayerShip;
+			if (playerShip)
+			{
+				ShipNavigationLeft navigationComp = comp as ShipNavigationLeft; //Could also use ShipNavigation, but this lets us skip half of the adds, which is ideally 1.
+				if (navigationComp)
+				{
+					playerShip.PlayerData.InputData.AdditionalTurnPercent = navigationComp.AdditionalTurnPercent;
+				}
+				else
+				{
+					ShipPropulsion propulsionComp = comp as ShipPropulsion;
+					if (propulsionComp)
+					{
+						playerShip.PlayerData.InputData.AdditionalMovePercent = propulsionComp.AdditionalMovePercent;
+					}
+				}
+			}
         }
 
         /// <summary>
@@ -95,7 +139,7 @@ namespace Skyrates.Client.Ship
             return this.GeneratedComponents[this.GetComponentIndex(compType)];
         }
 
-        public void GenerateLoot(GameObject lootObjectPrefab)
+        public void GenerateLoot(GameObject lootObjectPrefab, ShipData.BrokenComponentType item, bool forced = false)
         {
             int nextIndex = this.GeneratedLoot.Count;
             if (nextIndex < this.LootMounts.Length)
@@ -105,6 +149,11 @@ namespace Skyrates.Client.Ship
                 generated.transform.SetPositionAndRotation(mount.position, mount.rotation);
                 generated.transform.localScale = mount.localScale;
                 this.GeneratedLoot.Add(generated);
+				EntityPlayerShip playerShip = this.Ship as EntityPlayerShip;
+				if(playerShip)
+				{
+					playerShip.PlayerData.Inventory.MapGeneratedLoot(item, generated, forced);
+				}
             }
         }
 

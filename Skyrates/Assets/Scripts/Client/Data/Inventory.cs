@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Skyrates.Client.Data
 {
@@ -9,6 +11,26 @@ namespace Skyrates.Client.Data
 		/// The amount of each item in the inventory.
 		/// </summary>
 		private uint[] _itemCounts = new uint[ShipData.BrokenComponentTypes.Length];
+		private List<GameObject>[] _generatedLoot = new List<GameObject>[ShipData.BrokenComponentTypes.Length];
+
+		public List<GameObject>[] GeneratedLoot
+		{
+			get
+			{
+				//Not yet initialized?
+				if(_generatedLoot[0] == null)
+				{
+					for (uint i = 0; i < _generatedLoot.Length; ++i)
+						_generatedLoot[i] = new List<GameObject>(); //Initialize all lists.
+				}
+				return _generatedLoot;
+			}
+
+			set
+			{
+				_generatedLoot = value;
+			}
+		}
 
 		/// <summary>
 		/// Adds an amount of items to the inventory.  Amount defaults to 1.
@@ -17,7 +39,17 @@ namespace Skyrates.Client.Data
 		public uint Add(ShipData.BrokenComponentType brokenComponent, uint amount = 1)
 		{
 			_itemCounts[(uint)brokenComponent] += amount;
+			GeneratedLoot[(uint)brokenComponent].Add(null);
 			return amount;
+		}
+
+		/// <summary>
+		/// Maps latest inventory space of any broken component type to generated loot.
+		/// </summary>
+		public void MapGeneratedLoot(ShipData.BrokenComponentType brokenComponent, GameObject generated, bool forced = false)
+		{
+			if(forced || GeneratedLoot[(uint)brokenComponent].Count == 0) GeneratedLoot[(uint)brokenComponent].Add(generated);
+			else GeneratedLoot[(uint)brokenComponent][GeneratedLoot[(uint)brokenComponent].Count - 1] = generated;
 		}
 
 		/// <summary>
@@ -28,6 +60,11 @@ namespace Skyrates.Client.Data
 		{
 			amount = Math.Min(amount, _itemCounts[(uint)brokenComponent]);
 			_itemCounts[(uint)brokenComponent] -= amount;
+			for (uint i = amount; i > 0; --i)
+			{
+				GameObject.Destroy(GeneratedLoot[(uint)brokenComponent][GeneratedLoot[(uint)brokenComponent].Count - 1]);
+				GeneratedLoot[(uint)brokenComponent].RemoveAt(GeneratedLoot[(uint)brokenComponent].Count - 1);
+			}
 			return amount;
 		}
 
@@ -39,6 +76,14 @@ namespace Skyrates.Client.Data
 		{
 			uint amount = TotalAmount();
 			Array.Clear(_itemCounts, 0, _itemCounts.Length);
+			foreach(List<GameObject> generatedList in GeneratedLoot)
+			{
+				foreach(GameObject obj in generatedList)
+				{
+					if(obj != null) GameObject.Destroy(obj);
+				}
+				generatedList.Clear();
+			}
 			return amount;
 		}
 

@@ -91,8 +91,8 @@ namespace Skyrates.Client.Entity
         {
             while (true)
             {
-                yield return new WaitUntil((() => this.Health < this.StatBlock.Health));
-                while (this.Health < this.StatBlock.Health)
+                yield return new WaitUntil((() => this.Health < this.StatBlock.MaxHealth));
+                while (this.Health < this.StatBlock.MaxHealth)
                 {
                     this.Health++;
                     yield return new WaitForSeconds(5.0f);
@@ -141,7 +141,7 @@ namespace Skyrates.Client.Entity
         {
             // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
 
-            this.Health = this.StatBlock.Health;
+            this.Health = this.StatBlock.MaxHealth;
 
             Transform spawn = GameManager.Instance.PlayerSpawn;
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
@@ -156,17 +156,24 @@ namespace Skyrates.Client.Entity
         {
         }
 
-        /// <summary>
-        /// Called when this object collides with loot.
-        /// Adds loot to the <see cref="PlayerData"/> and updates UI/UX information.
-        /// </summary>
-        /// <param name="loot"></param>
-        public void OnLootCollided(Loot.Loot loot)
+		//TODO: Doxygen
+		public override ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
+		{
+			if (type == ShipData.ComponentType.Hull) return new ShipComponent[] { this.ShipRoot.Hull };
+			else return this.ShipRoot.Hull.GetGeneratedComponent(type);
+		}
+
+		/// <summary>
+		/// Called when this object collides with loot.
+		/// Adds loot to the <see cref="PlayerData"/> and updates UI/UX information.
+		/// </summary>
+		/// <param name="loot"></param>
+		public void OnLootCollided(Loot.Loot loot)
         {
-            this.PlayerData.Inventory.Add(loot.Item);
+            this.PlayerData.Inventory.Add(loot.Item); //Must be before generating loot.
 
             // TODO: do this through event?
-            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail);
+            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail, loot.Item);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
             

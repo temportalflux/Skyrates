@@ -6,6 +6,6 @@ namespace Skyrates.Client.Ship
 {
     public class ShipPropulsion : ShipComponent
     {
-
-    }
+		public float AdditionalMovePercent;
+	}
 }

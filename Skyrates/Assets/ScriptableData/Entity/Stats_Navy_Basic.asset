@@ -11,11 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1b5cfdea1afc49ae38a315af202eb, type: 3}
   m_Name: Stats_Navy_Basic
   m_EditorClassIdentifier: 
-  Health: 60
+  MaxHealth: 60
   MoveSpeed: 10
-  DamageModifier: 10
   Loot: {fileID: 11400000, guid: ab7406c3ebf909b4c8a46aa69451e8c8, type: 2}
-  LootRadius: 6
   HealthFeedbackData:
     SmokeDamage: {x: 15, y: 60}
     SmokeEmissionAmount: {x: 10, y: 20}

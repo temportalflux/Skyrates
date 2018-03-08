@@ -206,7 +206,7 @@ namespace Skyrates.Client.Input
         void OnInputInteract(InputActionEventData evt)
         {
             if (!evt.GetButtonDown()) return;
-            Debug.Log("Interact");
+            //Debug.Log("Interact"); //Commented so it wouldn't get in the way of any error messages.
         }
 
         void OnInputSwitchWeapon(InputActionEventData evt)
@@ -245,6 +245,7 @@ namespace Skyrates.Client.Input
                 this.PlayerData.InputData.CameraVertical.Input =
                     this.PlayerData.InputData.CameraHorizontal.Input = 0.0f;
             }
+			this.PlayerData.InputData.IsInteractingOnThisFrame = this._controller.GetButtonDown("Interact");
         }
 
         void ProcessInput(float deltaTime)
