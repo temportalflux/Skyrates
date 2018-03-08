@@ -16,6 +16,12 @@ namespace Skyrates.Client.Entity
 		private bool _upgrading;
 		public GameObject CanvasObject;
 
+		protected override void Start()
+		{
+			base.Start();
+			
+		}
+
 		public void OnEnterEntityRadius(EntityAI source, float radius)
 		{
 			if (!this._active) //Only once.
@@ -52,13 +58,10 @@ namespace Skyrates.Client.Entity
 
 		IEnumerator PlayerDistanceOverlap(EntityPlayerShip player, float radius)
 		{
-			float radiusSqr = radius * radius; //Avoid square root.  It is slow
-
 			this.CanvasObject.SetActive(true);
 			this._active = true;
 
-			while (this && this._active && this.isActiveAndEnabled && player &&
-			       (player.transform.position - this.transform.position).sqrMagnitude <= radius)
+			while (this && this._active && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radius)
 			{
 				if(player.PlayerData.InputData.IsInteractingOnThisFrame)
 				{

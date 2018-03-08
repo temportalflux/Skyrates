@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 136275651844416204}
   - component: {fileID: 114086127015448946}
   - component: {fileID: 114898848616841254}
-  - component: {fileID: 114627098321263130}
+  - component: {fileID: 114917979507876880}
   m_Layer: 15
   m_Name: Player-Root
   m_TagString: Player
@@ -597,26 +597,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   pivot: {fileID: 4805465745739734}
---- !u!114 &114627098321263130
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1436304090232158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42c25627d666de47af6f415c9e76507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mode: 0
-  RadiusSphere: 15
-  RadiusBox: {x: 0, y: 0, z: 0}
-  CollisionLayers:
-    serializedVersion: 2
-    m_Bits: 8388608
-  Color: {r: 0, g: 0.6275863, b: 1, a: 1}
-  Frequency: 0.1
-  ScatterExecution: 1
 --- !u!114 &114826751344152850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -652,6 +632,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   Color: {r: 0.9793103, g: 1, b: 0, a: 1}
+  Frequency: 0.1
+  ScatterExecution: 1
+--- !u!114 &114917979507876880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436304090232158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42c25627d666de47af6f415c9e76507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 0
+  RadiusSphere: 15
+  RadiusBox: {x: 0, y: 0, z: 0}
+  CollisionLayers:
+    serializedVersion: 2
+    m_Bits: 8388608
+  Color: {r: 0, g: 0.7103448, b: 1, a: 1}
   Frequency: 0.1
   ScatterExecution: 1
 --- !u!114 &114943066303382066
