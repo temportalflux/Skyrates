@@ -229,15 +229,16 @@ namespace Skyrates.Client.Ship
 					ShipHull hullPrefab = this.ShipComponentList.GetComponent<ShipHull>(ComponentType.Hull, (int)++oldHullTierIndex);
 					ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, player.ShipRoot.ComponentRoot).GetComponent<ShipHull>();
 					hullBuilt.Ship = player;
+					player.Health = player.StatBlock.MaxHealth;
 
 					//Create new components
 					//TODO: Attach the old components back on 
 					foreach (ComponentType compType in ShipData.NonHullComponents)
 					{
 						ShipComponent[] oldComponentsRef = player.GetShipComponentsOfType(compType);
-						ShipComponent[] oldComponents = new ShipComponent[oldComponentsRef.Length];
-						oldComponentsRef.CopyTo(oldComponents, 0); //We want a copy so that we can keep the references to delete.
-						ShipComponent oldComponent = oldComponents.Length > 0 ? oldComponents[0] : null;
+						ShipComponent[] oldComponents = oldComponentsRef != null && oldComponentsRef.Length > 0 ? new ShipComponent[oldComponentsRef.Length] : null;
+						if(oldComponentsRef != null) oldComponentsRef.CopyTo(oldComponents, 0); //We want a copy so that we can keep the references to delete.
+						ShipComponent oldComponent = oldComponents != null && oldComponents.Length > 0 ? oldComponents[0] : null;
 						uint oldTierIndex = oldComponent ? oldComponent.TierIndex : 0;
 
 						// Get the component for the type
@@ -265,25 +266,28 @@ namespace Skyrates.Client.Ship
 							// TODO: Optimize this function to just send in the transform
 							hullBuilt.AddShipComponent(hullPrefab.Mounts, compType, iTarget, built.GetComponent<ShipComponent>());
 						}
-						foreach(ShipComponent oldComp in oldComponents)
+						if (oldComponents != null) //Should already be taken care of, but let's be explicit.
 						{
-							GameObject.Destroy(oldComp);
+							foreach (ShipComponent oldComp in oldComponents)
+							{
+								if (oldComp != null) GameObject.Destroy(oldComp.gameObject);
+							}
 						}
 					}
-
 					foreach (ShipComponent oldComp in oldHullComponents)
 					{
-						GameObject.Destroy(oldComp);
+						GameObject.Destroy(oldComp.gameObject);
 					}
+					player.ShipRoot.Hull = hullBuilt;
 				}
 				else
 				{
 					ShipHull hullBuilt = player.ShipRoot.Hull;
 
 					ShipComponent[] oldComponentsRef = player.GetShipComponentsOfType(componentType);
-					ShipComponent[] oldComponents = new ShipComponent[oldComponentsRef.Length];
-					oldComponentsRef.CopyTo(oldComponents, 0); //We want a copy so that we can keep the references to delete.
-					ShipComponent oldComponent = oldComponents.Length > 0 ? oldComponents[0] : null;
+					ShipComponent[] oldComponents = oldComponentsRef != null && oldComponentsRef.Length > 0 ? new ShipComponent[oldComponentsRef.Length] : null;
+					if (oldComponentsRef != null) oldComponentsRef.CopyTo(oldComponents, 0); //We want a copy so that we can keep the references to delete.
+					ShipComponent oldComponent = oldComponents != null && oldComponents.Length > 0 ? oldComponents[0] : null;
 					uint oldTierIndex = oldComponent ? oldComponent.TierIndex : 0;
 
 					// Get the component for the type
@@ -311,9 +315,12 @@ namespace Skyrates.Client.Ship
 						// TODO: Optimize this function to just send in the transform
 						hullBuilt.AddShipComponent(hullBuilt.Mounts, componentType, iTarget, built.GetComponent<ShipComponent>());
 					}
-					foreach (ShipComponent oldComp in oldComponents)
+					if (oldComponents != null) //Explicit
 					{
-						GameObject.Destroy(oldComp);
+						foreach (ShipComponent oldComp in oldComponents)
+						{
+							if(oldComp != null) GameObject.Destroy(oldComp.gameObject);
+						}
 					}
 				}
 			}

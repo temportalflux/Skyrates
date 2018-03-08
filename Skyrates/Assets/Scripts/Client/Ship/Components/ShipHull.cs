@@ -101,8 +101,9 @@ namespace Skyrates.Client.Ship
 
             // Set the transform information on the component from the target
             Mount mount = mounts[this.GetComponentIndex(compType)];
-            comp.transform.position += mount.Roots[index].localPosition;
-            comp.transform.rotation = mount.Roots[index].localRotation;
+
+            comp.transform.localPosition += mount.Roots[index].localPosition;
+            comp.transform.localRotation = mount.Roots[index].localRotation;
 
             comp.Ship = this.Ship;
 			//Special cases to set bonuses for navigation and propulsion components.
@@ -148,6 +149,8 @@ namespace Skyrates.Client.Ship
                 generated.transform.SetPositionAndRotation(mount.position, mount.rotation);
                 generated.transform.localScale = mount.localScale;
                 this.GeneratedLoot.Add(generated);
+				//EntityPlayerShip playerShip = Ship.shi
+					//if(playerShip)
             }
         }
 
