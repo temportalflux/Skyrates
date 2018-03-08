@@ -139,7 +139,7 @@ namespace Skyrates.Client.Ship
             return this.GeneratedComponents[this.GetComponentIndex(compType)];
         }
 
-        public void GenerateLoot(GameObject lootObjectPrefab)
+        public void GenerateLoot(GameObject lootObjectPrefab, ShipData.BrokenComponentType item, bool forced = false)
         {
             int nextIndex = this.GeneratedLoot.Count;
             if (nextIndex < this.LootMounts.Length)
@@ -149,8 +149,11 @@ namespace Skyrates.Client.Ship
                 generated.transform.SetPositionAndRotation(mount.position, mount.rotation);
                 generated.transform.localScale = mount.localScale;
                 this.GeneratedLoot.Add(generated);
-				//EntityPlayerShip playerShip = Ship.shi
-					//if(playerShip)
+				EntityPlayerShip playerShip = this.Ship as EntityPlayerShip;
+				if(playerShip)
+				{
+					playerShip.PlayerData.Inventory.MapGeneratedLoot(item, generated, forced);
+				}
             }
         }
 

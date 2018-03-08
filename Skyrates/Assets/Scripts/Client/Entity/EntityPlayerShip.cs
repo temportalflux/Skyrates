@@ -170,10 +170,10 @@ namespace Skyrates.Client.Entity
 		/// <param name="loot"></param>
 		public void OnLootCollided(Loot.Loot loot)
         {
-            this.PlayerData.Inventory.Add(loot.Item);
+            this.PlayerData.Inventory.Add(loot.Item); //Must be before generating loot.
 
             // TODO: do this through event?
-            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail);
+            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail, loot.Item);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
             

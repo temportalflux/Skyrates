@@ -169,7 +169,6 @@ namespace Skyrates.Client.Data
 
 			// TODO: Implement reflection if we need to refactor due to the time it takes for the current non-DRY solution.
 			Inventory.Clear(); // Needed in order to reset player data in editor.  Could remove from builds with a preprocessor macro if we wanted to.
-			Inventory.Add(ShipData.BrokenComponentType.Propulsion);
         }
 
     }

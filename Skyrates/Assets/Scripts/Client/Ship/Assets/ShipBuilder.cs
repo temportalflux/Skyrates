@@ -278,6 +278,26 @@ namespace Skyrates.Client.Ship
 					{
 						GameObject.Destroy(oldComp.gameObject);
 					}
+					if (player.PlayerData.Inventory.GeneratedLoot.Length > 0) //Destruction is delayed, so generated should still exist.
+					{
+						//We want to clone the pointers to the list in order to stay pointed to them while we repopulate the new hull.
+						List<GameObject>[] generatedLoot = (List<GameObject>[])player.PlayerData.Inventory.GeneratedLoot.Clone(); //Forgot about this method...
+						Array.Clear(player.PlayerData.Inventory.GeneratedLoot, 0, player.PlayerData.Inventory.GeneratedLoot.Length); //Clear so that we start anew
+						for (uint i = 0; i < generatedLoot.Length; ++i)
+						{
+							ShipData.BrokenComponentType brokenComponent = (ShipData.BrokenComponentType)i;
+							foreach (GameObject generated in generatedLoot[i])
+							{
+								if (generated == null) player.PlayerData.Inventory.GeneratedLoot[i].Add(null);
+								else
+								{
+									hullBuilt.GenerateLoot(generated, brokenComponent, true);
+									GameObject.Destroy(generated);  //Mark for destruction.  Not necessary, but safety first.
+								}
+							}
+							generatedLoot[i].Clear(); //Clean up references just in case.
+						}
+					}
 					player.ShipRoot.Hull = hullBuilt;
 				}
 				else
