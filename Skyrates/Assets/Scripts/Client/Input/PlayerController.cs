@@ -55,8 +55,6 @@ namespace Skyrates.Client.Input
 
         void OnEnable()
         {
-            this.Controller.AddInputEventDelegate(this.OnInputMenu, UpdateLoopType.Update, "Menu");
-            this.Controller.AddInputEventDelegate(this.OnInputExit, UpdateLoopType.Update, "Exit");
             this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Free");
             this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Starboard");
             this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Port");
@@ -71,30 +69,7 @@ namespace Skyrates.Client.Input
 
         void OnDisable()
         {
-            this.Controller.RemoveInputEventDelegate(this.OnInputMenu);
-            this.Controller.RemoveInputEventDelegate(this.OnInputExit);
             this.Controller.RemoveInputEventDelegate(this.OnInputCameraMode);
-        }
-
-        void OnInputMenu(InputActionEventData evt)
-        {
-            if (!evt.GetButtonDown()) return;
-            
-            // Go back to main menu                
-            SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
-            SceneLoader.Instance.ActivateNext();
-        }
-
-        void OnInputExit(InputActionEventData evt)
-        {
-            if (!evt.GetButtonDown()) return;
-            
-            // Exit the game
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit();          
-#endif
         }
 
         void OnInputCameraMode(InputActionEventData evt)
@@ -136,9 +111,6 @@ namespace Skyrates.Client.Input
                 case LocalData.CameraMode.FREE:
                     compType = ShipData.ComponentType.ArtilleryRight;
                     break;
-                case LocalData.CameraMode.LOCK_LEFT:
-                    compType = ShipData.ComponentType.ArtilleryLeft;
-                    break;
                 default:
                     return;
             }
@@ -149,6 +121,7 @@ namespace Skyrates.Client.Input
         {
             switch (this.PlayerData.StateData.ViewMode)
             {
+                case LocalData.CameraMode.LOCK_LEFT:
                 case LocalData.CameraMode.FREE:
                     //this.PlayerData.input.AimScale = evt.GetAxis();
                     this.ToggleShooting(evt.GetAxis() > 0.0f, ShipData.ComponentType.ArtilleryLeft);
@@ -210,24 +183,7 @@ namespace Skyrates.Client.Input
         ShipData.ComponentType GetActiveReloadTarget(bool main, out bool found)
         {
             found = true;
-
-            if (this.PlayerData.StateData.ViewMode == LocalData.CameraMode.FREE)
-            {
-                return main ? ShipData.ComponentType.ArtilleryRight : ShipData.ComponentType.ArtilleryLeft;
-            }
-            else if(main)
-            {
-                switch (this.PlayerData.StateData.ViewMode)
-                {
-                    case LocalData.CameraMode.LOCK_LEFT:
-                        return ShipData.ComponentType.ArtilleryLeft;
-                    case LocalData.CameraMode.LOCK_RIGHT:
-                        return ShipData.ComponentType.ArtilleryRight;
-                    default: break;
-                }
-            }
-            found = false;
-            return ShipData.ComponentType.Hull;
+            return main ? ShipData.ComponentType.ArtilleryRight : ShipData.ComponentType.ArtilleryLeft;
         }
 
         void OnInputInteract(InputActionEventData evt)

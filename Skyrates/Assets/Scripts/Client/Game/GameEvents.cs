@@ -44,6 +44,8 @@ namespace Skyrates.Client.Game.Event
 
         #endregion
 
+        MenuButtonPressed,
+
     }
 
     /// <summary>
@@ -81,6 +83,8 @@ namespace Skyrates.Client.Game.Event
         public event GameEventDelegate LootCollected;
         public event GameEventDelegate ActiveReloadBegin;
         #endregion
+
+        public event GameEventDelegate MenuButtonPressed;
 
         /// <summary>
         /// Get the event delegate for the event ID.
@@ -131,6 +135,8 @@ namespace Skyrates.Client.Game.Event
                 case GameEventID.ActiveReloadBegin:
                     return this.ActiveReloadBegin;
                 #endregion
+                case GameEventID.MenuButtonPressed:
+                    return this.MenuButtonPressed;
                 default:
                     Debug.LogWarning(string.Format("No delegate for event {0}", eventID));
                     return null;

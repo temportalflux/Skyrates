@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Client.Game;
+using Skyrates.Client.Scene;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -16,6 +17,12 @@ namespace Skyrates.Client.Game
         public void StartStandalone()
         {
             NetworkComponent.Instance.StartStandalone();
+        }
+
+        public void StartCredits()
+        {
+            SceneLoader.Instance.Enqueue(SceneData.SceneKey.Credits);
+            SceneLoader.Instance.ActivateNext();
         }
 
     }
