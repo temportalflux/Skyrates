@@ -19,7 +19,7 @@ namespace Skyrates.Client.Entity
         [HideInInspector]
         public Rigidbody PhysicsComponent;
 
-		[Tooltip("The base damage of the figurehead's ram")]
+		[Tooltip("The base damage of the projectile")]
 		public float Attack;
 
 		/// <summary>

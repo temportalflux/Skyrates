@@ -11,11 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1b5cfdea1afc49ae38a315af202eb, type: 3}
   m_Name: Stats_Player
   m_EditorClassIdentifier: 
-  Health: 20
+  MaxHealth: 20
   MoveSpeed: 2
-  DamageModifier: 1
   Loot: {fileID: 0}
-  LootRadius: 3
   HealthFeedbackData:
     SmokeDamage: {x: 2, y: 100}
     SmokeEmissionAmount: {x: 5, y: 100}
