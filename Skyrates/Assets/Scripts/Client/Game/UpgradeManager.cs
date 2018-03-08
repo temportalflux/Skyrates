@@ -32,6 +32,7 @@ namespace Skyrates.Client.Game
 		{
 			GameManager.Instance.UpgradeManager = this;
 			UpgradeMenuButtons = UpgradeMenu.GetComponentsInChildren<UpgradeButton>();
+			foreach(EntityShip ship in GameObject.FindObjectsOfType<EntityShip>()) ship.Health = 1;
 		}
 	}
 

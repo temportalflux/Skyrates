@@ -63,7 +63,7 @@ namespace Skyrates.Client.Entity
                 Debug.Assert(this.StatBlock.MaxHealth > 0, string.Format(
                     "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
                     this.StatBlock.name));
-                this.Health = this.StatBlock.MaxHealth;
+                this.Health = 1;//this.StatBlock.MaxHealth;
             }
             this.InitParticle(ref this.SmokeData);
             this.InitParticle(ref this.FireData);

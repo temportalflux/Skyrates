@@ -65,7 +65,7 @@ namespace Skyrates.Client.UI
 				ShipComponent[] oldComponents = this._player.GetShipComponentsOfType(type);
 				ShipComponent oldComponent = oldComponents.Length > 0 ? oldComponents[0] : null;
 				uint oldTierIndex = oldComponent ? oldComponent.TierIndex : 0;
-				if(++oldTierIndex > this._player.ShipRoot.Blueprint.ShipComponentList.Categories[this._player.ShipRoot.Blueprint.ShipComponentList.GetIndexFrom(type)].Prefabs.Length) { isUpgradableFurther = false; break; }
+				if(++oldTierIndex >= this._player.ShipRoot.Blueprint.ShipComponentList.Categories[this._player.ShipRoot.Blueprint.ShipComponentList.GetIndexFrom(type)].Prefabs.Length) { isUpgradableFurther = false; break; }
 			}
 			if (isUpgradableFurther && this.PlayerData.Inventory.Remove(Type) != 0);
 			{
