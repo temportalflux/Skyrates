@@ -112,7 +112,7 @@ namespace Skyrates.Client.Entity
 			float damage = 0;
 			if (entityProjectile != null)
             {
-                this.TakeDamage(entityProjectile, damage = this.StatBlock.CalculateDamage(entityProjectile.GetAttack(), hullArmor.GetDefense(), hullArmor.GetProtection()));
+                this.TakeDamage(entityProjectile, damage = this.StatBlock.CalculateDamage(entityProjectile.GetAttack(), hullArmor ? hullArmor.GetDefense() : 0.0f, hullArmor ? hullArmor.GetProtection() : 0.0f)); //Enemies don't have hull armor, so they don't get defense or protection for now.
 
 				GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile, damage));
 
@@ -122,11 +122,11 @@ namespace Skyrates.Client.Entity
             }
 
             ShipFigurehead figurehead = other.GetComponent<ShipFigurehead>();
-			if (figurehead != null && hullArmor != null) //We shouldn't have the hull be null ever, so no fallback here.
+			if (figurehead != null)
             {
 				// If ram, and still have health, tell source that ram attack wasn't fully successful
-				if (this.TakeDamage(figurehead.Ship, damage = this.StatBlock.CalculateDamage(figurehead.GetAttack(), hullArmor.GetDefense(), hullArmor.GetProtection())) > 0)
-                {
+				if (this.TakeDamage(figurehead.Ship, damage = this.StatBlock.CalculateDamage(figurehead.GetAttack(), hullArmor ? hullArmor.GetDefense() : 0.0f, hullArmor ? hullArmor.GetProtection() : 0.0f)) > 0) //Enemies don't have hull armor, so they don't get defense or protection for now.
+				{
 					//We know that the health taken was our full amount because our health is not 0, so we don't need to recalculate the amount of damage we actually took.
                     figurehead.Ship.OnRamUnsucessful(this, damage);
                 }

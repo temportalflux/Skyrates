@@ -29,7 +29,7 @@ namespace Skyrates.Client.UI
 			Debug.Log(string.Format("Added {0} unit(s) to {1}", PlayerData.Inventory.Add(Type), GetName(Type)));
 		}
 
-		//Removes item to local data.
+		//Removes item from local data.
 		void RemoveItem()
 		{
 			Debug.Log(string.Format("Removed {0} unit(s) from {1}", PlayerData.Inventory.Remove(Type), GetName(Type)));
