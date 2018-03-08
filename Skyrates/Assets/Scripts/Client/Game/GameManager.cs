@@ -1,4 +1,5 @@
 ﻿using System;
+using Rewired;
 using Skyrates.Client.Data;
 using Skyrates.Client.Entity;
 using Skyrates.Client.Game.Event;
@@ -61,12 +62,18 @@ namespace Skyrates.Client.Game
         private void OnEnable()
         {
             Events.SceneLoaded += this.OnSceneLoaded;
+            ReInput.players.GetPlayer(0).AddInputEventDelegate(this.OnInputMenu, UpdateLoopType.Update, "Menu");
+            ReInput.players.GetPlayer(0).AddInputEventDelegate(this.OnInputExit, UpdateLoopType.Update, "Exit");
+            Events.MenuButtonPressed += this.OnMenuButton;
         }
 
         /// <inheritdoc />
         private void OnDisable()
         {
             Events.SceneLoaded -= this.OnSceneLoaded;
+            ReInput.players.GetPlayer(0).RemoveInputEventDelegate(this.OnInputMenu);
+            ReInput.players.GetPlayer(0).RemoveInputEventDelegate(this.OnInputExit);
+            Events.MenuButtonPressed -= this.OnMenuButton;
         }
 
         /// <summary>
@@ -87,6 +94,45 @@ namespace Skyrates.Client.Game
                     player.Physics.SetPositionAndRotation(this.PlayerSpawn.position, this.PlayerSpawn.rotation);
                     player.transform.position = player.Physics.LinearPosition;
                     player.transform.rotation = player.Physics.RotationPosition;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void OnInputMenu(InputActionEventData evt)
+        {
+            if (!evt.GetButtonDown())
+                return;
+
+            GameManager.Events.Dispatch(new EventMenuButtonPressed(EventMenuButtonPressed.MenuButton.Menu));
+        }
+
+        void OnInputExit(InputActionEventData evt)
+        {
+            if (!evt.GetButtonDown())
+                return;
+
+            GameManager.Events.Dispatch(new EventMenuButtonPressed(EventMenuButtonPressed.MenuButton.Back));
+        }
+
+        private void OnMenuButton(GameEvent evt)
+        {
+            EventMenuButtonPressed evtButton = (EventMenuButtonPressed) evt;
+            switch (evtButton.Button)
+            {
+                case EventMenuButtonPressed.MenuButton.Menu:
+                    // Go back to main menu                
+                    SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
+                    SceneLoader.Instance.ActivateNext();
+                    break;
+                case EventMenuButtonPressed.MenuButton.Back:
+                    // Exit the game
+#if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();          
+#endif
                     break;
                 default:
                     break;

@@ -19,6 +19,7 @@ namespace Skyrates.Client.Scene
             MenuMain,
             LoadingWorld,
             World,
+            Credits,
         }
 
         /// <summary>
@@ -37,6 +38,8 @@ namespace Skyrates.Client.Scene
         /// </summary>
         [Tooltip("The name of the main game scene (what scene is loaded when the player goes to pkay)")]
         public string GameName;
+        
+        public string Credits;
 
         /// <summary>
         /// List of scenes from SceneKey to their scene name.
@@ -63,6 +66,7 @@ namespace Skyrates.Client.Scene
             SceneNames[SceneKey.MenuMain] = MenuName;
             SceneNames[SceneKey.LoadingWorld] = GameLoading;
             SceneNames[SceneKey.World] = GameName;
+            SceneNames[SceneKey.Credits] = Credits;
 
             foreach (KeyValuePair<SceneKey, string> pair in SceneNames)
             {
