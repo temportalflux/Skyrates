@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 936b12eb40e44a0448251734ea6a1ab7, type: 3}
-  m_Name: LocalData
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
   InputData:
     MoveForward:
       Input: 0
-      Modifier: 1
+      Modifier: 0.25
     TurnY:
       Input: 0
       Modifier: 25
@@ -29,22 +29,27 @@ MonoBehaviour:
     PitchAngleDeadZone: 0.15
     CameraHorizontal:
       Input: 0
-      Modifier: 2
+      Modifier: 1
     CameraVertical:
       Input: -0
-      Modifier: 2
+      Modifier: 0.005
     IsShooting: 0
+    IsInteractingOnThisFrame: 0
     AimScale: 0
+    AdditionalTurnPercent: 0
+    AdditionalMovePercent: 0
   StateData:
     SpeedInitial: 10
     SpeedMin: 0
     SpeedMax: 60
-    MovementSpeed: 12
+    MovementSpeed: 0
     ViewMode: 0
     ShootingDataStarboardPercentReloaded: 1
-    ShootingDataStarboardCanReload: 1
+    ShootingDataStarboardIsReloading: 0
+    ShootingDataStarboardCanReload: 0
     ShootingDataPortPercentReloaded: 1
-    ShootingDataPortCanReload: 1
+    ShootingDataPortIsReloading: 0
+    ShootingDataPortCanReload: 0
     ShootDelayActiveReloadStart: 0.2
     ShootDelayActiveReloadEnd: 0.5
     ShootDelay: 5

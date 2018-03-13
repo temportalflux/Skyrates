@@ -3,6 +3,7 @@ using Skyrates.Common.AI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Rewired;
 using Skyrates.Client.Entity;
 using Skyrates.Client.Game;
@@ -26,14 +27,9 @@ namespace Skyrates.Client.Input
 
         public EntityPlayerShip EntityPlayerShip;
 
-        public Transform Camera;
+        public Animator StateAnimator;
 
-        public Transform CameraPivot;
-
-        public Transform CameraModeFree;
-        public Transform CameraModeStarboard;
-        public Transform CameraModePort;
-        public Transform CameraModeDown;
+        public CinemachineFreeLook FreeLookCamera;
 
         private Rewired.Player _controller;
 
@@ -47,10 +43,102 @@ namespace Skyrates.Client.Input
             }
         }
 
+        protected class PlayerState
+        {
+
+            public virtual void OnEnter(PlayerController owner) { }
+
+            public virtual void UpdatePre(Rewired.Player inputController, PlayerController owner, ref PlayerData.Input data)
+            {
+                // Forward
+                float fwd = inputController.GetButton("Boost") ? 1 : 0;
+                float bkwd = inputController.GetButton("Brake") ? 1 : 0;
+                data.MoveForward.Input = fwd - bkwd;
+
+                // Turning
+                data.TurnY.Input = inputController.GetAxis("Turn Horizontal");
+
+                // Move vertical
+                data.MoveVertical.Input = inputController.GetAxis("Move Vertical");
+
+                data.CameraHorizontal.Input = 0.0f;
+                data.CameraVertical.Input = 0.0f;
+
+                data.IsInteractingOnThisFrame = inputController.GetButtonDown("Interact");
+            }
+
+            public virtual void Update(PlayerController owner, PlayerData.Input data)
+            {
+                owner.FreeLookCamera.m_XAxis.Value += data.CameraHorizontal.Value;
+                owner.FreeLookCamera.m_YAxis.Value += data.CameraVertical.Value;
+            }
+
+            public virtual void OnExit() { }
+
+        }
+
+        protected class PlayerStateUnlocked : PlayerState
+        {
+
+            public override void OnEnter(PlayerController owner)
+            {
+                owner.StateAnimator.SetTrigger("Unlocked");
+            }
+
+            public override void UpdatePre(Player inputController, PlayerController owner, ref PlayerData.Input data)
+            {
+                base.UpdatePre(inputController, owner, ref data);
+
+                data.CameraHorizontal.Input = inputController.GetAxis("Move Camera Horizontal");
+                data.CameraVertical.Input = -inputController.GetAxis("Move Camera Vertical");
+            }
+        }
+
+        protected class PlayerStateBroadsideStar : PlayerState
+        {
+
+            public override void OnEnter(PlayerController owner)
+            {
+                owner.StateAnimator.SetTrigger("Broadside:Star");
+            }
+
+        }
+
+        protected class PlayerStateBroadsidePort : PlayerState
+        {
+
+            public override void OnEnter(PlayerController owner)
+            {
+                owner.StateAnimator.SetTrigger("Broadside:Port");
+            }
+
+        }
+
+        protected class PlayerStateBomb : PlayerState
+        {
+
+            public override void OnEnter(PlayerController owner)
+            {
+                owner.StateAnimator.SetTrigger("Bomb");
+            }
+
+        }
+
+        // maps the input string to the state
+        private readonly Dictionary<string, PlayerState> PlayerStates = new Dictionary<string, PlayerState>();
+
+        private PlayerState PlayerStateCurrent;
+
         void Awake()
         {
             // unneccessary flag, only used to init the contorller data
             this.Controller.isPlaying = true;
+
+            this.PlayerStates.Add("Mode:Free", this.PlayerStateCurrent = new PlayerStateUnlocked());
+            this.PlayerStates.Add("Mode:Starboard", new PlayerStateBroadsideStar());
+            this.PlayerStates.Add("Mode:Port", new PlayerStateBroadsidePort());
+            this.PlayerStates.Add("Mode:Down", new PlayerStateBomb());
+            this.PlayerStateCurrent.OnEnter(this);
         }
 
         void OnEnable()
@@ -59,6 +147,7 @@ namespace Skyrates.Client.Input
             this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Starboard");
             this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Port");
             this.Controller.AddInputEventDelegate(this.OnInputCameraMode, UpdateLoopType.Update, "Mode:Down");
+
             this.Controller.AddInputEventDelegate(this.OnInputFire, UpdateLoopType.Update, "Fire");
             this.Controller.AddInputEventDelegate(this.OnInputAim, UpdateLoopType.Update, "Aim");
             this.Controller.AddInputEventDelegate(this.OnInputReload, UpdateLoopType.Update, "Reload:Main");
@@ -70,35 +159,48 @@ namespace Skyrates.Client.Input
         void OnDisable()
         {
             this.Controller.RemoveInputEventDelegate(this.OnInputCameraMode);
+            this.Controller.RemoveInputEventDelegate(this.OnInputFire);
+            this.Controller.RemoveInputEventDelegate(this.OnInputAim);
+            this.Controller.RemoveInputEventDelegate(this.OnInputReload);
+            this.Controller.RemoveInputEventDelegate(this.OnInputInteract);
+            this.Controller.RemoveInputEventDelegate(this.OnInputSwitchWeapon);
         }
 
         void OnInputCameraMode(InputActionEventData evt)
         {
-            if (!evt.GetButtonDown()) return;
+            if (!evt.GetButtonDown() || !this.PlayerStates.ContainsKey(evt.actionName)) return;
 
-            Transform cameraState = this.Camera.transform;
-            switch (evt.actionName)
-            {
-                case "Mode:Free":
-                    this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.FREE;
-                    cameraState = this.CameraModeFree;
-                    break;
-                case "Mode:Starboard":
-                    this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_RIGHT;
-                    cameraState = this.CameraModeStarboard;
-                    break;
-                case "Mode:Port":
-                    this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_LEFT;
-                    cameraState = this.CameraModePort;
-                    break;
-                case "Mode:Down":
-                    this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_DOWN;
-                    cameraState = this.CameraModeDown;
-                    break;
-            }
+            this.PlayerStateCurrent.OnExit();
+            this.PlayerStateCurrent = this.PlayerStates[evt.actionName];
+            this.PlayerStateCurrent.OnEnter(this);
+
+            //Transform cameraState = this.Camera.transform;
+            //switch (evt.actionName)
+            //{
+            //    case "Mode:Free":
+            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.FREE;
+            //        cameraState = this.CameraModeFree;
+            //        this.StateAnimator.SetTrigger("Unlocked");
+            //        break;
+            //    case "Mode:Starboard":
+            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_RIGHT;
+            //        cameraState = this.CameraModeStarboard;
+            //        this.StateAnimator.SetTrigger("Broadside:Star");
+            //        break;
+            //    case "Mode:Port":
+            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_LEFT;
+            //        cameraState = this.CameraModePort;
+            //        this.StateAnimator.SetTrigger("Broadside:Port");
+            //        break;
+            //    case "Mode:Down":
+            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_DOWN;
+            //        cameraState = this.CameraModeDown;
+            //        this.StateAnimator.SetTrigger("Bomb");
+            //        break;
+            //}
             
-            // TODO: Slerp camera
-            this.Camera.SetPositionAndRotation(cameraState.position, cameraState.rotation);
+            //// TODO: Slerp camera
+            //this.Camera.SetPositionAndRotation(cameraState.position, cameraState.rotation);
 
         }
 
@@ -223,63 +325,13 @@ namespace Skyrates.Client.Input
 
         void GetInput()
         {
-            // Forward
-            float fwd = this._controller.GetButton("Boost") ? 1 : 0;
-            float bkwd = this._controller.GetButton("Brake") ? 1 : 0;
-            this.PlayerData.InputData.MoveForward.Input = fwd - bkwd;
-
-            // Turning
-            this.PlayerData.InputData.TurnY.Input = this._controller.GetAxis("Turn Horizontal");
-
-            // Move vertical
-            this.PlayerData.InputData.MoveVertical.Input = this._controller.GetAxis("Move Vertical");
-
-            // Camera
-            if (this.PlayerData.StateData.ViewMode == PlayerData.CameraMode.FREE)
-            {
-                this.PlayerData.InputData.CameraVertical.Input = -this._controller.GetAxis("Move Camera Vertical");
-                this.PlayerData.InputData.CameraHorizontal.Input = this._controller.GetAxis("Move Camera Horizontal");
-            }
-            else
-            {
-                this.PlayerData.InputData.CameraVertical.Input =
-                    this.PlayerData.InputData.CameraHorizontal.Input = 0.0f;
-            }
-			this.PlayerData.InputData.IsInteractingOnThisFrame = this._controller.GetButtonDown("Interact");
+            this.PlayerStateCurrent.UpdatePre(this._controller, this, ref this.PlayerData.InputData);
         }
 
         void ProcessInput(float deltaTime)
         {
-            this.ProcessCamera();
+            this.PlayerStateCurrent.Update(this, this.PlayerData.InputData);
             this.ProcessActiveReload(deltaTime);
-        }
-
-        void ProcessCamera()
-        {
-            // Grab the vertical axis (up)
-            Vector3 dirVertical = this.Camera.up;
-            dirVertical.x = dirVertical.z = 0;
-
-            // Rotate around the vertical axis
-            this.Camera.RotateAround(this.CameraPivot.position, dirVertical, this.PlayerData.InputData.CameraHorizontal.Value);
-
-            // Grab the x axis (right)
-            Vector3 dirHorizontal = this.Camera.right;
-            dirVertical.y = dirVertical.z = 0;
-
-
-            /*
-            float rotateDegrees = this.playerInput.MoveVertical;
-            Vector3 currentVector = transform.position - this.pivot.position;
-            currentVector.y = 0;
-            Vector3 iVec = this.transform.forward.Flatten(Vector3.up);
-            float angleBetween = Vector3.Angle(iVec, currentVector) * (Vector3.Cross(iVec, currentVector).y > 0 ? 1 : -1);
-            float newAngle = Mathf.Clamp(angleBetween + rotateDegrees, -90, 40);
-            rotateDegrees = newAngle - angleBetween;
-            */
-
-            // Pivot around the local left/right axis (right of the facing direction)
-            this.Camera.RotateAround(this.CameraPivot.position, dirHorizontal, this.PlayerData.InputData.CameraVertical.Value);
         }
 
         void ProcessActiveReload(float deltaTime)
