@@ -73,28 +73,9 @@ namespace Skyrates.Common.AI
             // for ship movement
             float rotationY = input.TurnY.Value * ((100.0f + input.AdditionalTurnPercent) / 100.0f); ;
             //rotationY *= (1 - input.MoveForward.Input) * 0.5f;
-
-            // banking
-            float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), input.YawAngle);
-
-            // pitching (up/down rotation)
-            float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * input.PitchAngle;
             
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
             
-            Vector3 currentRotation = physicsData.RotationAesteticPosition.eulerAngles;
-
-            LerpRotation(currentRotation.z,
-                Mathf.Abs(input.TurnY.Input) > this.ControllerData.InputData.YawAngleDeadZone ? rotationZ : 0,
-                this.ControllerData.InputData.YawAngleSpeed,
-                ref physicsData.RotationAesteticVelocity.z
-            );
-            LerpRotation(currentRotation.x,
-                Mathf.Abs(input.MoveVertical.Input) > this.ControllerData.InputData.PitchAngleDeadZone ? rotationX : 0,
-                this.ControllerData.InputData.PitchAngleSpeed,
-                ref physicsData.RotationAesteticVelocity.x
-            );
-
         }
 
         private void LerpRotation(float current, float target, float speed, ref float velocity)

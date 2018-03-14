@@ -908,6 +908,7 @@ MonoBehaviour:
     HasAesteticRotation: 0
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+    RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   BehaviorData:
     InitialTargets: []
     FormationOwner: {fileID: 0}
@@ -925,10 +926,9 @@ MonoBehaviour:
       HasAesteticRotation: 0
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
-  Steering:
-  - {fileID: 11400000, guid: 06ea08f1a2c5a3245885bd0290b708d9, type: 2}
-  - {fileID: 11400000, guid: 901794f6bb543ae4fbcada441d614ab7, type: 2}
-  - {fileID: 11400000, guid: d28e2b63627064c4a8861180a7a0e0b9, type: 2}
+      RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+  Steering: {fileID: 11400000, guid: 0e096f17aee796f4d89805ade8501069, type: 2}
+  Render: {fileID: 4546537775946266}
   StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
   SmokeData:
     Bounds: {fileID: 65363901809085916}
@@ -942,5 +942,6 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  LootDropRadius: 10
   Health: 0
+  LootDropRadius: 10
+  Shooters: []

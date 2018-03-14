@@ -26,6 +26,8 @@ namespace Skyrates.Common.AI
         
         public Vector3 RotationAesteticVelocity = Vector3.zero;
 
+        public Quaternion RotationPositionComposite = Quaternion.identity;
+
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
             this.LinearPosition = position;
@@ -93,6 +95,10 @@ namespace Skyrates.Common.AI
 
             // Update rotational position
             ExtensionMethods.Integrate(ref this.RotationAesteticPosition, this.RotationAesteticVelocity, deltaTime);
+
+            // Update the composite rotation of aestetic and actual
+            this.RotationPositionComposite = this.RotationPosition;
+            ExtensionMethods.Integrate(ref this.RotationPositionComposite, this.RotationAesteticVelocity, deltaTime);
 
         }
 

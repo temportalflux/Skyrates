@@ -22,9 +22,8 @@ namespace Skyrates.Common.Entity
         /// The actual steering object - set via editor.
         /// </summary>
         [SerializeField]
-        public Behavior[] Steering;
-
-
+        public SteeringPipeline Steering;
+        
         protected override void Start()
         {
             base.Start();
@@ -32,32 +31,20 @@ namespace Skyrates.Common.Entity
 
             this.UpdateBehaviorData();
 
-            foreach (Behavior behavior in this.Steering)
-            {
-                if (behavior == null) continue;
+            this.Steering.AddPersistentDataTo(ref this.BehaviorData);
+            this.Steering.OnEnter(ref this.BehaviorData, this.Physics);
 
-                // Init the object and its persistent data
-                behavior.AddPersistentDataTo(ref this.BehaviorData);
-
-                // Enter the state
-                behavior.OnEnter(ref this.BehaviorData, this.Physics);
-            }
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
 
-            foreach (Behavior behavior in this.Steering)
-            {
-                if (behavior == null) continue;
+            // Exit the state
+            this.Steering.OnExit(ref this.BehaviorData, this.Physics);
+            // Remove any persistent data
+            this.BehaviorData.Remove(this.Steering.GetPersistentDataGuid());
 
-                // Exit the state
-                behavior.OnExit(ref this.BehaviorData, this.Physics);
-
-                // Remove any persistent data
-                this.BehaviorData.Remove(behavior.GetPersistentDataGuid());
-            }
         }
 
         protected virtual void UpdateBehaviorData()
@@ -73,14 +60,11 @@ namespace Skyrates.Common.Entity
             this.UpdateBehaviorData();
 
             // Update steering on a fixed timestep
-            foreach (Behavior behavior in this.Steering)
+            if (this.Steering != null)
             {
-                if (behavior != null)
-                {
-                    behavior.GetUpdate(ref this.BehaviorData, ref this.Physics, Time.fixedDeltaTime);
-                }
+                this.Steering.GetUpdate(ref this.BehaviorData, ref this.Physics, Time.fixedDeltaTime);
             }
-
+            
             // Integrate physics from steering and any network updates
             this.IntegratePhysics(Time.fixedDeltaTime);
 
@@ -109,15 +93,26 @@ namespace Skyrates.Common.Entity
                 this.Physics.LinearPosition = this.transform.position;
             }
 
+            this.ApplyRotations(this.Physics, deltaTime);
+
+        }
+
+        protected virtual void ApplyRotations(PhysicsData physics, float deltaTime)
+        {
+
+            /*
             // Rotation
-            this._physics.MoveRotation(this.Physics.RotationPosition);
+            this._physics.MoveRotation(physics.RotationPosition);
 
             // Rotation Aestetic
-            // TODO: Delegate to subclass maybe?
-            if (this.Physics.HasAesteticRotation)
+            if (physics.HasAesteticRotation)
             {
-                this.GetRender().transform.localRotation = this.Physics.RotationAesteticPosition;
+                this.GetRender().transform.localRotation = physics.RotationAesteticPosition;
             }
+            //*/
+
+            this._physics.MoveRotation(physics.HasAesteticRotation ?
+                physics.RotationPositionComposite : physics.RotationPosition);
 
         }
 

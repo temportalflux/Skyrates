@@ -4,6 +4,7 @@ using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Mono;
 using Skyrates.Client.Ship;
+using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
@@ -17,6 +18,12 @@ namespace Skyrates.Client.Entity
     /// </summary>
     public class EntityShip : EntityAI
     {
+        
+        /// <summary>
+        /// The root of the render object (must be a child/decendent of this root).
+        /// </summary>
+        [Tooltip("The root of the render object (must be a child/decendent of this root).")]
+        public Transform Render;
 
         [SerializeField]
         public ShipStat StatBlock;
@@ -48,9 +55,6 @@ namespace Skyrates.Client.Entity
         [SerializeField]
         public GameObject ParticleOnDestruction;
 
-        [SerializeField]
-        public float LootDropRadius;
-
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [HideInInspector]
         public float Health;
@@ -76,8 +80,20 @@ namespace Skyrates.Client.Entity
             this.UpdateHealthParticles();
         }
 
-		//TODO: Doxygen
-		public virtual ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
+        /// <inheritdoc />
+        public override Transform GetRender()
+        {
+            return this.Render;
+        }
+
+        protected override void ApplyRotations(PhysicsData physics, float deltaTime)
+        {
+            this._physics.MoveRotation(physics.RotationPosition);
+            this.GetRender().localRotation = physics.RotationAesteticPosition;
+        }
+
+        //TODO: Doxygen
+        public virtual ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
 		{
 			if (type == ShipData.ComponentType.Hull) return new ShipComponent[] { this.GetComponentInChildren<ShipHull>() };
 			else return this.GetComponentInChildren<ShipHull>().GetGeneratedComponent(type);
@@ -236,28 +252,7 @@ namespace Skyrates.Client.Entity
         /// <param name="position"></param>
         protected virtual void SpawnLoot(Vector3 position)
         {
-            if (this.StatBlock == null || this.StatBlock.Loot == null) return;
-
-            // Generate the loot to spawn
-            KeyValuePair<ShipData.BrokenComponentType, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
-            // Spawn each loot in turn
-            foreach (KeyValuePair<ShipData.BrokenComponentType, Loot.Loot> lootItem in loots)
-            {
-                // If the loot is invalid in some way, discard
-                if (lootItem.Key == ShipData.BrokenComponentType.Invalid || lootItem.Value == null)
-                {
-                    continue;
-                }
-
-                // Get a random position to spawn it
-                Vector3 pos = position + Vector3.Scale(Random.insideUnitSphere, Vector3.one * this.LootDropRadius);
-
-                // Create the prefab instance for the loot
-                Loot.Loot loot = Instantiate(lootItem.Value.gameObject, pos, Quaternion.identity).GetComponent<Loot.Loot>();
-                // Set the item the loot contains
-                loot.Item = lootItem.Key;
-                // TODO: Loot event, loot should be static entity for networking
-            }
+            
         }
 
         /// <summary>

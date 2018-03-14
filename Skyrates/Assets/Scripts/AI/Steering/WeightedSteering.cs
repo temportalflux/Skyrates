@@ -27,6 +27,42 @@ namespace Skyrates.Common.AI
 
         public SteeringWeight[] Steerings;
 
+        public override void AddPersistentDataTo(ref BehaviorData behavioralData)
+        {
+            base.AddPersistentDataTo(ref behavioralData);
+            foreach (SteeringWeight steeringWeight in this.Steerings)
+            {
+                if (steeringWeight.Behavior != null)
+                {
+                    steeringWeight.Behavior.AddPersistentDataTo(ref behavioralData);
+                }
+            }
+        }
+
+        public override object OnEnter(ref BehaviorData data, PhysicsData physics, object persistentData)
+        {
+            foreach (SteeringWeight steeringWeight in this.Steerings)
+            {
+                if (steeringWeight.Behavior != null)
+                {
+                    steeringWeight.Behavior.OnEnter(ref data, physics);
+                }
+            }
+            return base.OnEnter(ref data, physics, persistentData);
+        }
+
+        public override void OnExit(ref BehaviorData data, PhysicsData physics, object persistentData)
+        {
+            foreach (SteeringWeight steeringWeight in this.Steerings)
+            {
+                if (steeringWeight.Behavior != null)
+                {
+                    steeringWeight.Behavior.OnExit(ref data, physics);
+                }
+            }
+            base.OnExit(ref data, physics, persistentData);
+        }
+
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
         public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persistentData)

@@ -6,6 +6,7 @@ using Skyrates.Client.Game.Event;
 using Skyrates.Client.Mono;
 using Skyrates.Client.Scene;
 using Skyrates.Client.Ship;
+using Skyrates.Common.AI;
 using Skyrates.Common.Network;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,18 +31,6 @@ namespace Skyrates.Client.Entity
         /// The non-networked data local to the player.
         /// </summary>
         public PlayerData PlayerData;
-
-        /// <summary>
-        /// The transform which points towards where the forward direction is.
-        /// </summary>
-        [Tooltip("The transform which points towards where the forward direction is.")]
-        public Transform View;
-
-        /// <summary>
-        /// The root of the render object (must be a child/decendent of this root).
-        /// </summary>
-        [Tooltip("The root of the render object (must be a child/decendent of this root).")]
-        public Transform Render;
 
         /// <summary>
         /// The Ship component which creates the modular ship.
@@ -71,16 +60,10 @@ namespace Skyrates.Client.Entity
             this.PlayerData.Init();
         }
 
-        /// <inheritdoc />
-        protected override Transform GetView()
+        protected override void ApplyRotations(PhysicsData physics, float deltaTime)
         {
-            return this.View;
-        }
-
-        /// <inheritdoc />
-        public override Transform GetRender()
-        {
-            return this.Render;
+            this._physics.MoveRotation(physics.RotationPosition);
+            this.GetRender().transform.localRotation = physics.RotationAesteticPosition;
         }
 
         /// <summary>

@@ -8,8 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71cc539b2959f544b1fbde9d95c8c7a, type: 3}
+  m_Script: {fileID: 11500000, guid: b018a28906736f6438e7e7dfe87ac3ee, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  ControllerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
-  ConstantSpeed: 20
+  Behaviors:
+  - {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
+  - {fileID: 11400000, guid: 5a99fb2af9a39a94ca70752d192a2191, type: 2}

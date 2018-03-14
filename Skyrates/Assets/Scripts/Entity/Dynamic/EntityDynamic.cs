@@ -28,18 +28,13 @@ namespace Skyrates.Common.Entity
 
         protected virtual void Awake()
         {
+            this._physics = this.GetComponent<Rigidbody>();
+            Debug.Assert(this._physics != null, string.Format("{0} has null rigidbody - this is required to move with collisions.", this.name));
             this.Physics = new PhysicsData
             {
                 LinearPosition = this.transform.position,
                 RotationPosition = this.transform.rotation
             };
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-            this._physics = this.GetComponent<Rigidbody>();
-            Debug.Assert(this._physics != null, string.Format("{0} has null rigidbody - this is required to move with collisions.", this.name));
         }
 
         protected virtual void FixedUpdate()

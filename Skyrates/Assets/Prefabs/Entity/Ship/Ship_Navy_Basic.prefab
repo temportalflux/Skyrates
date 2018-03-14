@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714927255280634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50, y: 0, z: -50}
+  m_LocalPosition: {x: 25, y: 0, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4144529139514880}
@@ -412,10 +412,12 @@ MonoBehaviour:
     RotationAccelleration: {x: 0, y: 0, z: 0}
     HasAesteticRotation: 0
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+    RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   BehaviorData:
     InitialTargets: []
     FormationOwner: {fileID: 0}
-    FormationSlot: 3
+    FormationSlot: 0
     View: {fileID: 0}
     Render: {fileID: 0}
     HasTarget: 0
@@ -428,9 +430,10 @@ MonoBehaviour:
       RotationAccelleration: {x: 0, y: 0, z: 0}
       HasAesteticRotation: 0
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
-  Steering:
-  - {fileID: 11400000, guid: 19c9022d9701ff74a84489d17593243f, type: 2}
-  - {fileID: 11400000, guid: 94671713287b0b14bad4142f51592cf9, type: 2}
+      RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+      RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+  Steering: {fileID: 11400000, guid: ffffe83f1fccbff419d627c98069d50a, type: 2}
+  Render: {fileID: 4144529139514880}
   StatBlock: {fileID: 11400000, guid: 898a9b5fec6f72545b401a35af024b6c, type: 2}
   SmokeData:
     Bounds: {fileID: 65650341326461750}
@@ -444,10 +447,11 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  LootDropRadius: 5
   Health: 0
+  LootDropRadius: 5
   Shooters:
   - {fileID: 114271004218291994}
+  ShootDelay: 7
 --- !u!114 &114271004218291994
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -506,7 +506,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1276110045501648}
-  m_LocalRotation: {x: 0.15012553, y: -0, z: -0, w: 0.988667}
+  m_LocalRotation: {x: 0.15012504, y: -0, z: -0, w: 0.9886671}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -672,7 +672,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1315915430734456}
-  m_LocalRotation: {x: 0.13223787, y: -0, z: -0, w: 0.9912181}
+  m_LocalRotation: {x: 0.13223784, y: -0, z: -0, w: 0.9912181}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -752,7 +752,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912161599259622}
-  m_LocalRotation: {x: 0.15012601, y: -0, z: -0, w: 0.9886669}
+  m_LocalRotation: {x: 0.1501252, y: -0, z: -0, w: 0.9886671}
   m_LocalPosition: {x: 0, y: 2.0349998, z: -5.328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1773,6 +1773,7 @@ MonoBehaviour:
     HasAesteticRotation: 0
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+    RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   BehaviorData:
     InitialTargets: []
     FormationOwner: {fileID: 0}
@@ -1790,8 +1791,9 @@ MonoBehaviour:
       HasAesteticRotation: 0
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
-  Steering:
-  - {fileID: 11400000, guid: fef6657516c5c6846a52bb24c3dea039, type: 2}
+      RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+  Steering: {fileID: 11400000, guid: 5f7eb8130057e7d4fa17200178e7271e, type: 2}
+  Render: {fileID: 4516092685946074}
   StatBlock: {fileID: 11400000, guid: 83d0bef0abd7ff64f89dd28418764559, type: 2}
   SmokeData:
     Bounds: {fileID: 65436981792362460}
@@ -1805,14 +1807,11 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  LootDropRadius: 0
   Health: 0
   ShipData:
     Components: 00000000000000000000000000000000000000000000000000000000
     _hasNewData: 0
   PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
-  View: {fileID: 0}
-  Render: {fileID: 4516092685946074}
   ShipRoot: {fileID: 114312103114731230}
 --- !u!124 &124033094765310984
 Behaviour:
