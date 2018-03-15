@@ -113,14 +113,15 @@ namespace Skyrates.Client.Ship
 				ShipNavigationLeft navigationComp = comp as ShipNavigationLeft; //Could also use ShipNavigation, but this lets us skip half of the adds, which is ideally 1.
 				if (navigationComp)
 				{
-					playerShip.PlayerData.InputData.AdditionalTurnPercent = navigationComp.AdditionalTurnPercent;
+                    // TODO: Put this in the ship stat data, not player data
+					//playerShip.PlayerData.AdditionalTurnPercent = navigationComp.AdditionalTurnPercent;
 				}
 				else
 				{
 					ShipPropulsion propulsionComp = comp as ShipPropulsion;
 					if (propulsionComp)
 					{
-						playerShip.PlayerData.InputData.AdditionalMovePercent = propulsionComp.AdditionalMovePercent;
+						//playerShip.PlayerData.AdditionalMovePercent = propulsionComp.AdditionalMovePercent;
 					}
 				}
 			}

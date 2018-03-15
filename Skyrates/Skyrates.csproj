@@ -524,6 +524,9 @@
     <Compile Include="Assets\CinemachineExamples\Shared\Scripts\MixingCameraBlend.cs" />
     <Compile Include="Assets\Scripts\AI\Behavior.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTimed.cs" />
+    <Compile Include="Assets\Scripts\AI\Composite\BehaviorPipeline.cs" />
+    <Compile Include="Assets\Scripts\AI\Composite\WeightedSteering.cs" />
+    <Compile Include="Assets\Scripts\AI\Decorator\SmoothTarget.cs" />
     <Compile Include="Assets\Scripts\AI\Formation\FormationOwner.cs" />
     <Compile Include="Assets\Scripts\AI\Formation\UpdateTargetFormation.cs" />
     <Compile Include="Assets\Scripts\AI\States\State.cs" />
@@ -547,9 +550,7 @@
     <Compile Include="Assets\Scripts\AI\Steering\Old\ForceLerp.cs" />
     <Compile Include="Assets\Scripts\AI\Steering\ShipRotation.cs" />
     <Compile Include="Assets\Scripts\AI\Steering\Steering.cs" />
-    <Compile Include="Assets\Scripts\AI\Steering\SteeringPipeline.cs" />
     <Compile Include="Assets\Scripts\AI\Steering\UserControlled.cs" />
-    <Compile Include="Assets\Scripts\AI\Steering\WeightedSteering.cs" />
     <Compile Include="Assets\Scripts\AI\Targetting\Waypoint.cs" />
     <Compile Include="Assets\Scripts\AI\Targetting\WaypointTargets.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioDispatcher.cs" />

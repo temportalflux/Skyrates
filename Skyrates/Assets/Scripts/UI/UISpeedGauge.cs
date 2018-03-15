@@ -26,7 +26,7 @@ namespace Skyrates.Client.UI
         private void Update()
         {
             float speedRange = this.PlayerData.StateData.SpeedMax - this.PlayerData.StateData.SpeedMin;
-            float speedOffset = this.PlayerData.StateData.MovementSpeed * ((100.0f + this.PlayerData.InputData.AdditionalMovePercent) / 100.0f) - (speedRange * 0.5f); //TODO: Change text (remove text from speedometor image or change speedometer image when upgrading propulsion.
+            float speedOffset = this.PlayerData.StateData.MovementSpeed - (speedRange * 0.5f);
             float scaled = speedOffset / speedRange + 0.5f;
 
             float angleRange = this.AngleMax - this.AngleMin;

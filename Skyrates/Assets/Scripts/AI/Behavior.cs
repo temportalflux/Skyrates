@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Skyrates.Common.AI;
 using Skyrates.Common.AI.Formation;
 using Skyrates.Common.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI
 {
-
     /// <summary>
     /// Any generic data used by all steering behaviours and that is
     /// specific to each <see cref="EntityDynamic"/> instance.
@@ -62,6 +62,14 @@ namespace Skyrates.Common.AI
     /// </summary>
     public abstract class Behavior : ScriptableObject
     {
+
+        protected virtual void OnEnable()
+        {
+        }
+
+        protected virtual void OnDisable()
+        {
+        }
 
         private Guid _persistentDataGuid;
 
@@ -127,5 +135,4 @@ namespace Skyrates.Common.AI
         }
 
     }
-
 }

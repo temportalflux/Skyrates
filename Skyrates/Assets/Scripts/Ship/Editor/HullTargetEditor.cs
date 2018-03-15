@@ -78,7 +78,7 @@ namespace Skyrates.Client.Ship
         public void DropAreaGUI()
         {
             this.DrawArrayArea("Drag loot set", ref this._instance.LootMounts,
-                (o => o.transform));
+                (o => (o as GameObject).transform));
         }
 
     }

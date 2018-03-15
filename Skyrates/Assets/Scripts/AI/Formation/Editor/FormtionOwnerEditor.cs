@@ -24,7 +24,7 @@ namespace Skyrates.Common.AI.Formation
         {
             this.DrawScriptField(this._instance);
 
-            this.DrawArrayArea("Slots", ref this._instance.Slots, o => o.transform);
+            this.DrawArrayArea("Slots", ref this._instance.Slots, o => (o as GameObject).transform);
 
             ToggleSlotsBlock = this.DrawArray("Slots", ref this._instance.Slots,
                 true, ToggleSlotsBlock,

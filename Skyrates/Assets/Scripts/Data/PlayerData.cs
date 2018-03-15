@@ -80,10 +80,6 @@ namespace Skyrates.Client.Data
 
 			public float AimScale;
 
-			public float AdditionalTurnPercent;
-
-			public float AdditionalMovePercent;
-
 		}
 
         /// <summary>

@@ -167,12 +167,21 @@ public static partial class ExtensionMethods
         return toggle;
     }
 
+    public static void DrawArrayArea<T>(this Editor editor,
+        string label, ref T[] target, Func<Object, T> getElementFrom)
+    {
+        editor.DrawArrayArea(label, ref target, 
+            o => getElementFrom(o) != null,
+            getElementFrom, GUILayoutUtility.GetRect(0.0f, 20.0f, GUILayout.ExpandWidth(true)), null);
+    }
+
     // https://gist.github.com/bzgeb/3800350
     public static void DrawArrayArea<T>(this Editor editor,
-        string label, ref T[] target, Func<GameObject, T> getElementFrom)
+        string label, ref T[] target,
+        Func<Object, bool> isValid,
+        Func<Object, T> getElementFrom, Rect drop_area, Action onDrop)
     {
         Event evt = Event.current;
-        Rect drop_area = GUILayoutUtility.GetRect(0.0f, 20.0f, GUILayout.ExpandWidth(true));
         GUI.Box(drop_area, label);
 
         switch (evt.type)
@@ -191,16 +200,14 @@ public static partial class ExtensionMethods
                     List<T> elements = new List<T>();
                     foreach (Object draggedObject in DragAndDrop.objectReferences)
                     {
-                        if (draggedObject is GameObject)
+                        if (isValid == null || isValid(draggedObject))
                         {
-                            elements.Add(getElementFrom(draggedObject as GameObject));
-                        }
-                        else
-                        {
-                            Debug.Log(string.Format("{0} is no game object", draggedObject));
+                            elements.Add(getElementFrom(draggedObject));
                         }
                     }
                     target = elements.ToArray();
+
+                    if (onDrop != null) onDrop();
                 }
                 break;
         }

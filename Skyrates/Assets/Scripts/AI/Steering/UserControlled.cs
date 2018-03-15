@@ -1,6 +1,7 @@
 ﻿
 using Skyrates.Client.Data;
 using System;
+using Skyrates.AI;
 using UnityEngine;
 
 namespace Skyrates.Common.AI
@@ -26,12 +27,12 @@ namespace Skyrates.Common.AI
             }
         }
 
-        public void OnEnable()
+        protected override void OnEnable()
         {
             this.Speed = this.ControllerData.StateData.SpeedInitial;
         }
 
-        public void OnDisable()
+        protected override void OnDisable()
         {
             this.Speed = 0.0f;
         }
@@ -47,9 +48,8 @@ namespace Skyrates.Common.AI
         {
             PlayerData.Input input = this.ControllerData.InputData;
 
-            Vector3 forward = data.Render.forward;
-            //Vector3 vertical = data.Render.up.Flatten(Vector3.forward + Vector3.right).normalized;
             Vector3 vertical = Vector3.up;
+            Vector3 forward = data.Render.forward.Flatten(vertical);
 
             this.Speed += input.MoveForward.Value;
             
@@ -57,34 +57,24 @@ namespace Skyrates.Common.AI
             //Vector3 movementForward = cameraForward * this.playerInput.MoveForward;
             
             //float movementForwardSpeed = ((forwardSpeed + (1 - backpedal)) * this.ConstantSpeed);
-            this.ControllerData.StateData.MovementSpeed = this.ConstantSpeed;
-
-            Vector3 movementVertical = vertical * input.MoveVertical.Value * ((100.0f + input.AdditionalMovePercent) / 100.0f);
-
+            this.ControllerData.StateData.MovementSpeed = this.Speed;
+            
             // for character
             // Vector3 movementXZ = movementForward + movementStrafe;
             // for ship
-            Vector3 movementXZ = forward * this.ControllerData.StateData.MovementSpeed * ((100.0f + input.AdditionalMovePercent) / 100.0f); ;
+            //Vector3 movementXZ = forward * this.ControllerData.StateData.MovementSpeed;
 
-            Vector3 movementXYZ = movementXZ + movementVertical;
-
-            physicsData.LinearVelocity = movementXYZ;
+            physicsData.LinearVelocity =
+                (forward * this.ControllerData.StateData.MovementSpeed)
+                +
+                (vertical * input.MoveVertical.Value);
 
             // for ship movement
-            float rotationY = input.TurnY.Value * ((100.0f + input.AdditionalTurnPercent) / 100.0f); ;
+            float rotationY = input.TurnY.Value;
             //rotationY *= (1 - input.MoveForward.Input) * 0.5f;
             
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
             
-        }
-
-        private void LerpRotation(float current, float target, float speed, ref float velocity)
-        {
-            float rotation = target - current;
-            rotation = ((int)(Align.MapToRange(rotation) * 100)) * 0.01f;
-            float rotationSize = Mathf.Abs(rotation);
-            float dir = rotationSize > 0.0f ? rotation / rotationSize : 0.0f;
-            velocity = speed * dir;
         }
 
     }

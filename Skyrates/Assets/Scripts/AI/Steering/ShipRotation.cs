@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Skyrates.AI;
 using UnityEngine;
 
 namespace Skyrates.Common.AI
@@ -19,14 +20,15 @@ namespace Skyrates.Common.AI
         {
             physics.HasAesteticRotation = true;
 
-            Vector3 movementVertical = Vector3.up * physics.LinearVelocity.y;
             float rotationY = physics.RotationVelocity.y;
 
             // banking
             float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), this.AngleYaw);
 
             // pitching (up/down rotation)
-            float rotationX = -1 * (movementVertical.sqrMagnitude > 0 ? Mathf.Sign(movementVertical.y) : 0) * this.AnglePitch;
+            float rotationX = -1 *
+                (physics.LinearVelocity.y > 0 ? Mathf.Sign(physics.LinearVelocity.y) : 0)
+                * this.AnglePitch;
 
             Vector3 currentRotation = physics.RotationAesteticPosition.eulerAngles;
 

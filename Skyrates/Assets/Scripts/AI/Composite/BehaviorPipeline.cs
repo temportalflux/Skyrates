@@ -1,7 +1,8 @@
 ﻿using System;
+using Skyrates.Common.AI;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI
 {
 
     /// <summary>
@@ -12,7 +13,7 @@ namespace Skyrates.Common.AI
     /// Ian Millington & John Funge
     /// </summary>
     [CreateAssetMenu(menuName = "Data/AI/Composite/Pipeline")]
-    public class SteeringPipeline : Steering
+    public class BehaviorPipeline : Steering
     {
 
         public Behavior[] Behaviors;

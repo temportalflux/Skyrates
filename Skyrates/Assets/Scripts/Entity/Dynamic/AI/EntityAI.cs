@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Cinemachine.Utility;
+using Skyrates.AI;
 using Skyrates.Client.Entity;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
@@ -22,7 +23,7 @@ namespace Skyrates.Common.Entity
         /// The actual steering object - set via editor.
         /// </summary>
         [SerializeField]
-        public SteeringPipeline Steering;
+        public BehaviorPipeline Behavior;
         
         protected override void Start()
         {
@@ -31,8 +32,8 @@ namespace Skyrates.Common.Entity
 
             this.UpdateBehaviorData();
 
-            this.Steering.AddPersistentDataTo(ref this.BehaviorData);
-            this.Steering.OnEnter(ref this.BehaviorData, this.Physics);
+            this.Behavior.AddPersistentDataTo(ref this.BehaviorData);
+            this.Behavior.OnEnter(ref this.BehaviorData, this.Physics);
 
         }
 
@@ -41,9 +42,9 @@ namespace Skyrates.Common.Entity
             base.OnDestroy();
 
             // Exit the state
-            this.Steering.OnExit(ref this.BehaviorData, this.Physics);
+            this.Behavior.OnExit(ref this.BehaviorData, this.Physics);
             // Remove any persistent data
-            this.BehaviorData.Remove(this.Steering.GetPersistentDataGuid());
+            this.BehaviorData.Remove(this.Behavior.GetPersistentDataGuid());
 
         }
 
@@ -60,9 +61,9 @@ namespace Skyrates.Common.Entity
             this.UpdateBehaviorData();
 
             // Update steering on a fixed timestep
-            if (this.Steering != null)
+            if (this.Behavior != null)
             {
-                this.Steering.GetUpdate(ref this.BehaviorData, ref this.Physics, Time.fixedDeltaTime);
+                this.Behavior.GetUpdate(ref this.BehaviorData, ref this.Physics, Time.fixedDeltaTime);
             }
             
             // Integrate physics from steering and any network updates

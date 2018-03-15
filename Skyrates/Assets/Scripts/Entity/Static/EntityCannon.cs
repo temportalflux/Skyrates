@@ -1,5 +1,6 @@
 ﻿using Skyrates.Client.Mono;
 using System.Collections;
+using Skyrates.AI;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using UnityEngine;

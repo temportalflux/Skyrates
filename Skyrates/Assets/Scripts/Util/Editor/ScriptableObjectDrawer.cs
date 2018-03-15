@@ -24,6 +24,8 @@ public class ScriptableObjectDrawer : PropertyDrawer
         // Draw foldout properties
         if (property.isExpanded && property.objectReferenceValue != null)
         {
+            EditorGUILayout.Separator();
+
             // Make child fields be indented
             EditorGUI.indentLevel++;
 
