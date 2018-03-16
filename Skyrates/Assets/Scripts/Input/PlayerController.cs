@@ -64,7 +64,10 @@ namespace Skyrates.Client.Input
                 data.CameraHorizontal.Input = 0.0f;
                 data.CameraVertical.Input = 0.0f;
 
-                data.IsInteractingOnThisFrame = inputController.GetButtonDown("Interact");
+                if (inputController.GetButtonDown("Interact"))
+                {
+                    GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerInteract, owner.EntityPlayerShip));
+                }
             }
 
             public virtual void Update(PlayerController owner, PlayerData.Input data)

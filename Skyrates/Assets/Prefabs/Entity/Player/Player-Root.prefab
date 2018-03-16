@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e665f01fc0c4e92b61de41bdab46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Physics:
+  PhysicsData:
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -1774,7 +1774,8 @@ MonoBehaviour:
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  BehaviorData:
+  Behavior: {fileID: 11400000, guid: 5f7eb8130057e7d4fa17200178e7271e, type: 2}
+  DataBehavior:
     InitialTargets: []
     FormationOwner: {fileID: 0}
     FormationSlot: 0
@@ -1792,9 +1793,9 @@ MonoBehaviour:
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
       RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  Behavior: {fileID: 11400000, guid: 5f7eb8130057e7d4fa17200178e7271e, type: 2}
-  Render: {fileID: 4516092685946074}
   StatBlock: {fileID: 11400000, guid: 83d0bef0abd7ff64f89dd28418764559, type: 2}
+  Health: 0
+  Render: {fileID: 4516092685946074}
   SmokeData:
     Bounds: {fileID: 65436981792362460}
     Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
@@ -1807,7 +1808,6 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  Health: 0
   ShipData:
     Components: 00000000000000000000000000000000000000000000000000000000
     _hasNewData: 0

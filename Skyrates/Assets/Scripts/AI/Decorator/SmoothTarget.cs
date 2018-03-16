@@ -1,24 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using Skyrates.Common.AI;
 using UnityEngine;
 
 namespace Skyrates.AI.Decorator
 {
 
+    /// <summary>
+    /// Overwrites the behavioral target to linearly interpolate from the previous location to the target location.
+    /// </summary>
     [CreateAssetMenu(menuName = "Data/AI/Decorator/Smooth Target")]
     public class SmoothTarget : Behavior
     {
 
-        public class Data
-        {
-            public Vector3 TargetInterpolated;
-        }
-
+        /// <summary>
+        /// The speed at which the target will move from its last known location to the next location.
+        /// </summary>
         public float InterpolationSpeed;
 
+        /// <summary>
+        /// The distance at which the target is snapped to (prevents long decimals to approximate the location).
+        /// </summary>
         public float DistanceArrived;
+
+        /// <summary>
+        /// <see cref="DistanceArrived"/> * <see cref="DistanceArrived"/>.
+        /// </summary>
         private float _distanceArrivedSq;
+
+        /// <inheritdoc />
+        [Serializable]
+        public class Persistent : DataPersistent
+        {
+            /// <summary>
+            /// The current target of the agent, which is interpolating to its ultimate target in <see cref="DataBehavioral"/>.
+            /// </summary>
+            public Vector3 TargetInterpolated;
+        }
 
         protected override void OnEnable()
         {
@@ -32,23 +49,27 @@ namespace Skyrates.AI.Decorator
             this._distanceArrivedSq = 0.0f;
         }
 
-        public override object CreatePersistentData()
+        /// <inheritdoc />
+        public override DataPersistent CreatePersistentData()
         {
-            return new Data();
+            return new Persistent();
         }
 
-        public override object GetUpdate(ref BehaviorData behavioral, ref PhysicsData physics,
-            float deltaTime, object persistent)
+        /// <inheritdoc />
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
-            Data data = (Data) persistent;
+            Persistent data = (Persistent) persistent;
 
             // Every update, the interpolated target gets closer to the destination target (behavioral target)
             Vector3 directionNormalized = (behavioral.Target.LinearPosition - data.TargetInterpolated).normalized;
 
+            // Determine if the current target is "close enough" to the main target
+            // if so, snap there
             if (directionNormalized.sqrMagnitude <= this._distanceArrivedSq)
             {
                 data.TargetInterpolated = behavioral.Target.LinearPosition;
             }
+            // Otherwise, linearly interpolate to the target
             else
             {
                 data.TargetInterpolated += directionNormalized * this.InterpolationSpeed * deltaTime;
@@ -59,6 +80,14 @@ namespace Skyrates.AI.Decorator
 
             return data;
         }
+
+#if UNITY_EDITOR
+        public override void DrawGizmos(DataPersistent persistent)
+        {
+            Persistent smooth = (Persistent)persistent;
+            Gizmos.DrawWireSphere(smooth.TargetInterpolated, 1);
+        }
+#endif
 
     }
 

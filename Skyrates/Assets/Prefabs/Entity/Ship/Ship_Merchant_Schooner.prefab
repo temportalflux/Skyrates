@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4146906015652790}
   - component: {fileID: 54200539007341228}
   - component: {fileID: 114865962957982574}
+  - component: {fileID: 114820605112876456}
   m_Layer: 19
   m_Name: Render
   m_TagString: Untagged
@@ -315,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8417354a78f3ae648852e4ebed4fef71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Physics:
+  PhysicsData:
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -326,7 +327,8 @@ MonoBehaviour:
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  BehaviorData:
+  Behavior: {fileID: 11400000, guid: 99d827694b06f1849914503feb9cdde2, type: 2}
+  DataBehavior:
     InitialTargets: []
     FormationOwner: {fileID: 0}
     FormationSlot: 0
@@ -344,9 +346,10 @@ MonoBehaviour:
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
       RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  Behavior: {fileID: 11400000, guid: 99d827694b06f1849914503feb9cdde2, type: 2}
-  Render: {fileID: 4146906015652790}
   StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
+  Health: 0
+  Render: {fileID: 4146906015652790}
+  Hull: {fileID: 114820605112876456}
   SmokeData:
     Bounds: {fileID: 65901688769280030}
     Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
@@ -359,9 +362,25 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  Health: 0
   LootDropRadius: 4
   Shooters: []
+--- !u!114 &114820605112876456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003495320685690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ship: {fileID: 0}
+  TierIndex: 0
+  Mounts: []
+  LootMounts: []
+  Defense: 0
+  Protection: 0
 --- !u!114 &114865962957982574
 MonoBehaviour:
   m_ObjectHideFlags: 1

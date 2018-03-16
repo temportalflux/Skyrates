@@ -5,22 +5,22 @@ using Random = UnityEngine.Random;
 
 namespace Skyrates.Common.AI
 {
-
+    
     /// <summary>
-    /// 
-    /// Derived from 
-    /// Artifical Intelligence for Games 2nd Edition
-    /// Ian Millington & John Funge
+    /// A base class for behaviors which should only be executed at a time interval, instead of every tick.
     /// </summary>
     public abstract class BehaviorTimed : Behavior
     {
 
-        public class PersistentDataTimed
+        /// <inheritdoc />
+        [Serializable]
+        public class PersistentDataTimed : DataPersistent
         {
 
             /// <summary>
             /// The amount of time since the states where last checked.
             /// </summary>
+            [SerializeField]
             public float ExecuteTimeElapsed;
 
         }
@@ -35,8 +35,9 @@ namespace Skyrates.Common.AI
         /// random amount of seconds between 0 and <see cref="ExecuteFrequency"/>.
         /// </summary>
         public bool ScatterExecute = true;
-        
-        public override object CreatePersistentData()
+
+        /// <inheritdoc />
+        public override DataPersistent CreatePersistentData()
         {
             return new PersistentDataTimed()
             {
@@ -46,9 +47,9 @@ namespace Skyrates.Common.AI
 
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
-        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persist)
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
-            PersistentDataTimed customDataTimed = (PersistentDataTimed)persist;
+            PersistentDataTimed customDataTimed = (PersistentDataTimed)persistent;
 
             // Check to see if the timer is used
             if (this.ExecuteFrequency > 0.0f)
@@ -65,16 +66,18 @@ namespace Skyrates.Common.AI
             }
 
             // And check for updates
-            return this.UpdateTimed(ref data, ref physics, deltaTime, customDataTimed);
+            return this.UpdateTimed(ref physics, ref behavioral, customDataTimed, deltaTime);
         }
 
 
         /// <summary>
         /// Checks all triggers if the current state should exit and another state should enter.
         /// </summary>
-        /// <param name="data"></param>
         /// <param name="physics"></param>
-        protected abstract PersistentDataTimed UpdateTimed(ref BehaviorData data, ref PhysicsData physics, float deltaTime, PersistentDataTimed persist);
+        /// <param name="behavioral"></param>
+        /// <param name="persistent"></param>
+        /// <param name="deltaTime"></param>
+        protected abstract PersistentDataTimed UpdateTimed(ref PhysicsData physics, ref DataBehavioral behavioral, PersistentDataTimed persistent, float deltaTime);
 
     }
 

@@ -1,57 +1,75 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using Cinemachine.Utility;
 using Skyrates.AI;
+using Skyrates.AI.Composite;
 using Skyrates.Client.Entity;
 using Skyrates.Common.AI;
-using Skyrates.Common.Entity;
 using UnityEngine;
 
 namespace Skyrates.Common.Entity
 {
 
-    public class EntityAI : EntityDynamic, DistanceCollidable
+    /// <summary>
+    /// An entity class which is steered/controled by some for of behavioral AI.
+    /// </summary>
+    public class EntityAI : EntityDynamic, IDistanceCollidable
     {
+
+        /// <summary>
+        /// The actual steering object - set via editor.
+        /// </summary>
+        [Header("AI Settings")]
+        [SerializeField]
+        public BehaviorPipeline Behavior;
 
         /// <summary>
         /// The steering data used - info which is specific to this
         /// entity and likely used by multiple steering algorithms.
         /// </summary>
-        public BehaviorData BehaviorData;
-
-        /// <summary>
-        /// The actual steering object - set via editor.
-        /// </summary>
         [SerializeField]
-        public BehaviorPipeline Behavior;
-        
+        public Behavior.DataBehavioral DataBehavior;
+
+        [HideInInspector]
+        [SerializeField]
+        public Behavior.DataPersistent DataPersistent;
+
+        /// <inheritdoc />
         protected override void Start()
         {
             base.Start();
-            this.BehaviorData.Target = new PhysicsData();
+            this.DataBehavior.Target = new PhysicsData();
 
             this.UpdateBehaviorData();
 
-            this.Behavior.AddPersistentDataTo(ref this.BehaviorData);
-            this.Behavior.OnEnter(ref this.BehaviorData, this.Physics);
+            if (this.Behavior != null)
+            {
+                this.DataPersistent = this.Behavior.CreatePersistentData();
+                this.DataPersistent = this.Behavior.OnEnter(this.PhysicsData, ref this.DataBehavior, this.DataPersistent);
+            }
 
         }
 
+        /// <inheritdoc />
         protected override void OnDestroy()
         {
             base.OnDestroy();
 
             // Exit the state
-            this.Behavior.OnExit(ref this.BehaviorData, this.Physics);
-            // Remove any persistent data
-            this.BehaviorData.Remove(this.Behavior.GetPersistentDataGuid());
+            if (this.Behavior != null)
+            {
+                this.Behavior.OnExit(this.PhysicsData, ref this.DataBehavior, this.DataPersistent);
+            }
 
         }
 
+        /// <summary>
+        /// Updates any pertinent data from the entity to its behavioral data
+        /// </summary>
         protected virtual void UpdateBehaviorData()
         {
-            this.BehaviorData.View = this.GetView();
-            this.BehaviorData.Render = this.GetRender().transform;
+            this.DataBehavior.View = this.GetView();
+            this.DataBehavior.Render = this.GetRender().transform;
         }
         
         protected override void FixedUpdate()
@@ -63,7 +81,7 @@ namespace Skyrates.Common.Entity
             // Update steering on a fixed timestep
             if (this.Behavior != null)
             {
-                this.Behavior.GetUpdate(ref this.BehaviorData, ref this.Physics, Time.fixedDeltaTime);
+                this.DataPersistent = this.Behavior.GetUpdate(ref this.PhysicsData, ref this.DataBehavior, this.DataPersistent, Time.fixedDeltaTime);
             }
             
             // Integrate physics from steering and any network updates
@@ -77,62 +95,69 @@ namespace Skyrates.Common.Entity
         /// <param name="deltaTime"></param>
         protected virtual void IntegratePhysics(float deltaTime)
         {
-            if (this._physics == null)
+            if (this.Physics == null)
                 return;
 
             // Integrate the velocities and accellerations
-            this.Physics.Integrate(deltaTime);
+            this.PhysicsData.Integrate(deltaTime);
 
             // Position
             {
                 // Use rigidbody to apply velocity
                 // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
                 //this._characterController.Move(this.Physics.LinearVelocity * deltaTime);
-                this._physics.velocity = this.Physics.LinearVelocity;
+                this.Physics.velocity = this.PhysicsData.LinearVelocity;
 
                 // Retroactively update position due to rigidbody
-                this.Physics.LinearPosition = this.transform.position;
+                this.PhysicsData.LinearPosition = this.transform.position;
             }
 
-            this.ApplyRotations(this.Physics, deltaTime);
-
-        }
-
-        protected virtual void ApplyRotations(PhysicsData physics, float deltaTime)
-        {
-
-            /*
-            // Rotation
-            this._physics.MoveRotation(physics.RotationPosition);
-
-            // Rotation Aestetic
-            if (physics.HasAesteticRotation)
-            {
-                this.GetRender().transform.localRotation = physics.RotationAesteticPosition;
-            }
-            //*/
-
-            this._physics.MoveRotation(physics.HasAesteticRotation ?
-                physics.RotationPositionComposite : physics.RotationPosition);
+            this.ApplyRotations(this.PhysicsData, deltaTime);
 
         }
 
         /// <summary>
-        /// Called when some other entity detects that this entity is now less
-        /// than maxDistance away from them.
-        /// <see cref="DistanceCollider"/>.
+        /// Applies rotation to the entity
         /// </summary>
-        /// <param name="other"></param>
-        /// <param name="maxDistance"></param>
-        public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
+        /// <param name="physics"></param>
+        /// <param name="deltaTime"></param>
+        protected virtual void ApplyRotations(PhysicsData physics, float deltaTime)
         {
-            
+            this.Physics.MoveRotation(physics.HasAesteticRotation ?
+                physics.RotationPositionComposite : physics.RotationPosition);
         }
 
+        /// <inheritdoc />
+        public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
+        {
+            if (this.Behavior == null) return;
+            this.Behavior.OnDetect(other, maxDistance);
+        }
+
+        /// <inheritdoc />
         public virtual void OnOverlapWith(GameObject other, float radius)
         {
-            
+            if (this.Behavior == null) return;
+            EntityAI otherAi = other.GetComponent<EntityAI>();
+            if (otherAi == null) return;
+            this.Behavior.OnDetect(otherAi, radius);
         }
+
+#if UNITY_EDITOR
+        public void OnDrawGizmos()
+        {
+            if (this.Behavior == null) return;
+            if (this.DataPersistent == null) return;
+            try
+            {
+                this.Behavior.DrawGizmos(this.DataPersistent);
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+        }
+#endif
 
     }
 

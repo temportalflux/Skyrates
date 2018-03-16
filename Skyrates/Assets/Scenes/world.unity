@@ -274,6 +274,16 @@ Prefab:
       propertyPath: Steering.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}
   m_IsPrefabParent: 0
@@ -1972,6 +1982,11 @@ Prefab:
       propertyPath: BehaviorData.InitialTargets.Array.size
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4036475334927516, guid: 584d826e2a1c95745b9c35aeb2275127, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2140,6 +2155,46 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 06ea08f1a2c5a3245885bd0290b708d9,
         type: 2}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 2005557396}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1830748399}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[2]
+      value: 
+      objectReference: {fileID: 1872932772}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[3]
+      value: 
+      objectReference: {fileID: 1714595883}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[4]
+      value: 
+      objectReference: {fileID: 1847497261}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[5]
+      value: 
+      objectReference: {fileID: 936820005}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[6]
+      value: 
+      objectReference: {fileID: 1380674126}
+    - target: {fileID: 114968147863439486, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[7]
+      value: 
+      objectReference: {fileID: 1505375175}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 584d826e2a1c95745b9c35aeb2275127, type: 2}
   m_IsPrefabParent: 0
@@ -6097,6 +6152,16 @@ Prefab:
       propertyPath: Steering.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}
   m_IsPrefabParent: 0
@@ -6427,6 +6492,11 @@ Prefab:
       propertyPath: BehaviorData.InitialTargets.Array.size
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4975237205997404, guid: 8f5cf771037ca84458e6a16f8babfd01, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6556,6 +6626,46 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 31cfdb80b0df073498f3edf78888749d,
         type: 2}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1968655478}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 353454301}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[2]
+      value: 
+      objectReference: {fileID: 1372954533}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[3]
+      value: 
+      objectReference: {fileID: 1544384102}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[4]
+      value: 
+      objectReference: {fileID: 1600645180}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[5]
+      value: 
+      objectReference: {fileID: 86521104}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[6]
+      value: 
+      objectReference: {fileID: 1542117360}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.InitialTargets.Array.data[7]
+      value: 
+      objectReference: {fileID: 1506497623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f5cf771037ca84458e6a16f8babfd01, type: 2}
   m_IsPrefabParent: 0
@@ -7997,6 +8107,16 @@ Prefab:
         type: 2}
       propertyPath: Steering.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}
@@ -9538,6 +9658,11 @@ Prefab:
       propertyPath: m_Name
       value: Ship_Navy_Basic (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 561143690}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c10bc748916e84c878981affe3298b, type: 2}
   m_IsPrefabParent: 0
@@ -11792,6 +11917,16 @@ Prefab:
         type: 2}
       propertyPath: Steering.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}
@@ -14766,6 +14901,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: b8796258a92aef943880f82f0ba3c561,
         type: 2}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 561143690}
+    - target: {fileID: 114761233398162100, guid: 8f5cf771037ca84458e6a16f8babfd01,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f5cf771037ca84458e6a16f8babfd01, type: 2}
   m_IsPrefabParent: 0
@@ -15380,6 +15525,16 @@ Prefab:
         type: 2}
       propertyPath: Steering.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}
@@ -16445,6 +16600,16 @@ Prefab:
         type: 2}
       propertyPath: Steering.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}
@@ -17703,6 +17868,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 94671713287b0b14bad4142f51592cf9,
         type: 2}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 561143690}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c10bc748916e84c878981affe3298b, type: 2}
   m_IsPrefabParent: 0
@@ -18980,6 +19155,16 @@ Prefab:
       propertyPath: Steering.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}
   m_IsPrefabParent: 0
@@ -20140,6 +20325,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 94671713287b0b14bad4142f51592cf9,
         type: 2}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 561143690}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c10bc748916e84c878981affe3298b, type: 2}
   m_IsPrefabParent: 0
@@ -21820,6 +22015,16 @@ Prefab:
     - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
         type: 2}
       propertyPath: BehaviorData.FormationSlot
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 561143690}
+    - target: {fileID: 114269295474296904, guid: 78c10bc748916e84c878981affe3298b,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23614,6 +23819,16 @@ Prefab:
         type: 2}
       propertyPath: Steering.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationOwner
+      value: 
+      objectReference: {fileID: 142144201}
+    - target: {fileID: 114793905451201544, guid: a3c3e186135e4614f86aa5f5dfe1cee9,
+        type: 2}
+      propertyPath: DataBehavior.FormationSlot
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c3e186135e4614f86aa5f5dfe1cee9, type: 2}

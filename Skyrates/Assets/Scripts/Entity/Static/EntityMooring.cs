@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using Skyrates.Client.Game;
+using Skyrates.Client.Game.Event;
 using Skyrates.Client.UI;
 using Skyrates.Common.Entity;
 using UnityEngine;
@@ -9,30 +11,119 @@ namespace Skyrates.Client.Entity
 	/// <summary>
 	/// A static entity where you can upgrade your components.
 	/// </summary>
-	public class EntityMooring : Common.Entity.Entity, DistanceCollidable
+	public class EntityMooring : Common.Entity.Entity, IDistanceCollidable
 	{
-		//TODO: doxygen
-		private bool _active;
-		private bool _upgrading;
-		public GameObject CanvasObject;
 
+        /// <summary>
+        /// The object which shows the player they can open the menu.
+        /// </summary>
+	    public GameObject CanvasObject;
+
+        /// <summary>
+        /// The menu the player opens on interaction.
+        /// </summary>
 	    public UpgradeCanvas UpgradeMenu;
 
+	    // TODO: Use state machine?
+
+        /// <summary>
+        /// True while the player is within radius of this object.
+        /// </summary>
+		private bool _playerNear;
+
+        /// <summary>
+        /// True while the upgrade menu is open.
+        /// </summary>
+        private bool _menuIsOpen;
+
+	    private void OnEnable()
+	    {
+	        GameManager.Events.PlayerInteract += this.OnPlayerInteract;
+	    }
+
+	    private void OnDisable()
+	    {
+	        GameManager.Events.PlayerInteract -= this.OnPlayerInteract;
+        }
+
+	    /// <inheritdoc />
         public void OnEnterEntityRadius(EntityAI source, float radius)
 		{
-			if (!this._active) //Only once.
-			{
-				EntityPlayerShip player = source as EntityPlayerShip;
-				if (player)
-				{
-					this.StartCoroutine(this.PlayerDistanceOverlap(player, radius));
-				}
-			}
+            // Only run when this is sent the first time
+		    if (this._playerNear) return;
+
+            // Attempt to show the player they can interact
+            EntityPlayerShip player = source as EntityPlayerShip;
+		    if (player)
+		    {
+		        this.StartCoroutine(this.PlayerDistanceOverlap(player, radius));
+		    }
 		}
 
-		private void OpenUpgradeMenu(EntityPlayerShip player)
+        /// <inheritdoc />
+	    public void OnOverlapWith(GameObject other, float radius) { }
+
+        /// <summary>
+        /// While the player is near, this checks their distances and deactivates if they are too far away.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="radius"></param>
+        /// <returns></returns>
+	    IEnumerator PlayerDistanceOverlap(EntityPlayerShip player, float radius)
+	    {
+            // The player is nearby, start running
+	        this._playerNear = true;
+	        this.CanvasObject.SetActive(true);
+
+            // Continue until this object is no longer active OR the player is too far
+            while (this && this._playerNear && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radius)
+	        {
+                // wait till next frame
+	            yield return null;
+	        }
+
+            // Out of range or this object is disabled
+            // Double check the menu is closed - in case the player left the area without closing the menu
+	        if (this._menuIsOpen)
+	        {
+	            this.CloseMenu(player, true);
+            }
+
+            // Player is no longer nearby, stop running
+	        this.CanvasObject.SetActive(false);
+            this._playerNear = false;
+	    }
+
+        /// <summary>
+        /// Event called when a player presses the interact button.
+        /// </summary>
+        /// <param name="evt"></param>
+	    private void OnPlayerInteract(GameEvent evt)
+	    {
+            // If the player is not near this object, disregard
+	        if (!this._playerNear) return;
+
+	        EventEntityPlayerShip evtPlayer = (EventEntityPlayerShip) evt;
+
+            // If the menu is not currently open, then open it
+	        if (!this._menuIsOpen)
+	        {
+	            this.OpenMenu(evtPlayer.PlayerShip);
+            }
+            // Otherwise, the menu is open, so close it
+	        else
+	        {
+	            this.CloseMenu(evtPlayer.PlayerShip);
+            }
+	    }
+
+        /// <summary>
+        /// Open the interaction menu.
+        /// </summary>
+        /// <param name="player"></param>
+        private void OpenMenu(EntityPlayerShip player)
 		{
-			this._upgrading = true;
+			this._menuIsOpen = true;
 			this.CanvasObject.SetActive(false);
 			foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
 			{
@@ -41,9 +132,14 @@ namespace Skyrates.Client.Entity
 		    this.UpgradeMenu.gameObject.SetActive(true);
 		}
 
-		private void CloseUpgradeMenu(EntityPlayerShip player, bool forced = false)
+	    /// <summary>
+	    /// Close the interaction menu.
+	    /// </summary>
+	    /// <param name="player"></param>
+	    /// <param name="forced"></param>
+	    private void CloseMenu(EntityPlayerShip player, bool forced = false)
 		{
-			this._upgrading = false;
+			this._menuIsOpen = false;
 			if (!forced) CanvasObject.SetActive(true);
 			foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
 			{
@@ -51,34 +147,7 @@ namespace Skyrates.Client.Entity
 			}
 			this.UpgradeMenu.gameObject.SetActive(false);
 		}
-
-		IEnumerator PlayerDistanceOverlap(EntityPlayerShip player, float radius)
-		{
-			this.CanvasObject.SetActive(true);
-			this._active = true;
-
-			while (this && this._active && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radius)
-			{
-				if(player.PlayerData.InputData.IsInteractingOnThisFrame)
-				{
-					if(!this._upgrading) this.OpenUpgradeMenu(player);
-					else this.CloseUpgradeMenu(player);
-				}
-				yield return null;
-			}
-
-			//Out of range or disabled.
-			this._active = false;
-			this.CloseUpgradeMenu(player, true);
-			this.CanvasObject.SetActive(false);
-		}
-
-		public void OnExitEntityRadius(EntityAI source, float radius)
-		{
-		}
-
-		public void OnOverlapWith(GameObject other, float radius)
-		{
-		}
+        
 	}
+
 }

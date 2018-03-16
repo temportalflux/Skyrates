@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 114653715804997438}
   - component: {fileID: 114424906409247244}
   - component: {fileID: 136046087991806292}
-  - component: {fileID: 114866949444231702}
   m_Layer: 8
   m_Name: projectile_cannonball_enemy_gravity
   m_TagString: Projectile-Enemy
@@ -214,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332c48f3a4deb4b4090b277b6f4b321a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Physics:
+  PhysicsData:
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -224,19 +223,9 @@ MonoBehaviour:
     HasAesteticRotation: 0
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+    RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   PhysicsComponent: {fileID: 0}
   Attack: 2
---- !u!114 &114866949444231702
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1747335331309686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c56275a8a83e3ef44a4ad66b483007c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &136046087991806292
 CapsuleCollider:
   m_ObjectHideFlags: 1

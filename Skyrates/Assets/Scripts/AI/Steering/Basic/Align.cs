@@ -1,15 +1,13 @@
 ﻿using Skyrates.AI;
+using Skyrates.Common.AI;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.Steering.Basic
 {
 
     /// <summary>
     /// Accellerates towards a rotation, and slows as it gets closer.
     /// 
-    /// Derived from pg 64 of
-    /// Artifical Intelligence for Games 2nd Edition
-    /// Ian Millington & John Funge
     /// </summary>
     [CreateAssetMenu(menuName = "Data/AI/Basic/Align")]
     public class Align : Steering
@@ -40,13 +38,24 @@ namespace Skyrates.Common.AI
         /// </summary>
         public float AccelerationTime;
 
+        // TODO: Make a struct and custom editor to have toggle axes (Tuple3 of Bool)
+        /// <summary>
+        /// If this behavior should align the X axis.
+        /// </summary>
         public bool AlignX = false;
+        /// <summary>
+        /// If this behavior should align the Y axis.
+        /// </summary>
         public bool AlignY = true;
+        /// <summary>
+        /// If this behavior should align the Z axis.
+        /// </summary>
         public bool AlignZ = false;
 
         /// <inheritdoc />
-        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persistentData)
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral data, DataPersistent persistentData, float deltaTime)
         {
+            // Align the X axis with its target
             if (AlignX)
             {
                 this.DoAlign(
@@ -58,6 +67,7 @@ namespace Skyrates.Common.AI
                 );
             }
 
+            // Align the Y axis with its target
             if (AlignY)
             {
                 this.DoAlign(
@@ -69,6 +79,7 @@ namespace Skyrates.Common.AI
                 );
             }
 
+            // Align the Z axis with its target
             if (AlignZ)
             {
                 this.DoAlign(
@@ -83,6 +94,17 @@ namespace Skyrates.Common.AI
             return persistentData;
         }
 
+        /// <summary>
+        /// Aligns a rotation to a target rotation via accelleration.
+        /// Derived from pg 64 of
+        /// Artifical Intelligence for Games 2nd Edition
+        /// Ian Millington & John Funge
+        /// </summary>
+        /// <param name="currentRotation"></param>
+        /// <param name="currentVelocity"></param>
+        /// <param name="targetRotation"></param>
+        /// <param name="velocity"></param>
+        /// <param name="accelleration"></param>
         private void DoAlign(float currentRotation,
             float currentVelocity, float targetRotation,
             out float velocity, out float accelleration)

@@ -8,9 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74e64eddc278c54e95e2904ed15ecaa, type: 3}
-  m_Name: Navy_Basic_Broadside_State
+  m_Script: {fileID: 11500000, guid: b018a28906736f6438e7e7dfe87ac3ee, type: 3}
+  m_Name: Navy_Basic_Broadside
   m_EditorClassIdentifier: 
-  StateName: Broadside
-  Transitions: []
-  Behavior: {fileID: 11400000, guid: ba8876dbdbaae7a409d171d072008842, type: 2}
+  Behaviors:
+  - {fileID: 11400000, guid: 9f5ec892f680abd46a332662ac2e28f6, type: 2}

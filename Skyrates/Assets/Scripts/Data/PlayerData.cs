@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.Client.Input;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
@@ -74,12 +75,6 @@ namespace Skyrates.Client.Data
             [SerializeField]
             public InputConfig CameraVertical;
 
-            public bool IsShooting;
-
-			public bool IsInteractingOnThisFrame;
-
-			public float AimScale;
-
 		}
 
         /// <summary>
@@ -141,6 +136,9 @@ namespace Skyrates.Client.Data
 
         }
 
+        /// <summary>
+        /// Strictly input data to be processed by a <see cref="PlayerController"/>
+        /// </summary>
         public Input InputData;
 
         public State StateData;

@@ -1,7 +1,8 @@
-﻿using Skyrates.AI;
+﻿using Skyrates.AI.Steering.Basic;
+using Skyrates.Common.AI;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.Steering.Delegated
 {
 
     /// <summary>
@@ -23,10 +24,10 @@ namespace Skyrates.Common.AI
 
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
-        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
             // Work out the distance to the target
-            Vector3 direction = data.Target.LinearPosition - physics.LinearPosition;
+            Vector3 direction = behavioral.Target.LinearPosition - physics.LinearPosition;
             float distance = direction.magnitude;
 
             // Work out our current speed
@@ -45,9 +46,9 @@ namespace Skyrates.Common.AI
             }
 
             // Put the target together
-            data.Target.LinearPosition += data.Target.LinearVelocity * prediction;
+            behavioral.Target.LinearPosition += behavioral.Target.LinearVelocity * prediction;
 
-            return base.GetUpdate(ref data,ref  physics, deltaTime, pData);
+            return base.GetUpdate(ref physics, ref behavioral, persistent, deltaTime);
         }
 
     }

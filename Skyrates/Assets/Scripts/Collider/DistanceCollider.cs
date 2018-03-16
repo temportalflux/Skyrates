@@ -6,10 +6,14 @@ using UnityEngine;
 namespace Skyrates.Client.Entity
 {
 
-    public interface DistanceCollidable
+    /// <summary>
+    /// Interface detected during overlap in <see cref="DistanceCollider"/>.
+    /// </summary>
+    public interface IDistanceCollidable
     {
 
         /// <summary>
+        /// We enter source's area.
         /// Called from source on the colliable that has entered the area around source
         /// </summary>
         /// <param name="source"></param>
@@ -17,6 +21,7 @@ namespace Skyrates.Client.Entity
         void OnEnterEntityRadius(EntityAI source, float radius);
 
         /// <summary>
+        /// Other enters our area.
         /// When we move into an area such that other has entered our area
         /// </summary>
         /// <param name="other"></param>
@@ -104,8 +109,8 @@ namespace Skyrates.Client.Entity
             }
             foreach (Collider other in colliders)
             {
-                DistanceCollidable[] collidables = other.gameObject.GetComponentsInParent<DistanceCollidable>();
-                foreach (DistanceCollidable collidable in collidables)
+                IDistanceCollidable[] collidables = other.gameObject.GetComponentsInParent<IDistanceCollidable>();
+                foreach (IDistanceCollidable collidable in collidables)
                 {
                     if (collidable != null)
                     {

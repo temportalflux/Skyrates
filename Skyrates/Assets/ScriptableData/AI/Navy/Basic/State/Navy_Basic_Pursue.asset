@@ -8,11 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7453fad1b7b6c2f47a39c77b5817c556, type: 3}
-  m_Name: LockTo
+  m_Script: {fileID: 11500000, guid: b018a28906736f6438e7e7dfe87ac3ee, type: 3}
+  m_Name: Navy_Basic_Pursue
   m_EditorClassIdentifier: 
-  MaxAcceleration: 0
-  MaxSpeed: 1
-  DistanceArriving: 0
-  DistanceArrived: 0
-  AccelerationTime: 0
+  Behaviors:
+  - {fileID: 11400000, guid: 9f5ec892f680abd46a332662ac2e28f6, type: 2}

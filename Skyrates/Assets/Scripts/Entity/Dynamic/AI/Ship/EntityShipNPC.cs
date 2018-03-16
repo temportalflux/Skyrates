@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.Mono;
+﻿using System.Collections.Generic;
+using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
 using UnityEngine;
 
@@ -15,11 +12,20 @@ namespace Skyrates.Client.Entity
     public class EntityShipNPC : EntityShip
     {
 
+        [Header("NPC Ship")]
+        public ShipHull Hull;
+
+        [Header("Loot")]
         [SerializeField]
         public float LootDropRadius;
 
-        public Shooter[] Shooters;
+        /// <inheritdoc />
+        public override ShipHull GetHull()
+        {
+            return this.Hull;
+        }
 
+        /// <inheritdoc />
         protected override void SpawnLoot(Vector3 position)
         {
             if (this.StatBlock == null || this.StatBlock.Loot == null) return;
@@ -46,11 +52,6 @@ namespace Skyrates.Client.Entity
             }
         }
 
-        protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
-        {
-            return this.Shooters;
-        }
-
         /// <summary>
         /// When we enter the radius of some other entity
         /// </summary>
@@ -64,7 +65,12 @@ namespace Skyrates.Client.Entity
                 this.StartShooting(other as EntityPlayerShip, maxDistance);
             }
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="maxDistance"></param>
         protected virtual void StartShooting(EntityPlayerShip target, float maxDistance)
         {
             

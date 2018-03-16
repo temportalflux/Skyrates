@@ -13,11 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExecuteFrequency: 1
   ScatterExecute: 1
-  IdleBehavior: {fileID: 11400000, guid: 755c90049f8ba8541b8d632d9c8e2959, type: 2}
-  Transitions: []
+  IdleState:
+    StateName: Idle
+    Behavior: {fileID: 11400000, guid: 755c90049f8ba8541b8d632d9c8e2959, type: 2}
+    Transitions: []
   States:
-  - {fileID: 11400000, guid: 54e5c45ff8e117848a969f7c86a4050a, type: 2}
-  - {fileID: 11400000, guid: 4a9f020a7f017934490276f034f0d559, type: 2}
+  - StateName: Pursue
+    Behavior: {fileID: 11400000, guid: c71ca6454626df7489941b46b02559e7, type: 2}
+    Transitions: []
+  - StateName: Broadside
+    Behavior: {fileID: 11400000, guid: ba8876dbdbaae7a409d171d072008842, type: 2}
+    Transitions: []
   StateNames:
   - Pursue
   - Broadside

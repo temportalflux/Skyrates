@@ -1,67 +1,64 @@
 ﻿using System;
-using System.Collections.Generic;
+using Skyrates.AI.Formation;
+using Skyrates.AI.Target;
 using Skyrates.Common.AI;
-using Skyrates.Common.AI.Formation;
 using Skyrates.Common.Entity;
-using Skyrates.Common.Network;
 using UnityEngine;
 
 namespace Skyrates.AI
 {
-    /// <summary>
-    /// Any generic data used by all steering behaviours and that is
-    /// specific to each <see cref="EntityDynamic"/> instance.
-    /// MUST be network-safe/serializable.
-    /// Basically any information that is not algorithm specifc and is pertinent to the owner.
-    /// </summary>
-    [Serializable]
-    public class BehaviorData
-    {
-        
-        public Waypoint[] InitialTargets;
-
-        public FormationOwner FormationOwner;
-        public int FormationSlot;
-
-        [HideInInspector]
-        public Transform View;
-
-        [HideInInspector]
-        public Transform Render;
-        
-        public bool HasTarget = false;
-
-        /// <summary>
-        /// The location/physics information for the target.
-        /// </summary>
-        [SerializeField]
-        public PhysicsData Target;
-        
-        /// <summary>
-        /// A map of data stored by the behaviors in this object
-        /// </summary>
-        public Dictionary<Guid, object> PersistentData = new Dictionary<Guid, object>();
-        
-        public object this[Guid guid]
-        {
-            get { return this.PersistentData.ContainsKey(guid) ? this.PersistentData[guid] : null; }
-            set { this.PersistentData[guid] = value; }
-        }
-        
-        public object Remove(Guid guid)
-        {
-            object data = this[guid];
-            this.PersistentData.Remove(guid);
-            return data;
-        }
-
-    }
 
     /// <summary>
     /// The base class for all ai behaviors.
     /// </summary>
     public abstract class Behavior : ScriptableObject
     {
+
+        /// <summary>
+        /// Any generic data used by all steering behaviours and that is
+        /// specific to each <see cref="EntityDynamic"/> instance.
+        /// Basically any information that is not algorithm specifc and is pertinent to the owner.
+        /// </summary>
+        [Serializable]
+        public class DataBehavioral
+        {
+
+            [SerializeField]
+            public Waypoint[] InitialTargets;
+
+            [SerializeField]
+            public FormationOwner FormationOwner;
+            [SerializeField]
+            public int FormationSlot;
+
+            [HideInInspector]
+            [SerializeField]
+            public Transform View;
+
+            [HideInInspector]
+            [SerializeField]
+            public Transform Render;
+
+            [HideInInspector]
+            public bool HasTarget = false;
+
+            /// <summary>
+            /// The location/physics information for the target.
+            /// </summary>
+            [HideInInspector]
+            [SerializeField]
+            public PhysicsData Target;
+            
+        }
+
+        /// <summary>
+        /// An object to be held by the agent which has custom data which cannot go in an asset.
+        /// i.e. the index of a target in a list.
+        /// </summary>
+        [Serializable]
+        public class DataPersistent
+        {
+        }
 
         protected virtual void OnEnable()
         {
@@ -70,67 +67,52 @@ namespace Skyrates.AI
         protected virtual void OnDisable()
         {
         }
-
-        private Guid _persistentDataGuid;
-
-        public virtual void AddPersistentDataTo(ref BehaviorData behavioralData)
-        {
-            this._persistentDataGuid = Guid.NewGuid();
-            behavioralData[this._persistentDataGuid] = this.CreatePersistentData();
-        }
-
-        public Guid GetPersistentDataGuid()
-        {
-            return this._persistentDataGuid;
-        }
-
-        public virtual object CreatePersistentData()
-        {
-            return new object();
-        }
         
+        /// <summary>
+        /// Returns an object to be held by the agent which has custom data which cannot go in an asset.
+        /// i.e. the index of a target in a list.
+        /// </summary>
+        /// <returns></returns>
+        public virtual DataPersistent CreatePersistentData()
+        {
+            return null;
+        }
+
         /// <summary>
         /// Called to request updated physics. Recommend running on a fixed time step.
         /// </summary>
-        /// <param name="data">data specfic to the owner</param>
+        /// <param name="behavioral">data specfic to the owner</param>
         /// <param name="physics">the data that is steering the owner</param>
+        /// <param name="persistent"></param>
         /// <param name="deltaTime"></param>
-        public void GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime)
-        {
-            object persistent = data[this.GetPersistentDataGuid()] ?? this.CreatePersistentData();
-            data[this.GetPersistentDataGuid()] = this.GetUpdate(ref data, ref physics, deltaTime, persistent);
-        }
-
-        public abstract object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persistent);
-
-        public void OnEnter(ref BehaviorData data, PhysicsData physics)
-        {
-            object persistent = data[this.GetPersistentDataGuid()];
-            data[this.GetPersistentDataGuid()] = this.OnEnter(ref data, physics, persistent);
-        }
-
+        public abstract DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime);
+        
         /// <summary>
         /// Executed when a state begins execution of this behavior.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="behavioral"></param>
+        /// <param name="persistent"></param>
         /// <param name="physics"></param>
-        public virtual object OnEnter(ref BehaviorData data, PhysicsData physics, object persistentData)
+        public virtual DataPersistent OnEnter(PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent)
         {
-            return persistentData;
+            return persistent;
         }
-
-        public void OnExit(ref BehaviorData data, PhysicsData physics)
-        {
-            object persistent = data[this.GetPersistentDataGuid()];
-            this.OnExit(ref data, physics, persistent);
-        }
-
+        
         /// <summary>
         /// Executed when a state ends execution of this behavior.
         /// </summary>
         /// <param name="data"></param>
         /// <param name="physics"></param>
-        public virtual void OnExit(ref BehaviorData data, PhysicsData physics, object persistentData)
+        /// <param name="persistent"></param>
+        public virtual void OnExit(PhysicsData physics, ref DataBehavioral data, DataPersistent persistent)
+        {
+        }
+
+        public virtual void OnDetect(EntityAI other, float distance)
+        {
+        }
+
+        public virtual void DrawGizmos(DataPersistent persistent)
         {
         }
 

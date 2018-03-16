@@ -1,6 +1,8 @@
 ﻿using Skyrates.Common.AI;
 using System.Collections;
 using System.Collections.Generic;
+using Skyrates.AI.Custom;
+using Skyrates.AI.Steering;
 using UnityEngine;
 using UnityEngine.UI;
 

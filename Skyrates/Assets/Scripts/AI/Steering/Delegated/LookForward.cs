@@ -1,7 +1,8 @@
-﻿using Skyrates.AI;
+﻿using Skyrates.AI.Steering.Basic;
+using Skyrates.Common.AI;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.Steering.Delegated
 {
 
     /// <summary>
@@ -16,16 +17,16 @@ namespace Skyrates.Common.AI
     {
 
         /// <inheritdoc />
-        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
             // Check for a zero direction, and make no change if so
-            if (physics.LinearVelocity.sqrMagnitude <= 0 || physics.LinearVelocity == Vector3.zero) return physics;
+            if (physics.LinearVelocity.sqrMagnitude <= 0 || physics.LinearVelocity == Vector3.zero) return persistent;
 
             // Put the target together
-            data.Target.RotationPosition = Quaternion.LookRotation(physics.LinearVelocity);
+            behavioral.Target.RotationPosition = Quaternion.LookRotation(physics.LinearVelocity);
 
             // Delegate to align
-            return base.GetUpdate(ref data, ref physics, deltaTime, pData);
+            return base.GetUpdate(ref physics, ref behavioral, persistent, deltaTime);
         }
 
     }

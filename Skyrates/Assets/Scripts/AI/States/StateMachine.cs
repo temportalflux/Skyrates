@@ -1,9 +1,11 @@
 ﻿using System;
-using Skyrates.AI;
+using System.Collections.Generic;
+using System.Linq;
+using Skyrates.Common.AI;
+using Skyrates.Common.Entity;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.State
 {
 
     /// <summary>
@@ -16,24 +18,37 @@ namespace Skyrates.Common.AI
     public class StateMachine : BehaviorTimed
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
+        [Serializable]
         public class PersistentDataTimedSm : PersistentDataTimed
         {
 
             /// <summary>
-            /// The current index of the state being run (-1 if idle)
+            /// List of persistent data for all state behaviors (idle and otherwise).
             /// </summary>
+            public DataPersistent[] PeristentData;
+
+            /// <summary>
+            /// The current index of the state being run (-1 if idle).
+            /// </summary>
+            [SerializeField]
             public int StateIndex;
 
+            /// <summary>
+            /// Gets/Sets persistent data from <see cref="PeristentData"/> based on <see cref="StateIndex"/> (where -1 is the first entry for the idle state).
+            /// </summary>
+            public DataPersistent CurrentPersistent
+            {
+                get { return PeristentData[StateIndex + 1]; }
+                set { PeristentData[StateIndex + 1] = value; }
+            }
+            
         }
 
-        /// <summary>
-        /// The default behavior when no state is available.
-        /// </summary>
         [SerializeField]
-        public Behavior IdleBehavior;
-
-        [SerializeField]
-        public StateTransition[] Transitions;
+        public State IdleState;
         
         /// <summary>
         /// All of the possible states.
@@ -45,14 +60,28 @@ namespace Skyrates.Common.AI
         public string[] StateNames;
 #endif
 
-        public override void AddPersistentDataTo(ref BehaviorData behavioralData)
+        public List<State> AllStates
         {
-            base.AddPersistentDataTo(ref behavioralData);
-            if (this.IdleBehavior != null) this.IdleBehavior.AddPersistentDataTo(ref behavioralData);
-            foreach (State state in this.States)
+            get
             {
-                if (state.Behavior != null) state.Behavior.AddPersistentDataTo(ref behavioralData);
+                List<State> ret = new List<State>();
+                ret.Add(this.IdleState);
+                ret.AddRange(this.States);
+                return ret;
             }
+        }
+
+        /// <inheritdoc />
+        public override DataPersistent CreatePersistentData()
+        {
+            PersistentDataTimed dataTimed = (PersistentDataTimed)base.CreatePersistentData();
+            
+            return new PersistentDataTimedSm()
+            {
+                ExecuteTimeElapsed = dataTimed.ExecuteTimeElapsed,
+                StateIndex = -1,
+                PeristentData = this.AllStates.Select(state => state != null ? state.CreatePersistentData() : null).ToArray(),
+            };
         }
 
         /// <summary>
@@ -60,7 +89,7 @@ namespace Skyrates.Common.AI
         /// </summary>
         public State GetCurrentState(PersistentDataTimedSm dataTimed)
         {
-            return this.GetState(dataTimed.StateIndex);
+            return dataTimed.StateIndex < 0 ? this.IdleState : this.GetState(dataTimed.StateIndex);
         }
 
         /// <summary>
@@ -68,83 +97,93 @@ namespace Skyrates.Common.AI
         /// </summary>
         public Behavior GetCurrentBehavior(PersistentDataTimedSm dataTimed)
         {
-            return dataTimed.StateIndex < 0 ? this.IdleBehavior : this.GetCurrentState(dataTimed).Behavior;
+            return this.GetCurrentState(dataTimed).Behavior;
         }
 
-        public override object CreatePersistentData()
-        {
-            PersistentDataTimed dataTimed = (PersistentDataTimed)base.CreatePersistentData();
-            return new PersistentDataTimedSm()
-            {
-                StateIndex = -1,
-                ExecuteTimeElapsed = dataTimed.ExecuteTimeElapsed
-            };
-        }
-
+        /// <summary>
+        /// Returns the current state at the specified index.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public State GetState(int index)
         {
             return index < 0 ? null : this.States[index];
         }
 
-        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object persist)
+        /// <inheritdoc />
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
-            persist = base.GetUpdate(ref data, ref physics, deltaTime, persist);
-            PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm) persist;
-            this.GetCurrentBehavior(customDataTimed).GetUpdate(ref data, ref physics, deltaTime);
-            return persist;
+            // Execute checks for changing state via a timed interval interface (calls UpdateTimed)
+            persistent = base.GetUpdate(ref physics, ref behavioral, persistent, deltaTime);
+
+            PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm)persistent;
+
+            // Execute update for the current behavior
+            customDataTimed.CurrentPersistent = this.GetCurrentState(customDataTimed).GetUpdate(ref physics, ref behavioral, customDataTimed.CurrentPersistent, deltaTime);
+
+            return customDataTimed;
         }
 
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
-        protected override PersistentDataTimed UpdateTimed(ref BehaviorData data, ref PhysicsData physics, float deltaTime, PersistentDataTimed persist)
+        protected override PersistentDataTimed UpdateTimed(ref PhysicsData physics, ref DataBehavioral data, PersistentDataTimed persist, float deltaTime)
         {
             PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm) persist;
 
             State currentState = this.GetCurrentState(customDataTimed);
 
-            // Get the list of transitions, depending on if we are in idle or some state
-            StateTransition[] transitionsToCheck = currentState != null ? currentState.Transitions : this.Transitions;
-
-            // Try to transition out of the current state (idle or otherwise)
-            foreach (StateTransition transition in transitionsToCheck)
+            StateTransition transition;
+            if (currentState.CanEnter(physics, data, customDataTimed.CurrentPersistent, out transition))
             {
-                // Check if we can enter some state via the transition, if not, continue the loop
-                if (!transition.CanEnter(data, physics)) continue;
-
                 // Can enter the state defined by the transition, so exit the current state
-                this.ExitCurrentState(ref data, ref customDataTimed, physics);
+                this.ExitCurrentState(physics, ref data, ref customDataTimed);
                 // And enter the destination state set in the transition
-                this.EnterState(transition.StateDestination, ref data, ref customDataTimed, physics);
-
-                break;
+                this.EnterState(transition.StateDestination, physics, ref data, ref customDataTimed);
             }
-            
+
             return customDataTimed;
         }
 
         /// <summary>
         /// Exits the current state, therefore returning to IDLE.
         /// </summary>
-        /// <param name="data"></param>
         /// <param name="physics"></param>
-        private void ExitCurrentState(ref BehaviorData data, ref PersistentDataTimedSm persist, PhysicsData physics)
+        /// <param name="behavioral"></param>
+        /// <param name="persistent"></param>
+        private void ExitCurrentState(PhysicsData physics, ref DataBehavioral behavioral, ref PersistentDataTimedSm persistent)
         {
-            this.GetCurrentState(persist).Exit(ref data, physics);
-            persist.StateIndex = -1;
+            this.GetCurrentState(persistent).Exit(physics, ref behavioral, persistent.CurrentPersistent);
+            persistent.StateIndex = -1;
         }
 
         /// <summary>
         /// Enters a state at the specified index.
         /// </summary>
         /// <param name="iState"></param>
-        /// <param name="data"></param>
         /// <param name="physics"></param>
-        private void EnterState(int iState, ref BehaviorData data, ref PersistentDataTimedSm persist, PhysicsData physics)
+        /// <param name="behavioral"></param>
+        /// <param name="persistent"></param>
+        private void EnterState(int iState, PhysicsData physics, ref DataBehavioral behavioral, ref PersistentDataTimedSm persistent)
         {
-            persist.StateIndex = iState;
-            this.GetCurrentState(persist).Enter(ref data, physics);
+            persistent.StateIndex = iState;
+            DataPersistent statePersistent = persistent.CurrentPersistent;
+            this.GetCurrentState(persistent).Enter(physics, ref behavioral, ref statePersistent);
+            persistent.CurrentPersistent = statePersistent;
         }
-        
+
+        public override void OnDetect(EntityAI other, float distance)
+        {
+            
+        }
+
+#if UNITY_EDITOR
+        public override void DrawGizmos(DataPersistent persistent)
+        {
+            PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
+            this.GetCurrentState(smPersistent).DrawGizmos(smPersistent.CurrentPersistent);
+        }
+#endif
+
     }
 
 }

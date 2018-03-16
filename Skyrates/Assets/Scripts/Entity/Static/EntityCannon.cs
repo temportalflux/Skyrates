@@ -10,7 +10,7 @@ namespace Skyrates.Client.Entity
 
     //No inheritance because we don't want to accidentally call FireProjectile when we actually meant to shoot.
     [RequireComponent(typeof(Shooter))]
-	public class EntityCannon : Common.Entity.Entity, DistanceCollidable
+	public class EntityCannon : Common.Entity.Entity, IDistanceCollidable
 	{
 		/// <summary>
 		/// The amount of extra tilt in degrees needed in a direction to make the target.
@@ -49,9 +49,10 @@ namespace Skyrates.Client.Entity
 
 	    public GameObject CannonVerticalComponent;
 
-	    private BehaviorData BehaviorData;
-	    private PhysicsData PhysicsData;
-	    private Coroutine FollowAndFireAtRoutine;
+	    private Behavior.DataBehavioral _dataBehavioral;
+	    private Behavior.DataPersistent _dataPersistent;
+	    private PhysicsData _physicsData;
+	    private Coroutine _followAndFireAtRoutine;
 
 
         private Quaternion Rotation
@@ -73,9 +74,10 @@ namespace Skyrates.Client.Entity
 	    protected override void Start()
         {
             base.Start();
-            this.BehaviorData = new BehaviorData();
-            this.PhysicsData = new PhysicsData();
-            this.FollowAndFireAtRoutine = null;
+            this._dataBehavioral = new Behavior.DataBehavioral();
+            this._dataPersistent = new Behavior.DataPersistent();
+            this._physicsData = new PhysicsData();
+            this._followAndFireAtRoutine = null;
 
             this._shooter = GetComponent<Shooter>();
 			
@@ -87,9 +89,9 @@ namespace Skyrates.Client.Entity
 	        if (source is EntityPlayerShip)
 	        {
                 // Only fire at the first who entered the radius
-	            if (this.FollowAndFireAtRoutine == null)
+	            if (this._followAndFireAtRoutine == null)
 	            {
-	                this.FollowAndFireAtRoutine = StartCoroutine(this.FollowAndFireAt(source, radius));
+	                this._followAndFireAtRoutine = StartCoroutine(this.FollowAndFireAt(source, radius));
                 }
             }
 	    }
@@ -105,20 +107,20 @@ namespace Skyrates.Client.Entity
 
             // Initalize physics data
             {
-	            this.PhysicsData.LinearPosition = this.transform.position;
-	            this.PhysicsData.LinearVelocity = Vector3.zero;
-                this.PhysicsData.LinearAccelleration = Vector3.zero;
-	            this.PhysicsData.RotationPosition = this.Rotation;
-                this.PhysicsData.RotationVelocity = Vector3.zero;
-                this.PhysicsData.RotationAccelleration = Vector3.zero;
-                this.PhysicsData.HasAesteticRotation = false;
-                this.PhysicsData.RotationAesteticPosition = Quaternion.identity;
+	            this._physicsData.LinearPosition = this.transform.position;
+	            this._physicsData.LinearVelocity = Vector3.zero;
+                this._physicsData.LinearAccelleration = Vector3.zero;
+	            this._physicsData.RotationPosition = this.Rotation;
+                this._physicsData.RotationVelocity = Vector3.zero;
+                this._physicsData.RotationAccelleration = Vector3.zero;
+                this._physicsData.HasAesteticRotation = false;
+                this._physicsData.RotationAesteticPosition = Quaternion.identity;
             }
             // Initalize the behavior data
 	        {
-	            this.BehaviorData.View = this.transform;
-	            this.BehaviorData.Render = this.transform;
-	            this.BehaviorData.HasTarget = true;
+	            this._dataBehavioral.View = this.transform;
+	            this._dataBehavioral.Render = this.transform;
+	            this._dataBehavioral.HasTarget = true;
 	        }
 
 	        float timePrevious = Time.time;
@@ -132,7 +134,7 @@ namespace Skyrates.Client.Entity
 
                 // Update the behavior data
                 {
-                    this.BehaviorData.Target = target.Physics.Copy();
+                    this._dataBehavioral.Target = target.PhysicsData.Copy();
 
                     // Determine the angle and rotation we want to be at to get a good shot
                     //this.CalculateArc(this.BehaviorData.Target.LinearPosition, this.ShootSpeed);
@@ -140,12 +142,12 @@ namespace Skyrates.Client.Entity
                 }
                 // Get the updated physics from the behavior
 	            {
-	                this.RotationBehavior.GetUpdate(ref this.BehaviorData, ref this.PhysicsData, deltaTime);
+	                this._dataPersistent = this.RotationBehavior.GetUpdate(ref this._physicsData, ref this._dataBehavioral, this._dataPersistent, deltaTime);
 	            }
                 // Rotate the cannon to its destination
 	            {
-	                this.PhysicsData.Integrate(deltaTime);
-	                this.Rotation = this.PhysicsData.RotationPosition;
+	                this._physicsData.Integrate(deltaTime);
+	                this.Rotation = this._physicsData.RotationPosition;
 	            }
                 // Fire at the target, if enough time has passed
                 {
@@ -164,7 +166,7 @@ namespace Skyrates.Client.Entity
 	            yield return null;
 	        }
 
-	        this.BehaviorData.HasTarget = false;
+	        this._dataBehavioral.HasTarget = false;
             
             /*
             // Return cannon to original orientation (originRotation)
@@ -185,7 +187,7 @@ namespace Skyrates.Client.Entity
             */
 
             // done launching at some target, who is now out of range
-	        this.FollowAndFireAtRoutine = null;
+	        this._followAndFireAtRoutine = null;
 	    }
 
 

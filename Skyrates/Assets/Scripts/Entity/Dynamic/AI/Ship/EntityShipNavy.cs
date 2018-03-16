@@ -32,7 +32,7 @@ namespace Skyrates.Client.Entity
             Vector3 direction = (target.transform.position - this.transform.position);
             while (target && gameObject && direction.sqrMagnitude <= maxDistSq)
             {
-                this.Shoot(ShipData.ComponentType.ArtilleryForward, direction + target.Physics.LinearVelocity * 1.5f);
+                this.Shoot(ShipData.ComponentType.ArtilleryForward, direction + target.PhysicsData.LinearVelocity * 1.5f);
                 yield return new WaitForSeconds(this.ShootDelay);
                 direction = (target.transform.position - this.transform.position);
             }

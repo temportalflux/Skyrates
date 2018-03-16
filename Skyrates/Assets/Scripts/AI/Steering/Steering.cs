@@ -1,10 +1,8 @@
-﻿using System;
-using Skyrates.AI;
+﻿using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
-using Skyrates.Common.Network;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.Steering
 {
 
     /// <summary>

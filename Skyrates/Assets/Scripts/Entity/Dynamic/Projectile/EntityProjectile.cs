@@ -22,19 +22,19 @@ namespace Skyrates.Client.Entity
 		[Tooltip("The base damage of the projectile")]
 		public float Attack;
 
-		/// <summary>
-		/// Gets the base damage of the projectile.
-		/// </summary>
-		/// <returns>The base damage of the projectile</returns>
-		public float GetAttack()
-		{
-			return this.Attack;
-		}
-
 		protected override void Start()
         {
             base.Start();
             this.PhysicsComponent = this.GetComponent<Rigidbody>();
+        }
+
+        /// <summary>
+        /// Gets the base damage of the projectile.
+        /// </summary>
+        /// <returns>The base damage of the projectile</returns>
+        public float GetAttack()
+        {
+            return this.Attack;
         }
 
         /// <summary>
@@ -66,10 +66,9 @@ namespace Skyrates.Client.Entity
         /// </summary>
         protected override void FixedUpdate()
         {
-            // TODO: this may inhibit networking if the entity is not owned locally
-            this.Physics.LinearPosition = this.transform.position;
-            this.Physics.LinearVelocity = this.PhysicsComponent.velocity;
-            this.Physics.RotationPosition = this.transform.rotation;
+            this.PhysicsData.LinearPosition = this.transform.position;
+            this.PhysicsData.LinearVelocity = this.PhysicsComponent.velocity;
+            this.PhysicsData.RotationPosition = this.transform.rotation;
         }
 
     }

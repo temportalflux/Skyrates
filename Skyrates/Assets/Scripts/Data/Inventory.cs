@@ -10,13 +10,14 @@ namespace Skyrates.Client.Data
 		/// <summary>
 		/// The amount of each item in the inventory.
 		/// </summary>
-		private uint[] _itemCounts = new uint[ShipData.BrokenComponentTypes.Length];
+		private readonly uint[] _itemCounts = new uint[ShipData.BrokenComponentTypes.Length];
 		private List<GameObject>[] _generatedLoot = new List<GameObject>[ShipData.BrokenComponentTypes.Length];
 
 		public List<GameObject>[] GeneratedLoot
 		{
 			get
 			{
+                // TODO: Remove lazy instantiation
 				//Not yet initialized?
 				if(_generatedLoot[0] == null)
 				{

@@ -91,9 +91,9 @@ namespace Skyrates.Client.Game
                 case SceneData.SceneKey.World:
                     // spawn the player
                     EntityPlayerShip player = this.SpawnEntity(this.PlayerPrefab) as EntityPlayerShip;
-                    player.Physics.SetPositionAndRotation(this.PlayerSpawn.position, this.PlayerSpawn.rotation);
-                    player.transform.position = player.Physics.LinearPosition;
-                    player.transform.rotation = player.Physics.RotationPosition;
+                    player.PhysicsData.SetPositionAndRotation(this.PlayerSpawn.position, this.PlayerSpawn.rotation);
+                    player.transform.position = player.PhysicsData.LinearPosition;
+                    player.transform.rotation = player.PhysicsData.RotationPosition;
                     break;
                 default:
                     break;

@@ -11,7 +11,7 @@ namespace Skyrates.Client.Loot
     /// <summary>
     /// Any falling loot in the game
     /// </summary>
-    public class Loot : MonoBehaviour, DistanceCollidable
+    public class Loot : MonoBehaviour, IDistanceCollidable
     {
 
         /// <summary>

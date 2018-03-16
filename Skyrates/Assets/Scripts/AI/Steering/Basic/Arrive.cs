@@ -1,9 +1,10 @@
 ﻿
 using Skyrates.AI;
+using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.Steering.Basic
 {
 
     /// <summary>
@@ -43,10 +44,10 @@ namespace Skyrates.Common.AI
         public float AccelerationTime;
 
         /// <inheritdoc />
-        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
             // Direction to the target
-            Vector3 direction = data.Target.LinearPosition - physics.LinearPosition;
+            Vector3 direction = behavioral.Target.LinearPosition - physics.LinearPosition;
             // Square distance to the target
             float distanceSqr = direction.sqrMagnitude;
 
@@ -56,7 +57,7 @@ namespace Skyrates.Common.AI
                 // Slow down till stopped
                 physics.LinearAccelleration = Vector3.zero - physics.LinearVelocity;
                 physics.LinearAccelleration /= this.AccelerationTime;
-                return pData;
+                return persistent;
             }
 
             float targetSpeed;
@@ -88,7 +89,7 @@ namespace Skyrates.Common.AI
                 physics.LinearAccelleration *= this.MaxAcceleration;
             }
 
-            return pData;
+            return persistent;
         }
 
     }

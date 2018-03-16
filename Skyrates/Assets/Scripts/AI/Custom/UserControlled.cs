@@ -1,14 +1,12 @@
-﻿
-using Skyrates.Client.Data;
-using System;
-using Skyrates.AI;
+﻿using Skyrates.Client.Data;
+using Skyrates.Common.AI;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.Custom
 {
 
     [CreateAssetMenu(menuName = "Data/AI/Player")]
-    public class UserControlled : Steering
+    public class UserControlled : Steering.Steering
     {
 
         [SerializeField]
@@ -37,14 +35,14 @@ namespace Skyrates.Common.AI
             this.Speed = 0.0f;
         }
 
-        public override object GetUpdate(ref BehaviorData data, ref PhysicsData physics, float deltaTime, object pData)
+        public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
             physics.HasAesteticRotation = true;
-            this.Move(data, ref physics);
-            return pData;
+            this.Move(behavioral, ref physics);
+            return persistent;
         }
 
-        private void Move(BehaviorData data, ref PhysicsData physicsData)
+        private void Move(DataBehavioral data, ref PhysicsData physicsData)
         {
             PlayerData.Input input = this.ControllerData.InputData;
 

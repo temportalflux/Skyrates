@@ -23,13 +23,13 @@ namespace Skyrates.Client.Entity
         /// <summary>
         /// The network safe data which has information about the modular-ship.
         /// </summary>
-        [BitSerialize(5)]
         [HideInInspector]
         public ShipData ShipData;
 
         /// <summary>
         /// The non-networked data local to the player.
         /// </summary>
+        [Header("Player Ship")]
         public PlayerData PlayerData;
 
         /// <summary>
@@ -60,11 +60,81 @@ namespace Skyrates.Client.Entity
             this.PlayerData.Init();
         }
 
+        /// <inheritdoc />
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
+        }
+
+        /// <inheritdoc />
         protected override void ApplyRotations(PhysicsData physics, float deltaTime)
         {
-            this._physics.MoveRotation(physics.RotationPosition);
+            this.Physics.MoveRotation(physics.RotationPosition);
             this.GetRender().transform.localRotation = physics.RotationAesteticPosition;
         }
+        
+        /// <inheritdoc />
+        public override ShipHull GetHull()
+        {
+            return this.ShipRoot.Hull;
+        }
+
+        #region Loot
+
+        /// <inheritdoc />
+        public override void OnOverlapWith(GameObject other, float radius)
+        {
+            Loot.Loot lootObject = other.GetComponent<Loot.Loot>();
+            if (lootObject != null)
+            {
+                this.OnLootCollided(lootObject);
+            }
+        }
+
+        /// <summary>
+        /// Called when this object collides with loot.
+        /// Adds loot to the <see cref="PlayerData"/> and updates UI/UX information.
+        /// </summary>
+        /// <param name="loot"></param>
+        public void OnLootCollided(Loot.Loot loot)
+        {
+            this.PlayerData.Inventory.Add(loot.Item); //Must be before generating loot.
+
+            // TODO: do this through event?
+            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail, loot.Item);
+
+            GameManager.Events.Dispatch(new EventLootCollected(this, loot));
+
+            // destroy the loot
+            Destroy(loot.gameObject);
+        }
+
+        #endregion
+
+        #region Destruction
+
+        /// <inheritdoc />
+        protected override bool OnPreDestroy()
+        {
+            // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
+
+            this.Health = this.StatBlock.MaxHealth;
+
+            Transform spawn = GameManager.Instance.PlayerSpawn;
+            this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
+            this.PhysicsData.RotationPosition = spawn.rotation;
+            this.PhysicsData.LinearPosition = spawn.position;
+
+            return false;
+        }
+
+        /// <inheritdoc />
+        protected override void SpawnLoot(Vector3 position)
+        {
+        }
+        
+        #endregion
 
         /// <summary>
         /// Auto heals the player ship every 5 secodns while the health is less than max health.
@@ -81,87 +151,6 @@ namespace Skyrates.Client.Entity
                     yield return new WaitForSeconds(5.0f);
                 }
             }
-        }
-
-        /// <inheritdoc />
-        protected override void FixedUpdate()
-        {
-            base.FixedUpdate();
-            GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
-        }
-
-        public override void OnOverlapWith(GameObject other, float radius)
-        {
-            Loot.Loot lootObject = other.GetComponent<Loot.Loot>();
-            if (lootObject != null)
-            {
-                this.OnLootCollided(lootObject);
-            }
-        }
-
-        /// <inheritdoc />
-        protected override Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
-        {
-            // TODO: Optimize this
-            ShipComponent[] components = this.ShipRoot.Hull.GetGeneratedComponent(artillery);
-            List<Shooter> evtArtillery = new List<Shooter>();
-            foreach (ShipComponent component in components)
-            {
-                evtArtillery.Add(((ShipArtillery)component).Shooter);
-            }
-            return evtArtillery.ToArray();
-        }
-
-        /// <inheritdoc />
-        public override ShipFigurehead GetFigurehead()
-        {
-            ShipComponent[] figureheads = this.ShipRoot.Hull.GetGeneratedComponent(ShipData.ComponentType.Figurehead);
-            return figureheads.Length > 0 ? (ShipFigurehead)figureheads[0] : null;
-        }
-
-        /// <inheritdoc />
-        protected override bool OnPreDestroy()
-        {
-            // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
-
-            this.Health = this.StatBlock.MaxHealth;
-
-            Transform spawn = GameManager.Instance.PlayerSpawn;
-            this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
-            this.Physics.RotationPosition = spawn.rotation;
-            this.Physics.LinearPosition = spawn.position;
-
-            return false;
-        }
-
-        /// <inheritdoc />
-        protected override void SpawnLoot(Vector3 position)
-        {
-        }
-
-		//TODO: Doxygen
-		public override ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
-		{
-			if (type == ShipData.ComponentType.Hull) return new ShipComponent[] { this.ShipRoot.Hull };
-			else return this.ShipRoot.Hull.GetGeneratedComponent(type);
-		}
-
-		/// <summary>
-		/// Called when this object collides with loot.
-		/// Adds loot to the <see cref="PlayerData"/> and updates UI/UX information.
-		/// </summary>
-		/// <param name="loot"></param>
-		public void OnLootCollided(Loot.Loot loot)
-        {
-            this.PlayerData.Inventory.Add(loot.Item); //Must be before generating loot.
-
-            // TODO: do this through event?
-            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail, loot.Item);
-
-            GameManager.Events.Dispatch(new EventLootCollected(this, loot));
-            
-            // destroy the loot
-            Destroy(loot.gameObject);
         }
 
     }

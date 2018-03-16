@@ -41,6 +41,7 @@ namespace Skyrates.Client.Game.Event
         LootCollided,
         LootCollected,
         ActiveReloadBegin,
+        PlayerInteract,
 
         #endregion
 
@@ -82,6 +83,7 @@ namespace Skyrates.Client.Game.Event
         public event GameEventDelegate LootCollided;
         public event GameEventDelegate LootCollected;
         public event GameEventDelegate ActiveReloadBegin;
+        public event GameEventDelegate PlayerInteract;
         #endregion
 
         public event GameEventDelegate MenuButtonPressed;
@@ -134,6 +136,8 @@ namespace Skyrates.Client.Game.Event
                     return this.LootCollected;
                 case GameEventID.ActiveReloadBegin:
                     return this.ActiveReloadBegin;
+                case GameEventID.PlayerInteract:
+                    return this.PlayerInteract;
                 #endregion
                 case GameEventID.MenuButtonPressed:
                     return this.MenuButtonPressed;
