@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Skyrates.Client.Entity;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
@@ -8,31 +9,54 @@ using UnityEngine;
 // source: https://gist.github.com/ftvs/5822103
 public class CameraShake : MonoBehaviour
 {
-    // Transform of the camera to shake. Grabs the gameObject's transform
-    // if null.
-    public Transform camTransform;
+
+    // Transform of the camera to shake
+    public CinemachineStateDrivenCamera camera;
 
     // How long the object should shake for.
     public float ShakeDuration = 0f;
-    private float _shakeDuration = 0f;
 
     // Amplitude of the shake. A larger value shakes the camera harder.
-    public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
+    public float Amplitude = 0.7f;
 
-    Vector3 originalPos;
+    public float Frequency = 1.0f;
 
-    void Awake()
+    public bool Continuous = false;
+
+    private Coroutine _shake = null;
+    
+    private void SetNoise(float amplitude, float frequency)
     {
-        if (camTransform == null)
+        foreach (CinemachineVirtualCameraBase cameraBase in this.camera.ChildCameras)
         {
-            camTransform = GetComponent(typeof(Transform)) as Transform;
+            this.SetNoise(cameraBase, amplitude, frequency);
         }
+    }
+
+    private void SetNoise(CinemachineVirtualCameraBase cameraBase, float amplitude, float frequency)
+    {
+        if (cameraBase is CinemachineVirtualCamera)
+        {
+            this.SetNoise(
+                (cameraBase as CinemachineVirtualCamera).
+                    GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>(),
+                amplitude, frequency);
+        }
+        else if (cameraBase is CinemachineFreeLook)
+        {
+            for (int i = 0; i < 3; i++)
+                this.SetNoise((cameraBase as CinemachineFreeLook).GetRig(i), amplitude, frequency);
+        }
+    }
+
+    private void SetNoise(CinemachineBasicMultiChannelPerlin comp, float amplitude, float frequency)
+    {
+        comp.m_AmplitudeGain = amplitude;
+        comp.m_FrequencyGain = frequency;
     }
 
     void OnEnable()
     {
-        originalPos = camTransform.localPosition;
         GameManager.Events.EntityShipHitByProjectile += this.OnHitBy;
     }
 
@@ -43,17 +67,30 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
-        if (_shakeDuration > 0)
-        {
-            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+        if (this.Continuous)
+            this.SetNoise(this.Amplitude, this.Frequency);
+    }
 
-            _shakeDuration -= Time.deltaTime * decreaseFactor;
-        }
-        else
+    void StartShake()
+    {
+        if (this._shake != null)
         {
-            _shakeDuration = 0f;
-            camTransform.localPosition = originalPos;
+            StopCoroutine(this._shake);
+            this._shake = null;
         }
+
+        this._shake = StartCoroutine(this.Shake());
+    }
+    
+    IEnumerator Shake()
+    {
+        this.SetNoise(this.Amplitude, this.Frequency);
+
+        yield return new WaitForSeconds(this.ShakeDuration);
+
+        this.SetNoise(0, 0);
+
+        this._shake = null;
     }
 
     void OnHitBy(GameEvent evt)
@@ -61,7 +98,7 @@ public class CameraShake : MonoBehaviour
         EventEntityShipHitByProjectile evtHit = (EventEntityShipHitByProjectile) evt;
         if (evtHit.Ship is EntityPlayerShip)
         {
-            this._shakeDuration = this.ShakeDuration;
+            this.StartShake();
         }
     }
 
