@@ -556,6 +556,7 @@
     <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\ShipData.cs" />
     <Compile Include="Assets\Scripts\Data\Version.cs" />
+    <Compile Include="Assets\Scripts\DictionaryArrayAttribute.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\EntityAI.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\Ship\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\Ship\EntityShip.cs" />
@@ -603,6 +604,7 @@
     <Compile Include="Assets\Scripts\Ship\Components\ShipComponent.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipFigurehead.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipHull.cs" />
+    <Compile Include="Assets\Scripts\Ship\Components\ShipHullGenerated.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipNavigation.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipNavigationLeft.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipNavigationRight.cs" />

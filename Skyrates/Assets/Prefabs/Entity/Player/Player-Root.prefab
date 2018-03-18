@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 124033094765310984}
   - component: {fileID: 81399405603810628}
   - component: {fileID: 114559294544944290}
+  - component: {fileID: 114927118965284482}
   m_Layer: 15
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -672,7 +673,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1315915430734456}
-  m_LocalRotation: {x: 0.13223784, y: -0, z: -0, w: 0.9912181}
+  m_LocalRotation: {x: 0.13223791, y: -0, z: -0, w: 0.9912181}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1741,6 +1742,21 @@ MonoBehaviour:
   Color: {r: 0, g: 0.7103448, b: 1, a: 1}
   Frequency: 0.1
   ScatterExecution: 1
+--- !u!114 &114927118965284482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912161599259622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2aec70a8c0cf0140b0778a9cab056db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  ShakeDuration: 0.1
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!114 &114937022021724390
 MonoBehaviour:
   m_ObjectHideFlags: 1

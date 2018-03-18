@@ -132,7 +132,7 @@ namespace Skyrates.Client.Entity
         {
             return type == ShipData.ComponentType.Hull ?
                 new ShipComponent[] { this.GetHull() } :
-                (this.GetHull() != null ? this.GetHull().GetGeneratedComponent(type) : new ShipComponent[0]);
+                (this.GetHull() != null ? this.GetHull().GetComponent(type) : new ShipComponent[0]);
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Skyrates.Client.Entity
         public virtual ShipFigurehead GetFigurehead()
         {
             ShipHull hull = this.GetHull();
-            ShipComponent[] comps = hull != null ? hull.GetGeneratedComponent(ShipData.ComponentType.Figurehead) : null;
+            ShipComponent[] comps = hull != null ? hull.GetComponent(ShipData.ComponentType.Figurehead) : null;
             return comps != null && comps.Length > 0 ? comps[0] as ShipFigurehead : null;
         }
         
@@ -304,7 +304,9 @@ namespace Skyrates.Client.Entity
         {
             // Check to ensure that sources and their projectiles don't collide
             // downside is that enemies cannot be hit by any projectile that came from an enemy
-            if ((other.CompareTag("Enemy-Projectile") && this.CompareTag("Enemy")) || (other.CompareTag("Player-Projectile") && this.CompareTag("Player")))
+            if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Merchant")) ||
+                (other.CompareTag("Projectile-Enemy") && this.CompareTag("Navy")) ||
+                (other.CompareTag("Projectile-Player") && this.CompareTag("Player")))
             {
                 return;
             }
@@ -439,7 +441,8 @@ namespace Skyrates.Client.Entity
         protected virtual Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
             // TODO: Optimize this
-            ShipComponent[] components = this.GetHull().GetGeneratedComponent(artillery);
+            ShipComponent[] components = this.GetHull().GetComponent(artillery);
+            if (components == null) return new Shooter[0];
             List<Shooter> evtArtillery = new List<Shooter>();
             foreach (ShipComponent component in components)
             {

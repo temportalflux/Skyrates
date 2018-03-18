@@ -8,7 +8,7 @@ using ComponentType = ShipData.ComponentType;
 
 namespace Skyrates.Client.Ship
 {
-    
+
     /// <summary>
     /// Subclass of <see cref="ShipComponent"/> dedicated to
     /// components of type <see cref="ShipData.ComponentType.Hull"/>.
@@ -16,128 +16,46 @@ namespace Skyrates.Client.Ship
     public class ShipHull : ShipComponent
     {
 
-        #region PREFAB ONLY
-
-        /// <summary>
-        /// A set of targets for a specfic <see cref="ComponentType"/>.
-        /// </summary>
         [Serializable]
-        public struct Mount
+        public class ComponentList
         {
-            /// <summary>
-            /// The pos/rot of the object that will be generated.
-            /// </summary>
-            [SerializeField]
-            public Transform[] Roots;
+            public ShipComponent[] Value;
         }
+
+        [Tooltip("The base amount of damage subtracted from damage taken")]
+        public float Defense;
+
+        [Tooltip("The percentage of damage subtracted from damage taken")]
+        public float Protection;
         
-        /// <summary>
-        /// List of transforms/objects for each ComponentType.
-        /// </summary>
         [SerializeField]
-        public Mount[] Mounts;
+        public ComponentList[] Components = new ComponentList[ShipData.NonHullComponents.Length];
 
         [SerializeField]
         public Transform[] LootMounts;
 
-        #endregion
-
         /// <summary>
-        /// The objects generated during <see cref="ShipBuilder.BuiltTo"/>.
+        /// All the loot on the deck.
+        /// TODO: Generate loot onto ships which are carrying (loot is random gen on spawn not death).
         /// </summary>
-        private readonly ShipComponent[][] GeneratedComponents = new ShipComponent[ShipData.NonHullComponents.Length][];
-
         private readonly List<GameObject> GeneratedLoot = new List<GameObject>();
 
-		[Tooltip("The base amount of damage subtracted from damage taken")]
-		public float Defense;
-
-		[Tooltip("The percentage of damage subtracted from damage taken")]
-		public float Protection;
-
-		/// <summary>
-		/// Gets the amount of damage subtracted from damage taken.
-		/// </summary>
-		/// <returns>The amount of damage subtracted from damage taken</returns>
-		public float GetDefense()
-		{
-			return this.Defense;
-		}
-
-		/// <summary>
-		/// Gets the percentage of damage subtracted from damage taken.
-		/// </summary>
-		/// <returns>The percentage of damage subtracted from damage taken</returns>
-		public float GetProtection()
-		{
-			return this.Protection;
-		}
-
-		private int GetComponentIndex(ComponentType type)
+        /// <summary>
+        /// Gets the amount of damage subtracted from damage taken.
+        /// </summary>
+        /// <returns>The amount of damage subtracted from damage taken</returns>
+        public float GetDefense()
         {
-            return ShipData.HulllessComponentIndex[(int) type];
+            return this.Defense;
         }
 
         /// <summary>
-        /// Creates the array of components for some type.
+        /// Gets the percentage of damage subtracted from damage taken.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="count"></param>
-        public void SetShipComponentCount(ComponentType type, int count)
+        /// <returns>The percentage of damage subtracted from damage taken</returns>
+        public float GetProtection()
         {
-            this.GeneratedComponents[this.GetComponentIndex(type)] = new ShipComponent[count];
-        }
-
-        /// <summary>
-        /// Sets the generated component of a type at the target index.
-        /// </summary>
-        /// <param name="iMount"></param>
-        /// <param name="index"></param>
-        /// <param name="comp"></param>
-        public void AddShipComponent(Mount[] mounts, ComponentType compType, int index, ShipComponent comp)
-        {
-            // Set the generated component
-            this.GeneratedComponents[this.GetComponentIndex(compType)][index] = comp;
-
-            // Set the transform information on the component from the target
-            Mount mount = mounts[this.GetComponentIndex(compType)];
-
-            comp.transform.localPosition += mount.Roots[index].localPosition;
-            comp.transform.localRotation = mount.Roots[index].localRotation;
-
-            comp.Ship = this.Ship;
-			//Special cases to set bonuses for navigation and propulsion components.
-			EntityPlayerShip playerShip = comp.Ship as EntityPlayerShip;
-			if (playerShip)
-			{
-				ShipNavigationLeft navigationComp = comp as ShipNavigationLeft; //Could also use ShipNavigation, but this lets us skip half of the adds, which is ideally 1.
-				if (navigationComp)
-				{
-                    // TODO: Put this in the ship stat data, not player data
-					//playerShip.PlayerData.AdditionalTurnPercent = navigationComp.AdditionalTurnPercent;
-				}
-				else
-				{
-					ShipPropulsion propulsionComp = comp as ShipPropulsion;
-					if (propulsionComp)
-					{
-						//playerShip.PlayerData.AdditionalMovePercent = propulsionComp.AdditionalMovePercent;
-					}
-				}
-			}
-        }
-
-        /// <summary>
-        /// Returns the generated component list for a specific type.
-        /// </summary>
-        /// <param name="compType"></param>
-        /// <returns></returns>
-        public ShipComponent[] GetGeneratedComponent(ComponentType compType)
-        {
-            Debug.Assert((int) ComponentType.Hull != 0);
-            Debug.Assert(ComponentType.Hull != compType, "Cannot get hull from hull");
-            // compType - 1 to account for Hull
-            return this.GeneratedComponents[this.GetComponentIndex(compType)];
+            return this.Protection;
         }
 
         public void GenerateLoot(GameObject lootObjectPrefab, ShipData.BrokenComponentType item, bool forced = false)
@@ -150,12 +68,30 @@ namespace Skyrates.Client.Ship
                 generated.transform.SetPositionAndRotation(mount.position, mount.rotation);
                 generated.transform.localScale = mount.localScale;
                 this.GeneratedLoot.Add(generated);
-				EntityPlayerShip playerShip = this.Ship as EntityPlayerShip;
-				if(playerShip)
-				{
-					playerShip.PlayerData.Inventory.MapGeneratedLoot(item, generated, forced);
-				}
+                EntityPlayerShip playerShip = this.Ship as EntityPlayerShip;
+                if (playerShip)
+                {
+                    playerShip.PlayerData.Inventory.MapGeneratedLoot(item, generated, forced);
+                }
             }
+        }
+
+        protected int GetComponentIndex(ShipData.ComponentType type)
+        {
+            return ShipData.HulllessComponentIndex[(int)type];
+        }
+
+        /// <summary>
+        /// Returns the generated component list for a specific type.
+        /// </summary>
+        /// <param name="compType"></param>
+        /// <returns></returns>
+        public ShipComponent[] GetComponent(ShipData.ComponentType compType)
+        {
+            Debug.Assert((int)ShipData.ComponentType.Hull != 0);
+            Debug.Assert(ShipData.ComponentType.Hull != compType, "Cannot get hull from hull");
+            // compType - 1 to account for Hull
+            return this.Components[this.GetComponentIndex(compType)].Value;
         }
 
     }

@@ -69,7 +69,8 @@ namespace Skyrates.Client.UI
 			}
 			if (isUpgradableFurther && this.PlayerData.Inventory.Remove(Type) != 0)
 			{
-				this._player.ShipRoot.Blueprint.UpgradeComponent(this._player, Type);
+                this._player.ShipRoot.Destroy();
+			    this._player.ShipRoot.Generate(this._player);
 			}
 		}
 

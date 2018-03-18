@@ -41,6 +41,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1366208055922314
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4855902719256946}
+  - component: {fileID: 114407348951755256}
+  m_Layer: 16
+  m_Name: ArtilleryForward (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1439396955032846
 GameObject:
   m_ObjectHideFlags: 1
@@ -191,11 +207,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493425632653566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 2.007}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4455530427761126}
-  m_Father: {fileID: 4739846600331500}
+  m_Father: {fileID: 4855902719256946}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4590655706983218
@@ -236,7 +252,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4517656572020972}
+  - {fileID: 4855902719256946}
   m_Father: {fileID: 4741361080320124}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,6 +283,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4144529139514880}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4855902719256946
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366208055922314}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.65, z: 2.007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4517656572020972}
+  m_Father: {fileID: 4739846600331500}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4943880658580202
@@ -437,7 +467,6 @@ MonoBehaviour:
   StatBlock: {fileID: 11400000, guid: 898a9b5fec6f72545b401a35af024b6c, type: 2}
   Health: 0
   Render: {fileID: 4144529139514880}
-  Hull: {fileID: 114811273138527862}
   SmokeData:
     Bounds: {fileID: 65650341326461750}
     Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
@@ -450,9 +479,8 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
+  Hull: {fileID: 114811273138527862}
   LootDropRadius: 5
-  Shooters:
-  - {fileID: 114271004218291994}
   ShootDelay: 7
 --- !u!114 &114271004218291994
 MonoBehaviour:
@@ -469,6 +497,20 @@ MonoBehaviour:
     type: 2}
   spawn: {fileID: 4455530427761126}
   force: 0.005
+--- !u!114 &114407348951755256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366208055922314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e6edc05cd2ca346b78629fa37c28c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ship: {fileID: 0}
+  TierIndex: 0
+  Shooter: {fileID: 114271004218291994}
 --- !u!114 &114702991569725404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -494,7 +536,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
-  Mounts: []
-  LootMounts: []
   Defense: 0
   Protection: 0
+  Components:
+  - Value: []
+  - Value: []
+  - Value:
+    - {fileID: 114407348951755256}
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  LootMounts: []

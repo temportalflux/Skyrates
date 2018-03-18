@@ -142,8 +142,23 @@ namespace Skyrates.Client.Ship
             if (data == null) data = this.ShipData;
 
             // Create the hull
-            ShipHull hullPrefab = (ShipHull) this.GetShipComponent(ComponentType.Hull, data);
-            ShipHull hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHull>();
+            ShipHull dataHull = (ShipHull) this.GetShipComponent(ComponentType.Hull, data);
+            if (dataHull == null)
+            {
+                Debug.LogError("Hull specified in data is null.");
+                return null;
+            }
+            ShipHullGenerated hullPrefab = dataHull as ShipHullGenerated;
+            if (hullPrefab == null)
+            {
+                Debug.LogError(string.Format(
+                    "Could not generate ship onto non-generatable hull. Hull in data named {0} is not {1}.",
+                    dataHull.name, typeof(ShipHullGenerated).Name
+                ));
+                return null;
+            }
+
+            ShipHullGenerated hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHullGenerated>();
             hullBuilt.Ship = owner;
             
             // Create all the remaining components
@@ -160,7 +175,7 @@ namespace Skyrates.Client.Ship
                 GameObject prefab = component.gameObject;
 
                 // Get all the targets for the type of component (transforms on hull to generate at)
-                Transform[] targets = hullPrefab.Mounts[ShipData.HulllessComponentIndex[(int)compType]].Roots;
+                Transform[] targets = hullPrefab.Mounts[ShipData.HulllessComponentIndex[(int)compType]].Value;
 
                 hullBuilt.SetShipComponentCount(compType, targets.Length);
 
@@ -181,6 +196,7 @@ namespace Skyrates.Client.Ship
             return hullBuilt;
         }
 
+        /*
 		/// <summary>
 		/// Upgrades the ship to the next tier.
 		/// </summary>
@@ -347,6 +363,7 @@ namespace Skyrates.Client.Ship
 
 			return true;
 		}
+        //*/
 
 	}
 
