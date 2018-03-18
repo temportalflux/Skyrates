@@ -2,6 +2,7 @@
 using Skyrates.Client.Mono;
 using Skyrates.Client.Ship;
 using Skyrates.Common.Entity;
+using Skyrates.Game.Event;
 using UnityEngine;
 
 namespace Skyrates.Client.Game.Event

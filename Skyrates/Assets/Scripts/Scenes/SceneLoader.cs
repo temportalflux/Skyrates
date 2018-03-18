@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
+using Skyrates.Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using AsyncOperation = UnityEngine.AsyncOperation;

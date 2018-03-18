@@ -6,6 +6,7 @@ using Skyrates.Client.Mono;
 using Skyrates.Client.Ship;
 using Skyrates.Common.AI;
 using Skyrates.Common.Entity;
+using Skyrates.Game;
 using UnityEngine;
 
 namespace Skyrates.Client.Entity

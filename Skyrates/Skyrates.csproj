@@ -548,7 +548,8 @@
     <Compile Include="Assets\Scripts\AI\Targetting\Waypoint.cs" />
     <Compile Include="Assets\Scripts\AI\Targetting\WaypointTargets.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioDispatcher.cs" />
-    <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
+    <Compile Include="Assets\Scripts\Camera\CinemachineShake.cs" />
+    <Compile Include="Assets\Scripts\Camera\ShakeCamera.cs" />
     <Compile Include="Assets\Scripts\ChampNet\NetworkPlugin.cs" />
     <Compile Include="Assets\Scripts\Collider\DistanceCollider.cs" />
     <Compile Include="Assets\Scripts\Data\Inventory.cs" />
@@ -586,8 +587,13 @@
     <Compile Include="Assets\Scripts\Game\Events\EventSceneLoaded.cs" />
     <Compile Include="Assets\Scripts\Game\Events\EventSpawnEntityProjectile.cs" />
     <Compile Include="Assets\Scripts\Game\Events\GameEvent.cs" />
+    <Compile Include="Assets\Scripts\Game\GameEventHook.cs" />
     <Compile Include="Assets\Scripts\Game\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Hooks\HookPlayerFireArtillery.cs" />
+    <Compile Include="Assets\Scripts\Game\Hooks\HookPlayerHitByProjectile.cs" />
+    <Compile Include="Assets\Scripts\Game\Hooks\HookPlayerHitByRam.cs" />
+    <Compile Include="Assets\Scripts\Game\Hooks\HookPlayerHitWithRam.cs" />
     <Compile Include="Assets\Scripts\Input\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Input\XInputDispatcher.cs" />
     <Compile Include="Assets\Scripts\Loot\Loot.cs" />
@@ -634,7 +640,6 @@
     <Compile Include="Assets\Scripts\Util\Attribute\DisplayScriptableAttribute.cs" />
     <Compile Include="Assets\Scripts\Util\Color.cs" />
     <Compile Include="Assets\Scripts\Util\Extension\Vector3.cs" />
-    <Compile Include="Assets\Scripts\Util\IEventDelegate.cs" />
     <Compile Include="Assets\Scripts\Util\Prefab\PrefabDispatcher.cs" />
     <Compile Include="Assets\Scripts\Util\Prefab\PrefabList.cs" />
     <Compile Include="Assets\Scripts\Util\Serializing\BitSerializeAttribute.cs" />

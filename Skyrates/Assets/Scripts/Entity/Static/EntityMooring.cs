@@ -3,6 +3,7 @@ using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.UI;
 using Skyrates.Common.Entity;
+using Skyrates.Game;
 using UnityEngine;
 
 namespace Skyrates.Client.Entity

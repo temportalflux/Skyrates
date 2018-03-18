@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
+using Skyrates.Game;
 using UnityEngine;
 
 public class UIGameplay : MonoBehaviour

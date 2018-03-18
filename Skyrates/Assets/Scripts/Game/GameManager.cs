@@ -1,14 +1,12 @@
-﻿using System;
-using Rewired;
+﻿using Rewired;
 using Skyrates.Client.Data;
 using Skyrates.Client.Entity;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Scene;
-using Skyrates.Common.Entity;
-using Skyrates.Common.Network;
+using Skyrates.Game.Event;
 using UnityEngine;
 
-namespace Skyrates.Client.Game
+namespace Skyrates.Game
 {
 
     /// <inheritdoc />
@@ -29,6 +27,10 @@ namespace Skyrates.Client.Game
         public static GameEvents Events
         {
             get { return Instance != null ? Instance._events : new GameEvents(); }
+            set
+            {
+                if (Instance != null) Instance._events = value;
+            }
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Skyrates.Client.Data;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
+using Skyrates.Game;
 using UnityEngine;
 using UnityEngine.UI;
 

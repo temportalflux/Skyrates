@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
+using Skyrates.Game;
+using Skyrates.Game.Event;
 using UnityEngine;
 
 public class VFXDispatcher : MonoBehaviour

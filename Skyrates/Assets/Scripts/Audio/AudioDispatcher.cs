@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Ship;
+using Skyrates.Game;
+using Skyrates.Game.Event;
 using UnityEngine;
 
 namespace Skyrates.Client.Audio

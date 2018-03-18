@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyrates.Game.Event;
 
 namespace Skyrates.Client.Game.Event
 {

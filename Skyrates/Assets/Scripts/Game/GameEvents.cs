@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Skyrates.Client.Game.Event;
+using UnityEngine;
 
-namespace Skyrates.Client.Game.Event
+namespace Skyrates.Game.Event
 {
 
     /// <summary>
@@ -22,7 +23,7 @@ namespace Skyrates.Client.Game.Event
         EntityInstantiate,
         EntityStart,
         EntityDestroy,
-        
+
         SpawnEntityProjectile,
         ArtilleryFired,
         EntityShipDamaged,
@@ -58,7 +59,7 @@ namespace Skyrates.Client.Game.Event
     /// <summary>
     /// Dispatcher of <see cref="GameEvent"/> instances, and place for observers to subscribe to events via their delegate.
     /// </summary>
-    public class GameEvents : IEventDelegate<GameEventID, GameEventDelegate>
+    public class GameEvents
     {
 
         public event GameEventDelegate GameStart;
@@ -93,58 +94,139 @@ namespace Skyrates.Client.Game.Event
         /// </summary>
         /// <param name="eventID"></param>
         /// <returns></returns>
-        public GameEventDelegate Delegate(GameEventID eventID)
+        public bool GetDelegate(GameEventID eventID, out GameEventDelegate value)
         {
             switch (eventID)
             {
                 case GameEventID.GameStart:
-                    return this.GameStart;
+                    value = this.GameStart;
+                    break;
                 #region General/Scene
                 case GameEventID.SceneLoaded:
-                    return this.SceneLoaded;
+                    value = this.SceneLoaded;
+                    break;
                 #endregion
                 #region Entity
                 case GameEventID.EntityInstantiate:
-                    return this.EntityInstantiate;
+                    value = this.EntityInstantiate;
+                    break;
                 case GameEventID.EntityStart:
-                    return this.EntityStart;
+                    value = this.EntityStart;
+                    break;
                 case GameEventID.EntityDestroy:
-                    return this.EntityDestroy;
+                    value = this.EntityDestroy;
+                    break;
                 case GameEventID.SpawnEntityProjectile:
-                    return this.SpawnEntityProjectile;
+                    value = this.SpawnEntityProjectile;
+                    break;
                 case GameEventID.ArtilleryFired:
-                    return this.ArtilleryFired;
+                    value = this.ArtilleryFired;
+                    break;
                 case GameEventID.EntityShipDamaged:
-                    return this.EntityShipDamaged;
+                    value = this.EntityShipDamaged;
+                    break;
                 case GameEventID.EntityShipHitByProjectile:
-                    return this.EntityShipHitByProjectile;
+                    value = this.EntityShipHitByProjectile;
+                    break;
                 case GameEventID.EntityShipHitByRam:
-                    return this.EntityShipHitByRam;
+                    value = this.EntityShipHitByRam;
+                    break;
                 case GameEventID.EnemyTargetEngage:
-                    return this.EnemyTargetEngage;
+                    value = this.EnemyTargetEngage;
+                    break;
                 case GameEventID.EnemyTargetDisengage:
-                    return this.EnemyTargetDisengage;
-                #endregion
+                    value = this.EnemyTargetDisengage;
+                    #endregion
+                    break;
                 #region Player
                 case GameEventID.PlayerMoved:
-                    return this.PlayerMoved;
+                    value = this.PlayerMoved;
+                    break;
                 case GameEventID.PlayerLeft:
-                    return this.PlayerLeft;
+                    value = this.PlayerLeft;
+                    break;
                 case GameEventID.LootCollided:
-                    return this.LootCollided;
+                    value = this.LootCollided;
+                    break;
                 case GameEventID.LootCollected:
-                    return this.LootCollected;
+                    value = this.LootCollected;
+                    break;
                 case GameEventID.ActiveReloadBegin:
-                    return this.ActiveReloadBegin;
+                    value = this.ActiveReloadBegin;
+                    break;
                 case GameEventID.PlayerInteract:
-                    return this.PlayerInteract;
+                    value = this.PlayerInteract;
+                    break;
                 #endregion
                 case GameEventID.MenuButtonPressed:
-                    return this.MenuButtonPressed;
+                    value = this.MenuButtonPressed;
+                    break;
                 default:
                     Debug.LogWarning(string.Format("No delegate for event {0}", eventID));
-                    return null;
+                    value = null;
+                    break;
             }
+            return value != null;
+        }
+
+        public static GameEvents operator+(GameEvents self, GameEventDelegate action)
+        {
+            self.GameStart += action;
+            #region General/Scene
+            self.SceneLoaded += action;
+            #endregion
+            #region Entity
+            self.EntityInstantiate += action;
+            self.EntityStart += action;
+            self.EntityDestroy += action;
+            self.SpawnEntityProjectile += action;
+            self.ArtilleryFired += action;
+            self.EntityShipDamaged += action;
+            self.EntityShipHitByProjectile += action;
+            self.EntityShipHitByRam += action;
+            self.EnemyTargetEngage += action;
+            self.EnemyTargetDisengage += action;
+            #endregion
+            #region Player
+            self.PlayerMoved += action;
+            self.PlayerLeft += action;
+            self.LootCollided += action;
+            self.LootCollected += action;
+            self.ActiveReloadBegin += action;
+            self.PlayerInteract += action;
+            #endregion
+            self.MenuButtonPressed += action;
+            return self;
+        }
+
+        public static GameEvents operator -(GameEvents self, GameEventDelegate action)
+        {
+            self.GameStart -= action;
+            #region General/Scene
+            self.SceneLoaded -= action;
+            #endregion
+            #region Entity
+            self.EntityInstantiate -= action;
+            self.EntityStart -= action;
+            self.EntityDestroy -= action;
+            self.SpawnEntityProjectile -= action;
+            self.ArtilleryFired -= action;
+            self.EntityShipDamaged -= action;
+            self.EntityShipHitByProjectile -= action;
+            self.EntityShipHitByRam -= action;
+            self.EnemyTargetEngage -= action;
+            self.EnemyTargetDisengage -= action;
+            #endregion
+            #region Player
+            self.PlayerMoved -= action;
+            self.PlayerLeft -= action;
+            self.LootCollided -= action;
+            self.LootCollected -= action;
+            self.ActiveReloadBegin -= action;
+            self.PlayerInteract -= action;
+            #endregion
+            self.MenuButtonPressed -= action;
+            return self;
         }
 
         /// <summary>
@@ -153,13 +235,13 @@ namespace Skyrates.Client.Game.Event
         /// <param name="evt"></param>
         public void Dispatch(GameEvent evt)
         {
-            GameEventDelegate evtDelegate = this.Delegate(evt.EventID);
-            if (evtDelegate != null)
+            GameEventDelegate evtDelegate;
+            if (this.GetDelegate(evt.EventID, out evtDelegate))
             {
                 evtDelegate.Invoke(evt);
             }
         }
-
+        
     }
 
 }

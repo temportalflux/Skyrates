@@ -9,6 +9,8 @@ using Skyrates.Client.Entity;
 using Skyrates.Client.Game;
 using Skyrates.Client.Game.Event;
 using Skyrates.Client.Scene;
+using Skyrates.Game;
+using Skyrates.Game.Event;
 using UnityEngine;
 
 namespace Skyrates.Client.Input

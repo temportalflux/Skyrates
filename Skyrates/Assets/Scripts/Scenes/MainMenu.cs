@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Skyrates.Client.Game;
 using Skyrates.Client.Scene;
 using Skyrates.Common.Network;
+using Skyrates.Game;
 using UnityEngine;
 
 namespace Skyrates.Client.Game

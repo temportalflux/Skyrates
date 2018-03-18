@@ -8,6 +8,8 @@ using Skyrates.Client.Scene;
 using Skyrates.Client.Ship;
 using Skyrates.Common.AI;
 using Skyrates.Common.Network;
+using Skyrates.Game;
+using Skyrates.Game.Event;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

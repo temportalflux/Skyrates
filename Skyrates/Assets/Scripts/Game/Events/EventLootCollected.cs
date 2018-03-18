@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Skyrates.Client.Entity;
 using Skyrates.Client.Game.Event;
+using Skyrates.Game.Event;
 using UnityEngine;
 
 namespace Skyrates.Client.Game.Event
