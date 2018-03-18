@@ -304,8 +304,7 @@ namespace Skyrates.Client.Entity
         {
             // Check to ensure that sources and their projectiles don't collide
             // downside is that enemies cannot be hit by any projectile that came from an enemy
-            if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Merchant")) ||
-                (other.CompareTag("Projectile-Enemy") && this.CompareTag("Navy")) ||
+            if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Enemy")) ||
                 (other.CompareTag("Projectile-Player") && this.CompareTag("Player")))
             {
                 return;
