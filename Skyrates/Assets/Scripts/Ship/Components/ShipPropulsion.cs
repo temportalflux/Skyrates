@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Skyrates.Client.Ship
+﻿
+namespace Skyrates.Ship
 {
+
     public class ShipPropulsion : ShipComponent
     {
+        // TODO: Doxygen
 		public float AdditionalMovePercent;
 	}
+
 }

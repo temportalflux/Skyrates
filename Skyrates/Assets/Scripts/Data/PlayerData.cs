@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Input;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
-namespace Skyrates.Client.Data
+namespace Skyrates.Data
 {
 
     /// <summary>

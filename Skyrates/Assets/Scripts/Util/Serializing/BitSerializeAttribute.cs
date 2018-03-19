@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using System.Reflection;
 
-namespace Skyrates.Common.Network
+namespace Skyrates.Util.Serializing
 {
 
     /// <summary>
@@ -13,7 +13,7 @@ namespace Skyrates.Common.Network
     /// If the <see cref="MonoBehaviour"/> being serialized is ISerializing, the ISerializing methods are treated as additions to all fields marked with BitSerialize
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class BitSerializeAttribute : Attribute
+    public class BitSerializeAttribute : System.Attribute
     {
 
         /// <summary>
@@ -536,7 +536,7 @@ namespace Skyrates.Common.Network
                 foreach (FieldInfo field in objectFields)
                 {
                     BitSerializeAttribute attribute =
-                        Attribute.GetCustomAttribute(field, typeof(BitSerializeAttribute)) as
+                        System.Attribute.GetCustomAttribute(field, typeof(BitSerializeAttribute)) as
                             BitSerializeAttribute;
 
                     // if we detect any attribute

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
 
     /// <summary>

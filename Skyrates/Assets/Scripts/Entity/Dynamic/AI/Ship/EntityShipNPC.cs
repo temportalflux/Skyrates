@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Skyrates.Client.Ship;
-using Skyrates.Common.Entity;
+using Skyrates.Ship;
 using UnityEngine;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Entity
 {
 
     /// <summary>

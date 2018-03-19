@@ -1,8 +1,5 @@
 ﻿
-using Skyrates.Common.Network;
-using Skyrates.Game.Event;
-
-namespace Skyrates.Client.Game.Event
+namespace Skyrates.Game.Event
 {
 
     /// <summary>

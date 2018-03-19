@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DisplayScriptableAttribute : Attribute {
+﻿
+namespace Skyrates.Util.Attribute
+{
+    public class DisplayScriptableAttribute : System.Attribute {
     
+    }
 }

@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.UI;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class UpgradeCanvas : MonoBehaviour
+namespace Skyrates.UI
 {
 
-    public UpgradeButton[] MenuButtons;
+    public class UpgradeCanvas : MonoBehaviour
+    {
+
+        public UpgradeButton[] MenuButtons;
+
+    }
 
 }
-

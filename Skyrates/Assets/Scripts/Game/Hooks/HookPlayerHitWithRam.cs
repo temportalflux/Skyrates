@@ -1,5 +1,4 @@
-﻿using Skyrates.Client.Entity;
-using Skyrates.Client.Game.Event;
+﻿using Skyrates.Entity;
 
 namespace Skyrates.Game.Event
 {

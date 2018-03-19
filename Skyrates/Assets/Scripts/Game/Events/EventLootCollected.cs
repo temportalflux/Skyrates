@@ -1,11 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Entity;
-using Skyrates.Client.Game.Event;
-using Skyrates.Game.Event;
-using UnityEngine;
+﻿using Skyrates.Entity;
 
-namespace Skyrates.Client.Game.Event
+namespace Skyrates.Game.Event
 {
 
     /// <summary>

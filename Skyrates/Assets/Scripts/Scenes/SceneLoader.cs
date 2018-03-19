@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
 using Skyrates.Game;
+using Skyrates.Game.Event;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using AsyncOperation = UnityEngine.AsyncOperation;
 
-namespace Skyrates.Client.Scene
+namespace Skyrates.Scene
 {
 
     /// <summary>
@@ -23,7 +20,7 @@ namespace Skyrates.Client.Scene
         public static SceneLoader Instance;
 
         /// <summary>
-        /// The data used to select scenes via <see cref="SceneData.SceneKey"/>
+        /// The data used to select scenes via <see cref="Skyrates.Scene.SceneData.SceneKey"/>
         /// </summary>
         public SceneData SceneData;
 

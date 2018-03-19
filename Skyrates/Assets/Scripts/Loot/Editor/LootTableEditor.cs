@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Ship;
+﻿using Skyrates.Ship;
 using UnityEditor;
 using UnityEngine;
 
-namespace Skyrates.Client.Loot
+namespace Skyrates.Loot
 {
 
     [CustomEditor(typeof(LootTable))]

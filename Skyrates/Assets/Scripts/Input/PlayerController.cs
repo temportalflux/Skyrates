@@ -1,16 +1,11 @@
-﻿using Skyrates.Client.Data;
-using Skyrates.Common.AI;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Cinemachine;
 using Rewired;
-using Skyrates.Client.Entity;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.Scene;
+using Skyrates.Data;
+using Skyrates.Entity;
 using Skyrates.Game;
 using Skyrates.Game.Event;
+using Skyrates.Ship;
 using UnityEngine;
 
 namespace Skyrates.Client.Input

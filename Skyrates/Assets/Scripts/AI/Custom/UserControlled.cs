@@ -1,5 +1,7 @@
-﻿using Skyrates.Client.Data;
-using Skyrates.Common.AI;
+﻿using Skyrates.Common.AI;
+using Skyrates.Data;
+using Skyrates.Physics;
+using Skyrates.Util.Extension;
 using UnityEngine;
 
 namespace Skyrates.AI.Custom

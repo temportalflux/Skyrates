@@ -2,9 +2,9 @@
 using UnityEditor;
 using UnityEngine;
 
-using ComponentType = ShipData.ComponentType;
+using ComponentType = Skyrates.Ship.ShipData.ComponentType;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
 
     [CustomEditor(typeof(ShipHull))]

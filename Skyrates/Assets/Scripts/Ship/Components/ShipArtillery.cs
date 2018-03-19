@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Mono;
-using UnityEngine;
+﻿using Skyrates.Mono;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
 
     /// <summary>

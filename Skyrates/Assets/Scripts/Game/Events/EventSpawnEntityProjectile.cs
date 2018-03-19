@@ -1,7 +1,6 @@
-﻿using Skyrates.Game.Event;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Skyrates.Client.Game.Event
+namespace Skyrates.Game.Event
 {
 
     /// <summary>

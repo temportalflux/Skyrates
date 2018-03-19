@@ -1,15 +1,14 @@
-﻿using Skyrates.Client.Entity;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Skyrates.Entity;
 using UnityEngine;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
 
     [RequireComponent(typeof(Rigidbody))]
-    public class ShipMesh : MonoBehaviour
+    public class ForwardCollisionsTo : MonoBehaviour
     {
 
+        // TODO: Change to GameObject
         public EntityShip Owner;
 
         private void OnTriggerEnter(Collider other)

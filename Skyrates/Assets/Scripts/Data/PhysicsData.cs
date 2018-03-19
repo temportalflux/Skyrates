@@ -1,7 +1,8 @@
 ﻿using System;
+using Skyrates.Util.Extension;
 using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.Physics
 {
 
     [Serializable]

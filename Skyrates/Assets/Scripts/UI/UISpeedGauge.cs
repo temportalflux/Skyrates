@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Data;
+﻿using Skyrates.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Skyrates.Client.UI
+namespace Skyrates.UI
 {
 
     [RequireComponent(typeof(Image))]

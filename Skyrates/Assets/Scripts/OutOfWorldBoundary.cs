@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace Skyrates.Client.Mono
+namespace Skyrates.Mono
 {
 
     /// <summary>
     /// Kill box for the world.
     /// </summary>
-    public class OutOfWorldBoundary : UnityEngine.MonoBehaviour
+    public class OutOfWorldBoundary : MonoBehaviour
     {
 
         void OnTriggerEnter(Collider col)

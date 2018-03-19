@@ -1,8 +1,8 @@
 ﻿using Skyrates.AI.Steering;
-using Skyrates.Common.AI;
+using Skyrates.Physics;
 using UnityEngine;
 
-namespace Skyrates.Common.Entity
+namespace Skyrates.Entity
 {
 
     /// <summary>

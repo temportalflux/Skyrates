@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.Mono;
-using Skyrates.Client.Ship;
-using Skyrates.Common.AI;
-using Skyrates.Common.Entity;
 using Skyrates.Game;
+using Skyrates.Game.Event;
+using Skyrates.Mono;
+using Skyrates.Physics;
+using Skyrates.Ship;
 using UnityEngine;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Entity
 {
 
     /// <summary>
@@ -22,7 +20,7 @@ namespace Skyrates.Client.Entity
 
         [Header("Stats")]
         [SerializeField]
-        public ShipStat StatBlock;
+        public StatBlock StatBlock;
 
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [HideInInspector]
@@ -365,7 +363,7 @@ namespace Skyrates.Client.Entity
         /// <param name="source">The entity which is causing the damage.</param>
         /// <param name="damage">The amount of damage to take.</param>
         /// <returns>The amount of health remaining after the attack</returns>
-        public virtual float TakeDamage(Common.Entity.Entity source, float damage)
+        public virtual float TakeDamage(Skyrates.Entity.Entity source, float damage)
         {
             // Remove the damage from the health
             this.Health -= damage;

@@ -2,6 +2,7 @@
 using Skyrates.AI;
 using Skyrates.AI.Steering;
 using Skyrates.Common.AI;
+using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.Composite

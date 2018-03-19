@@ -1,7 +1,6 @@
-﻿using System.Reflection;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Skyrates.Common.Network.Test
+namespace Skyrates.Util.Serializing.Test
 {
 
     public class BitTest : MonoBehaviour

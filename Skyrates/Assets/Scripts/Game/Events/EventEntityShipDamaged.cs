@@ -1,8 +1,6 @@
-﻿using Skyrates.Client.Entity;
-using Skyrates.Common.Entity;
-using Skyrates.Game.Event;
+﻿using Skyrates.Entity;
 
-namespace Skyrates.Client.Game.Event
+namespace Skyrates.Game.Event
 {
 
     /// <summary>
@@ -14,7 +12,7 @@ namespace Skyrates.Client.Game.Event
         /// <summary>
         /// The entity which is causing the damage.
         /// </summary>
-        public Common.Entity.Entity Source;
+        public Entity.Entity Source;
 
         /// <summary>
         /// The target of the damage.
@@ -29,13 +27,13 @@ namespace Skyrates.Client.Game.Event
         /// </summary>
         public float Damage;
 
-        public EventEntityShipDamaged(GameEventID id, Common.Entity.Entity source, EntityShip ship, float damage) : base(id, ship)
+        public EventEntityShipDamaged(GameEventID id, Entity.Entity source, EntityShip ship, float damage) : base(id, ship)
         {
             this.Source = source;
             this.Damage = damage;
         }
 
-        public EventEntityShipDamaged(Common.Entity.Entity source, EntityShip target, float damage) : this(GameEventID.EntityShipDamaged, source, target, damage)
+        public EventEntityShipDamaged(Entity.Entity source, EntityShip target, float damage) : this(GameEventID.EntityShipDamaged, source, target, damage)
         {
         }
 

@@ -1,31 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class ButtonHover : MonoBehaviour
+namespace Skyrates.UI
 {
-
-    public Sprite spriteHover;
-    private Sprite spriteDefault;
-
-    private Image button;
-
-    void Start()
+    [RequireComponent(typeof(Image))]
+    public class ButtonHover : MonoBehaviour
     {
-        this.button = this.GetComponent<Image>();
-        this.spriteDefault = this.button.sprite;
-    }
 
-    public void OnHoverStart()
-    {
-        this.button.sprite = this.spriteHover;
-    }
+        public Sprite spriteHover;
+        private Sprite spriteDefault;
 
-    public void OnHoverEnd()
-    {
-        this.button.sprite = this.spriteDefault;
-    }
+        private Image button;
 
+        void Start()
+        {
+            this.button = this.GetComponent<Image>();
+            this.spriteDefault = this.button.sprite;
+        }
+
+        public void OnHoverStart()
+        {
+            this.button.sprite = this.spriteHover;
+        }
+
+        public void OnHoverEnd()
+        {
+            this.button.sprite = this.spriteDefault;
+        }
+
+    }
 }

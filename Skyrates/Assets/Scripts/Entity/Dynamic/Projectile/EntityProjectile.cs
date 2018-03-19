@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Common.Entity;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Entity
 {
 
     /// <summary>

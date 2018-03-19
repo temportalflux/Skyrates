@@ -1,8 +1,6 @@
-﻿
-using Skyrates.Client.Scene;
-using Skyrates.Game.Event;
+﻿using Skyrates.Scene;
 
-namespace Skyrates.Client.Game.Event
+namespace Skyrates.Game.Event
 {
 
     /// <summary>

@@ -1,19 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Data;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.Mono;
-using Skyrates.Client.Scene;
-using Skyrates.Client.Ship;
-using Skyrates.Common.AI;
-using Skyrates.Common.Network;
+using Skyrates.Data;
 using Skyrates.Game;
 using Skyrates.Game.Event;
+using Skyrates.Physics;
+using Skyrates.Ship;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Entity
 {
 
     /// <summary>

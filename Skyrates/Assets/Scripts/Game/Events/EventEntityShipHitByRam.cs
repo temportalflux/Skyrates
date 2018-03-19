@@ -1,9 +1,7 @@
-﻿using Skyrates.Client.Entity;
-using Skyrates.Client.Ship;
-using Skyrates.Common.Entity;
-using Skyrates.Game.Event;
+﻿using Skyrates.Entity;
+using Skyrates.Ship;
 
-namespace Skyrates.Client.Game.Event
+namespace Skyrates.Game.Event
 {
 
     /// <summary>

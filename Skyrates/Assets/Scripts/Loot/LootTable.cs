@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Skyrates.Client.Ship;
+using Skyrates.Ship;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Skyrates.Client.Loot
+namespace Skyrates.Loot
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Skyrates.Client.Loot
             /// The prefabed <see cref="Loot"/> to be spawned.
             /// </summary>
             [SerializeField]
-            public Loot Prefab;
+            public Skyrates.Loot.Loot Prefab;
 
             /// <summary>
             /// The unweighted percentage calculated when weights are changed.
@@ -78,10 +78,10 @@ namespace Skyrates.Client.Loot
         /// The number of loot generated is randomized between <see cref="AmountMin"/> and <see cref="AmountMax"/>.
         /// </summary>
         /// <returns></returns>
-        public KeyValuePair<ShipData.BrokenComponentType, Loot>[] Generate()
+        public KeyValuePair<ShipData.BrokenComponentType, Skyrates.Loot.Loot>[] Generate()
         {
             // Create the array
-            KeyValuePair<ShipData.BrokenComponentType, Loot>[] loots = new KeyValuePair<ShipData.BrokenComponentType, Loot>[Random.Range(this.AmountMin, this.AmountMax)];
+            KeyValuePair<ShipData.BrokenComponentType, Skyrates.Loot.Loot>[] loots = new KeyValuePair<ShipData.BrokenComponentType, Skyrates.Loot.Loot>[Random.Range(this.AmountMin, this.AmountMax)];
             for (int iLoot = 0; iLoot < loots.Length; iLoot++)
             {
                 // Randomize the threshold for this loot entry
@@ -95,7 +95,7 @@ namespace Skyrates.Client.Loot
                     if (rand < sum)
                     {
                         // Set the loot entry and continue with generation
-                        loots[iLoot] = new KeyValuePair<ShipData.BrokenComponentType, Loot>(row.Item, row.Prefab);
+                        loots[iLoot] = new KeyValuePair<ShipData.BrokenComponentType, Skyrates.Loot.Loot>(row.Item, row.Prefab);
                         break;
                     }
                 }

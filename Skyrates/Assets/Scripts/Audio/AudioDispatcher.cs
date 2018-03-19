@@ -1,14 +1,9 @@
-﻿
-using System;
-using System.Collections.Generic;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.Ship;
-using Skyrates.Game;
+﻿using Skyrates.Game;
 using Skyrates.Game.Event;
+using Skyrates.Util.Attribute;
 using UnityEngine;
 
-namespace Skyrates.Client.Audio
+namespace Skyrates.Audio
 {
  
     /// <summary>

@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Skyrates.Client.Ship
+﻿
+namespace Skyrates.Ship
 {
     public class ShipNavigationLeft : ShipNavigation
     {

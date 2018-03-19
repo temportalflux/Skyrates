@@ -1,5 +1,4 @@
-﻿using Skyrates.Client.Game.Event;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Skyrates.Game.Event
 {

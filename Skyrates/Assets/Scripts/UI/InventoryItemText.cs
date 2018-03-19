@@ -1,11 +1,9 @@
-﻿using Skyrates.Client.Data;
-using Skyrates.Client.Game;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Skyrates.Data;
+using Skyrates.Ship;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Skyrates.Client.UI
+namespace Skyrates.UI
 {
 	[RequireComponent(typeof(Text))]
 	public class InventoryItemText : MonoBehaviour

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Skyrates.AI;
 using Skyrates.AI.Composite;
-using Skyrates.Client.Entity;
-using Skyrates.Common.AI;
+using Skyrates.Mono;
+using Skyrates.Physics;
 using UnityEngine;
 
-namespace Skyrates.Common.Entity
+namespace Skyrates.Entity
 {
 
     /// <summary>

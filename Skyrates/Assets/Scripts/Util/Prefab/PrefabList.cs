@@ -1,7 +1,8 @@
 ﻿using System;
+using Skyrates.Util;
 using UnityEngine;
 
-namespace Skyrates.Client.Util
+namespace Skyrates.Util
 {
     /// <summary>
     /// 
@@ -74,7 +75,10 @@ namespace Skyrates.Client.Util
         }
 
     }
+}
 
+namespace Skyrates.Client.Util
+{
     public enum TestEnum
     {
         A, B, C

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using Skyrates.Client.Entity;
-using Skyrates.Common.Network;
+using Skyrates.Entity;
+using Skyrates.Util.Extension;
+using Skyrates.Util.Serializing;
 using UnityEngine;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
 
     /// <inheritdoc />

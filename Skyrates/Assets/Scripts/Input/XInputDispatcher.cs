@@ -1,7 +1,7 @@
-﻿using Skyrates.Client.Entity;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
+﻿using Skyrates.Entity;
 using Skyrates.Game;
+using Skyrates.Game.Event;
+using Skyrates.Ship;
 using UnityEngine;
 using XInputDotNetPure;
 

@@ -1,9 +1,8 @@
 ﻿using Rewired;
-using Skyrates.Client.Data;
-using Skyrates.Client.Entity;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.Scene;
+using Skyrates.Data;
+using Skyrates.Entity;
 using Skyrates.Game.Event;
+using Skyrates.Scene;
 using UnityEngine;
 
 namespace Skyrates.Game
@@ -161,16 +160,16 @@ namespace Skyrates.Game
         }
 
         /// <summary>
-        /// Spawns an entity based on the prefab in <see cref="EntityList"/> keyed by <see cref="Entity.TypeData"/> and some <see cref="Guid"/>.
+        /// Spawns an entity based on the prefab in <see cref="EntityList"/> keyed by <see cref="Skyrates.Entity.TypeData"/> and some <see cref="Guid"/>.
         /// </summary>
         /// <param name="typeData"></param>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public Common.Entity.Entity SpawnEntity(Common.Entity.Entity prefab)
+        public Entity.Entity SpawnEntity(Entity.Entity prefab)
         {
             Debug.Assert(prefab != null);
 
-            Common.Entity.Entity spawned = Instantiate(prefab.gameObject).GetComponent<Common.Entity.Entity>();
+            Entity.Entity spawned = Instantiate(prefab.gameObject).GetComponent<Entity.Entity>();
             
             if (spawned == null) return null;
 

@@ -1,11 +1,8 @@
 ﻿using System.Collections;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.Mono;
-using Skyrates.Common.Entity;
+using Skyrates.Ship;
 using UnityEngine;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Entity
 {
 
     /// <summary>

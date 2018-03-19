@@ -559,7 +559,6 @@
     <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\ShipData.cs" />
     <Compile Include="Assets\Scripts\Data\Version.cs" />
-    <Compile Include="Assets\Scripts\DictionaryArrayAttribute.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\EntityAI.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\Ship\EntityPlayerShip.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\Ship\EntityShip.cs" />
@@ -620,9 +619,9 @@
     <Compile Include="Assets\Scripts\Ship\Components\ShipSail.cs" />
     <Compile Include="Assets\Scripts\Ship\LootPivot.cs" />
     <Compile Include="Assets\Scripts\Ship\Ship.cs" />
-    <Compile Include="Assets\Scripts\Ship\ShipMesh.cs" />
+    <Compile Include="Assets\Scripts\Ship\ForwardCollisionsTo.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipRenderRoot.cs" />
-    <Compile Include="Assets\Scripts\Ship\ShipStat.cs" />
+    <Compile Include="Assets\Scripts\Ship\StatBlock.cs" />
     <Compile Include="Assets\Scripts\Test\TestCannonRotation.cs" />
     <Compile Include="Assets\Scripts\Test\TestShooterRotation.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHover.cs" />
@@ -642,7 +641,6 @@
     <Compile Include="Assets\Scripts\Util\Attribute\DisplayScriptableAttribute.cs" />
     <Compile Include="Assets\Scripts\Util\Color.cs" />
     <Compile Include="Assets\Scripts\Util\Extension\Vector3.cs" />
-    <Compile Include="Assets\Scripts\Util\Prefab\PrefabDispatcher.cs" />
     <Compile Include="Assets\Scripts\Util\Prefab\PrefabList.cs" />
     <Compile Include="Assets\Scripts\Util\Serializing\BitSerializeAttribute.cs" />
     <Compile Include="Assets\Scripts\Util\Serializing\BitTest.cs" />

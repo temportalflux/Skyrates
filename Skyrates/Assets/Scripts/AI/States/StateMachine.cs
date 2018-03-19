@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Skyrates.Common.AI;
-using Skyrates.Common.Entity;
+using Skyrates.Entity;
+using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.State

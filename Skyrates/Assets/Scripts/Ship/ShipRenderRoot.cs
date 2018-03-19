@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Entity;
-using Skyrates.Common.Entity;
+﻿using Skyrates.Entity;
 using UnityEngine;
 
+// TODO: Obselete. Use ForwardCollisionsTo
 public class ShipRenderRoot : MonoBehaviour
 {
 

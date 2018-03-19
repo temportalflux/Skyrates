@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Skyrates.Common.Network.Test
+namespace Skyrates.Util.Serializing.Test
 {
 
     public class BitTest2 : BitTest

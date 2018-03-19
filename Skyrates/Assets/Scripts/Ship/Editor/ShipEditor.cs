@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
-
 
     [CustomEditor(typeof(Ship))]
     public class ShipEditor : Editor

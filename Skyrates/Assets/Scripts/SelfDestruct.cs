@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Skyrates.Client.Mono
+namespace Skyrates.Mono
 {
 
     /// <summary>
     /// Destroys the game object after some time.
     /// </summary>
-    public class SelfDestruct : UnityEngine.MonoBehaviour
+    public class SelfDestruct : MonoBehaviour
     {
 
         /// <summary>

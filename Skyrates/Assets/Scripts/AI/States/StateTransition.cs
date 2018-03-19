@@ -1,6 +1,7 @@
 ﻿using System;
 using Skyrates.Common.AI;
-using Skyrates.Common.Entity;
+using Skyrates.Entity;
+using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.State

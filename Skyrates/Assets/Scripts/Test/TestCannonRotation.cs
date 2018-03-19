@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using Skyrates.Entity;
+using UnityEngine;
 
 namespace Skyrates.Client.Entity
 {
-	public class TestCannonRotation : MonoBehaviour
+    // TODO: Remove, this is a test class
+    public class TestCannonRotation : MonoBehaviour
 	{
 		//No doxygen.  Only for testing purposes.
 		public EntityCannon cannonBase;

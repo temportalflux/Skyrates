@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Skyrates.Ship;
 using UnityEngine;
 
-namespace Skyrates.Client.Data
+namespace Skyrates.Data
 {
 	[Serializable]
 	public class Inventory

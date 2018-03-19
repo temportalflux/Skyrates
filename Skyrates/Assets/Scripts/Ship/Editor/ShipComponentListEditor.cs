@@ -1,22 +1,24 @@
-﻿using Skyrates.Client.Ship;
-using UnityEditor;
+﻿using UnityEditor;
 
-using ComponentType = ShipData.ComponentType;
+using ComponentType = Skyrates.Ship.ShipData.ComponentType;
 
-[CustomEditor(typeof(ShipComponentList))]
-public class ShipComponentListEditor : PrefabListEditor<ComponentType, ShipComponent>
+namespace Skyrates.Ship
 {
-
-    private static bool[] _keysEnabled;
-
-    protected override bool[] GetStaticKeyToggleArray()
+    [CustomEditor(typeof(ShipComponentList))]
+    public class ShipComponentListEditor : PrefabListEditor<ComponentType, ShipComponent>
     {
-        return _keysEnabled;
-    }
 
-    protected override void SetStaticKeyToggleArray(bool[] keyBlocksToggled)
-    {
-        _keysEnabled = keyBlocksToggled;
-    }
+        private static bool[] _keysEnabled;
 
+        protected override bool[] GetStaticKeyToggleArray()
+        {
+            return _keysEnabled;
+        }
+
+        protected override void SetStaticKeyToggleArray(bool[] keyBlocksToggled)
+        {
+            _keysEnabled = keyBlocksToggled;
+        }
+
+    }
 }

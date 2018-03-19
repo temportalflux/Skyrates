@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Game;
-using Skyrates.Client.Scene;
-using Skyrates.Common.Network;
-using Skyrates.Game;
+﻿using Skyrates.Scene;
 using UnityEngine;
 
-namespace Skyrates.Client.Game
+namespace Skyrates.Game
 {
 
     /// <summary>

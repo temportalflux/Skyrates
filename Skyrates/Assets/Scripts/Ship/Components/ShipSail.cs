@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
+namespace Skyrates.Ship
+{
 
-namespace Skyrates.Client.Ship
-{
-public class ShipSail : ShipComponent
-{
+    public class ShipSail : ShipComponent
+    {
 
     }
 

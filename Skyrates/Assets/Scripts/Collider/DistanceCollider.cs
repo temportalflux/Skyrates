@@ -1,11 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Common.Entity;
+using Skyrates.Entity;
 using UnityEngine;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Mono
 {
-
     /// <summary>
     /// Interface detected during overlap in <see cref="DistanceCollider"/>.
     /// </summary>
@@ -99,10 +97,10 @@ namespace Skyrates.Client.Entity
             switch (this.Mode)
             {
                 case DistanceMode.Sphere:
-                    colliders = Physics.OverlapSphere(this.transform.position, this.RadiusSphere, this.CollisionLayers);
+                    colliders = UnityEngine.Physics.OverlapSphere(this.transform.position, this.RadiusSphere, this.CollisionLayers);
                     break;
                 case DistanceMode.Box:
-                    colliders = Physics.OverlapBox(this.transform.position, this.RadiusBox, this.transform.rotation, this.CollisionLayers);
+                    colliders = UnityEngine.Physics.OverlapBox(this.transform.position, this.RadiusBox, this.transform.rotation, this.CollisionLayers);
                     break;
                 default:
                     return;
@@ -122,5 +120,4 @@ namespace Skyrates.Client.Entity
         }
 
     }
-
 }

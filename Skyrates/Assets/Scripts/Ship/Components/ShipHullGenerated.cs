@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Entity;
+using Skyrates.Entity;
 using UnityEngine;
 
-using ComponentType = ShipData.ComponentType;
+using ComponentType = Skyrates.Ship.ShipData.ComponentType;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
 
     public class ShipHullGenerated : ShipHull

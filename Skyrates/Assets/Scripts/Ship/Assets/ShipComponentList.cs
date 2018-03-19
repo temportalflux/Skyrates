@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Client.Util;
+﻿using Skyrates.Util;
 using UnityEngine;
 
-using ComponentType = ShipData.ComponentType;
+using ComponentType = Skyrates.Ship.ShipData.ComponentType;
 
-namespace Skyrates.Client.Ship
+namespace Skyrates.Ship
 {
 
     /// <summary>

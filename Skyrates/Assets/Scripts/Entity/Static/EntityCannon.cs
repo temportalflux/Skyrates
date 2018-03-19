@@ -1,16 +1,15 @@
-﻿using Skyrates.Client.Mono;
-using System.Collections;
+﻿using System.Collections;
 using Skyrates.AI;
-using Skyrates.Common.AI;
-using Skyrates.Common.Entity;
+using Skyrates.Mono;
+using Skyrates.Physics;
 using UnityEngine;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Entity
 {
 
     //No inheritance because we don't want to accidentally call FireProjectile when we actually meant to shoot.
     [RequireComponent(typeof(Shooter))]
-	public class EntityCannon : Common.Entity.Entity, IDistanceCollidable
+	public class EntityCannon : Entity, IDistanceCollidable
 	{
 		/// <summary>
 		/// The amount of extra tilt in degrees needed in a direction to make the target.
@@ -217,7 +216,7 @@ namespace Skyrates.Client.Entity
 			Vector3 up = Vector3.up;
 			Vector3 right = Vector3.Cross(forward, up);
 			this.ArcAxis = right;
-			float gravity = Physics.gravity.y;
+			float gravity = UnityEngine.Physics.gravity.y;
 			
 			distanceVector.y = 0.0f;
 			float xSqr = Mathf.Min(this.ShootSpeed * this.ShootSpeed, distanceVector.sqrMagnitude);

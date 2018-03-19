@@ -1,4 +1,4 @@
-﻿using Skyrates.Common.Entity;
+﻿using Skyrates.Entity;
 using UnityEngine;
 
 namespace Skyrates.AI.State.Transition

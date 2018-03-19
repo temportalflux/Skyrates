@@ -2,7 +2,8 @@
 using Skyrates.AI.Formation;
 using Skyrates.AI.Target;
 using Skyrates.Common.AI;
-using Skyrates.Common.Entity;
+using Skyrates.Entity;
+using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI

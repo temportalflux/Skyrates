@@ -1,11 +1,9 @@
-﻿using System;
-using Skyrates.Client.Entity;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
+﻿using Skyrates.Entity;
 using Skyrates.Game;
+using Skyrates.Game.Event;
 using UnityEngine;
 
-namespace Skyrates.Client.Mono
+namespace Skyrates.Mono
 {
     
     /// <summary>
@@ -18,7 +16,7 @@ namespace Skyrates.Client.Mono
         /// The prefab of the projectile to launch from this source.
         /// </summary>
         [SerializeField]
-        public Common.Entity.Entity projectilePrefab;
+        public Entity.Entity projectilePrefab;
 
         /// <summary>
         /// The spawn location of the projectile.
@@ -47,7 +45,7 @@ namespace Skyrates.Client.Mono
         public void FireProjectile(Vector3 direction, Vector3 launchVelocity)
         {
             // TODO: These are fired off one by one, and are often done in batches. This should just be one packet of all the projectiles to spawn.
-            Common.Entity.Entity entity = GameManager.Instance.SpawnEntity(this.projectilePrefab); //TODO: Use an object pool if possible.
+            Entity.Entity entity = GameManager.Instance.SpawnEntity(this.projectilePrefab); //TODO: Use an object pool if possible.
             if (entity != null)
             {
                 EntityProjectile projectile = (EntityProjectile)entity;

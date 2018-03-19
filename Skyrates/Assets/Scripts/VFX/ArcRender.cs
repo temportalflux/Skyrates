@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Skyrates.Client.Effects
+namespace Skyrates.Effects
 {
 
     // https://en.wikipedia.org/wiki/Projectile_motion
     // https://www.youtube.com/watch?v=iLlWirdxass
     // https://www.youtube.com/watch?v=TXHK1nPUOBE
     [RequireComponent(typeof(MeshFilter))]
-    public class ArcRender : UnityEngine.MonoBehaviour
+    public class ArcRender : MonoBehaviour
     {
 
         public float Velocity;
@@ -39,7 +37,7 @@ namespace Skyrates.Client.Effects
         void Awake()
         {
             this._mesh = this.GetComponent<MeshFilter>().mesh;
-            this._gravity = Physics.gravity;
+            this._gravity = UnityEngine.Physics.gravity;
             this.RecalculateMesh();
         }
 

@@ -1,5 +1,5 @@
 ﻿
-namespace Skyrates.Common.Network
+namespace Skyrates.Util.Serializing
 {
 
     /// <summary>

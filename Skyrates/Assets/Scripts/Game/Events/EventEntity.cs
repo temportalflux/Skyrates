@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Common.Entity;
-using Skyrates.Game.Event;
-using UnityEngine;
-
-namespace Skyrates.Client.Game.Event
+﻿
+namespace Skyrates.Game.Event
 {
 
     /// <summary>
@@ -13,9 +8,9 @@ namespace Skyrates.Client.Game.Event
     public class EventEntity : GameEvent
     {
 
-        public Common.Entity.Entity Entity;
+        public Entity.Entity Entity;
 
-        public EventEntity(GameEventID id, Common.Entity.Entity entity) : base(id)
+        public EventEntity(GameEventID id, Entity.Entity entity) : base(id)
         {
             this.Entity = entity;
         }

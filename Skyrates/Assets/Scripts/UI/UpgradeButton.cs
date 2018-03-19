@@ -1,13 +1,11 @@
-﻿using Skyrates.Client.Data;
-using Skyrates.Client.Entity;
-using Skyrates.Client.Game;
-using Skyrates.Client.Ship;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Skyrates.Data;
+using Skyrates.Entity;
+using Skyrates.Ship;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Skyrates.Client.UI
+namespace Skyrates.UI
 {
 	public class UpgradeButton : MonoBehaviour
 	{

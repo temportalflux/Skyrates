@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Skyrates.Client.Scene
+namespace Skyrates.Scene
 {
     /// <summary>
     /// Data for easily referencing scenes without needing to manually key in scene names all the time.

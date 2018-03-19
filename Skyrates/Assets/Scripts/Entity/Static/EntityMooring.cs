@@ -1,18 +1,17 @@
 ﻿using System.Collections;
-using Skyrates.Client.Game;
-using Skyrates.Client.Game.Event;
-using Skyrates.Client.UI;
-using Skyrates.Common.Entity;
 using Skyrates.Game;
+using Skyrates.Game.Event;
+using Skyrates.Mono;
+using Skyrates.UI;
 using UnityEngine;
 
-namespace Skyrates.Client.Entity
+namespace Skyrates.Entity
 {
 
 	/// <summary>
 	/// A static entity where you can upgrade your components.
 	/// </summary>
-	public class EntityMooring : Common.Entity.Entity, IDistanceCollidable
+	public class EntityMooring : Entity, IDistanceCollidable
 	{
 
         /// <summary>

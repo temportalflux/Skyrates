@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-
-namespace Skyrates.Client.Entity
+namespace Skyrates.UI
 {
 	public class CanvasWorldSpaceToScreenSpace : MonoBehaviour
 	{
