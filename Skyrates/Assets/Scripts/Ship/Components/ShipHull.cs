@@ -55,7 +55,7 @@ namespace Skyrates.Ship
             return this.Protection;
         }
 
-        public void GenerateLoot(GameObject lootObjectPrefab, ShipData.BrokenComponentType item, bool forced = false)
+        public void AddLoot(GameObject lootObjectPrefab, ShipData.BrokenComponentType item, bool forced = false)
         {
             int nextIndex = this.GeneratedLoot.Count;
             if (nextIndex < this.LootMounts.Length)

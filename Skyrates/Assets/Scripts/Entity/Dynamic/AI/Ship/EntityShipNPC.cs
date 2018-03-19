@@ -47,7 +47,6 @@ namespace Skyrates.Entity
                 Loot.Loot loot = Instantiate(lootItem.Value.gameObject, pos, Quaternion.identity).GetComponent<Loot.Loot>();
                 // Set the item the loot contains
                 loot.Item = lootItem.Key;
-                // TODO: Loot event, loot should be static entity for networking
             }
         }
 
@@ -60,7 +59,7 @@ namespace Skyrates.Entity
         {
             if (other is EntityPlayerShip)
             {
-                // TODO: Move to a behavior
+                // TODO: Move shooting to an ai behavior
                 this.StartShooting(other as EntityPlayerShip, maxDistance);
             }
         }

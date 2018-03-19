@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 namespace Skyrates.UI
 {
+    // TODO: Remove in favor of diagetic
     public class UpdateLootCount : MonoBehaviour
     {
 
@@ -27,7 +28,6 @@ namespace Skyrates.UI
 
         private void Update()
         {
-            //TODO: Add new UI.
             //this.LootText.text = string.Format("{0} / {1}", this.data.LootCount, this.data.LootGoal);
         }
 

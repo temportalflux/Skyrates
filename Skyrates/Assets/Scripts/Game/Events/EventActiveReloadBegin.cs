@@ -22,9 +22,9 @@ namespace Skyrates.Game.Event
 
         public float GetPercentUpdate()
         {
-            return this.IsStarboard
-                ? this.PlayerShip.PlayerData.StateData.ShootingDataStarboardPercentReloaded
-                : this.PlayerShip.PlayerData.StateData.ShootingDataPortPercentReloaded;
+            return (this.IsStarboard
+                ? this.PlayerShip.PlayerData.StateData.CannonSetStarboard
+                : this.PlayerShip.PlayerData.StateData.CannonSetPort).GetPercentLoaded();
         }
 
     }

@@ -96,8 +96,8 @@ namespace Skyrates.Entity
         {
             this.PlayerData.Inventory.Add(loot.Item); //Must be before generating loot.
 
-            // TODO: do this through event?
-            this.ShipRoot.Hull.GenerateLoot(loot.LootPrefabWithoutSail, loot.Item);
+            // TODO: Change AddLoot to OnLootChanged
+            this.ShipRoot.Hull.AddLoot(loot.LootPrefabWithoutSail, loot.Item);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
 

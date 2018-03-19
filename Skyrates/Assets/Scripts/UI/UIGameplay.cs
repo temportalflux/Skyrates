@@ -20,6 +20,7 @@ namespace Skyrates.UI
             GameManager.Events.ActiveReloadBegin -= this.OnActiveReloadBegin;
         }
 
+        // TODO: Remove UI event and just track the progress directly through the state data
         void OnActiveReloadBegin(GameEvent evt)
         {
             EventActiveReloadBegin evtReload = (EventActiveReloadBegin) evt;

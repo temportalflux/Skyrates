@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyrates.Scene;
 using UnityEngine;
 
 namespace Skyrates.Data
@@ -83,6 +84,88 @@ namespace Skyrates.Data
             LOCK_RIGHT,
             LOCK_LEFT,
         }
+        
+        // Not serializable - does not save data
+        public class BroadsideCannonSet
+        {
+
+            /// <summary>
+            /// If the cannon can be actively reloaded.
+            /// Can be triggered after starting reload to auto complete if within a specific range.
+            /// </summary>
+            private bool _canActiveReload = false;
+
+            /// <summary>
+            /// If the cannon is in the process of reloading.
+            /// </summary>
+            private bool _isLoading = false;
+
+            /// <summary>
+            /// How much reloaded the cannon is.
+            /// </summary>
+            [Range(0, 1)]
+            private float _percentLoaded = 1.0f;
+
+            /// <summary>
+            /// If the cannon is fully loaded.
+            /// </summary>
+            public bool IsLoaded
+            {
+                get { return this._percentLoaded >= 1.0f; }
+            }
+
+            public float GetPercentLoaded()
+            {
+                return this._percentLoaded;
+            }
+
+            public void Empty()
+            {
+                this._percentLoaded = 0.0f;
+                this._canActiveReload = true;
+                this._isLoading = false;
+            }
+
+            public void LoadBy(float amount)
+            {
+                if (!this._isLoading) return;
+
+                this._percentLoaded = Mathf.Min(1.0f, this._percentLoaded + amount);
+
+                if (this._percentLoaded >= 1.0f)
+                {
+                    this.Load();
+                }
+            }
+
+            private void Load()
+            {
+                this._canActiveReload = false;
+                this._isLoading = false;
+                this._percentLoaded = 1.0f;
+            }
+
+            public void TryReload(float start, float end)
+            {
+                if (!this._isLoading)
+                {
+                    this._isLoading = true;
+                    this._percentLoaded = 0.0f;
+                }
+                else if (this._canActiveReload)
+                {
+                    if (this._percentLoaded >= start && this._percentLoaded <= end)
+                    {
+                        this.Load();
+                    }
+                    else
+                    {
+                        this._canActiveReload = false;
+                    }
+                }
+            }
+
+        }
 
         [Serializable]
         public class State
@@ -106,22 +189,9 @@ namespace Skyrates.Data
             [HideInInspector]
             public CameraMode ViewMode;
 
-            // TODO: Condense this into an object keyed by ArtilleryComponent
-            public float ShootingDataStarboardPercentReloaded;
-            public bool ShootingDataStarboardIsReloading;
-            public bool ShootingDataStarboardCanReload;
-            public bool ShootingDataStarboardIsReloaded
-            {
-                get { return this.ShootingDataStarboardPercentReloaded >= 1.0f; }
-            }
-
-            public float ShootingDataPortPercentReloaded;
-            public bool ShootingDataPortIsReloading;
-            public bool ShootingDataPortCanReload;
-            public bool ShootingDataPortIsReloaded
-            {
-                get { return this.ShootingDataPortPercentReloaded >= 1.0f; }
-            }
+            // TODO: Create a class which references all artillery for a specific set, and also handles if/how much loaded it is.
+            public BroadsideCannonSet CannonSetStarboard;
+            public BroadsideCannonSet CannonSetPort;
 
             [Header("Active Reload")]
             [Range(0.0f, 1.0f)]
@@ -147,25 +217,11 @@ namespace Skyrates.Data
         public void OnEnable()
         {
             this.StateData.MovementSpeed = 0.0f;
-
-            this.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
-            this.StateData.ShootingDataStarboardIsReloading = false;
-            this.StateData.ShootingDataStarboardCanReload = false;
-            this.StateData.ShootingDataPortPercentReloaded = 1.0f;
-            this.StateData.ShootingDataPortIsReloading = false;
-            this.StateData.ShootingDataPortCanReload = false;
         }
 
         public void OnDisable()
         {
             this.StateData.MovementSpeed = 0.0f;
-
-            this.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
-            this.StateData.ShootingDataStarboardIsReloading = false;
-            this.StateData.ShootingDataStarboardCanReload = false;
-            this.StateData.ShootingDataPortPercentReloaded = 1.0f;
-            this.StateData.ShootingDataPortIsReloading = false;
-            this.StateData.ShootingDataPortCanReload = false;
         }
 
         public void Init()

@@ -173,35 +173,6 @@ namespace Skyrates.Client.Input
             this.PlayerStateCurrent.OnExit();
             this.PlayerStateCurrent = this.PlayerStates[evt.actionName];
             this.PlayerStateCurrent.OnEnter(this);
-
-            //Transform cameraState = this.Camera.transform;
-            //switch (evt.actionName)
-            //{
-            //    case "Mode:Free":
-            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.FREE;
-            //        cameraState = this.CameraModeFree;
-            //        this.StateAnimator.SetTrigger("Unlocked");
-            //        break;
-            //    case "Mode:Starboard":
-            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_RIGHT;
-            //        cameraState = this.CameraModeStarboard;
-            //        this.StateAnimator.SetTrigger("Broadside:Star");
-            //        break;
-            //    case "Mode:Port":
-            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_LEFT;
-            //        cameraState = this.CameraModePort;
-            //        this.StateAnimator.SetTrigger("Broadside:Port");
-            //        break;
-            //    case "Mode:Down":
-            //        this.PlayerData.StateData.ViewMode = PlayerData.CameraMode.LOCK_DOWN;
-            //        cameraState = this.CameraModeDown;
-            //        this.StateAnimator.SetTrigger("Bomb");
-            //        break;
-            //}
-            
-            //// TODO: Slerp camera
-            //this.Camera.SetPositionAndRotation(cameraState.position, cameraState.rotation);
-
         }
 
         void OnInputFire(InputActionEventData evt)
@@ -247,53 +218,16 @@ namespace Skyrates.Client.Input
                 switch (reloadTarget)
                 {
                     case ShipData.ComponentType.ArtilleryRight:
-                        if (!this.PlayerData.StateData.ShootingDataStarboardIsReloading)
-                        {
-                            this.PlayerData.StateData.ShootingDataStarboardIsReloading = true;
-                            this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = 0.0f;
-                        }
-                        else
-                        {
-                            if (this.PlayerData.StateData.ShootingDataStarboardCanReload)
-                            {
-                                if (this.PlayerData.StateData.ShootingDataStarboardPercentReloaded >=
-                                    this.PlayerData.StateData.ShootDelayActiveReloadStart &&
-                                    this.PlayerData.StateData.ShootingDataStarboardPercentReloaded <=
-                                    this.PlayerData.StateData.ShootDelayActiveReloadEnd)
-                                {
-                                    this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = 1.0f;
-                                }
-                                else
-                                {
-                                    this.PlayerData.StateData.ShootingDataStarboardCanReload = false;
-                                }
-                            }
-                        }
+                        this.PlayerData.StateData.CannonSetStarboard.TryReload(
+                            this.PlayerData.StateData.ShootDelayActiveReloadStart,
+                            this.PlayerData.StateData.ShootDelayActiveReloadEnd
+                        );
                         break;
                     case ShipData.ComponentType.ArtilleryLeft:
-                        if (!this.PlayerData.StateData.ShootingDataPortIsReloading)
-                        {
-                            this.PlayerData.StateData.ShootingDataPortIsReloading = true;
-                            this.PlayerData.StateData.ShootingDataPortPercentReloaded = 0.0f;
-                        }
-                        else
-                        {
-                            if (this.PlayerData.StateData.ShootingDataPortCanReload)
-                            {
-                                if (this.PlayerData.StateData.ShootingDataPortPercentReloaded >=
-                                    this.PlayerData.StateData.ShootDelayActiveReloadStart &&
-                                    this.PlayerData.StateData.ShootingDataPortPercentReloaded <=
-                                    this.PlayerData.StateData.ShootDelayActiveReloadEnd)
-                                {
-                                    this.PlayerData.StateData.ShootingDataPortPercentReloaded = 1.0f;
-                                }
-                                else
-                                {
-                                    this.PlayerData.StateData.ShootingDataPortCanReload = false;
-                                }
-
-                            }
-                        }
+                        this.PlayerData.StateData.CannonSetPort.TryReload(
+                            this.PlayerData.StateData.ShootDelayActiveReloadStart,
+                            this.PlayerData.StateData.ShootDelayActiveReloadEnd
+                        );
                         break;
                 }
             }
@@ -338,28 +272,8 @@ namespace Skyrates.Client.Input
         {
             float deltaAmt = deltaTime / this.PlayerData.StateData.ShootDelay;
 
-            if (this.PlayerData.StateData.ShootingDataStarboardIsReloading)
-            {
-                this.PlayerData.StateData.ShootingDataStarboardPercentReloaded =
-                    Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataStarboardPercentReloaded + deltaAmt);
-                if (this.PlayerData.StateData.ShootingDataStarboardPercentReloaded >= 1.0f)
-                {
-                    this.PlayerData.StateData.ShootingDataStarboardCanReload = false;
-                    this.PlayerData.StateData.ShootingDataStarboardIsReloading = false;
-                }
-            }
-
-            if (this.PlayerData.StateData.ShootingDataPortIsReloading)
-            {
-                this.PlayerData.StateData.ShootingDataPortPercentReloaded =
-                    Mathf.Min(1.0f, this.PlayerData.StateData.ShootingDataPortPercentReloaded + deltaAmt);
-                if (this.PlayerData.StateData.ShootingDataPortPercentReloaded >= 1.0f)
-                {
-                    this.PlayerData.StateData.ShootingDataPortCanReload = false;
-                    this.PlayerData.StateData.ShootingDataPortIsReloading = false;
-                }
-            }
-
+            this.PlayerData.StateData.CannonSetStarboard.LoadBy(deltaAmt);
+            this.PlayerData.StateData.CannonSetPort.LoadBy(deltaAmt);
         }
 
         private void ToggleShooting(bool isShooting, ShipData.ComponentType artillery)
@@ -370,17 +284,16 @@ namespace Skyrates.Client.Input
             switch (artillery)
             {
                 case ShipData.ComponentType.ArtilleryRight:
-                    percentReloaded = this.PlayerData.StateData.ShootingDataStarboardPercentReloaded;
+                    percentReloaded = this.PlayerData.StateData.CannonSetStarboard.GetPercentLoaded();
                     break;
                 case ShipData.ComponentType.ArtilleryLeft:
-                    percentReloaded = this.PlayerData.StateData.ShootingDataPortPercentReloaded;
+                    percentReloaded = this.PlayerData.StateData.CannonSetPort.GetPercentLoaded();
                     break;
                 default:
                     return;
             }
             
             if (percentReloaded < 1.0f) return;
-            percentReloaded = 0.0f;
 
             this.Shoot(artillery);
 
@@ -388,14 +301,20 @@ namespace Skyrates.Client.Input
             switch (artillery)
             {
                 case ShipData.ComponentType.ArtilleryRight:
+                    this.PlayerData.StateData.CannonSetStarboard.Empty();
+                    /*
                     this.PlayerData.StateData.ShootingDataStarboardCanReload = true;
                     this.PlayerData.StateData.ShootingDataStarboardIsReloading = false;
                     this.PlayerData.StateData.ShootingDataStarboardPercentReloaded = percentReloaded;
+                    */
                     break;
                 case ShipData.ComponentType.ArtilleryLeft:
+                    this.PlayerData.StateData.CannonSetPort.Empty();
+                    /*
                     this.PlayerData.StateData.ShootingDataPortCanReload = true;
                     this.PlayerData.StateData.ShootingDataPortIsReloading = false;
                     this.PlayerData.StateData.ShootingDataPortPercentReloaded = percentReloaded;
+                    */
                     break;
             }
 
