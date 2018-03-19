@@ -6,24 +6,24 @@ using UnityEditor;
 using UnityEngine;
 using ComponentType = ShipData.ComponentType;
 
-[CustomEditor(typeof(ShipBuilder))]
+[CustomEditor(typeof(ShipRig))]
 public class ShipBuilderEditor : Editor
 {
 
-    private ShipBuilder instance;
+    private ShipRig instance;
 
     public void OnEnable()
     {
-        this.instance = this.target as ShipBuilder;
+        this.instance = this.target as ShipRig;
     }
 
     public override void OnInspectorGUI()
     {
         EditorGUILayout.LabelField("Ship Builder");
 
-        if (instance.ShipData.Components.Length != ShipData.ComponentTypes.Length)
+        if (instance.ShipData.ComponentTiers.Length != ShipData.ComponentTypes.Length)
         {
-            Array.Resize(ref instance.ShipData.Components, ShipData.ComponentTypes.Length);
+            Array.Resize(ref instance.ShipData.ComponentTiers, ShipData.ComponentTypes.Length);
         }
 
         EditorGUILayout.BeginHorizontal();

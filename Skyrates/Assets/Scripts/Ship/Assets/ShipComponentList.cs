@@ -11,7 +11,7 @@ namespace Skyrates.Client.Ship
 
     /// <summary>
     /// The listings of all components used in ships.
-    /// Referenced by <see cref="ShipBuilder"/> and <see cref="ShipData"/> for generating
+    /// Referenced by <see cref="ShipRig"/> and <see cref="ShipData"/> for generating
     /// ship rigs and syncing them across the network.
     /// </summary>
     [CreateAssetMenu(menuName = "Data/Ship/List: Components")]

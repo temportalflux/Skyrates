@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -604,7 +606,7 @@
     <Compile Include="Assets\Scripts\Scenes\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Scenes\StartScene.cs" />
     <Compile Include="Assets\Scripts\SelfDestruct.cs" />
-    <Compile Include="Assets\Scripts\Ship\Assets\ShipBuilder.cs" />
+    <Compile Include="Assets\Scripts\Ship\Assets\ShipRig.cs" />
     <Compile Include="Assets\Scripts\Ship\Assets\ShipComponentList.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipArtillery.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipComponent.cs" />

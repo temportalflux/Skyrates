@@ -113,38 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &252823834
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 252823835}
-  m_Layer: 15
-  m_Name: Hooks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &252823835
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 252823834}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1207033668}
-  - {fileID: 883350186}
-  - {fileID: 996415035}
-  - {fileID: 962356311}
-  m_Father: {fileID: 1675506785}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &311160308
 Prefab:
   m_ObjectHideFlags: 0
@@ -191,15 +159,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4670020475834198, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.15012537
+      value: 0.1501257
       objectReference: {fileID: 0}
     - target: {fileID: 4670020475834198, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.988667
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800404417230490, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.13218889
+      value: 0.98866695
       objectReference: {fileID: 0}
     - target: {fileID: 4741259884216756, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
       propertyPath: m_LocalRotation.x
@@ -209,24 +173,15 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.9886669
       objectReference: {fileID: 0}
+    - target: {fileID: 4800404417230490, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.13218851
+      objectReference: {fileID: 0}
     - target: {fileID: 1436304090232158, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114707052268871426, guid: d88c0b9ab5a4d2149b7dabb71bbb4949,
-        type: 2}
-      propertyPath: Action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4501026110487600, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114707052268871426, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
-    - {fileID: 114445871696546954, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
-    - {fileID: 114132723636093516, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
-    - {fileID: 114976267456203210, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d88c0b9ab5a4d2149b7dabb71bbb4949, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &509514156
@@ -323,302 +278,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &883350185
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 883350186}
-  - component: {fileID: 883350188}
-  - component: {fileID: 883350187}
-  m_Layer: 15
-  m_Name: Player Hit By Ram
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &883350186
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 883350185}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 252823835}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &883350187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 883350185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5951aec6df92024dad7c24a81569fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: 9
-  Action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 883350188}
-        m_MethodName: StartShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Game.Event.GameEventHook+GameEventAction, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &883350188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 883350185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60eb619c61102624896e7849ac62d153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Shaker: {fileID: 1675506786}
-  Duration: 1
-  Amplitude: 0.2
-  Frequency: 2
-  Continuous: 0
---- !u!1 &962356310
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 962356311}
-  - component: {fileID: 962356313}
-  - component: {fileID: 962356312}
-  m_Layer: 15
-  m_Name: Player Fire Artillery
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &962356311
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 962356310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 252823835}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &962356312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 962356310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2c838735bc4ed4699e3052266c019a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: 8
-  Action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 962356313}
-        m_MethodName: StartShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Game.Event.GameEventHook+GameEventAction, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &962356313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 962356310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60eb619c61102624896e7849ac62d153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Shaker: {fileID: 1675506786}
-  Duration: 1
-  Amplitude: 0.2
-  Frequency: 2
-  Continuous: 0
---- !u!1 &996415034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 996415035}
-  - component: {fileID: 996415037}
-  - component: {fileID: 996415036}
-  m_Layer: 15
-  m_Name: Player Hit With Ram
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &996415035
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 996415034}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 252823835}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &996415036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 996415034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8321b69e3b81c44f99e49e00995df05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: 9
-  Action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 996415037}
-        m_MethodName: StartShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Game.Event.GameEventHook+GameEventAction, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &996415037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 996415034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60eb619c61102624896e7849ac62d153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Shaker: {fileID: 1675506786}
-  Duration: 1
-  Amplitude: 0.2
-  Frequency: 2
-  Continuous: 0
---- !u!1 &1207033667
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1207033668}
-  - component: {fileID: 1207033670}
-  - component: {fileID: 1207033669}
-  m_Layer: 15
-  m_Name: Player Hit by Projectile
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1207033668
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1207033667}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 252823835}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1207033669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1207033667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f774dd45c4774834aba48c616c105c05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: 6
-  Action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1207033670}
-        m_MethodName: StartShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Skyrates.Game.Event.GameEventHook+GameEventAction, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &1207033670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1207033667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60eb619c61102624896e7849ac62d153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Shaker: {fileID: 1675506786}
-  Duration: 1
-  Amplitude: 0.2
-  Frequency: 2
-  Continuous: 0
 --- !u!1001 &1390287638
 Prefab:
   m_ObjectHideFlags: 0
@@ -794,17 +453,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1643487461}
---- !u!4 &1675506785 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4607395971305948, guid: d88c0b9ab5a4d2149b7dabb71bbb4949,
-    type: 2}
-  m_PrefabInternal: {fileID: 311160308}
---- !u!114 &1675506786 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114324186234516772, guid: d88c0b9ab5a4d2149b7dabb71bbb4949,
-    type: 2}
-  m_PrefabInternal: {fileID: 311160308}
-  m_Script: {fileID: 11500000, guid: c2aec70a8c0cf0140b0778a9cab056db, type: 3}
 --- !u!1 &1940909948
 GameObject:
   m_ObjectHideFlags: 0

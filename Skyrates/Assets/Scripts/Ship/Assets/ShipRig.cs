@@ -11,7 +11,7 @@ namespace Skyrates.Client.Ship
 {
 
     [CreateAssetMenu(menuName = "Data/Ship/Builder")]
-    public class ShipBuilder : ScriptableObject
+    public class ShipRig : ScriptableObject
     {
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace Skyrates.Client.Ship
             return hullBuilt;
         }
 
-        /*
+        /* This is outdated and redundant. Use Destroy/Generate and Increment the ship data tier index via ShipData.Upgrade
 		/// <summary>
 		/// Upgrades the ship to the next tier.
 		/// </summary>

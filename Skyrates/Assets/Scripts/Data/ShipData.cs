@@ -81,7 +81,7 @@ public class ShipData : ISerializing
 	public static readonly BrokenComponentType[] ComponentTypeToBrokenComponentType = { BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Figurehead, BrokenComponentType.Hull, BrokenComponentType.Navigation, BrokenComponentType.Navigation, BrokenComponentType.Propulsion, BrokenComponentType.Invalid };
 
 	[SerializeField]
-    public int[] Components = new int[ComponentTypes.Length];
+    public int[] ComponentTiers = new int[ComponentTypes.Length];
 
     [SerializeField]
     private bool _hasNewData = false;
@@ -94,8 +94,8 @@ public class ShipData : ISerializing
 
     public int this[ComponentType key]
     {
-        get { return this.Components[(int)key]; }
-        set { this.Components[(int)key] = value; }
+        get { return this.ComponentTiers[(int)key]; }
+        set { this.ComponentTiers[(int)key] = value; }
     }
 
     /// <summary>
@@ -112,27 +112,27 @@ public class ShipData : ISerializing
 
     public int GetSize()
     {
-        return sizeof(int) + this.Components.Length * sizeof(int);
+        return sizeof(int) + this.ComponentTiers.Length * sizeof(int);
     }
 
     public void Serialize(ref byte[] data, ref int lastIndex)
     {
-        data = BitSerializeAttribute.Serialize(this.Components, data, lastIndex);
+        data = BitSerializeAttribute.Serialize(this.ComponentTiers, data, lastIndex);
         lastIndex += this.GetSize();
     }
 
     public void Deserialize(byte[] data, ref int lastIndex)
     {
-        int[] deserializedComponents = (int[])BitSerializeAttribute.Deserialize(this.Components, data, ref lastIndex);
-        if (deserializedComponents.Length != this.Components.Length)
+        int[] deserializedComponents = (int[])BitSerializeAttribute.Deserialize(this.ComponentTiers, data, ref lastIndex);
+        if (deserializedComponents.Length != this.ComponentTiers.Length)
         {
             this._hasNewData = true;
         }
         else
         {
-            for (int iComponent = 0; iComponent < this.Components.Length; iComponent++)
+            for (int iComponent = 0; iComponent < this.ComponentTiers.Length; iComponent++)
             {
-                if (this.Components[iComponent] != deserializedComponents[iComponent])
+                if (this.ComponentTiers[iComponent] != deserializedComponents[iComponent])
                 {
                     this._hasNewData = true;
                     break;
@@ -142,8 +142,13 @@ public class ShipData : ISerializing
 
         if (this._hasNewData)
         {
-            this.Components = deserializedComponents;
+            this.ComponentTiers = deserializedComponents;
         }
+    }
+
+    public void Upgrade(ComponentType type)
+    {
+        this[type]++;
     }
 
 }

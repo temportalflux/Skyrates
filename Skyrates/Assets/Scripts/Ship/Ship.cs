@@ -1,4 +1,5 @@
-﻿using Skyrates.Client.Entity;
+﻿using System.Collections.Generic;
+using Skyrates.Client.Entity;
 using Skyrates.Common.Network;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Skyrates.Client.Ship
 
     /// <inheritdoc />
     /// <summary>
-    /// The object which contails all <see cref="ShipComponent" />s for a specific <see cref="ShipBuilder" /> rig.
+    /// The object which contails all <see cref="ShipComponent" />s for a specific <see cref="ShipRig" /> rig.
     /// </summary>
     public class Ship : MonoBehaviour
     {
@@ -20,10 +21,10 @@ namespace Skyrates.Client.Ship
         /// <summary>
         /// The blueprint for this ship. Indicates which components create the ship.
         /// </summary>
-        public ShipBuilder Blueprint;
+        public ShipRig Blueprint;
 
         /// <summary>
-        /// Data from <see cref="ShipBuilder"/> used to <see cref="Generate"/> the ship. Only valid after <see cref="Generate"/> is called.
+        /// Data from <see cref="ShipRig"/> used to <see cref="Generate"/> the ship. Only valid after <see cref="Generate"/> is called.
         /// </summary>
         [BitSerialize(0)]
         [HideInInspector]
@@ -54,6 +55,20 @@ namespace Skyrates.Client.Ship
             this.Hull = this.Blueprint.BuildTo(owner, ref this.ComponentRoot, this.ShipData);
             this.ShipData.MustBeRebuilt = false;
             return this.ShipData;
+        }
+
+        public void ReGenerate(EntityShip owner)
+        {
+            this.Destroy();
+            this.Generate(owner, this.ShipData);
+        }
+
+        public void UpgradeComponents(List<ShipData.ComponentType> components)
+        {
+            foreach (ShipData.ComponentType type in components)
+            {
+                this.ShipData.Upgrade(type);
+            }
         }
 
     }

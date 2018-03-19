@@ -35,8 +35,11 @@ namespace Skyrates.Client.UI
 		//Removes item from local data and upgrades the tier by 1.
 		public void UpgradeItem()
 		{
+            // Get the list of all the actual components that this button is set to upgrade
+            // 1 button can upgrade multiple components (i.e. upgrade all cannons at once, or both sides of navigation)
 			List<ShipData.ComponentType> componentTypes = new List<ShipData.ComponentType>(3);
-			switch (Type)
+            // TODO: Move this to a dictionary lookup + addrange
+            switch (Type)
 			{
 				case ShipData.BrokenComponentType.Artillery:
 					componentTypes.Add(ShipData.ComponentType.ArtilleryForward);
@@ -59,18 +62,36 @@ namespace Skyrates.Client.UI
 				default:
 					break;
 			}
+
+            // Iterate over each component to determine if ALL components can be upgraded at least once
 			bool isUpgradableFurther = true;
 			foreach(ShipData.ComponentType type in componentTypes)
 			{
+                // Get the current list of components for each type
 				ShipComponent[] oldComponents = this._player.GetShipComponentsOfType(type);
+                // Get the first in the list
 				ShipComponent oldComponent = oldComponents != null && oldComponents.Length > 0 ? oldComponents[0] : null;
+                // Get the tier of the component list
+                // TODO: Add getter to EntityShip indicating the current tier of each component type
 				uint oldTierIndex = oldComponent != null ? oldComponent.TierIndex : 0;
-				if(++oldTierIndex >= this._player.ShipRoot.Blueprint.ShipComponentList.Categories[this._player.ShipRoot.Blueprint.ShipComponentList.GetIndexFrom(type)].Prefabs.Length) { isUpgradableFurther = false; break; }
+                // Get the current rig and component list to check for max upgrades
+			    ShipRig playerShipRig = this._player.ShipRoot.Blueprint;
+			    ShipComponentList componentList = playerShipRig.ShipComponentList;
+                // Check to see if the component can be upgraded any more
+			    if (oldTierIndex + 1 >= componentList.Categories[componentList.GetIndexFrom(type)].Prefabs.Length)
+			    {
+			        isUpgradableFurther = false;
+			        break;
+			    }
 			}
+            // If all components have a next tier, and we have enough inventory
 			if (isUpgradableFurther && this.PlayerData.Inventory.Remove(Type) != 0)
 			{
-                this._player.ShipRoot.Destroy();
-			    this._player.ShipRoot.Generate(this._player);
+                // Upgrade the component
+			    this._player.ShipRoot.UpgradeComponents(componentTypes);
+
+                // Regenerate the ship rig
+			    this._player.ShipRoot.ReGenerate(this._player);
 			}
 		}
 
