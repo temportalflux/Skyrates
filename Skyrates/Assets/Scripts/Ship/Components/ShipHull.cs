@@ -18,15 +18,9 @@ namespace Skyrates.Ship
         {
             public ShipComponent[] Value;
         }
-
-        [Tooltip("The base amount of damage subtracted from damage taken")]
-        public float Defense;
-
-        [Tooltip("The percentage of damage subtracted from damage taken")]
-        public float Protection;
         
         [SerializeField]
-        public ComponentList[] Components = new ComponentList[ShipData.NonHullComponents.Length];
+        public ComponentList[] Components = new ComponentList[ShipData.ComponentTypes.Length];
 
         [SerializeField]
         public Transform[] LootMounts;
@@ -43,7 +37,16 @@ namespace Skyrates.Ship
         /// <returns>The amount of damage subtracted from damage taken</returns>
         public float GetDefense()
         {
-            return this.Defense;
+            float value = 0.0f;
+            foreach (ShipComponent comp in this.GetComponent(ShipData.ComponentType.HullArmor))
+            {
+                ShipHullArmor hullArmor = comp as ShipHullArmor;
+                if (hullArmor != null)
+                {
+                    value += hullArmor.GetDefense();
+                }
+            }
+            return value;
         }
 
         /// <summary>
@@ -52,7 +55,16 @@ namespace Skyrates.Ship
         /// <returns>The percentage of damage subtracted from damage taken</returns>
         public float GetProtection()
         {
-            return this.Protection;
+            float value = 0.0f;
+            foreach (ShipComponent comp in this.GetComponent(ShipData.ComponentType.HullArmor))
+            {
+                ShipHullArmor hullArmor = comp as ShipHullArmor;
+                if (hullArmor != null)
+                {
+                    value *= hullArmor.GetProtection();
+                }
+            }
+            return value;
         }
 
         public void AddLoot(GameObject lootObjectPrefab, ShipData.BrokenComponentType item, bool forced = false)
@@ -75,7 +87,7 @@ namespace Skyrates.Ship
 
         protected int GetComponentIndex(ShipData.ComponentType type)
         {
-            return ShipData.HulllessComponentIndex[(int)type];
+            return (int)type;
         }
 
         /// <summary>
@@ -85,9 +97,6 @@ namespace Skyrates.Ship
         /// <returns></returns>
         public ShipComponent[] GetComponent(ShipData.ComponentType compType)
         {
-            Debug.Assert((int)ShipData.ComponentType.Hull != 0);
-            Debug.Assert(ShipData.ComponentType.Hull != compType, "Cannot get hull from hull");
-            // compType - 1 to account for Hull
             return this.Components[this.GetComponentIndex(compType)].Value;
         }
 

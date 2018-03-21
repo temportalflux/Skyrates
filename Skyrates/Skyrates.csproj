@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -611,6 +613,7 @@
     <Compile Include="Assets\Scripts\Ship\Components\ShipComponent.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipFigurehead.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipHull.cs" />
+    <Compile Include="Assets\Scripts\Ship\Components\ShipHullArmor.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipHullGenerated.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipNavigation.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipNavigationLeft.cs" />
@@ -619,7 +622,7 @@
     <Compile Include="Assets\Scripts\Ship\Components\ShipSail.cs" />
     <Compile Include="Assets\Scripts\Ship\ForwardCollisionsTo.cs" />
     <Compile Include="Assets\Scripts\Ship\LootPivot.cs" />
-    <Compile Include="Assets\Scripts\Ship\Ship.cs" />
+    <Compile Include="Assets\Scripts\Ship\ShipGenerator.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipRenderRoot.cs" />
     <Compile Include="Assets\Scripts\Ship\StatBlock.cs" />
     <Compile Include="Assets\Scripts\Test\TestCannonRotation.cs" />

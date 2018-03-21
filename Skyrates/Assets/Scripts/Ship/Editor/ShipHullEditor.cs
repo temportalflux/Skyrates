@@ -12,7 +12,7 @@ namespace Skyrates.Ship
     {
         protected ShipHull _instance;
 
-        private static bool[] ToggleComp = new bool[ShipData.NonHullComponents.Length];
+        private static bool[] ToggleComp = new bool[ShipData.ComponentTypes.Length];
         private static bool ToggleLootMounts = false;
 
         public virtual void OnEnable()
@@ -32,17 +32,17 @@ namespace Skyrates.Ship
             //{
             //    Array.Resize(ref this._instance.Components, ShipData.NonHullComponents.Length);
             //}
-            if (ToggleComp.Length != ShipData.NonHullComponents.Length)
-                Array.Resize(ref ToggleComp, ShipData.NonHullComponents.Length);
+            if (ToggleComp.Length != ShipData.ComponentTypes.Length)
+                Array.Resize(ref ToggleComp, ShipData.ComponentTypes.Length);
         }
 
         protected virtual void DrawComponentList(ref bool[] toggleComponentBlock)
         {
-            foreach (ComponentType compType in ShipData.NonHullComponents)
+            foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 EditorGUILayout.Separator();
 
-                int iComp = ShipData.HulllessComponentIndex[(int)compType];
+                int iComp = (int)compType;
 
                 ShipComponent[] componentsOfType = this._instance.Components[iComp].Value ?? new ShipComponent[0];
 

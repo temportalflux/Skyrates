@@ -31,11 +31,11 @@ namespace Skyrates.Ship
 
         protected override void DrawComponentList(ref bool[] toggleComponentBlock)
         {
-            foreach (ComponentType compType in ShipData.NonHullComponents)
+            foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 EditorGUILayout.Separator();
 
-                int iComp = ShipData.HulllessComponentIndex[(int)compType];
+                int iComp = (int)compType;
 
                 Transform[] roots = this._instanceGenerated.Mounts[iComp].Value ?? new Transform[0];
 

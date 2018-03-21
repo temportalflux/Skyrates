@@ -11,18 +11,9 @@ namespace Skyrates.Entity
     public class EntityShipNPC : EntityShip
     {
 
-        [Header("NPC Ship")]
-        public ShipHull Hull;
-
         [Header("Loot")]
         [SerializeField]
         public float LootDropRadius;
-
-        /// <inheritdoc />
-        public override ShipHull GetHull()
-        {
-            return this.Hull;
-        }
 
         /// <inheritdoc />
         protected override void SpawnLoot(Vector3 position)

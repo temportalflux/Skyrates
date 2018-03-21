@@ -37,10 +37,12 @@ namespace Skyrates.Entity
         [Tooltip("The root of the render object (must be a child/decendent of this root).")]
         public Transform Render;
 
+        public ShipHull Hull;
+
         #endregion
 
         #region Particles
-        
+
         [Serializable]
         public class ParticleArea
         {
@@ -120,7 +122,10 @@ namespace Skyrates.Entity
         /// Returns the hull of the ship
         /// </summary>
         /// <returns></returns>
-        public abstract ShipHull GetHull();
+        public ShipHull GetHull()
+        {
+            return this.Hull;
+        }
         
         /// <summary>
         /// Returns a list of components in the ship's hull of the specified type.
@@ -129,9 +134,7 @@ namespace Skyrates.Entity
         /// <returns></returns>
         public virtual ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
         {
-            return type == ShipData.ComponentType.Hull ?
-                new ShipComponent[] { this.GetHull() } :
-                (this.GetHull() != null ? this.GetHull().GetComponent(type) : new ShipComponent[0]);
+            return this.GetHull() != null ? this.GetHull().GetComponent(type) : new ShipComponent[0];
         }
 
         /// <summary>

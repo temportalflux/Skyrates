@@ -30,14 +30,14 @@ namespace Skyrates.Entity
         /// <summary>
         /// The Ship component which creates the modular ship.
         /// </summary>
-        public Ship.Ship ShipRoot;
+        public ShipGenerator ShipGeneratorRoot;
 
         /// <inheritdoc />
         protected override void Awake()
         {
             base.Awake();
-            this.ShipRoot.Destroy();
-            this.ShipData = this.ShipRoot.Generate(this);
+            this.ShipGeneratorRoot.Destroy();
+            this.ShipData = this.ShipGeneratorRoot.Generate();
             this.PlayerData.Init();
         }
 
@@ -68,12 +68,6 @@ namespace Skyrates.Entity
             this.Physics.MoveRotation(physics.RotationPosition);
             this.GetRender().transform.localRotation = physics.RotationAesteticPosition;
         }
-        
-        /// <inheritdoc />
-        public override ShipHull GetHull()
-        {
-            return this.ShipRoot.Hull;
-        }
 
         #region Loot
 
@@ -97,7 +91,7 @@ namespace Skyrates.Entity
             this.PlayerData.Inventory.Add(loot.Item); //Must be before generating loot.
 
             // TODO: Change AddLoot to OnLootChanged
-            this.ShipRoot.Hull.AddLoot(loot.LootPrefabWithoutSail, loot.Item);
+            this.GetHull().AddLoot(loot.LootPrefabWithoutSail, loot.Item);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
 
