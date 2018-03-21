@@ -16,7 +16,8 @@ namespace Skyrates.AI.Formation
         public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral data, DataPersistent persistent, float deltaTime)
         {
             // Get the physics data of the slot the agent is assigned to
-            data.Target = data.FormationOwner == null ? physics : (data.FormationOwner.GetTarget(data.FormationSlot) ?? physics);
+            if (data.Formation != null && data.Formation.HasFormation)
+                data.Target = data.Formation.GetTarget();
             return persistent;
         }
 

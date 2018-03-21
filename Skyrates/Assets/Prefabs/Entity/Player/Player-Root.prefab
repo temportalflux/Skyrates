@@ -9993,7 +9993,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860726107320958}
-  m_LocalRotation: {x: 0.13218853, y: -0, z: -0, w: 0.9912246}
+  m_LocalRotation: {x: 0.13218859, y: -0, z: -0, w: 0.9912246}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12614,9 +12614,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: -2.25, y: 1, z: 0}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_PitchDamping: 0
   m_YawDamping: 0
   m_RollDamping: 0
@@ -16499,12 +16499,6 @@ MonoBehaviour:
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   Behavior: {fileID: 11400000, guid: 5f7eb8130057e7d4fa17200178e7271e, type: 2}
   DataBehavior:
-    InitialTargets: []
-    FormationOwner: {fileID: 0}
-    FormationSlot: 0
-    View: {fileID: 0}
-    Render: {fileID: 0}
-    HasTarget: 0
     Target:
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
