@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Skyrates.Loot;
 using Skyrates.Ship;
 using UnityEngine;
 
@@ -12,16 +13,20 @@ namespace Skyrates.Entity
     {
 
         [Header("Loot")]
+
+        [Tooltip("The amount of loot dropped by the ship")]
+        public LootTable Loot;
+
         [SerializeField]
         public float LootDropRadius;
 
         /// <inheritdoc />
         protected override void SpawnLoot(Vector3 position)
         {
-            if (this.StatBlock == null || this.StatBlock.Loot == null) return;
+            if (this.Loot == null) return;
 
             // Generate the loot to spawn
-            KeyValuePair<ShipData.BrokenComponentType, Loot.Loot>[] loots = this.StatBlock.Loot.Generate();
+            KeyValuePair<ShipData.BrokenComponentType, Loot.Loot>[] loots = this.Loot.Generate();
             // Spawn each loot in turn
             foreach (KeyValuePair<ShipData.BrokenComponentType, Loot.Loot> lootItem in loots)
             {

@@ -18,10 +18,44 @@ namespace Skyrates.Ship
         {
             public ShipComponent[] Value;
         }
-        
+
+        [Tooltip("The amount of damage the ship can take")]
+        public int MaxHealth;
+
+        [Tooltip("The speed at which the ship moves")]
+        public float MoveSpeed;
+
+        [Serializable]
+        public class HealthFeedback
+        {
+
+            // TODO: https://docs.unity3d.com/ScriptReference/EditorGUILayout.CurveField.html
+
+            // amount of damage taken at which the smoke starts at
+            [SerializeField]
+            public Vector2Int SmokeDamage;
+
+            [SerializeField]
+            public Vector2Int SmokeEmissionAmount;
+
+            // amount of damage taken at which the fire starts at
+            [SerializeField]
+            public Vector2Int FireDamage;
+
+            [SerializeField]
+            public Vector2Int FireEmissionAmount;
+
+        }
+
+        [Header("Effects")]
+        [SerializeField]
+        public HealthFeedback HealthFeedbackData;
+
+        [Header("Components")]
         [SerializeField]
         public ComponentList[] Components = new ComponentList[ShipData.ComponentTypes.Length];
 
+        [Header("Loot on Ship")]
         [SerializeField]
         public Transform[] LootMounts;
 

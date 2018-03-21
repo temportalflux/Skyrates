@@ -14,6 +14,8 @@ namespace Skyrates.Ship
 
         private static bool[] ToggleComp = new bool[ShipData.ComponentTypes.Length];
         private static bool ToggleLootMounts = false;
+        private static bool ToggleStats = true;
+        private static bool ToggleHealthFeedback = true;
 
         public virtual void OnEnable()
         {
@@ -38,6 +40,7 @@ namespace Skyrates.Ship
 
         protected virtual void DrawComponentList(ref bool[] toggleComponentBlock)
         {
+            EditorGUILayout.LabelField("Components");
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 EditorGUILayout.Separator();
@@ -77,6 +80,37 @@ namespace Skyrates.Ship
         {
             this.DrawScript();
             this.CheckArrayLengths();
+
+            // Stats
+            {
+                ToggleStats = EditorGUILayout.Foldout(ToggleStats, "Stats");
+
+                if (ToggleStats)
+                {
+                    this._instance.MaxHealth = EditorGUILayout.IntField("Max HP", this._instance.MaxHealth);
+                    this._instance.MoveSpeed = EditorGUILayout.FloatField("Base Speed", this._instance.MoveSpeed);
+                }
+            }
+            EditorGUILayout.Separator();
+            // Health Feedback
+            {
+                ToggleHealthFeedback = EditorGUILayout.Foldout(ToggleHealthFeedback, "Health Feedback");
+
+                if (ToggleHealthFeedback)
+                {
+                    EditorGUILayout.LabelField("Smoke Damage");
+                    this.MinMax(ref this._instance.HealthFeedbackData.SmokeDamage);
+                    EditorGUILayout.LabelField("Smoke Emission");
+                    this.MinMax(ref this._instance.HealthFeedbackData.SmokeEmissionAmount);
+                    EditorGUILayout.LabelField("Fire Damage");
+                    this.MinMax(ref this._instance.HealthFeedbackData.FireDamage);
+                    EditorGUILayout.LabelField("Fire Emission");
+                    this.MinMax(ref this._instance.HealthFeedbackData.FireEmissionAmount);
+                }
+            }
+            EditorGUILayout.Separator();
+
+            // Components
             this.DrawComponentList(ref ToggleComp);
 
             EditorGUILayout.Separator();
@@ -85,6 +119,18 @@ namespace Skyrates.Ship
             this.DrawLootRoots();
 
             EditorUtility.SetDirty(this._instance);
+        }
+
+        private void MinMax(ref Vector2Int bounds)
+        {
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Min");
+            EditorGUILayout.LabelField("Max");
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.BeginHorizontal();
+            bounds.x = EditorGUILayout.IntField(bounds.x);
+            bounds.y = EditorGUILayout.IntField(bounds.y);
+            EditorGUILayout.EndHorizontal();
         }
 
     }

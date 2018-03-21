@@ -15,21 +15,13 @@ namespace Skyrates.Entity
     /// </summary>
     public abstract class EntityShip : EntityAI
     {
-
-        #region Stats
-
-        [Header("Stats")]
-        [SerializeField]
-        public StatBlock StatBlock;
-
+        
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [HideInInspector]
         public float Health;
 
-        #endregion
-        
         #region Parts of the ship
-        
+
         /// <summary>
         /// The root of the render object (must be a child/decendent of this root).
         /// </summary>
@@ -77,12 +69,12 @@ namespace Skyrates.Entity
         protected override void Start()
         {
             base.Start();
-            if (this.StatBlock != null)
+            if (this.Hull != null)
             {
-                Debug.Assert(this.StatBlock.MaxHealth > 0, string.Format(
-                    "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
-                    this.StatBlock.name));
-                this.Health = this.StatBlock.MaxHealth;
+                Debug.Assert(this.Hull.MaxHealth > 0, string.Format(
+                    "Hull {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
+                    this.Hull.name));
+                this.Health = this.Hull.MaxHealth;
             }
             this.InitParticle(ref this.SmokeData);
             this.InitParticle(ref this.FireData);
@@ -198,26 +190,27 @@ namespace Skyrates.Entity
         /// </summary>
         protected virtual void UpdateHealthParticles()
         {
-            if (this.StatBlock == null) return;
+            // TODO: Move this to hull
+            if (this.Hull == null) return;
 
             // get the amount of damage currently taken (diff in health vs max health)
-            float damageTaken = this.StatBlock.MaxHealth - this.Health;
+            float damageTaken = this.Hull.MaxHealth - this.Health;
 
             // Update smoke particles
             if (this.SmokeData.Generated != null)
             {
                 float emittedAmountSmoke = 0;
                 // if the damage taken is in the range, when set emittedAmountSmoke
-                if (damageTaken >= this.StatBlock.HealthFeedbackData.SmokeDamage.x &&
-                    damageTaken <= this.StatBlock.HealthFeedbackData.SmokeDamage.y)
+                if (damageTaken >= this.Hull.HealthFeedbackData.SmokeDamage.x &&
+                    damageTaken <= this.Hull.HealthFeedbackData.SmokeDamage.y)
                 {
                     // lots o math
-                    float scaled = (damageTaken - this.StatBlock.HealthFeedbackData.SmokeDamage.x) /
-                                   (this.StatBlock.HealthFeedbackData.SmokeDamage.y - this.StatBlock.HealthFeedbackData.SmokeDamage.x);
+                    float scaled = (damageTaken - this.Hull.HealthFeedbackData.SmokeDamage.x) /
+                                   (this.Hull.HealthFeedbackData.SmokeDamage.y - this.Hull.HealthFeedbackData.SmokeDamage.x);
                     emittedAmountSmoke =
-                        scaled * (this.StatBlock.HealthFeedbackData.SmokeEmissionAmount.y -
-                                  this.StatBlock.HealthFeedbackData.SmokeEmissionAmount.x) +
-                        this.StatBlock.HealthFeedbackData.SmokeEmissionAmount.x;
+                        scaled * (this.Hull.HealthFeedbackData.SmokeEmissionAmount.y -
+                                  this.Hull.HealthFeedbackData.SmokeEmissionAmount.x) +
+                        this.Hull.HealthFeedbackData.SmokeEmissionAmount.x;
                 }
 
                 // set the emission rate
@@ -230,16 +223,16 @@ namespace Skyrates.Entity
             {
                 float emiitedAmountFire = 0;
                 // if the damage taken is in the range, when set emiitedAmountFire
-                if (damageTaken >= this.StatBlock.HealthFeedbackData.FireDamage.x &&
-                    damageTaken <= this.StatBlock.HealthFeedbackData.FireDamage.y)
+                if (damageTaken >= this.Hull.HealthFeedbackData.FireDamage.x &&
+                    damageTaken <= this.Hull.HealthFeedbackData.FireDamage.y)
                 {
                     // lots o math II
-                    float scaled = (damageTaken - this.StatBlock.HealthFeedbackData.FireDamage.x) /
-                                   (this.StatBlock.HealthFeedbackData.FireDamage.y - this.StatBlock.HealthFeedbackData.FireDamage.x);
+                    float scaled = (damageTaken - this.Hull.HealthFeedbackData.FireDamage.x) /
+                                   (this.Hull.HealthFeedbackData.FireDamage.y - this.Hull.HealthFeedbackData.FireDamage.x);
                     emiitedAmountFire =
-                        scaled * (this.StatBlock.HealthFeedbackData.FireEmissionAmount.y -
-                                  this.StatBlock.HealthFeedbackData.FireEmissionAmount.x) +
-                        this.StatBlock.HealthFeedbackData.FireEmissionAmount.x;
+                        scaled * (this.Hull.HealthFeedbackData.FireEmissionAmount.y -
+                                  this.Hull.HealthFeedbackData.FireEmissionAmount.x) +
+                        this.Hull.HealthFeedbackData.FireEmissionAmount.x;
                 }
 
                 // set the emission rate

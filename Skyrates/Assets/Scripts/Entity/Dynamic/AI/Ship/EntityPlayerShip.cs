@@ -108,7 +108,7 @@ namespace Skyrates.Entity
         {
             // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
 
-            this.Health = this.StatBlock.MaxHealth;
+            this.Health = this.Hull.MaxHealth;
 
             Transform spawn = GameManager.Instance.PlayerSpawn;
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
@@ -131,10 +131,11 @@ namespace Skyrates.Entity
         /// <returns></returns>
         IEnumerator AutoHeal()
         {
+            // TODO: Move to hull
             while (true)
             {
-                yield return new WaitUntil((() => this.Health < this.StatBlock.MaxHealth));
-                while (this.Health < this.StatBlock.MaxHealth)
+                yield return new WaitUntil((() => this.Health < this.Hull.MaxHealth));
+                while (this.Health < this.Hull.MaxHealth)
                 {
                     this.Health++;
                     yield return new WaitForSeconds(5.0f);

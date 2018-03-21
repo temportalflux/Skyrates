@@ -889,8 +889,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
-  Defense: 0
-  Protection: 0
+  MaxHealth: 0
+  MoveSpeed: 0
+  HealthFeedbackData:
+    SmokeDamage: {x: 0, y: 0}
+    SmokeEmissionAmount: {x: 0, y: 0}
+    FireDamage: {x: 0, y: 0}
+    FireEmissionAmount: {x: 0, y: 0}
   Components:
   - Value: []
   - Value: []
@@ -937,12 +942,6 @@ MonoBehaviour:
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   Behavior: {fileID: 11400000, guid: 0e096f17aee796f4d89805ade8501069, type: 2}
   DataBehavior:
-    InitialTargets: []
-    FormationOwner: {fileID: 0}
-    FormationSlot: 0
-    View: {fileID: 0}
-    Render: {fileID: 0}
-    HasTarget: 0
     Target:
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
@@ -957,6 +956,7 @@ MonoBehaviour:
   StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
   Health: 0
   Render: {fileID: 4546537775946266}
+  Hull: {fileID: 114347143358417134}
   SmokeData:
     Bounds: {fileID: 65363901809085916}
     Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
@@ -969,5 +969,5 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  Hull: {fileID: 114347143358417134}
+  Loot: {fileID: 0}
   LootDropRadius: 10
