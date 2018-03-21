@@ -88,7 +88,8 @@ namespace Skyrates.Ship
                 if (ToggleStats)
                 {
                     this._instance.MaxHealth = EditorGUILayout.IntField("Max HP", this._instance.MaxHealth);
-                    this._instance.MoveSpeed = EditorGUILayout.FloatField("Base Speed", this._instance.MoveSpeed);
+                    this._instance.HealthRegenAmount = EditorGUILayout.FloatField("HP Regen Amount", this._instance.HealthRegenAmount);
+                    this._instance.HealthRegenDelay = EditorGUILayout.FloatField("HP Regen Delay", this._instance.HealthRegenDelay);
                 }
             }
             EditorGUILayout.Separator();

@@ -889,13 +889,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
-  MaxHealth: 0
-  MoveSpeed: 0
+  MaxHealth: 150
+  HealthRegenAmount: 0
+  HealthRegenDelay: 0
   HealthFeedbackData:
-    SmokeDamage: {x: 0, y: 0}
-    SmokeEmissionAmount: {x: 0, y: 0}
-    FireDamage: {x: 0, y: 0}
-    FireEmissionAmount: {x: 0, y: 0}
+    SmokeDamage: {x: 30, y: 150}
+    SmokeEmissionAmount: {x: 10, y: 30}
+    FireDamage: {x: 75, y: 150}
+    FireEmissionAmount: {x: 10, y: 25}
   Components:
   - Value: []
   - Value: []
@@ -953,7 +954,6 @@ MonoBehaviour:
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
       RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
   Health: 0
   Render: {fileID: 4546537775946266}
   Hull: {fileID: 114347143358417134}
@@ -969,5 +969,5 @@ MonoBehaviour:
     Generated: {fileID: 0}
   ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
     type: 2}
-  Loot: {fileID: 0}
+  Loot: {fileID: 11400000, guid: ed25723b05833b94485a1b7bed22a4c2, type: 2}
   LootDropRadius: 10

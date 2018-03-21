@@ -4,8 +4,10 @@ namespace Skyrates.Ship
 
     public class ShipPropulsion : ShipComponent
     {
+        
         // TODO: Doxygen
-		public float AdditionalMovePercent;
-	}
+		public float Thrust;
+        
+    }
 
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Game;
 using Skyrates.Game.Event;
@@ -78,6 +79,7 @@ namespace Skyrates.Entity
             }
             this.InitParticle(ref this.SmokeData);
             this.InitParticle(ref this.FireData);
+            StartCoroutine(this.AutoHeal());
         }
         
         /// <inheritdoc />
@@ -243,7 +245,29 @@ namespace Skyrates.Entity
         }
 
         #endregion
+
+        #region Health
         
+        /// <summary>
+        /// Auto heals the player ship every 5 secodns while the health is less than max health.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator AutoHeal()
+        {
+            if (this.Hull == null || this.Hull.HealthRegenAmount <= 0.0f) yield break;
+            while (true)
+            {
+                yield return new WaitUntil((() => this.Health < this.Hull.MaxHealth));
+                while (this.Health < this.Hull.MaxHealth)
+                {
+                    this.Health += this.Hull.HealthRegenAmount;
+                    yield return new WaitForSeconds(this.Hull.HealthRegenDelay);
+                }
+            }
+        }
+
+        #endregion
+
         #region Damage
 
         /// <summary>

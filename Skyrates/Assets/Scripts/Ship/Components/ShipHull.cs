@@ -22,8 +22,8 @@ namespace Skyrates.Ship
         [Tooltip("The amount of damage the ship can take")]
         public int MaxHealth;
 
-        [Tooltip("The speed at which the ship moves")]
-        public float MoveSpeed;
+        public float HealthRegenAmount;
+        public float HealthRegenDelay;
 
         [Serializable]
         public class HealthFeedback

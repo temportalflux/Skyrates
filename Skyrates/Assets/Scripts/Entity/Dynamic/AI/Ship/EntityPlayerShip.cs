@@ -42,13 +42,6 @@ namespace Skyrates.Entity
         }
 
         /// <inheritdoc />
-        protected override void Start()
-        {
-            base.Start();
-            StartCoroutine(this.AutoHeal());
-        }
-
-        /// <inheritdoc />
         protected override void OnDestroy()
         {
             base.OnDestroy();
@@ -124,24 +117,6 @@ namespace Skyrates.Entity
         }
         
         #endregion
-
-        /// <summary>
-        /// Auto heals the player ship every 5 secodns while the health is less than max health.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator AutoHeal()
-        {
-            // TODO: Move to hull
-            while (true)
-            {
-                yield return new WaitUntil((() => this.Health < this.Hull.MaxHealth));
-                while (this.Health < this.Hull.MaxHealth)
-                {
-                    this.Health++;
-                    yield return new WaitForSeconds(5.0f);
-                }
-            }
-        }
 
     }
 
