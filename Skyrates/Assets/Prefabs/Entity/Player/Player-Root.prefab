@@ -1763,7 +1763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4517181614569566}
   m_Layer: 17
-  m_Name: Other
+  m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7712,7 +7712,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729480990092996}
-  m_LocalRotation: {x: 0.15012504, y: -0, z: -0, w: 0.9886671}
+  m_LocalRotation: {x: 0.1501252, y: -0, z: -0, w: 0.9886671}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8267,7 +8267,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860726107320958}
-  m_LocalRotation: {x: 0.13218883, y: -0, z: -0, w: 0.9912246}
+  m_LocalRotation: {x: 0.13218874, y: -0, z: -0, w: 0.9912246}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12785,6 +12785,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
+  MaxHealth: 20
+  HealthRegenAmount: 1
+  HealthRegenDelay: 5
+  SmokeData:
+    Bounds: {fileID: 65436981792362460}
+    Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
+    Scale: 1
+    DamageRange: {x: 1, y: 19}
+    EmissionAmountRange: {x: 5, y: 100}
+    Generated: {fileID: 0}
+  FireData:
+    Bounds: {fileID: 65374456484716522}
+    Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
+    Scale: 1
+    DamageRange: {x: 10, y: 17}
+    EmissionAmountRange: {x: 20, y: 50}
+    Generated: {fileID: 0}
+  ParticleOnDestruction: {fileID: 0}
   Components:
   - Value:
     - {fileID: 0}
@@ -13511,27 +13529,14 @@ MonoBehaviour:
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
       RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  StatBlock: {fileID: 11400000, guid: 83d0bef0abd7ff64f89dd28418764559, type: 2}
   Health: 0
   Render: {fileID: 4066061793793454}
   Hull: {fileID: 114837996940835360}
-  SmokeData:
-    Bounds: {fileID: 65436981792362460}
-    Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
-    Scale: 1
-    Generated: {fileID: 0}
-  FireData:
-    Bounds: {fileID: 65374456484716522}
-    Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
-    Scale: 1
-    Generated: {fileID: 0}
-  ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
-    type: 2}
   ShipData:
     ComponentTiers: 000000000000000000000000000000000000000000000000000000000000000000000000
     _hasNewData: 0
   PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
-  ShipGeneratorRoot: {fileID: 0}
+  ShipGeneratorRoot: {fileID: 114312103114731230}
 --- !u!114 &114964496451556388
 MonoBehaviour:
   m_ObjectHideFlags: 1

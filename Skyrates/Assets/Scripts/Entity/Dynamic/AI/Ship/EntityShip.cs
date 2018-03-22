@@ -26,7 +26,7 @@ namespace Skyrates.Entity
         /// <summary>
         /// The root of the render object (must be a child/decendent of this root).
         /// </summary>
-        [Header("Objects")]
+        [Header("Ship: Objects")]
         [Tooltip("The root of the render object (must be a child/decendent of this root).")]
         public Transform Render;
 

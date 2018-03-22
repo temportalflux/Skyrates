@@ -13,6 +13,7 @@ namespace Skyrates.Entity
 
         private Coroutine _shootAt;
 
+        [Header("Hostile: Shooting")]
         public float ShootDelay = 7.0f;
 
         protected override void StartShooting(EntityPlayerShip target, float maxDistance)

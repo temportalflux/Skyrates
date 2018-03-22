@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4562853253172884}
   m_Layer: 17
-  m_Name: Other
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,11 +584,21 @@ MonoBehaviour:
   MaxHealth: 90
   HealthRegenAmount: 0
   HealthRegenDelay: 0
-  HealthFeedbackData:
-    SmokeDamage: {x: 15, y: 90}
-    SmokeEmissionAmount: {x: 10, y: 30}
-    FireDamage: {x: 45, y: 90}
-    FireEmissionAmount: {x: 10, y: 15}
+  SmokeData:
+    Bounds: {fileID: 65351439239521238}
+    Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
+    Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
+    Generated: {fileID: 0}
+  FireData:
+    Bounds: {fileID: 65906648567076450}
+    Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
+    Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
+    Generated: {fileID: 0}
+  ParticleOnDestruction: {fileID: 0}
   Components:
   - Value: []
   - Value: []
@@ -637,18 +647,6 @@ MonoBehaviour:
   Health: 0
   Render: {fileID: 4311465932068558}
   Hull: {fileID: 114753988310946612}
-  SmokeData:
-    Bounds: {fileID: 65351439239521238}
-    Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
-    Scale: 10
-    Generated: {fileID: 0}
-  FireData:
-    Bounds: {fileID: 65906648567076450}
-    Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
-    Scale: 10
-    Generated: {fileID: 0}
-  ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
-    type: 2}
   Loot: {fileID: 11400000, guid: 2e4c82205e11c9d4890e695f6c1859e4, type: 2}
   LootDropRadius: 5
   ShootDelay: 7

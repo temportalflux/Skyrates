@@ -12,7 +12,7 @@ namespace Skyrates.Entity
     public class EntityShipNPC : EntityShip
     {
 
-        [Header("Loot")]
+        [Header("NPC: Loot")]
 
         [Tooltip("The amount of loot dropped by the ship")]
         public LootTable Loot;

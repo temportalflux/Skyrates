@@ -19,7 +19,7 @@ namespace Skyrates.Entity
         /// <summary>
         /// The actual steering object - set via editor.
         /// </summary>
-        [Header("AI Settings")]
+        [Header("AI: Settings")]
         [SerializeField]
         public BehaviorPipeline Behavior;
 

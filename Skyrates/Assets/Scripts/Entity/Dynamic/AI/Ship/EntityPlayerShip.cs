@@ -24,7 +24,7 @@ namespace Skyrates.Entity
         /// <summary>
         /// The non-networked data local to the player.
         /// </summary>
-        [Header("Player Ship")]
+        [Header("Player: Data")]
         public PlayerData PlayerData;
 
         /// <summary>

@@ -119,25 +119,7 @@ namespace Skyrates.Ship
                     if (ToggleParticlesSmoke)
                     {
                         EditorGUI.indentLevel++;
-
-                        ShipHull.ParticleArea data = this._instance.SmokeData;
-
-                        data.Bounds = (BoxCollider)EditorGUILayout.ObjectField(
-                            "Bounds",
-                            data.Bounds, typeof(BoxCollider), true);
-                        data.Prefab = (ParticleSystem)EditorGUILayout.ObjectField(
-                            "Prefab",
-                            data.Prefab, typeof(ParticleSystem), true);
-                        data.Scale = EditorGUILayout.FloatField("Scale", data.Scale);
-
-                        EditorGUILayout.LabelField("Damage");
-                        this.MinMax(ref data.DamageRange);
-
-                        EditorGUILayout.LabelField("Emission");
-                        this.MinMax(ref data.EmissionAmountRange);
-
-                        this._instance.SmokeData = data;
-
+                        this.DrawParticleArea(ref this._instance.SmokeData);
                         EditorGUI.indentLevel--;
                     }
 
@@ -145,25 +127,7 @@ namespace Skyrates.Ship
                     if (ToggleParticlesFire)
                     {
                         EditorGUI.indentLevel++;
-
-                        ShipHull.ParticleArea data = this._instance.FireData;
-
-                        data.Bounds = (BoxCollider)EditorGUILayout.ObjectField(
-                            "Bounds",
-                            data.Bounds, typeof(BoxCollider), true);
-                        data.Prefab = (ParticleSystem)EditorGUILayout.ObjectField(
-                            "Prefab",
-                            data.Prefab, typeof(ParticleSystem), true);
-                        data.Scale = EditorGUILayout.FloatField("Scale", data.Scale);
-
-                        EditorGUILayout.LabelField("Damage");
-                        this.MinMax(ref data.DamageRange);
-
-                        EditorGUILayout.LabelField("Emission");
-                        this.MinMax(ref data.EmissionAmountRange);
-
-                        this._instance.SmokeData = data;
-
+                        this.DrawParticleArea(ref this._instance.FireData);
                         EditorGUI.indentLevel--;
                     }
 
@@ -193,6 +157,23 @@ namespace Skyrates.Ship
             bounds.x = EditorGUILayout.IntField(bounds.x);
             bounds.y = EditorGUILayout.IntField(bounds.y);
             EditorGUILayout.EndHorizontal();
+        }
+
+        private void DrawParticleArea(ref ShipHull.ParticleArea data)
+        {
+            data.Bounds = (BoxCollider)EditorGUILayout.ObjectField(
+                "Bounds",
+                data.Bounds, typeof(BoxCollider), true);
+            data.Prefab = (ParticleSystem)EditorGUILayout.ObjectField(
+                "Prefab",
+                data.Prefab, typeof(ParticleSystem), true);
+            data.Scale = EditorGUILayout.FloatField("Scale", data.Scale);
+
+            EditorGUILayout.LabelField("Damage");
+            this.MinMax(ref data.DamageRange);
+
+            EditorGUILayout.LabelField("Emission");
+            this.MinMax(ref data.EmissionAmountRange);
         }
 
     }
