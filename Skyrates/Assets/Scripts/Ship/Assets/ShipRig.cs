@@ -1,4 +1,5 @@
-﻿using Skyrates.Entity;
+﻿using System;
+using Skyrates.Entity;
 using UnityEngine;
 
 using ComponentType = Skyrates.Ship.ShipData.ComponentType;
@@ -125,7 +126,12 @@ namespace Skyrates.Ship
         public void BuildTo(EntityShip owner, ref Transform root, ShipData data = null)
         {
             if (data == null) data = this.ShipData;
-            
+
+            if (data.ComponentTiers.Length != ShipData.ComponentTypes.Length)
+            {
+                Array.Resize(ref data.ComponentTiers, ShipData.ComponentTypes.Length);
+            }
+
             ShipHull hull = owner.GetHull();
             ShipHullGenerated hullGenerated = hull as ShipHullGenerated;
             if (hull == null || hullGenerated == null)
@@ -136,7 +142,12 @@ namespace Skyrates.Ship
                 ));
                 return;
             }
-            
+
+            if (hullGenerated.Components.Length != ShipData.ComponentTypes.Length)
+            {
+                Array.Resize(ref hullGenerated.Components, ShipData.ComponentTypes.Length);
+            }
+
             // Create all the remaining components
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
@@ -152,6 +163,9 @@ namespace Skyrates.Ship
 
                 // Get all the targets for the type of component (transforms on hull to generate at)
                 Transform[] targets = hullGenerated.Mounts[(int)compType].Value;
+                
+                if (hullGenerated.Components[(int)compType] == null)
+                    hullGenerated.Components[(int)compType] = new ShipHull.ComponentList();
 
                 hullGenerated.SetShipComponentCount(compType, targets.Length);
 

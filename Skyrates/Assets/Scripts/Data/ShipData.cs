@@ -14,33 +14,31 @@ namespace Skyrates.Ship
 
         public enum ComponentType
         {
-            ArtilleryLeft, ArtilleryRight, ArtilleryForward,
-            Figurehead, HullArmor,
+            ArtilleryLeft, ArtilleryRight,
+            ArtilleryForward, ArtilleryDown,
+            Figurehead,
+            HullArmor,
             NavigationLeft, NavigationRight,
             Propulsion,
         }
 
         public static readonly object[] ComponentTypes =
         {
-            ComponentType.ArtilleryLeft,
-            ComponentType.ArtilleryRight,
-            ComponentType.ArtilleryForward,
+            ComponentType.ArtilleryLeft, ComponentType.ArtilleryRight,
+            ComponentType.ArtilleryForward, ComponentType.ArtilleryDown,
             ComponentType.Figurehead,
             ComponentType.HullArmor,
-            ComponentType.NavigationLeft,
-            ComponentType.NavigationRight,
+            ComponentType.NavigationLeft, ComponentType.NavigationRight,
             ComponentType.Propulsion,
         };
 
         public static readonly Type[] ComponentClassTypes =
         {
-            typeof(ShipArtillery),
-            typeof(ShipArtillery),
-            typeof(ShipArtillery),
+            typeof(ShipArtillery), typeof(ShipArtillery),
+            typeof(ShipArtillery), typeof(ShipArtillery),
             typeof(ShipFigurehead),
             typeof(ShipHullArmor),
-            typeof(ShipNavigationLeft),
-            typeof(ShipNavigationRight),
+            typeof(ShipNavigationLeft), typeof(ShipNavigationRight),
             typeof(ShipPropulsion),
         };
 
@@ -66,7 +64,8 @@ namespace Skyrates.Ship
         //TODO: Refactor to dictionary or reflection if we ever have to change these often.
         public static readonly BrokenComponentType[] ComponentTypeToBrokenComponentType =
         {
-            BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Artillery,
+            BrokenComponentType.Artillery, BrokenComponentType.Artillery,
+            BrokenComponentType.Artillery, BrokenComponentType.Artillery,
             BrokenComponentType.Figurehead,
             BrokenComponentType.HullArmor,
             BrokenComponentType.Navigation, BrokenComponentType.Navigation,

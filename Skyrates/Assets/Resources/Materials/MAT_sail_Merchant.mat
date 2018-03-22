@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: d90ff24eab8d52545835882186c20231, type: 3}
+        m_Texture: {fileID: 2800000, guid: b2f6c27251c4c594bab105a26a181fb1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,26 +36,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 75b68dbc0e96eb846826c1480fa1e4af, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 6e1463e368d03ca4b9115097f7f45b48, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 75361c4360c1530459713e165203ac83, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0cf754bcfef7f614bbde698826c9fbf3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 84ae7c21c333eba4b8623d40e8368757, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: abcbf608de9169f4b858b1d3775ccaba, type: 3}
+        m_Texture: {fileID: 2800000, guid: ae5711d0622a1b34484a7ab40d2eba14, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: abcbf608de9169f4b858b1d3775ccaba, type: 3}
+        m_Texture: {fileID: 2800000, guid: 44875edf82c4c924f886aa2ab4dedba9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -76,5 +76,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.65517235, g: 0, b: 1, a: 1}
+    - _Color: {r: 0.5283826, g: 0.35878026, b: 0.61764705, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

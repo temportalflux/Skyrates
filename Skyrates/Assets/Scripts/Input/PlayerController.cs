@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Channels;
 using Cinemachine;
 using Rewired;
 using Skyrates.Data;
 using Skyrates.Entity;
 using Skyrates.Game;
 using Skyrates.Game.Event;
+using Skyrates.Misc;
 using Skyrates.Ship;
 using UnityEngine;
 
@@ -177,60 +180,69 @@ namespace Skyrates.Client.Input
 
         void OnInputFire(InputActionEventData evt)
         {
-            ShipData.ComponentType compType;
+            if (!(evt.GetAxis() > 0.0f)) return;
+
             switch (this.PlayerData.ViewMode)
             {
-                case PlayerData.CameraMode.LOCK_RIGHT:
                 case PlayerData.CameraMode.FREE:
-                    compType = ShipData.ComponentType.ArtilleryRight;
+                    this.PlayerData.Artillery.Gimbal = (StateActiveReload)this.ShootCooldown(
+                        this.PlayerData.Artillery.Gimbal, () =>
+                        {
+                            this.Shoot(ShipData.ComponentType.ArtilleryForward);
+                        }
+                    );
+                    //GameManager.Events.Dispatch(new EventActiveReloadBegin(
+                    //    this.EntityPlayerShip,
+                    //    this.PlayerData.Artillery.Gimbal.PercentStart,
+                    //    this.PlayerData.Artillery.Gimbal.PercentEnd
+                    //));
+                    break;
+                case PlayerData.CameraMode.LOCK_LEFT:
+                    this.PlayerData.Artillery.Port = (StateOverheat) this.ShootCooldown(
+                        this.PlayerData.Artillery.Port, () =>
+                        {
+                            this.Shoot(ShipData.ComponentType.ArtilleryLeft);
+                        }
+                    );
+                    break;
+                case PlayerData.CameraMode.LOCK_RIGHT:
+                    this.PlayerData.Artillery.Starboard = (StateOverheat) this.ShootCooldown(
+                        this.PlayerData.Artillery.Starboard, () =>
+                        {
+                            this.Shoot(ShipData.ComponentType.ArtilleryRight);
+                        }
+                    );
+                    break;
+                case PlayerData.CameraMode.LOCK_DOWN:
+                    this.PlayerData.Artillery.Bombs = this.ShootCooldown(
+                        this.PlayerData.Artillery.Bombs, () =>
+                        {
+                            this.Shoot(ShipData.ComponentType.ArtilleryDown);
+                        });
                     break;
                 default:
-                    return;
+                    break;
             }
-            this.ToggleShooting(evt.GetAxis() > 0.0f, compType);
+
         }
 
         void OnInputAim(InputActionEventData evt)
         {
-            switch (this.PlayerData.ViewMode)
-            {
-                case PlayerData.CameraMode.LOCK_LEFT:
-                case PlayerData.CameraMode.FREE:
-                    //this.PlayerData.input.AimScale = evt.GetAxis();
-                    this.ToggleShooting(evt.GetAxis() > 0.0f, ShipData.ComponentType.ArtilleryLeft);
-                    break;
-                case PlayerData.CameraMode.LOCK_DOWN:
-                    this.ToggleBombing(evt.GetAxis() > 0.0f);
-                    break;
-                default:
-                    break;
-            }
+            
         }
 
         void OnInputReload(InputActionEventData evt)
         {
             if (!evt.GetButtonDown()) return;
 
-            bool found;
-            ShipData.ComponentType reloadTarget = this.GetActiveReloadTarget(evt.actionName == "Reload:Main", out found);
-            if (found)
-            {
-                switch (reloadTarget)
-                {
-                    case ShipData.ComponentType.ArtilleryRight:
-                        this.PlayerData.Artillery.Starboard.Reload.TryReload();
-                        break;
-                    case ShipData.ComponentType.ArtilleryLeft:
-                        this.PlayerData.Artillery.Port.Reload.TryReload();
-                        break;
-                }
-            }
-        }
+            bool isMainReload = evt.actionName == "Reload:Main";
 
-        ShipData.ComponentType GetActiveReloadTarget(bool main, out bool found)
-        {
-            found = true;
-            return main ? ShipData.ComponentType.ArtilleryRight : ShipData.ComponentType.ArtilleryLeft;
+            if (isMainReload && this.PlayerData.ViewMode == PlayerData.CameraMode.FREE)
+            {
+                this.PlayerData.Artillery.Gimbal.TryReload();
+
+            }
+            
         }
 
         void OnInputInteract(InputActionEventData evt)
@@ -242,83 +254,34 @@ namespace Skyrates.Client.Input
         void OnInputSwitchWeapon(InputActionEventData evt)
         {
             if (!evt.GetButtonDown()) return;
-            Debug.Log("Switch Weapon");
+            //Debug.Log("Switch Weapon");
         }
 
         private void Update()
         {
             this.GetInput();
-            this.ProcessInput(Time.deltaTime);
+            this.PlayerStateCurrent.Update(this, this.PlayerData.InputData);
+            this.PlayerData.Artillery.Update(Time.deltaTime);
         }
 
         void GetInput()
         {
             this.PlayerStateCurrent.UpdatePre(this._controller, this, ref this.PlayerData.InputData);
         }
-
-        void ProcessInput(float deltaTime)
-        {
-            this.PlayerStateCurrent.Update(this, this.PlayerData.InputData);
-            this.ProcessActiveReload(deltaTime);
-        }
-
-        void ProcessActiveReload(float deltaTime)
-        {
-            this.PlayerData.Artillery.Starboard.LoadBy(deltaTime);
-            this.PlayerData.Artillery.Port.LoadBy(deltaTime);
-        }
-
-        private void ToggleShooting(bool isShooting, ShipData.ComponentType artillery)
-        {
-            if (!isShooting) return;
-
-            StateArtilleryBroadside broadside;
-            switch (artillery)
-            {
-                case ShipData.ComponentType.ArtilleryRight:
-                    broadside = this.PlayerData.Artillery.Starboard;
-                    break;
-                case ShipData.ComponentType.ArtilleryLeft:
-                    broadside = this.PlayerData.Artillery.Port;
-                    break;
-                default:
-                    return;
-            }
-            
-            if (broadside.Reload.GetPercentLoaded() < 1.0f) return;
-
-            this.Shoot(artillery);
-
-            // TODO: Do I need this to update the values?
-            switch (artillery)
-            {
-                case ShipData.ComponentType.ArtilleryRight:
-                    broadside.Reload.Empty();
-                    this.PlayerData.Artillery.Starboard = broadside;
-                    break;
-                case ShipData.ComponentType.ArtilleryLeft:
-                    broadside.Reload.Empty();
-                    this.PlayerData.Artillery.Port = broadside;
-                    break;
-            }
-
-            GameManager.Events.Dispatch(new EventActiveReloadBegin(
-                this.EntityPlayerShip,
-                artillery == ShipData.ComponentType.ArtilleryRight,
-                broadside.Reload.PercentStart, broadside.Reload.PercentEnd
-            ));
-
-        }
-
+        
         private void Shoot(ShipData.ComponentType artillery)
         {
             this.EntityPlayerShip.Shoot(artillery);
         }
 
-        private void ToggleBombing(bool isBombing)
+        private StateCooldown ShootCooldown(StateCooldown cooldown, Action shoot)
         {
-            // TODO: Implement bombing
+            if (!cooldown.IsLoaded()) return cooldown;
+            cooldown.Unload();
+            shoot();
+            return cooldown;
         }
-
+        
     }
+
 }

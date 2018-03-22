@@ -61,6 +61,13 @@ namespace Skyrates.Entity
             return this.Render;
         }
 
+        protected override void UpdateBehaviorData()
+        {
+            base.UpdateBehaviorData();
+            this.DataBehavior.ThrustMultiplier = this.GetHull().GetMultiplierThrust();
+            this.DataBehavior.TurnSpeedMultiplier = this.GetHull().GetMultiplierTurnSpeed();
+        }
+
         /// <inheritdoc />
         protected override void ApplyRotations(PhysicsData physics, float deltaTime)
         {

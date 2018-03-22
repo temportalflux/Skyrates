@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyrates.Misc;
 using UnityEngine;
 
 namespace Skyrates.Data
@@ -9,10 +10,24 @@ namespace Skyrates.Data
     {
 
         [SerializeField]
-        public StateArtilleryBroadside Starboard;
+        public StateActiveReload Gimbal;
 
         [SerializeField]
-        public StateArtilleryBroadside Port;
+        public StateOverheat Starboard;
+
+        [SerializeField]
+        public StateOverheat Port;
+
+        [SerializeField]
+        public StateCooldown Bombs;
+
+        public void Update(float deltaTime)
+        {
+            this.Gimbal.Update(deltaTime);
+            this.Starboard.Update(deltaTime);
+            this.Port.Update(deltaTime);
+            this.Bombs.Update(deltaTime);
+        }
 
     }
 
