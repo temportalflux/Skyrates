@@ -23,7 +23,7 @@ MonoBehaviour:
     YawAngleDeadZone: 0.25
     MoveVertical:
       Input: 0
-      Modifier: 5
+      Modifier: 15
     PitchAngle: 5
     PitchAngleSpeed: 10
     PitchAngleDeadZone: 0.15
@@ -33,23 +33,20 @@ MonoBehaviour:
     CameraVertical:
       Input: -0
       Modifier: 0.005
-    IsShooting: 0
-    IsInteractingOnThisFrame: 0
-    AimScale: 0
-    AdditionalTurnPercent: 0
-    AdditionalMovePercent: 0
-  StateData:
+  ViewMode: 0
+  Movement:
     SpeedInitial: 10
     SpeedMin: 0
-    SpeedMax: 60
-    MovementSpeed: 0
-    ViewMode: 0
-    ShootingDataStarboardPercentReloaded: 1
-    ShootingDataStarboardIsReloading: 0
-    ShootingDataStarboardCanReload: 0
-    ShootingDataPortPercentReloaded: 1
-    ShootingDataPortIsReloading: 0
-    ShootingDataPortCanReload: 0
-    ShootDelayActiveReloadStart: 0.2
-    ShootDelayActiveReloadEnd: 0.5
-    ShootDelay: 5
+    SpeedMax: 40
+    CurrentSpeed: 56
+  Artillery:
+    Starboard:
+      Reload:
+        PercentStart: 0.2
+        PercentEnd: 0.3
+      ShootDelay: 2
+    Port:
+      Reload:
+        PercentStart: 0.2
+        PercentEnd: 0.3
+      ShootDelay: 2
