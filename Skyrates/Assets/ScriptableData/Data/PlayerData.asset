@@ -33,23 +33,22 @@ MonoBehaviour:
     CameraVertical:
       Input: -0
       Modifier: 0.005
-    IsShooting: 0
-    IsInteractingOnThisFrame: 0
-    AimScale: 0
-    AdditionalTurnPercent: 0
-    AdditionalMovePercent: 0
-  StateData:
+  ViewMode: 0
+  Movement:
     SpeedInitial: 10
     SpeedMin: 0
     SpeedMax: 60
-    MovementSpeed: 0
-    ViewMode: 0
-    ShootingDataStarboardPercentReloaded: 1
-    ShootingDataStarboardIsReloading: 0
-    ShootingDataStarboardCanReload: 0
-    ShootingDataPortPercentReloaded: 1
-    ShootingDataPortIsReloading: 0
-    ShootingDataPortCanReload: 0
-    ShootDelayActiveReloadStart: 0.2
-    ShootDelayActiveReloadEnd: 0.5
-    ShootDelay: 5
+    CurrentSpeed: 10
+  Artillery:
+    Gimbal:
+      MaxDelaySeconds: 2
+      PercentStart: 0.2
+      PercentEnd: 0.3
+    Starboard:
+      MaxDelaySeconds: 2
+      HeatPerShot: 0.05
+    Port:
+      MaxDelaySeconds: 2
+      HeatPerShot: 0.05
+    Bombs:
+      MaxDelaySeconds: 2

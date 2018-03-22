@@ -215,7 +215,10 @@ namespace Skyrates.Client.Input
                     break;
                 case PlayerData.CameraMode.LOCK_DOWN:
                     this.PlayerData.Artillery.Bombs = this.ShootCooldown(
-                        this.PlayerData.Artillery.Bombs, this.Bomb);
+                        this.PlayerData.Artillery.Bombs, () =>
+                        {
+                            this.Shoot(ShipData.ComponentType.ArtilleryDown);
+                        });
                     break;
                 default:
                     break;
@@ -257,20 +260,15 @@ namespace Skyrates.Client.Input
         private void Update()
         {
             this.GetInput();
-            this.ProcessInput(Time.deltaTime);
+            this.PlayerStateCurrent.Update(this, this.PlayerData.InputData);
+            this.PlayerData.Artillery.Update(Time.deltaTime);
         }
 
         void GetInput()
         {
             this.PlayerStateCurrent.UpdatePre(this._controller, this, ref this.PlayerData.InputData);
         }
-
-        void ProcessInput(float deltaTime)
-        {
-            this.PlayerStateCurrent.Update(this, this.PlayerData.InputData);
-            this.PlayerData.Artillery.Update(deltaTime);
-        }
-
+        
         private void Shoot(ShipData.ComponentType artillery)
         {
             this.EntityPlayerShip.Shoot(artillery);
@@ -283,11 +281,7 @@ namespace Skyrates.Client.Input
             shoot();
             return cooldown;
         }
-
-        private void Bomb()
-        {
-            // TODO: Implement bombing
-        }
-
+        
     }
+
 }
