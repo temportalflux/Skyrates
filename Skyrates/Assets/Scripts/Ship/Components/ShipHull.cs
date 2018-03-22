@@ -199,7 +199,7 @@ namespace Skyrates.Ship
 
         public float GetMultiplierThrust()
         {
-            float value = 0.0f;
+            float value = 1.0f;
             this.ForEeach<ShipPropulsion>(ShipData.ComponentType.Propulsion, (comp) =>
             {
                 value *= comp.Thrust;
@@ -209,7 +209,7 @@ namespace Skyrates.Ship
 
         public float GetMultiplierTurnSpeed()
         {
-            float value = 0.0f;
+            float value = 1.0f;
             this.ForEeach<ShipNavigation>(ShipData.ComponentType.NavigationLeft, (nav) =>
             {
                 value *= nav.Maneuverability;
