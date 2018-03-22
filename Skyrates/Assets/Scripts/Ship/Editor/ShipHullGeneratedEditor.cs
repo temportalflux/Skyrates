@@ -21,9 +21,14 @@ namespace Skyrates.Ship
 
         protected override void DrawComponentList(ref bool[] toggleComponentBlock)
         {
-            ToggleComponents = EditorGUILayout.Foldout(ToggleComponents, "Components");
+            base.DrawComponentList(ref toggleComponentBlock);
+
+            ToggleComponents = EditorGUILayout.Foldout(ToggleComponents, "Component Pivots");
 
             if (!ToggleComponents) return;
+
+            if (this._instanceGenerated.Mounts.Length != ShipData.ComponentTypes.Length)
+                Array.Resize(ref this._instanceGenerated.Mounts, ShipData.ComponentTypes.Length);
 
             EditorGUI.indentLevel++;
 
@@ -33,6 +38,8 @@ namespace Skyrates.Ship
 
                 int iComp = (int)compType;
 
+                if (this._instanceGenerated.Mounts[iComp] == null)
+                    this._instanceGenerated.Mounts[iComp] = new ShipHullGenerated.MountList();
                 Transform[] roots = this._instanceGenerated.Mounts[iComp].Value ?? new Transform[0];
 
                 toggleComponentBlock[iComp] = this.DrawArray(
