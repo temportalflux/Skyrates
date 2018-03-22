@@ -81,6 +81,8 @@ namespace Skyrates.Entity
             this.DataBehavior.Render = this.GetRender().transform;
             this.DataBehavior.Formation = this._formationAgent;
             this.DataBehavior.Waypoints = this._waypointAgent;
+            this.DataBehavior.ThrustMultiplier = 1.0f;
+            this.DataBehavior.TurnSpeedMultiplier = 1.0f;
         }
         
         protected override void FixedUpdate()

@@ -5,7 +5,7 @@ namespace Skyrates.Misc
 {
 
     [Serializable]
-    public class StateActiveReload
+    public class StateActiveReload : StateCooldown
     {
 
         [Range(0.0f, 1.0f)]
@@ -24,51 +24,26 @@ namespace Skyrates.Misc
         /// If the cannon is in the process of reloading.
         /// </summary>
         private bool _isLoading = false;
-
-        /// <summary>
-        /// How much reloaded the cannon is.
-        /// </summary>
-        [Range(0, 1)]
-        private float _percentLoaded = 1.0f;
-
-        /// <summary>
-        /// If the cannon is fully loaded.
-        /// </summary>
-        public bool IsLoaded
-        {
-            get { return this._percentLoaded >= 1.0f; }
-        }
-
-        public float GetPercentLoaded()
-        {
-            return this._percentLoaded;
-        }
-
-        public void Empty()
-        {
-            this._percentLoaded = 0.0f;
-            this._canActiveReload = true;
-            this._isLoading = false;
-        }
-
-        public void LoadBy(float amount)
+        
+        public override void Update(float deltaTime)
         {
             if (!this._isLoading)
                 return;
-            
-            this._percentLoaded = Mathf.Min(1.0f, this._percentLoaded + amount);
-
-            if (this._percentLoaded >= 1.0f)
-            {
-                this.Load();
-            }
+            base.Update(deltaTime);
         }
 
-        private void Load()
+        public override void Unload()
         {
+            base.Unload();
+            this._canActiveReload = true;
+            this._isLoading = false;
+        }
+        
+        public override void OnLoaded()
+        {
+            base.OnLoaded();
             this._canActiveReload = false;
             this._isLoading = false;
-            this._percentLoaded = 1.0f;
         }
 
         public void TryReload()
@@ -76,11 +51,11 @@ namespace Skyrates.Misc
             if (!this._isLoading)
             {
                 this._isLoading = true;
-                this._percentLoaded = 0.0f;
             }
             else if (this._canActiveReload)
             {
-                if (this._percentLoaded >= this.PercentStart && this._percentLoaded <= this.PercentEnd)
+                if (this.PercentLoaded >= this.PercentStart &&
+                    this.PercentLoaded <= this.PercentEnd)
                 {
                     this.Load();
                 }
@@ -90,7 +65,6 @@ namespace Skyrates.Misc
                 }
             }
         }
-
     }
 
 }
