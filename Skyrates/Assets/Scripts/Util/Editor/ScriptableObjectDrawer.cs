@@ -24,10 +24,16 @@ public class ScriptableObjectDrawer : PropertyDrawer
         // Draw foldout properties
         if (property.isExpanded && property.objectReferenceValue != null)
         {
-            EditorGUILayout.Separator();
-
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
             // Make child fields be indented
             EditorGUI.indentLevel++;
+
+            EditorGUILayout.LabelField(string.Format("{0} ({1})",
+                property.objectReferenceValue.name,
+                property.objectReferenceValue.GetType().Name));
+            EditorGUI.indentLevel++;
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+            EditorGUI.indentLevel--;
 
             // Draw object properties
             if (!editor)
@@ -43,6 +49,7 @@ public class ScriptableObjectDrawer : PropertyDrawer
 
             // Set indent back to what it was
             EditorGUI.indentLevel--;
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         }
     }
 }

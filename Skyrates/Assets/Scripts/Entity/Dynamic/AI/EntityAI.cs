@@ -1,6 +1,8 @@
 ﻿using System;
 using Skyrates.AI;
 using Skyrates.AI.Composite;
+using Skyrates.AI.Formation;
+using Skyrates.AI.Target;
 using Skyrates.Mono;
 using Skyrates.Physics;
 using UnityEngine;
@@ -17,7 +19,7 @@ namespace Skyrates.Entity
         /// <summary>
         /// The actual steering object - set via editor.
         /// </summary>
-        [Header("AI Settings")]
+        [Header("AI: Settings")]
         [SerializeField]
         public BehaviorPipeline Behavior;
 
@@ -25,6 +27,7 @@ namespace Skyrates.Entity
         /// The steering data used - info which is specific to this
         /// entity and likely used by multiple steering algorithms.
         /// </summary>
+        [HideInInspector]
         [SerializeField]
         public Behavior.DataBehavioral DataBehavior;
 
@@ -32,10 +35,18 @@ namespace Skyrates.Entity
         [SerializeField]
         public Behavior.DataPersistent DataPersistent;
 
+        private FormationAgent _formationAgent;
+
+        private WaypointAgent _waypointAgent;
+
         /// <inheritdoc />
         protected override void Start()
         {
             base.Start();
+
+            this._formationAgent = this.GetComponent<FormationAgent>();
+            this._waypointAgent = this.GetComponent<WaypointAgent>();
+
             this.DataBehavior.Target = new PhysicsData();
 
             this.UpdateBehaviorData();
@@ -68,6 +79,8 @@ namespace Skyrates.Entity
         {
             this.DataBehavior.View = this.GetView();
             this.DataBehavior.Render = this.GetRender().transform;
+            this.DataBehavior.Formation = this._formationAgent;
+            this.DataBehavior.Waypoints = this._waypointAgent;
         }
         
         protected override void FixedUpdate()
@@ -111,6 +124,7 @@ namespace Skyrates.Entity
             }
 
             this.ApplyRotations(this.PhysicsData, deltaTime);
+            this.UpdateAnimations(this.PhysicsData);
 
         }
 
@@ -123,6 +137,14 @@ namespace Skyrates.Entity
         {
             this.Physics.MoveRotation(physics.HasAesteticRotation ?
                 physics.RotationPositionComposite : physics.RotationPosition);
+        }
+
+        /// <summary>
+        /// Update any animations based on movement
+        /// </summary>
+        /// <param name="physics"></param>
+        protected virtual void UpdateAnimations(PhysicsData physics)
+        {
         }
 
         /// <inheritdoc />

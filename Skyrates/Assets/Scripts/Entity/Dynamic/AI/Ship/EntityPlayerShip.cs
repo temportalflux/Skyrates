@@ -24,28 +24,21 @@ namespace Skyrates.Entity
         /// <summary>
         /// The non-networked data local to the player.
         /// </summary>
-        [Header("Player Ship")]
+        [Header("Player: Data")]
         public PlayerData PlayerData;
 
         /// <summary>
         /// The Ship component which creates the modular ship.
         /// </summary>
-        public Ship.Ship ShipRoot;
+        public ShipGenerator ShipGeneratorRoot;
 
         /// <inheritdoc />
         protected override void Awake()
         {
             base.Awake();
-            this.ShipRoot.Destroy();
-            this.ShipData = this.ShipRoot.Generate(this);
+            this.ShipGeneratorRoot.Destroy();
+            this.ShipData = this.ShipGeneratorRoot.Generate();
             this.PlayerData.Init();
-        }
-
-        /// <inheritdoc />
-        protected override void Start()
-        {
-            base.Start();
-            StartCoroutine(this.AutoHeal());
         }
 
         /// <inheritdoc />
@@ -68,11 +61,44 @@ namespace Skyrates.Entity
             this.Physics.MoveRotation(physics.RotationPosition);
             this.GetRender().transform.localRotation = physics.RotationAesteticPosition;
         }
-        
+
         /// <inheritdoc />
-        public override ShipHull GetHull()
+        protected override void UpdateAnimations(PhysicsData physics)
         {
-            return this.ShipRoot.Hull;
+
+            // Make animation transitions based on physics rotation Y
+            float rotY = physics.RotationVelocity.y;
+            bool isTurning = Mathf.Abs(rotY) > 0;
+            float side = Mathf.Sign(rotY);
+            bool isTurningR = isTurning && side > 0;
+            bool isTurningL = isTurning && side < 0;
+            this.SetAnimatorTurning(ShipData.ComponentType.NavigationRight, isTurningR);
+            this.SetAnimatorTurning(ShipData.ComponentType.NavigationLeft, isTurningL);
+
+            // Propulsion speed animation
+            float speedPercent = this.PlayerData.StateData.MovementSpeed / this.PlayerData.StateData.SpeedMax;
+            this.SetAnimatorSpeed(speedPercent);
+
+        }
+
+        private void SetAnimatorTurning(ShipData.ComponentType comp, bool isTurning)
+        {
+            foreach (ShipComponent component in this.GetHull().GetComponent(comp))
+            {
+                ShipNavigation compNav = component as ShipNavigation;
+                if (compNav == null) continue;
+                compNav.SetAnimatorTurning(isTurning);
+            }
+        }
+
+        private void SetAnimatorSpeed(float speedPercent)
+        {
+            foreach (ShipComponent component in this.GetHull().GetComponent(ShipData.ComponentType.Propulsion))
+            {
+                ShipPropulsion compProp = component as ShipPropulsion;
+                if (compProp == null) continue;
+                compProp.SetAnimatorSpeed(speedPercent);
+            }
         }
 
         #region Loot
@@ -97,7 +123,7 @@ namespace Skyrates.Entity
             this.PlayerData.Inventory.Add(loot.Item); //Must be before generating loot.
 
             // TODO: Change AddLoot to OnLootChanged
-            this.ShipRoot.Hull.AddLoot(loot.LootPrefabWithoutSail, loot.Item);
+            this.GetHull().AddLoot(loot.LootPrefabWithoutSail, loot.Item);
 
             GameManager.Events.Dispatch(new EventLootCollected(this, loot));
 
@@ -114,7 +140,7 @@ namespace Skyrates.Entity
         {
             // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
 
-            this.Health = this.StatBlock.MaxHealth;
+            this.Health = this.Hull.MaxHealth;
 
             Transform spawn = GameManager.Instance.PlayerSpawn;
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
@@ -130,23 +156,6 @@ namespace Skyrates.Entity
         }
         
         #endregion
-
-        /// <summary>
-        /// Auto heals the player ship every 5 secodns while the health is less than max health.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator AutoHeal()
-        {
-            while (true)
-            {
-                yield return new WaitUntil((() => this.Health < this.StatBlock.MaxHealth));
-                while (this.Health < this.StatBlock.MaxHealth)
-                {
-                    this.Health++;
-                    yield return new WaitForSeconds(5.0f);
-                }
-            }
-        }
 
     }
 

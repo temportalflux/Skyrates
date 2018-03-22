@@ -20,7 +20,7 @@ namespace Skyrates.Ship
         /// List of transforms/objects for each ComponentType.
         /// </summary>
         [SerializeField]
-        public MountList[] Mounts = new MountList[ShipData.NonHullComponents.Length];
+        public MountList[] Mounts = new MountList[ShipData.ComponentTypes.Length];
         
         /// <summary>
         /// Creates the array of components for some type.

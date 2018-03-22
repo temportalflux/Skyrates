@@ -11,8 +11,10 @@ namespace Skyrates.Ship
     /// <summary>
     /// The object which contails all <see cref="ShipComponent" />s for a specific <see cref="ShipRig" /> rig.
     /// </summary>
-    public class Ship : MonoBehaviour
+    public class ShipGenerator : MonoBehaviour
     {
+
+        public EntityShip Owner;
 
         /// <summary>
         /// The root to which all components are set as children of.
@@ -31,10 +33,6 @@ namespace Skyrates.Ship
         [HideInInspector]
         public ShipData ShipData;
 
-        // The generated object, created during Generate
-        [HideInInspector]
-        public ShipHull Hull;
-
         /// <summary>
         /// Destroys all children of the <see cref="ComponentRoot"/>.
         /// </summary>
@@ -49,19 +47,19 @@ namespace Skyrates.Ship
         /// <param name="owner"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        public ShipData Generate(EntityShip owner, ShipData data = null)
+        public ShipData Generate(ShipData data = null)
         {
             if (data == null) data = this.Blueprint.ShipData;
             this.ShipData = data;
-            this.Hull = this.Blueprint.BuildTo(owner, ref this.ComponentRoot, this.ShipData);
+            this.Blueprint.BuildTo(this.Owner, ref this.ComponentRoot, this.ShipData);
             this.ShipData.MustBeRebuilt = false;
             return this.ShipData;
         }
 
-        public void ReGenerate(EntityShip owner)
+        public void ReGenerate()
         {
             this.Destroy();
-            this.Generate(owner, this.ShipData);
+            this.Generate(this.ShipData);
         }
 
         public void UpgradeComponents(List<ShipData.ComponentType> components)

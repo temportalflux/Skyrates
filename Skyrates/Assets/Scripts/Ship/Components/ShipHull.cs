@@ -19,15 +19,58 @@ namespace Skyrates.Ship
             public ShipComponent[] Value;
         }
 
-        [Tooltip("The base amount of damage subtracted from damage taken")]
-        public float Defense;
+        [Tooltip("The amount of damage the ship can take")]
+        public int MaxHealth;
 
-        [Tooltip("The percentage of damage subtracted from damage taken")]
-        public float Protection;
-        
+        public float HealthRegenAmount;
+        public float HealthRegenDelay;
+
+        #region Particles
+
+        [Serializable]
+        public class ParticleArea
+        {
+
+            [SerializeField]
+            public BoxCollider Bounds;
+
+            [SerializeField]
+            public ParticleSystem Prefab;
+
+            [SerializeField]
+            public float Scale;
+
+            // TODO: https://docs.unity3d.com/ScriptReference/EditorGUILayout.CurveField.html
+
+            // amount of damage taken at which the smoke starts at
+            [SerializeField]
+            public Vector2Int DamageRange;
+
+            [SerializeField]
+            public Vector2Int EmissionAmountRange;
+
+            [HideInInspector]
+            public ParticleSystem Generated;
+
+        }
+
+        [Header("Particles")]
         [SerializeField]
-        public ComponentList[] Components = new ComponentList[ShipData.NonHullComponents.Length];
+        public ParticleArea SmokeData;
 
+        [SerializeField]
+        public ParticleArea FireData;
+
+        [SerializeField]
+        public GameObject ParticleOnDestruction;
+
+        #endregion
+
+        [Header("Components")]
+        [SerializeField]
+        public ComponentList[] Components = new ComponentList[ShipData.ComponentTypes.Length];
+
+        [Header("Loot on Ship")]
         [SerializeField]
         public Transform[] LootMounts;
 
@@ -37,13 +80,127 @@ namespace Skyrates.Ship
         /// </summary>
         private readonly List<GameObject> GeneratedLoot = new List<GameObject>();
 
+        void Start()
+        {
+            this.InitParticle(ref this.SmokeData);
+            this.InitParticle(ref this.FireData);
+        }
+
+        #region Particles
+
+        /// <summary>
+        /// Sets up a particle area to follow the size of this ship
+        /// </summary>
+        /// <param name="area"></param>
+        private void InitParticle(ref ParticleArea area)
+        {
+            if (area == null || area.Bounds == null || area.Prefab == null)
+                return;
+
+            area.Generated = Instantiate(area.Prefab.gameObject,
+                area.Bounds.transform.parent
+            ).GetComponent<ParticleSystem>();
+            area.Generated.transform.localPosition = area.Bounds.transform.localPosition;
+            area.Generated.transform.localRotation = area.Bounds.transform.localRotation;
+
+            ParticleSystem.ShapeModule shape = area.Generated.shape;
+            shape.shapeType = ParticleSystemShapeType.Box;
+            shape.scale = Vector3.Scale(area.Bounds.size, area.Bounds.transform.lossyScale);
+
+            ParticleSystem.MainModule main = area.Generated.main;
+            ParticleSystem.MinMaxCurve size = main.startSize;
+            size.constant = area.Scale;
+            main.startSize = size;
+        }
+
+        /// <summary>
+        /// Spawns an orphan prefab which contains a particle system for an explosion when this ship has been destoryed.
+        /// The orphan is destroyed when it is done playing its particles.
+        /// </summary>
+        public void SpawnDestructionParticles()
+        {
+            if (this.ParticleOnDestruction == null) return;
+
+            // Spawn the prefab WITH NO OWNER (so it isnt destroyed when the object is)
+            GameObject particles = Instantiate(this.ParticleOnDestruction,
+                this.transform.position, this.transform.rotation);
+            particles.transform.localScale = Vector3.Scale(particles.transform.localScale, this.transform.localScale);
+            // Destory the particle system when it is done playing
+            Destroy(particles.gameObject, particles.GetComponentInChildren<ParticleSystem>().main.duration);
+        }
+
+        /// <summary>
+        /// Updates the diagetic particles based on current health.
+        /// </summary>
+        public void UpdateHealthParticles(float health)
+        {
+            // get the amount of damage currently taken (diff in health vs max health)
+            float damageTaken = this.MaxHealth - health;
+
+            // Update smoke particles
+            if (this.SmokeData.Generated != null)
+            {
+                float emittedAmountSmoke = 0;
+                // if the damage taken is in the range, when set emittedAmountSmoke
+                if (damageTaken >= this.SmokeData.DamageRange.x &&
+                    damageTaken <= this.SmokeData.DamageRange.y)
+                {
+                    // lots o math
+                    float scaled = (damageTaken - this.SmokeData.DamageRange.x) /
+                                   (this.SmokeData.DamageRange.y - this.SmokeData.DamageRange.x);
+                    emittedAmountSmoke =
+                        scaled * (this.SmokeData.EmissionAmountRange.y -
+                                  this.SmokeData.EmissionAmountRange.x) +
+                        this.SmokeData.EmissionAmountRange.x;
+                }
+
+                // set the emission rate
+                ParticleSystem.EmissionModule emissionSmoke = this.SmokeData.Generated.emission;
+                emissionSmoke.rateOverTime = emittedAmountSmoke;
+            }
+
+            // Update fire particles
+            if (this.FireData.Generated != null)
+            {
+                float emiitedAmountFire = 0;
+                // if the damage taken is in the range, when set emiitedAmountFire
+                if (damageTaken >= this.FireData.DamageRange.x &&
+                    damageTaken <= this.FireData.DamageRange.y)
+                {
+                    // lots o math II
+                    float scaled = (damageTaken - this.FireData.DamageRange.x) /
+                                   (this.FireData.DamageRange.y - this.FireData.DamageRange.x);
+                    emiitedAmountFire =
+                        scaled * (this.FireData.EmissionAmountRange.y -
+                                  this.FireData.EmissionAmountRange.x) +
+                        this.FireData.EmissionAmountRange.x;
+                }
+
+                // set the emission rate
+                ParticleSystem.EmissionModule emission = this.FireData.Generated.emission;
+                emission.rateOverTime = emiitedAmountFire;
+            }
+
+        }
+
+        #endregion
+
         /// <summary>
         /// Gets the amount of damage subtracted from damage taken.
         /// </summary>
         /// <returns>The amount of damage subtracted from damage taken</returns>
         public float GetDefense()
         {
-            return this.Defense;
+            float value = 0.0f;
+            foreach (ShipComponent comp in this.GetComponent(ShipData.ComponentType.HullArmor))
+            {
+                ShipHullArmor hullArmor = comp as ShipHullArmor;
+                if (hullArmor != null)
+                {
+                    value += hullArmor.GetDefense();
+                }
+            }
+            return value;
         }
 
         /// <summary>
@@ -52,7 +209,16 @@ namespace Skyrates.Ship
         /// <returns>The percentage of damage subtracted from damage taken</returns>
         public float GetProtection()
         {
-            return this.Protection;
+            float value = 0.0f;
+            foreach (ShipComponent comp in this.GetComponent(ShipData.ComponentType.HullArmor))
+            {
+                ShipHullArmor hullArmor = comp as ShipHullArmor;
+                if (hullArmor != null)
+                {
+                    value *= hullArmor.GetProtection();
+                }
+            }
+            return value;
         }
 
         public void AddLoot(GameObject lootObjectPrefab, ShipData.BrokenComponentType item, bool forced = false)
@@ -75,7 +241,7 @@ namespace Skyrates.Ship
 
         protected int GetComponentIndex(ShipData.ComponentType type)
         {
-            return ShipData.HulllessComponentIndex[(int)type];
+            return (int)type;
         }
 
         /// <summary>
@@ -85,9 +251,6 @@ namespace Skyrates.Ship
         /// <returns></returns>
         public ShipComponent[] GetComponent(ShipData.ComponentType compType)
         {
-            Debug.Assert((int)ShipData.ComponentType.Hull != 0);
-            Debug.Assert(ShipData.ComponentType.Hull != compType, "Cannot get hull from hull");
-            // compType - 1 to account for Hull
             return this.Components[this.GetComponentIndex(compType)].Value;
         }
 

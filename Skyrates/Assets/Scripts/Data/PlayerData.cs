@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyrates.Client.Input;
 using Skyrates.Scene;
 using UnityEngine;
 
@@ -217,6 +218,8 @@ namespace Skyrates.Data
         public void OnEnable()
         {
             this.StateData.MovementSpeed = 0.0f;
+            this.StateData.CannonSetStarboard = new BroadsideCannonSet();
+            this.StateData.CannonSetPort = new BroadsideCannonSet();
         }
 
         public void OnDisable()
