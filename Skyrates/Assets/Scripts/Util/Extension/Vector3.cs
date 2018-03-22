@@ -50,14 +50,20 @@ namespace Skyrates.Util.Extension
         // TODO: Move me!!
         public static Transform DestroyChildren(this Transform transform)
         {
+            List<Transform> children = new List<Transform>();
+            // Since you cannot delete while iterating over the set, cache all elements
+            // https://forum.unity.com/threads/deleting-all-chidlren-of-an-object.92827/
             foreach (Transform child in transform)
+                children.Add(child);
+            // Now delete each child
+            children.ForEach((child =>
             {
 #if UNITY_EDITOR
                 GameObject.DestroyImmediate(child.gameObject);
 #else
                 GameObject.Destroy(child.gameObject);
-            #endif
-            }
+#endif
+            }));
             return transform;
         }
 

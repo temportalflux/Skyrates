@@ -505,6 +505,7 @@
     <Compile Include="Assets\Scripts\AI\Custom\ShipRotation.cs" />
     <Compile Include="Assets\Scripts\AI\Custom\UserControlled.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\SmoothTarget.cs" />
+    <Compile Include="Assets\Scripts\AI\Formation\FormationAgent.cs" />
     <Compile Include="Assets\Scripts\AI\Formation\FormationOwner.cs" />
     <Compile Include="Assets\Scripts\AI\Formation\UpdateTargetFormation.cs" />
     <Compile Include="Assets\Scripts\AI\States\State.cs" />
@@ -522,6 +523,7 @@
     <Compile Include="Assets\Scripts\AI\Steering\Delegated\Pursue.cs" />
     <Compile Include="Assets\Scripts\AI\Steering\Steering.cs" />
     <Compile Include="Assets\Scripts\AI\Targetting\Waypoint.cs" />
+    <Compile Include="Assets\Scripts\AI\Targetting\WaypointAgent.cs" />
     <Compile Include="Assets\Scripts\AI\Targetting\WaypointTargets.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioDispatcher.cs" />
     <Compile Include="Assets\Scripts\Camera\CinemachineShake.cs" />
@@ -532,6 +534,8 @@
     <Compile Include="Assets\Scripts\Data\PhysicsData.cs" />
     <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\ShipData.cs" />
+    <Compile Include="Assets\Scripts\Data\StateArtillery.cs" />
+    <Compile Include="Assets\Scripts\Data\StateMovement.cs" />
     <Compile Include="Assets\Scripts\Data\Version.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\EntityAI.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\Ship\EntityPlayerShip.cs" />
@@ -573,6 +577,9 @@
     <Compile Include="Assets\Scripts\Input\XInputDispatcher.cs" />
     <Compile Include="Assets\Scripts\Loot\Loot.cs" />
     <Compile Include="Assets\Scripts\Loot\LootTable.cs" />
+    <Compile Include="Assets\Scripts\Misc\StateActiveReload.cs" />
+    <Compile Include="Assets\Scripts\Misc\StateCooldown.cs" />
+    <Compile Include="Assets\Scripts\Misc\StateOverheat.cs" />
     <Compile Include="Assets\Scripts\OutOfWorldBoundary.cs" />
     <Compile Include="Assets\Scripts\Scenes\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneData.cs" />
@@ -585,6 +592,7 @@
     <Compile Include="Assets\Scripts\Ship\Components\ShipComponent.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipFigurehead.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipHull.cs" />
+    <Compile Include="Assets\Scripts\Ship\Components\ShipHullArmor.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipHullGenerated.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipNavigation.cs" />
     <Compile Include="Assets\Scripts\Ship\Components\ShipNavigationLeft.cs" />
@@ -593,9 +601,8 @@
     <Compile Include="Assets\Scripts\Ship\Components\ShipSail.cs" />
     <Compile Include="Assets\Scripts\Ship\ForwardCollisionsTo.cs" />
     <Compile Include="Assets\Scripts\Ship\LootPivot.cs" />
-    <Compile Include="Assets\Scripts\Ship\Ship.cs" />
+    <Compile Include="Assets\Scripts\Ship\ShipGenerator.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipRenderRoot.cs" />
-    <Compile Include="Assets\Scripts\Ship\StatBlock.cs" />
     <Compile Include="Assets\Scripts\Test\TestCannonRotation.cs" />
     <Compile Include="Assets\Scripts\Test\TestShooterRotation.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHover.cs" />
@@ -677,6 +684,14 @@
     <None Include="Assets\3rdParty\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\3rdParty\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\3rdParty\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\3rdParty\VertexPainter\Readme\Readme.txt" />
+    <None Include="Assets\3rdParty\VertexPainter\Shaders\Blend2Tex.shader" />
+    <None Include="Assets\3rdParty\VertexPainter\Shaders\Blend3Tex.shader" />
+    <None Include="Assets\3rdParty\VertexPainter\Shaders\Blend4Tex.shader" />
+    <None Include="Assets\3rdParty\VertexPainter\Shaders\FastVertexColorsAlpha.shader" />
+    <None Include="Assets\3rdParty\VertexPainter\Shaders\VertAO.shader" />
+    <None Include="Assets\3rdParty\VertexPainter\Shaders\VertAOColor.shader" />
+    <None Include="Assets\3rdParty\VertexPainter\Shaders\VertAOPixelshaded.shader" />
     <None Include="Assets\3rdParty\XInputDotNet\Docs.txt" />
     <None Include="Assets\3rdParty\XInputDotNet\MITLicense.txt" />
   </ItemGroup>

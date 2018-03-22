@@ -23,8 +23,8 @@ namespace Skyrates.UI
         
         private void Update()
         {
-            float speedRange = this.PlayerData.StateData.SpeedMax - this.PlayerData.StateData.SpeedMin;
-            float speedOffset = this.PlayerData.StateData.MovementSpeed - (speedRange * 0.5f);
+            float speedRange = this.PlayerData.Movement.SpeedMax - this.PlayerData.Movement.SpeedMin;
+            float speedOffset = this.PlayerData.Movement.CurrentSpeed - (speedRange * 0.5f);
             float scaled = speedOffset / speedRange + 0.5f;
 
             float angleRange = this.AngleMax - this.AngleMin;

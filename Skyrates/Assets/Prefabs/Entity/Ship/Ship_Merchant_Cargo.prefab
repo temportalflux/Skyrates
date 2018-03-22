@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4273277126452760}
   m_Layer: 17
-  m_Name: Other
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -867,15 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0ff7656b8aa0443a7fe4db4b9b8288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Slots: []
 --- !u!114 &114347143358417134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -889,8 +881,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
-  Defense: 0
-  Protection: 0
+  MaxHealth: 150
+  HealthRegenAmount: 0
+  HealthRegenDelay: 0
+  SmokeData:
+    Bounds: {fileID: 65363901809085916}
+    Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
+    Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
+    Generated: {fileID: 0}
+  FireData:
+    Bounds: {fileID: 65755186226335334}
+    Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
+    Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
+    Generated: {fileID: 0}
+  ParticleOnDestruction: {fileID: 0}
   Components:
   - Value: []
   - Value: []
@@ -937,12 +945,6 @@ MonoBehaviour:
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   Behavior: {fileID: 11400000, guid: 0e096f17aee796f4d89805ade8501069, type: 2}
   DataBehavior:
-    InitialTargets: []
-    FormationOwner: {fileID: 0}
-    FormationSlot: 0
-    View: {fileID: 0}
-    Render: {fileID: 0}
-    HasTarget: 0
     Target:
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
@@ -954,20 +956,8 @@ MonoBehaviour:
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
       RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
   Health: 0
   Render: {fileID: 4546537775946266}
-  SmokeData:
-    Bounds: {fileID: 65363901809085916}
-    Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
-    Scale: 1
-    Generated: {fileID: 0}
-  FireData:
-    Bounds: {fileID: 65755186226335334}
-    Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
-    Scale: 1
-    Generated: {fileID: 0}
-  ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
-    type: 2}
   Hull: {fileID: 114347143358417134}
+  Loot: {fileID: 11400000, guid: ed25723b05833b94485a1b7bed22a4c2, type: 2}
   LootDropRadius: 10

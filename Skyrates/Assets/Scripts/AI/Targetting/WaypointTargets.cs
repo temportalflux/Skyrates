@@ -50,21 +50,22 @@ namespace Skyrates.AI.Target
         {
             Persistent data = (Persistent)persist;
 
-            if (behavior.InitialTargets.Length <= 0) return data;
+            if (behavior.Waypoints == null) return data;
+            if (behavior.Waypoints.Targets.Length <= 0) return data;
 
-            Waypoint currentWaypoint = behavior.InitialTargets[data.CurrentInitialTarget];
+            Waypoint currentWaypoint = behavior.Waypoints.Targets[data.CurrentInitialTarget];
             // Check distance to current waypoint
             if ((currentWaypoint.transform.position - physics.LinearPosition).sqrMagnitude <
                 currentWaypoint.Radius * currentWaypoint.Radius)
             {
                 // Can transition to next waypoint
                 data.CurrentInitialTarget++;
-                data.CurrentInitialTarget %= behavior.InitialTargets.Length;
+                data.CurrentInitialTarget %= behavior.Waypoints.Targets.Length;
             }
 
             behavior.Target = new PhysicsData()
             {
-                LinearPosition = behavior.InitialTargets[data.CurrentInitialTarget].transform.position
+                LinearPosition = behavior.Waypoints.Targets[data.CurrentInitialTarget].transform.position
             };
 
             return data;

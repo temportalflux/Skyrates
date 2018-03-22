@@ -73,10 +73,10 @@ namespace Skyrates.Ship
         /// </summary>
         /// <param name="data">The data to pull from, stored data if null.</param>
         /// <returns></returns>
-        public ShipHull GetHull(ShipData data = null)
+        public ShipHull GetHullArmor(ShipData data = null)
         {
             if (data == null) data = this.ShipData;
-            return (ShipHull) this.GetShipComponent(ComponentType.Hull, data);
+            return (ShipHull) this.GetShipComponent(ComponentType.HullArmor, data);
         }
 
         /// <summary>
@@ -114,17 +114,6 @@ namespace Skyrates.Ship
             return (ShipPropulsion) this.GetShipComponent(ComponentType.Propulsion, data);
         }
 
-        /// <summary>
-        /// Retrives the ship component <see cref="ShipSail"/> from passed or stored data.
-        /// </summary>
-        /// <param name="data">The data to pull from, stored data if null.</param>
-        /// <returns></returns>
-        public ShipSail GetSail(ShipData data = null)
-        {
-            if (data == null) data = this.ShipData;
-            return (ShipSail) this.GetShipComponent(ComponentType.Sail, data);
-        }
-
         #endregion
 
         /// <summary>
@@ -133,32 +122,23 @@ namespace Skyrates.Ship
         /// <param name="root"></param>
         /// <param name="data">The data to use, stored if null</param>
         /// <returns></returns>
-        public ShipHull BuildTo(EntityShip owner, ref Transform root, ShipData data = null)
+        public void BuildTo(EntityShip owner, ref Transform root, ShipData data = null)
         {
             if (data == null) data = this.ShipData;
-
-            // Create the hull
-            ShipHull dataHull = (ShipHull) this.GetShipComponent(ComponentType.Hull, data);
-            if (dataHull == null)
-            {
-                Debug.LogError("Hull specified in data is null.");
-                return null;
-            }
-            ShipHullGenerated hullPrefab = dataHull as ShipHullGenerated;
-            if (hullPrefab == null)
+            
+            ShipHull hull = owner.GetHull();
+            ShipHullGenerated hullGenerated = hull as ShipHullGenerated;
+            if (hull == null || hullGenerated == null)
             {
                 Debug.LogError(string.Format(
-                    "Could not generate ship onto non-generatable hull. Hull in data named {0} is not {1}.",
-                    dataHull.name, typeof(ShipHullGenerated).Name
+                    "Could not generate ship onto non-generatable hull. Hull is null or is not {0}.",
+                    typeof(ShipHullGenerated).Name
                 ));
-                return null;
+                return;
             }
-
-            ShipHullGenerated hullBuilt = Instantiate(hullPrefab.gameObject, root).GetComponent<ShipHullGenerated>();
-            hullBuilt.Ship = owner;
             
             // Create all the remaining components
-            foreach (ComponentType compType in ShipData.NonHullComponents)
+            foreach (ComponentType compType in ShipData.ComponentTypes)
             {
 
                 // Get the component for the type
@@ -171,9 +151,9 @@ namespace Skyrates.Ship
                 GameObject prefab = component.gameObject;
 
                 // Get all the targets for the type of component (transforms on hull to generate at)
-                Transform[] targets = hullPrefab.Mounts[ShipData.HulllessComponentIndex[(int)compType]].Value;
+                Transform[] targets = hullGenerated.Mounts[(int)compType].Value;
 
-                hullBuilt.SetShipComponentCount(compType, targets.Length);
+                hullGenerated.SetShipComponentCount(compType, targets.Length);
 
                 // Generate a component of the current type at each target
                 for (int iTarget = 0; iTarget < targets.Length; iTarget++)
@@ -181,15 +161,14 @@ namespace Skyrates.Ship
                     //Transform target = targets[iTarget];
                     // Create the object
                     GameObject built = Instantiate(prefab, root);
-                    built.transform.SetPositionAndRotation(hullBuilt.transform.position, hullBuilt.transform.rotation);
+                    built.transform.SetPositionAndRotation(hullGenerated.transform.position, hullGenerated.transform.rotation);
                     // Tell the built hull that it exists
                     // TODO: Optimize this function to just send in the transform
-                    hullBuilt.AddShipComponent(hullPrefab.Mounts, compType, iTarget, built.GetComponent<ShipComponent>());
+                    hullGenerated.AddShipComponent(hullGenerated.Mounts, compType, iTarget, built.GetComponent<ShipComponent>());
                 }
                 
             }
-
-            return hullBuilt;
+            
         }
 
         /* This is outdated and redundant. Use Destroy/Generate and Increment the ship data tier index via ShipData.Upgrade

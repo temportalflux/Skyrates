@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Skyrates.Game;
 using Skyrates.Game.Event;
@@ -15,59 +16,21 @@ namespace Skyrates.Entity
     /// </summary>
     public abstract class EntityShip : EntityAI
     {
-
-        #region Stats
-
-        [Header("Stats")]
-        [SerializeField]
-        public StatBlock StatBlock;
-
+        
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
         [HideInInspector]
         public float Health;
 
-        #endregion
-        
         #region Parts of the ship
-        
+
         /// <summary>
         /// The root of the render object (must be a child/decendent of this root).
         /// </summary>
-        [Header("Objects")]
+        [Header("Ship: Objects")]
         [Tooltip("The root of the render object (must be a child/decendent of this root).")]
         public Transform Render;
 
-        #endregion
-
-        #region Particles
-        
-        [Serializable]
-        public class ParticleArea
-        {
-
-            [SerializeField]
-            public BoxCollider Bounds;
-
-            [SerializeField]
-            public ParticleSystem Prefab;
-
-            [SerializeField]
-            public float Scale;
-
-            [HideInInspector]
-            public ParticleSystem Generated;
-
-        }
-
-        [Header("Particles")]
-        [SerializeField]
-        public ParticleArea SmokeData;
-
-        [SerializeField]
-        public ParticleArea FireData;
-
-        [SerializeField]
-        public GameObject ParticleOnDestruction;
+        public ShipHull Hull;
 
         #endregion
         
@@ -75,22 +38,21 @@ namespace Skyrates.Entity
         protected override void Start()
         {
             base.Start();
-            if (this.StatBlock != null)
+            if (this.Hull != null)
             {
-                Debug.Assert(this.StatBlock.MaxHealth > 0, string.Format(
-                    "StatBlock {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
-                    this.StatBlock.name));
-                this.Health = this.StatBlock.MaxHealth;
+                Debug.Assert(this.Hull.MaxHealth > 0, string.Format(
+                    "Hull {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
+                    this.Hull.name));
+                this.Health = this.Hull.MaxHealth;
             }
-            this.InitParticle(ref this.SmokeData);
-            this.InitParticle(ref this.FireData);
+            StartCoroutine(this.AutoHeal());
         }
         
         /// <inheritdoc />
         protected override void Update()
         {
             base.Update();
-            this.UpdateHealthParticles();
+            this.Hull.UpdateHealthParticles(this.Health);
         }
 
         /// <inheritdoc />
@@ -99,6 +61,14 @@ namespace Skyrates.Entity
             return this.Render;
         }
 
+        protected override void UpdateBehaviorData()
+        {
+            base.UpdateBehaviorData();
+            this.DataBehavior.ThrustMultiplier = this.GetHull().GetMultiplierThrust();
+            this.DataBehavior.TurnSpeedMultiplier = this.GetHull().GetMultiplierTurnSpeed();
+        }
+
+        /// <inheritdoc />
         protected override void ApplyRotations(PhysicsData physics, float deltaTime)
         {
             this.Physics.MoveRotation(physics.RotationPosition);
@@ -113,14 +83,17 @@ namespace Skyrates.Entity
         public virtual void OnTriggerExit(Collider other)
         {
         }
-
+        
         #region Components
 
         /// <summary>
         /// Returns the hull of the ship
         /// </summary>
         /// <returns></returns>
-        public abstract ShipHull GetHull();
+        public ShipHull GetHull()
+        {
+            return this.Hull;
+        }
         
         /// <summary>
         /// Returns a list of components in the ship's hull of the specified type.
@@ -129,9 +102,7 @@ namespace Skyrates.Entity
         /// <returns></returns>
         public virtual ShipComponent[] GetShipComponentsOfType(ShipData.ComponentType type)
         {
-            return type == ShipData.ComponentType.Hull ?
-                new ShipComponent[] { this.GetHull() } :
-                (this.GetHull() != null ? this.GetHull().GetComponent(type) : new ShipComponent[0]);
+            return this.GetHull() != null ? this.GetHull().GetComponent(type) : new ShipComponent[0];
         }
 
         /// <summary>
@@ -146,108 +117,29 @@ namespace Skyrates.Entity
         }
         
         #endregion
-
-        #region Particles
-
+        
+        #region Health
+        
         /// <summary>
-        /// Sets up a particle area to follow the size of this ship
+        /// Auto heals the player ship every 5 secodns while the health is less than max health.
         /// </summary>
-        /// <param name="area"></param>
-        private void InitParticle(ref ParticleArea area)
+        /// <returns></returns>
+        IEnumerator AutoHeal()
         {
-            if (area == null || area.Bounds == null || area.Prefab == null)
-                return;
-
-            area.Generated = Instantiate(area.Prefab.gameObject,
-                area.Bounds.transform.parent
-            ).GetComponent<ParticleSystem>();
-            area.Generated.transform.localPosition = area.Bounds.transform.localPosition;
-            area.Generated.transform.localRotation = area.Bounds.transform.localRotation;
-
-            ParticleSystem.ShapeModule shape = area.Generated.shape;
-            shape.shapeType = ParticleSystemShapeType.Box;
-            shape.scale = Vector3.Scale(area.Bounds.size, area.Bounds.transform.lossyScale);
-
-            ParticleSystem.MainModule main = area.Generated.main;
-            ParticleSystem.MinMaxCurve size = main.startSize;
-            size.constant = area.Scale;
-            main.startSize = size;
-        }
-
-        /// <summary>
-        /// Spawns an orphan prefab which contains a particle system for an explosion when this ship has been destoryed.
-        /// The orphan is destroyed when it is done playing its particles.
-        /// </summary>
-        protected virtual void SpawnDestructionParticles()
-        {
-            if (this.ParticleOnDestruction == null) return;
-
-            // Spawn the prefab WITH NO OWNER (so it isnt destroyed when the object is)
-            GameObject particles = Instantiate(this.ParticleOnDestruction,
-                this.transform.position, this.transform.rotation);
-            particles.transform.localScale = Vector3.Scale(particles.transform.localScale, this.transform.localScale);
-            // Destory the particle system when it is done playing
-            Destroy(particles.gameObject, particles.GetComponentInChildren<ParticleSystem>().main.duration);
-        }
-
-        /// <summary>
-        /// Updates the diagetic particles based on current health.
-        /// </summary>
-        protected virtual void UpdateHealthParticles()
-        {
-            if (this.StatBlock == null) return;
-
-            // get the amount of damage currently taken (diff in health vs max health)
-            float damageTaken = this.StatBlock.MaxHealth - this.Health;
-
-            // Update smoke particles
-            if (this.SmokeData.Generated != null)
+            if (this.Hull == null || this.Hull.HealthRegenAmount <= 0.0f) yield break;
+            while (true)
             {
-                float emittedAmountSmoke = 0;
-                // if the damage taken is in the range, when set emittedAmountSmoke
-                if (damageTaken >= this.StatBlock.HealthFeedbackData.SmokeDamage.x &&
-                    damageTaken <= this.StatBlock.HealthFeedbackData.SmokeDamage.y)
+                yield return new WaitUntil((() => this.Health < this.Hull.MaxHealth));
+                while (this.Health < this.Hull.MaxHealth)
                 {
-                    // lots o math
-                    float scaled = (damageTaken - this.StatBlock.HealthFeedbackData.SmokeDamage.x) /
-                                   (this.StatBlock.HealthFeedbackData.SmokeDamage.y - this.StatBlock.HealthFeedbackData.SmokeDamage.x);
-                    emittedAmountSmoke =
-                        scaled * (this.StatBlock.HealthFeedbackData.SmokeEmissionAmount.y -
-                                  this.StatBlock.HealthFeedbackData.SmokeEmissionAmount.x) +
-                        this.StatBlock.HealthFeedbackData.SmokeEmissionAmount.x;
+                    this.Health += this.Hull.HealthRegenAmount;
+                    yield return new WaitForSeconds(this.Hull.HealthRegenDelay);
                 }
-
-                // set the emission rate
-                ParticleSystem.EmissionModule emissionSmoke = this.SmokeData.Generated.emission;
-                emissionSmoke.rateOverTime = emittedAmountSmoke;
             }
-
-            // Update fire particles
-            if (this.FireData.Generated != null)
-            {
-                float emiitedAmountFire = 0;
-                // if the damage taken is in the range, when set emiitedAmountFire
-                if (damageTaken >= this.StatBlock.HealthFeedbackData.FireDamage.x &&
-                    damageTaken <= this.StatBlock.HealthFeedbackData.FireDamage.y)
-                {
-                    // lots o math II
-                    float scaled = (damageTaken - this.StatBlock.HealthFeedbackData.FireDamage.x) /
-                                   (this.StatBlock.HealthFeedbackData.FireDamage.y - this.StatBlock.HealthFeedbackData.FireDamage.x);
-                    emiitedAmountFire =
-                        scaled * (this.StatBlock.HealthFeedbackData.FireEmissionAmount.y -
-                                  this.StatBlock.HealthFeedbackData.FireEmissionAmount.x) +
-                        this.StatBlock.HealthFeedbackData.FireEmissionAmount.x;
-                }
-
-                // set the emission rate
-                ParticleSystem.EmissionModule emission = this.FireData.Generated.emission;
-                emission.rateOverTime = emiitedAmountFire;
-            }
-
         }
 
         #endregion
-        
+
         #region Damage
 
         /// <summary>
@@ -363,13 +255,13 @@ namespace Skyrates.Entity
         /// <param name="source">The entity which is causing the damage.</param>
         /// <param name="damage">The amount of damage to take.</param>
         /// <returns>The amount of health remaining after the attack</returns>
-        public virtual float TakeDamage(Skyrates.Entity.Entity source, float damage)
+        public virtual float TakeDamage(Entity source, float damage)
         {
             // Remove the damage from the health
             this.Health -= damage;
 
             // Update particle effects
-            this.UpdateHealthParticles();
+            this.Hull.UpdateHealthParticles(this.Health);
             
             // If we still have health, stop execution here
             if (this.Health > 0) return this.Health;
@@ -410,7 +302,7 @@ namespace Skyrates.Entity
         protected virtual bool OnPreDestroy()
         {
             // Spawn particles for the object being destroyed
-            this.SpawnDestructionParticles();
+            this.Hull.SpawnDestructionParticles();
 
             // Spawn loot
             this.SpawnLoot(this.transform.position);

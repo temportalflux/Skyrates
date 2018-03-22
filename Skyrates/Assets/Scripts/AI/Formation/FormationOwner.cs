@@ -1,5 +1,4 @@
-﻿using Skyrates.Common.AI;
-using Skyrates.Physics;
+﻿using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.Formation

@@ -15,9 +15,9 @@ namespace Skyrates.Ship
         public enum ComponentType
         {
             ArtilleryLeft, ArtilleryRight, ArtilleryForward,
-            Figurehead, Hull,
+            Figurehead, HullArmor,
             NavigationLeft, NavigationRight,
-            Propulsion, Sail,
+            Propulsion,
         }
 
         public static readonly object[] ComponentTypes =
@@ -26,23 +26,11 @@ namespace Skyrates.Ship
             ComponentType.ArtilleryRight,
             ComponentType.ArtilleryForward,
             ComponentType.Figurehead,
-            ComponentType.Hull,
+            ComponentType.HullArmor,
             ComponentType.NavigationLeft,
             ComponentType.NavigationRight,
             ComponentType.Propulsion,
-            ComponentType.Sail,
         };
-        public static readonly ComponentType[] NonHullComponents = {
-            ComponentType.ArtilleryLeft,
-            ComponentType.ArtilleryRight,
-            ComponentType.ArtilleryForward,
-            ComponentType.Figurehead,
-            ComponentType.NavigationLeft,
-            ComponentType.NavigationRight,
-            ComponentType.Propulsion,
-            ComponentType.Sail,
-        };
-        public static readonly int[] HulllessComponentIndex = { 0, 1, 2, 3, -1, 4, 5, 6, 7 };
 
         public static readonly Type[] ComponentClassTypes =
         {
@@ -50,11 +38,10 @@ namespace Skyrates.Ship
             typeof(ShipArtillery),
             typeof(ShipArtillery),
             typeof(ShipFigurehead),
-            typeof(ShipHull),
+            typeof(ShipHullArmor),
             typeof(ShipNavigationLeft),
             typeof(ShipNavigationRight),
             typeof(ShipPropulsion),
-            typeof(ShipSail),
         };
 
         public enum BrokenComponentType
@@ -62,7 +49,7 @@ namespace Skyrates.Ship
             Invalid = -1,
             Artillery,
             Figurehead,
-            Hull, //Hull Armor
+            HullArmor,
             Navigation,
             Propulsion,
         }
@@ -71,14 +58,22 @@ namespace Skyrates.Ship
         {
             BrokenComponentType.Artillery,
             BrokenComponentType.Figurehead,
-            BrokenComponentType.Hull,
+            BrokenComponentType.HullArmor,
             BrokenComponentType.Navigation,
             BrokenComponentType.Propulsion,
         };
 
         //TODO: Refactor to dictionary or reflection if we ever have to change these often.
-        public static readonly BrokenComponentType[] ComponentTypeToBrokenComponentType = { BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Figurehead, BrokenComponentType.Hull, BrokenComponentType.Navigation, BrokenComponentType.Navigation, BrokenComponentType.Propulsion, BrokenComponentType.Invalid };
-
+        public static readonly BrokenComponentType[] ComponentTypeToBrokenComponentType =
+        {
+            BrokenComponentType.Artillery, BrokenComponentType.Artillery, BrokenComponentType.Artillery,
+            BrokenComponentType.Figurehead,
+            BrokenComponentType.HullArmor,
+            BrokenComponentType.Navigation, BrokenComponentType.Navigation,
+            BrokenComponentType.Propulsion,
+            BrokenComponentType.Invalid
+        };
+        
         [SerializeField]
         public int[] ComponentTiers = new int[ComponentTypes.Length];
 
