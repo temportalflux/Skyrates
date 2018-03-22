@@ -61,6 +61,7 @@ namespace Skyrates.Entity
             return this.Render;
         }
 
+        /// <inheritdoc />
         protected override void ApplyRotations(PhysicsData physics, float deltaTime)
         {
             this.Physics.MoveRotation(physics.RotationPosition);
@@ -75,7 +76,7 @@ namespace Skyrates.Entity
         public virtual void OnTriggerExit(Collider other)
         {
         }
-
+        
         #region Components
 
         /// <summary>

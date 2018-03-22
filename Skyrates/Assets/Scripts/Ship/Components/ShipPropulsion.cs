@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace Skyrates.Ship
 {
 
@@ -7,7 +9,15 @@ namespace Skyrates.Ship
         
         // TODO: Doxygen
 		public float Thrust;
-        
+
+        public Animator Animator;
+
+        public void SetAnimatorSpeed(float speedPercent)
+        {
+            this.Animator.SetFloat("speed", speedPercent);
+        }
+
+
     }
 
 }

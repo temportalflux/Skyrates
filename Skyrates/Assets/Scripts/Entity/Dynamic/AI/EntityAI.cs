@@ -124,6 +124,7 @@ namespace Skyrates.Entity
             }
 
             this.ApplyRotations(this.PhysicsData, deltaTime);
+            this.UpdateAnimations(this.PhysicsData);
 
         }
 
@@ -136,6 +137,14 @@ namespace Skyrates.Entity
         {
             this.Physics.MoveRotation(physics.HasAesteticRotation ?
                 physics.RotationPositionComposite : physics.RotationPosition);
+        }
+
+        /// <summary>
+        /// Update any animations based on movement
+        /// </summary>
+        /// <param name="physics"></param>
+        protected virtual void UpdateAnimations(PhysicsData physics)
+        {
         }
 
         /// <inheritdoc />

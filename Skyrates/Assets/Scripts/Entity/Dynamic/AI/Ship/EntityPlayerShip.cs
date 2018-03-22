@@ -62,6 +62,45 @@ namespace Skyrates.Entity
             this.GetRender().transform.localRotation = physics.RotationAesteticPosition;
         }
 
+        /// <inheritdoc />
+        protected override void UpdateAnimations(PhysicsData physics)
+        {
+
+            // Make animation transitions based on physics rotation Y
+            float rotY = physics.RotationVelocity.y;
+            bool isTurning = Mathf.Abs(rotY) > 0;
+            float side = Mathf.Sign(rotY);
+            bool isTurningR = isTurning && side > 0;
+            bool isTurningL = isTurning && side < 0;
+            this.SetAnimatorTurning(ShipData.ComponentType.NavigationRight, isTurningR);
+            this.SetAnimatorTurning(ShipData.ComponentType.NavigationLeft, isTurningL);
+
+            // Propulsion speed animation
+            float speedPercent = this.PlayerData.StateData.MovementSpeed / this.PlayerData.StateData.SpeedMax;
+            this.SetAnimatorSpeed(speedPercent);
+
+        }
+
+        private void SetAnimatorTurning(ShipData.ComponentType comp, bool isTurning)
+        {
+            foreach (ShipComponent component in this.GetHull().GetComponent(comp))
+            {
+                ShipNavigation compNav = component as ShipNavigation;
+                if (compNav == null) continue;
+                compNav.SetAnimatorTurning(isTurning);
+            }
+        }
+
+        private void SetAnimatorSpeed(float speedPercent)
+        {
+            foreach (ShipComponent component in this.GetHull().GetComponent(ShipData.ComponentType.Propulsion))
+            {
+                ShipPropulsion compProp = component as ShipPropulsion;
+                if (compProp == null) continue;
+                compProp.SetAnimatorSpeed(speedPercent);
+            }
+        }
+
         #region Loot
 
         /// <inheritdoc />
