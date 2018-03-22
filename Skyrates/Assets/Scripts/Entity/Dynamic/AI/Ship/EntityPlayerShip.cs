@@ -76,7 +76,7 @@ namespace Skyrates.Entity
             this.SetAnimatorTurning(ShipData.ComponentType.NavigationLeft, isTurningL);
 
             // Propulsion speed animation
-            float speedPercent = this.PlayerData.StateData.MovementSpeed / this.PlayerData.StateData.SpeedMax;
+            float speedPercent = this.PlayerData.Movement.CurrentSpeed / this.PlayerData.Movement.SpeedMax;
             this.SetAnimatorSpeed(speedPercent);
 
         }
