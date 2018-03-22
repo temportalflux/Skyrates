@@ -33,38 +33,6 @@ namespace Skyrates.Entity
         public ShipHull Hull;
 
         #endregion
-
-        #region Particles
-
-        [Serializable]
-        public class ParticleArea
-        {
-
-            [SerializeField]
-            public BoxCollider Bounds;
-
-            [SerializeField]
-            public ParticleSystem Prefab;
-
-            [SerializeField]
-            public float Scale;
-
-            [HideInInspector]
-            public ParticleSystem Generated;
-
-        }
-
-        [Header("Particles")]
-        [SerializeField]
-        public ParticleArea SmokeData;
-
-        [SerializeField]
-        public ParticleArea FireData;
-
-        [SerializeField]
-        public GameObject ParticleOnDestruction;
-
-        #endregion
         
         /// <inheritdoc />
         protected override void Start()
@@ -77,8 +45,6 @@ namespace Skyrates.Entity
                     this.Hull.name));
                 this.Health = this.Hull.MaxHealth;
             }
-            this.InitParticle(ref this.SmokeData);
-            this.InitParticle(ref this.FireData);
             StartCoroutine(this.AutoHeal());
         }
         
@@ -86,7 +52,7 @@ namespace Skyrates.Entity
         protected override void Update()
         {
             base.Update();
-            this.UpdateHealthParticles();
+            this.Hull.UpdateHealthParticles(this.Health);
         }
 
         /// <inheritdoc />
@@ -143,109 +109,7 @@ namespace Skyrates.Entity
         }
         
         #endregion
-
-        #region Particles
-
-        /// <summary>
-        /// Sets up a particle area to follow the size of this ship
-        /// </summary>
-        /// <param name="area"></param>
-        private void InitParticle(ref ParticleArea area)
-        {
-            if (area == null || area.Bounds == null || area.Prefab == null)
-                return;
-
-            area.Generated = Instantiate(area.Prefab.gameObject,
-                area.Bounds.transform.parent
-            ).GetComponent<ParticleSystem>();
-            area.Generated.transform.localPosition = area.Bounds.transform.localPosition;
-            area.Generated.transform.localRotation = area.Bounds.transform.localRotation;
-
-            ParticleSystem.ShapeModule shape = area.Generated.shape;
-            shape.shapeType = ParticleSystemShapeType.Box;
-            shape.scale = Vector3.Scale(area.Bounds.size, area.Bounds.transform.lossyScale);
-
-            ParticleSystem.MainModule main = area.Generated.main;
-            ParticleSystem.MinMaxCurve size = main.startSize;
-            size.constant = area.Scale;
-            main.startSize = size;
-        }
-
-        /// <summary>
-        /// Spawns an orphan prefab which contains a particle system for an explosion when this ship has been destoryed.
-        /// The orphan is destroyed when it is done playing its particles.
-        /// </summary>
-        protected virtual void SpawnDestructionParticles()
-        {
-            if (this.ParticleOnDestruction == null) return;
-
-            // Spawn the prefab WITH NO OWNER (so it isnt destroyed when the object is)
-            GameObject particles = Instantiate(this.ParticleOnDestruction,
-                this.transform.position, this.transform.rotation);
-            particles.transform.localScale = Vector3.Scale(particles.transform.localScale, this.transform.localScale);
-            // Destory the particle system when it is done playing
-            Destroy(particles.gameObject, particles.GetComponentInChildren<ParticleSystem>().main.duration);
-        }
-
-        /// <summary>
-        /// Updates the diagetic particles based on current health.
-        /// </summary>
-        protected virtual void UpdateHealthParticles()
-        {
-            // TODO: Move this to hull
-            if (this.Hull == null) return;
-
-            // get the amount of damage currently taken (diff in health vs max health)
-            float damageTaken = this.Hull.MaxHealth - this.Health;
-
-            // Update smoke particles
-            if (this.SmokeData.Generated != null)
-            {
-                float emittedAmountSmoke = 0;
-                // if the damage taken is in the range, when set emittedAmountSmoke
-                if (damageTaken >= this.Hull.HealthFeedbackData.SmokeDamage.x &&
-                    damageTaken <= this.Hull.HealthFeedbackData.SmokeDamage.y)
-                {
-                    // lots o math
-                    float scaled = (damageTaken - this.Hull.HealthFeedbackData.SmokeDamage.x) /
-                                   (this.Hull.HealthFeedbackData.SmokeDamage.y - this.Hull.HealthFeedbackData.SmokeDamage.x);
-                    emittedAmountSmoke =
-                        scaled * (this.Hull.HealthFeedbackData.SmokeEmissionAmount.y -
-                                  this.Hull.HealthFeedbackData.SmokeEmissionAmount.x) +
-                        this.Hull.HealthFeedbackData.SmokeEmissionAmount.x;
-                }
-
-                // set the emission rate
-                ParticleSystem.EmissionModule emissionSmoke = this.SmokeData.Generated.emission;
-                emissionSmoke.rateOverTime = emittedAmountSmoke;
-            }
-
-            // Update fire particles
-            if (this.FireData.Generated != null)
-            {
-                float emiitedAmountFire = 0;
-                // if the damage taken is in the range, when set emiitedAmountFire
-                if (damageTaken >= this.Hull.HealthFeedbackData.FireDamage.x &&
-                    damageTaken <= this.Hull.HealthFeedbackData.FireDamage.y)
-                {
-                    // lots o math II
-                    float scaled = (damageTaken - this.Hull.HealthFeedbackData.FireDamage.x) /
-                                   (this.Hull.HealthFeedbackData.FireDamage.y - this.Hull.HealthFeedbackData.FireDamage.x);
-                    emiitedAmountFire =
-                        scaled * (this.Hull.HealthFeedbackData.FireEmissionAmount.y -
-                                  this.Hull.HealthFeedbackData.FireEmissionAmount.x) +
-                        this.Hull.HealthFeedbackData.FireEmissionAmount.x;
-                }
-
-                // set the emission rate
-                ParticleSystem.EmissionModule emission = this.FireData.Generated.emission;
-                emission.rateOverTime = emiitedAmountFire;
-            }
-
-        }
-
-        #endregion
-
+        
         #region Health
         
         /// <summary>
@@ -383,13 +247,13 @@ namespace Skyrates.Entity
         /// <param name="source">The entity which is causing the damage.</param>
         /// <param name="damage">The amount of damage to take.</param>
         /// <returns>The amount of health remaining after the attack</returns>
-        public virtual float TakeDamage(Skyrates.Entity.Entity source, float damage)
+        public virtual float TakeDamage(Entity source, float damage)
         {
             // Remove the damage from the health
             this.Health -= damage;
 
             // Update particle effects
-            this.UpdateHealthParticles();
+            this.Hull.UpdateHealthParticles(this.Health);
             
             // If we still have health, stop execution here
             if (this.Health > 0) return this.Health;
@@ -430,7 +294,7 @@ namespace Skyrates.Entity
         protected virtual bool OnPreDestroy()
         {
             // Spawn particles for the object being destroyed
-            this.SpawnDestructionParticles();
+            this.Hull.SpawnDestructionParticles();
 
             // Spawn loot
             this.SpawnLoot(this.transform.position);

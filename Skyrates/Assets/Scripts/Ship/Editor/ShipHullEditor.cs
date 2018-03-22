@@ -15,7 +15,10 @@ namespace Skyrates.Ship
         private static bool[] ToggleComp = new bool[ShipData.ComponentTypes.Length];
         private static bool ToggleLootMounts = false;
         private static bool ToggleStats = true;
-        private static bool ToggleHealthFeedback = true;
+        private static bool ToggleParticles = true;
+        private static bool ToggleParticlesSmoke = false;
+        private static bool ToggleParticlesFire = false;
+        protected static bool ToggleComponents = false;
 
         public virtual void OnEnable()
         {
@@ -40,7 +43,12 @@ namespace Skyrates.Ship
 
         protected virtual void DrawComponentList(ref bool[] toggleComponentBlock)
         {
-            EditorGUILayout.LabelField("Components");
+            ToggleComponents = EditorGUILayout.Foldout(ToggleComponents, "Components");
+
+            if (!ToggleComponents) return;
+
+            EditorGUI.indentLevel++;
+
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 EditorGUILayout.Separator();
@@ -61,6 +69,8 @@ namespace Skyrates.Ship
                 this._instance.Components[iComp].Value = componentsOfType;
 
             }
+
+            EditorGUI.indentLevel--;
         }
 
         protected void DrawLootRoots()
@@ -87,26 +97,77 @@ namespace Skyrates.Ship
 
                 if (ToggleStats)
                 {
+                    EditorGUI.indentLevel++;
                     this._instance.MaxHealth = EditorGUILayout.IntField("Max HP", this._instance.MaxHealth);
                     this._instance.HealthRegenAmount = EditorGUILayout.FloatField("HP Regen Amount", this._instance.HealthRegenAmount);
                     this._instance.HealthRegenDelay = EditorGUILayout.FloatField("HP Regen Delay", this._instance.HealthRegenDelay);
+                    EditorGUI.indentLevel--;
                 }
             }
             EditorGUILayout.Separator();
             // Health Feedback
             {
-                ToggleHealthFeedback = EditorGUILayout.Foldout(ToggleHealthFeedback, "Health Feedback");
+                ToggleParticles = EditorGUILayout.Foldout(ToggleParticles, "Particles");
 
-                if (ToggleHealthFeedback)
+                if (ToggleParticles)
                 {
-                    EditorGUILayout.LabelField("Smoke Damage");
-                    this.MinMax(ref this._instance.HealthFeedbackData.SmokeDamage);
-                    EditorGUILayout.LabelField("Smoke Emission");
-                    this.MinMax(ref this._instance.HealthFeedbackData.SmokeEmissionAmount);
-                    EditorGUILayout.LabelField("Fire Damage");
-                    this.MinMax(ref this._instance.HealthFeedbackData.FireDamage);
-                    EditorGUILayout.LabelField("Fire Emission");
-                    this.MinMax(ref this._instance.HealthFeedbackData.FireEmissionAmount);
+                    EditorGUI.indentLevel++;
+
+                    // TODO: Duplicate code
+
+                    ToggleParticlesSmoke = EditorGUILayout.Foldout(ToggleParticlesSmoke, "Smoke");
+                    if (ToggleParticlesSmoke)
+                    {
+                        EditorGUI.indentLevel++;
+
+                        ShipHull.ParticleArea data = this._instance.SmokeData;
+
+                        data.Bounds = (BoxCollider)EditorGUILayout.ObjectField(
+                            "Bounds",
+                            data.Bounds, typeof(BoxCollider), true);
+                        data.Prefab = (ParticleSystem)EditorGUILayout.ObjectField(
+                            "Prefab",
+                            data.Prefab, typeof(ParticleSystem), true);
+                        data.Scale = EditorGUILayout.FloatField("Scale", data.Scale);
+
+                        EditorGUILayout.LabelField("Damage");
+                        this.MinMax(ref data.DamageRange);
+
+                        EditorGUILayout.LabelField("Emission");
+                        this.MinMax(ref data.EmissionAmountRange);
+
+                        this._instance.SmokeData = data;
+
+                        EditorGUI.indentLevel--;
+                    }
+
+                    ToggleParticlesFire = EditorGUILayout.Foldout(ToggleParticlesFire, "Fire");
+                    if (ToggleParticlesFire)
+                    {
+                        EditorGUI.indentLevel++;
+
+                        ShipHull.ParticleArea data = this._instance.FireData;
+
+                        data.Bounds = (BoxCollider)EditorGUILayout.ObjectField(
+                            "Bounds",
+                            data.Bounds, typeof(BoxCollider), true);
+                        data.Prefab = (ParticleSystem)EditorGUILayout.ObjectField(
+                            "Prefab",
+                            data.Prefab, typeof(ParticleSystem), true);
+                        data.Scale = EditorGUILayout.FloatField("Scale", data.Scale);
+
+                        EditorGUILayout.LabelField("Damage");
+                        this.MinMax(ref data.DamageRange);
+
+                        EditorGUILayout.LabelField("Emission");
+                        this.MinMax(ref data.EmissionAmountRange);
+
+                        this._instance.SmokeData = data;
+
+                        EditorGUI.indentLevel--;
+                    }
+
+                    EditorGUI.indentLevel--;
                 }
             }
             EditorGUILayout.Separator();

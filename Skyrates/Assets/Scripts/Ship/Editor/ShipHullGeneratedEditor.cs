@@ -19,18 +19,14 @@ namespace Skyrates.Ship
             this._instanceGenerated = this._instance as ShipHullGenerated;
         }
 
-        protected override void CheckArrayLengths()
-        {
-            base.CheckArrayLengths();
-            //if (this._instanceGenerated.Mounts == null) this._instanceGenerated.Mounts = new Transform[ShipData.NonHullComponents.Length][];
-            //if (this._instanceGenerated.Mounts.Length != ShipData.NonHullComponents.Length)
-            //{
-            //    Array.Resize(ref this._instanceGenerated.Mounts, ShipData.NonHullComponents.Length);
-            //}
-        }
-
         protected override void DrawComponentList(ref bool[] toggleComponentBlock)
         {
+            ToggleComponents = EditorGUILayout.Foldout(ToggleComponents, "Components");
+
+            if (!ToggleComponents) return;
+
+            EditorGUI.indentLevel++;
+
             foreach (ComponentType compType in ShipData.ComponentTypes)
             {
                 EditorGUILayout.Separator();
@@ -51,6 +47,8 @@ namespace Skyrates.Ship
                 this._instanceGenerated.Mounts[iComp].Value = roots;
 
             }
+
+            EditorGUI.indentLevel--;
         }
 
     }
