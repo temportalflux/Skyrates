@@ -47,21 +47,36 @@ namespace Skyrates.Client.Input
 
             public virtual void UpdatePre(Rewired.Player inputController, PlayerController owner, ref PlayerData.Input data)
             {
-                // Forward
-                float fwd = inputController.GetButton("Boost") ? 1 : 0;
-                float bkwd = inputController.GetButton("Brake") ? 1 : 0;
-                data.MoveForward.Input = fwd - bkwd;
+				if (data.BlockInputs)
+				{
+					//Forward
+					data.MoveForward.Input = -1.0f; //Force player to slow down to a stop when inputs are blocked.
+					//TODO: Do we really want this to be automatic for all blocked inputs?  Perhaps a new variable declaring whether or not to auto brake?
 
-                // Turning
-                data.TurnY.Input = inputController.GetAxis("Turn Horizontal");
+					// Turning
+					data.TurnY.Input = 0.0f;
 
-                // Move vertical
-                data.MoveVertical.Input = inputController.GetAxis("Move Vertical");
+					// Move vertical
+					data.MoveVertical.Input = 0.0f;
+				}
+				else
+				{
+					// Forward
+					float fwd = inputController.GetButton("Boost") ? 1 : 0;
+					float bkwd = inputController.GetButton("Brake") ? 1 : 0;
+					data.MoveForward.Input = fwd - bkwd;
+
+					// Turning
+					data.TurnY.Input = inputController.GetAxis("Turn Horizontal");
+
+					// Move vertical
+					data.MoveVertical.Input = inputController.GetAxis("Move Vertical");
+				}
 
                 data.CameraHorizontal.Input = 0.0f;
                 data.CameraVertical.Input = 0.0f;
 
-                if (inputController.GetButtonDown("Interact"))
+                if (inputController.GetButtonDown("Interact")) //Why can't this be in OnInputInteract now?
                 {
                     GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerInteract, owner.EntityPlayerShip));
                 }
@@ -168,7 +183,7 @@ namespace Skyrates.Client.Input
 
         void OnInputCameraMode(InputActionEventData evt)
         {
-            if (!evt.GetButtonDown() || !this.PlayerStates.ContainsKey(evt.actionName)) return;
+            if (PlayerData.InputData.BlockInputs || !evt.GetButtonDown() || !this.PlayerStates.ContainsKey(evt.actionName)) return;
 
             this.PlayerStateCurrent.OnExit();
             this.PlayerStateCurrent = this.PlayerStates[evt.actionName];
@@ -209,7 +224,7 @@ namespace Skyrates.Client.Input
 
         void OnInputReload(InputActionEventData evt)
         {
-            if (!evt.GetButtonDown()) return;
+            if (PlayerData.InputData.BlockInputs || !evt.GetButtonDown()) return;
 
             bool found;
             ShipData.ComponentType reloadTarget = this.GetActiveReloadTarget(evt.actionName == "Reload:Main", out found);
@@ -247,7 +262,7 @@ namespace Skyrates.Client.Input
 
         void OnInputSwitchWeapon(InputActionEventData evt)
         {
-            if (!evt.GetButtonDown()) return;
+            if (PlayerData.InputData.BlockInputs || !evt.GetButtonDown()) return;
             Debug.Log("Switch Weapon");
         }
 

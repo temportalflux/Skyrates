@@ -32,8 +32,8 @@ namespace Skyrates.Entity
         /// </summary>
         public Ship.Ship ShipRoot;
 
-        /// <inheritdoc />
-        protected override void Awake()
+		/// <inheritdoc />
+		protected override void Awake()
         {
             base.Awake();
             this.ShipRoot.Destroy();
