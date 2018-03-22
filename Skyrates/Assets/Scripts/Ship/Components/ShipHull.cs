@@ -185,6 +185,42 @@ namespace Skyrates.Ship
 
         #endregion
 
+        private void ForEeach<T>(ShipData.ComponentType componentType, Action<T> loop) where T: ShipComponent
+        {
+            foreach (ShipComponent comp in this.GetComponent(ShipData.ComponentType.HullArmor))
+            {
+                T compT = comp as T;
+                if (compT != null)
+                {
+                    loop(compT);
+                }
+            }
+        }
+
+        public float GetMultiplierThrust()
+        {
+            float value = 0.0f;
+            this.ForEeach<ShipPropulsion>(ShipData.ComponentType.Propulsion, (comp) =>
+            {
+                value *= comp.Thrust;
+            });
+            return value;
+        }
+
+        public float GetMultiplierTurnSpeed()
+        {
+            float value = 0.0f;
+            this.ForEeach<ShipNavigation>(ShipData.ComponentType.NavigationLeft, (nav) =>
+            {
+                value *= nav.Maneuverability;
+            });
+            this.ForEeach<ShipNavigation>(ShipData.ComponentType.NavigationRight, (nav) =>
+            {
+                value *= nav.Maneuverability;
+            });
+            return value;
+        }
+
         /// <summary>
         /// Gets the amount of damage subtracted from damage taken.
         /// </summary>
@@ -192,14 +228,10 @@ namespace Skyrates.Ship
         public float GetDefense()
         {
             float value = 0.0f;
-            foreach (ShipComponent comp in this.GetComponent(ShipData.ComponentType.HullArmor))
+            this.ForEeach<ShipHullArmor>(ShipData.ComponentType.HullArmor, (hullArmor) =>
             {
-                ShipHullArmor hullArmor = comp as ShipHullArmor;
-                if (hullArmor != null)
-                {
-                    value += hullArmor.GetDefense();
-                }
-            }
+                value += hullArmor.GetDefense();
+            });
             return value;
         }
 
@@ -210,14 +242,10 @@ namespace Skyrates.Ship
         public float GetProtection()
         {
             float value = 0.0f;
-            foreach (ShipComponent comp in this.GetComponent(ShipData.ComponentType.HullArmor))
+            this.ForEeach<ShipHullArmor>(ShipData.ComponentType.HullArmor, (hullArmor) =>
             {
-                ShipHullArmor hullArmor = comp as ShipHullArmor;
-                if (hullArmor != null)
-                {
-                    value *= hullArmor.GetProtection();
-                }
-            }
+                value *= hullArmor.GetProtection();
+            });
             return value;
         }
 

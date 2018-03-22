@@ -51,7 +51,7 @@ namespace Skyrates.AI.Custom
             Vector3 vertical = Vector3.up;
             Vector3 forward = data.Render.forward.Flatten(vertical);
 
-            this.Speed += input.MoveForward.Value;
+            this.Speed += input.MoveForward.Value * data.ThrustMultiplier;
             
             // For character
             //Vector3 movementForward = cameraForward * this.playerInput.MoveForward;
@@ -70,7 +70,7 @@ namespace Skyrates.AI.Custom
                 (vertical * input.MoveVertical.Value);
 
             // for ship movement
-            float rotationY = input.TurnY.Value;
+            float rotationY = input.TurnY.Value * data.TurnSpeedMultiplier;
             //rotationY *= (1 - input.MoveForward.Input) * 0.5f;
             
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);

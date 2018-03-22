@@ -50,6 +50,10 @@ namespace Skyrates.AI
             [HideInInspector]
             [NonSerialized]
             public WaypointAgent Waypoints;
+            
+            public float TurnSpeedMultiplier;
+            
+            public float ThrustMultiplier;
 
         }
 

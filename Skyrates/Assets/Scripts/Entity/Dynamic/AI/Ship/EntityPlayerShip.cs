@@ -54,7 +54,7 @@ namespace Skyrates.Entity
             base.FixedUpdate();
             GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerMoved, this));
         }
-
+        
         /// <inheritdoc />
         protected override void ApplyRotations(PhysicsData physics, float deltaTime)
         {

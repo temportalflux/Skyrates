@@ -535,7 +535,6 @@
     <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\ShipData.cs" />
     <Compile Include="Assets\Scripts\Data\StateArtillery.cs" />
-    <Compile Include="Assets\Scripts\Data\StateArtilleryBroadside.cs" />
     <Compile Include="Assets\Scripts\Data\StateMovement.cs" />
     <Compile Include="Assets\Scripts\Data\Version.cs" />
     <Compile Include="Assets\Scripts\Entity\Dynamic\AI\EntityAI.cs" />
@@ -579,6 +578,8 @@
     <Compile Include="Assets\Scripts\Loot\Loot.cs" />
     <Compile Include="Assets\Scripts\Loot\LootTable.cs" />
     <Compile Include="Assets\Scripts\Misc\StateActiveReload.cs" />
+    <Compile Include="Assets\Scripts\Misc\StateCooldown.cs" />
+    <Compile Include="Assets\Scripts\Misc\StateOverheat.cs" />
     <Compile Include="Assets\Scripts\OutOfWorldBoundary.cs" />
     <Compile Include="Assets\Scripts\Scenes\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneData.cs" />
