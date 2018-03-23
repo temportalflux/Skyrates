@@ -155,7 +155,7 @@ namespace UnityEditor.PostProcessing
             for (var i = 1; i < m_RangeY; i++)
                 DrawLine(0, i, m_RangeX, i, 0.4f);
 
-            // Vertical lines
+            // MoveVertical lines
             for (var i = 1; i < m_RangeX; i++)
                 DrawLine(i, 0, i, m_RangeY, 0.4f);
 

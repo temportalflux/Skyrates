@@ -41,17 +41,17 @@ namespace Cinemachine
         [LensSettingsProperty]
         public LensSettings m_Lens = LensSettings.Default;
 
-        /// <summary>The Vertical axis.  Value is 0..1.  Chooses how to blend the child rigs</summary>
+        /// <summary>The MoveVertical axis.  Value is 0..1.  Chooses how to blend the child rigs</summary>
         [Header("Axis Control")]
-        [Tooltip("The Vertical axis.  Value is 0..1.  Chooses how to blend the child rigs")]
+        [Tooltip("The MoveVertical axis.  Value is 0..1.  Chooses how to blend the child rigs")]
         public AxisState m_YAxis = new AxisState(2f, 0.2f, 0.1f, 0.5f, "Mouse Y", false);
 
         /// <summary>The Horizontal axis.  Value is 0..359.  This is passed on to the rigs' OrbitalTransposer component</summary>
         [Tooltip("The Horizontal axis.  Value is 0..359.  This is passed on to the rigs' OrbitalTransposer component")]
         public AxisState m_XAxis = new AxisState(300f, 0.1f, 0.1f, 0f, "Mouse X", true);
 
-        /// <summary>The definition of Forward.  Camera will follow behind</summary>
-        [Tooltip("The definition of Forward.  Camera will follow behind.")]
+        /// <summary>The definition of MoveForward.  Camera will follow behind</summary>
+        [Tooltip("The definition of MoveForward.  Camera will follow behind.")]
         public CinemachineOrbitalTransposer.Heading m_Heading 
             = new CinemachineOrbitalTransposer.Heading(
                 CinemachineOrbitalTransposer.Heading.HeadingDefinition.TargetForward, 4, 0);
@@ -79,7 +79,7 @@ namespace Cinemachine
         { 
             /// <summary>Height relative to target</summary>
             public float m_Height; 
-            /// <summary>Radius of orbit</summary>
+            /// <summary>RadiusSphere of orbit</summary>
             public float m_Radius; 
             /// <summary>Constructor with specific values</summary>
             public Orbit(float h, float r) { m_Height = h; m_Radius = r; }
@@ -461,7 +461,7 @@ namespace Cinemachine
             // Horizontal rotation clamped to [0,360] (with wraparound)
             m_XAxis.SetThresholds(0f, 360f, true);
 
-            // Vertical rotation cleamped to [0,1] as it is a t-value for the
+            // MoveVertical rotation cleamped to [0,1] as it is a t-value for the
             // catmull-rom spline going through the 3 points on the rig
             m_YAxis.SetThresholds(0f, 1f, false);
             //UnityEngine.Profiling.Profiler.EndSample();

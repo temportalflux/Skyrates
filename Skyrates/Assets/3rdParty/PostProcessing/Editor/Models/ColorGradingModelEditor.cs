@@ -263,7 +263,7 @@ namespace UnityEditor.PostProcessing
             for (var i = 1; i < k_NeutralRangeY; i++)
                 DrawLine(0, i, k_NeutralRangeX, i, 0.4f);
 
-            // Vertical lines
+            // MoveVertical lines
             for (var i = 1; i < k_NeutralRangeX; i++)
                 DrawLine(i, 0, i, k_NeutralRangeY, 0.4f);
 
@@ -584,7 +584,7 @@ namespace UnityEditor.PostProcessing
                     int hLines = (int)Mathf.Sqrt(innerRect.width);
                     int vLines = (int)(hLines / (innerRect.width / innerRect.height));
 
-                    // Vertical grid
+                    // MoveVertical grid
                     int gridOffset = Mathf.FloorToInt(innerRect.width / hLines);
                     int gridPadding = ((int)(innerRect.width) % hLines) / 2;
 

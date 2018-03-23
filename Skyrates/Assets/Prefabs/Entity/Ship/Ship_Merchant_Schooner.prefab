@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4146906015652790}
   - component: {fileID: 54200539007341228}
   - component: {fileID: 114865962957982574}
+  - component: {fileID: 114820605112876456}
   m_Layer: 19
   m_Name: Render
   m_TagString: Untagged
@@ -53,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4178705661537488}
   m_Layer: 17
-  m_Name: Other
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4664746602210714}
   - component: {fileID: 54349007325168094}
-  - component: {fileID: 114303108047845630}
+  - component: {fileID: 114793905451201544}
   m_Layer: 19
   m_Name: Ship_Merchant_Schooner
   m_TagString: Enemy
@@ -304,7 +305,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 3.6, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114303108047845630
+--- !u!114 &114793905451201544
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -312,24 +313,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1594538091122740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8417354a78f3ae648852e4ebed4fef71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Physics:
+  PhysicsData:
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
     RotationPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationVelocity: {x: 0, y: 0, z: 0}
     RotationAccelleration: {x: 0, y: 0, z: 0}
-    RotationAestetic: {x: 0, y: 0, z: 0}
-  BehaviorData:
-    InitialTargets: []
-    FormationOwner: {fileID: 0}
-    FormationSlot: 0
-    View: {fileID: 0}
-    Render: {fileID: 0}
-    HasTarget: 0
+    HasAesteticRotation: 0
+    RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+    RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+  Behavior: {fileID: 11400000, guid: 99d827694b06f1849914503feb9cdde2, type: 2}
+  DataBehavior:
     Target:
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
@@ -337,24 +336,56 @@ MonoBehaviour:
       RotationPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationVelocity: {x: 0, y: 0, z: 0}
       RotationAccelleration: {x: 0, y: 0, z: 0}
-      RotationAestetic: {x: 0, y: 0, z: 0}
-  Steering:
-  - {fileID: 0}
-  StatBlock: {fileID: 11400000, guid: f6de2c74e9883c8419f30501a89b7e11, type: 2}
+      HasAesteticRotation: 0
+      RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+      RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+  Health: 0
+  Render: {fileID: 4146906015652790}
+  Hull: {fileID: 114820605112876456}
+  Loot: {fileID: 11400000, guid: 7e2e5b2e5c78974408514ab0d76278a8, type: 2}
+  LootDropRadius: 4
+--- !u!114 &114820605112876456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003495320685690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ship: {fileID: 0}
+  TierIndex: 0
+  MaxHealth: 45
+  HealthRegenAmount: 0
+  HealthRegenDelay: 0
   SmokeData:
     Bounds: {fileID: 65901688769280030}
     Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
-    Scale: 10
+    Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
     Generated: {fileID: 0}
   FireData:
     Bounds: {fileID: 65793449233492780}
     Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
-    Scale: 10
+    Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
     Generated: {fileID: 0}
-  ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
-    type: 2}
-  LootDropRadius: 2
-  Health: 0
+  ParticleOnDestruction: {fileID: 0}
+  Components:
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  LootMounts: []
 --- !u!114 &114865962957982574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,4 +397,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db733378c9bac94b848f10b802b9d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Owner: {fileID: 114303108047845630}
+  Owner: {fileID: 114793905451201544}

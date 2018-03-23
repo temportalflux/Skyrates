@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4122613948466088}
   - component: {fileID: 33029663369645340}
   - component: {fileID: 23577635010457954}
+  - component: {fileID: 64430311716734404}
   m_Layer: 19
   m_Name: polySurface20
   m_TagString: Untagged
@@ -54,6 +55,7 @@ GameObject:
   - component: {fileID: 4267782974003568}
   - component: {fileID: 33472947239318564}
   - component: {fileID: 23227148303964060}
+  - component: {fileID: 64020133912255312}
   m_Layer: 19
   m_Name: polySurface17
   m_TagString: Untagged
@@ -71,6 +73,7 @@ GameObject:
   - component: {fileID: 4316711417019318}
   - component: {fileID: 33619451347987858}
   - component: {fileID: 23789450772078452}
+  - component: {fileID: 64483333396104934}
   m_Layer: 19
   m_Name: polySurface21
   m_TagString: Untagged
@@ -87,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4273277126452760}
   m_Layer: 17
-  m_Name: Other
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4036475334927516}
   - component: {fileID: 54340261942935144}
-  - component: {fileID: 114357684004903474}
+  - component: {fileID: 114968147863439486}
+  - component: {fileID: 114241934202579150}
   m_Layer: 19
   m_Name: Ship_Merchant_Cargo
   m_TagString: Enemy
@@ -136,6 +140,7 @@ GameObject:
   - component: {fileID: 4546537775946266}
   - component: {fileID: 114771572415118082}
   - component: {fileID: 54489481619884610}
+  - component: {fileID: 114347143358417134}
   m_Layer: 19
   m_Name: Render
   m_TagString: Untagged
@@ -153,6 +158,7 @@ GameObject:
   - component: {fileID: 4636432748598516}
   - component: {fileID: 33920088578401608}
   - component: {fileID: 23955022033256306}
+  - component: {fileID: 64818317856927278}
   m_Layer: 19
   m_Name: polySurface19
   m_TagString: Untagged
@@ -185,6 +191,7 @@ GameObject:
   - component: {fileID: 4939241125074666}
   - component: {fileID: 33507706454036636}
   - component: {fileID: 23537235160584886}
+  - component: {fileID: 64824555787572156}
   m_Layer: 19
   m_Name: polySurface16
   m_TagString: Untagged
@@ -202,7 +209,7 @@ GameObject:
   - component: {fileID: 4662730054370292}
   - component: {fileID: 33087740293361216}
   - component: {fileID: 23833230044294998}
-  - component: {fileID: 64410177251930770}
+  - component: {fileID: 64254452213993002}
   m_Layer: 19
   m_Name: polySurface18
   m_TagString: Untagged
@@ -220,6 +227,7 @@ GameObject:
   - component: {fileID: 4517769585339492}
   - component: {fileID: 33300219101456036}
   - component: {fileID: 23511028766873750}
+  - component: {fileID: 64617253658596696}
   m_Layer: 19
   m_Name: polySurface15
   m_TagString: Untagged
@@ -726,7 +734,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64410177251930770
+--- !u!64 &64020133912255312
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195418874433788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300008, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!64 &64254452213993002
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -740,6 +762,76 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!64 &64430311716734404
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1047667525359418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300014, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!64 &64483333396104934
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350846337468508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300016, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!64 &64617253658596696
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948293861316834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!64 &64818317856927278
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648270749252132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300012, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
+--- !u!64 &64824555787572156
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693730360940208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300006, guid: afdbda50e218abb48bb4e23140566d6a, type: 3}
 --- !u!65 &65363901809085916
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -764,7 +856,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.2224636, y: 12.057941, z: 0}
   m_Center: {x: -0.089959145, y: -2.493032, z: 7.0064126e-15}
---- !u!114 &114357684004903474
+--- !u!114 &114241934202579150
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -772,49 +864,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407873246861368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a555c54a1324c842acb2d1fa5fe9bb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a0ff7656b8aa0443a7fe4db4b9b8288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Physics:
-    LinearPosition: {x: 0, y: 0, z: 0}
-    LinearVelocity: {x: 0, y: 0, z: 0}
-    LinearAccelleration: {x: 0, y: 0, z: 0}
-    RotationPosition: {x: 0, y: 0, z: 0, w: 1}
-    RotationVelocity: {x: 0, y: 0, z: 0}
-    RotationAccelleration: {x: 0, y: 0, z: 0}
-    RotationAestetic: {x: 0, y: 0, z: 0}
-  BehaviorData:
-    InitialTargets: []
-    FormationOwner: {fileID: 0}
-    FormationSlot: 0
-    View: {fileID: 0}
-    Render: {fileID: 0}
-    HasTarget: 0
-    Target:
-      LinearPosition: {x: 0, y: 0, z: 0}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      LinearAccelleration: {x: 0, y: 0, z: 0}
-      RotationPosition: {x: 0, y: 0, z: 0, w: 1}
-      RotationVelocity: {x: 0, y: 0, z: 0}
-      RotationAccelleration: {x: 0, y: 0, z: 0}
-      RotationAestetic: {x: 0, y: 0, z: 0}
-  Steering:
-  - {fileID: 0}
-  StatBlock: {fileID: 11400000, guid: 4451671010630e64a8a5649824121202, type: 2}
+  Slots: []
+--- !u!114 &114347143358417134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639490267884456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ship: {fileID: 0}
+  TierIndex: 0
+  MaxHealth: 150
+  HealthRegenAmount: 0
+  HealthRegenDelay: 0
   SmokeData:
     Bounds: {fileID: 65363901809085916}
     Prefab: {fileID: 198703052526001632, guid: ce3c70a79d92f0e4ca95f6cccf684bc9, type: 2}
     Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
     Generated: {fileID: 0}
   FireData:
     Bounds: {fileID: 65755186226335334}
     Prefab: {fileID: 198914825608255178, guid: 637f28673aaf63d4cbcd9ef29cefae82, type: 2}
     Scale: 1
+    DamageRange: {x: 0, y: 0}
+    EmissionAmountRange: {x: 0, y: 0}
     Generated: {fileID: 0}
-  ParticleOnDestruction: {fileID: 1120038022722964, guid: 656f6699adb6aec45ac1c72e63c75f7c,
-    type: 2}
-  LootDropRadius: 10
-  Health: 0
+  ParticleOnDestruction: {fileID: 0}
+  Components:
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  - Value: []
+  LootMounts: []
 --- !u!114 &114771572415118082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,4 +920,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fdebacc13b36049bedd7075606f3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Owner: {fileID: 114357684004903474}
+  Owner: {fileID: 114968147863439486}
+--- !u!114 &114968147863439486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407873246861368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8417354a78f3ae648852e4ebed4fef71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PhysicsData:
+    LinearPosition: {x: 0, y: 0, z: 0}
+    LinearVelocity: {x: 0, y: 0, z: 0}
+    LinearAccelleration: {x: 0, y: 0, z: 0}
+    RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationVelocity: {x: 0, y: 0, z: 0}
+    RotationAccelleration: {x: 0, y: 0, z: 0}
+    HasAesteticRotation: 0
+    RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+    RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+    RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+  Behavior: {fileID: 11400000, guid: 0e096f17aee796f4d89805ade8501069, type: 2}
+  DataBehavior:
+    Target:
+      LinearPosition: {x: 0, y: 0, z: 0}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      LinearAccelleration: {x: 0, y: 0, z: 0}
+      RotationPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationVelocity: {x: 0, y: 0, z: 0}
+      RotationAccelleration: {x: 0, y: 0, z: 0}
+      HasAesteticRotation: 0
+      RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
+      RotationAesteticVelocity: {x: 0, y: 0, z: 0}
+      RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+  Health: 0
+  Render: {fileID: 4546537775946266}
+  Hull: {fileID: 114347143358417134}
+  Loot: {fileID: 11400000, guid: ed25723b05833b94485a1b7bed22a4c2, type: 2}
+  LootDropRadius: 10
