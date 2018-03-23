@@ -130,6 +130,7 @@ namespace Skyrates.Entity
 				button.AddUpgradeListener(player);
 			}
 		    this.UpgradeMenu.gameObject.SetActive(true);
+			player.PlayerData.InputData.BlockInputs = true; //Temporary?
 		}
 
 	    /// <summary>
@@ -146,6 +147,7 @@ namespace Skyrates.Entity
 				button.RemoveUpgradeListener();
 			}
 			this.UpgradeMenu.gameObject.SetActive(false);
+			player.PlayerData.InputData.BlockInputs = false; //Temporary?
 		}
         
 	}
