@@ -7,7 +7,10 @@ namespace Skyrates.UI
     {
 
         public UpgradeButton[] MenuButtons;
-
-    }
+		void Start()
+		{
+			if(MenuButtons.Length > 0) MenuButtons[0].Button.Select(); //Select the first button if available.
+		}
+	}
 
 }
