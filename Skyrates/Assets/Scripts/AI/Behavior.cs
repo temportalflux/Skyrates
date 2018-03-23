@@ -24,23 +24,16 @@ namespace Skyrates.AI
         public class DataBehavioral
         {
 
-            [SerializeField]
-            public Waypoint[] InitialTargets;
-
-            [SerializeField]
-            public FormationOwner FormationOwner;
-            [SerializeField]
-            public int FormationSlot;
-
             [HideInInspector]
-            [SerializeField]
+            [NonSerialized]
             public Transform View;
 
             [HideInInspector]
-            [SerializeField]
+            [NonSerialized]
             public Transform Render;
 
             [HideInInspector]
+            [NonSerialized]
             public bool HasTarget = false;
 
             /// <summary>
@@ -49,7 +42,19 @@ namespace Skyrates.AI
             [HideInInspector]
             [SerializeField]
             public PhysicsData Target;
+
+            [HideInInspector]
+            [NonSerialized]
+            public FormationAgent Formation;
+
+            [HideInInspector]
+            [NonSerialized]
+            public WaypointAgent Waypoints;
             
+            public float TurnSpeedMultiplier;
+            
+            public float ThrustMultiplier;
+
         }
 
         /// <summary>

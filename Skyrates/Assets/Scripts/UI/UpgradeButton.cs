@@ -47,8 +47,8 @@ namespace Skyrates.UI
 				case ShipData.BrokenComponentType.Figurehead:
 					componentTypes.Add(ShipData.ComponentType.Figurehead);
 					break;
-				case ShipData.BrokenComponentType.Hull:
-					componentTypes.Add(ShipData.ComponentType.Hull);
+				case ShipData.BrokenComponentType.HullArmor:
+					componentTypes.Add(ShipData.ComponentType.HullArmor);
 					break;
 				case ShipData.BrokenComponentType.Navigation:
 					componentTypes.Add(ShipData.ComponentType.NavigationLeft);
@@ -73,7 +73,7 @@ namespace Skyrates.UI
                 // TODO: Add getter to EntityShip indicating the current tier of each component type
 				uint oldTierIndex = oldComponent != null ? oldComponent.TierIndex : 0;
                 // Get the current rig and component list to check for max upgrades
-			    ShipRig playerShipRig = this._player.ShipRoot.Blueprint;
+			    ShipRig playerShipRig = this._player.ShipGeneratorRoot.Blueprint;
 			    ShipComponentList componentList = playerShipRig.ShipComponentList;
                 // Check to see if the component can be upgraded any more
 			    if (oldTierIndex + 1 >= componentList.Categories[componentList.GetIndexFrom(type)].Prefabs.Length)
@@ -86,10 +86,10 @@ namespace Skyrates.UI
 			if (isUpgradableFurther && this.PlayerData.Inventory.Remove(Type) != 0)
 			{
                 // Upgrade the component
-			    this._player.ShipRoot.UpgradeComponents(componentTypes);
+			    this._player.ShipGeneratorRoot.UpgradeComponents(componentTypes);
 
                 // Regenerate the ship rig
-			    this._player.ShipRoot.ReGenerate(this._player);
+			    this._player.ShipGeneratorRoot.ReGenerate();
 			}
 		}
 

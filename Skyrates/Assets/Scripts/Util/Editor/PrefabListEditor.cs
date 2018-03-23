@@ -73,7 +73,7 @@ public abstract class PrefabListEditor<TKey, TValue> : Editor where TValue: Mono
             EditorGUILayout.BeginHorizontal();
             {
                 keysEnabled[keyIndex] = EditorGUILayout.Foldout(
-                    keysEnabled[keyIndex], keyValueType.Name);
+                    keysEnabled[keyIndex], key.ToString());
                 
                 GUILayout.FlexibleSpace();
 
