@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 4849243902473428}
   - component: {fileID: 33959885930969336}
   - component: {fileID: 23351438959650570}
+  - component: {fileID: 64765952178208600}
   m_Layer: 0
   m_Name: skyland_medium_1
   m_TagString: Untagged
@@ -78,14 +79,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1384779894484644}
-  m_LocalRotation: {x: -0, y: -0.5199623, z: -0, w: -0.8541892}
-  m_LocalPosition: {x: -373.0079, y: 272.7742, z: -61.226433}
-  m_LocalScale: {x: 17.697725, y: 17.697725, z: 17.697725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1219, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4314087541993616}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -297.341, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4849243902473428
 Transform:
   m_ObjectHideFlags: 1
@@ -113,7 +114,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d66d8f65700aed741bab34e1144dd402, type: 2}
+  - {fileID: 2100000, guid: 1dab6aae577cc8046a8331d4f2a94277, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,4 +140,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842537141902930}
+  m_Mesh: {fileID: 4300000, guid: 0dee33919ffab6349a99b9a8be1d0e93, type: 2}
+--- !u!64 &64765952178208600
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842537141902930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: a46c998da1ec14e42ab55e5998fc3187, type: 3}
