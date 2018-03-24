@@ -51,6 +51,8 @@ namespace Skyrates.AI.Custom
             Vector3 vertical = Vector3.up;
             Vector3 forward = data.Render.forward.Flatten(vertical);
 
+            this.Speed = this.ControllerData.Movement.CurrentSpeed;
+
             this.Speed += input.MoveForward.Value * data.ThrustMultiplier;
             
             // For character

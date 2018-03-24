@@ -289,6 +289,14 @@ namespace Skyrates.Entity
         {
             // Calculate the damage to take when ramming is unsuccesful.
             this.TakeDamage(target, CaclulateRecoil(damage));
+
+            this.ForceStop();
+        }
+
+        protected virtual void ForceStop()
+        {
+            this.PhysicsData.LinearVelocity = Vector3.zero;
+            this.PhysicsData.LinearAccelleration = Vector3.zero;
         }
 
         #endregion

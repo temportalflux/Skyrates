@@ -39,12 +39,12 @@ MonoBehaviour:
     SpeedInitial: 10
     SpeedMin: 0
     SpeedMax: 40
-    CurrentSpeed: 4
+    CurrentSpeed: 34.25
   Artillery:
     Gimbal:
       MaxDelaySeconds: 2
-      PercentStart: 0.2
-      PercentEnd: 0.3
+      PercentStart: 0.15
+      PercentEnd: 0.4
     Starboard:
       MaxDelaySeconds: 5
       HeatPerShot: 0.2
@@ -61,4 +61,4 @@ MonoBehaviour:
         MaxDelaySeconds: 0.5
     Bombs:
       MaxDelaySeconds: 2
-  DebugInfiniteUpgrade: 1
+  DebugInfiniteUpgrade: 0

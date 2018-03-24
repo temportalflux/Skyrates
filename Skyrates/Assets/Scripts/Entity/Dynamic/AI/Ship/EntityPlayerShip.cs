@@ -101,6 +101,12 @@ namespace Skyrates.Entity
             }
         }
 
+        protected override void ForceStop()
+        {
+            base.ForceStop();
+            this.PlayerData.Movement.CurrentSpeed = 0.0f;
+        }
+
         #region Loot
 
         /// <inheritdoc />
