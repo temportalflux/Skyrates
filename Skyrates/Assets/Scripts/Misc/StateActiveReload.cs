@@ -24,7 +24,14 @@ namespace Skyrates.Misc
         /// If the cannon is in the process of reloading.
         /// </summary>
         public bool IsLoading { get; private set; }
-        
+
+        public override void Awake()
+        {
+            base.Awake();
+            this.IsLoading = false;
+            this._canActiveReload = false;
+        }
+
         public override void Update(float deltaTime)
         {
             if (!this.IsLoading)

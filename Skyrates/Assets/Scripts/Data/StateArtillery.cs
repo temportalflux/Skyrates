@@ -21,6 +21,14 @@ namespace Skyrates.Data
         [SerializeField]
         public StateCooldown Bombs;
 
+        public void Awake()
+        {
+            this.Gimbal.Awake();
+            this.Starboard.Awake();
+            this.Port.Awake();
+            this.Bombs.Awake();
+        }
+
 		public void Update(float deltaTime)
         {
             this.Gimbal.Update(deltaTime);
