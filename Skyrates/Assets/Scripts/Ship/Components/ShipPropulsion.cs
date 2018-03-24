@@ -14,6 +14,8 @@ namespace Skyrates.Ship
 
         public void SetAnimatorSpeed(float speedPercent)
         {
+            if (this.Animator == null)
+                return;
             this.Animator.SetFloat("speed", speedPercent);
         }
 

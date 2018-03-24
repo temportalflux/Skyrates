@@ -160,8 +160,8 @@ namespace Skyrates.Client.Input
             this.PlayerStates.Add("Mode:Down", new PlayerStateBomb());
 
 			this.ViewModes.Add("Mode:Free", this.PlayerData.ViewMode = PlayerData.CameraMode.FREE);
-			this.ViewModes.Add("Mode:Starboard", PlayerData.CameraMode.LOCK_LEFT);
-			this.ViewModes.Add("Mode:Port", PlayerData.CameraMode.LOCK_RIGHT);
+			this.ViewModes.Add("Mode:Starboard", PlayerData.CameraMode.LOCK_RIGHT);
+			this.ViewModes.Add("Mode:Port", PlayerData.CameraMode.LOCK_LEFT);
 			this.ViewModes.Add("Mode:Down", PlayerData.CameraMode.LOCK_DOWN);
 
 			this.PlayerStateCurrent.OnEnter(this);

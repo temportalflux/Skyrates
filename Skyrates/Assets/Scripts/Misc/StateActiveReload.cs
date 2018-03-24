@@ -23,11 +23,11 @@ namespace Skyrates.Misc
         /// <summary>
         /// If the cannon is in the process of reloading.
         /// </summary>
-        private bool _isLoading = false;
+        public bool IsLoading { get; private set; }
         
         public override void Update(float deltaTime)
         {
-            if (!this._isLoading)
+            if (!this.IsLoading)
                 return;
             base.Update(deltaTime);
         }
@@ -36,21 +36,21 @@ namespace Skyrates.Misc
         {
             base.Unload();
             this._canActiveReload = true;
-            this._isLoading = false;
+            this.IsLoading = false;
         }
         
         public override void OnLoaded()
         {
             base.OnLoaded();
             this._canActiveReload = false;
-            this._isLoading = false;
+            this.IsLoading = false;
         }
 
         public void TryReload()
         {
-            if (!this._isLoading)
+            if (!this.IsLoading)
             {
-                this._isLoading = true;
+                this.IsLoading = true;
             }
             else if (this._canActiveReload)
             {

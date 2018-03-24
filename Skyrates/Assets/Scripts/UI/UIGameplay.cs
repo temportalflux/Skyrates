@@ -1,4 +1,5 @@
-﻿using Skyrates.Game;
+﻿using Skyrates.Data;
+using Skyrates.Game;
 using Skyrates.Game.Event;
 using UnityEngine;
 
@@ -7,25 +8,23 @@ namespace Skyrates.UI
     public class UIGameplay : MonoBehaviour
     {
 
-        public UIFillCutoffBar ActiveReloadStarboard;
-        public UIFillCutoffBar ActiveReloadPort;
+        public PlayerData Source;
 
-        void OnEnable()
+        public UIStateActiveReload Gimbal;
+        public UIStateOverheat Starboard;
+        public UIStateOverheat Port;
+        public UIStateCooldown Bombs;
+        
+        void Update()
         {
-            GameManager.Events.ActiveReloadBegin += this.OnActiveReloadBegin;
-        }
-
-        void OnDisable()
-        {
-            GameManager.Events.ActiveReloadBegin -= this.OnActiveReloadBegin;
-        }
-
-        // TODO: Remove UI event and just track the progress directly through the state data
-        void OnActiveReloadBegin(GameEvent evt)
-        {
-            EventActiveReloadBegin evtReload = (EventActiveReloadBegin) evt;
-            UIFillCutoffBar reloadBar = evtReload.IsStarboard ? this.ActiveReloadStarboard : this.ActiveReloadPort;
-            reloadBar.Execute(evtReload.ActiveReloadStart, evtReload.ActiveReloadEnd, evtReload.GetPercentUpdate);
+            this.Gimbal.UpdateWith(this.Source.Artillery.Gimbal,
+                this.Source.ViewMode == PlayerData.CameraMode.FREE);
+            this.Starboard.UpdateWith(this.Source.Artillery.Starboard,
+                this.Source.ViewMode == PlayerData.CameraMode.LOCK_RIGHT);
+            this.Port.UpdateWith(this.Source.Artillery.Port,
+                this.Source.ViewMode == PlayerData.CameraMode.LOCK_LEFT);
+            this.Bombs.UpdateWith(this.Source.Artillery.Bombs,
+                this.Source.ViewMode == PlayerData.CameraMode.LOCK_DOWN);
         }
 
     }
