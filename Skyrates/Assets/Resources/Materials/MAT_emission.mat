@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Vertex_painter
-  m_Shader: {fileID: 4800000, guid: dbce7a6d969c0904d96182ba9bda8d03, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_Name: MAT_emission
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -54,25 +54,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Textureblack:
-        m_Texture: {fileID: 2800000, guid: 7ea26598068784a4f92de7cd383d80e9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Textureblue:
-        m_Texture: {fileID: 2800000, guid: 7ea26598068784a4f92de7cd383d80e9, type: 3}
-        m_Scale: {x: 2, y: 2}
-        m_Offset: {x: 0, y: 0}
-    - _Texturegreen:
-        m_Texture: {fileID: 2800000, guid: c90698ae2f6bddf48a094625d17a3303, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texturered:
-        m_Texture: {fileID: 2800000, guid: d4ea36825e5a7ea499b9489b66bbd8cf, type: 3}
-        m_Scale: {x: 5, y: 5}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AOIntensity: 1
-    - _AOPower: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -90,7 +72,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _AOColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.9801813, g: 1.0220588, b: 0.26302984, a: 1}
