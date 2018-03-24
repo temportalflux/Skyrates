@@ -200,12 +200,12 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114874161253796816, guid: 3ff8fff7ff664ee418d1d9f2c26b3902,
     type: 2}
   spawn: {fileID: 4939261401589946}
-  force: 10
+  force: 20
   UseArc: 1
   ManualArc: 0
   TargetIsDirection: 1
-  ArcAngle: 0
-  ArcAxis: {x: 1, y: 0, z: 0}
+  ArcAngle: 45
+  ArcAxis: {x: 150, y: 0, z: 0}
   ArcRender: {fileID: 114884897414377730}
 --- !u!114 &114884897414377730
 MonoBehaviour:
@@ -220,6 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: 10
   AngleDegrees: 45
-  MeshWidthStart: 0.1
-  MeshWidthEnd: 0.1
-  Resolution: 15
+  MeshWidthStart: 1
+  MeshWidthEnd: 0.9
+  Resolution: 30
