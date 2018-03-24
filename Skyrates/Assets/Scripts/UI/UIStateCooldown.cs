@@ -37,7 +37,7 @@ namespace Skyrates.UI
             get { return this._isVisible; }
             set
             {
-                this._isVisible = value;
+                this._isVisible = value && this.Active;
                 this.Empty.enabled = this._isVisible;
                 this.Full.enabled = this._isVisible;
                 this.OnSetVisibility();
@@ -62,7 +62,7 @@ namespace Skyrates.UI
         {
             return true;
         }
-
+        
         protected virtual void OnSetVisibility()
         {
         }

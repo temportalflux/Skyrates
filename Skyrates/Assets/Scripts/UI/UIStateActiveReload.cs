@@ -25,24 +25,34 @@ namespace Skyrates.UI
         public override void UpdateWith(StateActiveReload state, bool isVisible)
         {
             base.UpdateWith(state, isVisible);
-            if (!this.Active && state.IsLoading)
+            // Cannon not loaded
+            if (!state.IsLoaded())
             {
-                // Start
-                this.SetCutoff(state.PercentStart, state.PercentEnd);
-                this.PercentComplete = 0.0f;
-                this.Active = true;
+                // Cannon not loaded
+                // UI inactive
+                // = UI Active
+                if (!this.Active)
+                {
+                    this.SetCutoff(state.PercentStart, state.PercentEnd);
+                    this.PercentComplete = 0.0f;
+                    this.Active = true;
+                }
+                // Cannon not loaded
+                // Cannon loading
+                // = Update
+                else if (state.IsLoading)
+                {
+                    this.PercentComplete = Mathf.Min(1.0f, state.GetPercentLoaded());
+                }
             }
-            else if (this.Active && !state.IsLoading)
+            // Cannon loaded
+            // UI Active
+            // = UI inactive
+            else if (this.Active)
             {
-                // End
                 this.Active = false;
                 this.SetCutoff(0.0f, 0.0f);
                 this.PercentComplete = 0.0f;
-            }
-            else
-            {
-                // Update
-                this.PercentComplete = Mathf.Min(1.0f, state.GetPercentLoaded());
             }
         }
 
