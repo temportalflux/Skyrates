@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4326625413668174}
-  - component: {fileID: 114154446437752826}
+  - component: {fileID: 114723030427827778}
   - component: {fileID: 114278336894392368}
   m_Layer: 18
   m_Name: ship_bombs_tier1
@@ -99,20 +99,6 @@ Transform:
   m_Father: {fileID: 4326625413668174}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114154446437752826
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303197603360202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e6edc05cd2ca346b78629fa37c28c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ship: {fileID: 0}
-  TierIndex: 0
-  Shooter: {fileID: 114278336894392368}
 --- !u!114 &114278336894392368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,7 +110,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 114874161253796816, guid: 3ff8fff7ff664ee418d1d9f2c26b3902,
+  projectilePrefab: {fileID: 114606328650772764, guid: 07304c89426e584419a8311411156937,
     type: 2}
   spawn: {fileID: 4939261401589946}
   force: 0
+  UseArc: 0
+  ManualArc: 0
+  TargetIsDirection: 1
+  ArcAngle: 0
+  ArcAxis: {x: 1, y: 0, z: 0}
+  ArcRender: {fileID: 0}
+--- !u!114 &114723030427827778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303197603360202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f7b2fbd009306408a835cf603d433a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ship: {fileID: 0}
+  TierIndex: 0
+  Shooter: {fileID: 114278336894392368}
+  DropDelay: 0.25
+  DropAmount: 5

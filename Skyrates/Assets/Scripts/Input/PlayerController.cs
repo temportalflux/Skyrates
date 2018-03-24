@@ -165,6 +165,7 @@ namespace Skyrates.Client.Input
 			this.ViewModes.Add("Mode:Down", PlayerData.CameraMode.LOCK_DOWN);
 
 			this.PlayerStateCurrent.OnEnter(this);
+            this.PlayerData.Artillery.Awake();
         }
 
         void OnEnable()
@@ -214,11 +215,6 @@ namespace Skyrates.Client.Input
                             this.Shoot(ShipData.ComponentType.ArtilleryForward);
                         }
                     );
-                    //GameManager.Events.Dispatch(new EventActiveReloadBegin(
-                    //    this.EntityPlayerShip,
-                    //    this.PlayerData.Artillery.Gimbal.PercentStart,
-                    //    this.PlayerData.Artillery.Gimbal.PercentEnd
-                    //));
                     break;
                 case PlayerData.CameraMode.LOCK_LEFT:
                     this.PlayerData.Artillery.Port = (StateOverheat) this.ShootCooldown(

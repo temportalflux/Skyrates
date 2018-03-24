@@ -50,10 +50,9 @@ namespace Skyrates.Ship
         public ShipData Generate(ShipData data = null)
         {
             if (data == null) data = this.Blueprint.ShipData;
-            this.ShipData = data;
-            this.Blueprint.BuildTo(this.Owner, ref this.ComponentRoot, this.ShipData);
+            this.Blueprint.BuildTo(this.Owner, ref this.ComponentRoot, data);
             this.ShipData.MustBeRebuilt = false;
-            return this.ShipData;
+            return data;
         }
 
         public void ReGenerate()

@@ -16,11 +16,11 @@ namespace Skyrates.Game.Event
         /// <summary>
         /// The artillery fired.
         /// </summary>
-        public Shooter[] Shooters;
+        public ShipArtillery[] Shooters;
 
         public ShipData.ComponentType ComponentType;
 
-        public EventArtilleryFired(EntityShip ship, Shooter[] shooters, ShipData.ComponentType type)
+        public EventArtilleryFired(EntityShip ship, ShipArtillery[] shooters, ShipData.ComponentType type)
             : base(GameEventID.ArtilleryFired, ship)
         {
             this.Shooters = shooters;
@@ -43,10 +43,10 @@ namespace Skyrates.Game.Event
 
             // Position average is easy
             // Quaternion average taken from https://answers.unity.com/questions/815266/find-and-average-rotations-together.html
-            foreach (Shooter shooter in this.Shooters)
+            foreach (ShipArtillery shooter in this.Shooters)
             {
-                averagePosition += shooter.spawn.position;
-                averageRotation = Quaternion.Slerp(averageRotation, shooter.spawn.rotation, 1 / artilleryCount);
+                averagePosition += shooter.Shooter.spawn.position;
+                averageRotation = Quaternion.Slerp(averageRotation, shooter.Shooter.spawn.rotation, 1 / artilleryCount);
             }
             averagePosition /= artilleryCount;
 

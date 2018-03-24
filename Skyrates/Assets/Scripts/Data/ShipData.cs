@@ -35,7 +35,7 @@ namespace Skyrates.Ship
         public static readonly Type[] ComponentClassTypes =
         {
             typeof(ShipArtillery), typeof(ShipArtillery),
-            typeof(ShipArtillery), typeof(ShipArtillery),
+            typeof(ShipArtillery), typeof(ShipArtilleryBomb),
             typeof(ShipFigurehead),
             typeof(ShipHullArmor),
             typeof(ShipNavigationLeft), typeof(ShipNavigationRight),

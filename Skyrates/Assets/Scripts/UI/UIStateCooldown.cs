@@ -9,11 +9,12 @@ namespace Skyrates.UI
 
     public class UIStateCooldown : UIStateCooldown<StateCooldown>
     {
-
+        
         public override void UpdateWith(StateCooldown state, bool isVisible)
         {
             base.UpdateWith(state, isVisible);
-            this.PercentComplete = state.GetPercentLoaded();
+            this.PercentComplete = 1 - state.GetPercentLoaded();
+            if (this.PercentComplete <= 0.0f) this.PercentComplete = 1.0f;
         }
 
     }
@@ -28,7 +29,17 @@ namespace Skyrates.UI
 
         protected RectTransform Rect;
 
-        protected bool Active = false;
+        public bool _isIsActive = false;
+
+        protected bool IsActive
+        {
+            get { return this._isIsActive; }
+            set
+            {
+                this._isIsActive = value;
+                this.IsVisible = this.IsVisible;
+            }
+        }
 
         private bool _isVisible = false;
 
@@ -37,7 +48,7 @@ namespace Skyrates.UI
             get { return this._isVisible; }
             set
             {
-                this._isVisible = value && this.Active;
+                this._isVisible = value && this.IsActive;
                 this.Empty.enabled = this._isVisible;
                 this.Full.enabled = this._isVisible;
                 this.OnSetVisibility();
@@ -50,11 +61,11 @@ namespace Skyrates.UI
             set { this.Full.fillAmount = value; }
         }
 
-        void Awake()
+        protected virtual void Awake()
         {
             this.Rect = this.GetComponent<RectTransform>();
             this.Full.rectTransform.sizeDelta = this.Rect.sizeDelta;
-            this.Active = this.IsActiveOnAwake();
+            this.IsActive = this.IsActiveOnAwake();
             this.IsVisible = false;
         }
 

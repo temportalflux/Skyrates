@@ -289,6 +289,14 @@ namespace Skyrates.Entity
         {
             // Calculate the damage to take when ramming is unsuccesful.
             this.TakeDamage(target, CaclulateRecoil(damage));
+
+            this.ForceStop();
+        }
+
+        protected virtual void ForceStop()
+        {
+            this.PhysicsData.LinearVelocity = Vector3.zero;
+            this.PhysicsData.LinearAccelleration = Vector3.zero;
         }
 
         #endregion
@@ -328,15 +336,15 @@ namespace Skyrates.Entity
         /// </summary>
         /// <param name="artillery"></param>
         /// <returns></returns>
-        protected virtual Shooter[] GetArtilleryShooters(ShipData.ComponentType artillery)
+        protected virtual ShipArtillery[] GetArtilleryShooters(ShipData.ComponentType artillery)
         {
             // TODO: Optimize this
             ShipComponent[] components = this.GetHull().GetComponent(artillery);
-            if (components == null) return new Shooter[0];
-            List<Shooter> evtArtillery = new List<Shooter>();
+            if (components == null) return new ShipArtillery[0];
+            List<ShipArtillery> evtArtillery = new List<ShipArtillery>();
             foreach (ShipComponent component in components)
             {
-                evtArtillery.Add(((ShipArtillery)component).Shooter);
+                evtArtillery.Add((ShipArtillery)component);
             }
             return evtArtillery.ToArray();
         }
@@ -367,15 +375,15 @@ namespace Skyrates.Entity
         public void Shoot(ShipData.ComponentType artillery, Func<Shooter, Vector3> getDirection)
         {
             // TODO: Optimize this
-            Shooter[] shooters = this.GetArtilleryShooters(artillery);
+            ShipArtillery[] shooters = this.GetArtilleryShooters(artillery);
 
             if (shooters == null || shooters.Length <= 0)
                 return;
 
             // Tell each shooter to fire
-            foreach (Shooter shooter in shooters)
+            foreach (ShipArtillery shooter in shooters)
             {
-                shooter.FireProjectile(getDirection(shooter), this.PhysicsData.LinearVelocity);
+                shooter.Shoot(getDirection, this.PhysicsData.LinearVelocity);
             }
 
             // Dispatch event for the shooters as a whole.

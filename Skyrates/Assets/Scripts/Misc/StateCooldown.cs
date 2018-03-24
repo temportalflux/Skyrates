@@ -16,6 +16,11 @@ namespace Skyrates.Misc
         [Range(0, 1)]
         protected float PercentLoaded = 1.0f;
 
+        public virtual void Awake()
+        {
+            this.PercentLoaded = 0.0f;
+        }
+
         /// <summary>
         /// If the cannon is fully loaded.
         /// </summary>

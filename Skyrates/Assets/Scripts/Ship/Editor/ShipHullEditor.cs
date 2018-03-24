@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyrates.Entity;
 using UnityEditor;
 using UnityEngine;
 
@@ -90,6 +91,9 @@ namespace Skyrates.Ship
         {
             this.DrawScript();
             this.CheckArrayLengths();
+
+            // Owner
+            this._instance.Ship = (EntityShip) EditorGUILayout.ObjectField("Owner Ship", this._instance.Ship, typeof(EntityShip), true);
 
             // Stats
             {

@@ -1,4 +1,6 @@
-﻿using Skyrates.Mono;
+﻿using System;
+using Skyrates.Mono;
+using UnityEngine;
 
 namespace Skyrates.Ship
 {
@@ -11,6 +13,11 @@ namespace Skyrates.Ship
     {
         
         public Shooter Shooter;
+
+        public virtual void Shoot(Func<Shooter, Vector3> getDirection, Vector3 velocity)
+        {
+            this.Shooter.FireProjectile(getDirection(this.Shooter), velocity);
+        }
 
     }
 

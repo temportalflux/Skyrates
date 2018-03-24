@@ -31,11 +31,11 @@ namespace Skyrates.UI
                 // Cannon not loaded
                 // UI inactive
                 // = UI Active
-                if (!this.Active)
+                if (!this.IsActive)
                 {
                     this.SetCutoff(state.PercentStart, state.PercentEnd);
                     this.PercentComplete = 0.0f;
-                    this.Active = true;
+                    this.IsActive = true;
                 }
                 // Cannon not loaded
                 // Cannon loading
@@ -48,9 +48,9 @@ namespace Skyrates.UI
             // Cannon loaded
             // UI Active
             // = UI inactive
-            else if (this.Active)
+            else if (this.IsActive)
             {
-                this.Active = false;
+                this.IsActive = false;
                 this.SetCutoff(0.0f, 0.0f);
                 this.PercentComplete = 0.0f;
             }
