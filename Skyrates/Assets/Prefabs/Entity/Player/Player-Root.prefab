@@ -7593,7 +7593,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729480990092996}
-  m_LocalRotation: {x: 0.021863129, y: -0, z: -0, w: 0.999761}
+  m_LocalRotation: {x: 0.021863457, y: -0, z: -0, w: 0.999761}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7872,7 +7872,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912161599259622}
   m_LocalRotation: {x: 0.021863785, y: -0, z: -0, w: 0.999761}
-  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858032}
+  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4986014796683882}
@@ -7989,7 +7989,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556435895963990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858032}
+  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4301635025895258}
@@ -8148,7 +8148,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860726107320958}
-  m_LocalRotation: {x: 0.0037467584, y: -0, z: -0, w: 0.999993}
+  m_LocalRotation: {x: 0.003746212, y: -0, z: -0, w: 0.999993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8877,7 +8877,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436304090232158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 467.4, y: 6453, z: -564}
+  m_LocalPosition: {x: 398.2, y: 6405.9, z: -391.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4066061793793454}
@@ -10013,7 +10013,7 @@ MonoBehaviour:
   RadiusBox: {x: 0, y: 0, z: 0}
   CollisionLayers:
     serializedVersion: 2
-    m_Bits: 10027008
+    m_Bits: 1638400
   Color: {r: 1, g: 0, b: 0, a: 1}
   Frequency: 1
   ScatterExecution: 1
@@ -12702,7 +12702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48f694d35cf8b641be273d033578e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ship: {fileID: 0}
+  Ship: {fileID: 114956092729709676}
   TierIndex: 0
   MaxHealth: 20
   HealthRegenAmount: 1
@@ -13342,7 +13342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mode: 0
-  RadiusSphere: 15
+  RadiusSphere: 35
   RadiusBox: {x: 0, y: 0, z: 0}
   CollisionLayers:
     serializedVersion: 2

@@ -10,7 +10,6 @@ namespace Skyrates.Ship
     public class ShipComponent : MonoBehaviour
     {
 
-        [HideInInspector]
         public EntityShip Ship;
 
 		/// <summary>

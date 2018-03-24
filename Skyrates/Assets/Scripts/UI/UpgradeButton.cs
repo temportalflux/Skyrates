@@ -83,8 +83,14 @@ namespace Skyrates.UI
 			        break;
 			    }
 			}
+
+		    bool hasInfiniteInv = false;
+#if UNITY_EDITOR
+		    hasInfiniteInv = this.PlayerData.DebugInfiniteUpgrade;
+#endif
+
             // If all components have a next tier, and we have enough inventory
-			if (isUpgradableFurther && this.PlayerData.Inventory.Remove(Type) != 0)
+            if (isUpgradableFurther && (hasInfiniteInv || this.PlayerData.Inventory.Remove(Type) != 0))
 			{
                 // Upgrade the component
 			    this._player.ShipGeneratorRoot.UpgradeComponents(componentTypes);

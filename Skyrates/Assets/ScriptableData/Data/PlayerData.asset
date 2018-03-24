@@ -31,7 +31,7 @@ MonoBehaviour:
       Input: 0
       Modifier: 1
     CameraVertical:
-      Input: 0
+      Input: -0
       Modifier: 0.005
     BlockInputs: 0
   ViewMode: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     SpeedInitial: 10
     SpeedMin: 0
     SpeedMax: 40
-    CurrentSpeed: 0
+    CurrentSpeed: 4
   Artillery:
     Gimbal:
       MaxDelaySeconds: 2
@@ -61,3 +61,4 @@ MonoBehaviour:
         MaxDelaySeconds: 0.5
     Bombs:
       MaxDelaySeconds: 2
+  DebugInfiniteUpgrade: 1

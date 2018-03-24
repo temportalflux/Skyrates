@@ -117,6 +117,8 @@ namespace Skyrates.Data
         [HideInInspector]
         public Inventory Inventory;
 
+        public bool DebugInfiniteUpgrade = false;
+
         public void Init()
         {
             this.ViewMode = CameraMode.FREE;

@@ -28,6 +28,7 @@ namespace Skyrates.Misc
         public override void Awake()
         {
             base.Awake();
+            this.PercentLoaded = 1.0f;
             this.IsLoading = false;
             this._canActiveReload = false;
         }
