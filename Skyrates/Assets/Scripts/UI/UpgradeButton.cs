@@ -43,6 +43,7 @@ namespace Skyrates.UI
 					componentTypes.Add(ShipData.ComponentType.ArtilleryForward);
 					componentTypes.Add(ShipData.ComponentType.ArtilleryLeft);
 					componentTypes.Add(ShipData.ComponentType.ArtilleryRight);
+					componentTypes.Add(ShipData.ComponentType.ArtilleryDown);
 					break;
 				case ShipData.BrokenComponentType.Figurehead:
 					componentTypes.Add(ShipData.ComponentType.Figurehead);

@@ -144,8 +144,10 @@ namespace Skyrates.Client.Input
 
         // maps the input string to the state
         private readonly Dictionary<string, PlayerState> PlayerStates = new Dictionary<string, PlayerState>();
+		// maps the input string to the view mode
+		private readonly Dictionary<string, PlayerData.CameraMode> ViewModes = new Dictionary<string, PlayerData.CameraMode>();
 
-        private PlayerState PlayerStateCurrent;
+		private PlayerState PlayerStateCurrent;
 
         void Awake()
         {
@@ -156,7 +158,13 @@ namespace Skyrates.Client.Input
             this.PlayerStates.Add("Mode:Starboard", new PlayerStateBroadsideStar());
             this.PlayerStates.Add("Mode:Port", new PlayerStateBroadsidePort());
             this.PlayerStates.Add("Mode:Down", new PlayerStateBomb());
-            this.PlayerStateCurrent.OnEnter(this);
+
+			this.ViewModes.Add("Mode:Free", this.PlayerData.ViewMode = PlayerData.CameraMode.FREE);
+			this.ViewModes.Add("Mode:Starboard", PlayerData.CameraMode.LOCK_LEFT);
+			this.ViewModes.Add("Mode:Port", PlayerData.CameraMode.LOCK_RIGHT);
+			this.ViewModes.Add("Mode:Down", PlayerData.CameraMode.LOCK_DOWN);
+
+			this.PlayerStateCurrent.OnEnter(this);
         }
 
         void OnEnable()
@@ -190,13 +198,13 @@ namespace Skyrates.Client.Input
 
             this.PlayerStateCurrent.OnExit();
             this.PlayerStateCurrent = this.PlayerStates[evt.actionName];
-            this.PlayerStateCurrent.OnEnter(this);
+			this.PlayerData.ViewMode = this.ViewModes[evt.actionName];
+			this.PlayerStateCurrent.OnEnter(this);
         }
 
         void OnInputFire(InputActionEventData evt)
         {
             if (!(evt.GetAxis() > 0.0f)) return;
-
             switch (this.PlayerData.ViewMode)
             {
                 case PlayerData.CameraMode.FREE:

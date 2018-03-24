@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 114874161253796816}
   - component: {fileID: 114093001553651806}
   - component: {fileID: 136858345089171838}
+  - component: {fileID: 114534121885037474}
   m_Layer: 14
   m_Name: projectile_cannonball_player_gravity_tier1
   m_TagString: Projectile-Player
@@ -202,6 +203,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Delay: 4
+--- !u!114 &114534121885037474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985285427547016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f44dadfb5c9dc4a8bde2b1ebf9f77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114874161253796816
 MonoBehaviour:
   m_ObjectHideFlags: 1
