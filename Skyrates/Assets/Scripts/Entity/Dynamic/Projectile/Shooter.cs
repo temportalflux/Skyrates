@@ -1,6 +1,8 @@
-﻿using Skyrates.Entity;
+﻿using Skyrates.Effects;
+using Skyrates.Entity;
 using Skyrates.Game;
 using Skyrates.Game.Event;
+using System.Collections;
 using UnityEngine;
 
 namespace Skyrates.Mono
@@ -56,13 +58,40 @@ namespace Skyrates.Mono
 		public Vector3 ArcAxis = Vector3.right;
 
 		/// <summary>
+		/// Arc renderer.
+		/// </summary>
+		public ArcRender ArcRender; //TODO: Move this somewhere that makes more sense?
+
+		public void Start()
+		{
+			if (this.ArcRender)
+			{
+				CalculateArc(transform.forward, this.force, true); //TEMPORARY;
+				StartCoroutine(UpdateArc());
+			}
+		}
+
+		public IEnumerator UpdateArc()
+		{
+			while (this && this.spawn && this.ArcRender)
+			{
+				float oldVelocity = this.ArcRender.Velocity;
+				float oldAngle = this.ArcRender.AngleDegrees;
+				this.ArcRender.Velocity = this.force;
+				this.ArcRender.AngleDegrees = this.ArcAngle;
+				if(this.ArcRender.AngleDegrees != oldAngle || this.ArcRender.Velocity != oldVelocity) this.ArcRender.RecalculateMesh(this.ArcRender.Velocity, this.ArcRender.AngleDegrees * Mathf.Deg2Rad);
+				yield return null;
+			}
+		}
+
+		/// <summary>
 		/// Automatically calculates and sets arc angle and axis based on gravity and distance
 		/// over time (speed/velocity), in the forward direction.
 		/// This does not take into account impulse force or deceleration/damping.
 		/// </summary>
 		public void CalculateArc(Vector3 target, float speed, bool targetIsDirection)
 		{
-			Vector3 distanceVector = targetIsDirection ? target : (target - this.spawn.position);
+			Vector3 distanceVector = targetIsDirection ? target * speed : (target - this.spawn.position);
 			Vector3 forward = targetIsDirection ? target : (target - this.spawn.position).normalized;
 			Vector3 up = Vector3.up;
 			Vector3 right = Vector3.Cross(forward, up);
@@ -74,11 +103,7 @@ namespace Skyrates.Mono
 			float xSqr = Mathf.Min(speedSqr, distanceVector.sqrMagnitude);
 			float y = targetIsDirection ? target.y : (target.y - this.spawn.position.y);
 			//Formula found here: https://gamedev.stackexchange.com/questions/17467/calculating-velocity-needed-to-hit-target-in-parabolic-arc by jonas
-			if (y < 0.0f)
-			{
-				this.ArcAngle = 0.0f;
-				return;
-			}
+			if (y < 0.0f) y = 0.0f;
 			float substitution = (speedSqr * speedSqr) -
 				gravity * (gravity * (xSqr) + 2 * y * (speedSqr));
 			this.ArcAngle = Mathf.Atan2(((speedSqr) + Mathf.Sqrt(substitution)), (gravity * Mathf.Sqrt(xSqr))) * Mathf.Rad2Deg - 90.0f; //Negate because positive Y is up, not negative. +90 because origin angle is 0, not +/-90.
@@ -115,7 +140,6 @@ namespace Skyrates.Mono
 					else targetDirection = (target - this.spawn.position);
 					if (!this.ManualArc) CalculateArc(target, this.force, this.TargetIsDirection); //Unfortunately, launchVelocity can't be accomodated for (not without some expensive looping).
 					Vector3 direction = Quaternion.AngleAxis(this.ArcAngle, this.ArcAxis) * targetDirection;
-					this.spawn.rotation = Quaternion.LookRotation(direction);
 					projectile.Launch(this.spawn.position, this.spawn.rotation, this.force * direction + launchVelocity, Vector3.zero);
 				}
 				else
