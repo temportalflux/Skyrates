@@ -71,6 +71,15 @@ namespace Skyrates.AI.Target
             return data;
         }
 
+        //public override void DrawGizmos(DataPersistent persistent)
+        //{
+        //    base.DrawGizmos(persistent);
+        // TODO: Add lines between waypoints
+        // TODO: Add hotkey to enable/disable gameobject
+        //    Gizmos.DrawLine();
+
+        //}
+
     }
 
 }

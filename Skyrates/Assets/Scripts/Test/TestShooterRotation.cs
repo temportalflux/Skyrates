@@ -12,7 +12,7 @@ namespace Skyrates.Client.Entity
 		// Update is called once per frame
 		void Update()
 		{
-			Vector3 targetDirection = Quaternion.AngleAxis(cannonBase.ArcAngle, cannonBase.ArcAxis) * (cannonBase.TargetPosition - transform.position).normalized;
+			Vector3 targetDirection = Quaternion.AngleAxis(cannonBase.Shooter.ArcAngle, cannonBase.Shooter.ArcAxis) * (cannonBase.TargetPosition - transform.position).normalized;
 			if(!Mathf.Approximately(targetDirection.sqrMagnitude, 0.0f)) transform.rotation = Quaternion.LookRotation(targetDirection.normalized);
 		}
 	}

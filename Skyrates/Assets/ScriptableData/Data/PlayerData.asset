@@ -33,20 +33,32 @@ MonoBehaviour:
     CameraVertical:
       Input: -0
       Modifier: 0.005
+    BlockInputs: 0
   ViewMode: 0
   Movement:
     SpeedInitial: 10
     SpeedMin: 0
     SpeedMax: 40
-    CurrentSpeed: 56
+    CurrentSpeed: 34.25
   Artillery:
+    Gimbal:
+      MaxDelaySeconds: 2
+      PercentStart: 0.15
+      PercentEnd: 0.4
     Starboard:
-      Reload:
-        PercentStart: 0.2
-        PercentEnd: 0.3
-      ShootDelay: 2
+      MaxDelaySeconds: 5
+      HeatPerShot: 0.2
+      RechargePerSecond: 5
+      OverheatMin: 0.8
+      PerShot:
+        MaxDelaySeconds: 0.5
     Port:
-      Reload:
-        PercentStart: 0.2
-        PercentEnd: 0.3
-      ShootDelay: 2
+      MaxDelaySeconds: 5
+      HeatPerShot: 0.2
+      RechargePerSecond: 5
+      OverheatMin: 0.8
+      PerShot:
+        MaxDelaySeconds: 0.5
+    Bombs:
+      MaxDelaySeconds: 2
+  DebugInfiniteUpgrade: 0

@@ -50,21 +50,36 @@ namespace Skyrates.Client.Input
 
             public virtual void UpdatePre(Rewired.Player inputController, PlayerController owner, ref PlayerData.Input data)
             {
-                // Forward
-                float fwd = inputController.GetButton("Boost") ? 1 : 0;
-                float bkwd = inputController.GetButton("Brake") ? 1 : 0;
-                data.MoveForward.Input = fwd - bkwd;
+				if (data.BlockInputs)
+				{
+					//Forward
+					data.MoveForward.Input = -1.0f; //Force player to slow down to a stop when inputs are blocked.
+					//TODO: Do we really want this to be automatic for all blocked inputs?  Perhaps a new variable declaring whether or not to auto brake?
 
-                // Turning
-                data.TurnY.Input = inputController.GetAxis("Turn Horizontal");
+					// Turning
+					data.TurnY.Input = 0.0f;
 
-                // Move vertical
-                data.MoveVertical.Input = inputController.GetAxis("Move Vertical");
+					// Move vertical
+					data.MoveVertical.Input = 0.0f;
+				}
+				else
+				{
+					// Forward
+					float fwd = inputController.GetButton("Boost") ? 1 : 0;
+					float bkwd = inputController.GetButton("Brake") ? 1 : 0;
+					data.MoveForward.Input = fwd - bkwd;
+
+					// Turning
+					data.TurnY.Input = inputController.GetAxis("Turn Horizontal");
+
+					// Move vertical
+					data.MoveVertical.Input = inputController.GetAxis("Move Vertical");
+				}
 
                 data.CameraHorizontal.Input = 0.0f;
                 data.CameraVertical.Input = 0.0f;
 
-                if (inputController.GetButtonDown("Interact"))
+                if (inputController.GetButtonDown("Interact")) //Why can't this be in OnInputInteract now?
                 {
                     GameManager.Events.Dispatch(new EventEntityPlayerShip(GameEventID.PlayerInteract, owner.EntityPlayerShip));
                 }
@@ -129,8 +144,10 @@ namespace Skyrates.Client.Input
 
         // maps the input string to the state
         private readonly Dictionary<string, PlayerState> PlayerStates = new Dictionary<string, PlayerState>();
+		// maps the input string to the view mode
+		private readonly Dictionary<string, PlayerData.CameraMode> ViewModes = new Dictionary<string, PlayerData.CameraMode>();
 
-        private PlayerState PlayerStateCurrent;
+		private PlayerState PlayerStateCurrent;
 
         void Awake()
         {
@@ -141,7 +158,14 @@ namespace Skyrates.Client.Input
             this.PlayerStates.Add("Mode:Starboard", new PlayerStateBroadsideStar());
             this.PlayerStates.Add("Mode:Port", new PlayerStateBroadsidePort());
             this.PlayerStates.Add("Mode:Down", new PlayerStateBomb());
-            this.PlayerStateCurrent.OnEnter(this);
+
+			this.ViewModes.Add("Mode:Free", this.PlayerData.ViewMode = PlayerData.CameraMode.FREE);
+			this.ViewModes.Add("Mode:Starboard", PlayerData.CameraMode.LOCK_RIGHT);
+			this.ViewModes.Add("Mode:Port", PlayerData.CameraMode.LOCK_LEFT);
+			this.ViewModes.Add("Mode:Down", PlayerData.CameraMode.LOCK_DOWN);
+
+			this.PlayerStateCurrent.OnEnter(this);
+            this.PlayerData.Artillery.Awake();
         }
 
         void OnEnable()
@@ -171,17 +195,17 @@ namespace Skyrates.Client.Input
 
         void OnInputCameraMode(InputActionEventData evt)
         {
-            if (!evt.GetButtonDown() || !this.PlayerStates.ContainsKey(evt.actionName)) return;
+            if (PlayerData.InputData.BlockInputs || !evt.GetButtonDown() || !this.PlayerStates.ContainsKey(evt.actionName)) return;
 
             this.PlayerStateCurrent.OnExit();
             this.PlayerStateCurrent = this.PlayerStates[evt.actionName];
-            this.PlayerStateCurrent.OnEnter(this);
+			this.PlayerData.ViewMode = this.ViewModes[evt.actionName];
+			this.PlayerStateCurrent.OnEnter(this);
         }
 
         void OnInputFire(InputActionEventData evt)
         {
             if (!(evt.GetAxis() > 0.0f)) return;
-
             switch (this.PlayerData.ViewMode)
             {
                 case PlayerData.CameraMode.FREE:
@@ -191,11 +215,6 @@ namespace Skyrates.Client.Input
                             this.Shoot(ShipData.ComponentType.ArtilleryForward);
                         }
                     );
-                    //GameManager.Events.Dispatch(new EventActiveReloadBegin(
-                    //    this.EntityPlayerShip,
-                    //    this.PlayerData.Artillery.Gimbal.PercentStart,
-                    //    this.PlayerData.Artillery.Gimbal.PercentEnd
-                    //));
                     break;
                 case PlayerData.CameraMode.LOCK_LEFT:
                     this.PlayerData.Artillery.Port = (StateOverheat) this.ShootCooldown(
@@ -233,7 +252,7 @@ namespace Skyrates.Client.Input
 
         void OnInputReload(InputActionEventData evt)
         {
-            if (!evt.GetButtonDown()) return;
+            if (PlayerData.InputData.BlockInputs || !evt.GetButtonDown()) return;
 
             bool isMainReload = evt.actionName == "Reload:Main";
 
@@ -253,7 +272,7 @@ namespace Skyrates.Client.Input
 
         void OnInputSwitchWeapon(InputActionEventData evt)
         {
-            if (!evt.GetButtonDown()) return;
+            if (PlayerData.InputData.BlockInputs || !evt.GetButtonDown()) return;
             //Debug.Log("Switch Weapon");
         }
 

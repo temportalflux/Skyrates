@@ -74,6 +74,11 @@ namespace Skyrates.Data
             [SerializeField]
             public InputConfig CameraVertical;
 
+			/// <summary>
+			/// While true, all inputs are blocked except for interact.
+			/// </summary>
+			public bool BlockInputs;
+
 		}
 
         /// <summary>
@@ -112,9 +117,12 @@ namespace Skyrates.Data
         [HideInInspector]
         public Inventory Inventory;
 
+        public bool DebugInfiniteUpgrade = false;
+
         public void Init()
         {
             this.ViewMode = CameraMode.FREE;
+			this.InputData.BlockInputs = false;
 
 			// TODO: Implement reflection if we need to refactor due to the time it takes for the current non-DRY solution.
 			Inventory.Clear(); // Needed in order to reset player data in editor.  Could remove from builds with a preprocessor macro if we wanted to.

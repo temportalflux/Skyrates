@@ -43,6 +43,7 @@ namespace Skyrates.UI
 					componentTypes.Add(ShipData.ComponentType.ArtilleryForward);
 					componentTypes.Add(ShipData.ComponentType.ArtilleryLeft);
 					componentTypes.Add(ShipData.ComponentType.ArtilleryRight);
+					componentTypes.Add(ShipData.ComponentType.ArtilleryDown);
 					break;
 				case ShipData.BrokenComponentType.Figurehead:
 					componentTypes.Add(ShipData.ComponentType.Figurehead);
@@ -82,8 +83,14 @@ namespace Skyrates.UI
 			        break;
 			    }
 			}
+
+		    bool hasInfiniteInv = false;
+#if UNITY_EDITOR
+		    hasInfiniteInv = this.PlayerData.DebugInfiniteUpgrade;
+#endif
+
             // If all components have a next tier, and we have enough inventory
-			if (isUpgradableFurther && this.PlayerData.Inventory.Remove(Type) != 0)
+            if (isUpgradableFurther && (hasInfiniteInv || this.PlayerData.Inventory.Remove(Type) != 0))
 			{
                 // Upgrade the component
 			    this._player.ShipGeneratorRoot.UpgradeComponents(componentTypes);

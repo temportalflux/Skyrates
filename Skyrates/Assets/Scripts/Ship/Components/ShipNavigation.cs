@@ -14,6 +14,7 @@ namespace Skyrates.Ship
 
         public void SetAnimatorTurning(bool isTurning)
         {
+            if (this.Animator == null) return;
             this.Animator.SetBool("isTurning", isTurning);
         }
 

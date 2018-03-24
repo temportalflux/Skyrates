@@ -56,7 +56,7 @@ namespace Skyrates.Entity
             EntityPlayerShip player = source as EntityPlayerShip;
 		    if (player)
 		    {
-		        this.StartCoroutine(this.PlayerDistanceOverlap(player, radius));
+		        this.StartCoroutine(this.PlayerDistanceOverlap(player, radius * radius));
 		    }
 		}
 
@@ -67,16 +67,16 @@ namespace Skyrates.Entity
         /// While the player is near, this checks their distances and deactivates if they are too far away.
         /// </summary>
         /// <param name="player"></param>
-        /// <param name="radius"></param>
+        /// <param name="radiusSq"></param>
         /// <returns></returns>
-	    IEnumerator PlayerDistanceOverlap(EntityPlayerShip player, float radius)
+	    IEnumerator PlayerDistanceOverlap(EntityPlayerShip player, float radiusSq)
 	    {
             // The player is nearby, start running
 	        this._playerNear = true;
 	        this.CanvasObject.SetActive(true);
 
             // Continue until this object is no longer active OR the player is too far
-            while (this && this._playerNear && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radius)
+            while (this && this._playerNear && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radiusSq)
 	        {
                 // wait till next frame
 	            yield return null;
@@ -130,6 +130,7 @@ namespace Skyrates.Entity
 				button.AddUpgradeListener(player);
 			}
 		    this.UpgradeMenu.gameObject.SetActive(true);
+			player.PlayerData.InputData.BlockInputs = true; //Temporary?
 		}
 
 	    /// <summary>
@@ -146,6 +147,7 @@ namespace Skyrates.Entity
 				button.RemoveUpgradeListener();
 			}
 			this.UpgradeMenu.gameObject.SetActive(false);
+			player.PlayerData.InputData.BlockInputs = false; //Temporary?
 		}
         
 	}

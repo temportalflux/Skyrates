@@ -32,8 +32,8 @@ namespace Skyrates.Entity
         /// </summary>
         public ShipGenerator ShipGeneratorRoot;
 
-        /// <inheritdoc />
-        protected override void Awake()
+		/// <inheritdoc />
+		protected override void Awake()
         {
             base.Awake();
             this.ShipGeneratorRoot.Destroy();
@@ -99,6 +99,12 @@ namespace Skyrates.Entity
                 if (compProp == null) continue;
                 compProp.SetAnimatorSpeed(speedPercent);
             }
+        }
+
+        protected override void ForceStop()
+        {
+            base.ForceStop();
+            this.PlayerData.Movement.CurrentSpeed = 0.0f;
         }
 
         #region Loot

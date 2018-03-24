@@ -20,6 +20,9 @@ ModelImporter:
     100024: buoy_mesh
     100026: propeller_base
     100028: RIG_buoy_base
+    100030: balloons
+    100032: buoy
+    100034: ropes
     400000: balloon_1
     400002: balloon_2
     400004: balloon_3
@@ -35,11 +38,16 @@ ModelImporter:
     400024: buoy_mesh
     400026: propeller_base
     400028: RIG_buoy_base
+    400030: balloons
+    400032: buoy
+    400034: ropes
     2100000: lambert1
     2100002: lambert2
     2100004: lambert6
     2100006: lambert7
     2100008: lambert8
+    2100010: lambert3
+    2100012: lambert10
     2300000: balloon_1
     2300002: balloon_2
     2300004: balloon_3
@@ -52,6 +60,10 @@ ModelImporter:
     2300018: ropes_3
     2300020: ropes_4
     2300022: buoy_mesh
+    2300024: balloons
+    2300026: buoy
+    2300028: ropes
+    2300030: //RootNode
     3300000: balloon_1
     3300002: balloon_2
     3300004: balloon_3
@@ -64,6 +76,10 @@ ModelImporter:
     3300018: ropes_3
     3300020: ropes_4
     3300022: buoy_mesh
+    3300024: balloons
+    3300026: buoy
+    3300028: ropes
+    3300030: //RootNode
     4300000: bearing
     4300002: propeller
     4300004: pTorus6
@@ -76,6 +92,9 @@ ModelImporter:
     4300018: balloon_3
     4300020: ropes_3
     4300022: buoy_mesh
+    4300024: buoy
+    4300026: ropes
+    4300028: balloons
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -106,7 +125,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
