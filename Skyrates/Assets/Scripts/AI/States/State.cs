@@ -40,12 +40,17 @@ namespace Skyrates.AI.State
 
         public Behavior.DataPersistent CreatePersistentData()
         {
+            Behavior.DataPersistent[] DataTransitions = new Behavior.DataPersistent[this.Transitions.Length];
+            for (int i = 0; i < this.Transitions.Length; i++)
+            {
+                DataTransitions[i] = this.Transitions[i] != null ? this.Transitions[i].CreatePersistentData() : null;
+            }
             return new Persistent
             {
                 DataBehavior = this.Behavior != null ? this.Behavior.CreatePersistentData() : null,
-                DataTransition = this.Transitions.Select(
-                    transition => transition != null ? transition.CreatePersistentData() : null
-                ).ToArray()
+                DataTransition = DataTransitions,//this.Transitions.Select(
+                //    transition => transition != null ? transition.CreatePersistentData() : null
+                //).ToArray()
             };
         }
 
@@ -117,12 +122,14 @@ namespace Skyrates.AI.State
             Persistent statePersistent = (Persistent)persistent;
             if (this.Behavior != null)
             {
-                this.Behavior.DrawGizmos(physics, statePersistent.DataBehavior);
+                this.Behavior.DrawGizmos(physics,
+                    statePersistent != null ? statePersistent.DataBehavior : null);
             }
             for (int iTransition = 0; iTransition < this.Transitions.Length; iTransition++)
             {
                 if (this.Transitions[iTransition] == null) continue;
-                this.Transitions[iTransition].DrawGizmos(statePersistent.DataTransition[iTransition]);
+                this.Transitions[iTransition].DrawGizmos(physics,
+                    statePersistent != null ? statePersistent.DataTransition[iTransition] : null);
             }
         }
 #endif

@@ -199,15 +199,20 @@ namespace Skyrates.Entity
         public void OnDrawGizmos()
         {
 
-            if (this.Behavior == null) return;
-            if (this.DataPersistent == null) return;
-            try
+            if (this.Behavior != null)
             {
-                this.Behavior.DrawGizmos(this.PhysicsData, this.DataPersistent);
-            }
-            catch (Exception)
-            {
-                // ignored
+                PhysicsData data = this.PhysicsData.Copy();
+                data.UpdatePositions(this.transform);
+                data.UpdateDirections(this.transform);
+                try
+                {
+                    this.Behavior.DrawGizmos(data, Application.isPlaying ? this.DataPersistent : null);
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                    Debug.LogException(e);
+                }
             }
 
             if (this.DataBehavior.NearbyTargets != null)

@@ -109,7 +109,7 @@ namespace Skyrates.AI.State
         /// <returns></returns>
         public State GetState(int index)
         {
-            return index < 0 ? null : this.States[index];
+            return index < 0 ? this.IdleState : this.States[index];
         }
 
         /// <inheritdoc />
@@ -189,9 +189,13 @@ namespace Skyrates.AI.State
             PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
 
             Handles.Label(physics.LinearPosition,
-                this.GetCurrentState(smPersistent).StateName);
+                smPersistent != null ? this.GetCurrentState(smPersistent).StateName : "Idle");
 
-            this.GetCurrentState(smPersistent).DrawGizmos(physics, smPersistent.CurrentPersistent);
+            for (int iState = -1; iState < this.States.Length; iState++)
+            {
+                this.GetState(iState).DrawGizmos(physics,
+                    smPersistent != null ? smPersistent.PeristentData[iState + 1] : null);
+            }
         }
 #endif
 

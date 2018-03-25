@@ -110,6 +110,12 @@ namespace Skyrates.Physics
             };
         }
 
+        public void UpdatePositions(Transform t)
+        {
+            this.LinearPosition = t.position;
+            this.RotationPosition = t.rotation;
+        }
+
         public void UpdateDirections(Transform t)
         {
             this.Forward = t.forward;

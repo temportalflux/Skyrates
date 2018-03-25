@@ -23,9 +23,12 @@ MonoBehaviour:
     Behavior: {fileID: 11400000, guid: c71ca6454626df7489941b46b02559e7, type: 2}
     Transitions:
     - {fileID: 11400000, guid: 51e710f822b10d6449e0b0b7a228f696, type: 2}
+    - {fileID: 11400000, guid: bc5dacf332c24bf448203de0d34c8cbb, type: 2}
   - StateName: Broadside
     Behavior: {fileID: 11400000, guid: ba8876dbdbaae7a409d171d072008842, type: 2}
-    Transitions: []
+    Transitions:
+    - {fileID: 11400000, guid: 51e710f822b10d6449e0b0b7a228f696, type: 2}
+    - {fileID: 11400000, guid: 83fa957407ec6b546ab2489e1716308a, type: 2}
   StateNames:
   - Idle
   - Pursue

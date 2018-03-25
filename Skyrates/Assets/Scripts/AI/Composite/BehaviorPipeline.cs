@@ -171,13 +171,13 @@ namespace Skyrates.AI.Composite
 #if UNITY_EDITOR
         public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
-            Persistent pipelinePersistent = (Persistent)persistent;
             for (int iBehavior = 0; iBehavior < this.Behaviors.Length; iBehavior++)
             {
                 if (this.Behaviors[iBehavior] == null) continue;
                 Behavior behavior = this.GetBehaviorFrom(this.Behaviors[iBehavior]);
                 if (behavior == null) continue;
-                behavior.DrawGizmos(physics, pipelinePersistent.PeristentData[iBehavior]);
+                behavior.DrawGizmos(physics, persistent != null ?
+                    ((Persistent)persistent).PeristentData[iBehavior] : null);
             }
         }
 #endif
