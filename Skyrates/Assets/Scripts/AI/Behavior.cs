@@ -113,11 +113,11 @@ namespace Skyrates.AI
         {
         }
 
-        public virtual void OnDetect(EntityAI other, float distance)
+        public virtual void OnDetect(EntityAI other, float distance, ref DataPersistent persistent)
         {
         }
 
-        public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
+        public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource, ref DataPersistent persistent)
         {
         }
 

@@ -43,7 +43,7 @@ namespace Skyrates.AI.Composite
         }
 
         /// <inheritdoc />
-        protected override void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, ref Persistent persistent, float deltaTime, Element element, ref DataPersistent elementData)
+        protected override void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, float deltaTime, Element element, ref DataPersistent elementData)
         {
             // skip nil behaviors
             if (element.Behavior == null) return;

@@ -155,7 +155,7 @@ namespace Skyrates.Entity
         public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
         {
             if (this.Behavior != null)
-                this.Behavior.OnDetect(other, maxDistance);
+                this.Behavior.OnDetect(other, maxDistance, ref this.DataPersistent);
             if (this._formationAgent != null)
                 this._formationAgent.OnDetect(other, maxDistance);
         }
@@ -166,7 +166,7 @@ namespace Skyrates.Entity
             EntityAI otherAi = other.GetComponent<EntityAI>();
             if (otherAi == null) return;
             if (this.Behavior != null)
-                this.Behavior.OnDetect(otherAi, maxDistance);
+                this.Behavior.OnDetect(otherAi, maxDistance, ref this.DataPersistent);
             if (this._formationAgent != null)
                 this._formationAgent.OnDetect(otherAi, maxDistance);
         }
@@ -174,7 +174,7 @@ namespace Skyrates.Entity
         public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
         {
             if (this.Behavior != null)
-                this.Behavior.OnDetectEntityNearFormation(source, other, distanceFromSource);
+                this.Behavior.OnDetectEntityNearFormation(source, other, distanceFromSource, ref this.DataPersistent);
         }
 
 #if UNITY_EDITOR

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Skyrates.AI.Formation;
 using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
@@ -171,9 +172,22 @@ namespace Skyrates.AI.State
             persistent.CurrentPersistent = statePersistent;
         }
 
-        public override void OnDetect(EntityAI other, float distance)
+        public override void OnDetect(EntityAI other, float distance, ref DataPersistent persistent)
         {
-            
+            PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
+            DataPersistent currentPersistent = smPersistent.CurrentPersistent;
+            this.GetCurrentState(smPersistent).OnDetect(other, distance, ref currentPersistent);
+            smPersistent.CurrentPersistent = currentPersistent;
+            persistent = smPersistent;
+        }
+
+        public override void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource, ref DataPersistent persistent)
+        {
+            PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
+            DataPersistent currentPersistent = smPersistent.CurrentPersistent;
+            this.GetCurrentState(smPersistent).OnDetectEntityNearFormation(source, other, distanceFromSource, ref currentPersistent);
+            smPersistent.CurrentPersistent = currentPersistent;
+            persistent = smPersistent;
         }
 
 #if UNITY_EDITOR

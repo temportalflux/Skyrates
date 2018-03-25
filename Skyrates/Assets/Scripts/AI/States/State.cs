@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Skyrates.AI.Formation;
+using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -102,6 +104,16 @@ namespace Skyrates.AI.State
         public void Exit(PhysicsData physics, ref Behavior.DataBehavioral behavioral, Behavior.DataPersistent persistent)
         {
             this.Behavior.OnExit(physics, ref behavioral, ((Persistent)persistent).DataBehavior);
+        }
+
+        public void OnDetect(EntityAI other, float distance, ref Behavior.DataPersistent persistent)
+        {
+            this.Behavior.OnDetect(other, distance, ref ((Persistent)persistent).DataBehavior);
+        }
+
+        public void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource, ref Behavior.DataPersistent persistent)
+        {
+            this.Behavior.OnDetectEntityNearFormation(source, other, distanceFromSource, ref ((Persistent)persistent).DataBehavior);
         }
 
 #if UNITY_EDITOR
