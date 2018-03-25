@@ -17,12 +17,14 @@ namespace Skyrates.AI.Formation
         /// <summary>
         /// All slots that AI could potentially occupy.
         /// </summary>
+        [SerializeField]
         public Transform[] Slots;
 
         private Vector3 SlotAveragePositionOffset;
 
         private List<FormationAgent>[] _subscribedAgents = null;
 
+        [SerializeField]
         public float NearbyRange;
 
         private List<NearbyTarget> NearbyTargets;

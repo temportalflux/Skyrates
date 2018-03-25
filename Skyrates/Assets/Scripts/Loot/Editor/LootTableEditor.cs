@@ -83,7 +83,7 @@ namespace Skyrates.Loot
                 this._instance.CalculatePercentages(sumWeight);
             }
 
-            EditorUtility.SetDirty(this._instance);
+            Undo.RecordObject(this._instance, string.Format("Edit {0}", this._instance.name));
         }
 
     }

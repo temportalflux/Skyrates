@@ -140,7 +140,7 @@ namespace Skyrates.AI.State
                 EditorGUI.indentLevel--;
             }
 
-            EditorUtility.SetDirty(this._stateMachine);
+            Undo.RecordObject(this._stateMachine, string.Format("Edit {0}", this._stateMachine.name));
         }
 
         private void DrawTransitions(string label, string stateName,
