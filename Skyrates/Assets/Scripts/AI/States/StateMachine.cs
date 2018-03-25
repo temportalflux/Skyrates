@@ -4,7 +4,6 @@ using System.Linq;
 using Skyrates.AI.Formation;
 using Skyrates.Entity;
 using Skyrates.Physics;
-using UnityEditor;
 using UnityEngine;
 
 namespace Skyrates.AI.State
@@ -188,7 +187,7 @@ namespace Skyrates.AI.State
         {
             PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
 
-            Handles.Label(physics.LinearPosition,
+            UnityEditor.Handles.Label(physics.LinearPosition,
                 smPersistent != null ? this.GetCurrentState(smPersistent).StateName : "Idle");
 
             for (int iState = -1; iState < this.States.Length; iState++)
