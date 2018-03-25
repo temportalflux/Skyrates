@@ -1,4 +1,5 @@
-﻿using Skyrates.Entity;
+﻿using System.Collections.Generic;
+using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -56,11 +57,11 @@ namespace Skyrates.AI.Formation
                 this.FormationOwner.OnDetect(this, other, distance);
         }
 
-        public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
+        public List<PhysicsData> GetNearbyTargets()
         {
-            this._owner.OnDetectEntityNearFormation(source, other, distanceFromSource);
+            return this.FormationOwner != null ? this.FormationOwner.GetNearbyTargets() : new List<PhysicsData>();
         }
-
+        
     }
 
 }

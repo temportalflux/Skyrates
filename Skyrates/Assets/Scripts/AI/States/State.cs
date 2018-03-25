@@ -111,11 +111,6 @@ namespace Skyrates.AI.State
             this.Behavior.OnDetect(other, distance, ref ((Persistent)persistent).DataBehavior);
         }
 
-        public void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource, ref Behavior.DataPersistent persistent)
-        {
-            this.Behavior.OnDetectEntityNearFormation(source, other, distanceFromSource, ref ((Persistent)persistent).DataBehavior);
-        }
-
 #if UNITY_EDITOR
         public void DrawGizmos(PhysicsData physics, Behavior.DataPersistent persistent)
         {

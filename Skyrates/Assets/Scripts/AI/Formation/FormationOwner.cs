@@ -17,11 +17,19 @@ namespace Skyrates.AI.Formation
         /// </summary>
         public Transform[] Slots;
 
+        private Vector3 SlotAveragePositionOffset;
+
         private List<FormationAgent>[] _subscribedAgents = null;
+
+        public float NearbyRange;
+
+        private List<PhysicsData> NearbyTargets;
 
         void Awake()
         {
+            this.NearbyTargets = new List<PhysicsData>();
             this.TryInitAgents();
+            this.SlotAveragePositionOffset = this.CalculateAveragePositionOffset();
         }
 
         private void TryInitAgents()
@@ -32,6 +40,29 @@ namespace Skyrates.AI.Formation
             {
                 this._subscribedAgents[i] = new List<FormationAgent>();
             }
+        }
+
+        private Vector3 CalculateAveragePositionOffset()
+        {
+            int count = 1;
+            Vector3 average = this.transform.position;
+
+            foreach (Transform slot in this.Slots)
+            {
+                if (slot == null) continue;
+
+                // TODO: Account for this.tranform being rotated
+                // cannot take dif of rotations, as the slot may intentionally be rotated
+                // take inverse of rotation? just need to counteract the main transform quaternion
+                average += slot.position;
+
+                count++;
+            }
+
+            average /= count;
+            average -= this.transform.position;
+
+            return average;
         }
 
         /// <summary>
@@ -60,16 +91,38 @@ namespace Skyrates.AI.Formation
             this._subscribedAgents[agent.FormationSlot].Remove(agent);
         }
 
+        public bool ContainsNearby(PhysicsData physics)
+        {
+            return this.NearbyTargets.Exists(data => ReferenceEquals(data, physics));
+        }
+
         public void OnDetect(FormationAgent source, EntityAI other, float maxDistance)
         {
-            foreach (List<FormationAgent> agentsInSlot in this._subscribedAgents)
+            if (!this.ContainsNearby(other.PhysicsData))
             {
-                foreach (FormationAgent agent in agentsInSlot)
-                {
-                    agent.OnDetectEntityNearFormation(source, other, maxDistance);
-                }
+                this.NearbyTargets.Add(other.PhysicsData);
             }
         }
+
+        void FixedUpdate()
+        {
+            // TODO: put this on a timer, not to execute every physics update
+            float distSq = this.NearbyRange * this.NearbyRange;
+            this.NearbyTargets.RemoveAll(data =>
+                (data.LinearPosition - this.transform.position).sqrMagnitude > distSq);
+        }
+
+        public List<PhysicsData> GetNearbyTargets()
+        {
+            return this.NearbyTargets;
+        }
+
+#if UNITY_EDITOR
+        void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(this.SlotAveragePositionOffset + this.transform.position, this.NearbyRange);
+        }
+#endif
 
     }
 

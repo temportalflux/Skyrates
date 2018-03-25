@@ -52,7 +52,7 @@ namespace Skyrates.AI
             [NonSerialized]
             public List<NearbyTarget> NearbyTargets;
             [NonSerialized]
-            public List<NearbyTarget> NearbyFormationTargets;
+            public List<PhysicsData> NearbyFormationTargets;
 
             [HideInInspector]
             [NonSerialized]
@@ -69,7 +69,6 @@ namespace Skyrates.AI
             public void CleanNearby(PhysicsData physics)
             {
                 this.CleanNearby(physics, ref this.NearbyTargets);
-                this.CleanNearby(physics, ref this.NearbyFormationTargets);
             }
 
             private void CleanNearby(PhysicsData physics, ref List<NearbyTarget> nearbyTargets)
@@ -137,10 +136,6 @@ namespace Skyrates.AI
         }
 
         public virtual void OnDetect(EntityAI other, float distance, ref DataPersistent persistent)
-        {
-        }
-
-        public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource, ref DataPersistent persistent)
         {
         }
 

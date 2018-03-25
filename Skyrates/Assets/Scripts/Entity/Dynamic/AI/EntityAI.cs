@@ -50,7 +50,6 @@ namespace Skyrates.Entity
 
             this.DataBehavior.Target = new PhysicsData();
             this.DataBehavior.NearbyTargets = new List<Behavior.DataBehavioral.NearbyTarget>();
-            this.DataBehavior.NearbyFormationTargets = new List<Behavior.DataBehavioral.NearbyTarget>();
 
             this.UpdateBehaviorData();
 
@@ -172,10 +171,6 @@ namespace Skyrates.Entity
 
         public virtual void OnDetect(EntityAI other, float maxDistance)
         {
-            if (this.Behavior != null)
-                this.Behavior.OnDetect(other, maxDistance, ref this.DataPersistent);
-            if (this._formationAgent != null)
-                this._formationAgent.OnDetect(other, maxDistance);
 
             if (!this.DataBehavior.NearbyTargets.Exists(target => ReferenceEquals(target.Target, other.PhysicsData)))
             {
@@ -186,21 +181,11 @@ namespace Skyrates.Entity
                 });
             }
 
-        }
-
-        public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
-        {
             if (this.Behavior != null)
-                this.Behavior.OnDetectEntityNearFormation(source, other, distanceFromSource, ref this.DataPersistent);
+                this.Behavior.OnDetect(other, maxDistance, ref this.DataPersistent);
+            if (this._formationAgent != null)
+                this._formationAgent.OnDetect(other, maxDistance);
 
-            if (!this.DataBehavior.NearbyFormationTargets.Exists(target => ReferenceEquals(target.Target, other.PhysicsData)))
-            {
-                this.DataBehavior.NearbyFormationTargets.Add(new Behavior.DataBehavioral.NearbyTarget
-                {
-                    Target = other.PhysicsData,
-                    MaxDistanceSq = (this.transform.position - other.transform.position).sqrMagnitude
-                });
-            }
         }
 
 #if UNITY_EDITOR

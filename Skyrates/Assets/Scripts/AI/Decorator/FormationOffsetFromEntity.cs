@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Skyrates.AI.Formation;
-using Skyrates.Entity;
-using Skyrates.Physics;
+﻿using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.Decorator
@@ -20,9 +17,9 @@ namespace Skyrates.AI.Decorator
         public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral data, DataPersistent persistent, float deltaTime)
         {
             Vector3 directionFromNearbyToOwner = Vector3.zero;
-            foreach (DataBehavioral.NearbyTarget target in data.NearbyFormationTargets)
+            foreach (PhysicsData target in data.Formation.GetNearbyTargets())
             {
-                Vector3 targetLocation = target.Target.LinearPosition;
+                Vector3 targetLocation = target.LinearPosition;
                 Vector3 diff = physics.LinearPosition - targetLocation;
                 directionFromNearbyToOwner += diff;
             }

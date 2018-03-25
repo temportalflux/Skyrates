@@ -1,6 +1,4 @@
 ﻿
-using Skyrates.AI.Formation;
-
 namespace Skyrates.Entity
 {
 
@@ -9,14 +7,6 @@ namespace Skyrates.Entity
     /// </summary>
     public class EntityShipMerchant : EntityShipNPC
     {
-
-        public override void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
-        {
-            if (other is EntityPlayerShip)
-            {
-                base.OnDetectEntityNearFormation(source, other, distanceFromSource);
-            }
-        }
 
     }
 

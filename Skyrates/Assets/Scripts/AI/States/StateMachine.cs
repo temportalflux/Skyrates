@@ -182,15 +182,6 @@ namespace Skyrates.AI.State
             persistent = smPersistent;
         }
 
-        public override void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource, ref DataPersistent persistent)
-        {
-            PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
-            DataPersistent currentPersistent = smPersistent.CurrentPersistent;
-            this.GetCurrentState(smPersistent).OnDetectEntityNearFormation(source, other, distanceFromSource, ref currentPersistent);
-            smPersistent.CurrentPersistent = currentPersistent;
-            persistent = smPersistent;
-        }
-
 #if UNITY_EDITOR
         /// <inheritdoc />
         public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)

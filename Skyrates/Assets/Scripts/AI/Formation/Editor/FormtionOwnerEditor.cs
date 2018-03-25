@@ -25,6 +25,8 @@ namespace Skyrates.Common.AI.Formation
         {
             this.DrawScriptField(this._instance);
 
+            this._instance.NearbyRange = EditorGUILayout.FloatField("Nearby Range", this._instance.NearbyRange);
+
             this.DrawArrayArea("Slots", ref this._instance.Slots, o => (o as GameObject).transform);
 
             ToggleSlotsBlock = this.DrawArray("Slots", ref this._instance.Slots,

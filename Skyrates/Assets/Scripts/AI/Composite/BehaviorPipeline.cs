@@ -168,15 +168,6 @@ namespace Skyrates.AI.Composite
             });
         }
 
-        public override void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource, ref DataPersistent persistent)
-        {
-            persistent = this.Iterate(persistent, (behavior, dataPersistent) =>
-            {
-                this.GetBehaviorFrom(behavior).OnDetectEntityNearFormation(source, other, distanceFromSource, ref dataPersistent);
-                return dataPersistent;
-            });
-        }
-
 #if UNITY_EDITOR
         public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {

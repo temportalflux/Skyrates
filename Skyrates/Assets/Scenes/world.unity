@@ -2204,6 +2204,11 @@ Prefab:
       propertyPath: Slots.Array.data[7]
       value: 
       objectReference: {fileID: 233589030}
+    - target: {fileID: 114241934202579150, guid: 584d826e2a1c95745b9c35aeb2275127,
+        type: 2}
+      propertyPath: NearbyRange
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 584d826e2a1c95745b9c35aeb2275127, type: 2}
   m_IsPrefabParent: 0
@@ -6569,6 +6574,7 @@ MonoBehaviour:
   - {fileID: 127908238}
   - {fileID: 1890537097}
   - {fileID: 1397227850}
+  NearbyRange: 0
 --- !u!114 &561143691
 MonoBehaviour:
   m_ObjectHideFlags: 0

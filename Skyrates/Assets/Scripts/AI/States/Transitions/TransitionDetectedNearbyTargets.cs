@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Skyrates.Physics;
+﻿using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.State.Transition
@@ -15,14 +14,14 @@ namespace Skyrates.AI.State.Transition
         public bool HasMax = false;
         public int Max = 1;
 
-        protected virtual List<Behavior.DataBehavioral.NearbyTarget> GetNearbyFrom(Behavior.DataBehavioral data)
+        protected virtual int GetNearbyCount(Behavior.DataBehavioral data)
         {
-            return data.NearbyTargets;
+            return data.NearbyTargets.Count;
         }
 
         public override bool CanEnter(Behavior.DataBehavioral behavioralData, PhysicsData physics, ref Behavior.DataPersistent persistent)
         {
-            int numNearby = this.GetNearbyFrom(behavioralData).Count;
+            int numNearby = this.GetNearbyCount(behavioralData);
             return (!this.HasMin || numNearby >= this.Min) && (!this.HasMax || numNearby <= this.Max);
         }
 

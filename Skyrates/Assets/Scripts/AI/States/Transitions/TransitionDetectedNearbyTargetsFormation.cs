@@ -8,9 +8,9 @@ namespace Skyrates.AI.State.Transition
     public class TransitionDetectedNearbyTargetsFormation : TransitionDetectedNearbyTargets
     {
 
-        protected override List<Behavior.DataBehavioral.NearbyTarget> GetNearbyFrom(Behavior.DataBehavioral data)
+        protected override int GetNearbyCount(Behavior.DataBehavioral data)
         {
-            return data.NearbyFormationTargets;
+            return data.Formation.GetNearbyTargets().Count;
         }
 
     }
