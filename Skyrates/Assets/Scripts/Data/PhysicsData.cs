@@ -54,20 +54,24 @@ namespace Skyrates.Physics
 
         public PhysicsData Copy()
         {
-            return new PhysicsData
-            {
-                Forward = Forward,
-                Right = Right,
-                Up = Up,
-                LinearPosition = LinearPosition,
-                LinearVelocity = LinearVelocity,
-                LinearAccelleration = LinearAccelleration,
-                RotationPosition = RotationPosition,
-                RotationVelocity = RotationVelocity,
-                RotationAccelleration = RotationAccelleration,
-                RotationAesteticPosition = RotationAesteticPosition,
-                RotationAesteticVelocity = RotationAesteticVelocity,
-            };
+            PhysicsData newInst = new PhysicsData();
+            newInst.CopyFrom(this);
+            return newInst;
+        }
+
+        public void CopyFrom(PhysicsData other)
+        {
+            this.Forward = other.Forward;
+            this.Right = other.Right;
+            this.Up = other.Up;
+            this.LinearPosition = other.LinearPosition;
+            this.LinearVelocity = other.LinearVelocity;
+            this.LinearAccelleration = other.LinearAccelleration;
+            this.RotationPosition = other.RotationPosition;
+            this.RotationVelocity = other.RotationVelocity;
+            this.RotationAccelleration = other.RotationAccelleration;
+            this.RotationAesteticPosition = other.RotationAesteticPosition;
+            this.RotationAesteticVelocity = other.RotationAesteticVelocity;
         }
 
         public static PhysicsData operator *(PhysicsData data, float weight)

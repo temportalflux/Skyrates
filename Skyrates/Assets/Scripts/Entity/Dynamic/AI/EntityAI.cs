@@ -30,7 +30,7 @@ namespace Skyrates.Entity
         /// </summary>
         [HideInInspector]
         [SerializeField]
-        public Behavior.DataBehavioral DataBehavior;
+        public /*readonly*/ Behavior.DataBehavioral DataBehavior = new Behavior.DataBehavioral();
 
         [HideInInspector]
         [SerializeField]
@@ -100,9 +100,17 @@ namespace Skyrates.Entity
             // Update steering on a fixed timestep
             if (this.Behavior != null)
             {
+                // Cache the old data, for memory checks later
+                PhysicsData oldPhysics = this.PhysicsData;
+                Behavior.DataBehavioral oldData = this.DataBehavior;
+                // Tell the behavior to update AI stuff (where to move, what target, etc)
                 this.DataPersistent = this.Behavior.GetUpdate(ref this.PhysicsData, ref this.DataBehavior, this.DataPersistent, Time.fixedDeltaTime);
+                // Double check to make sure AI didn't overwrite the actual reference of physics and behavioral data
+                // these are expected not to change after start, but cant be readonly
+                Debug.Assert(ReferenceEquals(oldPhysics, this.PhysicsData), "Physics data memory has been overwritten");
+                Debug.Assert(ReferenceEquals(oldData, this.DataBehavior), "Behavioral data memory has been overwritten");
             }
-            
+
             // Integrate physics from steering and any network updates
             this.IntegratePhysics(Time.fixedDeltaTime);
 

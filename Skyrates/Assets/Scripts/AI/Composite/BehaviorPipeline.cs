@@ -141,7 +141,7 @@ namespace Skyrates.AI.Composite
                 return dataPersistent;
             });
 
-            physics = physicsInst;
+            physics.CopyFrom(physicsInst);
             behavioral = behavioralInst;
 
             // Return the updated persistent data
