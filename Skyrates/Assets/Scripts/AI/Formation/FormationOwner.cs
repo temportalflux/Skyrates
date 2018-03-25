@@ -3,6 +3,8 @@ using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
 
+using NearbyTarget = Skyrates.AI.Behavior.DataBehavioral.NearbyTarget;
+
 namespace Skyrates.AI.Formation
 {
 
@@ -23,11 +25,11 @@ namespace Skyrates.AI.Formation
 
         public float NearbyRange;
 
-        private List<PhysicsData> NearbyTargets;
+        private List<NearbyTarget> NearbyTargets;
 
         void Awake()
         {
-            this.NearbyTargets = new List<PhysicsData>();
+            this.NearbyTargets = new List<NearbyTarget>();
             this.TryInitAgents();
             this.SlotAveragePositionOffset = this.CalculateAveragePositionOffset();
         }
@@ -93,14 +95,18 @@ namespace Skyrates.AI.Formation
 
         public bool ContainsNearby(PhysicsData physics)
         {
-            return this.NearbyTargets.Exists(data => ReferenceEquals(data, physics));
+            return this.NearbyTargets.Exists(data => ReferenceEquals(data.Target, physics));
         }
 
         public void OnDetect(FormationAgent source, EntityAI other, float maxDistance)
         {
             if (!this.ContainsNearby(other.PhysicsData))
             {
-                this.NearbyTargets.Add(other.PhysicsData);
+                this.NearbyTargets.Add(new NearbyTarget
+                {
+                    Target = other.PhysicsData,
+                    MaxDistanceSq = maxDistance * maxDistance,
+                });
             }
         }
 
@@ -109,10 +115,10 @@ namespace Skyrates.AI.Formation
             // TODO: put this on a timer, not to execute every physics update
             float distSq = this.NearbyRange * this.NearbyRange;
             this.NearbyTargets.RemoveAll(data =>
-                (data.LinearPosition - this.transform.position).sqrMagnitude > distSq);
+                (data.Target.LinearPosition - this.transform.position).sqrMagnitude > distSq);
         }
 
-        public List<PhysicsData> GetNearbyTargets()
+        public List<NearbyTarget> GetNearbyTargets()
         {
             return this.NearbyTargets;
         }

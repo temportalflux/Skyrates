@@ -3,6 +3,8 @@ using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
 
+using NearbyTarget = Skyrates.AI.Behavior.DataBehavioral.NearbyTarget;
+
 namespace Skyrates.AI.Formation
 {
 
@@ -57,9 +59,9 @@ namespace Skyrates.AI.Formation
                 this.FormationOwner.OnDetect(this, other, distance);
         }
 
-        public List<PhysicsData> GetNearbyTargets()
+        public List<NearbyTarget> GetNearbyTargets()
         {
-            return this.FormationOwner != null ? this.FormationOwner.GetNearbyTargets() : new List<PhysicsData>();
+            return this.FormationOwner != null ? this.FormationOwner.GetNearbyTargets() : new List<NearbyTarget>();
         }
         
     }

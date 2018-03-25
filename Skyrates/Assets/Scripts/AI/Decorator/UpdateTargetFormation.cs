@@ -16,7 +16,7 @@ namespace Skyrates.AI.Formation
         {
             // Get the physics data of the slot the agent is assigned to
             if (data.Formation != null && data.Formation.HasFormation)
-                data.Target = data.Formation.GetTarget() ?? physics;
+                data.Target = (data.Formation.GetTarget() ?? physics).Copy();
             return persistent;
         }
 

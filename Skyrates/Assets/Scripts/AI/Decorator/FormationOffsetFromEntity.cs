@@ -13,17 +13,31 @@ namespace Skyrates.AI.Decorator
         
         public float OffsetFromNearby = 0.0f;
 
+        public bool ScaleByDistance = false;
+
         /// <inheritdoc />
         public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral data, DataPersistent persistent, float deltaTime)
         {
             Vector3 directionFromNearbyToOwner = Vector3.zero;
-            foreach (PhysicsData target in data.Formation.GetNearbyTargets())
+            foreach (DataBehavioral.NearbyTarget target in data.Formation.GetNearbyTargets())
             {
-                Vector3 targetLocation = target.LinearPosition;
+                Vector3 targetLocation = target.Target.LinearPosition;
                 Vector3 diff = physics.LinearPosition - targetLocation;
+
+                if (this.ScaleByDistance)
+                {
+                    float scale = 1.0f - Mathf.Min(diff.sqrMagnitude, target.MaxDistanceSq) / target.MaxDistanceSq;
+                    diff.Normalize();
+                    diff *= scale;
+                }
+
                 directionFromNearbyToOwner += diff;
             }
-            directionFromNearbyToOwner.Normalize();
+
+            if (!this.ScaleByDistance)
+            {
+                directionFromNearbyToOwner.Normalize();
+            }
 
             directionFromNearbyToOwner *= this.OffsetFromNearby;
 
