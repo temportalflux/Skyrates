@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Skyrates.Common.AI;
 using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
@@ -15,7 +14,7 @@ namespace Skyrates.AI.State
     /// Artifical Intelligence for Games 2nd Edition
     /// Ian Millington & John Funge
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Control/State Machine")]
+    [CreateAssetMenu(menuName = "Data/AI/Composite/State/State Machine")]
     public class StateMachine : BehaviorTimed
     {
 

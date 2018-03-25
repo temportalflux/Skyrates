@@ -1,5 +1,4 @@
-﻿using Skyrates.Common.AI;
-using Skyrates.Physics;
+﻿using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.State.Transition
@@ -8,7 +7,7 @@ namespace Skyrates.AI.State.Transition
     /// <summary>
     /// Transitions if the target exists.
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Control/Transitions/Has Target")]
+    [CreateAssetMenu(menuName = "Data/AI/Composite/State/Transitions/Has Target")]
     public class TransitionTargetExists : StateTransition
     {
 

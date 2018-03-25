@@ -1,5 +1,4 @@
 ﻿using Skyrates.AI;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace Skyrates.AI.Steering.Basic
     /// Artifical Intelligence for Games 2nd Edition
     /// Ian Millington & John Funge
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Basic/Seek")]
+    [CreateAssetMenu(menuName = "Data/AI/Steering/Basic/Seek")]
     public class Seek : Steering
     {
 

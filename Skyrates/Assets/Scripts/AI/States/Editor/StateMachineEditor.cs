@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Skyrates.AI;
-using Skyrates.AI.State;
 using UnityEditor;
-using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.State
 {
 
     [CustomEditor(typeof(StateMachine))]
@@ -167,7 +162,7 @@ namespace Skyrates.Common.AI
                 {
                     EditorGUI.indentLevel++;
 
-                    this.DrawTransition(transition, transition == null ? i.ToString() : stateName, ref allEntryToggles[i]);
+                    this.DrawTransition(ref transition, transition == null ? i.ToString() : stateName, ref allEntryToggles[i]);
 
                     EditorGUI.indentLevel--;
                     return transition;
@@ -176,7 +171,7 @@ namespace Skyrates.Common.AI
             entryToggles = allEntryToggles;
         }
 
-        private void DrawTransition(StateTransition transition, string stateName, ref bool toggled)
+        private void DrawTransition(ref StateTransition transition, string stateName, ref bool toggled)
         {
             EditorGUILayout.BeginHorizontal();
 

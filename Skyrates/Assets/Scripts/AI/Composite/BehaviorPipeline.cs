@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ namespace Skyrates.AI.Composite
     /// <summary>
     /// A behavior pipeline in which a set of behaviors are executed in turn.
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Composite/Pipeline")]
+    [CreateAssetMenu(menuName = "Data/AI/Composite/Pipeline/Pipeline")]
     public class BehaviorPipeline : BehaviorPipeline<Behavior>
     {
 

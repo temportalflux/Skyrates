@@ -83,6 +83,8 @@ namespace Skyrates.Entity
             this.DataBehavior.Waypoints = this._waypointAgent;
             this.DataBehavior.ThrustMultiplier = 1.0f;
             this.DataBehavior.TurnSpeedMultiplier = 1.0f;
+
+            this.PhysicsData.UpdateDirections(this.transform);
         }
         
         protected override void FixedUpdate()
@@ -152,17 +154,27 @@ namespace Skyrates.Entity
         /// <inheritdoc />
         public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
         {
-            if (this.Behavior == null) return;
-            this.Behavior.OnDetect(other, maxDistance);
+            if (this.Behavior != null)
+                this.Behavior.OnDetect(other, maxDistance);
+            if (this._formationAgent != null)
+                this._formationAgent.OnDetect(other, maxDistance);
         }
 
         /// <inheritdoc />
-        public virtual void OnOverlapWith(GameObject other, float radius)
+        public virtual void OnOverlapWith(GameObject other, float maxDistance)
         {
-            if (this.Behavior == null) return;
             EntityAI otherAi = other.GetComponent<EntityAI>();
             if (otherAi == null) return;
-            this.Behavior.OnDetect(otherAi, radius);
+            if (this.Behavior != null)
+                this.Behavior.OnDetect(otherAi, maxDistance);
+            if (this._formationAgent != null)
+                this._formationAgent.OnDetect(otherAi, maxDistance);
+        }
+
+        public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
+        {
+            if (this.Behavior != null)
+                this.Behavior.OnDetectEntityNearFormation(source, other, distanceFromSource);
         }
 
 #if UNITY_EDITOR

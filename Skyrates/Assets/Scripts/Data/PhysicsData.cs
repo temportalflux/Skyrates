@@ -9,6 +9,11 @@ namespace Skyrates.Physics
     public class PhysicsData
     {
 
+        public Vector3 Forward = Vector3.zero;
+        public Vector3 Right = Vector3.zero;
+        public Vector3 Up = Vector3.zero;
+
+
         public Vector3 LinearPosition = Vector3.zero;
         
         public Vector3 LinearVelocity = Vector3.zero;
@@ -35,10 +40,25 @@ namespace Skyrates.Physics
             this.RotationPosition = rotation;
         }
 
+        public static PhysicsData From(Transform transform)
+        {
+            return new PhysicsData()
+            {
+                LinearPosition = transform.position,
+                RotationPosition = transform.rotation,
+                Forward = transform.forward,
+                Right = transform.right,
+                Up = transform.up,
+            };
+        }
+
         public PhysicsData Copy()
         {
             return new PhysicsData
             {
+                Forward = Forward,
+                Right = Right,
+                Up = Up,
                 LinearPosition = LinearPosition,
                 LinearVelocity = LinearVelocity,
                 LinearAccelleration = LinearAccelleration,
@@ -54,6 +74,9 @@ namespace Skyrates.Physics
         {
             return new PhysicsData
             {
+                Forward = data.Forward,
+                Right = data.Right,
+                Up = data.Up,
                 LinearPosition = data.LinearPosition,
                 LinearVelocity = data.LinearVelocity * weight,
                 LinearAccelleration = data.LinearAccelleration * weight,
@@ -69,6 +92,9 @@ namespace Skyrates.Physics
         {
             return new PhysicsData
             {
+                Forward = a.Forward,
+                Right = a.Right,
+                Up = a.Up,
                 LinearPosition = a.LinearPosition,
                 LinearVelocity = a.LinearVelocity + b.LinearVelocity,
                 LinearAccelleration = a.LinearAccelleration + b.LinearAccelleration,
@@ -78,6 +104,13 @@ namespace Skyrates.Physics
                 RotationAesteticPosition = a.RotationAesteticPosition,
                 RotationAesteticVelocity = a.RotationAesteticVelocity + b.RotationAesteticVelocity,
             };
+        }
+
+        public void UpdateDirections(Transform t)
+        {
+            this.Forward = t.forward;
+            this.Right = t.right;
+            this.Up = t.up;
         }
 
         public void Integrate(float deltaTime)

@@ -1,5 +1,4 @@
-﻿using Skyrates.Common.AI;
-using Skyrates.Data;
+﻿using Skyrates.Data;
 using Skyrates.Physics;
 using Skyrates.Util.Extension;
 using UnityEngine;
@@ -14,6 +13,7 @@ namespace Skyrates.AI.Custom
         [SerializeField]
         public PlayerData ControllerData;
         
+        // TODO: This is in an asset file and should be moved to persistant data
         public float ConstantSpeed;
 
         private float Speed

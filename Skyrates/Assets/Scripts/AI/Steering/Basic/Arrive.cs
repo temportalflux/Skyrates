@@ -1,6 +1,5 @@
 ﻿
 using Skyrates.AI;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace Skyrates.AI.Steering.Basic
     /// Artifical Intelligence for Games 2nd Edition
     /// Ian Millington & John Funge
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Basic/Arrive")]
+    [CreateAssetMenu(menuName = "Data/AI/Steering/Basic/Arrive")]
     public class Arrive : Steering
     {
 

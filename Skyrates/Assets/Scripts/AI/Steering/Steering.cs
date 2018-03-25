@@ -1,5 +1,4 @@
-﻿using Skyrates.Common.AI;
-using Skyrates.Entity;
+﻿using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
 

@@ -1,10 +1,9 @@
 ﻿using System;
-using Skyrates.AI;
 using Skyrates.Physics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI
 {
     
     /// <summary>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -60,7 +59,9 @@ namespace Skyrates.AI.State
             {
                 StateTransition transition = this.Transitions[iTransition];
                 // Check if we can enter some state via the transition, if not, continue the loop
-                if (!transition.CanEnter(behavioral, physics, ref statePersistent.DataTransition[iTransition])) continue;
+                if (transition == null || !transition.CanEnter(
+                    behavioral, physics, ref statePersistent.DataTransition[iTransition]))
+                    continue;
                 transitionOut = transition;
                 return true;
             }
@@ -76,7 +77,9 @@ namespace Skyrates.AI.State
         /// <param name="persistent"></param>
         public void Enter(PhysicsData physics, ref Behavior.DataBehavioral behavioral, ref Behavior.DataPersistent persistent)
         {
-            persistent = this.Behavior.OnEnter(physics, ref behavioral, persistent);
+            Persistent statePersistent = ((Persistent) persistent);
+            statePersistent.DataBehavior = this.Behavior.OnEnter(physics, ref behavioral, statePersistent.DataBehavior);
+            persistent = statePersistent;
         }
 
         public Behavior.DataPersistent GetUpdate(ref PhysicsData physics, ref Behavior.DataBehavioral behavioral,
@@ -98,7 +101,7 @@ namespace Skyrates.AI.State
         /// <param name="persistent"></param>
         public void Exit(PhysicsData physics, ref Behavior.DataBehavioral behavioral, Behavior.DataPersistent persistent)
         {
-            this.Behavior.OnExit(physics, ref behavioral, persistent);
+            this.Behavior.OnExit(physics, ref behavioral, ((Persistent)persistent).DataBehavior);
         }
 
 #if UNITY_EDITOR

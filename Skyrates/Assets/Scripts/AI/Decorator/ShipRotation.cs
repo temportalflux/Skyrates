@@ -1,6 +1,4 @@
-﻿using Skyrates.AI.Steering;
-using Skyrates.AI.Steering.Basic;
-using Skyrates.Common.AI;
+﻿using Skyrates.AI.Steering.Basic;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -11,7 +9,7 @@ namespace Skyrates.AI.Custom
     /// Adds aestetic rotation according to the present movement of the ship (rotation on X and Z axes).
     /// Specifically, rotates around X axis (pitch) when moving up/down (along Z axis), and rotates around X axis (yaw/banking) when turning (along Z axis). 
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Custom/Ship Rotation")]
+    [CreateAssetMenu(menuName = "Data/AI/Decorator/Ship Rotation")]
     public class ShipRotation : Steering.Steering
     {
 

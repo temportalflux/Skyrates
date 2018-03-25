@@ -1,7 +1,6 @@
 ﻿using System;
 using Skyrates.AI.Formation;
 using Skyrates.AI.Target;
-using Skyrates.Common.AI;
 using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
@@ -115,6 +114,10 @@ namespace Skyrates.AI
         }
 
         public virtual void OnDetect(EntityAI other, float distance)
+        {
+        }
+
+        public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
         {
         }
 
