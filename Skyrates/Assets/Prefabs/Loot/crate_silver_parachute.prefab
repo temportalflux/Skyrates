@@ -143,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087067228540892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 529.576, y: 260.1327, z: 322.54507}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4388834543394862}
@@ -179,7 +179,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: b4a07722e5b824d4883246487023f958, type: 2}
-  - {fileID: -1937662525, guid: 0ad83000c231d1544bf672e466e6f471, type: 3}
+  - {fileID: 2100000, guid: 676e9453378039946a485f4beed6505a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79850f4aa0722df4481b22722a435fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 114616588907937764, guid: 3fbcc489d4cde1945a7be3c1cf12c494, type: 2}
+  Item: 0
   LootPrefabWithoutSail: {fileID: 1892180012186410, guid: 895d534ece3fc8641bd0513412a04a63,
     type: 2}
 --- !u!136 &136814878439813104
@@ -308,7 +308,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -327543589
+  randomSeed: -1983837645
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3669,7 +3669,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -114981132
+  randomSeed: 843458686
   InitialModule:
     serializedVersion: 3
     enabled: 1
