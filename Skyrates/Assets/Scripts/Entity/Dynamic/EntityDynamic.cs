@@ -20,7 +20,7 @@ namespace Skyrates.Entity
         /// </summary>
         [HideInInspector]
         [SerializeField]
-        public PhysicsData PhysicsData;
+        public /*readonly*/ PhysicsData PhysicsData = new PhysicsData();
 
         /// <summary>
         /// The component which controls the physics of the entity.
@@ -31,11 +31,8 @@ namespace Skyrates.Entity
         {
             this.Physics = this.GetComponent<Rigidbody>();
             Debug.Assert(this.Physics != null, string.Format("{0} has null rigidbody - this is required to move with collisions.", this.name));
-            this.PhysicsData = new PhysicsData
-            {
-                LinearPosition = this.transform.position,
-                RotationPosition = this.transform.rotation
-            };
+            this.PhysicsData.LinearPosition = this.transform.position;
+            this.PhysicsData.RotationPosition = this.transform.rotation;
         }
 
         protected virtual void FixedUpdate()

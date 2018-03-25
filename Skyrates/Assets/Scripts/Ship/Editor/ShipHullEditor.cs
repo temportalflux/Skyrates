@@ -148,7 +148,7 @@ namespace Skyrates.Ship
 
             this.DrawLootRoots();
 
-            EditorUtility.SetDirty(this._instance);
+            Undo.RecordObject(this._instance, string.Format("Edit {0}", this._instance.name));
         }
 
         private void MinMax(ref Vector2Int bounds)

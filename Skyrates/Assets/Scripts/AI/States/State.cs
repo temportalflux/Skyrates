@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Skyrates.Common.AI;
+using Skyrates.AI.Formation;
+using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -39,12 +40,17 @@ namespace Skyrates.AI.State
 
         public Behavior.DataPersistent CreatePersistentData()
         {
+            Behavior.DataPersistent[] DataTransitions = new Behavior.DataPersistent[this.Transitions.Length];
+            for (int i = 0; i < this.Transitions.Length; i++)
+            {
+                DataTransitions[i] = this.Transitions[i] != null ? this.Transitions[i].CreatePersistentData() : null;
+            }
             return new Persistent
             {
                 DataBehavior = this.Behavior != null ? this.Behavior.CreatePersistentData() : null,
-                DataTransition = this.Transitions.Select(
-                    transition => transition != null ? transition.CreatePersistentData() : null
-                ).ToArray()
+                DataTransition = DataTransitions,//this.Transitions.Select(
+                //    transition => transition != null ? transition.CreatePersistentData() : null
+                //).ToArray()
             };
         }
 
@@ -60,7 +66,9 @@ namespace Skyrates.AI.State
             {
                 StateTransition transition = this.Transitions[iTransition];
                 // Check if we can enter some state via the transition, if not, continue the loop
-                if (!transition.CanEnter(behavioral, physics, ref statePersistent.DataTransition[iTransition])) continue;
+                if (transition == null || !transition.CanEnter(
+                    behavioral, physics, ref statePersistent.DataTransition[iTransition]))
+                    continue;
                 transitionOut = transition;
                 return true;
             }
@@ -76,7 +84,9 @@ namespace Skyrates.AI.State
         /// <param name="persistent"></param>
         public void Enter(PhysicsData physics, ref Behavior.DataBehavioral behavioral, ref Behavior.DataPersistent persistent)
         {
-            persistent = this.Behavior.OnEnter(physics, ref behavioral, persistent);
+            Persistent statePersistent = ((Persistent) persistent);
+            statePersistent.DataBehavior = this.Behavior.OnEnter(physics, ref behavioral, statePersistent.DataBehavior);
+            persistent = statePersistent;
         }
 
         public Behavior.DataPersistent GetUpdate(ref PhysicsData physics, ref Behavior.DataBehavioral behavioral,
@@ -98,21 +108,28 @@ namespace Skyrates.AI.State
         /// <param name="persistent"></param>
         public void Exit(PhysicsData physics, ref Behavior.DataBehavioral behavioral, Behavior.DataPersistent persistent)
         {
-            this.Behavior.OnExit(physics, ref behavioral, persistent);
+            this.Behavior.OnExit(physics, ref behavioral, ((Persistent)persistent).DataBehavior);
+        }
+
+        public void OnDetect(EntityAI other, float distance, ref Behavior.DataPersistent persistent)
+        {
+            this.Behavior.OnDetect(other, distance, ref ((Persistent)persistent).DataBehavior);
         }
 
 #if UNITY_EDITOR
-        public void DrawGizmos(Behavior.DataPersistent persistent)
+        public void DrawGizmos(PhysicsData physics, Behavior.DataPersistent persistent)
         {
             Persistent statePersistent = (Persistent)persistent;
             if (this.Behavior != null)
             {
-                this.Behavior.DrawGizmos(statePersistent.DataBehavior);
+                this.Behavior.DrawGizmos(physics,
+                    statePersistent != null ? statePersistent.DataBehavior : null);
             }
             for (int iTransition = 0; iTransition < this.Transitions.Length; iTransition++)
             {
                 if (this.Transitions[iTransition] == null) continue;
-                this.Transitions[iTransition].DrawGizmos(statePersistent.DataTransition[iTransition]);
+                this.Transitions[iTransition].DrawGizmos(physics,
+                    statePersistent != null ? statePersistent.DataTransition[iTransition] : null);
             }
         }
 #endif

@@ -1,5 +1,4 @@
 ﻿using System;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -83,10 +82,10 @@ namespace Skyrates.AI.Decorator
         }
 
 #if UNITY_EDITOR
-        public override void DrawGizmos(DataPersistent persistent)
+        public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
-            Persistent smooth = (Persistent)persistent;
-            Gizmos.DrawWireSphere(smooth.TargetInterpolated, 1);
+            if (persistent != null)
+                Gizmos.DrawWireSphere(((Persistent)persistent).TargetInterpolated, 1);
         }
 #endif
 

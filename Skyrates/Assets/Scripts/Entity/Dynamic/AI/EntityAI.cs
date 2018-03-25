@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Skyrates.AI;
 using Skyrates.AI.Composite;
 using Skyrates.AI.Formation;
@@ -29,7 +30,7 @@ namespace Skyrates.Entity
         /// </summary>
         [HideInInspector]
         [SerializeField]
-        public Behavior.DataBehavioral DataBehavior;
+        public /*readonly*/ Behavior.DataBehavioral DataBehavior = new Behavior.DataBehavioral();
 
         [HideInInspector]
         [SerializeField]
@@ -48,6 +49,7 @@ namespace Skyrates.Entity
             this._waypointAgent = this.GetComponent<WaypointAgent>();
 
             this.DataBehavior.Target = new PhysicsData();
+            this.DataBehavior.NearbyTargets = new List<Behavior.DataBehavioral.NearbyTarget>();
 
             this.UpdateBehaviorData();
 
@@ -77,12 +79,16 @@ namespace Skyrates.Entity
         /// </summary>
         protected virtual void UpdateBehaviorData()
         {
+            this.PhysicsData.UpdateDirections(this.transform);
+
             this.DataBehavior.View = this.GetView();
             this.DataBehavior.Render = this.GetRender().transform;
             this.DataBehavior.Formation = this._formationAgent;
             this.DataBehavior.Waypoints = this._waypointAgent;
             this.DataBehavior.ThrustMultiplier = 1.0f;
             this.DataBehavior.TurnSpeedMultiplier = 1.0f;
+            this.DataBehavior.CleanNearby(this.PhysicsData);
+
         }
         
         protected override void FixedUpdate()
@@ -94,9 +100,17 @@ namespace Skyrates.Entity
             // Update steering on a fixed timestep
             if (this.Behavior != null)
             {
+                // Cache the old data, for memory checks later
+                PhysicsData oldPhysics = this.PhysicsData;
+                Behavior.DataBehavioral oldData = this.DataBehavior;
+                // Tell the behavior to update AI stuff (where to move, what target, etc)
                 this.DataPersistent = this.Behavior.GetUpdate(ref this.PhysicsData, ref this.DataBehavior, this.DataPersistent, Time.fixedDeltaTime);
+                // Double check to make sure AI didn't overwrite the actual reference of physics and behavioral data
+                // these are expected not to change after start, but cant be readonly
+                Debug.Assert(ReferenceEquals(oldPhysics, this.PhysicsData), "Physics data memory has been overwritten");
+                Debug.Assert(ReferenceEquals(oldData, this.DataBehavior), "Behavioral data memory has been overwritten");
             }
-            
+
             // Integrate physics from steering and any network updates
             this.IntegratePhysics(Time.fixedDeltaTime);
 
@@ -152,31 +166,61 @@ namespace Skyrates.Entity
         /// <inheritdoc />
         public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
         {
-            if (this.Behavior == null) return;
-            this.Behavior.OnDetect(other, maxDistance);
+            this.OnDetect(other, maxDistance);
         }
 
         /// <inheritdoc />
-        public virtual void OnOverlapWith(GameObject other, float radius)
+        public virtual void OnOverlapWith(GameObject other, float maxDistance)
         {
-            if (this.Behavior == null) return;
             EntityAI otherAi = other.GetComponent<EntityAI>();
             if (otherAi == null) return;
-            this.Behavior.OnDetect(otherAi, radius);
+            this.OnDetect(otherAi, maxDistance);
+        }
+
+        public virtual void OnDetect(EntityAI other, float maxDistance)
+        {
+
+            if (!this.DataBehavior.NearbyTargets.Exists(target => ReferenceEquals(target.Target, other.PhysicsData)))
+            {
+                Behavior.DataBehavioral.NearbyTarget target = new Behavior.DataBehavioral.NearbyTarget();
+                target.Target = other.PhysicsData;
+                target.MaxDistanceSq = maxDistance * maxDistance;
+                this.DataBehavior.NearbyTargets.Add(target);
+            }
+
+            if (this.Behavior != null)
+                this.Behavior.OnDetect(other, maxDistance, ref this.DataPersistent);
+            if (this._formationAgent != null)
+                this._formationAgent.OnDetect(other, maxDistance);
+
         }
 
 #if UNITY_EDITOR
         public void OnDrawGizmos()
         {
-            if (this.Behavior == null) return;
-            if (this.DataPersistent == null) return;
-            try
+
+            if (this.Behavior != null)
             {
-                this.Behavior.DrawGizmos(this.DataPersistent);
+                PhysicsData data = this.PhysicsData.Copy();
+                data.UpdatePositions(this.transform);
+                data.UpdateDirections(this.transform);
+                try
+                {
+                    this.Behavior.DrawGizmos(data, Application.isPlaying ? this.DataPersistent : null);
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                    Debug.LogException(e);
+                }
             }
-            catch (Exception)
+
+            if (this.DataBehavior.NearbyTargets != null)
             {
-                // ignored
+                foreach (Behavior.DataBehavioral.NearbyTarget target in this.DataBehavior.NearbyTargets)
+                {
+                    target.Target.DrawGizmos(1.0f, 0.5f, Color.gray);
+                }
             }
         }
 #endif

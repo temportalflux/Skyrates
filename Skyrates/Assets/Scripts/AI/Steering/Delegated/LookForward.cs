@@ -1,5 +1,4 @@
 ﻿using Skyrates.AI.Steering.Basic;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace Skyrates.AI.Steering.Delegated
     /// Artifical Intelligence for Games 2nd Edition
     /// Ian Millington & John Funge
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Delegated/LookForward")]
+    [CreateAssetMenu(menuName = "Data/AI/Steering/Basic/LookForward")]
     public class LookForward : Align
     {
 

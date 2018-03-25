@@ -122,7 +122,8 @@ GameObject:
   - component: {fileID: 4036475334927516}
   - component: {fileID: 54340261942935144}
   - component: {fileID: 114968147863439486}
-  - component: {fileID: 114241934202579150}
+  - component: {fileID: 114048003700025704}
+  - component: {fileID: 114935410850763984}
   m_Layer: 19
   m_Name: Ship_Merchant_Cargo
   m_TagString: Enemy
@@ -242,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407873246861368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.85, y: 0, z: 17.54}
+  m_LocalPosition: {x: -279, y: 0, z: 105.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4546537775946266}
@@ -856,7 +857,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.2224636, y: 12.057941, z: 0}
   m_Center: {x: -0.089959145, y: -2.493032, z: 7.0064126e-15}
---- !u!114 &114241934202579150
+--- !u!114 &114048003700025704
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -868,6 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slots: []
+  NearbyRange: 0
 --- !u!114 &114347143358417134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -879,9 +881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ship: {fileID: 0}
+  Ship: {fileID: 114968147863439486}
   TierIndex: 0
-  MaxHealth: 150
+  MaxHealth: 10
   HealthRegenAmount: 0
   HealthRegenDelay: 0
   SmokeData:
@@ -921,6 +923,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 114968147863439486}
+--- !u!114 &114935410850763984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407873246861368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5724eb06c079e42bafcd4a37014f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114968147863439486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -933,6 +955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhysicsData:
+    Forward: {x: 0, y: 0, z: 0}
+    Right: {x: 0, y: 0, z: 0}
+    Up: {x: 0, y: 0, z: 0}
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -946,6 +971,9 @@ MonoBehaviour:
   Behavior: {fileID: 11400000, guid: 0e096f17aee796f4d89805ade8501069, type: 2}
   DataBehavior:
     Target:
+      Forward: {x: 0, y: 0, z: 0}
+      Right: {x: 0, y: 0, z: 0}
+      Up: {x: 0, y: 0, z: 0}
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
       LinearAccelleration: {x: 0, y: 0, z: 0}

@@ -1,5 +1,4 @@
 ﻿using System;
-using Skyrates.Common.AI;
 using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
@@ -26,9 +25,9 @@ namespace Skyrates.AI.State
         [HideInInspector]
         public int StateDestination;
 
-        public Behavior.DataPersistent CreatePersistentData()
+        public virtual Behavior.DataPersistent CreatePersistentData()
         {
-            return null;
+            return new Behavior.DataPersistent();
         }
 
         /// <summary>
@@ -64,7 +63,7 @@ namespace Skyrates.AI.State
         }
 
 #if UNITY_EDITOR
-        public virtual void DrawGizmos(Behavior.DataPersistent persistent)
+        public virtual void DrawGizmos(PhysicsData physics, Behavior.DataPersistent persistent)
         {
             
         }

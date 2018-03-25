@@ -53,6 +53,7 @@ namespace Skyrates.Entity
         /// <param name="maxDistance"></param>
         public override void OnEnterEntityRadius(EntityAI other, float maxDistance)
         {
+            base.OnEnterEntityRadius(other, maxDistance);
             if (other is EntityPlayerShip)
             {
                 // TODO: Move shooting to an ai behavior

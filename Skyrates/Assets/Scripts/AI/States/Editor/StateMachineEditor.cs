@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Skyrates.AI;
-using Skyrates.AI.State;
 using UnityEditor;
-using UnityEngine;
 
-namespace Skyrates.Common.AI
+namespace Skyrates.AI.State
 {
 
     [CustomEditor(typeof(StateMachine))]
@@ -58,15 +53,17 @@ namespace Skyrates.Common.AI
                 EditorGUILayout.Separator();
 
                 EditorGUI.indentLevel++;
-                if (this._stateMachine.StateNames == null) this._stateMachine.StateNames = new string[0];
+                if (this._stateMachine.StateNames == null) this._stateMachine.StateNames = new string[1]{"Idle"};
+                this._stateMachine.StateNames[0] = "Idle";
+
                 ToggleStates = this.DrawArray("List", ref this._stateMachine.States,
                     true, ToggleStates,
                     false, ref ToggleStateEntries,
                     DrawBlock: ((state, i) =>
                     {
-                        if (this._stateMachine.StateNames.Length != this._stateMachine.States.Length)
-                            Array.Resize(ref this._stateMachine.StateNames, this._stateMachine.States.Length);
-                        
+                        if (this._stateMachine.StateNames.Length != this._stateMachine.States.Length + 1)
+                            Array.Resize(ref this._stateMachine.StateNames, this._stateMachine.States.Length + 1);
+
                         //EditorGUILayout.BeginHorizontal();
                         {
                             if (state == null) state = new State();
@@ -82,7 +79,7 @@ namespace Skyrates.Common.AI
                             EditorGUI.indentLevel--;
                             //EditorGUIUtility.labelWidth = 0;
 
-                            this._stateMachine.StateNames[i] = state.StateName;
+                            this._stateMachine.StateNames[i + 1] = state.StateName;
                         }
                         //EditorGUILayout.EndHorizontal();
 
@@ -143,7 +140,7 @@ namespace Skyrates.Common.AI
                 EditorGUI.indentLevel--;
             }
 
-            EditorUtility.SetDirty(this._stateMachine);
+            Undo.RecordObject(this._stateMachine, string.Format("Edit {0}", this._stateMachine.name));
         }
 
         private void DrawTransitions(string label, string stateName,
@@ -167,7 +164,7 @@ namespace Skyrates.Common.AI
                 {
                     EditorGUI.indentLevel++;
 
-                    this.DrawTransition(transition, transition == null ? i.ToString() : stateName, ref allEntryToggles[i]);
+                    this.DrawTransition(ref transition, transition == null ? i.ToString() : stateName, ref allEntryToggles[i]);
 
                     EditorGUI.indentLevel--;
                     return transition;
@@ -176,7 +173,7 @@ namespace Skyrates.Common.AI
             entryToggles = allEntryToggles;
         }
 
-        private void DrawTransition(StateTransition transition, string stateName, ref bool toggled)
+        private void DrawTransition(ref StateTransition transition, string stateName, ref bool toggled)
         {
             EditorGUILayout.BeginHorizontal();
 
@@ -197,7 +194,8 @@ namespace Skyrates.Common.AI
             if (transition != null)
             {
 
-                transition.StateDestination = EditorGUILayout.Popup(transition.StateDestination, this._stateMachine.StateNames);
+                transition.StateDestination = EditorGUILayout.Popup(transition.StateDestination + 1,
+                    this._stateMachine.StateNames) - 1;
 
             }
         }

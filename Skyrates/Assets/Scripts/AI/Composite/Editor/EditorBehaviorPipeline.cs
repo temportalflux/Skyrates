@@ -36,7 +36,7 @@ namespace Skyrates.AI.Composite
             this.mListBehavior.DoLayoutList();
 
             this.serializedObject.ApplyModifiedProperties();
-            EditorUtility.SetDirty(this.mInstance);
+            Undo.RecordObject(this.mInstance, string.Format("Edit {0}", this.mInstance.name));
 
         }
 

@@ -1,5 +1,4 @@
-﻿using Skyrates.Common.AI;
-using Skyrates.Physics;
+﻿using Skyrates.Physics;
 using UnityEngine;
 
 namespace Skyrates.AI.Formation
@@ -8,7 +7,7 @@ namespace Skyrates.AI.Formation
     /// <summary>
     /// Sets the target according to the location slot set in the owners behavior and what its formation owner is.
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Formation/Update Target")]
+    [CreateAssetMenu(menuName = "Data/AI/Decorator/Formation Target")]
     public class UpdateTargetFormation : Behavior
     {
 
@@ -17,7 +16,7 @@ namespace Skyrates.AI.Formation
         {
             // Get the physics data of the slot the agent is assigned to
             if (data.Formation != null && data.Formation.HasFormation)
-                data.Target = data.Formation.GetTarget() ?? physics;
+                data.Target = (data.Formation.GetTarget() ?? physics).Copy();
             return persistent;
         }
 

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Skyrates.AI.Formation;
 using Skyrates.AI.Target;
-using Skyrates.Common.AI;
 using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
@@ -24,6 +24,12 @@ namespace Skyrates.AI
         public class DataBehavioral
         {
 
+            public class NearbyTarget
+            {
+                public PhysicsData Target;
+                public float MaxDistanceSq;
+            }
+
             [HideInInspector]
             [NonSerialized]
             public Transform View;
@@ -43,6 +49,11 @@ namespace Skyrates.AI
             [SerializeField]
             public PhysicsData Target;
 
+            [NonSerialized]
+            public List<NearbyTarget> NearbyTargets;
+            [NonSerialized]
+            public List<PhysicsData> NearbyFormationTargets;
+
             [HideInInspector]
             [NonSerialized]
             public FormationAgent Formation;
@@ -54,6 +65,16 @@ namespace Skyrates.AI
             public float TurnSpeedMultiplier;
             
             public float ThrustMultiplier;
+
+            public void CleanNearby(PhysicsData physics)
+            {
+                this.CleanNearby(physics, ref this.NearbyTargets);
+            }
+
+            private void CleanNearby(PhysicsData physics, ref List<NearbyTarget> nearbyTargets)
+            {
+                nearbyTargets.RemoveAll(target => (physics.LinearPosition - target.Target.LinearPosition).sqrMagnitude > target.MaxDistanceSq);
+            }
 
         }
 
@@ -114,11 +135,11 @@ namespace Skyrates.AI
         {
         }
 
-        public virtual void OnDetect(EntityAI other, float distance)
+        public virtual void OnDetect(EntityAI other, float distance, ref DataPersistent persistent)
         {
         }
 
-        public virtual void DrawGizmos(DataPersistent persistent)
+        public virtual void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
         }
 

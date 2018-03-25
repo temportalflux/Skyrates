@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Skyrates.Common.AI;
+using Skyrates.AI.Formation;
+using Skyrates.Entity;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace Skyrates.AI.Composite
     /// <summary>
     /// A behavior pipeline in which a set of behaviors are executed in turn.
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Composite/Pipeline")]
+    [CreateAssetMenu(menuName = "Data/AI/Composite/Pipeline/Pipeline")]
     public class BehaviorPipeline : BehaviorPipeline<Behavior>
     {
 
@@ -19,7 +20,7 @@ namespace Skyrates.AI.Composite
             return arrayElement;
         }
 
-        protected override void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, ref Persistent persistent, float deltaTime, Behavior element, ref DataPersistent elementData)
+        protected override void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, float deltaTime, Behavior element, ref DataPersistent elementData)
         {
             elementData = element.GetUpdate(ref physics, ref behavioral, elementData, deltaTime);
         }
@@ -55,7 +56,7 @@ namespace Skyrates.AI.Composite
         /// <param name="arrayElement"></param>
         /// <returns></returns>
         public abstract Behavior GetBehaviorFrom(T arrayElement);
-
+        
         /// <inheritdoc />
         public override DataPersistent CreatePersistentData()
         {
@@ -111,23 +112,40 @@ namespace Skyrates.AI.Composite
             base.OnExit(physics, ref behavioral, persistentPipeline);
         }
 
+        private DataPersistent Iterate(DataPersistent persistent, Func<T, DataPersistent, DataPersistent> forEach)
+        {
+            Persistent persistentPipeline = (Persistent)persistent;
+
+            for (int iBehavior = 0; iBehavior < this.Behaviors.Length; iBehavior++)
+            {
+                T element = this.Behaviors[iBehavior];
+                // If null, skip execution
+                if (element == null) continue;
+                persistentPipeline.PeristentData[iBehavior] = forEach(element, persistentPipeline.PeristentData[iBehavior]);
+            }
+
+            return persistentPipeline;
+        }
+
         /// <inheritdoc />
         /// https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior
         public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
-            // Iterate over all behaviors
-            Persistent persistentPipeline = (Persistent)persistent;
-            for (int iBehavior = 0; iBehavior < this.Behaviors.Length; iBehavior++)
+            PhysicsData physicsInst = physics.Copy();
+            DataBehavioral behavioralInst = behavioral;
+
+            persistent = this.Iterate(persistent, (behavior, dataPersistent) =>
             {
-                // Get the behavior for the list (if this was it, foreach would be better)
-                Behavior behavior = this.GetBehaviorFrom(this.Behaviors[iBehavior]);
-                // If null, skip execution
-                if (behavior == null) continue;
                 // Execute GetUpdate for the sub-behavior, passing along its persistent data
-                this.UpdateElement(ref physics, ref behavioral, ref persistentPipeline, deltaTime, this.Behaviors[iBehavior], ref persistentPipeline.PeristentData[iBehavior]);
-            }
+                this.UpdateElement(ref physicsInst, ref behavioralInst, deltaTime, behavior, ref dataPersistent);
+                return dataPersistent;
+            });
+
+            physics.CopyFrom(physicsInst);
+            behavioral = behavioralInst;
+
             // Return the updated persistent data
-            return persistentPipeline;
+            return persistent;
         }
 
         /// <summary>
@@ -139,18 +157,27 @@ namespace Skyrates.AI.Composite
         /// <param name="deltaTime"></param>
         /// <param name="element"></param>
         /// <param name="elementData"></param>
-        protected abstract void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, ref Persistent persistent, float deltaTime, T element, ref DataPersistent elementData);
+        protected abstract void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, float deltaTime, T element, ref DataPersistent elementData);
+
+        public override void OnDetect(EntityAI other, float distance, ref DataPersistent persistent)
+        {
+            persistent = this.Iterate(persistent, (behavior, dataPersistent) =>
+            {
+                this.GetBehaviorFrom(behavior).OnDetect(other, distance, ref dataPersistent);
+                return dataPersistent;
+            });
+        }
 
 #if UNITY_EDITOR
-        public override void DrawGizmos(DataPersistent persistent)
+        public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
-            Persistent pipelinePersistent = (Persistent)persistent;
             for (int iBehavior = 0; iBehavior < this.Behaviors.Length; iBehavior++)
             {
                 if (this.Behaviors[iBehavior] == null) continue;
                 Behavior behavior = this.GetBehaviorFrom(this.Behaviors[iBehavior]);
                 if (behavior == null) continue;
-                behavior.DrawGizmos(pipelinePersistent.PeristentData[iBehavior]);
+                behavior.DrawGizmos(physics, persistent != null ?
+                    ((Persistent)persistent).PeristentData[iBehavior] : null);
             }
         }
 #endif

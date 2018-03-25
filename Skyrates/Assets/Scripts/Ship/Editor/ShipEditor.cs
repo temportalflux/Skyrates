@@ -29,7 +29,7 @@ namespace Skyrates.Ship
                 this._instance.Destroy();
             }
 
-            EditorUtility.SetDirty(this._instance);
+            Undo.RecordObject(this._instance, string.Format("Edit {0}", this._instance.name));
 
         }
 

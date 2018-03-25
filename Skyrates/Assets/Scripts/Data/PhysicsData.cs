@@ -9,6 +9,11 @@ namespace Skyrates.Physics
     public class PhysicsData
     {
 
+        public Vector3 Forward = Vector3.zero;
+        public Vector3 Right = Vector3.zero;
+        public Vector3 Up = Vector3.zero;
+
+
         public Vector3 LinearPosition = Vector3.zero;
         
         public Vector3 LinearVelocity = Vector3.zero;
@@ -35,25 +40,47 @@ namespace Skyrates.Physics
             this.RotationPosition = rotation;
         }
 
+        public static PhysicsData From(Transform transform)
+        {
+            return new PhysicsData()
+            {
+                LinearPosition = transform.position,
+                RotationPosition = transform.rotation,
+                Forward = transform.forward,
+                Right = transform.right,
+                Up = transform.up,
+            };
+        }
+
         public PhysicsData Copy()
         {
-            return new PhysicsData
-            {
-                LinearPosition = LinearPosition,
-                LinearVelocity = LinearVelocity,
-                LinearAccelleration = LinearAccelleration,
-                RotationPosition = RotationPosition,
-                RotationVelocity = RotationVelocity,
-                RotationAccelleration = RotationAccelleration,
-                RotationAesteticPosition = RotationAesteticPosition,
-                RotationAesteticVelocity = RotationAesteticVelocity,
-            };
+            PhysicsData newInst = new PhysicsData();
+            newInst.CopyFrom(this);
+            return newInst;
+        }
+
+        public void CopyFrom(PhysicsData other)
+        {
+            this.Forward = other.Forward;
+            this.Right = other.Right;
+            this.Up = other.Up;
+            this.LinearPosition = other.LinearPosition;
+            this.LinearVelocity = other.LinearVelocity;
+            this.LinearAccelleration = other.LinearAccelleration;
+            this.RotationPosition = other.RotationPosition;
+            this.RotationVelocity = other.RotationVelocity;
+            this.RotationAccelleration = other.RotationAccelleration;
+            this.RotationAesteticPosition = other.RotationAesteticPosition;
+            this.RotationAesteticVelocity = other.RotationAesteticVelocity;
         }
 
         public static PhysicsData operator *(PhysicsData data, float weight)
         {
             return new PhysicsData
             {
+                Forward = data.Forward,
+                Right = data.Right,
+                Up = data.Up,
                 LinearPosition = data.LinearPosition,
                 LinearVelocity = data.LinearVelocity * weight,
                 LinearAccelleration = data.LinearAccelleration * weight,
@@ -69,6 +96,9 @@ namespace Skyrates.Physics
         {
             return new PhysicsData
             {
+                Forward = a.Forward,
+                Right = a.Right,
+                Up = a.Up,
                 LinearPosition = a.LinearPosition,
                 LinearVelocity = a.LinearVelocity + b.LinearVelocity,
                 LinearAccelleration = a.LinearAccelleration + b.LinearAccelleration,
@@ -78,6 +108,19 @@ namespace Skyrates.Physics
                 RotationAesteticPosition = a.RotationAesteticPosition,
                 RotationAesteticVelocity = a.RotationAesteticVelocity + b.RotationAesteticVelocity,
             };
+        }
+
+        public void UpdatePositions(Transform t)
+        {
+            this.LinearPosition = t.position;
+            this.RotationPosition = t.rotation;
+        }
+
+        public void UpdateDirections(Transform t)
+        {
+            this.Forward = t.forward;
+            this.Right = t.right;
+            this.Up = t.up;
         }
 
         public void Integrate(float deltaTime)
@@ -102,6 +145,26 @@ namespace Skyrates.Physics
             ExtensionMethods.Integrate(ref this.RotationPositionComposite, this.RotationAesteticVelocity, deltaTime);
 
         }
+
+#if UNITY_EDITOR
+        public void DrawGizmos(float axisScale, float sphereScale, Color sphereColor)
+        {
+            if (Mathf.Abs(axisScale) > 0.0f)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawRay(this.LinearPosition, this.Forward * axisScale);
+                Gizmos.color = Color.red;
+                Gizmos.DrawRay(this.LinearPosition, this.Right * axisScale);
+                Gizmos.color = Color.green;
+                Gizmos.DrawRay(this.LinearPosition, this.Up * axisScale);
+            }
+            if (Mathf.Abs(sphereScale) > 0.0f)
+            {
+                Gizmos.color = sphereColor;
+                Gizmos.DrawWireSphere(this.LinearPosition, sphereScale);
+            }
+        }
+#endif
 
     }
 

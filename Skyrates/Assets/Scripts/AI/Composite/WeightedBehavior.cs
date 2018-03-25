@@ -1,7 +1,6 @@
 ﻿using System;
 using Skyrates.AI;
 using Skyrates.AI.Steering;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ namespace Skyrates.AI.Composite
     /// <summary>
     /// A behavior pipeline in which a set of behaviors are executed in turn, their outputs weighted by a number, and then that data added to the continuous total.
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Composite/Weighted")]
+    [CreateAssetMenu(menuName = "Data/AI/Composite/Pipeline/Weighted")]
     public class WeightedBehavior : BehaviorPipeline<WeightedBehavior.Element>
     {
 
@@ -44,7 +43,7 @@ namespace Skyrates.AI.Composite
         }
 
         /// <inheritdoc />
-        protected override void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, ref Persistent persistent, float deltaTime, Element element, ref DataPersistent elementData)
+        protected override void UpdateElement(ref PhysicsData physics, ref DataBehavioral behavioral, float deltaTime, Element element, ref DataPersistent elementData)
         {
             // skip nil behaviors
             if (element.Behavior == null) return;

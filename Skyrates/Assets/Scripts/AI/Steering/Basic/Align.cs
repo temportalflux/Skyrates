@@ -1,5 +1,4 @@
 ﻿using Skyrates.AI;
-using Skyrates.Common.AI;
 using Skyrates.Physics;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ namespace Skyrates.AI.Steering.Basic
     /// Accellerates towards a rotation, and slows as it gets closer.
     /// 
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Basic/Align")]
+    [CreateAssetMenu(menuName = "Data/AI/Steering/Basic/Align")]
     public class Align : Steering
     {
 

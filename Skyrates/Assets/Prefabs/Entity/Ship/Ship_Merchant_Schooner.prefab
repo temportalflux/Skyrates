@@ -317,6 +317,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhysicsData:
+    Forward: {x: 0, y: 0, z: 0}
+    Right: {x: 0, y: 0, z: 0}
+    Up: {x: 0, y: 0, z: 0}
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -327,9 +330,12 @@ MonoBehaviour:
     RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
-  Behavior: {fileID: 11400000, guid: 99d827694b06f1849914503feb9cdde2, type: 2}
+  Behavior: {fileID: 11400000, guid: 8a52ee59b8a91e043b52c63896f6d076, type: 2}
   DataBehavior:
     Target:
+      Forward: {x: 0, y: 0, z: 0}
+      Right: {x: 0, y: 0, z: 0}
+      Up: {x: 0, y: 0, z: 0}
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
       LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -340,6 +346,8 @@ MonoBehaviour:
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
       RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+    TurnSpeedMultiplier: 0
+    ThrustMultiplier: 0
   Health: 0
   Render: {fileID: 4146906015652790}
   Hull: {fileID: 114820605112876456}
@@ -356,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ship: {fileID: 0}
+  Ship: {fileID: 114793905451201544}
   TierIndex: 0
   MaxHealth: 45
   HealthRegenAmount: 0

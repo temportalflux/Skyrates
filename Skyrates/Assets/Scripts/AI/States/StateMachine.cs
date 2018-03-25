@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Skyrates.Common.AI;
+using Skyrates.AI.Formation;
 using Skyrates.Entity;
 using Skyrates.Physics;
+using UnityEditor;
 using UnityEngine;
 
 namespace Skyrates.AI.State
@@ -15,7 +16,7 @@ namespace Skyrates.AI.State
     /// Artifical Intelligence for Games 2nd Edition
     /// Ian Millington & John Funge
     /// </summary>
-    [CreateAssetMenu(menuName = "Data/AI/Control/State Machine")]
+    [CreateAssetMenu(menuName = "Data/AI/Composite/State/State Machine")]
     public class StateMachine : BehaviorTimed
     {
 
@@ -108,7 +109,7 @@ namespace Skyrates.AI.State
         /// <returns></returns>
         public State GetState(int index)
         {
-            return index < 0 ? null : this.States[index];
+            return index < 0 ? this.IdleState : this.States[index];
         }
 
         /// <inheritdoc />
@@ -172,16 +173,29 @@ namespace Skyrates.AI.State
             persistent.CurrentPersistent = statePersistent;
         }
 
-        public override void OnDetect(EntityAI other, float distance)
+        public override void OnDetect(EntityAI other, float distance, ref DataPersistent persistent)
         {
-            
+            PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
+            DataPersistent currentPersistent = smPersistent.CurrentPersistent;
+            this.GetCurrentState(smPersistent).OnDetect(other, distance, ref currentPersistent);
+            smPersistent.CurrentPersistent = currentPersistent;
+            persistent = smPersistent;
         }
 
 #if UNITY_EDITOR
-        public override void DrawGizmos(DataPersistent persistent)
+        /// <inheritdoc />
+        public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
             PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
-            this.GetCurrentState(smPersistent).DrawGizmos(smPersistent.CurrentPersistent);
+
+            Handles.Label(physics.LinearPosition,
+                smPersistent != null ? this.GetCurrentState(smPersistent).StateName : "Idle");
+
+            for (int iState = -1; iState < this.States.Length; iState++)
+            {
+                this.GetState(iState).DrawGizmos(physics,
+                    smPersistent != null ? smPersistent.PeristentData[iState + 1] : null);
+            }
         }
 #endif
 
