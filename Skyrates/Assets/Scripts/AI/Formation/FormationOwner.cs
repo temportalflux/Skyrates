@@ -126,7 +126,16 @@ namespace Skyrates.AI.Formation
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
+            Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(this.SlotAveragePositionOffset + this.transform.position, this.NearbyRange);
+
+            if (this.NearbyTargets != null)
+            {
+                foreach (NearbyTarget target in this.NearbyTargets)
+                {
+                    target.Target.DrawGizmos(1.0f, 0.5f, Color.gray);
+                }
+            }
         }
 #endif
 

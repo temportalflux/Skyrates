@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 3
 --- !u!1001 &40356978
 Prefab:
@@ -2591,7 +2591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &193693936
 Transform:
   m_ObjectHideFlags: 0
@@ -6043,7 +6043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 4
 --- !u!1001 &537769587
 Prefab:
@@ -7741,7 +7741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 6
 --- !u!1001 &666073270
 Prefab:
@@ -11458,7 +11458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 2
 --- !u!1001 &1080552099
 Prefab:
@@ -14992,7 +14992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 5
 --- !u!224 &1355436085 stripped
 RectTransform:
@@ -15899,7 +15899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 1
 --- !u!1001 &1419931496
 Prefab:
@@ -18662,7 +18662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 7
 --- !u!1001 &1674243547
 Prefab:
@@ -20726,6 +20726,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 584d826e2a1c95745b9c35aeb2275127, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1871485253 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114048003700025704, guid: 584d826e2a1c95745b9c35aeb2275127,
+    type: 2}
+  m_PrefabInternal: {fileID: 1871485252}
+  m_Script: {fileID: 11500000, guid: 6a0ff7656b8aa0443a7fe4db4b9b8288, type: 3}
 --- !u!1 &1872932771
 GameObject:
   m_ObjectHideFlags: 0
@@ -23069,7 +23075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac2af464ce58224ca7b55b8a42b184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FormationOwner: {fileID: 0}
+  FormationOwner: {fileID: 1871485253}
   FormationSlot: 0
 --- !u!1 &2035155403
 GameObject:

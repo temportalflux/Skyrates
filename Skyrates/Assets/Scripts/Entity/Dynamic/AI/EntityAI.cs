@@ -174,11 +174,10 @@ namespace Skyrates.Entity
 
             if (!this.DataBehavior.NearbyTargets.Exists(target => ReferenceEquals(target.Target, other.PhysicsData)))
             {
-                this.DataBehavior.NearbyTargets.Add(new Behavior.DataBehavioral.NearbyTarget
-                {
-                    Target = other.PhysicsData,
-                    MaxDistanceSq = maxDistance * maxDistance
-                });
+                Behavior.DataBehavioral.NearbyTarget target = new Behavior.DataBehavioral.NearbyTarget();
+                target.Target = other.PhysicsData;
+                target.MaxDistanceSq = maxDistance * maxDistance;
+                this.DataBehavior.NearbyTargets.Add(target);
             }
 
             if (this.Behavior != null)
@@ -191,6 +190,7 @@ namespace Skyrates.Entity
 #if UNITY_EDITOR
         public void OnDrawGizmos()
         {
+
             if (this.Behavior == null) return;
             if (this.DataPersistent == null) return;
             try
@@ -200,6 +200,14 @@ namespace Skyrates.Entity
             catch (Exception)
             {
                 // ignored
+            }
+
+            if (this.DataBehavior.NearbyTargets != null)
+            {
+                foreach (Behavior.DataBehavioral.NearbyTarget target in this.DataBehavior.NearbyTargets)
+                {
+                    target.Target.DrawGizmos(1.0f, 0.5f, Color.gray);
+                }
             }
         }
 #endif

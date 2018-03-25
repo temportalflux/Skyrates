@@ -136,6 +136,26 @@ namespace Skyrates.Physics
 
         }
 
+#if UNITY_EDITOR
+        public void DrawGizmos(float axisScale, float sphereScale, Color sphereColor)
+        {
+            if (Mathf.Abs(axisScale) > 0.0f)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawRay(this.LinearPosition, this.Forward * axisScale);
+                Gizmos.color = Color.red;
+                Gizmos.DrawRay(this.LinearPosition, this.Right * axisScale);
+                Gizmos.color = Color.green;
+                Gizmos.DrawRay(this.LinearPosition, this.Up * axisScale);
+            }
+            if (Mathf.Abs(sphereScale) > 0.0f)
+            {
+                Gizmos.color = sphereColor;
+                Gizmos.DrawWireSphere(this.LinearPosition, sphereScale);
+            }
+        }
+#endif
+
     }
 
 }
