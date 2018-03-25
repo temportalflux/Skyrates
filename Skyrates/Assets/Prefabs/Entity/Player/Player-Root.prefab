@@ -8190,7 +8190,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860726107320958}
-  m_LocalRotation: {x: 0.003746391, y: -0, z: -0, w: 0.999993}
+  m_LocalRotation: {x: 0.0037461356, y: -0, z: -0, w: 0.999993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10038,7 +10038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mode: 0
-  RadiusSphere: 900
+  RadiusSphere: 300
   RadiusBox: {x: 0, y: 0, z: 0}
   CollisionLayers:
     serializedVersion: 2
@@ -13462,6 +13462,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhysicsData:
+    Forward: {x: 0, y: 0, z: 0}
+    Right: {x: 0, y: 0, z: 0}
+    Up: {x: 0, y: 0, z: 0}
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -13475,6 +13478,9 @@ MonoBehaviour:
   Behavior: {fileID: 11400000, guid: 5f7eb8130057e7d4fa17200178e7271e, type: 2}
   DataBehavior:
     Target:
+      Forward: {x: 0, y: 0, z: 0}
+      Right: {x: 0, y: 0, z: 0}
+      Up: {x: 0, y: 0, z: 0}
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
       LinearAccelleration: {x: 0, y: 0, z: 0}

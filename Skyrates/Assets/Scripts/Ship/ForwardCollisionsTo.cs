@@ -1,11 +1,12 @@
 ﻿using Skyrates.Entity;
+using Skyrates.Mono;
 using UnityEngine;
 
 namespace Skyrates.Ship
 {
 
     [RequireComponent(typeof(Rigidbody))]
-    public class ForwardCollisionsTo : MonoBehaviour
+    public class ForwardCollisionsTo : MonoBehaviour, IDistanceCollidable
     {
 
         // TODO: Change to GameObject
@@ -20,7 +21,16 @@ namespace Skyrates.Ship
         {
             Owner.OnTriggerExit(other);
         }
+        
+        public void OnEnterEntityRadius(EntityAI source, float radius)
+        {
+            this.Owner.OnEnterEntityRadius(source, radius);
+        }
 
+        public void OnOverlapWith(GameObject other, float radius)
+        {
+            this.Owner.OnOverlapWith(other, radius);
+        }
     }
 
 }

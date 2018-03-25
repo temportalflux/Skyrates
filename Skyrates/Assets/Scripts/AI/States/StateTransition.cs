@@ -25,7 +25,7 @@ namespace Skyrates.AI.State
         [HideInInspector]
         public int StateDestination;
 
-        public Behavior.DataPersistent CreatePersistentData()
+        public virtual Behavior.DataPersistent CreatePersistentData()
         {
             return null;
         }

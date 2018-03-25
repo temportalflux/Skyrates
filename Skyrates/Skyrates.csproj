@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -526,6 +528,7 @@
     <Compile Include="Assets\Scripts\AI\BehaviorTimed.cs" />
     <Compile Include="Assets\Scripts\AI\Composite\BehaviorPipeline.cs" />
     <Compile Include="Assets\Scripts\AI\Composite\WeightedBehavior.cs" />
+    <Compile Include="Assets\Scripts\AI\Decorator\FormationOffsetFromEntity.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\SetTargetDirection.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\ShipRotation.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\SmoothTarget.cs" />
@@ -538,8 +541,8 @@
     <Compile Include="Assets\Scripts\AI\States\State.cs" />
     <Compile Include="Assets\Scripts\AI\States\StateMachine.cs" />
     <Compile Include="Assets\Scripts\AI\States\StateTransition.cs" />
-    <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDetected.cs" />
-    <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDetectedPlayer.cs" />
+    <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDetectedNearbyTargets.cs" />
+    <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDetectedNearbyTargetsFormation.cs" />
     <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionMissingFormationOwner.cs" />
     <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionTargetExists.cs" />
     <Compile Include="Assets\Scripts\AI\Steering\Basic\Align.cs" />

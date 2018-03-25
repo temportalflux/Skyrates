@@ -117,12 +117,12 @@ namespace Skyrates.AI.State
         }
 
 #if UNITY_EDITOR
-        public void DrawGizmos(Behavior.DataPersistent persistent)
+        public void DrawGizmos(PhysicsData physics, Behavior.DataPersistent persistent)
         {
             Persistent statePersistent = (Persistent)persistent;
             if (this.Behavior != null)
             {
-                this.Behavior.DrawGizmos(statePersistent.DataBehavior);
+                this.Behavior.DrawGizmos(physics, statePersistent.DataBehavior);
             }
             for (int iTransition = 0; iTransition < this.Transitions.Length; iTransition++)
             {

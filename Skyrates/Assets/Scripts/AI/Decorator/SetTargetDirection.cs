@@ -1,7 +1,7 @@
 ﻿using Skyrates.Physics;
 using UnityEngine;
 
-namespace Skyrates.AI.Formation
+namespace Skyrates.AI.Decorator
 {
 
     /// <summary>

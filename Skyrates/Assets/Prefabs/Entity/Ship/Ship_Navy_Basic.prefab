@@ -435,6 +435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhysicsData:
+    Forward: {x: 0, y: 0, z: 0}
+    Right: {x: 0, y: 0, z: 0}
+    Up: {x: 0, y: 0, z: 0}
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -448,6 +451,9 @@ MonoBehaviour:
   Behavior: {fileID: 11400000, guid: ffffe83f1fccbff419d627c98069d50a, type: 2}
   DataBehavior:
     Target:
+      Forward: {x: 0, y: 0, z: 0}
+      Right: {x: 0, y: 0, z: 0}
+      Up: {x: 0, y: 0, z: 0}
       LinearPosition: {x: 0, y: 0, z: 0}
       LinearVelocity: {x: 0, y: 0, z: 0}
       LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -458,6 +464,8 @@ MonoBehaviour:
       RotationAesteticPosition: {x: 0, y: 0, z: 0, w: 1}
       RotationAesteticVelocity: {x: 0, y: 0, z: 0}
       RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
+    TurnSpeedMultiplier: 0
+    ThrustMultiplier: 0
   Health: 0
   Render: {fileID: 4144529139514880}
   Hull: {fileID: 114811273138527862}
@@ -479,6 +487,12 @@ MonoBehaviour:
     type: 2}
   spawn: {fileID: 4455530427761126}
   force: 0.005
+  UseArc: 0
+  ManualArc: 0
+  TargetIsDirection: 1
+  ArcAngle: 0
+  ArcAxis: {x: 1, y: 0, z: 0}
+  ArcRender: {fileID: 0}
 --- !u!114 &114407348951755256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -516,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57ffc90decf60d4aab099e304576b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ship: {fileID: 0}
+  Ship: {fileID: 114269295474296904}
   TierIndex: 0
   MaxHealth: 60
   HealthRegenAmount: 0

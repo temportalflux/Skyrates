@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Skyrates.AI;
 using Skyrates.AI.Composite;
 using Skyrates.AI.Formation;
@@ -48,6 +49,8 @@ namespace Skyrates.Entity
             this._waypointAgent = this.GetComponent<WaypointAgent>();
 
             this.DataBehavior.Target = new PhysicsData();
+            this.DataBehavior.NearbyTargets = new List<Behavior.DataBehavioral.NearbyTarget>();
+            this.DataBehavior.NearbyFormationTargets = new List<Behavior.DataBehavioral.NearbyTarget>();
 
             this.UpdateBehaviorData();
 
@@ -77,14 +80,16 @@ namespace Skyrates.Entity
         /// </summary>
         protected virtual void UpdateBehaviorData()
         {
+            this.PhysicsData.UpdateDirections(this.transform);
+
             this.DataBehavior.View = this.GetView();
             this.DataBehavior.Render = this.GetRender().transform;
             this.DataBehavior.Formation = this._formationAgent;
             this.DataBehavior.Waypoints = this._waypointAgent;
             this.DataBehavior.ThrustMultiplier = 1.0f;
             this.DataBehavior.TurnSpeedMultiplier = 1.0f;
+            this.DataBehavior.CleanNearby(this.PhysicsData);
 
-            this.PhysicsData.UpdateDirections(this.transform);
         }
         
         protected override void FixedUpdate()
@@ -154,10 +159,7 @@ namespace Skyrates.Entity
         /// <inheritdoc />
         public virtual void OnEnterEntityRadius(EntityAI other, float maxDistance)
         {
-            if (this.Behavior != null)
-                this.Behavior.OnDetect(other, maxDistance, ref this.DataPersistent);
-            if (this._formationAgent != null)
-                this._formationAgent.OnDetect(other, maxDistance);
+            this.OnDetect(other, maxDistance);
         }
 
         /// <inheritdoc />
@@ -165,16 +167,40 @@ namespace Skyrates.Entity
         {
             EntityAI otherAi = other.GetComponent<EntityAI>();
             if (otherAi == null) return;
+            this.OnDetect(otherAi, maxDistance);
+        }
+
+        public virtual void OnDetect(EntityAI other, float maxDistance)
+        {
             if (this.Behavior != null)
-                this.Behavior.OnDetect(otherAi, maxDistance, ref this.DataPersistent);
+                this.Behavior.OnDetect(other, maxDistance, ref this.DataPersistent);
             if (this._formationAgent != null)
-                this._formationAgent.OnDetect(otherAi, maxDistance);
+                this._formationAgent.OnDetect(other, maxDistance);
+
+            if (!this.DataBehavior.NearbyTargets.Exists(target => ReferenceEquals(target.Target, other.PhysicsData)))
+            {
+                this.DataBehavior.NearbyTargets.Add(new Behavior.DataBehavioral.NearbyTarget
+                {
+                    Target = other.PhysicsData,
+                    MaxDistanceSq = maxDistance * maxDistance
+                });
+            }
+
         }
 
         public virtual void OnDetectEntityNearFormation(FormationAgent source, EntityAI other, float distanceFromSource)
         {
             if (this.Behavior != null)
                 this.Behavior.OnDetectEntityNearFormation(source, other, distanceFromSource, ref this.DataPersistent);
+
+            if (!this.DataBehavior.NearbyFormationTargets.Exists(target => ReferenceEquals(target.Target, other.PhysicsData)))
+            {
+                this.DataBehavior.NearbyFormationTargets.Add(new Behavior.DataBehavioral.NearbyTarget
+                {
+                    Target = other.PhysicsData,
+                    MaxDistanceSq = (this.transform.position - other.transform.position).sqrMagnitude
+                });
+            }
         }
 
 #if UNITY_EDITOR
@@ -184,7 +210,7 @@ namespace Skyrates.Entity
             if (this.DataPersistent == null) return;
             try
             {
-                this.Behavior.DrawGizmos(this.DataPersistent);
+                this.Behavior.DrawGizmos(this.PhysicsData, this.DataPersistent);
             }
             catch (Exception)
             {

@@ -4,6 +4,7 @@ using System.Linq;
 using Skyrates.AI.Formation;
 using Skyrates.Entity;
 using Skyrates.Physics;
+using UnityEditor;
 using UnityEngine;
 
 namespace Skyrates.AI.State
@@ -191,10 +192,15 @@ namespace Skyrates.AI.State
         }
 
 #if UNITY_EDITOR
-        public override void DrawGizmos(DataPersistent persistent)
+        /// <inheritdoc />
+        public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
             PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
-            this.GetCurrentState(smPersistent).DrawGizmos(smPersistent.CurrentPersistent);
+
+            Handles.Label(physics.LinearPosition,
+                this.GetCurrentState(smPersistent).StateName);
+
+            this.GetCurrentState(smPersistent).DrawGizmos(physics, smPersistent.CurrentPersistent);
         }
 #endif
 
