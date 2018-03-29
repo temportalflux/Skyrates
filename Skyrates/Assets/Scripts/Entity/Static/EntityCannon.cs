@@ -148,7 +148,7 @@ namespace Skyrates.Entity
                         //Debug.Log("FIRE");
                         this.Shooter.FireProjectile(
                              (target.transform.position - this.transform.position).normalized,
-                             Vector3.zero
+                             Vector3.zero, 1
                         );
                     }
                 }
@@ -201,7 +201,7 @@ namespace Skyrates.Entity
 		public void Shoot(Vector3 target, float speed)
 		{
 			this.Shooter.UseArc = true;
-			this.Shooter.FireProjectile(target, Vector3.zero);
+			this.Shooter.FireProjectile(target, Vector3.zero, 1);
 		}
 
 	}

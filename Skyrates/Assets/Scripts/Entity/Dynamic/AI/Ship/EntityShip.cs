@@ -18,7 +18,6 @@ namespace Skyrates.Entity
     {
         
         // TODO: Attribute to DISABLE in inspector http://www.brechtos.com/hiding-or-disabling-inspector-properties-using-propertydrawers-within-unity-5/
-        [HideInInspector]
         public float Health;
 
         #region Parts of the ship
@@ -40,10 +39,10 @@ namespace Skyrates.Entity
             base.Start();
             if (this.Hull != null)
             {
-                Debug.Assert(this.Hull.MaxHealth > 0, string.Format(
+                Debug.Assert(this.Hull.HP > 0, string.Format(
                     "Hull {0} has 0 health, they will be killed on first hit, so at least make this a 1 pls.",
                     this.Hull.name));
-                this.Health = this.Hull.MaxHealth;
+                this.Health = this.Hull.HP;
             }
             StartCoroutine(this.AutoHeal());
         }
@@ -129,8 +128,8 @@ namespace Skyrates.Entity
             if (this.Hull == null || this.Hull.HealthRegenAmount <= 0.0f) yield break;
             while (true)
             {
-                yield return new WaitUntil((() => this.Health < this.Hull.MaxHealth));
-                while (this.Health < this.Hull.MaxHealth)
+                yield return new WaitUntil((() => this.Health < this.Hull.HP));
+                while (this.Health < this.Hull.HP)
                 {
                     this.Health += this.Hull.HealthRegenAmount;
                     yield return new WaitForSeconds(this.Hull.HealthRegenDelay);

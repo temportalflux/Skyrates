@@ -42,6 +42,7 @@ namespace Skyrates.Common.AI.Formation
                 }));
 
             Undo.RecordObject(this._instance, string.Format("Edit {0}", this._instance.name));
+            EditorUtility.SetDirty(this._instance);
         }
 
     }

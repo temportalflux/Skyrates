@@ -146,7 +146,7 @@ namespace Skyrates.Entity
         {
             // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
 
-            this.Health = this.Hull.MaxHealth;
+            this.Health = this.Hull.HP;
 
             Transform spawn = GameManager.Instance.PlayerSpawn;
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);

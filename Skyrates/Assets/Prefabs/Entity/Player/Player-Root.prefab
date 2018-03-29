@@ -1924,7 +1924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1437352835995780
 GameObject:
   m_ObjectHideFlags: 1
@@ -7651,7 +7651,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729480990092996}
-  m_LocalRotation: {x: 0.021869382, y: -0, z: -0, w: 0.99976087}
+  m_LocalRotation: {x: 0.021869054, y: -0, z: -0, w: 0.99976087}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7916,7 +7916,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912161599259622}
-  m_LocalRotation: {x: 0.021869805, y: -0, z: -0, w: 0.99976087}
+  m_LocalRotation: {x: 0.021868985, y: -0, z: -0, w: 0.99976087}
   m_LocalPosition: {x: 0, y: 4.02, z: -16.858002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8193,7 +8193,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860726107320958}
-  m_LocalRotation: {x: 0.0037523638, y: -0, z: -0, w: 0.999993}
+  m_LocalRotation: {x: 0.0037522265, y: -0, z: -0, w: 0.999993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12395,7 +12395,11 @@ MonoBehaviour:
   m_LayerIndex: 0
   m_ShowDebugText: 0
   m_EnableAllChildCameras: 0
-  m_ChildCameras: []
+  m_ChildCameras:
+  - {fileID: 114672500285511762}
+  - {fileID: 114811339757595944}
+  - {fileID: 114073939263367292}
+  - {fileID: 114480976461653674}
   m_Instructions:
   - m_FullHash: 306703707
     m_VirtualCamera: {fileID: 114672500285511762}
@@ -12778,7 +12782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
-  MaxHealth: 20
+  HP: 10
   HealthRegenAmount: 1
   HealthRegenDelay: 5
   SmokeData:

@@ -226,6 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhysicsData:
+    Forward: {x: 0, y: 0, z: 0}
+    Right: {x: 0, y: 0, z: 0}
+    Up: {x: 0, y: 0, z: 0}
     LinearPosition: {x: 0, y: 0, z: 0}
     LinearVelocity: {x: 0, y: 0, z: 0}
     LinearAccelleration: {x: 0, y: 0, z: 0}
@@ -237,7 +240,7 @@ MonoBehaviour:
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   PhysicsComponent: {fileID: 0}
-  Attack: 2
+  Attack: 4
 --- !u!136 &136858345089171838
 CapsuleCollider:
   m_ObjectHideFlags: 1

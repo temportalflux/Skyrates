@@ -526,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
+  AttackModifier: 0
   Shooter: {fileID: 114067398138845758}
 --- !u!114 &114067398138845758
 MonoBehaviour:
@@ -573,6 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
+  AttackModifier: 0
   Shooter: {fileID: 114832201945137496}
 --- !u!114 &114753988310946612
 MonoBehaviour:
@@ -587,7 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114761233398162100}
   TierIndex: 0
-  MaxHealth: 90
+  HP: 50
   HealthRegenAmount: 0
   HealthRegenDelay: 0
   SmokeData:

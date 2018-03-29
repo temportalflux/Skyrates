@@ -126,13 +126,14 @@ namespace Skyrates.Mono
         /// </summary>
         /// <param name="target"></param>
         /// <param name="launchVelocity"></param>
-        public void FireProjectile(Vector3 target, Vector3 launchVelocity)
+        public void FireProjectile(Vector3 target, Vector3 launchVelocity, float attackModifier)
         {
             // TODO: These are fired off one by one, and are often done in batches. This should just be one packet of all the projectiles to spawn.
             Entity.Entity entity = GameManager.Instance.SpawnEntity(this.projectilePrefab);
             if (entity != null)
             {
                 EntityProjectile projectile = (EntityProjectile)entity;
+                projectile.Attack *= attackModifier;
 				if (this.UseArc)
 				{
 					Vector3 targetDirection;

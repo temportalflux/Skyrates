@@ -141,6 +141,7 @@ namespace Skyrates.AI.State
             }
 
             Undo.RecordObject(this._stateMachine, string.Format("Edit {0}", this._stateMachine.name));
+            EditorUtility.SetDirty(this._stateMachine);
         }
 
         private void DrawTransitions(string label, string stateName,

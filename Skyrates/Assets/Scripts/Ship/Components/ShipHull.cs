@@ -20,9 +20,12 @@ namespace Skyrates.Ship
         }
 
         [Tooltip("The amount of damage the ship can take")]
-        public int MaxHealth;
+        [SerializeField]
+        public int HP;
 
+        [SerializeField]
         public float HealthRegenAmount;
+        [SerializeField]
         public float HealthRegenDelay;
 
         #region Particles
@@ -135,7 +138,7 @@ namespace Skyrates.Ship
         public void UpdateHealthParticles(float health)
         {
             // get the amount of damage currently taken (diff in health vs max health)
-            float damageTaken = this.MaxHealth - health;
+            float damageTaken = this.HP - health;
 
             // Update smoke particles
             if (this.SmokeData.Generated != null)

@@ -119,6 +119,7 @@ public abstract class PrefabListEditor<TKey, TValue> : Editor where TValue: Mono
         this.SetStaticKeyToggleArray(keysEnabled);
 
         Undo.RecordObject(this.Instance, string.Format("Edit {0}", this.Instance.name));
+        EditorUtility.SetDirty(this.Instance);
 
     }
 
