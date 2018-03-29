@@ -1924,7 +1924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1437352835995780
 GameObject:
   m_ObjectHideFlags: 1
@@ -7651,7 +7651,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729480990092996}
-  m_LocalRotation: {x: 0.02186313, y: -0, z: -0, w: 0.999761}
+  m_LocalRotation: {x: 0.021869382, y: -0, z: -0, w: 0.99976087}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7916,8 +7916,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912161599259622}
-  m_LocalRotation: {x: 0.021863785, y: -0, z: -0, w: 0.999761}
-  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858002}
+  m_LocalRotation: {x: 0.021869805, y: -0, z: -0, w: 0.99976087}
+  m_LocalPosition: {x: 0, y: 4.02, z: -16.858002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4986014796683882}
@@ -8034,7 +8034,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556435895963990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858002}
+  m_LocalPosition: {x: 0, y: 4.02, z: -16.858002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4301635025895258}
@@ -8193,7 +8193,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860726107320958}
-  m_LocalRotation: {x: 0.0037461382, y: -0, z: -0, w: 0.999993}
+  m_LocalRotation: {x: 0.0037523638, y: -0, z: -0, w: 0.999993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8909,7 +8909,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436304090232158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 415.5, y: 6390, z: -342.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4066061793793454}
@@ -8967,7 +8967,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
+  far clip plane: 15000
   field of view: 40
   orthographic: 0
   orthographic size: 10
@@ -12395,11 +12395,7 @@ MonoBehaviour:
   m_LayerIndex: 0
   m_ShowDebugText: 0
   m_EnableAllChildCameras: 0
-  m_ChildCameras:
-  - {fileID: 114672500285511762}
-  - {fileID: 114811339757595944}
-  - {fileID: 114073939263367292}
-  - {fileID: 114480976461653674}
+  m_ChildCameras: []
   m_Instructions:
   - m_FullHash: 306703707
     m_VirtualCamera: {fileID: 114672500285511762}

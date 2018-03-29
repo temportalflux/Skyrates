@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
+  TierIndex: 0
   Shooter: {fileID: 114805736969207426}
 --- !u!114 &114805736969207426
 MonoBehaviour:
@@ -198,4 +199,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114509081520697296, guid: b47ba2bbb1cc8224c9d04c53a60863cd,
     type: 2}
   spawn: {fileID: 4317586929373498}
-  force: 0.005
+  force: 0.015
+  UseArc: 0
+  ManualArc: 0
+  TargetIsDirection: 1
+  ArcAngle: 0
+  ArcAxis: {x: 1, y: 0, z: 0}
+  ArcRender: {fileID: 0}
