@@ -1,0 +1,96 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner}{\section{Skyrates.\-A\-I.\-Formation.\-Formation\-Owner Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner}\index{Skyrates.\-A\-I.\-Formation.\-Formation\-Owner@{Skyrates.\-A\-I.\-Formation.\-Formation\-Owner}}
+}
+
+
+An object which has references to potential slots which can be filled by \hyperlink{namespace_skyrates_1_1_a_i}{A\-I} agents.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Formation.\-Formation\-Owner\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} \hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a6eaceab8a257612893deb81b749f9724}{Get\-Target} (int slot)
+\begin{DoxyCompactList}\small\item\em Returns the Physics\-Data for the slot specified. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a52a160f22f33d49f326526972830730b}{void {\bfseries Subscribe} (\hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_agent}{Formation\-Agent} agent)}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a52a160f22f33d49f326526972830730b}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a1202118e52fa1db0130131d424b47195}{void {\bfseries Unsubscribe} (\hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_agent}{Formation\-Agent} agent)}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a1202118e52fa1db0130131d424b47195}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a260bd85874c8a8dc856bedbb0c38880d}{bool {\bfseries Contains\-Nearby\-Target} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics)}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a260bd85874c8a8dc856bedbb0c38880d}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a91f9a6e761e58f48d2965c9f06e6d3fa}{bool {\bfseries Contains\-Nearby\-Threat} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics)}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a91f9a6e761e58f48d2965c9f06e6d3fa}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a87ee2cbf709a64ea79a7c1682539a458}{void {\bfseries On\-Detect} (\hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_agent}{Formation\-Agent} source, \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float max\-Distance)}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a87ee2cbf709a64ea79a7c1682539a458}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_ac97695c48c5f56fbe39017b889326b50}{List$<$ Nearby\-Target $>$ {\bfseries Get\-Nearby\-Targets} ()}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_ac97695c48c5f56fbe39017b889326b50}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a79e5714cef6a98dc2cbbb5bcd837f475}{List$<$ Nearby\-Target $>$ {\bfseries Get\-Nearby\-Threats} ()}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a79e5714cef6a98dc2cbbb5bcd837f475}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a8d9a35b95cc2963ba9741e5c93bc9670}{void {\bfseries On\-Damaged\-By} (\hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_agent}{Formation\-Agent} agent, \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other)}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a8d9a35b95cc2963ba9741e5c93bc9670}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a9d119a817ac3a7deebc5b41a66907cb2}{Slots}
+\begin{DoxyCompactList}\small\item\em All slots that \hyperlink{namespace_skyrates_1_1_a_i}{A\-I} could potentially occupy. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_aff55e138e2bc45bb42058558ac7637b6}{float {\bfseries Nearby\-Range}}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_aff55e138e2bc45bb42058558ac7637b6}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_adf7176dd01dab732236a49e4e91ab5d5}{float {\bfseries Threat\-Range}}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_adf7176dd01dab732236a49e4e91ab5d5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An object which has references to potential slots which can be filled by \hyperlink{namespace_skyrates_1_1_a_i}{A\-I} agents. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a6eaceab8a257612893deb81b749f9724}{\index{Skyrates\-::\-A\-I\-::\-Formation\-::\-Formation\-Owner@{Skyrates\-::\-A\-I\-::\-Formation\-::\-Formation\-Owner}!Get\-Target@{Get\-Target}}
+\index{Get\-Target@{Get\-Target}!Skyrates::AI::Formation::FormationOwner@{Skyrates\-::\-A\-I\-::\-Formation\-::\-Formation\-Owner}}
+\subsubsection[{Get\-Target}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Physics\-Data} Skyrates.\-A\-I.\-Formation.\-Formation\-Owner.\-Get\-Target (
+\begin{DoxyParamCaption}
+\item[{int}]{slot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a6eaceab8a257612893deb81b749f9724}
+
+
+Returns the Physics\-Data for the slot specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a9d119a817ac3a7deebc5b41a66907cb2}{\index{Skyrates\-::\-A\-I\-::\-Formation\-::\-Formation\-Owner@{Skyrates\-::\-A\-I\-::\-Formation\-::\-Formation\-Owner}!Slots@{Slots}}
+\index{Slots@{Slots}!Skyrates::AI::Formation::FormationOwner@{Skyrates\-::\-A\-I\-::\-Formation\-::\-Formation\-Owner}}
+\subsubsection[{Slots}]{\setlength{\rightskip}{0pt plus 5cm}Transform \mbox{[}$\,$\mbox{]} Skyrates.\-A\-I.\-Formation.\-Formation\-Owner.\-Slots}}\label{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner_a9d119a817ac3a7deebc5b41a66907cb2}
+
+
+All slots that \hyperlink{namespace_skyrates_1_1_a_i}{A\-I} could potentially occupy. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/\-Formation/Formation\-Owner.\-cs\end{DoxyCompactItemize}

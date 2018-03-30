@@ -1,0 +1,98 @@
+\hypertarget{class_skyrates_1_1_data_1_1_player_data}{\section{Skyrates.\-Data.\-Player\-Data Class Reference}
+\label{class_skyrates_1_1_data_1_1_player_data}\index{Skyrates.\-Data.\-Player\-Data@{Skyrates.\-Data.\-Player\-Data}}
+}
+
+
+Encapsulates data for the player which does not need to be transferred over the network.  
+
+
+Inheritance diagram for Skyrates.\-Data.\-Player\-Data\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_data_1_1_player_data}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_skyrates_1_1_data_1_1_player_data_1_1_input}{Input}
+\begin{DoxyCompactList}\small\item\em Structure to contain input values from controllers. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_data_1_1_player_data_1_1_input_config}{Input\-Config}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_skyrates_1_1_data_1_1_player_data_ac28ce79e15521123667443435b1554ea}{Camera\-Mode} \{ {\bfseries F\-R\-E\-E}, 
+{\bfseries L\-O\-C\-K\-\_\-\-D\-O\-W\-N}, 
+{\bfseries L\-O\-C\-K\-\_\-\-R\-I\-G\-H\-T}, 
+{\bfseries L\-O\-C\-K\-\_\-\-L\-E\-F\-T}
+ \}
+\begin{DoxyCompactList}\small\item\em The possible states the player's camera can be in \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_af10cea6b24d8183d5a8bf92ce84011b7}{void {\bfseries Init} ()}\label{class_skyrates_1_1_data_1_1_player_data_af10cea6b24d8183d5a8bf92ce84011b7}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_skyrates_1_1_data_1_1_player_data_1_1_input}{Input} \hyperlink{class_skyrates_1_1_data_1_1_player_data_aa94e7872cb93055601b695a0345b0ce6}{Input\-Data}
+\begin{DoxyCompactList}\small\item\em Strictly input data to be processed by a Player\-Controller \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_data_1_1_player_data_ac28ce79e15521123667443435b1554ea}{Camera\-Mode} \hyperlink{class_skyrates_1_1_data_1_1_player_data_a254a2270ea477c0841176b3797222f2a}{View\-Mode}
+\begin{DoxyCompactList}\small\item\em The current state of the player's camera \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_af2225347edc955b2d20ee05d37f55d90}{\hyperlink{class_skyrates_1_1_data_1_1_state_movement}{State\-Movement} {\bfseries Movement}}\label{class_skyrates_1_1_data_1_1_player_data_af2225347edc955b2d20ee05d37f55d90}
+
+\item 
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_ac33cdbf8c73adfaab8b0cc90fddba7e4}{\hyperlink{class_skyrates_1_1_data_1_1_state_artillery}{State\-Artillery} {\bfseries Artillery}}\label{class_skyrates_1_1_data_1_1_player_data_ac33cdbf8c73adfaab8b0cc90fddba7e4}
+
+\item 
+\hyperlink{class_skyrates_1_1_data_1_1_inventory}{Inventory} \hyperlink{class_skyrates_1_1_data_1_1_player_data_ab182e7267c1d6f3f65a49fa2bc62cf4a}{Inventory}
+\begin{DoxyCompactList}\small\item\em Manages inventory and items. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_adb247ac5f328f8c3a8b6db2990ff3364}{bool {\bfseries Debug\-Infinite\-Upgrade} = false}\label{class_skyrates_1_1_data_1_1_player_data_adb247ac5f328f8c3a8b6db2990ff3364}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encapsulates data for the player which does not need to be transferred over the network. 
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_ac28ce79e15521123667443435b1554ea}{\index{Skyrates\-::\-Data\-::\-Player\-Data@{Skyrates\-::\-Data\-::\-Player\-Data}!Camera\-Mode@{Camera\-Mode}}
+\index{Camera\-Mode@{Camera\-Mode}!Skyrates::Data::PlayerData@{Skyrates\-::\-Data\-::\-Player\-Data}}
+\subsubsection[{Camera\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Skyrates.\-Data.\-Player\-Data.\-Camera\-Mode}}}\label{class_skyrates_1_1_data_1_1_player_data_ac28ce79e15521123667443435b1554ea}
+
+
+The possible states the player's camera can be in 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_aa94e7872cb93055601b695a0345b0ce6}{\index{Skyrates\-::\-Data\-::\-Player\-Data@{Skyrates\-::\-Data\-::\-Player\-Data}!Input\-Data@{Input\-Data}}
+\index{Input\-Data@{Input\-Data}!Skyrates::Data::PlayerData@{Skyrates\-::\-Data\-::\-Player\-Data}}
+\subsubsection[{Input\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input} Skyrates.\-Data.\-Player\-Data.\-Input\-Data}}\label{class_skyrates_1_1_data_1_1_player_data_aa94e7872cb93055601b695a0345b0ce6}
+
+
+Strictly input data to be processed by a Player\-Controller 
+
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_ab182e7267c1d6f3f65a49fa2bc62cf4a}{\index{Skyrates\-::\-Data\-::\-Player\-Data@{Skyrates\-::\-Data\-::\-Player\-Data}!Inventory@{Inventory}}
+\index{Inventory@{Inventory}!Skyrates::Data::PlayerData@{Skyrates\-::\-Data\-::\-Player\-Data}}
+\subsubsection[{Inventory}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Inventory} Skyrates.\-Data.\-Player\-Data.\-Inventory}}\label{class_skyrates_1_1_data_1_1_player_data_ab182e7267c1d6f3f65a49fa2bc62cf4a}
+
+
+Manages inventory and items. 
+
+\hypertarget{class_skyrates_1_1_data_1_1_player_data_a254a2270ea477c0841176b3797222f2a}{\index{Skyrates\-::\-Data\-::\-Player\-Data@{Skyrates\-::\-Data\-::\-Player\-Data}!View\-Mode@{View\-Mode}}
+\index{View\-Mode@{View\-Mode}!Skyrates::Data::PlayerData@{Skyrates\-::\-Data\-::\-Player\-Data}}
+\subsubsection[{View\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Camera\-Mode} Skyrates.\-Data.\-Player\-Data.\-View\-Mode}}\label{class_skyrates_1_1_data_1_1_player_data_a254a2270ea477c0841176b3797222f2a}
+
+
+The current state of the player's camera 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Data/Player\-Data.\-cs\end{DoxyCompactItemize}

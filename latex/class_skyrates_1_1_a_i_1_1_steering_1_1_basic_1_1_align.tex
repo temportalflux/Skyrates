@@ -1,0 +1,128 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align}{\section{Skyrates.\-A\-I.\-Steering.\-Basic.\-Align Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align}\index{Skyrates.\-A\-I.\-Steering.\-Basic.\-Align@{Skyrates.\-A\-I.\-Steering.\-Basic.\-Align}}
+}
+
+
+Accellerates towards a rotation, and slows as it gets closer.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Steering.\-Basic.\-Align\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.381642cm]{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a52697da0560d1484067257e9c6e81428}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a52697da0560d1484067257e9c6e81428}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} data, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent\-Data, float delta\-Time)}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a52697da0560d1484067257e9c6e81428}
+
+\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_afdef1862ce6a0396a5fb4ac851598792}{static float {\bfseries Map\-To\-Range} (float rotation)}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_afdef1862ce6a0396a5fb4ac851598792}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_aff428814e7bf994867c87529038646e3}{Max\-Acceleration}
+\begin{DoxyCompactList}\small\item\em The maximum nominal acceleration. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_ab4911f80787556c63910b546e9483215}{Max\-Speed}
+\begin{DoxyCompactList}\small\item\em The maximum nominal velocity. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6a9abaf9ec2bfd07b94ed22cb2b76be3}{Distance\-Arriving}
+\begin{DoxyCompactList}\small\item\em The radius at which to start slowing down. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_aebe4c4ec6eecb5fa713deee7c8dfa64d}{Distance\-Arrived}
+\begin{DoxyCompactList}\small\item\em The radius at which to stop. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6a1a2c26444037457b99c5b8397a505e}{Acceleration\-Time}
+\begin{DoxyCompactList}\small\item\em The amount of time it takes to accelerate. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6b2e44719571584f368fc6989974a242}{Align\-X} = false
+\begin{DoxyCompactList}\small\item\em If this behavior should align the X axis. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a1f1632ba0eb5a43d6a4704cea6f584b0}{Align\-Y} = true
+\begin{DoxyCompactList}\small\item\em If this behavior should align the Y axis. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_af2e8dd95135f0ee24aaa8af49442b4be}{Align\-Z} = false
+\begin{DoxyCompactList}\small\item\em If this behavior should align the Z axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Accellerates towards a rotation, and slows as it gets closer. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6a1a2c26444037457b99c5b8397a505e}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Acceleration\-Time@{Acceleration\-Time}}
+\index{Acceleration\-Time@{Acceleration\-Time}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Acceleration\-Time}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Acceleration\-Time}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6a1a2c26444037457b99c5b8397a505e}
+
+
+The amount of time it takes to accelerate. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6b2e44719571584f368fc6989974a242}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Align\-X@{Align\-X}}
+\index{Align\-X@{Align\-X}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Align\-X}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Align\-X = false}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6b2e44719571584f368fc6989974a242}
+
+
+If this behavior should align the X axis. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a1f1632ba0eb5a43d6a4704cea6f584b0}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Align\-Y@{Align\-Y}}
+\index{Align\-Y@{Align\-Y}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Align\-Y}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Align\-Y = true}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a1f1632ba0eb5a43d6a4704cea6f584b0}
+
+
+If this behavior should align the Y axis. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_af2e8dd95135f0ee24aaa8af49442b4be}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Align\-Z@{Align\-Z}}
+\index{Align\-Z@{Align\-Z}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Align\-Z}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Align\-Z = false}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_af2e8dd95135f0ee24aaa8af49442b4be}
+
+
+If this behavior should align the Z axis. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_aebe4c4ec6eecb5fa713deee7c8dfa64d}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Distance\-Arrived@{Distance\-Arrived}}
+\index{Distance\-Arrived@{Distance\-Arrived}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Distance\-Arrived}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Distance\-Arrived}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_aebe4c4ec6eecb5fa713deee7c8dfa64d}
+
+
+The radius at which to stop. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6a9abaf9ec2bfd07b94ed22cb2b76be3}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Distance\-Arriving@{Distance\-Arriving}}
+\index{Distance\-Arriving@{Distance\-Arriving}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Distance\-Arriving}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Distance\-Arriving}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a6a9abaf9ec2bfd07b94ed22cb2b76be3}
+
+
+The radius at which to start slowing down. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_aff428814e7bf994867c87529038646e3}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Max\-Acceleration@{Max\-Acceleration}}
+\index{Max\-Acceleration@{Max\-Acceleration}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Max\-Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Max\-Acceleration}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_aff428814e7bf994867c87529038646e3}
+
+
+The maximum nominal acceleration. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_ab4911f80787556c63910b546e9483215}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}!Max\-Speed@{Max\-Speed}}
+\index{Max\-Speed@{Max\-Speed}!Skyrates::AI::Steering::Basic::Align@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Align}}
+\subsubsection[{Max\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Align.\-Max\-Speed}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_ab4911f80787556c63910b546e9483215}
+
+
+The maximum nominal velocity. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/\-Steering/\-Basic/Align.\-cs\end{DoxyCompactItemize}

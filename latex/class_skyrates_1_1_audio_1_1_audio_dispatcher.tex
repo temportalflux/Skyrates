@@ -1,0 +1,144 @@
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher}{\section{Skyrates.\-Audio.\-Audio\-Dispatcher Class Reference}
+\label{class_skyrates_1_1_audio_1_1_audio_dispatcher}\index{Skyrates.\-Audio.\-Audio\-Dispatcher@{Skyrates.\-Audio.\-Audio\-Dispatcher}}
+}
+
+
+Observer which spawns audio sources based on game events  
+
+
+Inheritance diagram for Skyrates.\-Audio.\-Audio\-Dispatcher\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_audio_1_1_audio_dispatcher}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_ad24c31da906c494141e5fcf9c739ef6a}{On\-Artillery\-Fired} (\hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)
+\begin{DoxyCompactList}\small\item\em Called when an artillery is fired. Plays \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_aea6c867e733dcc4dbbf9b25b68aa4c08}{Audio\-Artillery\-Fired}. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac307a670bd757e36effed39608ee1a79}{On\-Entity\-Ship\-Hit\-By} (\hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)
+\begin{DoxyCompactList}\small\item\em Called when a ship is hit by a projectile or ram. Plays \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac1ed48f44711cc8117e0d4246c4c395f}{Audio\-Entity\-Ship\-Hit\-By\-Projectile} or \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a78f27d7e62592efb1f09fb343148c0e9}{Audio\-Entity\-Ship\-Hit\-By\-Ram}, repsectively. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a7fc7f3fefc6a2a81a769f46427072662}{On\-Loot\-Collected} (\hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)
+\begin{DoxyCompactList}\small\item\em Called when a player picks up loot. Plays \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a17aa664c4fd2364854b960dbb87d6f9c}{Audio\-On\-Loot\-Collected}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Audio\-Source \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_aea6c867e733dcc4dbbf9b25b68aa4c08}{Audio\-Artillery\-Fired}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_audio}{Audio} played when artillery is fired \end{DoxyCompactList}\item 
+Audio\-Source \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac1ed48f44711cc8117e0d4246c4c395f}{Audio\-Entity\-Ship\-Hit\-By\-Projectile}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_audio}{Audio} played when a ship is hit by a projectile \end{DoxyCompactList}\item 
+Audio\-Source \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a78f27d7e62592efb1f09fb343148c0e9}{Audio\-Entity\-Ship\-Hit\-By\-Ram}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_audio}{Audio} played when a ship is hit by another ship's ram \end{DoxyCompactList}\item 
+Audio\-Source \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a17aa664c4fd2364854b960dbb87d6f9c}{Audio\-On\-Loot\-Collected}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_audio}{Audio} played when a player collects loot \end{DoxyCompactList}\item 
+Audio\-Source \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac81a741598771dc6e765d74df26d3abc}{Audio\-On\-Enemy\-Engage}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_audio}{Audio} played when enemies engage a player \end{DoxyCompactList}\item 
+Audio\-Source \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a23c0754205f0048d214a2e9f4f2e1bbb}{Audio\-On\-Enemy\-Disengage}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_audio}{Audio} played when enemies disengage a player \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Observer which spawns audio sources based on game events 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_ad24c31da906c494141e5fcf9c739ef6a}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!On\-Artillery\-Fired@{On\-Artillery\-Fired}}
+\index{On\-Artillery\-Fired@{On\-Artillery\-Fired}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{On\-Artillery\-Fired}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Audio.\-Audio\-Dispatcher.\-On\-Artillery\-Fired (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Event}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_ad24c31da906c494141e5fcf9c739ef6a}
+
+
+Called when an artillery is fired. Plays \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_aea6c867e733dcc4dbbf9b25b68aa4c08}{Audio\-Artillery\-Fired}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac307a670bd757e36effed39608ee1a79}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!On\-Entity\-Ship\-Hit\-By@{On\-Entity\-Ship\-Hit\-By}}
+\index{On\-Entity\-Ship\-Hit\-By@{On\-Entity\-Ship\-Hit\-By}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{On\-Entity\-Ship\-Hit\-By}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Audio.\-Audio\-Dispatcher.\-On\-Entity\-Ship\-Hit\-By (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Event}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac307a670bd757e36effed39608ee1a79}
+
+
+Called when a ship is hit by a projectile or ram. Plays \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac1ed48f44711cc8117e0d4246c4c395f}{Audio\-Entity\-Ship\-Hit\-By\-Projectile} or \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a78f27d7e62592efb1f09fb343148c0e9}{Audio\-Entity\-Ship\-Hit\-By\-Ram}, repsectively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_a7fc7f3fefc6a2a81a769f46427072662}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!On\-Loot\-Collected@{On\-Loot\-Collected}}
+\index{On\-Loot\-Collected@{On\-Loot\-Collected}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{On\-Loot\-Collected}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Audio.\-Audio\-Dispatcher.\-On\-Loot\-Collected (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Event}}]{evt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_a7fc7f3fefc6a2a81a769f46427072662}
+
+
+Called when a player picks up loot. Plays \hyperlink{class_skyrates_1_1_audio_1_1_audio_dispatcher_a17aa664c4fd2364854b960dbb87d6f9c}{Audio\-On\-Loot\-Collected}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_aea6c867e733dcc4dbbf9b25b68aa4c08}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!Audio\-Artillery\-Fired@{Audio\-Artillery\-Fired}}
+\index{Audio\-Artillery\-Fired@{Audio\-Artillery\-Fired}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{Audio\-Artillery\-Fired}]{\setlength{\rightskip}{0pt plus 5cm}Audio\-Source Skyrates.\-Audio.\-Audio\-Dispatcher.\-Audio\-Artillery\-Fired}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_aea6c867e733dcc4dbbf9b25b68aa4c08}
+
+
+\hyperlink{namespace_skyrates_1_1_audio}{Audio} played when artillery is fired 
+
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac1ed48f44711cc8117e0d4246c4c395f}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!Audio\-Entity\-Ship\-Hit\-By\-Projectile@{Audio\-Entity\-Ship\-Hit\-By\-Projectile}}
+\index{Audio\-Entity\-Ship\-Hit\-By\-Projectile@{Audio\-Entity\-Ship\-Hit\-By\-Projectile}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{Audio\-Entity\-Ship\-Hit\-By\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}Audio\-Source Skyrates.\-Audio.\-Audio\-Dispatcher.\-Audio\-Entity\-Ship\-Hit\-By\-Projectile}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac1ed48f44711cc8117e0d4246c4c395f}
+
+
+\hyperlink{namespace_skyrates_1_1_audio}{Audio} played when a ship is hit by a projectile 
+
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_a78f27d7e62592efb1f09fb343148c0e9}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!Audio\-Entity\-Ship\-Hit\-By\-Ram@{Audio\-Entity\-Ship\-Hit\-By\-Ram}}
+\index{Audio\-Entity\-Ship\-Hit\-By\-Ram@{Audio\-Entity\-Ship\-Hit\-By\-Ram}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{Audio\-Entity\-Ship\-Hit\-By\-Ram}]{\setlength{\rightskip}{0pt plus 5cm}Audio\-Source Skyrates.\-Audio.\-Audio\-Dispatcher.\-Audio\-Entity\-Ship\-Hit\-By\-Ram}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_a78f27d7e62592efb1f09fb343148c0e9}
+
+
+\hyperlink{namespace_skyrates_1_1_audio}{Audio} played when a ship is hit by another ship's ram 
+
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_a23c0754205f0048d214a2e9f4f2e1bbb}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!Audio\-On\-Enemy\-Disengage@{Audio\-On\-Enemy\-Disengage}}
+\index{Audio\-On\-Enemy\-Disengage@{Audio\-On\-Enemy\-Disengage}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{Audio\-On\-Enemy\-Disengage}]{\setlength{\rightskip}{0pt plus 5cm}Audio\-Source Skyrates.\-Audio.\-Audio\-Dispatcher.\-Audio\-On\-Enemy\-Disengage}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_a23c0754205f0048d214a2e9f4f2e1bbb}
+
+
+\hyperlink{namespace_skyrates_1_1_audio}{Audio} played when enemies disengage a player 
+
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac81a741598771dc6e765d74df26d3abc}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!Audio\-On\-Enemy\-Engage@{Audio\-On\-Enemy\-Engage}}
+\index{Audio\-On\-Enemy\-Engage@{Audio\-On\-Enemy\-Engage}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{Audio\-On\-Enemy\-Engage}]{\setlength{\rightskip}{0pt plus 5cm}Audio\-Source Skyrates.\-Audio.\-Audio\-Dispatcher.\-Audio\-On\-Enemy\-Engage}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_ac81a741598771dc6e765d74df26d3abc}
+
+
+\hyperlink{namespace_skyrates_1_1_audio}{Audio} played when enemies engage a player 
+
+\hypertarget{class_skyrates_1_1_audio_1_1_audio_dispatcher_a17aa664c4fd2364854b960dbb87d6f9c}{\index{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}!Audio\-On\-Loot\-Collected@{Audio\-On\-Loot\-Collected}}
+\index{Audio\-On\-Loot\-Collected@{Audio\-On\-Loot\-Collected}!Skyrates::Audio::AudioDispatcher@{Skyrates\-::\-Audio\-::\-Audio\-Dispatcher}}
+\subsubsection[{Audio\-On\-Loot\-Collected}]{\setlength{\rightskip}{0pt plus 5cm}Audio\-Source Skyrates.\-Audio.\-Audio\-Dispatcher.\-Audio\-On\-Loot\-Collected}}\label{class_skyrates_1_1_audio_1_1_audio_dispatcher_a17aa664c4fd2364854b960dbb87d6f9c}
+
+
+\hyperlink{namespace_skyrates_1_1_audio}{Audio} played when a player collects loot 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Audio/Audio\-Dispatcher.\-cs\end{DoxyCompactItemize}

@@ -1,0 +1,111 @@
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager}{\section{Skyrates.\-Game.\-Game\-Manager Class Reference}
+\label{class_skyrates_1_1_game_1_1_game_manager}\index{Skyrates.\-Game.\-Game\-Manager@{Skyrates.\-Game.\-Game\-Manager}}
+}
+
+
+Singleton which encapsulates T\-:\-Skyrates.\-Client.\-Game.\-Event.\-Game\-Events, local data, and win state.  
+
+
+Inheritance diagram for Skyrates.\-Game.\-Game\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_game_1_1_game_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager_ae3fed923163af055769afcd09143116f}{void {\bfseries Start\-Standalone} ()}\label{class_skyrates_1_1_game_1_1_game_manager_ae3fed923163af055769afcd09143116f}
+
+\item 
+\hyperlink{class_skyrates_1_1_entity_1_1_entity}{Entity.\-Entity} \hyperlink{class_skyrates_1_1_game_1_1_game_manager_afb53958cc607ea8916771dbb9b8144f5}{Spawn\-Entity} (\hyperlink{class_skyrates_1_1_entity_1_1_entity}{Entity.\-Entity} prefab)
+\begin{DoxyCompactList}\small\item\em Spawns an entity based on the prefab in Entity\-List keyed by Skyrates.\-Entity.\-Type\-Data and some Guid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform \hyperlink{class_skyrates_1_1_game_1_1_game_manager_ad4e11d1ee870d356ef6c38294f5d5e16}{Player\-Spawn}
+\begin{DoxyCompactList}\small\item\em The spawn location of the player. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_data_1_1_player_data}{Player\-Data} \hyperlink{class_skyrates_1_1_game_1_1_game_manager_ad66cf44da1b4400f74853a247987a5df}{Player\-Data}
+\begin{DoxyCompactList}\small\item\em Local player data -\/ nonnetworked. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager_a0b253df8947857d6e77732ecdb1353ca}{\hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship}{Entity\-Player\-Ship} {\bfseries Player\-Prefab}}\label{class_skyrates_1_1_game_1_1_game_manager_a0b253df8947857d6e77732ecdb1353ca}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_skyrates_1_1_game_1_1_game_manager}{Game\-Manager} \hyperlink{class_skyrates_1_1_game_1_1_game_manager_a5b1ce44932689e2e4b3ca18a238cc22e}{Instance}
+\begin{DoxyCompactList}\small\item\em The Singleton\{\-Game\-Manager\} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_events}{Game\-Events} \hyperlink{class_skyrates_1_1_game_1_1_game_manager_acb90612bc562f5facb3218201154a35a}{Events}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Static reference to the Game\-Events dispatcher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Singleton which encapsulates T\-:\-Skyrates.\-Client.\-Game.\-Event.\-Game\-Events, local data, and win state. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager_afb53958cc607ea8916771dbb9b8144f5}{\index{Skyrates\-::\-Game\-::\-Game\-Manager@{Skyrates\-::\-Game\-::\-Game\-Manager}!Spawn\-Entity@{Spawn\-Entity}}
+\index{Spawn\-Entity@{Spawn\-Entity}!Skyrates::Game::GameManager@{Skyrates\-::\-Game\-::\-Game\-Manager}}
+\subsubsection[{Spawn\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity.\-Entity} Skyrates.\-Game.\-Game\-Manager.\-Spawn\-Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity.\-Entity}}]{prefab}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_game_1_1_game_manager_afb53958cc607ea8916771dbb9b8144f5}
+
+
+Spawns an entity based on the prefab in Entity\-List keyed by Skyrates.\-Entity.\-Type\-Data and some Guid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\-Data} & \\
+\hline
+{\em guid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager_a5b1ce44932689e2e4b3ca18a238cc22e}{\index{Skyrates\-::\-Game\-::\-Game\-Manager@{Skyrates\-::\-Game\-::\-Game\-Manager}!Instance@{Instance}}
+\index{Instance@{Instance}!Skyrates::Game::GameManager@{Skyrates\-::\-Game\-::\-Game\-Manager}}
+\subsubsection[{Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Manager} Skyrates.\-Game.\-Game\-Manager.\-Instance\hspace{0.3cm}{\ttfamily [static]}}}\label{class_skyrates_1_1_game_1_1_game_manager_a5b1ce44932689e2e4b3ca18a238cc22e}
+
+
+The Singleton\{\-Game\-Manager\} instance. 
+
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager_ad66cf44da1b4400f74853a247987a5df}{\index{Skyrates\-::\-Game\-::\-Game\-Manager@{Skyrates\-::\-Game\-::\-Game\-Manager}!Player\-Data@{Player\-Data}}
+\index{Player\-Data@{Player\-Data}!Skyrates::Game::GameManager@{Skyrates\-::\-Game\-::\-Game\-Manager}}
+\subsubsection[{Player\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player\-Data} Skyrates.\-Game.\-Game\-Manager.\-Player\-Data}}\label{class_skyrates_1_1_game_1_1_game_manager_ad66cf44da1b4400f74853a247987a5df}
+
+
+Local player data -\/ nonnetworked. 
+
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager_ad4e11d1ee870d356ef6c38294f5d5e16}{\index{Skyrates\-::\-Game\-::\-Game\-Manager@{Skyrates\-::\-Game\-::\-Game\-Manager}!Player\-Spawn@{Player\-Spawn}}
+\index{Player\-Spawn@{Player\-Spawn}!Skyrates::Game::GameManager@{Skyrates\-::\-Game\-::\-Game\-Manager}}
+\subsubsection[{Player\-Spawn}]{\setlength{\rightskip}{0pt plus 5cm}Transform Skyrates.\-Game.\-Game\-Manager.\-Player\-Spawn}}\label{class_skyrates_1_1_game_1_1_game_manager_ad4e11d1ee870d356ef6c38294f5d5e16}
+
+
+The spawn location of the player. 
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_skyrates_1_1_game_1_1_game_manager_acb90612bc562f5facb3218201154a35a}{\index{Skyrates\-::\-Game\-::\-Game\-Manager@{Skyrates\-::\-Game\-::\-Game\-Manager}!Events@{Events}}
+\index{Events@{Events}!Skyrates::Game::GameManager@{Skyrates\-::\-Game\-::\-Game\-Manager}}
+\subsubsection[{Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Events} Skyrates.\-Game.\-Game\-Manager.\-Events\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}}\label{class_skyrates_1_1_game_1_1_game_manager_acb90612bc562f5facb3218201154a35a}
+
+
+Static reference to the Game\-Events dispatcher. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Game/Game\-Manager.\-cs\end{DoxyCompactItemize}

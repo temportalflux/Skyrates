@@ -1,0 +1,184 @@
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i}{\section{Skyrates.\-Entity.\-Entity\-A\-I Class Reference}
+\label{class_skyrates_1_1_entity_1_1_entity_a_i}\index{Skyrates.\-Entity.\-Entity\-A\-I@{Skyrates.\-Entity.\-Entity\-A\-I}}
+}
+
+
+An entity class which is steered/controled by some for of behavioral \hyperlink{namespace_skyrates_1_1_a_i}{A\-I}.  
+
+
+Inheritance diagram for Skyrates.\-Entity.\-Entity\-A\-I\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.993884cm]{class_skyrates_1_1_entity_1_1_entity_a_i}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a8fd2d35300cf694c74cb273ab4f20fb9}{virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a8fd2d35300cf694c74cb273ab4f20fb9}{On\-Enter\-Entity\-Radius} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float max\-Distance)}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a8fd2d35300cf694c74cb273ab4f20fb9}
+
+\begin{DoxyCompactList}\small\item\em We enter source's area. Called from source on the colliable that has entered the area around source 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a8a8784a8459775157d9d23fa95866af1}{virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a8a8784a8459775157d9d23fa95866af1}{On\-Overlap\-With} (Game\-Object other, float max\-Distance)}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a8a8784a8459775157d9d23fa95866af1}
+
+\begin{DoxyCompactList}\small\item\em Other enters our area. When we move into an area such that other has entered our area 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_af302b60c83be7a2e6721c71ca418edab}{virtual void {\bfseries On\-Detect} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float max\-Distance)}\label{class_skyrates_1_1_entity_1_1_entity_a_i_af302b60c83be7a2e6721c71ca418edab}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline}{Behavior\-Pipeline} \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_af3189775311273e2c00fa92c8ec37764}{Behavior}
+\begin{DoxyCompactList}\small\item\em The actual steering object -\/ set via editor. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_afd9ea7ff8d90b2042e25656bd950781e}{Data\-Behavior} = new \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral}()
+\begin{DoxyCompactList}\small\item\em The steering data used -\/ info which is specific to this entity and likely used by multiple steering algorithms. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a1ed25ead726c374836aa837549a7d5a0}{\hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} {\bfseries Data\-Persistent}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a1ed25ead726c374836aa837549a7d5a0}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_aff5f7c0c33ac92d84573223f69d732f4}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_aff5f7c0c33ac92d84573223f69d732f4}{Start} ()}\label{class_skyrates_1_1_entity_1_1_entity_a_i_aff5f7c0c33ac92d84573223f69d732f4}
+
+\begin{DoxyCompactList}\small\item\em Called during the first frame  \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a9ae1ed93797795acba8fd538a9eccc78}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a9ae1ed93797795acba8fd538a9eccc78}{On\-Destroy} ()}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a9ae1ed93797795acba8fd538a9eccc78}
+
+\item 
+virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a0b310596b7b7445dccb373432fdfddc9}{Update\-Behavior\-Data} ()
+\begin{DoxyCompactList}\small\item\em Updates any pertinent data from the entity to its behavioral data \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a2adf5435ca29e4a8bb3945ca5759b4f7}{override void {\bfseries Fixed\-Update} ()}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a2adf5435ca29e4a8bb3945ca5759b4f7}
+
+\item 
+virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a44c60428a7213c22b086aef162e0cb8f}{Integrate\-Physics} (float delta\-Time)
+\begin{DoxyCompactList}\small\item\em Integrates the current set of physics with the Transform. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a5e16be1f4959b4199277f2f8af717b3b}{Apply\-Rotations} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, float delta\-Time)
+\begin{DoxyCompactList}\small\item\em Applies rotation to the entity \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a24547ecc7fbc9ab18b76d3fde528b8e0}{Update\-Animations} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics)
+\begin{DoxyCompactList}\small\item\em Update any animations based on movement \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a295409b3e787d927177db3c0b547a4ef}{\hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner}{Formation\-Owner} {\bfseries Formation\-Owner}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a295409b3e787d927177db3c0b547a4ef}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An entity class which is steered/controled by some for of behavioral \hyperlink{namespace_skyrates_1_1_a_i}{A\-I}. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a5e16be1f4959b4199277f2f8af717b3b}{\index{Skyrates\-::\-Entity\-::\-Entity\-A\-I@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}!Apply\-Rotations@{Apply\-Rotations}}
+\index{Apply\-Rotations@{Apply\-Rotations}!Skyrates::Entity::EntityAI@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}}
+\subsubsection[{Apply\-Rotations}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Entity.\-Entity\-A\-I.\-Apply\-Rotations (
+\begin{DoxyParamCaption}
+\item[{{\bf Physics\-Data}}]{physics, }
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a5e16be1f4959b4199277f2f8af717b3b}
+
+
+Applies rotation to the entity 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a9cff63dfc4ee894106a1ee81d4a4e40a}{Skyrates.\-Entity.\-Entity\-Ship}, and \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a732afbeabe9403b7be8b8c283bd6962a}{Skyrates.\-Entity.\-Entity\-Player\-Ship}.
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a44c60428a7213c22b086aef162e0cb8f}{\index{Skyrates\-::\-Entity\-::\-Entity\-A\-I@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}!Integrate\-Physics@{Integrate\-Physics}}
+\index{Integrate\-Physics@{Integrate\-Physics}!Skyrates::Entity::EntityAI@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}}
+\subsubsection[{Integrate\-Physics}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Entity.\-Entity\-A\-I.\-Integrate\-Physics (
+\begin{DoxyParamCaption}
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a44c60428a7213c22b086aef162e0cb8f}
+
+
+Integrates the current set of physics with the Transform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a24547ecc7fbc9ab18b76d3fde528b8e0}{\index{Skyrates\-::\-Entity\-::\-Entity\-A\-I@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}!Update\-Animations@{Update\-Animations}}
+\index{Update\-Animations@{Update\-Animations}!Skyrates::Entity::EntityAI@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}}
+\subsubsection[{Update\-Animations}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Entity.\-Entity\-A\-I.\-Update\-Animations (
+\begin{DoxyParamCaption}
+\item[{{\bf Physics\-Data}}]{physics}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a24547ecc7fbc9ab18b76d3fde528b8e0}
+
+
+Update any animations based on movement 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a5c786d11582c22d9ab800ed457449801}{Skyrates.\-Entity.\-Entity\-Player\-Ship}.
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_a0b310596b7b7445dccb373432fdfddc9}{\index{Skyrates\-::\-Entity\-::\-Entity\-A\-I@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}!Update\-Behavior\-Data@{Update\-Behavior\-Data}}
+\index{Update\-Behavior\-Data@{Update\-Behavior\-Data}!Skyrates::Entity::EntityAI@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}}
+\subsubsection[{Update\-Behavior\-Data}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Entity.\-Entity\-A\-I.\-Update\-Behavior\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_a0b310596b7b7445dccb373432fdfddc9}
+
+
+Updates any pertinent data from the entity to its behavioral data 
+
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_ad53902e9ca6a6967d4397282393cdc74}{Skyrates.\-Entity.\-Entity\-Ship}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_af3189775311273e2c00fa92c8ec37764}{\index{Skyrates\-::\-Entity\-::\-Entity\-A\-I@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}!Behavior@{Behavior}}
+\index{Behavior@{Behavior}!Skyrates::Entity::EntityAI@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}}
+\subsubsection[{Behavior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Behavior\-Pipeline} Skyrates.\-Entity.\-Entity\-A\-I.\-Behavior}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_af3189775311273e2c00fa92c8ec37764}
+
+
+The actual steering object -\/ set via editor. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_a_i_afd9ea7ff8d90b2042e25656bd950781e}{\index{Skyrates\-::\-Entity\-::\-Entity\-A\-I@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}!Data\-Behavior@{Data\-Behavior}}
+\index{Data\-Behavior@{Data\-Behavior}!Skyrates::Entity::EntityAI@{Skyrates\-::\-Entity\-::\-Entity\-A\-I}}
+\subsubsection[{Data\-Behavior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Behavior.\-Data\-Behavioral} Skyrates.\-Entity.\-Entity\-A\-I.\-Data\-Behavior = new {\bf Behavior.\-Data\-Behavioral}()}}\label{class_skyrates_1_1_entity_1_1_entity_a_i_afd9ea7ff8d90b2042e25656bd950781e}
+
+
+The steering data used -\/ info which is specific to this entity and likely used by multiple steering algorithms. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Entity/\-Dynamic/\-A\-I/Entity\-A\-I.\-cs\end{DoxyCompactItemize}

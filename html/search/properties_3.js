@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ship',['Ship',['../class_skyrates_1_1_client_1_1_game_1_1_event_1_1_event_entity_ship.html#aaac97a0d035d3163af76aa5f67bc9c5c',1,'Skyrates::Client::Game::Event::EventEntityShip']]]
+  ['loot',['Loot',['../class_skyrates_1_1_game_1_1_event_1_1_event_loot_collided.html#a28d55a80e46675c1695bf8462e9949dd',1,'Skyrates::Game::Event::EventLootCollided']]]
 ];

@@ -1,0 +1,159 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior}{\section{Skyrates.\-A\-I.\-Behavior Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_behavior}\index{Skyrates.\-A\-I.\-Behavior@{Skyrates.\-A\-I.\-Behavior}}
+}
+
+
+The base class for all ai behaviors.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Behavior\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.333333cm]{class_skyrates_1_1_a_i_1_1_behavior}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral}
+\begin{DoxyCompactList}\small\item\em Any generic data used by all steering behaviours and that is specific to each Entity\-Dynamic instance. Basically any information that is not algorithm specifc and is pertinent to the owner. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent}
+\begin{DoxyCompactList}\small\item\em An object to be held by the agent which has custom data which cannot go in an asset. i.\-e. the index of a target in a list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_aab005f802c87e21316ee3bb2b3be2d41}{Create\-Persistent\-Data} ()
+\begin{DoxyCompactList}\small\item\em Returns an object to be held by the agent which has custom data which cannot go in an asset. i.\-e. the index of a target in a list. \end{DoxyCompactList}\item 
+abstract \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_a7fa65944c064187ccd509bcef460ef99}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent, float delta\-Time)
+\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_affc3cb54c9ace9954204efc90d257823}{On\-Enter} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)
+\begin{DoxyCompactList}\small\item\em Executed when a state begins execution of this behavior. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_a4eef309cf75dd9d56b7ea7d19e7f5258}{On\-Exit} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} data, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)
+\begin{DoxyCompactList}\small\item\em Executed when a state ends execution of this behavior. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_a2704415e526d56f7e779d8d8b1144453}{virtual void {\bfseries On\-Detect} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float distance, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)}\label{class_skyrates_1_1_a_i_1_1_behavior_a2704415e526d56f7e779d8d8b1144453}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_a2a6c504545a955ba1b585ca1228953ae}{virtual void {\bfseries Draw\-Gizmos} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)}\label{class_skyrates_1_1_a_i_1_1_behavior_a2a6c504545a955ba1b585ca1228953ae}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_aa5ff5ea024bc0c55d5b9841dc77da9b5}{virtual void {\bfseries On\-Enable} ()}\label{class_skyrates_1_1_a_i_1_1_behavior_aa5ff5ea024bc0c55d5b9841dc77da9b5}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_a0d03946e9a1233f5930213133bda11f5}{virtual void {\bfseries On\-Disable} ()}\label{class_skyrates_1_1_a_i_1_1_behavior_a0d03946e9a1233f5930213133bda11f5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The base class for all ai behaviors. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_aab005f802c87e21316ee3bb2b3be2d41}{\index{Skyrates\-::\-A\-I\-::\-Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}!Create\-Persistent\-Data@{Create\-Persistent\-Data}}
+\index{Create\-Persistent\-Data@{Create\-Persistent\-Data}!Skyrates::AI::Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}}
+\subsubsection[{Create\-Persistent\-Data}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Data\-Persistent} Skyrates.\-A\-I.\-Behavior.\-Create\-Persistent\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_behavior_aab005f802c87e21316ee3bb2b3be2d41}
+
+
+Returns an object to be held by the agent which has custom data which cannot go in an asset. i.\-e. the index of a target in a list. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a32959837d315d118a295d69f07807f47}{Skyrates.\-A\-I.\-State.\-State\-Machine}, \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_affbd80f17a660e35996f9948b7e19c5e}{Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$}, \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a8953e0395b1f115449335af08241e9e1}{Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target}, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_a0da5c761dc335150064632ddd0319d8f}{Skyrates.\-A\-I.\-Behavior\-Timed}, and \hyperlink{class_skyrates_1_1_a_i_1_1_target_1_1_waypoint_targets_a612b760a5fa7fc86e73710bc8cea7aef}{Skyrates.\-A\-I.\-Target.\-Waypoint\-Targets}.
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_a7fa65944c064187ccd509bcef460ef99}{\index{Skyrates\-::\-A\-I\-::\-Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}!Get\-Update@{Get\-Update}}
+\index{Get\-Update@{Get\-Update}!Skyrates::AI::Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}}
+\subsubsection[{Get\-Update}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf Data\-Persistent} Skyrates.\-A\-I.\-Behavior.\-Get\-Update (
+\begin{DoxyParamCaption}
+\item[{ref {\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{{\bf Data\-Persistent}}]{persistent, }
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_a_i_1_1_behavior_a7fa65944c064187ccd509bcef460ef99}
+
+
+Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ab55d0aedb4c743dae51f73520311eebf}{Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$}, \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_ac840e5482c227e7f06367a377c83c209}{Skyrates.\-A\-I.\-State.\-State\-Machine}, \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a38b2823d479254250b30bf46909f23d5}{Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target}, \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_align_a52697da0560d1484067257e9c6e81428}{Skyrates.\-A\-I.\-Steering.\-Basic.\-Align}, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_a389d21f94b5bbc63e94e4644e4a4129a}{Skyrates.\-A\-I.\-Behavior\-Timed}, \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_aa9f83ff167d40cac6120d1fadc280ff7}{Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive}, \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_user_controlled_afd0f1fae5c1763a8de66b362fb825a9c}{Skyrates.\-A\-I.\-Custom.\-User\-Controlled}, \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a1bf8ad2defba57a5ec67d7a79c295f3a}{Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation}, \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_a71808935baa1eb950feca8c380b157e0}{Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek}, \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_delegated_1_1_pursue_a85e6b58d0a48e496dfe3b60c2b4a4a82}{Skyrates.\-A\-I.\-Steering.\-Delegated.\-Pursue}, \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_find_closest_side_ab3cb3961315f22860984629e20565f53}{Skyrates.\-A\-I.\-Decorator.\-Find\-Closest\-Side}, \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_set_target_direction_ace19cfd127291e3be5cd7e2d7c8e4d46}{Skyrates.\-A\-I.\-Decorator.\-Set\-Target\-Direction}, \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_delegated_1_1_face_a6f82ebabdc84fef7dca1ad53cd3498a6}{Skyrates.\-A\-I.\-Steering.\-Delegated.\-Face}, \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_delegated_1_1_face_target_aa8d1f25abf6ed78f81df4ca76092f9fa}{Skyrates.\-A\-I.\-Steering.\-Delegated.\-Face\-Target}, \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_delegated_1_1_look_forward_a6a922b3310ddb2fe97dbe9a9c1d442ce}{Skyrates.\-A\-I.\-Steering.\-Delegated.\-Look\-Forward}, \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_formation_offset_from_entity_a875633f956985b4291bd2079f56240ee}{Skyrates.\-A\-I.\-Decorator.\-Formation\-Offset\-From\-Entity}, \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_target_nearest_nearby_af0f02c87a05ff96ffa7b456246077b47}{Skyrates.\-A\-I.\-Decorator.\-Target\-Nearest\-Nearby}, and \hyperlink{class_skyrates_1_1_a_i_1_1_formation_1_1_update_target_formation_a25716ab84afb4ef5b19e52c8a114fa2a}{Skyrates.\-A\-I.\-Formation.\-Update\-Target\-Formation}.
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_affc3cb54c9ace9954204efc90d257823}{\index{Skyrates\-::\-A\-I\-::\-Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}!On\-Enter@{On\-Enter}}
+\index{On\-Enter@{On\-Enter}!Skyrates::AI::Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}}
+\subsubsection[{On\-Enter}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Data\-Persistent} Skyrates.\-A\-I.\-Behavior.\-On\-Enter (
+\begin{DoxyParamCaption}
+\item[{{\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{{\bf Data\-Persistent}}]{persistent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_behavior_affc3cb54c9ace9954204efc90d257823}
+
+
+Executed when a state begins execution of this behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & \\
+\hline
+{\em persistent} & \\
+\hline
+{\em physics} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ac48d512a6db18a2b7ac8e8af15fc9a52}{Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$}, and \hyperlink{class_skyrates_1_1_a_i_1_1_target_1_1_waypoint_targets_a807c7dd3e9a647732e7b74e1a4276fc9}{Skyrates.\-A\-I.\-Target.\-Waypoint\-Targets}.
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_a4eef309cf75dd9d56b7ea7d19e7f5258}{\index{Skyrates\-::\-A\-I\-::\-Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}!On\-Exit@{On\-Exit}}
+\index{On\-Exit@{On\-Exit}!Skyrates::AI::Behavior@{Skyrates\-::\-A\-I\-::\-Behavior}}
+\subsubsection[{On\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-A\-I.\-Behavior.\-On\-Exit (
+\begin{DoxyParamCaption}
+\item[{{\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{data, }
+\item[{{\bf Data\-Persistent}}]{persistent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_behavior_a4eef309cf75dd9d56b7ea7d19e7f5258}
+
+
+Executed when a state ends execution of this behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+{\em physics} & \\
+\hline
+{\em persistent} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a6a327bc5ea23b936b907301768b9a588}{Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/Behavior.\-cs\end{DoxyCompactItemize}

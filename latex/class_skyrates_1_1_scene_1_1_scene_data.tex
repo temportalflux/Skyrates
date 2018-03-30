@@ -1,0 +1,139 @@
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data}{\section{Skyrates.\-Scene.\-Scene\-Data Class Reference}
+\label{class_skyrates_1_1_scene_1_1_scene_data}\index{Skyrates.\-Scene.\-Scene\-Data@{Skyrates.\-Scene.\-Scene\-Data}}
+}
+
+
+\hyperlink{namespace_skyrates_1_1_data}{Data} for easily referencing scenes without needing to manually key in scene names all the time.  
+
+
+Inheritance diagram for Skyrates.\-Scene.\-Scene\-Data\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_scene_1_1_scene_data}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}{Scene\-Key} \{ {\bfseries Menu\-Main}, 
+{\bfseries Loading\-World}, 
+{\bfseries World}, 
+{\bfseries Credits}
+ \}
+\begin{DoxyCompactList}\small\item\em The keys for all scenes used in the build settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a6be189a5a5541f2e3432b1cc4ead7568}{Init} ()
+\begin{DoxyCompactList}\small\item\em Initializes the scene listings I\-F they are not already populated. \end{DoxyCompactList}\item 
+string \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_afd4a3563ba6c8fdcdc4cc8b9b3087c02}{Get\-Name} (\hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}{Scene\-Key} scene\-Key)
+\begin{DoxyCompactList}\small\item\em Returns the name of the scene for the scene key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_ac0464dba79d7d798be14890ee3cb7d61}{Menu\-Name}
+\begin{DoxyCompactList}\small\item\em The name of the main menu scene. \end{DoxyCompactList}\item 
+string \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_af9bf03f2461a84057c302ea314488394}{Game\-Loading}
+\begin{DoxyCompactList}\small\item\em The name of the loading scene. \end{DoxyCompactList}\item 
+string \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a746579eb4c6d258f752b66c122891f4d}{Game\-Name}
+\begin{DoxyCompactList}\small\item\em The name of the game world scene. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_a726a530d3916f1f54f3f3b381af59e69}{string {\bfseries Credits}}\label{class_skyrates_1_1_scene_1_1_scene_data_a726a530d3916f1f54f3f3b381af59e69}
+
+\item 
+readonly Dictionary$<$ \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}{Scene\-Key}, \\*
+string $>$ \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a35a18084f2186d9e25993bdc1f3c774a}{Scene\-Names} = new Dictionary$<$\hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}{Scene\-Key}, string$>$()
+\begin{DoxyCompactList}\small\item\em List of scenes from Scene\-Key to their scene name. \end{DoxyCompactList}\item 
+readonly Dictionary$<$ string, \\*
+\hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}{Scene\-Key} $>$ \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a86621efde09f0912b1341bde02da2b99}{Name\-To\-Scene} = new Dictionary$<$string, \hyperlink{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}{Scene\-Key}$>$()
+\begin{DoxyCompactList}\small\item\em List of scenes from their scene name to Scene\-Key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{namespace_skyrates_1_1_data}{Data} for easily referencing scenes without needing to manually key in scene names all the time. 
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Scene\-Key@{Scene\-Key}}
+\index{Scene\-Key@{Scene\-Key}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Scene\-Key}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Skyrates.\-Scene.\-Scene\-Data.\-Scene\-Key}}}\label{class_skyrates_1_1_scene_1_1_scene_data_a466c9423ed3d053f5513e19abcf76b75}
+
+
+The keys for all scenes used in the build settings. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_afd4a3563ba6c8fdcdc4cc8b9b3087c02}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Get\-Name@{Get\-Name}}
+\index{Get\-Name@{Get\-Name}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Skyrates.\-Scene.\-Scene\-Data.\-Get\-Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Scene\-Key}}]{scene\-Key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_scene_1_1_scene_data_afd4a3563ba6c8fdcdc4cc8b9b3087c02}
+
+
+Returns the name of the scene for the scene key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\-Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_a6be189a5a5541f2e3432b1cc4ead7568}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Init@{Init}}
+\index{Init@{Init}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Scene.\-Scene\-Data.\-Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_scene_1_1_scene_data_a6be189a5a5541f2e3432b1cc4ead7568}
+
+
+Initializes the scene listings I\-F they are not already populated. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_af9bf03f2461a84057c302ea314488394}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Game\-Loading@{Game\-Loading}}
+\index{Game\-Loading@{Game\-Loading}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Game\-Loading}]{\setlength{\rightskip}{0pt plus 5cm}string Skyrates.\-Scene.\-Scene\-Data.\-Game\-Loading}}\label{class_skyrates_1_1_scene_1_1_scene_data_af9bf03f2461a84057c302ea314488394}
+
+
+The name of the loading scene. 
+
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_a746579eb4c6d258f752b66c122891f4d}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Game\-Name@{Game\-Name}}
+\index{Game\-Name@{Game\-Name}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Game\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Skyrates.\-Scene.\-Scene\-Data.\-Game\-Name}}\label{class_skyrates_1_1_scene_1_1_scene_data_a746579eb4c6d258f752b66c122891f4d}
+
+
+The name of the game world scene. 
+
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_ac0464dba79d7d798be14890ee3cb7d61}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Menu\-Name@{Menu\-Name}}
+\index{Menu\-Name@{Menu\-Name}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Menu\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Skyrates.\-Scene.\-Scene\-Data.\-Menu\-Name}}\label{class_skyrates_1_1_scene_1_1_scene_data_ac0464dba79d7d798be14890ee3cb7d61}
+
+
+The name of the main menu scene. 
+
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_a86621efde09f0912b1341bde02da2b99}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Name\-To\-Scene@{Name\-To\-Scene}}
+\index{Name\-To\-Scene@{Name\-To\-Scene}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Name\-To\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}readonly Dictionary$<$string, {\bf Scene\-Key}$>$ Skyrates.\-Scene.\-Scene\-Data.\-Name\-To\-Scene = new Dictionary$<$string, {\bf Scene\-Key}$>$()}}\label{class_skyrates_1_1_scene_1_1_scene_data_a86621efde09f0912b1341bde02da2b99}
+
+
+List of scenes from their scene name to Scene\-Key. 
+
+\hypertarget{class_skyrates_1_1_scene_1_1_scene_data_a35a18084f2186d9e25993bdc1f3c774a}{\index{Skyrates\-::\-Scene\-::\-Scene\-Data@{Skyrates\-::\-Scene\-::\-Scene\-Data}!Scene\-Names@{Scene\-Names}}
+\index{Scene\-Names@{Scene\-Names}!Skyrates::Scene::SceneData@{Skyrates\-::\-Scene\-::\-Scene\-Data}}
+\subsubsection[{Scene\-Names}]{\setlength{\rightskip}{0pt plus 5cm}readonly Dictionary$<${\bf Scene\-Key}, string$>$ Skyrates.\-Scene.\-Scene\-Data.\-Scene\-Names = new Dictionary$<${\bf Scene\-Key}, string$>$()}}\label{class_skyrates_1_1_scene_1_1_scene_data_a35a18084f2186d9e25993bdc1f3c774a}
+
+
+List of scenes from Scene\-Key to their scene name. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Scenes/Scene\-Data.\-cs\end{DoxyCompactItemize}

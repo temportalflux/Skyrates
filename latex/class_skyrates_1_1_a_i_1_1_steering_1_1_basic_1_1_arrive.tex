@@ -1,0 +1,95 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive}{\section{Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive}\index{Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive@{Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive}}
+}
+
+
+Accelerates to the target and slows down as it gets closer.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_aa9f83ff167d40cac6120d1fadc280ff7}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_aa9f83ff167d40cac6120d1fadc280ff7}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent, float delta\-Time)}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_aa9f83ff167d40cac6120d1fadc280ff7}
+
+\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_ac17fbcbc0b427a93ed44b0c383a9e811}{Max\-Acceleration}
+\begin{DoxyCompactList}\small\item\em Acceleration coefficient in the target direction. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a2939d630dada02a8d58d090c2e0b0d54}{Max\-Speed}
+\begin{DoxyCompactList}\small\item\em The maximum nominal velocity. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_aa5d253b4b0b808defa2c70e3a1a18222}{Distance\-Arriving}
+\begin{DoxyCompactList}\small\item\em The radius at which to start slowing down. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a6fe22533b2f3f3156418a40be017a012}{Distance\-Arrived}
+\begin{DoxyCompactList}\small\item\em The radius at which to stop. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a66e0424af3a3a898f2abdd9f3509813f}{Acceleration\-Time}
+\begin{DoxyCompactList}\small\item\em The amount of time it takes to accelerate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Accelerates to the target and slows down as it gets closer. 
+
+Derived from pg 61 of Artifical Intelligence for Games 2nd Edition Ian Millington \& John Funge 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a66e0424af3a3a898f2abdd9f3509813f}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}!Acceleration\-Time@{Acceleration\-Time}}
+\index{Acceleration\-Time@{Acceleration\-Time}!Skyrates::AI::Steering::Basic::Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}}
+\subsubsection[{Acceleration\-Time}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive.\-Acceleration\-Time}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a66e0424af3a3a898f2abdd9f3509813f}
+
+
+The amount of time it takes to accelerate. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a6fe22533b2f3f3156418a40be017a012}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}!Distance\-Arrived@{Distance\-Arrived}}
+\index{Distance\-Arrived@{Distance\-Arrived}!Skyrates::AI::Steering::Basic::Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}}
+\subsubsection[{Distance\-Arrived}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive.\-Distance\-Arrived}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a6fe22533b2f3f3156418a40be017a012}
+
+
+The radius at which to stop. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_aa5d253b4b0b808defa2c70e3a1a18222}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}!Distance\-Arriving@{Distance\-Arriving}}
+\index{Distance\-Arriving@{Distance\-Arriving}!Skyrates::AI::Steering::Basic::Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}}
+\subsubsection[{Distance\-Arriving}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive.\-Distance\-Arriving}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_aa5d253b4b0b808defa2c70e3a1a18222}
+
+
+The radius at which to start slowing down. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_ac17fbcbc0b427a93ed44b0c383a9e811}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}!Max\-Acceleration@{Max\-Acceleration}}
+\index{Max\-Acceleration@{Max\-Acceleration}!Skyrates::AI::Steering::Basic::Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}}
+\subsubsection[{Max\-Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive.\-Max\-Acceleration}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_ac17fbcbc0b427a93ed44b0c383a9e811}
+
+
+Acceleration coefficient in the target direction. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a2939d630dada02a8d58d090c2e0b0d54}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}!Max\-Speed@{Max\-Speed}}
+\index{Max\-Speed@{Max\-Speed}!Skyrates::AI::Steering::Basic::Arrive@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Arrive}}
+\subsubsection[{Max\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Arrive.\-Max\-Speed}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_arrive_a2939d630dada02a8d58d090c2e0b0d54}
+
+
+The maximum nominal velocity. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/\-Steering/\-Basic/Arrive.\-cs\end{DoxyCompactItemize}

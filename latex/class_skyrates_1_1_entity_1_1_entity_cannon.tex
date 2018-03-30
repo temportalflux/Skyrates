@@ -1,0 +1,158 @@
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon}{\section{Skyrates.\-Entity.\-Entity\-Cannon Class Reference}
+\label{class_skyrates_1_1_entity_1_1_entity_cannon}\index{Skyrates.\-Entity.\-Entity\-Cannon@{Skyrates.\-Entity.\-Entity\-Cannon}}
+}
+Inheritance diagram for Skyrates.\-Entity.\-Entity\-Cannon\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_entity_1_1_entity_cannon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a7656e5c202f143db0c6659bd199a18be}{On\-Enter\-Entity\-Radius} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} source, float radius)
+\begin{DoxyCompactList}\small\item\em We enter source's area. Called from source on the colliable that has entered the area around source \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a7c74c0b5db5b94f9fa69d91e1c6f087a}{On\-Overlap\-With} (Game\-Object other, float radius)
+\begin{DoxyCompactList}\small\item\em Other enters our area. When we move into an area such that other has entered our area \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a35c670c72fbdb61d2ce397f415102cc3}{Shoot} (Vector3 target, float speed)
+\begin{DoxyCompactList}\small\item\em Fires one projectile from this cannon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a9ee533d27944ebec7884f18fa97b9eb9}{Shoot\-Speed}
+\begin{DoxyCompactList}\small\item\em The relative speed to shoot at. \end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a827e5c62b130603513eae3f4c51a230f}{Target\-Position}
+\begin{DoxyCompactList}\small\item\em The target position to shoot at. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_abf2a1d1e7fc1a134c3f557437ec5d7f8}{Rate\-Of\-Fire}
+\begin{DoxyCompactList}\small\item\em The number of seconds per shot fired. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_mono_1_1_shooter}{Shooter} \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a1d1ce67467d722f4088c53cb14c56d8a}{Shooter}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_skyrates_1_1_mono_1_1_shooter}{Mono.\-Shooter} used to fire projectiles. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_a_i_1_1_behavior}{Behavior} \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a4e01f1e37377d633ff6be1042b57903e}{Rotation\-Behavior}
+\begin{DoxyCompactList}\small\item\em Used to move the cannon over time to look at the target \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a38b49861a0ca9de81d8d42d8e0e23a06}{Game\-Object {\bfseries Cannon\-Vertical\-Component}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a38b49861a0ca9de81d8d42d8e0e23a06}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_aae3d22011817d471d108afa5571f9ee8}{Start} ()
+\begin{DoxyCompactList}\small\item\em Called during the first frame \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a7656e5c202f143db0c6659bd199a18be}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!On\-Enter\-Entity\-Radius@{On\-Enter\-Entity\-Radius}}
+\index{On\-Enter\-Entity\-Radius@{On\-Enter\-Entity\-Radius}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{On\-Enter\-Entity\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Cannon.\-On\-Enter\-Entity\-Radius (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\-A\-I}}]{source, }
+\item[{float}]{radius}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a7656e5c202f143db0c6659bd199a18be}
+
+
+We enter source's area. Called from source on the colliable that has entered the area around source 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_skyrates_1_1_mono_1_1_i_distance_collidable_aa7510e2d3a8388e1f28f67c5a83455c7}{Skyrates.\-Mono.\-I\-Distance\-Collidable}.
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a7c74c0b5db5b94f9fa69d91e1c6f087a}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!On\-Overlap\-With@{On\-Overlap\-With}}
+\index{On\-Overlap\-With@{On\-Overlap\-With}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{On\-Overlap\-With}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Cannon.\-On\-Overlap\-With (
+\begin{DoxyParamCaption}
+\item[{Game\-Object}]{other, }
+\item[{float}]{radius}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a7c74c0b5db5b94f9fa69d91e1c6f087a}
+
+
+Other enters our area. When we move into an area such that other has entered our area 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_skyrates_1_1_mono_1_1_i_distance_collidable_ab14aebc6f6831e744190428d8d712294}{Skyrates.\-Mono.\-I\-Distance\-Collidable}.
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a35c670c72fbdb61d2ce397f415102cc3}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{Shoot}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Cannon.\-Shoot (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{target, }
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a35c670c72fbdb61d2ce397f415102cc3}
+
+
+Fires one projectile from this cannon. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_aae3d22011817d471d108afa5571f9ee8}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!Start@{Start}}
+\index{Start@{Start}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{Start}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Entity.\-Entity\-Cannon.\-Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_aae3d22011817d471d108afa5571f9ee8}
+
+
+Called during the first frame 
+
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_entity_1_1_entity_a014d40273b5d21520736b76ba9aaca92}{Skyrates.\-Entity.\-Entity}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_abf2a1d1e7fc1a134c3f557437ec5d7f8}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!Rate\-Of\-Fire@{Rate\-Of\-Fire}}
+\index{Rate\-Of\-Fire@{Rate\-Of\-Fire}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{Rate\-Of\-Fire}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Entity.\-Entity\-Cannon.\-Rate\-Of\-Fire}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_abf2a1d1e7fc1a134c3f557437ec5d7f8}
+
+
+The number of seconds per shot fired. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a4e01f1e37377d633ff6be1042b57903e}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!Rotation\-Behavior@{Rotation\-Behavior}}
+\index{Rotation\-Behavior@{Rotation\-Behavior}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{Rotation\-Behavior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Behavior} Skyrates.\-Entity.\-Entity\-Cannon.\-Rotation\-Behavior}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a4e01f1e37377d633ff6be1042b57903e}
+
+
+Used to move the cannon over time to look at the target 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a1d1ce67467d722f4088c53cb14c56d8a}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!Shooter@{Shooter}}
+\index{Shooter@{Shooter}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{Shooter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shooter} Skyrates.\-Entity.\-Entity\-Cannon.\-Shooter}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a1d1ce67467d722f4088c53cb14c56d8a}
+
+
+The \hyperlink{class_skyrates_1_1_mono_1_1_shooter}{Mono.\-Shooter} used to fire projectiles. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a9ee533d27944ebec7884f18fa97b9eb9}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!Shoot\-Speed@{Shoot\-Speed}}
+\index{Shoot\-Speed@{Shoot\-Speed}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{Shoot\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Entity.\-Entity\-Cannon.\-Shoot\-Speed}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a9ee533d27944ebec7884f18fa97b9eb9}
+
+
+The relative speed to shoot at. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_cannon_a827e5c62b130603513eae3f4c51a230f}{\index{Skyrates\-::\-Entity\-::\-Entity\-Cannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}!Target\-Position@{Target\-Position}}
+\index{Target\-Position@{Target\-Position}!Skyrates::Entity::EntityCannon@{Skyrates\-::\-Entity\-::\-Entity\-Cannon}}
+\subsubsection[{Target\-Position}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 Skyrates.\-Entity.\-Entity\-Cannon.\-Target\-Position}}\label{class_skyrates_1_1_entity_1_1_entity_cannon_a827e5c62b130603513eae3f4c51a230f}
+
+
+The target position to shoot at. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Entity/\-Static/Entity\-Cannon.\-cs\end{DoxyCompactItemize}

@@ -1,0 +1,179 @@
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter}{\section{Skyrates.\-Mono.\-Shooter Class Reference}
+\label{class_skyrates_1_1_mono_1_1_shooter}\index{Skyrates.\-Mono.\-Shooter@{Skyrates.\-Mono.\-Shooter}}
+}
+
+
+Special component which dispatches the Event\-Spawn\-Entity\-Projectile game event.  
+
+
+Inheritance diagram for Skyrates.\-Mono.\-Shooter\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_mono_1_1_shooter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a41f3c5e8c03befce02f57ad9b11ec914}{void {\bfseries Start} ()}\label{class_skyrates_1_1_mono_1_1_shooter_a41f3c5e8c03befce02f57ad9b11ec914}
+
+\item 
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a36d20e8cd473fe5e9c49342d1f4a33e5}{I\-Enumerator {\bfseries Update\-Arc} ()}\label{class_skyrates_1_1_mono_1_1_shooter_a36d20e8cd473fe5e9c49342d1f4a33e5}
+
+\item 
+void \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a327d02dace8d3388b098c83c011bf41d}{Calculate\-Arc} (Vector3 target, float speed, bool target\-Is\-Direction)
+\begin{DoxyCompactList}\small\item\em Automatically calculates and sets arc angle and axis based on gravity and distance over time (speed/velocity), in the forward direction. This does not take into account impulse force or deceleration/damping. \end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a170280e49b56961d0211a4c611f7f54b}{Get\-Projectile\-Direction} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction the shooter is facing. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_mono_1_1_shooter_ad9d7d5122f1b16cfd43c3db5474fe282}{Fire\-Projectile} (Vector3 target, Vector3 launch\-Velocity, float attack\-Modifier)
+\begin{DoxyCompactList}\small\item\em Fires off Event\-Spawn\-Entity\-Projectile with the spawn location, the projectile to fire, and the initial velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_aeacc6b44034279291d7c03bedf3e928f}{\hyperlink{class_skyrates_1_1_ship_1_1_ship_artillery}{Ship\-Artillery} {\bfseries Owner}}\label{class_skyrates_1_1_mono_1_1_shooter_aeacc6b44034279291d7c03bedf3e928f}
+
+\item 
+\hyperlink{class_skyrates_1_1_entity_1_1_entity}{Entity.\-Entity} \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a3eb3006b65f8ca3e5640e2d04658139f}{projectile\-Prefab}
+\begin{DoxyCompactList}\small\item\em The prefab of the projectile to launch from this source. \end{DoxyCompactList}\item 
+Transform \hyperlink{class_skyrates_1_1_mono_1_1_shooter_aa936f850ff75524adc350c2c3a6763ed}{spawn}
+\begin{DoxyCompactList}\small\item\em The spawn location of the projectile. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a472c3ebcb2adf214c1fbeafd7c32c0ae}{force} = 1
+\begin{DoxyCompactList}\small\item\em How much force to apply to the projectile. If Use\-Arc is enabled, this becomes the initial velocity. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a15bb2b7cdbb581dec901f16f930d0b8c}{Use\-Arc} = false
+\begin{DoxyCompactList}\small\item\em Should we use gravity in our calculations? \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a1c85cc6a77bdcddc41c7cf70506f3309}{Manual\-Arc} = false
+\begin{DoxyCompactList}\small\item\em Should we use Calculate\-Arc or manually generate an arc? \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a2e5d471386a013815f34d3f1e8bb8996}{Target\-Is\-Direction} = true
+\begin{DoxyCompactList}\small\item\em Is target a direction? (Temporary? Used for arc calculation.) \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_mono_1_1_shooter_abaae952aac7747233bd57d2322c71846}{Arc\-Angle}
+\begin{DoxyCompactList}\small\item\em The amount of extra tilt in degrees needed in a direction to make the target. \end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_skyrates_1_1_mono_1_1_shooter_ae2d4b315241e263d72fdabc0a17eb922}{Arc\-Axis} = Vector3.\-right
+\begin{DoxyCompactList}\small\item\em The axis to tilt. Usually the positive X axis (right) relative to the player. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_effects_1_1_arc_render}{Arc\-Render} \hyperlink{class_skyrates_1_1_mono_1_1_shooter_aaa84e4951d4f08f9d08a714ef8376c30}{Arc\-Render}
+\begin{DoxyCompactList}\small\item\em Arc renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Special component which dispatches the Event\-Spawn\-Entity\-Projectile game event. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a327d02dace8d3388b098c83c011bf41d}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Calculate\-Arc@{Calculate\-Arc}}
+\index{Calculate\-Arc@{Calculate\-Arc}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Calculate\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Mono.\-Shooter.\-Calculate\-Arc (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{target, }
+\item[{float}]{speed, }
+\item[{bool}]{target\-Is\-Direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_mono_1_1_shooter_a327d02dace8d3388b098c83c011bf41d}
+
+
+Automatically calculates and sets arc angle and axis based on gravity and distance over time (speed/velocity), in the forward direction. This does not take into account impulse force or deceleration/damping. 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_ad9d7d5122f1b16cfd43c3db5474fe282}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Fire\-Projectile@{Fire\-Projectile}}
+\index{Fire\-Projectile@{Fire\-Projectile}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Fire\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Mono.\-Shooter.\-Fire\-Projectile (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{target, }
+\item[{Vector3}]{launch\-Velocity, }
+\item[{float}]{attack\-Modifier}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_mono_1_1_shooter_ad9d7d5122f1b16cfd43c3db5474fe282}
+
+
+Fires off Event\-Spawn\-Entity\-Projectile with the spawn location, the projectile to fire, and the initial velocity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & \\
+\hline
+{\em launch\-Velocity} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a170280e49b56961d0211a4c611f7f54b}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Get\-Projectile\-Direction@{Get\-Projectile\-Direction}}
+\index{Get\-Projectile\-Direction@{Get\-Projectile\-Direction}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Get\-Projectile\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 Skyrates.\-Mono.\-Shooter.\-Get\-Projectile\-Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_mono_1_1_shooter_a170280e49b56961d0211a4c611f7f54b}
+
+
+Returns the direction the shooter is facing. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_abaae952aac7747233bd57d2322c71846}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Arc\-Angle@{Arc\-Angle}}
+\index{Arc\-Angle@{Arc\-Angle}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Arc\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Mono.\-Shooter.\-Arc\-Angle}}\label{class_skyrates_1_1_mono_1_1_shooter_abaae952aac7747233bd57d2322c71846}
+
+
+The amount of extra tilt in degrees needed in a direction to make the target. 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_ae2d4b315241e263d72fdabc0a17eb922}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Arc\-Axis@{Arc\-Axis}}
+\index{Arc\-Axis@{Arc\-Axis}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Arc\-Axis}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 Skyrates.\-Mono.\-Shooter.\-Arc\-Axis = Vector3.\-right}}\label{class_skyrates_1_1_mono_1_1_shooter_ae2d4b315241e263d72fdabc0a17eb922}
+
+
+The axis to tilt. Usually the positive X axis (right) relative to the player. 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_aaa84e4951d4f08f9d08a714ef8376c30}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Arc\-Render@{Arc\-Render}}
+\index{Arc\-Render@{Arc\-Render}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Arc\-Render}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Arc\-Render} Skyrates.\-Mono.\-Shooter.\-Arc\-Render}}\label{class_skyrates_1_1_mono_1_1_shooter_aaa84e4951d4f08f9d08a714ef8376c30}
+
+
+Arc renderer. 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a472c3ebcb2adf214c1fbeafd7c32c0ae}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!force@{force}}
+\index{force@{force}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{force}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Mono.\-Shooter.\-force = 1}}\label{class_skyrates_1_1_mono_1_1_shooter_a472c3ebcb2adf214c1fbeafd7c32c0ae}
+
+
+How much force to apply to the projectile. If Use\-Arc is enabled, this becomes the initial velocity. 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a1c85cc6a77bdcddc41c7cf70506f3309}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Manual\-Arc@{Manual\-Arc}}
+\index{Manual\-Arc@{Manual\-Arc}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Manual\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Mono.\-Shooter.\-Manual\-Arc = false}}\label{class_skyrates_1_1_mono_1_1_shooter_a1c85cc6a77bdcddc41c7cf70506f3309}
+
+
+Should we use Calculate\-Arc or manually generate an arc? 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a3eb3006b65f8ca3e5640e2d04658139f}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!projectile\-Prefab@{projectile\-Prefab}}
+\index{projectile\-Prefab@{projectile\-Prefab}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{projectile\-Prefab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity.\-Entity} Skyrates.\-Mono.\-Shooter.\-projectile\-Prefab}}\label{class_skyrates_1_1_mono_1_1_shooter_a3eb3006b65f8ca3e5640e2d04658139f}
+
+
+The prefab of the projectile to launch from this source. 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_aa936f850ff75524adc350c2c3a6763ed}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!spawn@{spawn}}
+\index{spawn@{spawn}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{spawn}]{\setlength{\rightskip}{0pt plus 5cm}Transform Skyrates.\-Mono.\-Shooter.\-spawn}}\label{class_skyrates_1_1_mono_1_1_shooter_aa936f850ff75524adc350c2c3a6763ed}
+
+
+The spawn location of the projectile. 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a2e5d471386a013815f34d3f1e8bb8996}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Target\-Is\-Direction@{Target\-Is\-Direction}}
+\index{Target\-Is\-Direction@{Target\-Is\-Direction}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Target\-Is\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Mono.\-Shooter.\-Target\-Is\-Direction = true}}\label{class_skyrates_1_1_mono_1_1_shooter_a2e5d471386a013815f34d3f1e8bb8996}
+
+
+Is target a direction? (Temporary? Used for arc calculation.) 
+
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_a15bb2b7cdbb581dec901f16f930d0b8c}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Use\-Arc@{Use\-Arc}}
+\index{Use\-Arc@{Use\-Arc}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
+\subsubsection[{Use\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-Mono.\-Shooter.\-Use\-Arc = false}}\label{class_skyrates_1_1_mono_1_1_shooter_a15bb2b7cdbb581dec901f16f930d0b8c}
+
+
+Should we use gravity in our calculations? 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Entity/\-Dynamic/\-Projectile/Shooter.\-cs\end{DoxyCompactItemize}

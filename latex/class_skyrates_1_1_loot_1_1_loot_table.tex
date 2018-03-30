@@ -1,0 +1,104 @@
+\hypertarget{class_skyrates_1_1_loot_1_1_loot_table}{\section{Skyrates.\-Loot.\-Loot\-Table Class Reference}
+\label{class_skyrates_1_1_loot_1_1_loot_table}\index{Skyrates.\-Loot.\-Loot\-Table@{Skyrates.\-Loot.\-Loot\-Table}}
+}
+
+
+Table for generating randomized loot  
+
+
+Inheritance diagram for Skyrates.\-Loot.\-Loot\-Table\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_loot_1_1_loot_table}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_1_1_row}{Row}
+\begin{DoxyCompactList}\small\item\em A weighted entry in the loot table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_a5a4e92ba67eedeb686f4e4b1bdcbf454}{Calculate\-Percentages} (float sum\-Weight)
+\begin{DoxyCompactList}\small\item\em Calculates the percentage chance of each item in the weighted table. \end{DoxyCompactList}\item 
+Key\-Value\-Pair\\*
+$<$ Ship\-Data.\-Broken\-Component\-Type, \\*
+\hyperlink{class_skyrates_1_1_loot_1_1_loot}{Skyrates.\-Loot.\-Loot} $>$\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_aff3ad84db69c60336e14fb01fa4e4e58}{Generate} ()
+\begin{DoxyCompactList}\small\item\em Generates a list of loot items and the prefab with a \hyperlink{class_skyrates_1_1_loot_1_1_loot}{Loot} component. The number of loot generated is randomized between \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_a9ef0cb4eba51c0a7b2fb4a5fa507ee69}{Amount\-Min} and \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_adb27de9ece245e9a29e96c68e267343b}{Amount\-Max}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_loot_1_1_loot_table_1_1_row}{Row}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_a02144c6a002bd609a0e53410466a1bc8}{Table}
+\begin{DoxyCompactList}\small\item\em The list of weighted entry. \end{DoxyCompactList}\item 
+int \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_a9ef0cb4eba51c0a7b2fb4a5fa507ee69}{Amount\-Min}
+\begin{DoxyCompactList}\small\item\em The minimum amount of loot to generate at a time. \end{DoxyCompactList}\item 
+int \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_adb27de9ece245e9a29e96c68e267343b}{Amount\-Max}
+\begin{DoxyCompactList}\small\item\em The maximum amount of loot to generate at a time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Table for generating randomized loot 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_loot_1_1_loot_table_a5a4e92ba67eedeb686f4e4b1bdcbf454}{\index{Skyrates\-::\-Loot\-::\-Loot\-Table@{Skyrates\-::\-Loot\-::\-Loot\-Table}!Calculate\-Percentages@{Calculate\-Percentages}}
+\index{Calculate\-Percentages@{Calculate\-Percentages}!Skyrates::Loot::LootTable@{Skyrates\-::\-Loot\-::\-Loot\-Table}}
+\subsubsection[{Calculate\-Percentages}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Loot.\-Loot\-Table.\-Calculate\-Percentages (
+\begin{DoxyParamCaption}
+\item[{float}]{sum\-Weight}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_loot_1_1_loot_table_a5a4e92ba67eedeb686f4e4b1bdcbf454}
+
+
+Calculates the percentage chance of each item in the weighted table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sum\-Weight} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_loot_1_1_loot_table_aff3ad84db69c60336e14fb01fa4e4e58}{\index{Skyrates\-::\-Loot\-::\-Loot\-Table@{Skyrates\-::\-Loot\-::\-Loot\-Table}!Generate@{Generate}}
+\index{Generate@{Generate}!Skyrates::Loot::LootTable@{Skyrates\-::\-Loot\-::\-Loot\-Table}}
+\subsubsection[{Generate}]{\setlength{\rightskip}{0pt plus 5cm}Key\-Value\-Pair$<$Ship\-Data.\-Broken\-Component\-Type, {\bf Skyrates.\-Loot.\-Loot}$>$ \mbox{[}$\,$\mbox{]} Skyrates.\-Loot.\-Loot\-Table.\-Generate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_loot_1_1_loot_table_aff3ad84db69c60336e14fb01fa4e4e58}
+
+
+Generates a list of loot items and the prefab with a \hyperlink{class_skyrates_1_1_loot_1_1_loot}{Loot} component. The number of loot generated is randomized between \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_a9ef0cb4eba51c0a7b2fb4a5fa507ee69}{Amount\-Min} and \hyperlink{class_skyrates_1_1_loot_1_1_loot_table_adb27de9ece245e9a29e96c68e267343b}{Amount\-Max}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_loot_1_1_loot_table_adb27de9ece245e9a29e96c68e267343b}{\index{Skyrates\-::\-Loot\-::\-Loot\-Table@{Skyrates\-::\-Loot\-::\-Loot\-Table}!Amount\-Max@{Amount\-Max}}
+\index{Amount\-Max@{Amount\-Max}!Skyrates::Loot::LootTable@{Skyrates\-::\-Loot\-::\-Loot\-Table}}
+\subsubsection[{Amount\-Max}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Loot.\-Loot\-Table.\-Amount\-Max}}\label{class_skyrates_1_1_loot_1_1_loot_table_adb27de9ece245e9a29e96c68e267343b}
+
+
+The maximum amount of loot to generate at a time. 
+
+\hypertarget{class_skyrates_1_1_loot_1_1_loot_table_a9ef0cb4eba51c0a7b2fb4a5fa507ee69}{\index{Skyrates\-::\-Loot\-::\-Loot\-Table@{Skyrates\-::\-Loot\-::\-Loot\-Table}!Amount\-Min@{Amount\-Min}}
+\index{Amount\-Min@{Amount\-Min}!Skyrates::Loot::LootTable@{Skyrates\-::\-Loot\-::\-Loot\-Table}}
+\subsubsection[{Amount\-Min}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Loot.\-Loot\-Table.\-Amount\-Min}}\label{class_skyrates_1_1_loot_1_1_loot_table_a9ef0cb4eba51c0a7b2fb4a5fa507ee69}
+
+
+The minimum amount of loot to generate at a time. 
+
+\hypertarget{class_skyrates_1_1_loot_1_1_loot_table_a02144c6a002bd609a0e53410466a1bc8}{\index{Skyrates\-::\-Loot\-::\-Loot\-Table@{Skyrates\-::\-Loot\-::\-Loot\-Table}!Table@{Table}}
+\index{Table@{Table}!Skyrates::Loot::LootTable@{Skyrates\-::\-Loot\-::\-Loot\-Table}}
+\subsubsection[{Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Row} \mbox{[}$\,$\mbox{]} Skyrates.\-Loot.\-Loot\-Table.\-Table}}\label{class_skyrates_1_1_loot_1_1_loot_table_a02144c6a002bd609a0e53410466a1bc8}
+
+
+The list of weighted entry. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Loot/Loot\-Table.\-cs\end{DoxyCompactItemize}

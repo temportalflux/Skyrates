@@ -1,0 +1,158 @@
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull}{\section{Skyrates.\-Ship.\-Ship\-Hull Class Reference}
+\label{class_skyrates_1_1_ship_1_1_ship_hull}\index{Skyrates.\-Ship.\-Ship\-Hull@{Skyrates.\-Ship.\-Ship\-Hull}}
+}
+
+
+Subclass of \hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component} dedicated to components of type Ship\-Data.\-Component\-Type.\-Hull.  
+
+
+Inheritance diagram for Skyrates.\-Ship.\-Ship\-Hull\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_skyrates_1_1_ship_1_1_ship_hull}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_1_1_component_list}{Component\-List}
+\item 
+class \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_1_1_particle_area}{Particle\-Area}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_a151ef86db5f7fb51fafc874fd2174c6c}{Spawn\-Destruction\-Particles} ()
+\begin{DoxyCompactList}\small\item\em Spawns an orphan prefab which contains a particle system for an explosion when this ship has been destoryed. The orphan is destroyed when it is done playing its particles. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_addcf983df8b3aa8556d77730be45ecc8}{Update\-Health\-Particles} (float health)
+\begin{DoxyCompactList}\small\item\em Updates the diagetic particles based on current health. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a31ea2269f79ffc533d3c0ce80ac59a24}{float {\bfseries Get\-Multiplier\-Thrust} ()}\label{class_skyrates_1_1_ship_1_1_ship_hull_a31ea2269f79ffc533d3c0ce80ac59a24}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a97cbc4f31c6664328ce5ac804e4b5510}{float {\bfseries Get\-Multiplier\-Turn\-Speed} ()}\label{class_skyrates_1_1_ship_1_1_ship_hull_a97cbc4f31c6664328ce5ac804e4b5510}
+
+\item 
+float \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_a22cc110b5c5d2ee55b9da0c34da68468}{Get\-Defense} ()
+\begin{DoxyCompactList}\small\item\em Gets the amount of damage subtracted from damage taken. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_adb5a6383a4f88675441a24f4c7c33f8b}{Get\-Protection} ()
+\begin{DoxyCompactList}\small\item\em Gets the percentage of damage subtracted from damage taken. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a1ec01ed2a0eff0018dc11db98de9dbd6}{void {\bfseries Add\-Loot} (Game\-Object loot\-Object\-Prefab, Ship\-Data.\-Broken\-Component\-Type item, bool forced=false)}\label{class_skyrates_1_1_ship_1_1_ship_hull_a1ec01ed2a0eff0018dc11db98de9dbd6}
+
+\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_a8bfc377871bb1b2faab4024883339c26}{Get\-Component} (Ship\-Data.\-Component\-Type comp\-Type)
+\begin{DoxyCompactList}\small\item\em Returns the generated component list for a specific type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_afc1806de6452f9d4df07bc0620cf50b9}{int {\bfseries H\-P}}\label{class_skyrates_1_1_ship_1_1_ship_hull_afc1806de6452f9d4df07bc0620cf50b9}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_af6a0066197ff9d43b51f0e460fa04ac1}{float {\bfseries Health\-Regen\-Amount}}\label{class_skyrates_1_1_ship_1_1_ship_hull_af6a0066197ff9d43b51f0e460fa04ac1}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_acc3a96792b34871f8b64d4db683943fb}{float {\bfseries Health\-Regen\-Delay}}\label{class_skyrates_1_1_ship_1_1_ship_hull_acc3a96792b34871f8b64d4db683943fb}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_af800157392ebd1bafc84097918373943}{\hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_1_1_particle_area}{Particle\-Area} {\bfseries Smoke\-Data}}\label{class_skyrates_1_1_ship_1_1_ship_hull_af800157392ebd1bafc84097918373943}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a0e916e647b5d822f00908fdee72ce36c}{\hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_1_1_particle_area}{Particle\-Area} {\bfseries Fire\-Data}}\label{class_skyrates_1_1_ship_1_1_ship_hull_a0e916e647b5d822f00908fdee72ce36c}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a590e30e386abc7e32aefe6a86baba57f}{Game\-Object {\bfseries Particle\-On\-Destruction}}\label{class_skyrates_1_1_ship_1_1_ship_hull_a590e30e386abc7e32aefe6a86baba57f}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_aad3c9cb3b1d993fb4b77426e1f838096}{\hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_1_1_component_list}{Component\-List}\mbox{[}$\,$\mbox{]} {\bfseries Components} = new \hyperlink{class_skyrates_1_1_ship_1_1_ship_hull_1_1_component_list}{Component\-List}\mbox{[}Ship\-Data.\-Component\-Types.\-Length\mbox{]}}\label{class_skyrates_1_1_ship_1_1_ship_hull_aad3c9cb3b1d993fb4b77426e1f838096}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_ac03686e59e8afd3a33c705b903bd4945}{Transform\mbox{[}$\,$\mbox{]} {\bfseries Loot\-Mounts}}\label{class_skyrates_1_1_ship_1_1_ship_hull_ac03686e59e8afd3a33c705b903bd4945}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a8d16a228ca23463f4519e05f9ec8c00c}{int {\bfseries Get\-Component\-Index} (Ship\-Data.\-Component\-Type type)}\label{class_skyrates_1_1_ship_1_1_ship_hull_a8d16a228ca23463f4519e05f9ec8c00c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Subclass of \hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component} dedicated to components of type Ship\-Data.\-Component\-Type.\-Hull. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a8bfc377871bb1b2faab4024883339c26}{\index{Skyrates\-::\-Ship\-::\-Ship\-Hull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}!Get\-Component@{Get\-Component}}
+\index{Get\-Component@{Get\-Component}!Skyrates::Ship::ShipHull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}}
+\subsubsection[{Get\-Component}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Component} \mbox{[}$\,$\mbox{]} Skyrates.\-Ship.\-Ship\-Hull.\-Get\-Component (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Component\-Type}]{comp\-Type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_hull_a8bfc377871bb1b2faab4024883339c26}
+
+
+Returns the generated component list for a specific type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comp\-Type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a22cc110b5c5d2ee55b9da0c34da68468}{\index{Skyrates\-::\-Ship\-::\-Ship\-Hull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}!Get\-Defense@{Get\-Defense}}
+\index{Get\-Defense@{Get\-Defense}!Skyrates::Ship::ShipHull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}}
+\subsubsection[{Get\-Defense}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Ship.\-Ship\-Hull.\-Get\-Defense (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_hull_a22cc110b5c5d2ee55b9da0c34da68468}
+
+
+Gets the amount of damage subtracted from damage taken. 
+
+\begin{DoxyReturn}{Returns}
+The amount of damage subtracted from damage taken
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_adb5a6383a4f88675441a24f4c7c33f8b}{\index{Skyrates\-::\-Ship\-::\-Ship\-Hull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}!Get\-Protection@{Get\-Protection}}
+\index{Get\-Protection@{Get\-Protection}!Skyrates::Ship::ShipHull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}}
+\subsubsection[{Get\-Protection}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Ship.\-Ship\-Hull.\-Get\-Protection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_hull_adb5a6383a4f88675441a24f4c7c33f8b}
+
+
+Gets the percentage of damage subtracted from damage taken. 
+
+\begin{DoxyReturn}{Returns}
+The percentage of damage subtracted from damage taken
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_a151ef86db5f7fb51fafc874fd2174c6c}{\index{Skyrates\-::\-Ship\-::\-Ship\-Hull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}!Spawn\-Destruction\-Particles@{Spawn\-Destruction\-Particles}}
+\index{Spawn\-Destruction\-Particles@{Spawn\-Destruction\-Particles}!Skyrates::Ship::ShipHull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}}
+\subsubsection[{Spawn\-Destruction\-Particles}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Ship.\-Ship\-Hull.\-Spawn\-Destruction\-Particles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_hull_a151ef86db5f7fb51fafc874fd2174c6c}
+
+
+Spawns an orphan prefab which contains a particle system for an explosion when this ship has been destoryed. The orphan is destroyed when it is done playing its particles. 
+
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_hull_addcf983df8b3aa8556d77730be45ecc8}{\index{Skyrates\-::\-Ship\-::\-Ship\-Hull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}!Update\-Health\-Particles@{Update\-Health\-Particles}}
+\index{Update\-Health\-Particles@{Update\-Health\-Particles}!Skyrates::Ship::ShipHull@{Skyrates\-::\-Ship\-::\-Ship\-Hull}}
+\subsubsection[{Update\-Health\-Particles}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Ship.\-Ship\-Hull.\-Update\-Health\-Particles (
+\begin{DoxyParamCaption}
+\item[{float}]{health}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_hull_addcf983df8b3aa8556d77730be45ecc8}
+
+
+Updates the diagetic particles based on current health. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Ship/\-Components/Ship\-Hull.\-cs\end{DoxyCompactItemize}

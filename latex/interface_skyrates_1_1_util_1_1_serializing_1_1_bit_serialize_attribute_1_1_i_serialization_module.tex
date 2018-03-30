@@ -1,0 +1,116 @@
+\hypertarget{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module}{\section{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module Interface Reference}
+\label{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module}\index{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module@{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module}}
+}
+
+
+The interface to use Serialization\-Module\{\-T\} in collections without knowing the type.  
+
+
+Inheritance diagram for Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_aa1b15bcdfbdbf7422513276ffcf3d272}{Get\-Size} (object obj)
+\begin{DoxyCompactList}\small\item\em Determine the size of some object -\/ effectively sizeof(object). \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a193efb5678e7782fb5de5c2f7c9116da}{Serialize} (object obj, byte\mbox{[}$\,$\mbox{]} data, int start)
+\begin{DoxyCompactList}\small\item\em Serialize a specfic object into a byte array. Returns the byte\mbox{[}\mbox{]} with the populated \-\_\-game\-State\-Data. \end{DoxyCompactList}\item 
+object \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a2b4853418bbc8b3ab6be091d674d282e}{Deserialize} (object obj, byte\mbox{[}$\,$\mbox{]} data, int start, Type type)
+\begin{DoxyCompactList}\small\item\em Deserialize a byte array into an object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The interface to use Serialization\-Module\{\-T\} in collections without knowing the type. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a2b4853418bbc8b3ab6be091d674d282e}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!Skyrates::Util::Serializing::BitSerializeAttribute::ISerializationModule@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}object Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module.\-Deserialize (
+\begin{DoxyParamCaption}
+\item[{object}]{obj, }
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{int}]{start, }
+\item[{Type}]{type}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a2b4853418bbc8b3ab6be091d674d282e}
+
+
+Deserialize a byte array into an object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the byte\mbox{[}\mbox{]} of \-\_\-game\-State\-Data.\\
+\hline
+{\em start} & How far into the serialized \-\_\-game\-State\-Data the object was put.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_ad46c1938a2ab2b9b750e497f1ac2dd9d}{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$}.
+
+\hypertarget{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_aa1b15bcdfbdbf7422513276ffcf3d272}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module}!Get\-Size@{Get\-Size}}
+\index{Get\-Size@{Get\-Size}!Skyrates::Util::Serializing::BitSerializeAttribute::ISerializationModule@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module}}
+\subsubsection[{Get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module.\-Get\-Size (
+\begin{DoxyParamCaption}
+\item[{object}]{obj}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_aa1b15bcdfbdbf7422513276ffcf3d272}
+
+
+Determine the size of some object -\/ effectively sizeof(object). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_af4afbffb74489fa954ff6da86463119e}{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$}.
+
+\hypertarget{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a193efb5678e7782fb5de5c2f7c9116da}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Skyrates::Util::Serializing::BitSerializeAttribute::ISerializationModule@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-I\-Serialization\-Module}}
+\subsubsection[{Serialize}]{\setlength{\rightskip}{0pt plus 5cm}byte \mbox{[}$\,$\mbox{]} Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module.\-Serialize (
+\begin{DoxyParamCaption}
+\item[{object}]{obj, }
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{int}]{start}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a193efb5678e7782fb5de5c2f7c9116da}
+
+
+Serialize a specfic object into a byte array. Returns the byte\mbox{[}\mbox{]} with the populated \-\_\-game\-State\-Data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The object to serialize.\\
+\hline
+{\em data} & The byte array of \-\_\-game\-State\-Data.\\
+\hline
+{\em start} & How far into the \-\_\-game\-State\-Data to put the object's serialized \-\_\-game\-State\-Data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte\mbox{[}\mbox{]}
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_a7acae741ac63e5c8553c17a2f09ed052}{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$}.
+
+
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Util/\-Serializing/Bit\-Serialize\-Attribute.\-cs\end{DoxyCompactItemize}

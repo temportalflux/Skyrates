@@ -1,0 +1,134 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_timed}{\section{Skyrates.\-A\-I.\-Behavior\-Timed Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_behavior_timed}\index{Skyrates.\-A\-I.\-Behavior\-Timed@{Skyrates.\-A\-I.\-Behavior\-Timed}}
+}
+
+
+A base class for behaviors which should only be executed at a time interval, instead of every tick.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Behavior\-Timed\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_skyrates_1_1_a_i_1_1_behavior_timed}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_1_1_persistent_data_timed}{Persistent\-Data\-Timed}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_timed_a0da5c761dc335150064632ddd0319d8f}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_a0da5c761dc335150064632ddd0319d8f}{Create\-Persistent\-Data} ()}\label{class_skyrates_1_1_a_i_1_1_behavior_timed_a0da5c761dc335150064632ddd0319d8f}
+
+\begin{DoxyCompactList}\small\item\em Returns an object to be held by the agent which has custom data which cannot go in an asset. i.\-e. the index of a target in a list. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_a389d21f94b5bbc63e94e4644e4a4129a}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent, float delta\-Time)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_a68b9680f03a6c11ad2b6a52550f20d46}{Execute\-Frequency} = 1.\-0f
+\begin{DoxyCompactList}\small\item\em How many seconds between state checks. \end{DoxyCompactList}\item 
+bool \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_aba11486da69109caed73d703d54e0767}{Scatter\-Execute} = true
+\begin{DoxyCompactList}\small\item\em Scatters the state checks by offseting the start time by a random amount of seconds between 0 and \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_a68b9680f03a6c11ad2b6a52550f20d46}{Execute\-Frequency}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_1_1_persistent_data_timed}{Persistent\-Data\-Timed} \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_aea99eb1249969ae54d426abba3699f00}{Update\-Timed} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_1_1_persistent_data_timed}{Persistent\-Data\-Timed} persistent, float delta\-Time)
+\begin{DoxyCompactList}\small\item\em Checks all triggers if the current state should exit and another state should enter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A base class for behaviors which should only be executed at a time interval, instead of every tick. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_timed_a389d21f94b5bbc63e94e4644e4a4129a}{\index{Skyrates\-::\-A\-I\-::\-Behavior\-Timed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}!Get\-Update@{Get\-Update}}
+\index{Get\-Update@{Get\-Update}!Skyrates::AI::BehaviorTimed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}}
+\subsubsection[{Get\-Update}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf Data\-Persistent} Skyrates.\-A\-I.\-Behavior\-Timed.\-Get\-Update (
+\begin{DoxyParamCaption}
+\item[{ref {\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{{\bf Data\-Persistent}}]{persistent, }
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_behavior_timed_a389d21f94b5bbc63e94e4644e4a4129a}
+Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \href{https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior}{\tt https\-://gamedev.\-stackexchange.\-com/questions/121469/unity3d-\/smooth-\/rotation-\/for-\/seek-\/steering-\/behavior} 
+
+Implements \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_a7fa65944c064187ccd509bcef460ef99}{Skyrates.\-A\-I.\-Behavior}.
+
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_ac840e5482c227e7f06367a377c83c209}{Skyrates.\-A\-I.\-State.\-State\-Machine}.
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_timed_aea99eb1249969ae54d426abba3699f00}{\index{Skyrates\-::\-A\-I\-::\-Behavior\-Timed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}!Update\-Timed@{Update\-Timed}}
+\index{Update\-Timed@{Update\-Timed}!Skyrates::AI::BehaviorTimed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}}
+\subsubsection[{Update\-Timed}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf Persistent\-Data\-Timed} Skyrates.\-A\-I.\-Behavior\-Timed.\-Update\-Timed (
+\begin{DoxyParamCaption}
+\item[{ref {\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{{\bf Persistent\-Data\-Timed}}]{persistent, }
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_a_i_1_1_behavior_timed_aea99eb1249969ae54d426abba3699f00}
+
+
+Checks all triggers if the current state should exit and another state should enter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics} & \\
+\hline
+{\em behavioral} & \\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_aaf0c030821a596d0bdeee0b87c96bd6e}{Skyrates.\-A\-I.\-State.\-State\-Machine}, and \hyperlink{class_skyrates_1_1_a_i_1_1_target_1_1_waypoint_targets_a69dfb0377fa4446269f0ff068c611a80}{Skyrates.\-A\-I.\-Target.\-Waypoint\-Targets}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_timed_a68b9680f03a6c11ad2b6a52550f20d46}{\index{Skyrates\-::\-A\-I\-::\-Behavior\-Timed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}!Execute\-Frequency@{Execute\-Frequency}}
+\index{Execute\-Frequency@{Execute\-Frequency}!Skyrates::AI::BehaviorTimed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}}
+\subsubsection[{Execute\-Frequency}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Behavior\-Timed.\-Execute\-Frequency = 1.\-0f}}\label{class_skyrates_1_1_a_i_1_1_behavior_timed_a68b9680f03a6c11ad2b6a52550f20d46}
+
+
+How many seconds between state checks. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_behavior_timed_aba11486da69109caed73d703d54e0767}{\index{Skyrates\-::\-A\-I\-::\-Behavior\-Timed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}!Scatter\-Execute@{Scatter\-Execute}}
+\index{Scatter\-Execute@{Scatter\-Execute}!Skyrates::AI::BehaviorTimed@{Skyrates\-::\-A\-I\-::\-Behavior\-Timed}}
+\subsubsection[{Scatter\-Execute}]{\setlength{\rightskip}{0pt plus 5cm}bool Skyrates.\-A\-I.\-Behavior\-Timed.\-Scatter\-Execute = true}}\label{class_skyrates_1_1_a_i_1_1_behavior_timed_aba11486da69109caed73d703d54e0767}
+
+
+Scatters the state checks by offseting the start time by a random amount of seconds between 0 and \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_a68b9680f03a6c11ad2b6a52550f20d46}{Execute\-Frequency}. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/Behavior\-Timed.\-cs\end{DoxyCompactItemize}

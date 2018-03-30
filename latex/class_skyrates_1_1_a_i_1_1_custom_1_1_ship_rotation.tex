@@ -1,0 +1,86 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation}{\section{Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation}\index{Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation@{Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation}}
+}
+
+
+Adds aestetic rotation according to the present movement of the ship (rotation on X and Z axes). Specifically, rotates around X axis (pitch) when moving up/down (along Z axis), and rotates around X axis (yaw/banking) when turning (along Z axis).  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a1bf8ad2defba57a5ec67d7a79c295f3a}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a1bf8ad2defba57a5ec67d7a79c295f3a}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent, float delta\-Time)}\label{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a1bf8ad2defba57a5ec67d7a79c295f3a}
+
+\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_abcda42fd1d33d8189aadb283d3ba248c}{Angle\-Yaw}
+\begin{DoxyCompactList}\small\item\em The maximum absolute-\/value angle of banking. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a35320a27fe52da777b3cf343f2b879b2}{Angle\-Speed\-Yaw}
+\begin{DoxyCompactList}\small\item\em The speed at which \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_abcda42fd1d33d8189aadb283d3ba248c}{Angle\-Yaw} is achieved. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a3c427f9a37774bca1736f3f74db91f89}{Angle\-Pitch}
+\begin{DoxyCompactList}\small\item\em The maximum absolute-\/value angle when moving vertically. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_af966fbfe16e1f411288a8681d99b2d08}{Angle\-Speed\-Pitch}
+\begin{DoxyCompactList}\small\item\em The speed at which \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a3c427f9a37774bca1736f3f74db91f89}{Angle\-Pitch} is achieved. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Adds aestetic rotation according to the present movement of the ship (rotation on X and Z axes). Specifically, rotates around X axis (pitch) when moving up/down (along Z axis), and rotates around X axis (yaw/banking) when turning (along Z axis). 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a3c427f9a37774bca1736f3f74db91f89}{\index{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}!Angle\-Pitch@{Angle\-Pitch}}
+\index{Angle\-Pitch@{Angle\-Pitch}!Skyrates::AI::Custom::ShipRotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}}
+\subsubsection[{Angle\-Pitch}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation.\-Angle\-Pitch}}\label{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a3c427f9a37774bca1736f3f74db91f89}
+
+
+The maximum absolute-\/value angle when moving vertically. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_af966fbfe16e1f411288a8681d99b2d08}{\index{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}!Angle\-Speed\-Pitch@{Angle\-Speed\-Pitch}}
+\index{Angle\-Speed\-Pitch@{Angle\-Speed\-Pitch}!Skyrates::AI::Custom::ShipRotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}}
+\subsubsection[{Angle\-Speed\-Pitch}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation.\-Angle\-Speed\-Pitch}}\label{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_af966fbfe16e1f411288a8681d99b2d08}
+
+
+The speed at which \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a3c427f9a37774bca1736f3f74db91f89}{Angle\-Pitch} is achieved. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a35320a27fe52da777b3cf343f2b879b2}{\index{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}!Angle\-Speed\-Yaw@{Angle\-Speed\-Yaw}}
+\index{Angle\-Speed\-Yaw@{Angle\-Speed\-Yaw}!Skyrates::AI::Custom::ShipRotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}}
+\subsubsection[{Angle\-Speed\-Yaw}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation.\-Angle\-Speed\-Yaw}}\label{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_a35320a27fe52da777b3cf343f2b879b2}
+
+
+The speed at which \hyperlink{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_abcda42fd1d33d8189aadb283d3ba248c}{Angle\-Yaw} is achieved. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_abcda42fd1d33d8189aadb283d3ba248c}{\index{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}!Angle\-Yaw@{Angle\-Yaw}}
+\index{Angle\-Yaw@{Angle\-Yaw}!Skyrates::AI::Custom::ShipRotation@{Skyrates\-::\-A\-I\-::\-Custom\-::\-Ship\-Rotation}}
+\subsubsection[{Angle\-Yaw}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Custom.\-Ship\-Rotation.\-Angle\-Yaw}}\label{class_skyrates_1_1_a_i_1_1_custom_1_1_ship_rotation_abcda42fd1d33d8189aadb283d3ba248c}
+
+
+The maximum absolute-\/value angle of banking. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/\-Decorator/Ship\-Rotation.\-cs\end{DoxyCompactItemize}

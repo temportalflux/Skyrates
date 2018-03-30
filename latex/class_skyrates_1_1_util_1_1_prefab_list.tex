@@ -1,0 +1,130 @@
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list}{\section{Skyrates.\-Util.\-Prefab\-List Class Reference}
+\label{class_skyrates_1_1_util_1_1_prefab_list}\index{Skyrates.\-Util.\-Prefab\-List@{Skyrates.\-Util.\-Prefab\-List}}
+}
+
+
+ 
+
+
+Inheritance diagram for Skyrates.\-Util.\-Prefab\-List\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_util_1_1_prefab_list}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_util_1_1_prefab_list_1_1_category}{Category}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract int \hyperlink{class_skyrates_1_1_util_1_1_prefab_list_a40248f77efe56facd9bf1f534e0ed31e}{Get\-Index\-From} (object key)
+\begin{DoxyCompactList}\small\item\em Returns the key as an integer (good for serialization). \end{DoxyCompactList}\item 
+abstract object \hyperlink{class_skyrates_1_1_util_1_1_prefab_list_a5fc66fb12f8cb7148a783229e742ba72}{Get\-Key\-From} (int index)
+\begin{DoxyCompactList}\small\item\em Returns an integer as a user readable key (usually enum). \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_a257e47900416e06a7b6d0cc81de67d53}{bool {\bfseries Try\-Get\-Value$<$ T\-Key, T\-Value $>$} (T\-Key key, int prefab\-Index, out T\-Value prefab)}\label{class_skyrates_1_1_util_1_1_prefab_list_a257e47900416e06a7b6d0cc81de67d53}
+
+\item 
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_acb6c22e0571f7768b0570de10e56fc9e}{string\mbox{[}$\,$\mbox{]} {\bfseries Get\-Names} (object key)}\label{class_skyrates_1_1_util_1_1_prefab_list_acb6c22e0571f7768b0570de10e56fc9e}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+object\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_util_1_1_prefab_list_a84a3275441b5551101f11cb2f0e508fc}{Ordered\-Keys}
+\begin{DoxyCompactList}\small\item\em All the possible category keys. \end{DoxyCompactList}\item 
+Type\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_util_1_1_prefab_list_adc9cd42231d5f2232f8e71cd0ab0dd56}{Key\-Value\-Types}
+\begin{DoxyCompactList}\small\item\em The subclass of T\-Value that different categories may have. Keyed by T\-Key. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_util_1_1_prefab_list_1_1_category}{Category}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_util_1_1_prefab_list_abd1410aa765b2219337b60dab32083cb}{Categories}
+\begin{DoxyCompactList}\small\item\em The actual prefab values. First keyed by T\-Key, then by an integer index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_a22a71103a86be9f4ae53323079e74936}{void {\bfseries Setup} (object\mbox{[}$\,$\mbox{]} ordered\-Keys, Type\mbox{[}$\,$\mbox{]} key\-Types)}\label{class_skyrates_1_1_util_1_1_prefab_list_a22a71103a86be9f4ae53323079e74936}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_a40248f77efe56facd9bf1f534e0ed31e}{\index{Skyrates\-::\-Util\-::\-Prefab\-List@{Skyrates\-::\-Util\-::\-Prefab\-List}!Get\-Index\-From@{Get\-Index\-From}}
+\index{Get\-Index\-From@{Get\-Index\-From}!Skyrates::Util::PrefabList@{Skyrates\-::\-Util\-::\-Prefab\-List}}
+\subsubsection[{Get\-Index\-From}]{\setlength{\rightskip}{0pt plus 5cm}abstract int Skyrates.\-Util.\-Prefab\-List.\-Get\-Index\-From (
+\begin{DoxyParamCaption}
+\item[{object}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_util_1_1_prefab_list_a40248f77efe56facd9bf1f534e0ed31e}
+
+
+Returns the key as an integer (good for serialization). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_client_1_1_util_1_1_test_a92aef1965d6b0faad508d306398af8a8}{Skyrates.\-Client.\-Util.\-Test}, and \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_a500cd86160607f8f5ee413b502f7b2e2}{Skyrates.\-Ship.\-Ship\-Component\-List}.
+
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_a5fc66fb12f8cb7148a783229e742ba72}{\index{Skyrates\-::\-Util\-::\-Prefab\-List@{Skyrates\-::\-Util\-::\-Prefab\-List}!Get\-Key\-From@{Get\-Key\-From}}
+\index{Get\-Key\-From@{Get\-Key\-From}!Skyrates::Util::PrefabList@{Skyrates\-::\-Util\-::\-Prefab\-List}}
+\subsubsection[{Get\-Key\-From}]{\setlength{\rightskip}{0pt plus 5cm}abstract object Skyrates.\-Util.\-Prefab\-List.\-Get\-Key\-From (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_util_1_1_prefab_list_a5fc66fb12f8cb7148a783229e742ba72}
+
+
+Returns an integer as a user readable key (usually enum). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_client_1_1_util_1_1_test_a6dfcf2dbe2aa97e9f193c09085a86d75}{Skyrates.\-Client.\-Util.\-Test}, and \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_a203816146c8f0f45891760cc44fd9734}{Skyrates.\-Ship.\-Ship\-Component\-List}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_abd1410aa765b2219337b60dab32083cb}{\index{Skyrates\-::\-Util\-::\-Prefab\-List@{Skyrates\-::\-Util\-::\-Prefab\-List}!Categories@{Categories}}
+\index{Categories@{Categories}!Skyrates::Util::PrefabList@{Skyrates\-::\-Util\-::\-Prefab\-List}}
+\subsubsection[{Categories}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Category} \mbox{[}$\,$\mbox{]} Skyrates.\-Util.\-Prefab\-List.\-Categories}}\label{class_skyrates_1_1_util_1_1_prefab_list_abd1410aa765b2219337b60dab32083cb}
+
+
+The actual prefab values. First keyed by T\-Key, then by an integer index. 
+
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_adc9cd42231d5f2232f8e71cd0ab0dd56}{\index{Skyrates\-::\-Util\-::\-Prefab\-List@{Skyrates\-::\-Util\-::\-Prefab\-List}!Key\-Value\-Types@{Key\-Value\-Types}}
+\index{Key\-Value\-Types@{Key\-Value\-Types}!Skyrates::Util::PrefabList@{Skyrates\-::\-Util\-::\-Prefab\-List}}
+\subsubsection[{Key\-Value\-Types}]{\setlength{\rightskip}{0pt plus 5cm}Type \mbox{[}$\,$\mbox{]} Skyrates.\-Util.\-Prefab\-List.\-Key\-Value\-Types}}\label{class_skyrates_1_1_util_1_1_prefab_list_adc9cd42231d5f2232f8e71cd0ab0dd56}
+
+
+The subclass of T\-Value that different categories may have. Keyed by T\-Key. 
+
+\hypertarget{class_skyrates_1_1_util_1_1_prefab_list_a84a3275441b5551101f11cb2f0e508fc}{\index{Skyrates\-::\-Util\-::\-Prefab\-List@{Skyrates\-::\-Util\-::\-Prefab\-List}!Ordered\-Keys@{Ordered\-Keys}}
+\index{Ordered\-Keys@{Ordered\-Keys}!Skyrates::Util::PrefabList@{Skyrates\-::\-Util\-::\-Prefab\-List}}
+\subsubsection[{Ordered\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}object \mbox{[}$\,$\mbox{]} Skyrates.\-Util.\-Prefab\-List.\-Ordered\-Keys}}\label{class_skyrates_1_1_util_1_1_prefab_list_a84a3275441b5551101f11cb2f0e508fc}
+
+
+All the possible category keys. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Util/\-Prefab/Prefab\-List.\-cs\end{DoxyCompactItemize}

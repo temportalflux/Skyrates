@@ -1,0 +1,174 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4}{\section{Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$ Class Template Reference}
+\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4}\index{Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$@{Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$}}
+}
+
+
+A behavior pipeline in which a set of behaviors are executed in turn.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline$<$ T $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.154303cm]{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_1_1_persistent}{Persistent}
+\begin{DoxyCompactList}\small\item\em The persistent data object for \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline}{Behavior\-Pipeline}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract \hyperlink{class_skyrates_1_1_a_i_1_1_behavior}{Behavior} \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ab6aaf60a0fbbc573158cfaecf7264040}{Get\-Behavior\-From} (T array\-Element)
+\begin{DoxyCompactList}\small\item\em Returns the behavior specified by the object at the array element in \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a2aab9838c797aba8c79d66325e6e2874}{Behaviors}. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_affbd80f17a660e35996f9948b7e19c5e}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_affbd80f17a660e35996f9948b7e19c5e}{Create\-Persistent\-Data} ()}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_affbd80f17a660e35996f9948b7e19c5e}
+
+\begin{DoxyCompactList}\small\item\em Returns an object to be held by the agent which has custom data which cannot go in an asset. i.\-e. the index of a target in a list. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ac48d512a6db18a2b7ac8e8af15fc9a52}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ac48d512a6db18a2b7ac8e8af15fc9a52}{On\-Enter} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ac48d512a6db18a2b7ac8e8af15fc9a52}
+
+\begin{DoxyCompactList}\small\item\em Executed when a state begins execution of this behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & \\
+\hline
+{\em persistent} & \\
+\hline
+{\em physics} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a6a327bc5ea23b936b907301768b9a588}{override void \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a6a327bc5ea23b936b907301768b9a588}{On\-Exit} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a6a327bc5ea23b936b907301768b9a588}
+
+\begin{DoxyCompactList}\small\item\em Executed when a state ends execution of this behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+{\em physics} & \\
+\hline
+{\em persistent} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\item 
+override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ab55d0aedb4c743dae51f73520311eebf}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent, float delta\-Time)
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a8365b3c70f0167be0eb0f41167e2fb03}{override void {\bfseries On\-Detect} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float distance, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a8365b3c70f0167be0eb0f41167e2fb03}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a2aab9838c797aba8c79d66325e6e2874}{Behaviors}
+\begin{DoxyCompactList}\small\item\em The list of behaviors to execute. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract void \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ac6e65c6979be20a72eb991bd81722ec3}{Update\-Element} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, float delta\-Time, T element, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} element\-Data)
+\begin{DoxyCompactList}\small\item\em Updates physics and data using the specified array element from \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a2aab9838c797aba8c79d66325e6e2874}{Behaviors}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A behavior pipeline in which a set of behaviors are executed in turn. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ab6aaf60a0fbbc573158cfaecf7264040}{\index{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}!Get\-Behavior\-From@{Get\-Behavior\-From}}
+\index{Get\-Behavior\-From@{Get\-Behavior\-From}!Skyrates::AI::Composite::BehaviorPipeline< T >@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}}
+\subsubsection[{Get\-Behavior\-From}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf Behavior} {\bf Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline}$<$ T $>$.Get\-Behavior\-From (
+\begin{DoxyParamCaption}
+\item[{T}]{array\-Element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ab6aaf60a0fbbc573158cfaecf7264040}
+
+
+Returns the behavior specified by the object at the array element in \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a2aab9838c797aba8c79d66325e6e2874}{Behaviors}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array\-Element} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ab55d0aedb4c743dae51f73520311eebf}{\index{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}!Get\-Update@{Get\-Update}}
+\index{Get\-Update@{Get\-Update}!Skyrates::AI::Composite::BehaviorPipeline< T >@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}}
+\subsubsection[{Get\-Update}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf Data\-Persistent} {\bf Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline}$<$ T $>$.Get\-Update (
+\begin{DoxyParamCaption}
+\item[{ref {\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{{\bf Data\-Persistent}}]{persistent, }
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ab55d0aedb4c743dae51f73520311eebf}
+Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \href{https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior}{\tt https\-://gamedev.\-stackexchange.\-com/questions/121469/unity3d-\/smooth-\/rotation-\/for-\/seek-\/steering-\/behavior} 
+
+Implements \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_a7fa65944c064187ccd509bcef460ef99}{Skyrates.\-A\-I.\-Behavior}.
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ac6e65c6979be20a72eb991bd81722ec3}{\index{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}!Update\-Element@{Update\-Element}}
+\index{Update\-Element@{Update\-Element}!Skyrates::AI::Composite::BehaviorPipeline< T >@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}}
+\subsubsection[{Update\-Element}]{\setlength{\rightskip}{0pt plus 5cm}abstract void {\bf Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline}$<$ T $>$.Update\-Element (
+\begin{DoxyParamCaption}
+\item[{ref {\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{float}]{delta\-Time, }
+\item[{T}]{element, }
+\item[{ref {\bf Data\-Persistent}}]{element\-Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_ac6e65c6979be20a72eb991bd81722ec3}
+
+
+Updates physics and data using the specified array element from \hyperlink{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a2aab9838c797aba8c79d66325e6e2874}{Behaviors}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics} & \\
+\hline
+{\em behavioral} & \\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+{\em element} & \\
+\hline
+{\em element\-Data} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a2aab9838c797aba8c79d66325e6e2874}{\index{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}!Behaviors@{Behaviors}}
+\index{Behaviors@{Behaviors}!Skyrates::AI::Composite::BehaviorPipeline< T >@{Skyrates\-::\-A\-I\-::\-Composite\-::\-Behavior\-Pipeline$<$ T $>$}}
+\subsubsection[{Behaviors}]{\setlength{\rightskip}{0pt plus 5cm}T \mbox{[}$\,$\mbox{]} {\bf Skyrates.\-A\-I.\-Composite.\-Behavior\-Pipeline}$<$ T $>$.Behaviors}}\label{class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_a2aab9838c797aba8c79d66325e6e2874}
+
+
+The list of behaviors to execute. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/\-Composite/Behavior\-Pipeline.\-cs\end{DoxyCompactItemize}

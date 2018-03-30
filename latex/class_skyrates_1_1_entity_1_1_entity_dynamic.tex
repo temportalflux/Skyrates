@@ -1,0 +1,102 @@
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_dynamic}{\section{Skyrates.\-Entity.\-Entity\-Dynamic Class Reference}
+\label{class_skyrates_1_1_entity_1_1_entity_dynamic}\index{Skyrates.\-Entity.\-Entity\-Dynamic@{Skyrates.\-Entity.\-Entity\-Dynamic}}
+}
+
+
+Any entity in the world which moves around. By default, this object uses Steering, and it is the assumption that objects which move will use some form of steering.  
+
+
+Inheritance diagram for Skyrates.\-Entity.\-Entity\-Dynamic\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.993884cm]{class_skyrates_1_1_entity_1_1_entity_dynamic}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Transform \hyperlink{class_skyrates_1_1_entity_1_1_entity_dynamic_aa692ff9f52d25cb79e7df05533ea1360}{Get\-Render} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction/rotation that the entity is facing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} \hyperlink{class_skyrates_1_1_entity_1_1_entity_dynamic_ad02fdf789b5c8db16054651b9ff54bff}{Physics\-Data} = new \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data}()
+\begin{DoxyCompactList}\small\item\em The current physics data of this object. Updated via Steering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_dynamic_a503b81a15deedefda63fcab4d30958d1}{virtual void {\bfseries Awake} ()}\label{class_skyrates_1_1_entity_1_1_entity_dynamic_a503b81a15deedefda63fcab4d30958d1}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_dynamic_a3b42aad02be7ef1201b1b88f0b87feaa}{virtual void {\bfseries Fixed\-Update} ()}\label{class_skyrates_1_1_entity_1_1_entity_dynamic_a3b42aad02be7ef1201b1b88f0b87feaa}
+
+\item 
+virtual Transform \hyperlink{class_skyrates_1_1_entity_1_1_entity_dynamic_af4716ad1188a8ce8564d7165e0a133c1}{Get\-View} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction/rotation that the entity is viewing at (where it is looking from/to). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Rigidbody \hyperlink{class_skyrates_1_1_entity_1_1_entity_dynamic_af5b8ec5d728a356e1216f9eaca0e6bdc}{Physics}
+\begin{DoxyCompactList}\small\item\em The component which controls the physics of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Any entity in the world which moves around. By default, this object uses Steering, and it is the assumption that objects which move will use some form of steering. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_dynamic_aa692ff9f52d25cb79e7df05533ea1360}{\index{Skyrates\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}!Get\-Render@{Get\-Render}}
+\index{Get\-Render@{Get\-Render}!Skyrates::Entity::EntityDynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Get\-Render}]{\setlength{\rightskip}{0pt plus 5cm}virtual Transform Skyrates.\-Entity.\-Entity\-Dynamic.\-Get\-Render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_dynamic_aa692ff9f52d25cb79e7df05533ea1360}
+
+
+Returns the direction/rotation that the entity is facing. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a4285c0ec1c9f838c1cc5d70355139e9b}{Skyrates.\-Entity.\-Entity\-Ship}.
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_dynamic_af4716ad1188a8ce8564d7165e0a133c1}{\index{Skyrates\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}!Get\-View@{Get\-View}}
+\index{Get\-View@{Get\-View}!Skyrates::Entity::EntityDynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Get\-View}]{\setlength{\rightskip}{0pt plus 5cm}virtual Transform Skyrates.\-Entity.\-Entity\-Dynamic.\-Get\-View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_dynamic_af4716ad1188a8ce8564d7165e0a133c1}
+
+
+Returns the direction/rotation that the entity is viewing at (where it is looking from/to). 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_dynamic_af5b8ec5d728a356e1216f9eaca0e6bdc}{\index{Skyrates\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}!Physics@{Physics}}
+\index{Physics@{Physics}!Skyrates::Entity::EntityDynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Physics}]{\setlength{\rightskip}{0pt plus 5cm}Rigidbody Skyrates.\-Entity.\-Entity\-Dynamic.\-Physics\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_skyrates_1_1_entity_1_1_entity_dynamic_af5b8ec5d728a356e1216f9eaca0e6bdc}
+
+
+The component which controls the physics of the entity. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_dynamic_ad02fdf789b5c8db16054651b9ff54bff}{\index{Skyrates\-::\-Entity\-::\-Entity\-Dynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}!Physics\-Data@{Physics\-Data}}
+\index{Physics\-Data@{Physics\-Data}!Skyrates::Entity::EntityDynamic@{Skyrates\-::\-Entity\-::\-Entity\-Dynamic}}
+\subsubsection[{Physics\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Physics\-Data} Skyrates.\-Entity.\-Entity\-Dynamic.\-Physics\-Data = new {\bf Physics\-Data}()}}\label{class_skyrates_1_1_entity_1_1_entity_dynamic_ad02fdf789b5c8db16054651b9ff54bff}
+
+
+The current physics data of this object. Updated via Steering. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Entity/\-Dynamic/Entity\-Dynamic.\-cs\end{DoxyCompactItemize}

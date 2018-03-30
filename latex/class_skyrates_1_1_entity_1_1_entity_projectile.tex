@@ -1,0 +1,150 @@
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile}{\section{Skyrates.\-Entity.\-Entity\-Projectile Class Reference}
+\label{class_skyrates_1_1_entity_1_1_entity_projectile}\index{Skyrates.\-Entity.\-Entity\-Projectile@{Skyrates.\-Entity.\-Entity\-Projectile}}
+}
+
+
+A moving entity which has no steering, but a constant/trajectory force.  
+
+
+Inheritance diagram for Skyrates.\-Entity.\-Entity\-Projectile\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_skyrates_1_1_entity_1_1_entity_projectile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_entity_1_1_entity_projectile_a6899df19c569d3bb389e6ef935b27c97}{Get\-Attack} ()
+\begin{DoxyCompactList}\small\item\em Gets the base damage of the projectile. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_projectile_af0aa2a2d8e3df3b5e9a6c86616d6c46b}{Launch} (Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 impulse\-Force)
+\begin{DoxyCompactList}\small\item\em Applies initial velocity/position/rotation information. Should be called during object instantiation. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_projectile_ab402a467b9fa2d89be886b2a40910497}{Add\-Force} (Vector3 force)
+\begin{DoxyCompactList}\small\item\em Adds force to the projectile as if it was being launched (applies via Rigidbody with Force\-Mode.\-Impulse). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Rigidbody \hyperlink{class_skyrates_1_1_entity_1_1_entity_projectile_a8882ddff06e010914232b464f916704a}{Physics\-Component}
+\begin{DoxyCompactList}\small\item\em The component which controls physics. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_a1638947a56e89b987643b0a511ecf561}{float {\bfseries Attack}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_a1638947a56e89b987643b0a511ecf561}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_ae843aa3c9e8278052f514c76dbf77875}{\hyperlink{class_skyrates_1_1_mono_1_1_shooter}{Shooter} {\bfseries Shooter}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_ae843aa3c9e8278052f514c76dbf77875}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_projectile_a0d55be517e4dd2a7a22fbef3681f2ec2}{Start} ()
+\begin{DoxyCompactList}\small\item\em Called during the first frame \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_projectile_a545a608eb8cf7e5c7ab0ce7659b8bc27}{Fixed\-Update} ()
+\begin{DoxyCompactList}\small\item\em Unity event -\/ overrides things done in Entity\-Dynamic.\-Fixed\-Update in order to just set the physics data for network updating. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A moving entity which has no steering, but a constant/trajectory force. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_ab402a467b9fa2d89be886b2a40910497}{\index{Skyrates\-::\-Entity\-::\-Entity\-Projectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}!Add\-Force@{Add\-Force}}
+\index{Add\-Force@{Add\-Force}!Skyrates::Entity::EntityProjectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}}
+\subsubsection[{Add\-Force}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Projectile.\-Add\-Force (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{force}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_ab402a467b9fa2d89be886b2a40910497}
+
+
+Adds force to the projectile as if it was being launched (applies via Rigidbody with Force\-Mode.\-Impulse). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em force} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_a545a608eb8cf7e5c7ab0ce7659b8bc27}{\index{Skyrates\-::\-Entity\-::\-Entity\-Projectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}!Fixed\-Update@{Fixed\-Update}}
+\index{Fixed\-Update@{Fixed\-Update}!Skyrates::Entity::EntityProjectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}}
+\subsubsection[{Fixed\-Update}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Entity.\-Entity\-Projectile.\-Fixed\-Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_a545a608eb8cf7e5c7ab0ce7659b8bc27}
+
+
+Unity event -\/ overrides things done in Entity\-Dynamic.\-Fixed\-Update in order to just set the physics data for network updating. 
+
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_entity_1_1_entity_dynamic}{Skyrates.\-Entity.\-Entity\-Dynamic}.
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_a6899df19c569d3bb389e6ef935b27c97}{\index{Skyrates\-::\-Entity\-::\-Entity\-Projectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}!Get\-Attack@{Get\-Attack}}
+\index{Get\-Attack@{Get\-Attack}!Skyrates::Entity::EntityProjectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}}
+\subsubsection[{Get\-Attack}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-Entity.\-Entity\-Projectile.\-Get\-Attack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_a6899df19c569d3bb389e6ef935b27c97}
+
+
+Gets the base damage of the projectile. 
+
+\begin{DoxyReturn}{Returns}
+The base damage of the projectile
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_af0aa2a2d8e3df3b5e9a6c86616d6c46b}{\index{Skyrates\-::\-Entity\-::\-Entity\-Projectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}!Launch@{Launch}}
+\index{Launch@{Launch}!Skyrates::Entity::EntityProjectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}}
+\subsubsection[{Launch}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Projectile.\-Launch (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{position, }
+\item[{Quaternion}]{rotation, }
+\item[{Vector3}]{velocity, }
+\item[{Vector3}]{impulse\-Force}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_af0aa2a2d8e3df3b5e9a6c86616d6c46b}
+
+
+Applies initial velocity/position/rotation information. Should be called during object instantiation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em rotation} & \\
+\hline
+{\em velocity} & \\
+\hline
+{\em impulse\-Force} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_a0d55be517e4dd2a7a22fbef3681f2ec2}{\index{Skyrates\-::\-Entity\-::\-Entity\-Projectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}!Start@{Start}}
+\index{Start@{Start}!Skyrates::Entity::EntityProjectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}}
+\subsubsection[{Start}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-Entity.\-Entity\-Projectile.\-Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_a0d55be517e4dd2a7a22fbef3681f2ec2}
+
+
+Called during the first frame 
+
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_entity_1_1_entity_a014d40273b5d21520736b76ba9aaca92}{Skyrates.\-Entity.\-Entity}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_projectile_a8882ddff06e010914232b464f916704a}{\index{Skyrates\-::\-Entity\-::\-Entity\-Projectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}!Physics\-Component@{Physics\-Component}}
+\index{Physics\-Component@{Physics\-Component}!Skyrates::Entity::EntityProjectile@{Skyrates\-::\-Entity\-::\-Entity\-Projectile}}
+\subsubsection[{Physics\-Component}]{\setlength{\rightskip}{0pt plus 5cm}Rigidbody Skyrates.\-Entity.\-Entity\-Projectile.\-Physics\-Component}}\label{class_skyrates_1_1_entity_1_1_entity_projectile_a8882ddff06e010914232b464f916704a}
+
+
+The component which controls physics. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Entity/\-Dynamic/\-Projectile/Entity\-Projectile.\-cs\end{DoxyCompactItemize}

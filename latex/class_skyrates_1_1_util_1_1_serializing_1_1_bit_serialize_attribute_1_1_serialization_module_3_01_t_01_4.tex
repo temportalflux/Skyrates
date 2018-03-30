@@ -1,0 +1,154 @@
+\hypertarget{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4}{\section{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$ Class Template Reference}
+\label{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4}\index{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$@{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$}}
+}
+
+
+The implementation of \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module}{I\-Serialization\-Module}, where all the generic \char`\"{}object\char`\"{} fields are objects with the type T.  
+
+
+Inheritance diagram for Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_af4afbffb74489fa954ff6da86463119e}{Get\-Size} (object obj)
+\begin{DoxyCompactList}\small\item\em Determine the size of some object -\/ effectively sizeof(object). \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_a7acae741ac63e5c8553c17a2f09ed052}{Serialize} (object obj, byte\mbox{[}$\,$\mbox{]} data, int start)
+\begin{DoxyCompactList}\small\item\em Serialize a specfic object into a byte array. Returns the byte\mbox{[}\mbox{]} with the populated \-\_\-game\-State\-Data. \end{DoxyCompactList}\item 
+object \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_ad46c1938a2ab2b9b750e497f1ac2dd9d}{Deserialize} (object obj, byte\mbox{[}$\,$\mbox{]} data, int start, Type type)
+\begin{DoxyCompactList}\small\item\em Deserialize a byte array into an object with the type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Func$<$ T, int $>$ \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_adbe29acc599d47788a9215ab01364007}{\-\_\-\-Get\-Size}
+\begin{DoxyCompactList}\small\item\em A generic, and module settable, version of \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_aa1b15bcdfbdbf7422513276ffcf3d272}{I\-Serialization\-Module.\-Get\-Size(object)}. \end{DoxyCompactList}\item 
+Func$<$ T, byte\mbox{[}$\,$\mbox{]}, int, byte\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_acc07c7d7f8bb9725a4069d3297a25b43}{\-\_\-\-Serialize}
+\begin{DoxyCompactList}\small\item\em A generic, and module settable, version of \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a193efb5678e7782fb5de5c2f7c9116da}{I\-Serialization\-Module.\-Serialize(object, byte\mbox{[}$\,$\mbox{]}, int)}. \end{DoxyCompactList}\item 
+Func$<$ T, byte\mbox{[}$\,$\mbox{]}, int, Type, T $>$ \hyperlink{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_a18c91051263bb48bb0de1f2125f2f927}{\-\_\-\-Deserialize}
+\begin{DoxyCompactList}\small\item\em A generic, and module settable, version of I\-Serialization\-Module.\-Deserialize(byte\mbox{[}$\,$\mbox{]}, int). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The implementation of \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module}{I\-Serialization\-Module}, where all the generic \char`\"{}object\char`\"{} fields are objects with the type T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The generic type which this struct wraps the (De)Serialization of.\\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_ad46c1938a2ab2b9b750e497f1ac2dd9d}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!Skyrates::Util::Serializing::BitSerializeAttribute::SerializationModule< T >@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}object Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$.Deserialize (
+\begin{DoxyParamCaption}
+\item[{object}]{obj, }
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{int}]{start, }
+\item[{Type}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_ad46c1938a2ab2b9b750e497f1ac2dd9d}
+
+
+Deserialize a byte array into an object with the type T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the byte\mbox{[}\mbox{]} of \-\_\-game\-State\-Data.\\
+\hline
+{\em start} & How far into the serialized \-\_\-game\-State\-Data the object was put.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object with the type T
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a2b4853418bbc8b3ab6be091d674d282e}{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module}.
+
+\hypertarget{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_af4afbffb74489fa954ff6da86463119e}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}!Get\-Size@{Get\-Size}}
+\index{Get\-Size@{Get\-Size}!Skyrates::Util::Serializing::BitSerializeAttribute::SerializationModule< T >@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}}
+\subsubsection[{Get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$.Get\-Size (
+\begin{DoxyParamCaption}
+\item[{object}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_af4afbffb74489fa954ff6da86463119e}
+
+
+Determine the size of some object -\/ effectively sizeof(object). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The object with the type T.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_aa1b15bcdfbdbf7422513276ffcf3d272}{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module}.
+
+\hypertarget{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_a7acae741ac63e5c8553c17a2f09ed052}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Skyrates::Util::Serializing::BitSerializeAttribute::SerializationModule< T >@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}}
+\subsubsection[{Serialize}]{\setlength{\rightskip}{0pt plus 5cm}byte \mbox{[}$\,$\mbox{]} Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$.Serialize (
+\begin{DoxyParamCaption}
+\item[{object}]{obj, }
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{int}]{start}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_a7acae741ac63e5c8553c17a2f09ed052}
+
+
+Serialize a specfic object into a byte array. Returns the byte\mbox{[}\mbox{]} with the populated \-\_\-game\-State\-Data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The object to serialize with the type T.\\
+\hline
+{\em data} & The byte array of \-\_\-game\-State\-Data.\\
+\hline
+{\em start} & How far into the \-\_\-game\-State\-Data to put the object's serialized \-\_\-game\-State\-Data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte\mbox{[}\mbox{]}
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a193efb5678e7782fb5de5c2f7c9116da}{Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-I\-Serialization\-Module}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_a18c91051263bb48bb0de1f2125f2f927}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}!\-\_\-\-Deserialize@{\-\_\-\-Deserialize}}
+\index{\-\_\-\-Deserialize@{\-\_\-\-Deserialize}!Skyrates::Util::Serializing::BitSerializeAttribute::SerializationModule< T >@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}}
+\subsubsection[{\-\_\-\-Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}Func$<$T, byte\mbox{[}$\,$\mbox{]}, int, Type, T$>$ Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$.\-\_\-\-Deserialize}}\label{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_a18c91051263bb48bb0de1f2125f2f927}
+
+
+A generic, and module settable, version of I\-Serialization\-Module.\-Deserialize(byte\mbox{[}$\,$\mbox{]}, int). 
+
+\hypertarget{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_adbe29acc599d47788a9215ab01364007}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}!\-\_\-\-Get\-Size@{\-\_\-\-Get\-Size}}
+\index{\-\_\-\-Get\-Size@{\-\_\-\-Get\-Size}!Skyrates::Util::Serializing::BitSerializeAttribute::SerializationModule< T >@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}}
+\subsubsection[{\-\_\-\-Get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}Func$<$T, int$>$ Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$.\-\_\-\-Get\-Size}}\label{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_adbe29acc599d47788a9215ab01364007}
+
+
+A generic, and module settable, version of \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_aa1b15bcdfbdbf7422513276ffcf3d272}{I\-Serialization\-Module.\-Get\-Size(object)}. 
+
+\hypertarget{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_acc07c7d7f8bb9725a4069d3297a25b43}{\index{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}!\-\_\-\-Serialize@{\-\_\-\-Serialize}}
+\index{\-\_\-\-Serialize@{\-\_\-\-Serialize}!Skyrates::Util::Serializing::BitSerializeAttribute::SerializationModule< T >@{Skyrates\-::\-Util\-::\-Serializing\-::\-Bit\-Serialize\-Attribute\-::\-Serialization\-Module$<$ T $>$}}
+\subsubsection[{\-\_\-\-Serialize}]{\setlength{\rightskip}{0pt plus 5cm}Func$<$T, byte\mbox{[}$\,$\mbox{]}, int, byte\mbox{[}$\,$\mbox{]}$>$ Skyrates.\-Util.\-Serializing.\-Bit\-Serialize\-Attribute.\-Serialization\-Module$<$ T $>$.\-\_\-\-Serialize}}\label{class_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_serialization_module_3_01_t_01_4_acc07c7d7f8bb9725a4069d3297a25b43}
+
+
+A generic, and module settable, version of \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_bit_serialize_attribute_1_1_i_serialization_module_a193efb5678e7782fb5de5c2f7c9116da}{I\-Serialization\-Module.\-Serialize(object, byte\mbox{[}$\,$\mbox{]}, int)}. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Util/\-Serializing/Bit\-Serialize\-Attribute.\-cs\end{DoxyCompactItemize}

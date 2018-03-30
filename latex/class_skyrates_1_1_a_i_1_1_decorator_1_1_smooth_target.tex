@@ -1,0 +1,89 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target}{\section{Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target}\index{Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target@{Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target}}
+}
+
+
+Overwrites the behavioral target to linearly interpolate from the previous location to the target location.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_1_1_persistent}{Persistent}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a8953e0395b1f115449335af08241e9e1}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a8953e0395b1f115449335af08241e9e1}{Create\-Persistent\-Data} ()}\label{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a8953e0395b1f115449335af08241e9e1}
+
+\begin{DoxyCompactList}\small\item\em Returns an object to be held by the agent which has custom data which cannot go in an asset. i.\-e. the index of a target in a list. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a38b2823d479254250b30bf46909f23d5}{override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a38b2823d479254250b30bf46909f23d5}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent, float delta\-Time)}\label{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a38b2823d479254250b30bf46909f23d5}
+
+\begin{DoxyCompactList}\small\item\em Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a4d83be120553c3b0d42b6cf78d28386d}{Interpolation\-Speed}
+\begin{DoxyCompactList}\small\item\em The speed at which the target will move from its last known location to the next location. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a48d78b71d13d4bdbb8ed967d30e26242}{Distance\-Arrived}
+\begin{DoxyCompactList}\small\item\em The distance at which the target is snapped to (prevents long decimals to approximate the location). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_adc10e090c813636e9c0c169333424e4d}{override void {\bfseries On\-Enable} ()}\label{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_adc10e090c813636e9c0c169333424e4d}
+
+\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a48e2ee1629c8c6dba0c8e56739f624d6}{override void {\bfseries On\-Disable} ()}\label{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a48e2ee1629c8c6dba0c8e56739f624d6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Overwrites the behavioral target to linearly interpolate from the previous location to the target location. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a48d78b71d13d4bdbb8ed967d30e26242}{\index{Skyrates\-::\-A\-I\-::\-Decorator\-::\-Smooth\-Target@{Skyrates\-::\-A\-I\-::\-Decorator\-::\-Smooth\-Target}!Distance\-Arrived@{Distance\-Arrived}}
+\index{Distance\-Arrived@{Distance\-Arrived}!Skyrates::AI::Decorator::SmoothTarget@{Skyrates\-::\-A\-I\-::\-Decorator\-::\-Smooth\-Target}}
+\subsubsection[{Distance\-Arrived}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target.\-Distance\-Arrived}}\label{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a48d78b71d13d4bdbb8ed967d30e26242}
+
+
+The distance at which the target is snapped to (prevents long decimals to approximate the location). 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a4d83be120553c3b0d42b6cf78d28386d}{\index{Skyrates\-::\-A\-I\-::\-Decorator\-::\-Smooth\-Target@{Skyrates\-::\-A\-I\-::\-Decorator\-::\-Smooth\-Target}!Interpolation\-Speed@{Interpolation\-Speed}}
+\index{Interpolation\-Speed@{Interpolation\-Speed}!Skyrates::AI::Decorator::SmoothTarget@{Skyrates\-::\-A\-I\-::\-Decorator\-::\-Smooth\-Target}}
+\subsubsection[{Interpolation\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Decorator.\-Smooth\-Target.\-Interpolation\-Speed}}\label{class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_a4d83be120553c3b0d42b6cf78d28386d}
+
+
+The speed at which the target will move from its last known location to the next location. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/\-Decorator/Smooth\-Target.\-cs\end{DoxyCompactItemize}

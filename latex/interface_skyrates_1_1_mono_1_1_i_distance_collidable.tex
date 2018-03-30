@@ -1,0 +1,80 @@
+\hypertarget{interface_skyrates_1_1_mono_1_1_i_distance_collidable}{\section{Skyrates.\-Mono.\-I\-Distance\-Collidable Interface Reference}
+\label{interface_skyrates_1_1_mono_1_1_i_distance_collidable}\index{Skyrates.\-Mono.\-I\-Distance\-Collidable@{Skyrates.\-Mono.\-I\-Distance\-Collidable}}
+}
+
+
+Interface detected during overlap in \hyperlink{class_skyrates_1_1_mono_1_1_distance_collider}{Distance\-Collider}.  
+
+
+Inheritance diagram for Skyrates.\-Mono.\-I\-Distance\-Collidable\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.140673cm]{interface_skyrates_1_1_mono_1_1_i_distance_collidable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interface_skyrates_1_1_mono_1_1_i_distance_collidable_aa7510e2d3a8388e1f28f67c5a83455c7}{On\-Enter\-Entity\-Radius} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} source, float radius)
+\begin{DoxyCompactList}\small\item\em We enter source's area. Called from source on the colliable that has entered the area around source \end{DoxyCompactList}\item 
+void \hyperlink{interface_skyrates_1_1_mono_1_1_i_distance_collidable_ab14aebc6f6831e744190428d8d712294}{On\-Overlap\-With} (Game\-Object other, float radius)
+\begin{DoxyCompactList}\small\item\em Other enters our area. When we move into an area such that other has entered our area \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface detected during overlap in \hyperlink{class_skyrates_1_1_mono_1_1_distance_collider}{Distance\-Collider}. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_skyrates_1_1_mono_1_1_i_distance_collidable_aa7510e2d3a8388e1f28f67c5a83455c7}{\index{Skyrates\-::\-Mono\-::\-I\-Distance\-Collidable@{Skyrates\-::\-Mono\-::\-I\-Distance\-Collidable}!On\-Enter\-Entity\-Radius@{On\-Enter\-Entity\-Radius}}
+\index{On\-Enter\-Entity\-Radius@{On\-Enter\-Entity\-Radius}!Skyrates::Mono::IDistanceCollidable@{Skyrates\-::\-Mono\-::\-I\-Distance\-Collidable}}
+\subsubsection[{On\-Enter\-Entity\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Mono.\-I\-Distance\-Collidable.\-On\-Enter\-Entity\-Radius (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\-A\-I}}]{source, }
+\item[{float}]{radius}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_mono_1_1_i_distance_collidable_aa7510e2d3a8388e1f28f67c5a83455c7}
+
+
+We enter source's area. Called from source on the colliable that has entered the area around source 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a8fd2d35300cf694c74cb273ab4f20fb9}{Skyrates.\-Entity.\-Entity\-A\-I}, \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a7656e5c202f143db0c6659bd199a18be}{Skyrates.\-Entity.\-Entity\-Cannon}, \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_n_p_c_ab4329cb50415633feb0d5d6ea191fe0d}{Skyrates.\-Entity.\-Entity\-Ship\-N\-P\-C}, \hyperlink{class_skyrates_1_1_entity_1_1_entity_mooring_ab02449c71583baf95a8e7ee93ea5ed6e}{Skyrates.\-Entity.\-Entity\-Mooring}, \hyperlink{class_skyrates_1_1_loot_1_1_loot_a85d78f74c6297f83b60fbfadeecf7ce4}{Skyrates.\-Loot.\-Loot}, and \hyperlink{class_skyrates_1_1_ship_1_1_forward_collisions_to_a7a20129462eebd5db6260c9bf498e916}{Skyrates.\-Ship.\-Forward\-Collisions\-To}.
+
+\hypertarget{interface_skyrates_1_1_mono_1_1_i_distance_collidable_ab14aebc6f6831e744190428d8d712294}{\index{Skyrates\-::\-Mono\-::\-I\-Distance\-Collidable@{Skyrates\-::\-Mono\-::\-I\-Distance\-Collidable}!On\-Overlap\-With@{On\-Overlap\-With}}
+\index{On\-Overlap\-With@{On\-Overlap\-With}!Skyrates::Mono::IDistanceCollidable@{Skyrates\-::\-Mono\-::\-I\-Distance\-Collidable}}
+\subsubsection[{On\-Overlap\-With}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Mono.\-I\-Distance\-Collidable.\-On\-Overlap\-With (
+\begin{DoxyParamCaption}
+\item[{Game\-Object}]{other, }
+\item[{float}]{radius}
+\end{DoxyParamCaption}
+)}}\label{interface_skyrates_1_1_mono_1_1_i_distance_collidable_ab14aebc6f6831e744190428d8d712294}
+
+
+Other enters our area. When we move into an area such that other has entered our area 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i_a8a8784a8459775157d9d23fa95866af1}{Skyrates.\-Entity.\-Entity\-A\-I}, \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_ad4bfa608f86d94a38367b75f9fc32f21}{Skyrates.\-Entity.\-Entity\-Player\-Ship}, \hyperlink{class_skyrates_1_1_entity_1_1_entity_cannon_a7c74c0b5db5b94f9fa69d91e1c6f087a}{Skyrates.\-Entity.\-Entity\-Cannon}, \hyperlink{class_skyrates_1_1_entity_1_1_entity_mooring_af20bacf6321aec707732cd487bcbe812}{Skyrates.\-Entity.\-Entity\-Mooring}, \hyperlink{class_skyrates_1_1_loot_1_1_loot_a622463b31bab8becf2c286dd2bf9df1a}{Skyrates.\-Loot.\-Loot}, and \hyperlink{class_skyrates_1_1_ship_1_1_forward_collisions_to_a92d151e3bbd6d216f70bbf0fc6d5a27b}{Skyrates.\-Ship.\-Forward\-Collisions\-To}.
+
+
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Collider/Distance\-Collider.\-cs\end{DoxyCompactItemize}

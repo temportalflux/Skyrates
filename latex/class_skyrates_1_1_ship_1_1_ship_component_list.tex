@@ -1,0 +1,114 @@
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_component_list}{\section{Skyrates.\-Ship.\-Ship\-Component\-List Class Reference}
+\label{class_skyrates_1_1_ship_1_1_ship_component_list}\index{Skyrates.\-Ship.\-Ship\-Component\-List@{Skyrates.\-Ship.\-Ship\-Component\-List}}
+}
+
+
+The listings of all components used in ships. Referenced by \hyperlink{class_skyrates_1_1_ship_1_1_ship_rig}{Ship\-Rig} and \hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} for generating ship rigs and syncing them across the network.  
+
+
+Inheritance diagram for Skyrates.\-Ship.\-Ship\-Component\-List\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_ship_1_1_ship_component_list}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_component_list_a203816146c8f0f45891760cc44fd9734}{override object \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_a203816146c8f0f45891760cc44fd9734}{Get\-Key\-From} (int index)}\label{class_skyrates_1_1_ship_1_1_ship_component_list_a203816146c8f0f45891760cc44fd9734}
+
+\begin{DoxyCompactList}\small\item\em Returns an integer as a user readable key (usually enum). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_component_list_a500cd86160607f8f5ee413b502f7b2e2}{override int \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_a500cd86160607f8f5ee413b502f7b2e2}{Get\-Index\-From} (object key)}\label{class_skyrates_1_1_ship_1_1_ship_component_list_a500cd86160607f8f5ee413b502f7b2e2}
+
+\begin{DoxyCompactList}\small\item\em Returns the key as an integer (good for serialization). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component} \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_a2bbeb0e895095601c7a70fb3954f6c17}{Get\-Raw\-Component} (Component\-Type comp\-Type, int index)
+\begin{DoxyCompactList}\small\item\em Returns the ship component of specified type and at a specfic index in the listing. \end{DoxyCompactList}\item 
+T \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_aec118a46c41449adc8e75b12d8157ab5}{Get\-Component$<$ T $>$} (Component\-Type comp\-Type, int index)
+\begin{DoxyCompactList}\small\item\em Returns \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_a2bbeb0e895095601c7a70fb3954f6c17}{Get\-Raw\-Component} casted to a subclass of \hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The listings of all components used in ships. Referenced by \hyperlink{class_skyrates_1_1_ship_1_1_ship_rig}{Ship\-Rig} and \hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} for generating ship rigs and syncing them across the network. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_component_list_aec118a46c41449adc8e75b12d8157ab5}{\index{Skyrates\-::\-Ship\-::\-Ship\-Component\-List@{Skyrates\-::\-Ship\-::\-Ship\-Component\-List}!Get\-Component$<$ T $>$@{Get\-Component$<$ T $>$}}
+\index{Get\-Component$<$ T $>$@{Get\-Component$<$ T $>$}!Skyrates::Ship::ShipComponentList@{Skyrates\-::\-Ship\-::\-Ship\-Component\-List}}
+\subsubsection[{Get\-Component$<$ T $>$}]{\setlength{\rightskip}{0pt plus 5cm}T Skyrates.\-Ship.\-Ship\-Component\-List.\-Get\-Component$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{Component\-Type}]{comp\-Type, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_component_list_aec118a46c41449adc8e75b12d8157ab5}
+
+
+Returns \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list_a2bbeb0e895095601c7a70fb3954f6c17}{Get\-Raw\-Component} casted to a subclass of \hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em comp\-Type} & \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Ship\-Component}]\end{description}
+\end{Desc}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_component_list_a2bbeb0e895095601c7a70fb3954f6c17}{\index{Skyrates\-::\-Ship\-::\-Ship\-Component\-List@{Skyrates\-::\-Ship\-::\-Ship\-Component\-List}!Get\-Raw\-Component@{Get\-Raw\-Component}}
+\index{Get\-Raw\-Component@{Get\-Raw\-Component}!Skyrates::Ship::ShipComponentList@{Skyrates\-::\-Ship\-::\-Ship\-Component\-List}}
+\subsubsection[{Get\-Raw\-Component}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Component} Skyrates.\-Ship.\-Ship\-Component\-List.\-Get\-Raw\-Component (
+\begin{DoxyParamCaption}
+\item[{Component\-Type}]{comp\-Type, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_component_list_a2bbeb0e895095601c7a70fb3954f6c17}
+
+
+Returns the ship component of specified type and at a specfic index in the listing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comp\-Type} & \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Ship/\-Assets/Ship\-Component\-List.\-cs\end{DoxyCompactItemize}

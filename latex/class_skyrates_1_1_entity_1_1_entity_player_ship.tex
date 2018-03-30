@@ -1,0 +1,149 @@
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship}{\section{Skyrates.\-Entity.\-Entity\-Player\-Ship Class Reference}
+\label{class_skyrates_1_1_entity_1_1_entity_player_ship}\index{Skyrates.\-Entity.\-Entity\-Player\-Ship@{Skyrates.\-Entity.\-Entity\-Player\-Ship}}
+}
+
+
+The ship that a player controls.  
+
+
+Inheritance diagram for Skyrates.\-Entity.\-Entity\-Player\-Ship\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.000000cm]{class_skyrates_1_1_entity_1_1_entity_player_ship}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_ad4bfa608f86d94a38367b75f9fc32f21}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_ad4bfa608f86d94a38367b75f9fc32f21}{On\-Overlap\-With} (Game\-Object other, float radius)}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_ad4bfa608f86d94a38367b75f9fc32f21}
+
+\begin{DoxyCompactList}\small\item\em Other enters our area. When we move into an area such that other has entered our area 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_ac0928986c7d12c7c18bc3252d48eb15d}{On\-Loot\-Collided} (\hyperlink{class_skyrates_1_1_loot_1_1_loot}{Loot.\-Loot} loot)
+\begin{DoxyCompactList}\small\item\em Called when this object collides with loot. Adds loot to the \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}{Player\-Data} and updates U\-I/\-U\-X information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}{Ship\-Data}
+\begin{DoxyCompactList}\small\item\em The network safe data which has information about the modular-\/ship. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_data_1_1_player_data}{Player\-Data} \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}{Player\-Data}
+\begin{DoxyCompactList}\small\item\em The non-\/networked data local to the player. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_generator}{Ship\-Generator} \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_abec0fc0c6cc3462c7019ac48b74879ca}{Ship\-Generator\-Root}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{namespace_skyrates_1_1_ship}{Ship} component which creates the modular ship. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a0b37ded3d1ec394e438162dea44267a0}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a0b37ded3d1ec394e438162dea44267a0}{Awake} ()}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a0b37ded3d1ec394e438162dea44267a0}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a3ec87decde48c47efda4fe077a657595}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a3ec87decde48c47efda4fe077a657595}{On\-Destroy} ()}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a3ec87decde48c47efda4fe077a657595}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a29f6fb7474024c577fdf251ef52ce2fd}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a29f6fb7474024c577fdf251ef52ce2fd}{Fixed\-Update} ()}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a29f6fb7474024c577fdf251ef52ce2fd}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a732afbeabe9403b7be8b8c283bd6962a}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a732afbeabe9403b7be8b8c283bd6962a}{Apply\-Rotations} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, float delta\-Time)}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a732afbeabe9403b7be8b8c283bd6962a}
+
+\begin{DoxyCompactList}\small\item\em Applies rotation to the entity 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a5c786d11582c22d9ab800ed457449801}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a5c786d11582c22d9ab800ed457449801}{Update\-Animations} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics)}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a5c786d11582c22d9ab800ed457449801}
+
+\begin{DoxyCompactList}\small\item\em Update any animations based on movement 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a2692a8bb63e6a3dc1583eb273a447db7}{override void {\bfseries Force\-Stop} ()}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a2692a8bb63e6a3dc1583eb273a447db7}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a6c97060ca9e600928b56dc82cf351ac3}{override bool \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a6c97060ca9e600928b56dc82cf351ac3}{On\-Pre\-Destroy} ()}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a6c97060ca9e600928b56dc82cf351ac3}
+
+\begin{DoxyCompactList}\small\item\em Called right before a ship is destroyed via \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a3ad30bc27cf8344c4acbfea78f8ee373}{Take\-Damage(\-Entity, float)} 
+
+\begin{DoxyReturn}{Returns}
+True if the object can be destroyed
+\end{DoxyReturn}
+ \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_aee94c642f363a28bd296b9255efe7039}{override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_aee94c642f363a28bd296b9255efe7039}{Spawn\-Loot} (Vector3 position)}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_aee94c642f363a28bd296b9255efe7039}
+
+\begin{DoxyCompactList}\small\item\em Generates/\-Spawns loot according to the loot table in Stat\-Block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The ship that a player controls. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_ac0928986c7d12c7c18bc3252d48eb15d}{\index{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}!On\-Loot\-Collided@{On\-Loot\-Collided}}
+\index{On\-Loot\-Collided@{On\-Loot\-Collided}!Skyrates::Entity::EntityPlayerShip@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}}
+\subsubsection[{On\-Loot\-Collided}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Player\-Ship.\-On\-Loot\-Collided (
+\begin{DoxyParamCaption}
+\item[{{\bf Loot.\-Loot}}]{loot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_ac0928986c7d12c7c18bc3252d48eb15d}
+
+
+Called when this object collides with loot. Adds loot to the \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}{Player\-Data} and updates U\-I/\-U\-X information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loot} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}{\index{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}!Player\-Data@{Player\-Data}}
+\index{Player\-Data@{Player\-Data}!Skyrates::Entity::EntityPlayerShip@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}}
+\subsubsection[{Player\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player\-Data} Skyrates.\-Entity.\-Entity\-Player\-Ship.\-Player\-Data}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}
+
+
+The non-\/networked data local to the player. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}{\index{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}!Ship\-Data@{Ship\-Data}}
+\index{Ship\-Data@{Ship\-Data}!Skyrates::Entity::EntityPlayerShip@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}}
+\subsubsection[{Ship\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Data} Skyrates.\-Entity.\-Entity\-Player\-Ship.\-Ship\-Data}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}
+
+
+The network safe data which has information about the modular-\/ship. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_abec0fc0c6cc3462c7019ac48b74879ca}{\index{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}!Ship\-Generator\-Root@{Ship\-Generator\-Root}}
+\index{Ship\-Generator\-Root@{Ship\-Generator\-Root}!Skyrates::Entity::EntityPlayerShip@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}}
+\subsubsection[{Ship\-Generator\-Root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Generator} Skyrates.\-Entity.\-Entity\-Player\-Ship.\-Ship\-Generator\-Root}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_abec0fc0c6cc3462c7019ac48b74879ca}
+
+
+The \hyperlink{namespace_skyrates_1_1_ship}{Ship} component which creates the modular ship. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Entity/\-Dynamic/\-A\-I/\-Ship/Entity\-Player\-Ship.\-cs\end{DoxyCompactItemize}

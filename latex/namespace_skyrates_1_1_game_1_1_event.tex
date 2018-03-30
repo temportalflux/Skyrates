@@ -1,0 +1,115 @@
+\hypertarget{namespace_skyrates_1_1_game_1_1_event}{\section{Package Skyrates.\-Game.\-Event}
+\label{namespace_skyrates_1_1_game_1_1_event}\index{Skyrates.\-Game.\-Event@{Skyrates.\-Game.\-Event}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_active_reload_begin}{Event\-Active\-Reload\-Begin}
+\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_artillery_fired}{Event\-Artillery\-Fired}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_game_1_1_event}{Event} dispatched when artillery is fired \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_enemy_target_engage}{Event\-Enemy\-Target\-Engage}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_game_1_1_event}{Event} for enmies engaging/disengaging in combat with a player. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_entity}{Event\-Entity}
+\begin{DoxyCompactList}\small\item\em Generic event which has an entity. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_entity_player_ship}{Event\-Entity\-Player\-Ship}
+\begin{DoxyCompactList}\small\item\em Generic event in which an entity in the event is a player ship. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_entity_ship}{Event\-Entity\-Ship}
+\begin{DoxyCompactList}\small\item\em An event in which the entity is an Entity\-Ship. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_entity_ship_damaged}{Event\-Entity\-Ship\-Damaged}
+\begin{DoxyCompactList}\small\item\em An event in which the entity ship is damaged by some other entity. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_projectile}{Event\-Entity\-Ship\-Hit\-By\-Projectile}
+\begin{DoxyCompactList}\small\item\em A special case of causing damage to a ship via projectile. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_entity_ship_hit_by_ram}{Event\-Entity\-Ship\-Hit\-By\-Ram}
+\begin{DoxyCompactList}\small\item\em A special case of causing damage to a ship via another ship's ram. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_game_start}{Event\-Game\-Start}
+\begin{DoxyCompactList}\small\item\em Dispatched when a game starts (regardless of if the network \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_loot_collected}{Event\-Loot\-Collected}
+\begin{DoxyCompactList}\small\item\em Dispatched when loot is collected by a local player. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_loot_collided}{Event\-Loot\-Collided}
+\begin{DoxyCompactList}\small\item\em Dispatched when loot is collided with by an Entity\-Player\-Ship. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_menu_button_pressed}{Event\-Menu\-Button\-Pressed}
+\begin{DoxyCompactList}\small\item\em Dispatched when a game starts (regardless of if the network \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_player_left}{Event\-Player\-Left}
+\begin{DoxyCompactList}\small\item\em Dispatched when a player leaves the network interface / client disconnects. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_scene_loaded}{Event\-Scene\-Loaded}
+\begin{DoxyCompactList}\small\item\em Dispatched when a scene has finished loading via Scene\-Loader. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_event_spawn_entity_projectile}{Event\-Spawn\-Entity\-Projectile}
+\begin{DoxyCompactList}\small\item\em Dispatched when a projectile should be spawned. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event}
+\begin{DoxyCompactList}\small\item\em General event class used to send information via \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_events}{Game\-Events}. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event_hook}{Game\-Event\-Hook}
+\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_events}{Game\-Events}
+\begin{DoxyCompactList}\small\item\em Dispatcher of \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event} instances, and place for observers to subscribe to events via their delegate. \end{DoxyCompactList}\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_hook_player_fire_artillery}{Hook\-Player\-Fire\-Artillery}
+\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_hook_player_hit_by_projectile}{Hook\-Player\-Hit\-By\-Projectile}
+\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_hook_player_hit_by_ram}{Hook\-Player\-Hit\-By\-Ram}
+\item 
+class \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_hook_player_hit_with_ram}{Hook\-Player\-Hit\-With\-Ram}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_skyrates_1_1_game_1_1_event_ad31565d2f03f234f8f77ebf23ff8f150}{Game\-Event\-I\-D} \{ \\*
+{\bfseries Game\-Start}, 
+{\bfseries Scene\-Loaded}, 
+{\bfseries Entity\-Instantiate}, 
+{\bfseries Entity\-Start}, 
+\\*
+{\bfseries Entity\-Destroy}, 
+{\bfseries Spawn\-Entity\-Projectile}, 
+{\bfseries Artillery\-Fired}, 
+{\bfseries Entity\-Ship\-Damaged}, 
+\\*
+{\bfseries Entity\-Ship\-Hit\-By\-Projectile}, 
+{\bfseries Entity\-Ship\-Hit\-By\-Ram}, 
+{\bfseries Enemy\-Target\-Engage}, 
+{\bfseries Enemy\-Target\-Disengage}, 
+\\*
+{\bfseries Player\-Moved}, 
+{\bfseries Player\-Left}, 
+{\bfseries Loot\-Collided}, 
+{\bfseries Loot\-Collected}, 
+\\*
+{\bfseries Active\-Reload\-Begin}, 
+{\bfseries Player\-Interact}, 
+{\bfseries Menu\-Button\-Pressed}
+ \}
+\begin{DoxyCompactList}\small\item\em All the types of \hyperlink{class_game}{Game} Events (each must have their own event delegate). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+delegate void \hyperlink{namespace_skyrates_1_1_game_1_1_event_a06bcdcadb00cfbf4d4ebd1b2e6ad623d}{Game\-Event\-Delegate} (\hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event} evt)
+\begin{DoxyCompactList}\small\item\em The template for events of \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespace_skyrates_1_1_game_1_1_event_ad31565d2f03f234f8f77ebf23ff8f150}{\index{Skyrates\-::\-Game\-::\-Event@{Skyrates\-::\-Game\-::\-Event}!Game\-Event\-I\-D@{Game\-Event\-I\-D}}
+\index{Game\-Event\-I\-D@{Game\-Event\-I\-D}!Skyrates::Game::Event@{Skyrates\-::\-Game\-::\-Event}}
+\subsubsection[{Game\-Event\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Skyrates.\-Game.\-Event.\-Game\-Event\-I\-D}}}\label{namespace_skyrates_1_1_game_1_1_event_ad31565d2f03f234f8f77ebf23ff8f150}
+
+
+All the types of \hyperlink{namespace_skyrates_1_1_game}{Game} Events (each must have their own event delegate). 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{namespace_skyrates_1_1_game_1_1_event_a06bcdcadb00cfbf4d4ebd1b2e6ad623d}{\index{Skyrates\-::\-Game\-::\-Event@{Skyrates\-::\-Game\-::\-Event}!Game\-Event\-Delegate@{Game\-Event\-Delegate}}
+\index{Game\-Event\-Delegate@{Game\-Event\-Delegate}!Skyrates::Game::Event@{Skyrates\-::\-Game\-::\-Event}}
+\subsubsection[{Game\-Event\-Delegate}]{\setlength{\rightskip}{0pt plus 5cm}delegate void Skyrates.\-Game.\-Event.\-Game\-Event\-Delegate (
+\begin{DoxyParamCaption}
+\item[{Game\-Event}]{evt}
+\end{DoxyParamCaption}
+)}}\label{namespace_skyrates_1_1_game_1_1_event_a06bcdcadb00cfbf4d4ebd1b2e6ad623d}
+
+
+The template for events of \hyperlink{class_skyrates_1_1_game_1_1_event_1_1_game_event}{Game\-Event}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & \\
+\hline
+\end{DoxyParams}

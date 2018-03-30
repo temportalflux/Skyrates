@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['healthfeedback',['HealthFeedback',['../class_ship_stat_1_1_health_feedback.html',1,'ShipStat']]],
-  ['hulltargeteditor',['HullTargetEditor',['../class_skyrates_1_1_client_1_1_ship_1_1_hull_target_editor.html',1,'Skyrates::Client::Ship']]]
+  ['hookplayerfireartillery',['HookPlayerFireArtillery',['../class_skyrates_1_1_game_1_1_event_1_1_hook_player_fire_artillery.html',1,'Skyrates::Game::Event']]],
+  ['hookplayerhitbyprojectile',['HookPlayerHitByProjectile',['../class_skyrates_1_1_game_1_1_event_1_1_hook_player_hit_by_projectile.html',1,'Skyrates::Game::Event']]],
+  ['hookplayerhitbyram',['HookPlayerHitByRam',['../class_skyrates_1_1_game_1_1_event_1_1_hook_player_hit_by_ram.html',1,'Skyrates::Game::Event']]],
+  ['hookplayerhitwithram',['HookPlayerHitWithRam',['../class_skyrates_1_1_game_1_1_event_1_1_hook_player_hit_with_ram.html',1,'Skyrates::Game::Event']]]
 ];

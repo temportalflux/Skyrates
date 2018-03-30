@@ -1,0 +1,88 @@
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek}{\section{Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek Class Reference}
+\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek}\index{Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek@{Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek}}
+}
+
+
+Full force steering -\/ just go for it.  
+
+
+Inheritance diagram for Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_a71808935baa1eb950feca8c380b157e0}{Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent, float delta\-Time)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_a9d52531865fdebc48a215c22e654c289}{Max\-Acceleration}
+\begin{DoxyCompactList}\small\item\em Acceleration coefficient in the target direction. \end{DoxyCompactList}\item 
+float \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_adc4ddeda4be51c62075cb46acd418ed9}{Seek\-Target\-Multiplier} = 1
+\begin{DoxyCompactList}\small\item\em Multiplies the target direction (which is then normalized). This value will have no effect regardless of nominal value. However, setting this to a negative (-\/1) will turn seek into flee. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Full force steering -\/ just go for it. 
+
+Derived from pg 57 of Artifical Intelligence for Games 2nd Edition Ian Millington \& John Funge 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_a71808935baa1eb950feca8c380b157e0}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek}!Get\-Update@{Get\-Update}}
+\index{Get\-Update@{Get\-Update}!Skyrates::AI::Steering::Basic::Seek@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek}}
+\subsubsection[{Get\-Update}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf Data\-Persistent} Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek.\-Get\-Update (
+\begin{DoxyParamCaption}
+\item[{ref {\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{{\bf Data\-Persistent}}]{persistent, }
+\item[{float}]{delta\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_a71808935baa1eb950feca8c380b157e0}
+Called to request updated physics. Recommend running on a fixed time step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & data specfic to the owner\\
+\hline
+{\em physics} & the data that is steering the owner\\
+\hline
+{\em persistent} & \\
+\hline
+{\em delta\-Time} & \\
+\hline
+\end{DoxyParams}
+ \href{https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior}{\tt https\-://gamedev.\-stackexchange.\-com/questions/121469/unity3d-\/smooth-\/rotation-\/for-\/seek-\/steering-\/behavior} 
+
+Implements \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_a7fa65944c064187ccd509bcef460ef99}{Skyrates.\-A\-I.\-Behavior}.
+
+
+
+Reimplemented in \hyperlink{class_skyrates_1_1_a_i_1_1_steering_1_1_delegated_1_1_pursue_a85e6b58d0a48e496dfe3b60c2b4a4a82}{Skyrates.\-A\-I.\-Steering.\-Delegated.\-Pursue}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_a9d52531865fdebc48a215c22e654c289}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek}!Max\-Acceleration@{Max\-Acceleration}}
+\index{Max\-Acceleration@{Max\-Acceleration}!Skyrates::AI::Steering::Basic::Seek@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek}}
+\subsubsection[{Max\-Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek.\-Max\-Acceleration}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_a9d52531865fdebc48a215c22e654c289}
+
+
+Acceleration coefficient in the target direction. 
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_adc4ddeda4be51c62075cb46acd418ed9}{\index{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek}!Seek\-Target\-Multiplier@{Seek\-Target\-Multiplier}}
+\index{Seek\-Target\-Multiplier@{Seek\-Target\-Multiplier}!Skyrates::AI::Steering::Basic::Seek@{Skyrates\-::\-A\-I\-::\-Steering\-::\-Basic\-::\-Seek}}
+\subsubsection[{Seek\-Target\-Multiplier}]{\setlength{\rightskip}{0pt plus 5cm}float Skyrates.\-A\-I.\-Steering.\-Basic.\-Seek.\-Seek\-Target\-Multiplier = 1}}\label{class_skyrates_1_1_a_i_1_1_steering_1_1_basic_1_1_seek_adc4ddeda4be51c62075cb46acd418ed9}
+
+
+Multiplies the target direction (which is then normalized). This value will have no effect regardless of nominal value. However, setting this to a negative (-\/1) will turn seek into flee. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-A\-I/\-Steering/\-Basic/Seek.\-cs\end{DoxyCompactItemize}

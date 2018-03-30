@@ -1,7 +1,28 @@
 var searchData=
 [
-  ['onhitduration',['OnHitDuration',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher.html#aebb6a36b42b636002a2ea32d6096ec31',1,'Skyrates::Client::Input::XInputDispatcher']]],
-  ['onhitstrength',['OnHitStrength',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher.html#a5f7cd1e18bea1cbd99c5df7dd27d4804',1,'Skyrates::Client::Input::XInputDispatcher']]],
-  ['operation',['Operation',['../struct_skyrates_1_1_client_1_1_scene_1_1_scene_loader_1_1_loading_sequence.html#a6505c988f53074f64b4f1dcd49d58396',1,'Skyrates::Client::Scene::SceneLoader::LoadingSequence']]],
-  ['orderedkeys',['OrderedKeys',['../class_skyrates_1_1_client_1_1_util_1_1_prefab_list.html#a287ed0c2748a27d810901e9edaef2762',1,'Skyrates::Client::Util::PrefabList']]]
+  ['packetreadtime_5flocal',['packetReadTime_local',['../struct_champ_net_1_1_time_stamp.html#ad2369d7af00c796be178f28ed2d14438',1,'ChampNet::TimeStamp']]],
+  ['patch',['Patch',['../class_version.html#a4ec3e76901e7c0d080b3113d24e3a5aa',1,'Version']]],
+  ['peersconnected',['peersConnected',['../struct_state_network.html#acad16df2ea00513fd70701fbfa90e329',1,'StateNetwork']]],
+  ['percentage',['Percentage',['../class_skyrates_1_1_loot_1_1_loot_table_1_1_row.html#afc1a4debcfbfb5257ee4760bd87581d9',1,'Skyrates::Loot::LootTable::Row']]],
+  ['percentloaded',['PercentLoaded',['../class_skyrates_1_1_misc_1_1_state_cooldown.html#aae19ed06aea8dc22c6958cb844d87663',1,'Skyrates::Misc::StateCooldown']]],
+  ['peristentdata',['PeristentData',['../class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4_1_1_persistent.html#a56f5186e7178555b60d70f4592a43682',1,'Skyrates.AI.Composite.BehaviorPipeline&lt; T &gt;.Persistent.PeristentData()'],['../class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_1_1_persistent_data_timed_sm.html#ad47deb6b3717c611995891f5f8bf3b08',1,'Skyrates.AI.State.StateMachine.PersistentDataTimedSm.PeristentData()']]],
+  ['physics',['Physics',['../class_skyrates_1_1_entity_1_1_entity_dynamic.html#af5b8ec5d728a356e1216f9eaca0e6bdc',1,'Skyrates::Entity::EntityDynamic']]],
+  ['physicscomponent',['PhysicsComponent',['../class_skyrates_1_1_entity_1_1_entity_projectile.html#a8882ddff06e010914232b464f916704a',1,'Skyrates::Entity::EntityProjectile']]],
+  ['physicsdata',['PhysicsData',['../class_skyrates_1_1_entity_1_1_entity_dynamic.html#ad02fdf789b5c8db16054651b9ff54bff',1,'Skyrates::Entity::EntityDynamic']]],
+  ['physicspositionrotationaleulerx',['physicsPositionRotationalEulerX',['../struct_game_state_1_1_client.html#a8d07f2646a2013223b6a1d29a48ee4f3',1,'GameState::Client']]],
+  ['physicspositionrotationaleulery',['physicsPositionRotationalEulerY',['../struct_game_state_1_1_client.html#a6ebbe295a6e43d2bae98cf7f39317ed3',1,'GameState::Client']]],
+  ['physicspositionrotationaleulerz',['physicsPositionRotationalEulerZ',['../struct_game_state_1_1_client.html#a663d14fe1f916ce854aff3bacbb8f4b3',1,'GameState::Client']]],
+  ['physicspositionx',['physicsPositionX',['../struct_game_state_1_1_client.html#a304556b6fb37ad694423f4607ff57a2a',1,'GameState::Client']]],
+  ['physicspositiony',['physicsPositionY',['../struct_game_state_1_1_client.html#a5b1ecccf7a720b6ae80475b5e9b2aab1',1,'GameState::Client']]],
+  ['physicspositionz',['physicsPositionZ',['../struct_game_state_1_1_client.html#a8b4fa85d72284fdf8a1381675b386bbe',1,'GameState::Client']]],
+  ['playerdata',['PlayerData',['../class_skyrates_1_1_entity_1_1_entity_player_ship.html#a9dff4c7af9e4872a6bd58b821d12d3df',1,'Skyrates.Entity.EntityPlayerShip.PlayerData()'],['../class_skyrates_1_1_game_1_1_game_manager.html#ad66cf44da1b4400f74853a247987a5df',1,'Skyrates.Game.GameManager.PlayerData()'],['../class_skyrates_1_1_client_1_1_input_1_1_player_controller.html#ae2f6ad16048cdb9690eba17f0adac164',1,'Skyrates.Client.Input.PlayerController.PlayerData()'],['../class_skyrates_1_1_u_i_1_1_inventory_item_text.html#aa4218e0be35c0464bd47187a76fffd3e',1,'Skyrates.UI.InventoryItemText.PlayerData()']]],
+  ['playerguid',['PlayerGuid',['../class_skyrates_1_1_game_1_1_event_1_1_event_player_left.html#a9681f9e891aeacdce99eddf68d74abd0',1,'Skyrates::Game::Event::EventPlayerLeft']]],
+  ['playerspawn',['PlayerSpawn',['../class_skyrates_1_1_game_1_1_game_manager.html#ad4e11d1ee870d356ef6c38294f5d5e16',1,'Skyrates::Game::GameManager']]],
+  ['port',['port',['../struct_state_network.html#a369a4768473db59ccbd4ba509a61595c',1,'StateNetwork']]],
+  ['posx',['posX',['../struct_packet_update_physics.html#a1d9618a795857aab77f183d90ed4e9c5',1,'PacketUpdatePhysics']]],
+  ['posy',['posY',['../struct_packet_update_physics.html#aca930e7b03bfe19b9d9ab973a09c1d42',1,'PacketUpdatePhysics']]],
+  ['posz',['posZ',['../struct_packet_update_physics.html#a30b73ea55e9f5dff1cbcdacea1113385',1,'PacketUpdatePhysics']]],
+  ['prefab',['Prefab',['../class_skyrates_1_1_game_1_1_event_1_1_event_spawn_entity_projectile.html#a721e20a22540f3731523cf87a76661f0',1,'Skyrates.Game.Event.EventSpawnEntityProjectile.Prefab()'],['../class_skyrates_1_1_loot_1_1_loot_table_1_1_row.html#a4da28d84576418b42f86ef1f9dafaa1b',1,'Skyrates.Loot.LootTable.Row.Prefab()']]],
+  ['previous',['previous',['../struct_state_input.html#a711e607cf2c158c933b80bfc8caa036a',1,'StateInput']]],
+  ['projectileprefab',['projectilePrefab',['../class_skyrates_1_1_mono_1_1_shooter.html#a3eb3006b65f8ca3e5640e2d04658139f',1,'Skyrates::Mono::Shooter']]]
 ];

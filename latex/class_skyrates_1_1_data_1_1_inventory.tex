@@ -1,0 +1,152 @@
+\hypertarget{class_skyrates_1_1_data_1_1_inventory}{\section{Skyrates.\-Data.\-Inventory Class Reference}
+\label{class_skyrates_1_1_data_1_1_inventory}\index{Skyrates.\-Data.\-Inventory@{Skyrates.\-Data.\-Inventory}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint \hyperlink{class_skyrates_1_1_data_1_1_inventory_a3ea3dd732958623226e1656b58d92163}{Add} (Ship\-Data.\-Broken\-Component\-Type broken\-Component, uint amount=1)
+\begin{DoxyCompactList}\small\item\em Adds an amount of items to the inventory. Amount defaults to 1. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_data_1_1_inventory_a176fee69b6de0e780897b03b14c16077}{Map\-Generated\-Loot} (Ship\-Data.\-Broken\-Component\-Type broken\-Component, Game\-Object generated, bool forced=false)
+\begin{DoxyCompactList}\small\item\em Maps latest inventory space of any broken component type to generated loot. \end{DoxyCompactList}\item 
+uint \hyperlink{class_skyrates_1_1_data_1_1_inventory_a582a1d5a0bf20c92683728dd43625f73}{Remove} (Ship\-Data.\-Broken\-Component\-Type broken\-Component, uint amount=1)
+\begin{DoxyCompactList}\small\item\em Removes an amount of items from the inventory. Amount defaults to 1. \end{DoxyCompactList}\item 
+uint \hyperlink{class_skyrates_1_1_data_1_1_inventory_a15ea547b85de45f35cad6b4c479d7db7}{Clear} ()
+\begin{DoxyCompactList}\small\item\em Clears all items from the inventory. \end{DoxyCompactList}\item 
+uint \hyperlink{class_skyrates_1_1_data_1_1_inventory_a131a1ad7d12bb6ef1f4fe8a4a74d5327}{Total\-Amount} ()
+\begin{DoxyCompactList}\small\item\em Gets the amount of items of all component types in inventory. \end{DoxyCompactList}\item 
+uint \hyperlink{class_skyrates_1_1_data_1_1_inventory_aa3e33ad951806fa9c70c72ed94ac63f2}{Get\-Amount} (Ship\-Data.\-Broken\-Component\-Type broken\-Component)
+\begin{DoxyCompactList}\small\item\em Gets the amount of items of component type in inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Ship\-Data.\-Broken\-Component\-Type \hyperlink{class_skyrates_1_1_data_1_1_inventory_a0ae2852b8005d58ac3b40be4123fa1bf}{Component\-To\-Broken\-Component} (Ship\-Data.\-Component\-Type component)
+\begin{DoxyCompactList}\small\item\em Gets the amount of items of component type in inventory. \end{DoxyCompactList}\item 
+static string \hyperlink{class_skyrates_1_1_data_1_1_inventory_ad6f1abce8f537a3d518d24ad35ddd4ac}{Get\-Name} (Ship\-Data.\-Broken\-Component\-Type broken\-Component)
+\begin{DoxyCompactList}\small\item\em Gets the name of a certain broken component type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_a05392406d67600d2b334075c405c153b}{List$<$ Game\-Object $>$\mbox{[}$\,$\mbox{]} {\bfseries Generated\-Loot}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}\label{class_skyrates_1_1_data_1_1_inventory_a05392406d67600d2b334075c405c153b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_a3ea3dd732958623226e1656b58d92163}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Add@{Add}}
+\index{Add@{Add}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Add}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Data.\-Inventory.\-Add (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Broken\-Component\-Type}]{broken\-Component, }
+\item[{uint}]{amount = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_data_1_1_inventory_a3ea3dd732958623226e1656b58d92163}
+
+
+Adds an amount of items to the inventory. Amount defaults to 1. 
+
+\begin{DoxyReturn}{Returns}
+Amount of items actually added.
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_a15ea547b85de45f35cad6b4c479d7db7}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Clear@{Clear}}
+\index{Clear@{Clear}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Clear}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Data.\-Inventory.\-Clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_data_1_1_inventory_a15ea547b85de45f35cad6b4c479d7db7}
+
+
+Clears all items from the inventory. 
+
+\begin{DoxyReturn}{Returns}
+Amount of items actually removed.
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_a0ae2852b8005d58ac3b40be4123fa1bf}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Component\-To\-Broken\-Component@{Component\-To\-Broken\-Component}}
+\index{Component\-To\-Broken\-Component@{Component\-To\-Broken\-Component}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Component\-To\-Broken\-Component}]{\setlength{\rightskip}{0pt plus 5cm}static Ship\-Data.\-Broken\-Component\-Type Skyrates.\-Data.\-Inventory.\-Component\-To\-Broken\-Component (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Component\-Type}]{component}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_skyrates_1_1_data_1_1_inventory_a0ae2852b8005d58ac3b40be4123fa1bf}
+
+
+Gets the amount of items of component type in inventory. 
+
+\begin{DoxyReturn}{Returns}
+Amount of items of component type in inventory.
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_aa3e33ad951806fa9c70c72ed94ac63f2}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Get\-Amount@{Get\-Amount}}
+\index{Get\-Amount@{Get\-Amount}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Get\-Amount}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Data.\-Inventory.\-Get\-Amount (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Broken\-Component\-Type}]{broken\-Component}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_data_1_1_inventory_aa3e33ad951806fa9c70c72ed94ac63f2}
+
+
+Gets the amount of items of component type in inventory. 
+
+\begin{DoxyReturn}{Returns}
+Amount of items of component type in inventory.
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_ad6f1abce8f537a3d518d24ad35ddd4ac}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Get\-Name@{Get\-Name}}
+\index{Get\-Name@{Get\-Name}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}static string Skyrates.\-Data.\-Inventory.\-Get\-Name (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Broken\-Component\-Type}]{broken\-Component}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_skyrates_1_1_data_1_1_inventory_ad6f1abce8f537a3d518d24ad35ddd4ac}
+
+
+Gets the name of a certain broken component type. 
+
+\begin{DoxyReturn}{Returns}
+The name of the broken component type.
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_a176fee69b6de0e780897b03b14c16077}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Map\-Generated\-Loot@{Map\-Generated\-Loot}}
+\index{Map\-Generated\-Loot@{Map\-Generated\-Loot}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Map\-Generated\-Loot}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Data.\-Inventory.\-Map\-Generated\-Loot (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Broken\-Component\-Type}]{broken\-Component, }
+\item[{Game\-Object}]{generated, }
+\item[{bool}]{forced = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_data_1_1_inventory_a176fee69b6de0e780897b03b14c16077}
+
+
+Maps latest inventory space of any broken component type to generated loot. 
+
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_a582a1d5a0bf20c92683728dd43625f73}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Remove@{Remove}}
+\index{Remove@{Remove}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Remove}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Data.\-Inventory.\-Remove (
+\begin{DoxyParamCaption}
+\item[{Ship\-Data.\-Broken\-Component\-Type}]{broken\-Component, }
+\item[{uint}]{amount = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_data_1_1_inventory_a582a1d5a0bf20c92683728dd43625f73}
+
+
+Removes an amount of items from the inventory. Amount defaults to 1. 
+
+\begin{DoxyReturn}{Returns}
+Amount of items actually removed.
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_data_1_1_inventory_a131a1ad7d12bb6ef1f4fe8a4a74d5327}{\index{Skyrates\-::\-Data\-::\-Inventory@{Skyrates\-::\-Data\-::\-Inventory}!Total\-Amount@{Total\-Amount}}
+\index{Total\-Amount@{Total\-Amount}!Skyrates::Data::Inventory@{Skyrates\-::\-Data\-::\-Inventory}}
+\subsubsection[{Total\-Amount}]{\setlength{\rightskip}{0pt plus 5cm}uint Skyrates.\-Data.\-Inventory.\-Total\-Amount (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_data_1_1_inventory_a131a1ad7d12bb6ef1f4fe8a4a74d5327}
+
+
+Gets the amount of items of all component types in inventory. 
+
+\begin{DoxyReturn}{Returns}
+Amount of items of all component types in inventory..
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Data/Inventory.\-cs\end{DoxyCompactItemize}

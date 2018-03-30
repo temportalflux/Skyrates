@@ -1,0 +1,251 @@
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data}{\section{Skyrates.\-Ship.\-Ship\-Data Class Reference}
+\label{class_skyrates_1_1_ship_1_1_ship_data}\index{Skyrates.\-Ship.\-Ship\-Data@{Skyrates.\-Ship.\-Ship\-Data}}
+}
+
+
+\hyperlink{namespace_skyrates_1_1_data}{Data} object used to send ship rig data over the network (and for tool usage in editor). Stores references to components as integers for lookup in \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list}{Ship\-Component\-List}.  
+
+
+Inheritance diagram for Skyrates.\-Ship.\-Ship\-Data\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_ship_1_1_ship_data}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Component\-Type} \{ \\*
+{\bfseries Artillery\-Left}, 
+{\bfseries Artillery\-Right}, 
+{\bfseries Artillery\-Forward}, 
+{\bfseries Artillery\-Down}, 
+\\*
+{\bfseries Figurehead}, 
+{\bfseries Hull\-Armor}, 
+{\bfseries Navigation\-Left}, 
+{\bfseries Navigation\-Right}, 
+\\*
+{\bfseries Propulsion}
+ \}
+\item 
+enum {\bfseries Broken\-Component\-Type} \{ \\*
+{\bfseries Invalid} = -\/1, 
+{\bfseries Artillery}, 
+{\bfseries Figurehead}, 
+{\bfseries Hull\-Armor}, 
+\\*
+{\bfseries Navigation}, 
+{\bfseries Propulsion}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component} \hyperlink{class_skyrates_1_1_ship_1_1_ship_data_a3ae55a2215158477e44bd7cb2a103e00}{Get\-Ship\-Component} (\hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list}{Ship\-Component\-List} list, Component\-Type type)
+\begin{DoxyCompactList}\small\item\em Return the ship component for the selected category. \end{DoxyCompactList}\item 
+int \hyperlink{class_skyrates_1_1_ship_1_1_ship_data_ab97c57ac7d3485ed73997201194fed67}{Get\-Size} ()
+\begin{DoxyCompactList}\small\item\em Returns the size of the packet (the size for a potential byte\mbox{[}\mbox{]}) \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_ship_1_1_ship_data_aecbf0716f2aa099de5398ad12a284560}{Serialize} (ref byte\mbox{[}$\,$\mbox{]} data, ref int last\-Index)
+\begin{DoxyCompactList}\small\item\em Serializes \-\_\-game\-State\-Data from this event into a byte array \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_ship_1_1_ship_data_a5cdd978d0ede1a2d54c963e43ffd0eab}{Deserialize} (byte\mbox{[}$\,$\mbox{]} data, ref int last\-Index)
+\begin{DoxyCompactList}\small\item\em Deserializes \-\_\-game\-State\-Data from a byte array into this event's \-\_\-game\-State\-Data \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a26d15f9c540e3b209766f09b82216b9a}{void {\bfseries Upgrade} (Component\-Type type)}\label{class_skyrates_1_1_ship_1_1_ship_data_a26d15f9c540e3b209766f09b82216b9a}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_ac15ddb6a284005e04a258433f76214d4}{int\mbox{[}$\,$\mbox{]} {\bfseries Component\-Tiers} = new int\mbox{[}Component\-Types.\-Length\mbox{]}}\label{class_skyrates_1_1_ship_1_1_ship_data_ac15ddb6a284005e04a258433f76214d4}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly object\mbox{[}$\,$\mbox{]} {\bfseries Component\-Types}
+\item 
+static readonly Type\mbox{[}$\,$\mbox{]} {\bfseries Component\-Class\-Types}
+\item 
+static readonly \\*
+Broken\-Component\-Type\mbox{[}$\,$\mbox{]} {\bfseries Broken\-Component\-Types}
+\item 
+static readonly \\*
+Broken\-Component\-Type\mbox{[}$\,$\mbox{]} {\bfseries Component\-Type\-To\-Broken\-Component\-Type}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a67b256cd80d009f33b78c55a5f03676f}{bool {\bfseries Must\-Be\-Rebuilt}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_a67b256cd80d009f33b78c55a5f03676f}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a9c37e4eb2a873de1b886cdbd4fa7aa55}{int {\bfseries this\mbox{[}\-Component\-Type key\mbox{]}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_a9c37e4eb2a873de1b886cdbd4fa7aa55}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{namespace_skyrates_1_1_data}{Data} object used to send ship rig data over the network (and for tool usage in editor). Stores references to components as integers for lookup in \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list}{Ship\-Component\-List}. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a5cdd978d0ede1a2d54c963e43ffd0eab}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Ship.\-Ship\-Data.\-Deserialize (
+\begin{DoxyParamCaption}
+\item[{byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{ref int}]{last\-Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_a5cdd978d0ede1a2d54c963e43ffd0eab}
+
+
+Deserializes \-\_\-game\-State\-Data from a byte array into this event's \-\_\-game\-State\-Data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The \-\_\-game\-State\-Data.\\
+\hline
+{\em last\-Index} & The last index.\\
+\hline
+\end{DoxyParams}
+
+
+Author\-: Dustin Yost 
+
+Implements \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_i_serializing_a48653ea663b59b80bf9ad8661b43ac07}{Skyrates.\-Util.\-Serializing.\-I\-Serializing}.
+
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a3ae55a2215158477e44bd7cb2a103e00}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Get\-Ship\-Component@{Get\-Ship\-Component}}
+\index{Get\-Ship\-Component@{Get\-Ship\-Component}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Get\-Ship\-Component}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Component} Skyrates.\-Ship.\-Ship\-Data.\-Get\-Ship\-Component (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Component\-List}}]{list, }
+\item[{Component\-Type}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_a3ae55a2215158477e44bd7cb2a103e00}
+
+
+Return the ship component for the selected category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The \hyperlink{class_skyrates_1_1_ship_1_1_ship_component_list}{Ship\-Component\-List} reference.\\
+\hline
+{\em type} & The type of component requested.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_ab97c57ac7d3485ed73997201194fed67}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Get\-Size@{Get\-Size}}
+\index{Get\-Size@{Get\-Size}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-Ship.\-Ship\-Data.\-Get\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_ab97c57ac7d3485ed73997201194fed67}
+
+
+Returns the size of the packet (the size for a potential byte\mbox{[}\mbox{]}) 
+
+\begin{DoxyReturn}{Returns}
+the integer length of a byte array to hold this event's \-\_\-game\-State\-Data 
+\end{DoxyReturn}
+
+
+Author\-: Dustin Yost 
+
+Implements \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_i_serializing_a0579bf5aa9ef39aab9c9fbe7090f40b7}{Skyrates.\-Util.\-Serializing.\-I\-Serializing}.
+
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_aecbf0716f2aa099de5398ad12a284560}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Serialize}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Ship.\-Ship\-Data.\-Serialize (
+\begin{DoxyParamCaption}
+\item[{ref byte\mbox{[}$\,$\mbox{]}}]{data, }
+\item[{ref int}]{last\-Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_aecbf0716f2aa099de5398ad12a284560}
+
+
+Serializes \-\_\-game\-State\-Data from this event into a byte array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The \-\_\-game\-State\-Data.\\
+\hline
+{\em last\-Index} & The last index.\\
+\hline
+\end{DoxyParams}
+
+
+Author\-: Dustin Yost 
+
+Implements \hyperlink{interface_skyrates_1_1_util_1_1_serializing_1_1_i_serializing_aa2b42f27df9eba772b9a854d37aa3b96}{Skyrates.\-Util.\-Serializing.\-I\-Serializing}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a97ef660eff8374808908b8c5187ee6e6}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Broken\-Component\-Types@{Broken\-Component\-Types}}
+\index{Broken\-Component\-Types@{Broken\-Component\-Types}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Broken\-Component\-Types}]{\setlength{\rightskip}{0pt plus 5cm}readonly Broken\-Component\-Type \mbox{[}$\,$\mbox{]} Skyrates.\-Ship.\-Ship\-Data.\-Broken\-Component\-Types\hspace{0.3cm}{\ttfamily [static]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_a97ef660eff8374808908b8c5187ee6e6}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+        \{
+            BrokenComponentType.Artillery,
+            BrokenComponentType.Figurehead,
+            BrokenComponentType.HullArmor,
+            BrokenComponentType.Navigation,
+            BrokenComponentType.Propulsion,
+        \}
+\end{DoxyCode}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a64cb204f6025333d43c3a8ce393c2b45}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Component\-Class\-Types@{Component\-Class\-Types}}
+\index{Component\-Class\-Types@{Component\-Class\-Types}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Component\-Class\-Types}]{\setlength{\rightskip}{0pt plus 5cm}readonly Type \mbox{[}$\,$\mbox{]} Skyrates.\-Ship.\-Ship\-Data.\-Component\-Class\-Types\hspace{0.3cm}{\ttfamily [static]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_a64cb204f6025333d43c3a8ce393c2b45}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+        \{
+            typeof(ShipArtillery), typeof(ShipArtillery),
+            typeof(ShipArtillery), typeof(ShipArtilleryBomb),
+            typeof(ShipFigurehead),
+            typeof(ShipHullArmor),
+            typeof(ShipNavigationLeft), typeof(ShipNavigationRight),
+            typeof(ShipPropulsion),
+        \}
+\end{DoxyCode}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_a7676fe15a5c44c7b7f46d21ca9118b5d}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Component\-Types@{Component\-Types}}
+\index{Component\-Types@{Component\-Types}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Component\-Types}]{\setlength{\rightskip}{0pt plus 5cm}readonly object \mbox{[}$\,$\mbox{]} Skyrates.\-Ship.\-Ship\-Data.\-Component\-Types\hspace{0.3cm}{\ttfamily [static]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_a7676fe15a5c44c7b7f46d21ca9118b5d}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+        \{
+            ComponentType.ArtilleryLeft, ComponentType.ArtilleryRight,
+            ComponentType.ArtilleryForward, ComponentType.ArtilleryDown,
+            ComponentType.Figurehead,
+            ComponentType.HullArmor,
+            ComponentType.NavigationLeft, ComponentType.NavigationRight,
+            ComponentType.Propulsion,
+        \}
+\end{DoxyCode}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_data_ad2a032838d09d258c61a67771302d7de}{\index{Skyrates\-::\-Ship\-::\-Ship\-Data@{Skyrates\-::\-Ship\-::\-Ship\-Data}!Component\-Type\-To\-Broken\-Component\-Type@{Component\-Type\-To\-Broken\-Component\-Type}}
+\index{Component\-Type\-To\-Broken\-Component\-Type@{Component\-Type\-To\-Broken\-Component\-Type}!Skyrates::Ship::ShipData@{Skyrates\-::\-Ship\-::\-Ship\-Data}}
+\subsubsection[{Component\-Type\-To\-Broken\-Component\-Type}]{\setlength{\rightskip}{0pt plus 5cm}readonly Broken\-Component\-Type \mbox{[}$\,$\mbox{]} Skyrates.\-Ship.\-Ship\-Data.\-Component\-Type\-To\-Broken\-Component\-Type\hspace{0.3cm}{\ttfamily [static]}}}\label{class_skyrates_1_1_ship_1_1_ship_data_ad2a032838d09d258c61a67771302d7de}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+        \{
+            BrokenComponentType.Artillery, BrokenComponentType.Artillery,
+            BrokenComponentType.Artillery, BrokenComponentType.Artillery,
+            BrokenComponentType.Figurehead,
+            BrokenComponentType.HullArmor,
+            BrokenComponentType.Navigation, BrokenComponentType.Navigation,
+            BrokenComponentType.Propulsion,
+            BrokenComponentType.Invalid
+        \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Data/Ship\-Data.\-cs\end{DoxyCompactItemize}

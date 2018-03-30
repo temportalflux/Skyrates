@@ -1,0 +1,108 @@
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator}{\section{Skyrates.\-Ship.\-Ship\-Generator Class Reference}
+\label{class_skyrates_1_1_ship_1_1_ship_generator}\index{Skyrates.\-Ship.\-Ship\-Generator@{Skyrates.\-Ship.\-Ship\-Generator}}
+}
+
+
+The object which contails all \hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component}s for a specific \hyperlink{class_skyrates_1_1_ship_1_1_ship_rig}{Ship\-Rig} rig.  
+
+
+Inheritance diagram for Skyrates.\-Ship.\-Ship\-Generator\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_skyrates_1_1_ship_1_1_ship_generator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a90a28b98dee78c230ad12e75417bc97f}{Destroy} ()
+\begin{DoxyCompactList}\small\item\em Destroys all children of the \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a040b9432f06173ddce445b14fdd42c9a}{Component\-Root}. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a98648e2db2bd204cd7a470df9f8745d5}{Generate} (\hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} data=null)
+\begin{DoxyCompactList}\small\item\em Generates the ship via the current \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a97b0d9ba683bd4ea383f01ef96348d5a}{Blueprint}. Stores relevant data in \hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} and the actual components put under \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a040b9432f06173ddce445b14fdd42c9a}{Component\-Root}. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_aa07941574bf573545893795aa290a66e}{void {\bfseries Re\-Generate} ()}\label{class_skyrates_1_1_ship_1_1_ship_generator_aa07941574bf573545893795aa290a66e}
+
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_af3eee129392586d627fb598d9ab9ec72}{void {\bfseries Upgrade\-Components} (List$<$ Ship\-Data.\-Component\-Type $>$ components)}\label{class_skyrates_1_1_ship_1_1_ship_generator_af3eee129392586d627fb598d9ab9ec72}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_ad89f21e6db936673952fd7cc8ff3f06e}{\hyperlink{class_skyrates_1_1_entity_1_1_entity_ship}{Entity\-Ship} {\bfseries Owner}}\label{class_skyrates_1_1_ship_1_1_ship_generator_ad89f21e6db936673952fd7cc8ff3f06e}
+
+\item 
+Transform \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a040b9432f06173ddce445b14fdd42c9a}{Component\-Root}
+\begin{DoxyCompactList}\small\item\em The root to which all components are set as children of. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_rig}{Ship\-Rig} \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a97b0d9ba683bd4ea383f01ef96348d5a}{Blueprint}
+\begin{DoxyCompactList}\small\item\em The blueprint for this ship. Indicates which components create the ship. \end{DoxyCompactList}\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_ad8e9cf776a0b91cf123a9faa0c13cedf}{Ship\-Data}
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_skyrates_1_1_data}{Data} from \hyperlink{class_skyrates_1_1_ship_1_1_ship_rig}{Ship\-Rig} used to \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a98648e2db2bd204cd7a470df9f8745d5}{Generate} the ship. Only valid after \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a98648e2db2bd204cd7a470df9f8745d5}{Generate} is called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The object which contails all \hyperlink{class_skyrates_1_1_ship_1_1_ship_component}{Ship\-Component}s for a specific \hyperlink{class_skyrates_1_1_ship_1_1_ship_rig}{Ship\-Rig} rig. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_a90a28b98dee78c230ad12e75417bc97f}{\index{Skyrates\-::\-Ship\-::\-Ship\-Generator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Skyrates::Ship::ShipGenerator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}}
+\subsubsection[{Destroy}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Ship.\-Ship\-Generator.\-Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_generator_a90a28b98dee78c230ad12e75417bc97f}
+
+
+Destroys all children of the \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a040b9432f06173ddce445b14fdd42c9a}{Component\-Root}. 
+
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_a98648e2db2bd204cd7a470df9f8745d5}{\index{Skyrates\-::\-Ship\-::\-Ship\-Generator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}!Generate@{Generate}}
+\index{Generate@{Generate}!Skyrates::Ship::ShipGenerator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}}
+\subsubsection[{Generate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Data} Skyrates.\-Ship.\-Ship\-Generator.\-Generate (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Data}}]{data = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_ship_1_1_ship_generator_a98648e2db2bd204cd7a470df9f8745d5}
+
+
+Generates the ship via the current \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a97b0d9ba683bd4ea383f01ef96348d5a}{Blueprint}. Stores relevant data in \hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} and the actual components put under \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a040b9432f06173ddce445b14fdd42c9a}{Component\-Root}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_a97b0d9ba683bd4ea383f01ef96348d5a}{\index{Skyrates\-::\-Ship\-::\-Ship\-Generator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}!Blueprint@{Blueprint}}
+\index{Blueprint@{Blueprint}!Skyrates::Ship::ShipGenerator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}}
+\subsubsection[{Blueprint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Rig} Skyrates.\-Ship.\-Ship\-Generator.\-Blueprint}}\label{class_skyrates_1_1_ship_1_1_ship_generator_a97b0d9ba683bd4ea383f01ef96348d5a}
+
+
+The blueprint for this ship. Indicates which components create the ship. 
+
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_a040b9432f06173ddce445b14fdd42c9a}{\index{Skyrates\-::\-Ship\-::\-Ship\-Generator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}!Component\-Root@{Component\-Root}}
+\index{Component\-Root@{Component\-Root}!Skyrates::Ship::ShipGenerator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}}
+\subsubsection[{Component\-Root}]{\setlength{\rightskip}{0pt plus 5cm}Transform Skyrates.\-Ship.\-Ship\-Generator.\-Component\-Root}}\label{class_skyrates_1_1_ship_1_1_ship_generator_a040b9432f06173ddce445b14fdd42c9a}
+
+
+The root to which all components are set as children of. 
+
+\hypertarget{class_skyrates_1_1_ship_1_1_ship_generator_ad8e9cf776a0b91cf123a9faa0c13cedf}{\index{Skyrates\-::\-Ship\-::\-Ship\-Generator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}!Ship\-Data@{Ship\-Data}}
+\index{Ship\-Data@{Ship\-Data}!Skyrates::Ship::ShipGenerator@{Skyrates\-::\-Ship\-::\-Ship\-Generator}}
+\subsubsection[{Ship\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Data} Skyrates.\-Ship.\-Ship\-Generator.\-Ship\-Data}}\label{class_skyrates_1_1_ship_1_1_ship_generator_ad8e9cf776a0b91cf123a9faa0c13cedf}
+
+
+\hyperlink{namespace_skyrates_1_1_data}{Data} from \hyperlink{class_skyrates_1_1_ship_1_1_ship_rig}{Ship\-Rig} used to \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a98648e2db2bd204cd7a470df9f8745d5}{Generate} the ship. Only valid after \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator_a98648e2db2bd204cd7a470df9f8745d5}{Generate} is called. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Ship/Ship\-Generator.\-cs\end{DoxyCompactItemize}
