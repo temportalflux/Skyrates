@@ -36,6 +36,7 @@ namespace Skyrates.Entity
         [SerializeField]
         public Behavior.DataPersistent DataPersistent;
 
+        protected FormationOwner FormationOwner;
         private FormationAgent _formationAgent;
 
         private WaypointAgent _waypointAgent;
@@ -45,6 +46,7 @@ namespace Skyrates.Entity
         {
             base.Start();
 
+            this.FormationOwner = this.GetComponent<FormationOwner>();
             this._formationAgent = this.GetComponent<FormationAgent>();
             this._waypointAgent = this.GetComponent<WaypointAgent>();
 

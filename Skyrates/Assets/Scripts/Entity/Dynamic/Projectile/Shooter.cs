@@ -3,6 +3,7 @@ using Skyrates.Entity;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using System.Collections;
+using Skyrates.Ship;
 using UnityEngine;
 
 namespace Skyrates.Mono
@@ -13,6 +14,8 @@ namespace Skyrates.Mono
     /// </summary>
     public class Shooter : MonoBehaviour
     {
+
+        public ShipArtillery Owner;
 
         /// <summary>
         /// The prefab of the projectile to launch from this source.
@@ -134,6 +137,7 @@ namespace Skyrates.Mono
             {
                 EntityProjectile projectile = (EntityProjectile)entity;
                 projectile.Attack *= attackModifier;
+                projectile.Shooter = this;
 				if (this.UseArc)
 				{
 					Vector3 targetDirection;

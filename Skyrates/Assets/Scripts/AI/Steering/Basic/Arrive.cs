@@ -90,7 +90,7 @@ namespace Skyrates.AI.Steering.Basic
 
             return persistent;
         }
-
+        
     }
 
 }

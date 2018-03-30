@@ -215,7 +215,8 @@ namespace Skyrates.Entity
                     );
 
                     // Take the necessary damage
-                    this.TakeDamage(entityProjectile, damage);
+                    Entity source = entityProjectile.Shooter.Owner != null ? entityProjectile.Shooter.Owner.Ship : null;
+                    this.TakeDamage(source ?? entityProjectile, damage);
 
                     // Dispatch event for hit by projectile
                     GameManager.Events.Dispatch(new EventEntityShipHitByProjectile(this, entityProjectile, damage));
@@ -261,7 +262,12 @@ namespace Skyrates.Entity
 
             // Update particle effects
             this.Hull.UpdateHealthParticles(this.Health);
-            
+
+            if (source != this && source is EntityAI)
+            {
+                this.OnDamagedBy((EntityAI)source);
+            }
+
             // If we still have health, stop execution here
             if (this.Health > 0) return this.Health;
             
@@ -276,6 +282,18 @@ namespace Skyrates.Entity
 
             // Return that there is no health left - we are dead
             return 0;
+        }
+
+        protected virtual void OnDamagedBy(EntityAI source)
+        {
+            if (this.DataBehavior.Formation != null)
+            {
+                this.DataBehavior.Formation.OnDamagedBy(source);
+            }
+            if (this.FormationOwner != null)
+            {
+                this.FormationOwner.OnDamagedBy(null, source);
+            }
         }
 
         /// <summary>

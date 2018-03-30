@@ -190,10 +190,21 @@ namespace Skyrates.AI.State
             UnityEditor.Handles.Label(physics.LinearPosition,
                 smPersistent != null ? this.GetCurrentState(smPersistent).StateName : "Idle");
 
-            for (int iState = -1; iState < this.States.Length; iState++)
+            if (Application.isPlaying)
             {
-                this.GetState(iState).DrawGizmos(physics,
-                    smPersistent != null ? smPersistent.PeristentData[iState + 1] : null);
+                if (smPersistent != null)
+                {
+                    this.GetCurrentState(smPersistent).DrawGizmos(
+                        physics, smPersistent.CurrentPersistent);
+                }
+            }
+            else
+            {
+                for (int iState = -1; iState < this.States.Length; iState++)
+                {
+                    this.GetState(iState).DrawGizmos(physics,
+                        smPersistent != null ? smPersistent.PeristentData[iState + 1] : null);
+                }
             }
         }
 #endif

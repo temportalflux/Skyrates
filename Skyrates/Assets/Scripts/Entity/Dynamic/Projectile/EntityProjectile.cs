@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Skyrates.Mono;
+using UnityEngine;
 
 namespace Skyrates.Entity
 {
@@ -18,6 +19,9 @@ namespace Skyrates.Entity
 
 		[Tooltip("The base damage of the projectile")]
 		public float Attack;
+
+        [HideInInspector]
+        public Shooter Shooter;
 
 		protected override void Start()
         {

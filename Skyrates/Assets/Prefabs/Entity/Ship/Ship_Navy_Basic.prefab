@@ -472,6 +472,7 @@ MonoBehaviour:
   Loot: {fileID: 11400000, guid: ab7406c3ebf909b4c8a46aa69451e8c8, type: 2}
   LootDropRadius: 5
   ShootDelay: 7
+  ShootDelayBroadside: 0.5
 --- !u!114 &114271004218291994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
   projectilePrefab: {fileID: 114653715804997438, guid: cedb873c8222f8f4daa03ffa5b8848da,
     type: 2}
   spawn: {fileID: 4455530427761126}

@@ -26,6 +26,7 @@ namespace Skyrates.Common.AI.Formation
             this.DrawScriptField(this._instance);
 
             this._instance.NearbyRange = EditorGUILayout.FloatField("Nearby Range", this._instance.NearbyRange);
+            this._instance.ThreatRange = EditorGUILayout.FloatField("Threat Range", this._instance.ThreatRange);
 
             this.DrawArrayArea("Slots", ref this._instance.Slots, o => (o as GameObject).transform);
 

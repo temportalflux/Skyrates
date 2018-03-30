@@ -15,6 +15,9 @@ namespace Skyrates.Entity
 
         [Header("Hostile: Shooting")]
         public float ShootDelay = 7.0f;
+        public float ShootDelayBroadside = 2.0f;
+        public float distToBroadside = 60.0f;
+
 
         protected override void StartShooting(EntityPlayerShip target, float maxDistance)
         {
@@ -31,10 +34,22 @@ namespace Skyrates.Entity
             while (target && gameObject && direction.sqrMagnitude <= maxDistSq)
             {
                 Vector3 artilleryDir = direction;
-                artilleryDir += target.PhysicsData.LinearVelocity * 1.5f;
-                artilleryDir -= this.PhysicsData.LinearVelocity * 1.5f;
+
+                float delay;
+                if (direction.sqrMagnitude > distToBroadside * distToBroadside)
+                {
+                    artilleryDir += target.PhysicsData.LinearVelocity * 1.5f;
+                    artilleryDir -= this.PhysicsData.LinearVelocity * 1.5f;
+                    delay = this.ShootDelay;
+                }
+                else
+                {
+                    delay = this.ShootDelayBroadside;
+                }
                 this.Shoot(ShipData.ComponentType.ArtilleryForward, artilleryDir);
-                yield return new WaitForSeconds(this.ShootDelay);
+
+                yield return new WaitForSeconds(delay);
+
                 direction = (target.transform.position - this.transform.position);
             }
             this._shootAt = null;

@@ -63,7 +63,19 @@ namespace Skyrates.AI.Formation
         {
             return this.FormationOwner != null ? this.FormationOwner.GetNearbyTargets() : new List<NearbyTarget>();
         }
-        
+
+        public List<NearbyTarget> GetNearbyThreats()
+        {
+            return this.FormationOwner != null ? this.FormationOwner.GetNearbyThreats() : new List<NearbyTarget>();
+        }
+
+        public virtual void OnDamagedBy(EntityAI source)
+        {
+            if (this.FormationOwner != null)
+                this.FormationOwner.OnDamagedBy(this, source);
+        }
+
+
     }
 
 }

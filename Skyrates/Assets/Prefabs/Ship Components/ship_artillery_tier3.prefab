@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 2
+  AttackModifier: 1
   Shooter: {fileID: 114591741914161682}
 --- !u!114 &114591741914161682
 MonoBehaviour:
@@ -209,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: {fileID: 114469317096606532}
   projectilePrefab: {fileID: 114743238394541412, guid: 212d8d7c3dcbcaf408c9aaa453a3ec5f,
     type: 2}
   spawn: {fileID: 4601958230181964}

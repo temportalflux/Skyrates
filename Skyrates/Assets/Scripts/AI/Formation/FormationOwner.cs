@@ -27,11 +27,16 @@ namespace Skyrates.AI.Formation
         [SerializeField]
         public float NearbyRange;
 
+        [SerializeField]
+        public float ThreatRange;
+
         private List<NearbyTarget> NearbyTargets;
+        private List<NearbyTarget> NearbyThreats;
 
         void Awake()
         {
             this.NearbyTargets = new List<NearbyTarget>();
+            this.NearbyThreats = new List<NearbyTarget>();
             this.TryInitAgents();
             this.SlotAveragePositionOffset = this.CalculateAveragePositionOffset();
         }
@@ -95,14 +100,19 @@ namespace Skyrates.AI.Formation
             this._subscribedAgents[agent.FormationSlot].Remove(agent);
         }
 
-        public bool ContainsNearby(PhysicsData physics)
+        public bool ContainsNearbyTarget(PhysicsData physics)
         {
             return this.NearbyTargets.Exists(data => ReferenceEquals(data.Target, physics));
         }
 
+        public bool ContainsNearbyThreat(PhysicsData physics)
+        {
+            return this.NearbyThreats.Exists(data => ReferenceEquals(data.Target, physics));
+        }
+
         public void OnDetect(FormationAgent source, EntityAI other, float maxDistance)
         {
-            if (!this.ContainsNearby(other.PhysicsData))
+            if (!this.ContainsNearbyTarget(other.PhysicsData))
             {
                 this.NearbyTargets.Add(new NearbyTarget
                 {
@@ -112,17 +122,40 @@ namespace Skyrates.AI.Formation
             }
         }
 
-        void FixedUpdate()
-        {
-            // TODO: put this on a timer, not to execute every physics update
-            float distSq = this.NearbyRange * this.NearbyRange;
-            this.NearbyTargets.RemoveAll(data =>
-                (data.Target.LinearPosition - this.transform.position).sqrMagnitude > distSq);
-        }
-
         public List<NearbyTarget> GetNearbyTargets()
         {
             return this.NearbyTargets;
+        }
+
+        public List<NearbyTarget> GetNearbyThreats()
+        {
+            return this.NearbyThreats;
+        }
+
+        public void OnDamagedBy(FormationAgent agent, EntityAI other)
+        {
+            if (!this.ContainsNearbyThreat(other.PhysicsData))
+            {
+                this.NearbyThreats.Add(new NearbyTarget
+                {
+                    Target = other.PhysicsData,
+                    MaxDistanceSq = this.ThreatRange * this.ThreatRange,
+                });
+            }
+        }
+
+        void FixedUpdate()
+        {
+            // TODO: put this on a timer, not to execute every physics update
+            Vector3 center = this.transform.position + this.SlotAveragePositionOffset;
+
+            float distSq = this.NearbyRange * this.NearbyRange;
+            this.NearbyTargets.RemoveAll(data =>
+                (data.Target.LinearPosition - center).sqrMagnitude > distSq);
+
+            distSq = this.ThreatRange * this.ThreatRange;
+            this.NearbyThreats.RemoveAll(data =>
+                (data.Target.LinearPosition - center).sqrMagnitude > distSq);
         }
 
 #if UNITY_EDITOR
@@ -130,6 +163,9 @@ namespace Skyrates.AI.Formation
         {
             Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(this.SlotAveragePositionOffset + this.transform.position, this.NearbyRange);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(this.SlotAveragePositionOffset + this.transform.position, this.ThreatRange);
 
             if (this.NearbyTargets != null)
             {

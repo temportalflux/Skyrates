@@ -8,8 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7265d56cd97f9c4ca78a8f2cbbef6bb, type: 3}
-  m_Name: Merchant_Schooner_Steer
+  m_Script: {fileID: 11500000, guid: abf619987e6c1654f83f3008acbc14f7, type: 3}
+  m_Name: '#ThreatNearby 1+'
   m_EditorClassIdentifier: 
-  InterpolationSpeed: 0.01
-  DistanceArrived: 1
+  StateSource: 0
+  StateDestination: 0
+  HasMin: 1
+  Min: 1
+  HasMax: 0
+  Max: 1
