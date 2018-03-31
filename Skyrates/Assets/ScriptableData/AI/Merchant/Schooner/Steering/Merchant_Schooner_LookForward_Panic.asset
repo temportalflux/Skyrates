@@ -8,11 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc40d29cdca774241a1dfea95198509b, type: 3}
-  m_Name: Navy_Basic_Arrive
+  m_Script: {fileID: 11500000, guid: 37e7183fbdf979346a2b63961e73cbe1, type: 3}
+  m_Name: Merchant_Schooner_LookForward_Panic
   m_EditorClassIdentifier: 
-  MaxAcceleration: 9
-  MaxSpeed: 20
-  DistanceArriving: 3
-  DistanceArrived: 1
+  MaxAcceleration: 5
+  MaxSpeed: 15
+  DistanceArriving: 25
+  DistanceArrived: 10
   AccelerationTime: 0.1
+  AlignX: 0
+  AlignY: 1
+  AlignZ: 0

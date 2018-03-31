@@ -8,8 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ca1ae5896aaed4eac336a835b4e5c1, type: 3}
-  m_Name: Navy_Basic_Broadside_ApproachSide
+  m_Script: {fileID: 11500000, guid: dc40d29cdca774241a1dfea95198509b, type: 3}
+  m_Name: Merchant_Schooner_Arrive_Idle
   m_EditorClassIdentifier: 
-  ScaleSide: 45
-  ScaleForward: 5
+  MaxAcceleration: 30
+  MaxSpeed: 60
+  DistanceArriving: 3
+  DistanceArrived: 1
+  AccelerationTime: 0.1

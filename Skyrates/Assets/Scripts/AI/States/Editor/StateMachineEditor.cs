@@ -125,9 +125,7 @@ namespace Skyrates.AI.State
                     }
 
                     {
-                        bool[] entryToggles = ToggleTransitionEntries[iState];
-                        if (entryToggles == null)
-                            entryToggles = new bool[0];
+                        bool[] entryToggles = ToggleTransitionEntries[iState] ?? new bool[0];
                         this.DrawTransitions(
                             iState.ToString() + ") " + state.StateName,
                             state.StateName,
@@ -140,8 +138,10 @@ namespace Skyrates.AI.State
                 EditorGUI.indentLevel--;
             }
 
-            Undo.RecordObject(this._stateMachine, string.Format("Edit {0}", this._stateMachine.name));
+            //serializedObject.ApplyModifiedProperties();
+            //Undo.RecordObject(this._stateMachine, string.Format("Edit {0}", this._stateMachine.name));
             EditorUtility.SetDirty(this._stateMachine);
+
         }
 
         private void DrawTransitions(string label, string stateName,

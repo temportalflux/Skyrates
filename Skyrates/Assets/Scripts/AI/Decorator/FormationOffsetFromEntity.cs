@@ -28,7 +28,7 @@ namespace Skyrates.AI.Decorator
                 {
                     float scale = 1.0f - Mathf.Min(diff.sqrMagnitude, target.MaxDistanceSq) / target.MaxDistanceSq;
                     diff.Normalize();
-                    diff *= scale;
+                    diff *= Mathf.Min(scale, 1.0f);
                 }
 
                 directionFromNearbyToOwner += diff;
