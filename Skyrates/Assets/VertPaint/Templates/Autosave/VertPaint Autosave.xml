@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vertPaintTemplate version="1">
   <enabled>true</enabled>
-  <togglePreview>false</togglePreview>
+  <togglePreview>true</togglePreview>
   <hideTransformHandle>true</hideTransformHandle>
   <brushSettings>
-    <radius>53.9</radius>
-    <maxRadius>100</maxRadius>
-    <delay>0.01</delay>
-    <opacity>1</opacity>
+    <radius>30</radius>
+    <maxRadius>200</maxRadius>
+    <delay>0.05</delay>
+    <opacity>0.724</opacity>
     <falloff>
       <key>
         <time>0</time>
@@ -23,13 +23,13 @@
       </key>
     </falloff>
     <color>
-      <r>1</r>
-      <g>0</g>
+      <r>0</r>
+      <g>1</g>
       <b>0</b>
       <a>1</a>
     </color>
-    <style>3</style>
-    <alpha>0.2</alpha>
+    <style>2</style>
+    <alpha>0.27</alpha>
   </brushSettings>
   <keyBindings>
     <paint>Mouse0</paint>
