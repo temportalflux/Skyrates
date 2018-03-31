@@ -29,16 +29,7 @@ namespace Skyrates.AI.State.Transition
             float distSq = (physics.LinearPosition - behavioralData.Target.LinearPosition).sqrMagnitude;
             return this.IsInsideDistance ? distSq < this._distanceSq : distSq > this._distanceSq;
         }
-
-#if UNITY_EDITOR
-        public override void DrawGizmos(PhysicsData physics, Behavior.DataPersistent persistent)
-        {
-            base.DrawGizmos(physics, persistent);
-            Gizmos.color = Colors.RedDevil;
-            Gizmos.DrawWireSphere(physics.LinearPosition, this.Distance);
-        }
-#endif
-
+        
     }
 
 }

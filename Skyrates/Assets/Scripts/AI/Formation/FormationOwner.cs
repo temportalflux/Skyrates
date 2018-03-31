@@ -159,7 +159,7 @@ namespace Skyrates.AI.Formation
         }
 
 #if UNITY_EDITOR
-        void OnDrawGizmos()
+        void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(this.SlotAveragePositionOffset + this.transform.position, this.NearbyRange);

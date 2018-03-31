@@ -65,7 +65,7 @@ namespace Skyrates.AI.State
 #if UNITY_EDITOR
         public virtual void DrawGizmos(PhysicsData physics, Behavior.DataPersistent persistent)
         {
-            
+
         }
 #endif
 
