@@ -509,6 +509,7 @@
     <Compile Include="Assets\Scripts\AI\BehaviorTimed.cs" />
     <Compile Include="Assets\Scripts\AI\Composite\BehaviorPipeline.cs" />
     <Compile Include="Assets\Scripts\AI\Composite\WeightedBehavior.cs" />
+    <Compile Include="Assets\Scripts\AI\Decorator\FindClosestSide.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\FormationOffsetFromEntity.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\SetTargetDirection.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\ShipRotation.cs" />
@@ -525,6 +526,7 @@
     <Compile Include="Assets\Scripts\AI\States\StateTransition.cs" />
     <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDetectedNearbyTargets.cs" />
     <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDetectedNearbyTargetsFormation.cs" />
+    <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDetectedNearbyThreatsFormation.cs" />
     <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionDistanceToTarget.cs" />
     <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionMissingFormationOwner.cs" />
     <Compile Include="Assets\Scripts\AI\States\Transitions\TransitionTargetExists.cs" />
