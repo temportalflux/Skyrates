@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1753950610291496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.132, y: 0, z: -0.1}
+  m_LocalPosition: {x: -6.34, y: -1.753, z: -4.42}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4852285366455442}
@@ -229,6 +229,7 @@ MonoBehaviour:
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   PhysicsComponent: {fileID: 0}
   Attack: 4
+  Shooter: {fileID: 0}
 --- !u!136 &136933438053157366
 CapsuleCollider:
   m_ObjectHideFlags: 1
