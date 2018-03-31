@@ -122,6 +122,8 @@ namespace Skyrates.Ship
                 {
                     EditorGUI.indentLevel++;
 
+                    this._instance.ParticleOnDestruction = (GameObject)EditorGUILayout.ObjectField("Explosion", this._instance.ParticleOnDestruction, typeof(GameObject), false);
+
                     // TODO: Duplicate code
 
                     ToggleParticlesSmoke = EditorGUILayout.Foldout(ToggleParticlesSmoke, "Smoke");

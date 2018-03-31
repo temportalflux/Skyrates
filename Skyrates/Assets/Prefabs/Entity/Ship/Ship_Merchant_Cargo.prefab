@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1150305448957660
 GameObject:
   m_ObjectHideFlags: 1
@@ -76,7 +76,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1407873246861368
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076707030096064}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.269, z: 0.054}
+  m_LocalPosition: {x: 0, y: 5.5, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4273277126452760}
@@ -191,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378986009550168}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.269, z: 0.0539999}
+  m_LocalPosition: {x: 0, y: 5.5, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4273277126452760}
@@ -293,8 +293,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.6552696, y: 13.9190645, z: 0}
-  m_Center: {x: -0.031171799, y: -4.3144665, z: 4.468851e-15}
+  m_Size: {x: 25, y: 125, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65755186226335334
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -305,8 +305,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.2224636, y: 12.057941, z: 0}
-  m_Center: {x: -0.089959145, y: -2.493032, z: 7.0064126e-15}
+  m_Size: {x: 25, y: 125, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95249695873849846
 Animator:
   serializedVersion: 3
@@ -458,4 +458,4 @@ MonoBehaviour:
   Render: {fileID: 4546537775946266}
   Hull: {fileID: 114347143358417134}
   Loot: {fileID: 11400000, guid: ed25723b05833b94485a1b7bed22a4c2, type: 2}
-  LootDropRadius: 10
+  LootDropRadius: 20

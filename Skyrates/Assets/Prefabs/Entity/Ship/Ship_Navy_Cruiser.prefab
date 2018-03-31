@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1089931354622660
 GameObject:
   m_ObjectHideFlags: 1
@@ -172,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1615884953737450
 GameObject:
   m_ObjectHideFlags: 1
@@ -360,7 +360,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1582145676537568}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.28, z: -1.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4562853253172884}
@@ -388,7 +388,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032703736425384}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.28, z: -1.6000001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4562853253172884}
@@ -482,8 +482,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1296444688354658}
-  m_LocalRotation: {x: -0, y: -0.82414234, z: -0, w: 0.5663828}
-  m_LocalPosition: {x: 86.214386, y: 0, z: -59.24985}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4311465932068558}
@@ -588,7 +588,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 11, z: 0}
+  m_Size: {x: 15, y: 120, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65906648567076450
 BoxCollider:
@@ -600,7 +600,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 11, z: 0}
+  m_Size: {x: 15, y: 120, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95541538114584688
 Animator:
@@ -825,7 +825,7 @@ MonoBehaviour:
   Render: {fileID: 4311465932068558}
   Hull: {fileID: 114753988310946612}
   Loot: {fileID: 11400000, guid: 2e4c82205e11c9d4890e695f6c1859e4, type: 2}
-  LootDropRadius: 5
+  LootDropRadius: 10
   ShootDelay: 7
   ShootDelayBroadside: 0.5
   distToBroadside: 300
