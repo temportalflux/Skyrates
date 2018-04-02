@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407873246861368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -279, y: 0, z: 105.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4546537775946266}
@@ -335,7 +335,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0ff7656b8aa0443a7fe4db4b9b8288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slots: []
+  Slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SlotOffsets: []
   NearbyRange: 400
   ThreatRange: 350
 --- !u!114 &114347143358417134
@@ -412,6 +421,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  WaypointStartColor: {r: 0.99607843, g: 0.8745098, b: 0, a: 1}
+  WaypointEndColor: {r: 0, g: 0.7254902, b: 0.9843137, a: 1}
 --- !u!114 &114968147863439486
 MonoBehaviour:
   m_ObjectHideFlags: 1

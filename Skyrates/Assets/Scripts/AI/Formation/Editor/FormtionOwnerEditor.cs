@@ -28,19 +28,20 @@ namespace Skyrates.Common.AI.Formation
             this._instance.NearbyRange = EditorGUILayout.FloatField("Nearby Range", this._instance.NearbyRange);
             this._instance.ThreatRange = EditorGUILayout.FloatField("Threat Range", this._instance.ThreatRange);
 
-            this.DrawArrayArea("Slots", ref this._instance.Slots, o => (o as GameObject).transform);
+            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("GizmoColorNearby"), true);
+            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("GizmoColorNearbyTargets"), true);
+            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("GizmoColorThreat"), true);
+            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("GizmoColorSlots"), true);
+            
+            this.DrawArrayArea("Slots", ref this._instance.Slots, o => (o as GameObject).GetComponent<FormationSlot>());
 
             ToggleSlotsBlock = this.DrawArray("Slots", ref this._instance.Slots,
                 true, ToggleSlotsBlock,
                 false, ref ToggleSlotsEntries,
-                ((transform, i) => transform.name),
-                ((transform, i) =>
-                {
-                    transform = (Transform) EditorGUILayout.ObjectField(
-                        transform, typeof(Transform),
-                        allowSceneObjects: true);
-                    return transform;
-                }));
+                (slot, i) => slot.name,
+                (slot, i) => (FormationSlot)EditorGUILayout.ObjectField(
+                    slot, typeof(FormationSlot), true)
+            );
 
             Undo.RecordObject(this._instance, string.Format("Edit {0}", this._instance.name));
             EditorUtility.SetDirty(this._instance);

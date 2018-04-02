@@ -58,7 +58,7 @@ namespace Skyrates.AI.Decorator
 #if UNITY_EDITOR
         public override void DrawGizmosSelected(PhysicsData physics, DataPersistent persistent)
         {
-            if (this.ToggleGizmo)
+            if (this.ToggleGizmo && persistent != null)
             {
                 Gizmos.color = this.GizmoColor;
                 Gizmos.DrawWireSphere(((Persistent)persistent).PositionOnEnter, this.Distance);
