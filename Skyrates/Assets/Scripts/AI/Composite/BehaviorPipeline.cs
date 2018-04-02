@@ -180,6 +180,18 @@ namespace Skyrates.AI.Composite
                     ((Persistent)persistent).PeristentData[iBehavior] : null);
             }
         }
+
+        public override void DrawGizmosSelected(PhysicsData physics, DataPersistent persistent)
+        {
+            for (int iBehavior = 0; iBehavior < this.Behaviors.Length; iBehavior++)
+            {
+                if (this.Behaviors[iBehavior] == null) continue;
+                Behavior behavior = this.GetBehaviorFrom(this.Behaviors[iBehavior]);
+                if (behavior == null) continue;
+                behavior.DrawGizmosSelected(physics, persistent != null ?
+                    ((Persistent)persistent).PeristentData[iBehavior] : null);
+            }
+        }
 #endif
 
     }

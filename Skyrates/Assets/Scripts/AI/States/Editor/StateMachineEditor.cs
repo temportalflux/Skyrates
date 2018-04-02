@@ -10,7 +10,7 @@ namespace Skyrates.AI.State
         // Cached scriptable object editor
         private Editor editor = null;
 
-        private StateMachine _stateMachine;
+        private StateMachine _instance;
 
         private static bool ToggleStateBlock = true;
         private static bool ToggleStates = true;
@@ -23,20 +23,20 @@ namespace Skyrates.AI.State
 
         void OnEnable()
         {
-            this._stateMachine = this.target as StateMachine;
+            this._instance = this.target as StateMachine;
         }
 
         public override void OnInspectorGUI()
         {
             //base.OnInspectorGUI();
-            this.DrawScriptField(this._stateMachine);
+            this.DrawScriptField(this._instance);
 
             EditorGUILayout.LabelField("Execution Frequency");
             {
-                this._stateMachine.ExecuteFrequency =
-                    EditorGUILayout.FloatField("Frequency (Sec)", this._stateMachine.ExecuteFrequency);
-                this._stateMachine.ScatterExecute =
-                    EditorGUILayout.Toggle("Scatter Execution Start", this._stateMachine.ScatterExecute);
+                this._instance.ExecuteFrequency =
+                    EditorGUILayout.FloatField("Frequency (Sec)", this._instance.ExecuteFrequency);
+                this._instance.ScatterExecute =
+                    EditorGUILayout.Toggle("Scatter Execution Start", this._instance.ScatterExecute);
             }
 
             EditorGUILayout.Separator();
@@ -44,25 +44,25 @@ namespace Skyrates.AI.State
             ToggleStateBlock = EditorGUILayout.Foldout(ToggleStateBlock, "States");
             if (ToggleStateBlock)
             {
-                if (this._stateMachine.IdleState == null)
-                    this._stateMachine.IdleState = new State(){StateName = "Idle"};
-                this._stateMachine.IdleState.Behavior =
-                    (Behavior)EditorGUILayout.ObjectField("Idle", this._stateMachine.IdleState.Behavior,
+                if (this._instance.IdleState == null)
+                    this._instance.IdleState = new State(){StateName = "Idle"};
+                this._instance.IdleState.Behavior =
+                    (Behavior)EditorGUILayout.ObjectField("Idle", this._instance.IdleState.Behavior,
                     typeof(Behavior), allowSceneObjects:false);
 
                 EditorGUILayout.Separator();
 
                 EditorGUI.indentLevel++;
-                if (this._stateMachine.StateNames == null) this._stateMachine.StateNames = new string[1]{"Idle"};
-                this._stateMachine.StateNames[0] = "Idle";
+                if (this._instance.StateNames == null) this._instance.StateNames = new string[1]{"Idle"};
+                this._instance.StateNames[0] = "Idle";
 
-                ToggleStates = this.DrawArray("List", ref this._stateMachine.States,
+                ToggleStates = this.DrawArray("List", ref this._instance.States,
                     true, ToggleStates,
                     false, ref ToggleStateEntries,
                     DrawBlock: ((state, i) =>
                     {
-                        if (this._stateMachine.StateNames.Length != this._stateMachine.States.Length + 1)
-                            Array.Resize(ref this._stateMachine.StateNames, this._stateMachine.States.Length + 1);
+                        if (this._instance.StateNames.Length != this._instance.States.Length + 1)
+                            Array.Resize(ref this._instance.StateNames, this._instance.States.Length + 1);
 
                         //EditorGUILayout.BeginHorizontal();
                         {
@@ -79,7 +79,7 @@ namespace Skyrates.AI.State
                             EditorGUI.indentLevel--;
                             //EditorGUIUtility.labelWidth = 0;
 
-                            this._stateMachine.StateNames[i + 1] = state.StateName;
+                            this._instance.StateNames[i + 1] = state.StateName;
                         }
                         //EditorGUILayout.EndHorizontal();
 
@@ -97,26 +97,27 @@ namespace Skyrates.AI.State
             {
                 EditorGUI.indentLevel++;
 
-                if (ToggleTransitionStates.Length != this._stateMachine.States.Length)
+                if (ToggleTransitionStates.Length != this._instance.States.Length)
                 {
-                    Array.Resize(ref ToggleTransitionStates, this._stateMachine.States.Length);
-                    Array.Resize(ref ToggleTransitionEntries, this._stateMachine.States.Length);
+                    Array.Resize(ref ToggleTransitionStates, this._instance.States.Length);
+                    Array.Resize(ref ToggleTransitionEntries, this._instance.States.Length);
                 }
 
                 {
                     bool[] entryToggles = ToggleIdleTransitionStates;
                     if (entryToggles == null)
                         entryToggles = new bool[0];
-                    this.DrawTransitions("Idle", "Idle",
+                    this.DrawTransitions("Idle",
+                        this._instance.IdleState,
                         ref ToggleIdleTransitions,
-                        ref this._stateMachine.IdleState.Transitions,
+                        ref this._instance.IdleState.Transitions,
                         ref ToggleIdleTransitionStates);
                     ToggleIdleTransitionStates = entryToggles;
                 }
 
-                for (int iState = 0; iState < this._stateMachine.States.Length; iState++)
+                for (int iState = 0; iState < this._instance.States.Length; iState++)
                 {
-                    State state = this._stateMachine.States[iState];
+                    State state = this._instance.States[iState];
 
                     if (state == null)
                     {
@@ -127,8 +128,8 @@ namespace Skyrates.AI.State
                     {
                         bool[] entryToggles = ToggleTransitionEntries[iState] ?? new bool[0];
                         this.DrawTransitions(
-                            iState.ToString() + ") " + state.StateName,
-                            state.StateName,
+                            iState + ") " + state.StateName,
+                            state,
                             ref ToggleTransitionStates[iState],
                             ref state.Transitions, ref entryToggles
                         );
@@ -140,47 +141,55 @@ namespace Skyrates.AI.State
 
             //serializedObject.ApplyModifiedProperties();
             //Undo.RecordObject(this._stateMachine, string.Format("Edit {0}", this._stateMachine.name));
-            EditorUtility.SetDirty(this._stateMachine);
+            EditorUtility.SetDirty(this._instance);
 
         }
 
-        private void DrawTransitions(string label, string stateName,
+        private void DrawTransitions(string label, State state,
             ref bool toggle, ref StateTransition[] elements, ref bool[] entryToggles)
         {
+            StateTransition[] transitions = elements;
             bool[] allEntryToggles = entryToggles;
             toggle = this.DrawArray(
                 label,
-                ref elements,
+                ref transitions,
                 true, toggle,
                 false, ref allEntryToggles,
                 GetFieldName: ((transition, i) =>
                 {
                     if (transition == null) return "Null transition????";
-
-                    State stateDest = transition.GetStateDestination(this._stateMachine);
-                    return stateName + " -> " +
+                    
+                    State stateDest = this._instance.GetState(state.TransitionDestinations[i]);
+                    return state.StateName + " -> " +
                            (stateDest == null ? "Nil" : stateDest.StateName);
                 }),
                 DrawBlock: (transition, i) =>
                 {
+                    if (state.TransitionDestinations.Length != transitions.Length)
+                        Array.Resize(ref state.TransitionDestinations, transitions.Length);
+
                     EditorGUI.indentLevel++;
 
-                    this.DrawTransition(ref transition, transition == null ? i.ToString() : stateName, ref allEntryToggles[i]);
+                    this.DrawTransition(ref transition,
+                        transition == null ? i.ToString() : state.StateName,
+                        ref state.TransitionDestinations[i],
+                        ref allEntryToggles[i]);
 
                     EditorGUI.indentLevel--;
                     return transition;
                 }
             );
             entryToggles = allEntryToggles;
+            elements = transitions;
         }
 
-        private void DrawTransition(ref StateTransition transition, string stateName, ref bool toggled)
+        private void DrawTransition(ref StateTransition transition, string stateName, ref int destination, ref bool toggled)
         {
             EditorGUILayout.BeginHorizontal();
 
             if (transition != null)
             {
-                State stateDest = transition.GetStateDestination(this._stateMachine);
+                State stateDest = this._instance.GetState(destination);
                 string str = stateName + " -> " +
                              (stateDest == null ? "NONE" : stateDest.StateName);
                 toggled = EditorGUILayout.Foldout(toggled, str);
@@ -194,10 +203,7 @@ namespace Skyrates.AI.State
 
             if (transition != null)
             {
-
-                transition.StateDestination = EditorGUILayout.Popup(transition.StateDestination + 1,
-                    this._stateMachine.StateNames) - 1;
-
+                destination = EditorGUILayout.Popup(destination + 1, this._instance.StateNames) - 1;
             }
         }
 

@@ -20,19 +20,23 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b0fae6046efcef7429a50f455f005380, type: 2}
     - {fileID: 11400000, guid: 0e590f2889692344188fb7a453cadb0a, type: 2}
     - {fileID: 11400000, guid: ede73d2fb6fdbd646bce9a519cf5413d, type: 2}
+    TransitionDestinations: 000000000100000002000000
   States:
   - StateName: Wander
     Behavior: {fileID: 11400000, guid: 8c1ea56fe75653145be86830c97924fd, type: 2}
     Transitions: []
+    TransitionDestinations: 
   - StateName: Alert
     Behavior: {fileID: 11400000, guid: b607f0c5ee99bd241ac4534e9b6bb836, type: 2}
     Transitions:
     - {fileID: 11400000, guid: b7f8818e1ac06c34e9ba1b050ef42bbb, type: 2}
     - {fileID: 11400000, guid: ede73d2fb6fdbd646bce9a519cf5413d, type: 2}
+    TransitionDestinations: ffffffff02000000
   - StateName: Panic
     Behavior: {fileID: 11400000, guid: 8417502a68b16f44c86b6cf61bc376cf, type: 2}
     Transitions:
     - {fileID: 11400000, guid: 2389cdc34bdfadc48aefa8806eb26dbf, type: 2}
+    TransitionDestinations: 01000000
   StateNames:
   - Idle
   - Wander

@@ -85,10 +85,16 @@ namespace Skyrates.Entity
 
             this.DataBehavior.View = this.GetView();
             this.DataBehavior.Render = this.GetRender().transform;
+
+            this.DataBehavior.Target.LinearPosition = this.PhysicsData.LinearPosition;
+            this.DataBehavior.Target.RotationPosition = this.PhysicsData.RotationPosition;
+
             this.DataBehavior.Formation = this._formationAgent;
             this.DataBehavior.Waypoints = this._waypointAgent;
+
             this.DataBehavior.ThrustMultiplier = 1.0f;
             this.DataBehavior.TurnSpeedMultiplier = 1.0f;
+
             this.DataBehavior.CleanNearby(this.PhysicsData);
 
         }
@@ -198,9 +204,8 @@ namespace Skyrates.Entity
         }
 
 #if UNITY_EDITOR
-        public void OnDrawGizmos()
+        public virtual void OnDrawGizmos()
         {
-
             if (this.Behavior != null)
             {
                 PhysicsData data = this.PhysicsData.Copy();
@@ -222,6 +227,33 @@ namespace Skyrates.Entity
                 foreach (Behavior.DataBehavioral.NearbyTarget target in this.DataBehavior.NearbyTargets)
                 {
                     target.Target.DrawGizmos(1.0f, 0.5f, Color.gray);
+                }
+            }
+        }
+
+        public virtual void OnDrawGizmosSelected()
+        {
+            if (this.Behavior != null)
+            {
+                PhysicsData data = this.PhysicsData.Copy();
+                data.UpdatePositions(this.transform);
+                data.UpdateDirections(this.transform);
+                try
+                {
+                    this.Behavior.DrawGizmosSelected(data, Application.isPlaying ? this.DataPersistent : null);
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                    Debug.LogException(e);
+                }
+            }
+
+            if (this.DataBehavior.NearbyTargets != null)
+            {
+                foreach (Behavior.DataBehavioral.NearbyTarget target in this.DataBehavior.NearbyTargets)
+                {
+                    target.Target.DrawGizmosSelected(1.0f, 0.5f, Color.gray);
                 }
             }
         }

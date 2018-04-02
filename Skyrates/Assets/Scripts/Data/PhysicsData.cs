@@ -164,6 +164,10 @@ namespace Skyrates.Physics
                 Gizmos.DrawWireSphere(this.LinearPosition, sphereScale);
             }
         }
+
+        public void DrawGizmosSelected(float axisScale, float sphereScale, Color sphereColor)
+        {
+        }
 #endif
 
     }
