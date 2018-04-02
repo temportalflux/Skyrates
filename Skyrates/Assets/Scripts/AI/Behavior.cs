@@ -139,9 +139,15 @@ namespace Skyrates.AI
         {
         }
 
+#if UNITY_EDITOR
         public virtual void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
         }
+
+        public virtual void DrawGizmosSelected(PhysicsData physics, DataPersistent persistent)
+        {
+        }
+#endif
 
     }
 }

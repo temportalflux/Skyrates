@@ -47,7 +47,7 @@ namespace Skyrates.AI.State
             }
             
         }
-
+        
         [SerializeField]
         public State IdleState;
         
@@ -55,7 +55,7 @@ namespace Skyrates.AI.State
         /// All of the possible states.
         /// </summary>
         [SerializeField]
-        public State[] States;
+        public State[] States = new State[0];
 
 #if UNITY_EDITOR
         public string[] StateNames;
@@ -71,7 +71,7 @@ namespace Skyrates.AI.State
                 return ret;
             }
         }
-
+        
         /// <inheritdoc />
         public override DataPersistent CreatePersistentData()
         {
@@ -133,13 +133,13 @@ namespace Skyrates.AI.State
 
             State currentState = this.GetCurrentState(customDataTimed);
 
-            StateTransition transition;
-            if (currentState.CanEnter(physics, data, customDataTimed.CurrentPersistent, out transition))
+            int destinationIndex;
+            if (currentState.CanExit(physics, data, customDataTimed.CurrentPersistent, out destinationIndex))
             {
                 // Can enter the state defined by the transition, so exit the current state
                 this.ExitCurrentState(physics, ref data, ref customDataTimed);
                 // And enter the destination state set in the transition
-                this.EnterState(transition.StateDestination, physics, ref data, ref customDataTimed);
+                this.EnterState(destinationIndex, physics, ref data, ref customDataTimed);
             }
 
             return customDataTimed;
@@ -153,7 +153,7 @@ namespace Skyrates.AI.State
         /// <param name="persistent"></param>
         private void ExitCurrentState(PhysicsData physics, ref DataBehavioral behavioral, ref PersistentDataTimedSm persistent)
         {
-            this.GetCurrentState(persistent).Exit(physics, ref behavioral, persistent.CurrentPersistent);
+            this.GetCurrentState(persistent).OnExit(physics, ref behavioral, persistent.CurrentPersistent);
             persistent.StateIndex = -1;
         }
 
@@ -168,8 +168,24 @@ namespace Skyrates.AI.State
         {
             persistent.StateIndex = iState;
             DataPersistent statePersistent = persistent.CurrentPersistent;
-            this.GetCurrentState(persistent).Enter(physics, ref behavioral, ref statePersistent);
+            this.GetCurrentState(persistent).OnEnter(physics, ref behavioral, ref statePersistent);
             persistent.CurrentPersistent = statePersistent;
+        }
+
+        public override DataPersistent OnEnter(PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent)
+        {
+            PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm)persistent;
+            DataPersistent statePersistent = customDataTimed.CurrentPersistent;
+            this.GetCurrentState(customDataTimed).OnEnter(physics, ref behavioral, ref statePersistent);
+            customDataTimed.CurrentPersistent = statePersistent;
+            return base.OnEnter(physics, ref behavioral, persistent);
+        }
+
+        public override void OnExit(PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent)
+        {
+            PersistentDataTimedSm customDataTimed = (PersistentDataTimedSm)persistent;
+            this.GetCurrentState(customDataTimed).OnExit(physics, ref behavioral, customDataTimed.CurrentPersistent);
+            base.OnExit(physics, ref behavioral, persistent);
         }
 
         public override void OnDetect(EntityAI other, float distance, ref DataPersistent persistent)
@@ -203,6 +219,31 @@ namespace Skyrates.AI.State
                 for (int iState = -1; iState < this.States.Length; iState++)
                 {
                     this.GetState(iState).DrawGizmos(physics,
+                        smPersistent != null ? smPersistent.PeristentData[iState + 1] : null);
+                }
+            }
+        }
+        /// <inheritdoc />
+        public override void DrawGizmosSelected(PhysicsData physics, DataPersistent persistent)
+        {
+            PersistentDataTimedSm smPersistent = (PersistentDataTimedSm)persistent;
+
+            UnityEditor.Handles.Label(physics.LinearPosition,
+                smPersistent != null ? this.GetCurrentState(smPersistent).StateName : "Idle");
+
+            if (Application.isPlaying)
+            {
+                if (smPersistent != null)
+                {
+                    this.GetCurrentState(smPersistent).DrawGizmosSelected(
+                        physics, smPersistent.CurrentPersistent);
+                }
+            }
+            else
+            {
+                for (int iState = -1; iState < this.States.Length; iState++)
+                {
+                    this.GetState(iState).DrawGizmosSelected(physics,
                         smPersistent != null ? smPersistent.PeristentData[iState + 1] : null);
                 }
             }

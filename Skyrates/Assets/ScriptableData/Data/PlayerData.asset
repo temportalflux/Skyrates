@@ -23,7 +23,7 @@ MonoBehaviour:
     YawAngleDeadZone: 0.25
     MoveVertical:
       Input: 0
-      Modifier: 15
+      Modifier: 25
     PitchAngle: 5
     PitchAngleSpeed: 10
     PitchAngleDeadZone: 0.15
@@ -39,7 +39,7 @@ MonoBehaviour:
     SpeedInitial: 0
     SpeedMin: 0
     SpeedMax: 55
-    CurrentSpeed: 0
+    CurrentSpeed: 52.25
   Artillery:
     Gimbal:
       MaxDelaySeconds: 2
