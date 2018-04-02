@@ -3,6 +3,7 @@ using Skyrates.Data;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using Skyrates.Physics;
+using Skyrates.Respawn;
 using Skyrates.Ship;
 using UnityEngine;
 
@@ -148,10 +149,14 @@ namespace Skyrates.Entity
 
             this.Health = this.Hull.HP;
 
-            Transform spawn = GameManager.Instance.PlayerSpawn;
+            Transform spawn = RespawnAreaList.Instance.GetClosestCheckpoint(this.transform.position).GetNextRespawnLocation();
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
             this.PhysicsData.RotationPosition = spawn.rotation;
             this.PhysicsData.LinearPosition = spawn.position;
+
+            this.PlayerData.Movement.CurrentSpeed = 0.0f;
+            
+            this.Hull.ClearHealthParticles();
 
             return false;
         }

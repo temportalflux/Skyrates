@@ -123,6 +123,7 @@ namespace Skyrates.Data
         {
             this.ViewMode = CameraMode.FREE;
 			this.InputData.BlockInputs = false;
+            this.Movement.CurrentSpeed = this.Movement.SpeedInitial;
 
 			// TODO: Implement reflection if we need to refactor due to the time it takes for the current non-DRY solution.
 			Inventory.Clear(); // Needed in order to reset player data in editor.  Could remove from builds with a preprocessor macro if we wanted to.

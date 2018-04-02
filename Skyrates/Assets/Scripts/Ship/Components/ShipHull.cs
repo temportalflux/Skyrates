@@ -186,6 +186,12 @@ namespace Skyrates.Ship
 
         }
 
+        public void ClearHealthParticles()
+        {
+            this.SmokeData.Generated.Clear();
+            this.FireData.Generated.Clear();
+        }
+
         #endregion
 
         private void ForEeach<T>(ShipData.ComponentType componentType, Action<T> loop) where T: ShipComponent

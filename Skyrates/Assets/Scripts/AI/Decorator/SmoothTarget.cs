@@ -57,6 +57,13 @@ namespace Skyrates.AI.Decorator
             return new Persistent();
         }
 
+        public override DataPersistent OnEnter(PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent)
+        {
+            Persistent data = (Persistent)persistent;
+            data.TargetInterpolated = behavioral.Target.LinearPosition;
+            return data;
+        }
+
         /// <inheritdoc />
         public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
