@@ -14,13 +14,10 @@ namespace Skyrates.Entity
 		public float Defense = 0.0f;
 		public float Protection = 0.0f;
 
-		public virtual void OnTriggerEnter(Collider other)
+		public void OnTriggerEnter(Collider other)
 		{
+			Debug.Log("Trigger entered fort.");
 			this.TryCalculateDamage(other);
-		}
-
-		public virtual void OnTriggerExit(Collider other)
-		{
 		}
 
 		//TODO: Merge into common interface or parent.
@@ -28,6 +25,8 @@ namespace Skyrates.Entity
 		{
 			// Check to ensure that sources and their projectiles don't collide
 			// downside is that enemies cannot be hit by any projectile that came from an enemy
+			Debug.Log(other.tag);
+			//Currently, comparing tag is not necessary here, but we'll keep it because it'll happen anyway if/once we merge.
 			if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Enemy")) ||
 				(other.CompareTag("Projectile-Player") && this.CompareTag("Player")))
 			{
@@ -126,6 +125,8 @@ namespace Skyrates.Entity
 		{
 			// Remove the damage from the health
 			this.Health -= damage;
+
+			Debug.Log("Health left: " + this.Health.ToString());
 
 			// If we still have health, stop execution here
 			if (this.Health > 0.0f) return this.Health;
