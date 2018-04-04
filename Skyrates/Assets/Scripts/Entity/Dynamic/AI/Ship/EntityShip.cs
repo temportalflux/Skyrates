@@ -302,7 +302,7 @@ namespace Skyrates.Entity
         /// </summary>
         /// <param name="target"></param>
         /// <param name="damage">The amount of damage that was caused to the target</param>
-        protected virtual void OnRamUnsucessful(EntityShip target, float damage)
+        public virtual void OnRamUnsucessful(Entity target, float damage)
         {
             // Calculate the damage to take when ramming is unsuccesful.
             this.TakeDamage(target, CaclulateRecoil(damage));
