@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Misc;
+﻿using Skyrates.Misc;
 using Skyrates.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,12 +10,13 @@ public class UIStateOverheat : UIStateCooldown<StateOverheat>
 
     protected override void OnSetVisibility()
     {
-        this.Cutoff.enabled = this.IsVisible;
+        base.OnSetVisibility();
+        this.Cutoff.enabled = this.IsActive;
     }
 
-    public override void UpdateWith(StateOverheat state, bool isVisible)
+    public override void UpdateWith(StateOverheat state)
     {
-        base.UpdateWith(state, isVisible);
+        base.UpdateWith(state);
         this.SetCutoff(state.OverheatMin, 1.0f);
         this.PercentComplete = state.PercentComplete;
     }

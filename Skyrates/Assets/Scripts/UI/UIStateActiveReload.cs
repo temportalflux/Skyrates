@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Skyrates.Misc;
+﻿using Skyrates.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,19 +10,15 @@ namespace Skyrates.UI
         
         public Image Cutoff;
 
-        protected override bool IsActiveOnAwake()
-        {
-            return false;
-        }
-
         protected override void OnSetVisibility()
         {
-            this.Cutoff.enabled = this.IsVisible;
+            base.OnSetVisibility();
+            this.Cutoff.enabled = this.IsActive;
         }
 
-        public override void UpdateWith(StateActiveReload state, bool isVisible)
+        public override void UpdateWith(StateActiveReload state)
         {
-            base.UpdateWith(state, isVisible);
+            base.UpdateWith(state);
             // Cannon not loaded
             if (!state.IsLoaded())
             {
