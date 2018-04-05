@@ -134,7 +134,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
-  AttackModifier: 1
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
+  AttackModifier: 6
+  DistanceModifier: 1
   Shooter: {fileID: 114278336894392368}
   DropDelay: 0.25
   DropAmount: 5
