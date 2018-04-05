@@ -20,6 +20,7 @@ namespace Skyrates.Mono
         /// <summary>
         /// The prefab of the projectile to launch from this source.
         /// </summary>
+        // TODO: Require EntityProjectile
         [SerializeField]
         public Entity.Entity projectilePrefab;
 
@@ -137,7 +138,7 @@ namespace Skyrates.Mono
             {
                 EntityProjectile projectile = (EntityProjectile)entity;
                 projectile.Attack *= attackModifier;
-                projectile.GetComponent<SelfDestruct>().Delay *= distanceModifier;
+                projectile.SelfDestruct.Delay *= distanceModifier;
                 projectile.Shooter = this;
 				if (this.UseArc)
 				{

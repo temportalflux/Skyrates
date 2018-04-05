@@ -112,13 +112,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155305609688494}
-  m_LocalRotation: {x: 0.00000013240823, y: 0.7071068, z: 0.7071068, w: -0.00000013240823}
-  m_LocalPosition: {x: 0, y: 0, z: 0.034999847}
+  m_LocalRotation: {x: -0.037008226, y: 0.7076732, z: 0.7046608, w: -0.035809226}
+  m_LocalPosition: {x: 0.0025, y: 0.0006, z: -0.002}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4678975135200448}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: -84.092, y: 267.582, z: -87.68001}
 --- !u!4 &4678975135200448
 Transform:
   m_ObjectHideFlags: 1
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608605352816184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.298, y: -1.695, z: -4.378}
+  m_LocalPosition: {x: -3.309, y: -0.049999952, z: -4.378}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4448878628424280}
@@ -304,7 +304,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -915654397
+  randomSeed: 1737485981
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1206,8 +1206,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.6149231, b: 0.2647059, a: 0}
-        key1: {r: 1, g: 0.9724138, b: 0, a: 0.46666667}
+        key0: {r: 0.6691177, g: 0.38826638, b: 0.13283955, a: 0}
+        key1: {r: 0.4852941, g: 0.4730879, b: 0.04282008, a: 0.46666667}
         key2: {r: 1, g: 1, b: 1, a: 1}
         key3: {r: 1, g: 1, b: 1, a: 0}
         key4: {r: 1, g: 1, b: 1, a: 0}
@@ -3620,7 +3620,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f63c576739a709747a1a571260d4fabd, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

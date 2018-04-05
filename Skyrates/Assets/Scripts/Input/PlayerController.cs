@@ -8,6 +8,7 @@ using Skyrates.Entity;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using Skyrates.Misc;
+using Skyrates.Mono;
 using Skyrates.Ship;
 using UnityEngine;
 
@@ -212,7 +213,7 @@ namespace Skyrates.Client.Input
                     this.PlayerData.Artillery.Gimbal = (StateActiveReload)this.ShootCooldown(
                         this.PlayerData.Artillery.Gimbal, () =>
                         {
-                            this.Shoot(ShipData.ComponentType.ArtilleryForward);
+                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryForward, this.GetForwardCannonDirection);
                         }
                     );
                     break;
@@ -220,7 +221,7 @@ namespace Skyrates.Client.Input
                     this.PlayerData.Artillery.Port = (StateOverheat) this.ShootCooldown(
                         this.PlayerData.Artillery.Port, () =>
                         {
-                            this.Shoot(ShipData.ComponentType.ArtilleryLeft);
+                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryLeft);
                         }
                     );
                     break;
@@ -228,7 +229,7 @@ namespace Skyrates.Client.Input
                     this.PlayerData.Artillery.Starboard = (StateOverheat) this.ShootCooldown(
                         this.PlayerData.Artillery.Starboard, () =>
                         {
-                            this.Shoot(ShipData.ComponentType.ArtilleryRight);
+                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryRight);
                         }
                     );
                     break;
@@ -236,7 +237,7 @@ namespace Skyrates.Client.Input
                     this.PlayerData.Artillery.Bombs = this.ShootCooldown(
                         this.PlayerData.Artillery.Bombs, () =>
                         {
-                            this.Shoot(ShipData.ComponentType.ArtilleryDown);
+                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryDown);
                         });
                     break;
                 default:
@@ -287,11 +288,6 @@ namespace Skyrates.Client.Input
         {
             this.PlayerStateCurrent.UpdatePre(this._controller, this, ref this.PlayerData.InputData);
         }
-        
-        private void Shoot(ShipData.ComponentType artillery)
-        {
-            this.EntityPlayerShip.Shoot(artillery);
-        }
 
         private StateCooldown ShootCooldown(StateCooldown cooldown, Action shoot)
         {
@@ -300,7 +296,22 @@ namespace Skyrates.Client.Input
             shoot();
             return cooldown;
         }
-        
+
+        private Vector3 GetForwardCannonDirection(ShipArtillery artillery)
+        {
+            // Get total distance of projectile
+            EntityProjectile projectile = artillery.Shooter.projectilePrefab as EntityProjectile;
+            float distance = projectile != null ? projectile.SelfDestruct.Delay : 1.0f;
+            distance *= artillery.DistanceModifier;
+
+            // Get location from camera POV at distance
+            Vector3 cameraTarget = this.EntityPlayerShip.Camera.transform.forward * distance;
+
+
+
+            return Vector3.forward;
+        }
+
     }
 
 }
