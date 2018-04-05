@@ -76,6 +76,7 @@ namespace Skyrates.Entity
         /// </summary>
         protected override void FixedUpdate()
         {
+            this.transform.position += Vector3.down * this.AdditionalGravity;
             this.PhysicsData.LinearPosition = this.transform.position;
             this.PhysicsData.LinearVelocity = this.PhysicsComponent.velocity;
             this.PhysicsData.RotationPosition = this.transform.rotation;
