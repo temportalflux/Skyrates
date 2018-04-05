@@ -5,9 +5,13 @@ namespace Skyrates.AI.Target
 
     public class WaypointAgent : MonoBehaviour
     {
-        
-        [SerializeField]
-        public Waypoint[] Targets;
+
+        public WaypointList Waypoints;
+
+        public Waypoint[] Targets
+        {
+            get { return this.Waypoints != null ? this.Waypoints.Targets : new Waypoint[0]; }
+        }
 
         public Color WaypointStartColor = Colors.YellowPantone;
         public Color WaypointEndColor = Colors.BlueBolt;
