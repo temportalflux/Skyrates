@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Skyrates.Data;
+﻿using Skyrates.Data;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using Skyrates.Physics;
@@ -35,6 +34,8 @@ namespace Skyrates.Entity
         /// The Ship component which creates the modular ship.
         /// </summary>
         public ShipGenerator ShipGeneratorRoot;
+
+        public Camera Camera;
 
 		/// <inheritdoc />
 		protected override void Awake()
