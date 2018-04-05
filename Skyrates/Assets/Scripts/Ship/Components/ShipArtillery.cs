@@ -11,12 +11,9 @@ namespace Skyrates.Ship
     /// </summary>
     public class ShipArtillery : ShipComponent
     {
-
-        [Range(0, 1)]
+        
         public float RateOfFireModifier = 1;
-        [Range(0, 1)]
         public float AttackModifier = 1;
-        [Range(0, 1)]
         public float DistanceModifier = 1;
         
         public Shooter Shooter;
