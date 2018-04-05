@@ -44,9 +44,9 @@ namespace Skyrates.AI.Custom
             float rotationZ = Mathf.Sign(-rotationY) * Mathf.Min(Mathf.Abs(rotationY), this.AngleYaw);
 
             // pitching (up/down rotation)
-            float rotationX = -1 *
-                (physics.LinearVelocity.y > 0 ? Mathf.Sign(physics.LinearVelocity.y) : 0)
-                * this.AnglePitch;
+            float velY = physics.LinearVelocity.y;
+            float direction = velY < 0 ? -1 : (velY > 0 ? 1 : 0);
+            float rotationX = -1 * direction * this.AnglePitch;
 
             Vector3 currentRotation = physics.RotationAesteticPosition.eulerAngles;
 

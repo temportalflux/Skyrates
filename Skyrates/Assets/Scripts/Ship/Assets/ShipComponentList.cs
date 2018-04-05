@@ -57,6 +57,18 @@ namespace Skyrates.Ship
             return (T)this.GetRawComponent(compType, index);
         }
 
+        /// <summary>
+        /// Returns <see cref="GetRawComponent"/> casted to a subclass of <see cref="ShipComponent"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="compType"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public T GetComponentLast<T>(ComponentType compType) where T : ShipComponent
+        {
+            return this.GetComponent<T>(compType, -1);
+        }
+
     }
 
 }

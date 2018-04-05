@@ -40,7 +40,7 @@ namespace Skyrates.Entity
 		protected override void Awake()
         {
             base.Awake();
-            this.ShipGeneratorRoot.Destroy();
+            this.ShipGeneratorRoot.ReGenerate();
             this.PlayerData.Init();
         }
 

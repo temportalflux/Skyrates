@@ -11,7 +11,7 @@ namespace Skyrates.UI
 
         protected virtual void Awake()
         {
-            Debug.Log("Awake " + this.name);
+
         }
 
         public virtual void UpdateWith(PlayerData source)

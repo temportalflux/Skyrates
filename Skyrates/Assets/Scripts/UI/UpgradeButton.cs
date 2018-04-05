@@ -147,7 +147,7 @@ namespace Skyrates.UI
 	    void Update()
 	    {
 	        this.LabelTier.text = string.Format("Tier {0}", this.tierMin + 1);
-	        this.LabelQuantity.text = string.Format("{0} / {1}", this.GetInvAmount(), this.totalCost);
+            this.LabelQuantity.text = string.Format("{0} / {1}", this.GetInvAmount(), this.totalCost);
 	        this.Button.interactable = this.pendingUpgrades.Count > 0;
 	        this.Button.GetComponent<Image>().color = this.GetCurrentColor();
 	    }
@@ -155,6 +155,9 @@ namespace Skyrates.UI
 	    private Color GetCurrentColor()
 	    {
 	        if (this.pendingUpgrades.Count <= 0) return this.Normal;
+#if UNITY_EDITOR
+            else if (this.PlayerData.DebugInfiniteUpgrade) return this.UpgradePending;
+#endif
             else if (this.GetInvAmount() < this.totalCost) return this.UpgradeMissing;
 	        else return this.UpgradePending;
 	    }
