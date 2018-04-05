@@ -109,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1145990655553172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 630.62994, y: 1049.1349, z: 2893.302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4804231395341304}
@@ -197,7 +197,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 2
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114591741914161682}
 --- !u!114 &114591741914161682
 MonoBehaviour:
@@ -214,7 +217,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 114743238394541412, guid: 212d8d7c3dcbcaf408c9aaa453a3ec5f,
     type: 2}
   spawn: {fileID: 4601958230181964}
-  force: 0.02
+  force: 0.015
   UseArc: 0
   ManualArc: 0
   TargetIsDirection: 1
