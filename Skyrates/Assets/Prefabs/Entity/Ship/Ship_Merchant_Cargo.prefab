@@ -120,8 +120,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407873246861368}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -279, y: 0, z: 105.8}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4546537775946266}
@@ -347,6 +347,10 @@ MonoBehaviour:
   SlotOffsets: []
   NearbyRange: 400
   ThreatRange: 350
+  GizmoColorNearby: {r: 1, g: 1, b: 1, a: 1}
+  GizmoColorNearbyTargets: {r: 0.69803923, g: 0.74509805, b: 0.70980394, a: 1}
+  GizmoColorThreat: {r: 1, g: 0, b: 0, a: 1}
+  GizmoColorSlots: {r: 0.99215686, g: 0.32156864, b: 0.2509804, a: 1}
 --- !u!114 &114347143358417134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114968147863439486}
   TierIndex: 0
+  CostToUpgradeTo: 1
   HP: 40
   HealthRegenAmount: 0
   HealthRegenDelay: 0

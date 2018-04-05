@@ -1,5 +1,6 @@
 ﻿using System;
 using Skyrates.Client.Input;
+using Skyrates.Entity;
 using UnityEngine;
 
 namespace Skyrates.Data
@@ -49,20 +50,14 @@ namespace Skyrates.Data
             [Tooltip("XZ Plan forward movement")]
             [SerializeField]
             public InputConfig TurnY;
-
-            public float YawAngle;
-
-            public float YawAngleSpeed;
+            
             public float YawAngleDeadZone;
 
             [Header("Pitch")]
             [Tooltip("Y Axis forward movement")]
             [SerializeField]
             public InputConfig MoveVertical;
-
-            public float PitchAngle;
-
-            public float PitchAngleSpeed;
+            
             public float PitchAngleDeadZone;
 
             [Header("Camera")]

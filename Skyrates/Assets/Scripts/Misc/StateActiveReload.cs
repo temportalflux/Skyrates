@@ -33,11 +33,11 @@ namespace Skyrates.Misc
             this._canActiveReload = false;
         }
 
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, float rateOfFireModifier)
         {
             if (!this.IsLoading)
                 return;
-            base.Update(deltaTime);
+            base.Update(deltaTime, rateOfFireModifier);
         }
 
         public override void Unload()

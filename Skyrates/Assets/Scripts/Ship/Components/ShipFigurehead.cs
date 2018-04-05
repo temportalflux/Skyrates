@@ -9,6 +9,7 @@ namespace Skyrates.Ship
     /// </summary>
     public class ShipFigurehead : ShipComponent
     {
+
 		[Tooltip("The base damage of the figurehead's ram")]
 		public float Attack;
 

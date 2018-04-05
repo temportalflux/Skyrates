@@ -1,21 +1,44 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Skyrates.Data;
 using Skyrates.Entity;
 using Skyrates.Ship;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Skyrates.UI
 {
-	public class UpgradeButton : MonoBehaviour
+	public class UpgradeButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 	{
-		//TODO: doxygen
-		public PlayerData PlayerData;
-		public ShipData.BrokenComponentType Type; //Type of the button, what item type it aligns to.
+        //TODO: doxygen
+
+	    public ShipComponentList ComponentList;
+        public PlayerData PlayerData;
+
+        // The inventory collectible count type (what count does the button look for in inventory)
+        public ShipData.BrokenComponentType Type;
+
+        // The ship component that this upgrade is for
+	    public ShipData.ComponentType[] UpgradeComponentTypes;
+        
+	    public Text ComponentTitle;
+        public Text LabelTier;
+	    public Text LabelQuantity;
+
+	    public Color Normal = Color.white;
+        // not enough inventory contents
+	    public Color UpgradeMissing;
+        // ready for upgrade
+	    public Color UpgradePending;
+
 		private Button _button;
 		private EntityPlayerShip _player;
+	    private List<Upgrade> pendingUpgrades;
+	    private uint totalCost;
+	    private int tierMin;
 
-		[HideInInspector]
+        [HideInInspector]
 		public Button Button
 		{
 			get
@@ -30,75 +53,80 @@ namespace Skyrates.UI
 			}
 		}
 
+	    public void RefreshPending()
+	    {
+	        this.pendingUpgrades = this.GetPendingUpgrades();
+	        this.totalCost = this.GetTotalCost();
+	        this.tierMin = this.GetMinTier();
+	    }
+
+	    public uint GetTotalCost()
+	    {
+	        return (uint)this.pendingUpgrades.Sum(upgrade => (int)upgrade.Cost);
+	    }
+
+	    public int GetMinTier()
+	    {
+	        return this.pendingUpgrades.Min(upgrade => upgrade.TierCurrent);
+	    }
+
 		//Removes item from local data and upgrades the tier by 1.
-		public void UpgradeItem()
-		{
-            // Get the list of all the actual components that this button is set to upgrade
-            // 1 button can upgrade multiple components (i.e. upgrade all cannons at once, or both sides of navigation)
-			List<ShipData.ComponentType> componentTypes = new List<ShipData.ComponentType>(3);
-            // TODO: Move this to a dictionary lookup + addrange
-            switch (Type)
-			{
-				case ShipData.BrokenComponentType.Artillery:
-					componentTypes.Add(ShipData.ComponentType.ArtilleryForward);
-					componentTypes.Add(ShipData.ComponentType.ArtilleryLeft);
-					componentTypes.Add(ShipData.ComponentType.ArtilleryRight);
-					componentTypes.Add(ShipData.ComponentType.ArtilleryDown);
-					break;
-				case ShipData.BrokenComponentType.Figurehead:
-					componentTypes.Add(ShipData.ComponentType.Figurehead);
-					break;
-				case ShipData.BrokenComponentType.HullArmor:
-					componentTypes.Add(ShipData.ComponentType.HullArmor);
-					break;
-				case ShipData.BrokenComponentType.Navigation:
-					componentTypes.Add(ShipData.ComponentType.NavigationLeft);
-					componentTypes.Add(ShipData.ComponentType.NavigationRight);
-					break;
-				case ShipData.BrokenComponentType.Propulsion:
-					componentTypes.Add(ShipData.ComponentType.Propulsion);
-					break;
-				default:
-					break;
-			}
+	    public void UpgradeItem()
+	    {
 
-            // Iterate over each component to determine if ALL components can be upgraded at least once
-			bool isUpgradableFurther = true;
-			foreach(ShipData.ComponentType type in componentTypes)
-			{
-                // Get the current list of components for each type
-				ShipComponent[] oldComponents = this._player.GetShipComponentsOfType(type);
-                // Get the first in the list
-				ShipComponent oldComponent = oldComponents != null && oldComponents.Length > 0 ? oldComponents[0] : null;
-                // Get the tier of the component list
-                // TODO: Add getter to EntityShip indicating the current tier of each component type
-				uint oldTierIndex = oldComponent != null ? oldComponent.TierIndex : 0;
-                // Get the current rig and component list to check for max upgrades
-			    ShipRig playerShipRig = this._player.ShipGeneratorRoot.Blueprint;
-			    ShipComponentList componentList = playerShipRig.ShipComponentList;
-                // Check to see if the component can be upgraded any more
-			    if (oldTierIndex + 1 >= componentList.Categories[componentList.GetIndexFrom(type)].Prefabs.Length)
-			    {
-			        isUpgradableFurther = false;
-			        break;
-			    }
-			}
-
-		    bool hasInfiniteInv = false;
+            bool hasInfiniteInv = false;
 #if UNITY_EDITOR
-		    hasInfiniteInv = this.PlayerData.DebugInfiniteUpgrade;
+	        hasInfiniteInv = this.PlayerData.DebugInfiniteUpgrade;
 #endif
 
-            // If all components have a next tier, and we have enough inventory
-            if (isUpgradableFurther && (hasInfiniteInv || this.PlayerData.Inventory.Remove(Type) != 0))
-			{
-                // Upgrade the component
-			    this._player.ShipGeneratorRoot.UpgradeComponents(componentTypes);
+	        bool isUpgradableFurther = this.pendingUpgrades.Count > 0;
 
-                // Regenerate the ship rig
-			    this._player.ShipGeneratorRoot.ReGenerate();
-			}
-		}
+	        // If all components have a next tier, and we have enough inventory
+	        if (isUpgradableFurther && (hasInfiniteInv || this.PlayerData.Inventory.Remove(Type, this.totalCost) != 0))
+	        {
+	            // Upgrade the component
+	            this._player.ShipGeneratorRoot.UpgradeComponents(this.UpgradeComponentTypes);
+
+	            // Regenerate the ship rig
+	            this._player.ShipGeneratorRoot.ReGenerate();
+
+                this.RefreshPending();
+	        }
+	    }
+
+	    struct Upgrade
+	    {
+	        public ShipData.ComponentType Type;
+	        public int TierCurrent;
+	        public int TierNext;
+	        public uint Cost;
+	    }
+        
+	    private List<Upgrade> GetPendingUpgrades()
+	    {
+            List<Upgrade> upgrades = new List<Upgrade>();
+
+	        ShipData tierData = this._player.ShipData;
+
+            foreach (ShipData.ComponentType type in this.UpgradeComponentTypes)
+	        {
+	            Upgrade upgrade = new Upgrade
+	            {
+                    Type = type,
+                    TierCurrent = tierData.ComponentTiers[(int)type],
+                };
+	            upgrade.TierNext = upgrade.TierCurrent + 1;
+
+	            MonoBehaviour[] prefabs = this.ComponentList.Categories[this.ComponentList.GetIndexFrom(type)].Prefabs;
+
+	            if (upgrade.TierNext >= prefabs.Length) continue;
+
+                upgrade.Cost = ((ShipComponent) prefabs[upgrade.TierNext]).CostToUpgradeTo;
+	            upgrades.Add(upgrade);
+	        }
+
+	        return upgrades;
+	    }
 
 		public void AddUpgradeListener(EntityPlayerShip player)
 		{
@@ -110,5 +138,44 @@ namespace Skyrates.UI
 		{
 			this.Button.onClick.RemoveAllListeners();
 		}
+
+	    private uint GetInvAmount()
+	    {
+	        return this.PlayerData.Inventory.GetAmount(this.Type);
+	    }
+
+	    void Update()
+	    {
+	        this.LabelTier.text = string.Format("Tier {0}", this.tierMin + 1);
+            this.LabelQuantity.text = string.Format("{0} / {1}", this.GetInvAmount(), this.totalCost);
+	        this.Button.interactable = this.pendingUpgrades.Count > 0;
+	        this.Button.GetComponent<Image>().color = this.GetCurrentColor();
+	    }
+
+	    private Color GetCurrentColor()
+	    {
+	        if (this.pendingUpgrades.Count <= 0) return this.Normal;
+#if UNITY_EDITOR
+            else if (this.PlayerData.DebugInfiniteUpgrade) return this.UpgradePending;
+#endif
+            else if (this.GetInvAmount() < this.totalCost) return this.UpgradeMissing;
+	        else return this.UpgradePending;
+	    }
+
+	    private string GetTitle()
+	    {
+	        if (this.UpgradeComponentTypes.Length <= 0) return this.Type.ToString();
+	        else return ShipData.ToString(this.UpgradeComponentTypes[0]);
+	    }
+
+	    public void OnSelect(BaseEventData eventData)
+	    {
+	        this.ComponentTitle.text = this.GetTitle();
+	    }
+
+	    public void OnDeselect(BaseEventData eventData)
+	    {
+	    }
+
 	}
 }
