@@ -21,6 +21,8 @@ namespace Skyrates.Entity
 		[Tooltip("The base damage of the projectile")]
 		public float Attack;
 
+        public float AdditionalGravity = 0.0f;
+
         [HideInInspector]
         public Shooter Shooter;
 
