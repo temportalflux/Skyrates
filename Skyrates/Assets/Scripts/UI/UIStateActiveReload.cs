@@ -54,7 +54,7 @@ namespace Skyrates.UI
         public void SetCutoff(float percentStart, float percentEnd)
         {
             this.Cutoff.rectTransform.position = new Vector3(
-                this.Empty.rectTransform.position.x + this.Owner.scaleFactor * this.Rect.sizeDelta.x * 0.2f,
+                this.Empty.rectTransform.position.x + this.Owner.scaleFactor * this.Rect.sizeDelta.x * percentStart,
                 this.Rect.position.y,
                 this.Rect.position.z);
             this.Cutoff.rectTransform.sizeDelta = new Vector2(
