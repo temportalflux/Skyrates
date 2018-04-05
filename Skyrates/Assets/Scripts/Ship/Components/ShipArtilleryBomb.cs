@@ -13,12 +13,12 @@ namespace Skyrates.Ship
         public float DropDelay = 0.25f;
         public int DropAmount = 5;
 
-        public override void Shoot(Func<Shooter, Vector3> getDirection, Vector3 velocity)
+        public override void Shoot(Func<ShipArtillery, Vector3> getDirection, Vector3 velocity)
         {
             StartCoroutine(this.Drop(getDirection, velocity));
         }
 
-        private IEnumerator Drop(Func<Shooter, Vector3> getDirection, Vector3 velocity)
+        private IEnumerator Drop(Func<ShipArtillery, Vector3> getDirection, Vector3 velocity)
         {
             int i = 0;
             while (i++ < this.DropAmount)

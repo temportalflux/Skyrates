@@ -117,7 +117,8 @@ namespace Skyrates.AI.Formation
         public void Subscribe(FormationAgent agent)
         {
             this.TryInitAgents();
-            this._subscribedAgents[agent.FormationSlot].Add(agent);
+            if (agent.FormationSlot < this._subscribedAgents.Length)
+                this._subscribedAgents[agent.FormationSlot].Add(agent);
         }
 
         public void Unsubscribe(FormationAgent agent)

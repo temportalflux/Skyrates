@@ -6930,7 +6930,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561271687501564}
-  m_LocalRotation: {x: 0.04002095, y: -0, z: -0, w: 0.99919885}
+  m_LocalRotation: {x: 0.040021893, y: -0.00000051362434, z: 0.0000000068102954, w: 0.9991988}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9003,7 +9003,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729480990092996}
-  m_LocalRotation: {x: 0.021863293, y: -0, z: -0, w: 0.999761}
+  m_LocalRotation: {x: 0.021863239, y: -0.0000009888316, z: 0.00000001984881, w: 0.999761}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9307,8 +9307,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912161599259622}
-  m_LocalRotation: {x: 0.021863785, y: -0, z: -0, w: 0.999761}
-  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858002}
+  m_LocalRotation: {x: 0.021863792, y: 0.00000030267984, z: -0.0000000065992936, w: 0.99976104}
+  m_LocalPosition: {x: -0.000016979873, y: 4.0200195, z: -16.858006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4986014796683882}
@@ -9438,7 +9438,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556435895963990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.0200195, z: -16.858002}
+  m_LocalPosition: {x: -0.000016979873, y: 4.0200195, z: -16.858006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4301635025895258}
@@ -9610,7 +9610,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860726107320958}
-  m_LocalRotation: {x: 0.0037461058, y: -0, z: -0, w: 0.999993}
+  m_LocalRotation: {x: 0.0037462134, y: -0.0000009399373, z: 7.1577233e-10, w: 0.999993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10437,7 +10437,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436304090232158}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.0027186368, z: -0, w: 0.99999636}
   m_LocalPosition: {x: 415.5, y: 6390, z: -342.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10449,7 +10449,7 @@ Transform:
   - {fileID: 4607395971305948}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.312, z: 0}
 --- !u!4 &4995244115527898
 Transform:
   m_ObjectHideFlags: 1
@@ -12168,7 +12168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
-  Maneuverability: 1
+  CostToUpgradeTo: 1
+  TurnSpeed: 0
   Animator: {fileID: 0}
 --- !u!114 &114049916157607574
 MonoBehaviour:
@@ -12470,7 +12471,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114171808367852544}
 --- !u!114 &114100497962214532
 MonoBehaviour:
@@ -12760,7 +12764,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114084701122120344}
 --- !u!114 &114163871817618976
 MonoBehaviour:
@@ -12851,8 +12858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 114095193730070686}
-  projectilePrefab: {fileID: 114874161253796816, guid: 3ff8fff7ff664ee418d1d9f2c26b3902,
-    type: 2}
+  projectilePrefab: {fileID: 0}
   spawn: {fileID: 4455956351183600}
   force: 120
   UseArc: 1
@@ -12929,7 +12935,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114387634494499244}
   DropDelay: 0.25
   DropAmount: 5
@@ -13150,7 +13159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114051481782805292}
 --- !u!114 &114284024046514864
 MonoBehaviour:
@@ -13228,6 +13240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
   Attack: 1
 --- !u!114 &114306732916878908
 MonoBehaviour:
@@ -13640,7 +13653,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114135053818038684}
 --- !u!114 &114419408083041290
 MonoBehaviour:
@@ -14066,7 +14082,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114165942634884032}
 --- !u!114 &114545275550218586
 MonoBehaviour:
@@ -14445,7 +14464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
-  Maneuverability: 1
+  CostToUpgradeTo: 1
+  TurnSpeed: 0
   Animator: {fileID: 0}
 --- !u!114 &114626270247881768
 MonoBehaviour:
@@ -14592,6 +14612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
   Thrust: 1
   Animator: {fileID: 0}
 --- !u!114 &114653947106250250
@@ -15386,6 +15407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
   HP: 10
   HealthRegenAmount: 1
   HealthRegenDelay: 5
@@ -15712,7 +15734,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114852764439237430}
 --- !u!114 &114840738486577238
 MonoBehaviour:
@@ -16021,6 +16046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
   Defense: 0
   Protection: 0
 --- !u!114 &114909828298098064
@@ -16193,11 +16219,9 @@ MonoBehaviour:
   Health: 0
   Render: {fileID: 4066061793793454}
   Hull: {fileID: 114837996940835360}
-  ShipData:
-    ComponentTiers: 000000000000000000000000000000000000000000000000000000000000000000000000
-    _hasNewData: 0
   PlayerData: {fileID: 11400000, guid: db865c235fd6e954080b44b737b1aa50, type: 2}
   ShipGeneratorRoot: {fileID: 114312103114731230}
+  Camera: {fileID: 20290055576588650}
 --- !u!114 &114964496451556388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16367,7 +16391,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114956092729709676}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 1
+  DistanceModifier: 1
   Shooter: {fileID: 114685143850816570}
 --- !u!114 &114997156403695038
 MonoBehaviour:
