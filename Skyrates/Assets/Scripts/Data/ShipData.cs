@@ -170,5 +170,16 @@ namespace Skyrates.Ship
             }
         }
 
+        public float GetStat<T>(ShipComponentList compList, ComponentType type,
+            Func<T, float> predicate, bool scale = true) where T : ShipComponent
+        {
+            int tier = this.ComponentTiers[(int) type];
+            T current = compList.GetComponent<T>(type, tier);
+            float v1 = predicate(current);
+            if (scale)
+                v1 /= predicate(compList.GetComponent<T>(type, -1));
+            return v1;
+        }
+
     }
 }

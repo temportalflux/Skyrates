@@ -18,10 +18,7 @@ namespace Skyrates.UI
         protected float GetStat<T>(ShipComponentList compList, ShipData rig,
             Func<T, float> predicate) where T : ShipComponent
         {
-            int tier = rig.ComponentTiers[(int)this.Type];
-            T current = compList.GetComponent<T>(this.Type, tier);
-            T max = compList.GetComponent<T>(this.Type, -1);
-            return predicate(current) / predicate(max);
+            return rig.GetStat(compList, this.Type, predicate);
         }
 
     }

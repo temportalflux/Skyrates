@@ -66,7 +66,8 @@ GameObject:
   - component: {fileID: 4998298849667068}
   - component: {fileID: 33208180850764416}
   - component: {fileID: 23112456528966470}
-  m_Layer: 0
+  - component: {fileID: 64086889325970546}
+  m_Layer: 23
   m_Name: balloons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +97,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4502246585035496}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +129,8 @@ GameObject:
   - component: {fileID: 4331647793344298}
   - component: {fileID: 33191083766815106}
   - component: {fileID: 23625202498465140}
-  m_Layer: 0
+  - component: {fileID: 64230888438374858}
+  m_Layer: 23
   m_Name: ropes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +190,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4076158087726748}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Spawns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +327,8 @@ GameObject:
   - component: {fileID: 4201794293251628}
   - component: {fileID: 33153129991306240}
   - component: {fileID: 23898035267677806}
-  m_Layer: 0
+  - component: {fileID: 64541139404762314}
+  m_Layer: 23
   m_Name: bearing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +450,8 @@ GameObject:
   - component: {fileID: 4266162283117616}
   - component: {fileID: 33141811864906940}
   - component: {fileID: 23703821893248752}
-  m_Layer: 0
+  - component: {fileID: 64392682566778584}
+  m_Layer: 23
   m_Name: buoy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +466,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4815401865582872}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: skybuoy_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +498,8 @@ GameObject:
   - component: {fileID: 4266834835228014}
   - component: {fileID: 33966388812794156}
   - component: {fileID: 23492044990459224}
-  m_Layer: 0
+  - component: {fileID: 64418663457730376}
+  m_Layer: 23
   m_Name: propeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +515,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4699498084449972}
   - component: {fileID: 114310107696867364}
-  - component: {fileID: 64824507022725662}
   - component: {fileID: 114008507899791932}
   m_Layer: 23
   m_Name: mooring
@@ -558,7 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4598044077366798}
   - component: {fileID: 108471530716574370}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1021,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747335331309686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 444, y: 8362, z: 487.99997}
+  m_LocalPosition: {x: 1790, y: 8362, z: 208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4502246585035496}
@@ -1427,12 +1431,40 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636636856610292}
   m_Mesh: {fileID: 4300002, guid: 62a52a67628f10e41910d8c21a87ceb5, type: 3}
---- !u!64 &64824507022725662
+--- !u!64 &64086889325970546
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1747335331309686}
+  m_GameObject: {fileID: 1060240254690420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300028, guid: 62a52a67628f10e41910d8c21a87ceb5, type: 3}
+--- !u!64 &64230888438374858
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190431647527306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300026, guid: 62a52a67628f10e41910d8c21a87ceb5, type: 3}
+--- !u!64 &64392682566778584
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618653813292030}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -1441,6 +1473,34 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300030, guid: 62a52a67628f10e41910d8c21a87ceb5, type: 3}
+--- !u!64 &64418663457730376
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636636856610292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 62a52a67628f10e41910d8c21a87ceb5, type: 3}
+--- !u!64 &64541139404762314
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468758353522318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 62a52a67628f10e41910d8c21a87ceb5, type: 3}
 --- !u!108 &108471530716574370
 Light:
   m_ObjectHideFlags: 1
