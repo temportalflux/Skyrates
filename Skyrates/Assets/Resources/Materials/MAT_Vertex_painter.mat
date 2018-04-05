@@ -20,11 +20,11 @@ Material:
     m_TexEnvs:
     - _Albedo1:
         m_Texture: {fileID: 2800000, guid: 7ea26598068784a4f92de7cd383d80e9, type: 3}
-        m_Scale: {x: 1, y: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo2:
         m_Texture: {fileID: 2800000, guid: d4ea36825e5a7ea499b9489b66bbd8cf, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
     - _Albedo3:
         m_Texture: {fileID: 2800000, guid: fa00fc80ae0fde045ba49fd54d662b23, type: 3}
@@ -84,7 +84,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap2:
         m_Texture: {fileID: 2800000, guid: 7a0d45fa10954484e86cfd9024612cfb, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
     - _NormalMap3:
         m_Texture: {fileID: 2800000, guid: 61865dade2f24304fb5e81759509b482, type: 3}
@@ -139,12 +139,12 @@ Material:
     - _Mode: 0
     - _NormalMap1Strength: 1
     - _NormalMap2Strength: 1
-    - _NormalMap3Strength: 0.5
+    - _NormalMap3Strength: 1
     - _NormalMap4Strength: 0.5
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Smoothness1: 0.5
-    - _Smoothness2: 0.5
+    - _Smoothness1: 1
+    - _Smoothness2: 1
     - _Smoothness3: 0
     - _Smoothness4: 0.5
     - _SmoothnessTextureChannel: 0
