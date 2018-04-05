@@ -21,13 +21,13 @@ MonoBehaviour:
     YawAngleDeadZone: 0.75
     MoveVertical:
       Input: 0
-      Modifier: 25
+      Modifier: 45
     PitchAngleDeadZone: 0.75
     CameraHorizontal:
       Input: 0
       Modifier: 1
     CameraVertical:
-      Input: -0
+      Input: 0
       Modifier: 0.005
     BlockInputs: 0
   ViewMode: 0
@@ -40,8 +40,9 @@ MonoBehaviour:
     ComponentList: {fileID: 11400000, guid: 98955fa5a8fd4974f971ea9115260e4a, type: 2}
     Gimbal:
       MaxDelaySeconds: 2
-      PercentStart: 0.15
-      PercentEnd: 0.4
+      PercentStart: 0.4
+      PercentEnd: 0.6
+      AutoStart: 1
     Starboard:
       MaxDelaySeconds: 5
       HeatPerShot: 0.2
