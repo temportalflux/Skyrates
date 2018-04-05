@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Skyrates.Mono;
+using UnityEngine;
 
 namespace Skyrates.Entity
 {
@@ -7,6 +8,7 @@ namespace Skyrates.Entity
     /// A moving entity which has no steering, but a constant/trajectory force.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(SelfDestruct))]
     public class EntityProjectile : EntityDynamic
     {
 
@@ -18,6 +20,9 @@ namespace Skyrates.Entity
 
 		[Tooltip("The base damage of the projectile")]
 		public float Attack;
+
+        [HideInInspector]
+        public Shooter Shooter;
 
 		protected override void Start()
         {

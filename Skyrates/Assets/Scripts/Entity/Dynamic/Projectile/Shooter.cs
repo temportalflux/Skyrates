@@ -3,6 +3,7 @@ using Skyrates.Entity;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using System.Collections;
+using Skyrates.Ship;
 using UnityEngine;
 
 namespace Skyrates.Mono
@@ -13,6 +14,8 @@ namespace Skyrates.Mono
     /// </summary>
     public class Shooter : MonoBehaviour
     {
+
+        public ShipArtillery Owner;
 
         /// <summary>
         /// The prefab of the projectile to launch from this source.
@@ -126,13 +129,16 @@ namespace Skyrates.Mono
         /// </summary>
         /// <param name="target"></param>
         /// <param name="launchVelocity"></param>
-        public void FireProjectile(Vector3 target, Vector3 launchVelocity)
+        public void FireProjectile(Vector3 target, Vector3 launchVelocity, float attackModifier, float distanceModifier)
         {
             // TODO: These are fired off one by one, and are often done in batches. This should just be one packet of all the projectiles to spawn.
             Entity.Entity entity = GameManager.Instance.SpawnEntity(this.projectilePrefab);
             if (entity != null)
             {
                 EntityProjectile projectile = (EntityProjectile)entity;
+                projectile.Attack *= attackModifier;
+                projectile.GetComponent<SelfDestruct>().Delay *= distanceModifier;
+                projectile.Shooter = this;
 				if (this.UseArc)
 				{
 					Vector3 targetDirection;

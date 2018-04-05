@@ -13,43 +13,11 @@ namespace Skyrates.AI.State
     public abstract class StateTransition : ScriptableObject
     {
 
-        /// <summary>
-        /// The index of the source <see cref="State"/> in the <see cref="StateMachine"/>.
-        /// </summary>
-        [HideInInspector]
-        public int StateSource;
-
-        /// <summary>
-        /// The index of the destination <see cref="State"/> in the <see cref="StateMachine"/>.
-        /// </summary>
-        [HideInInspector]
-        public int StateDestination;
-
         public virtual Behavior.DataPersistent CreatePersistentData()
         {
             return new Behavior.DataPersistent();
         }
-
-        /// <summary>
-        /// Returns the source <see cref="State"/> of this transition in the specified <see cref="StateMachine"/>.
-        /// </summary>
-        /// <param name="machine"></param>
-        /// <returns></returns>
-        public State GetStateSource(StateMachine machine)
-        {
-            return machine.GetState(this.StateSource);
-        }
-
-        /// <summary>
-        /// Returns the destination <see cref="State"/> of this transition in the specified <see cref="StateMachine"/>.
-        /// </summary>
-        /// <param name="machine"></param>
-        /// <returns></returns>
-        public State GetStateDestination(StateMachine machine)
-        {
-            return machine.GetState(this.StateDestination);
-        }
-
+        
         /// <summary>
         /// Returns if a <see cref="StateMachine"/> can transition from the <see cref="StateSource"/> to the <see cref="StateDestination"/>.
         /// </summary>
@@ -65,7 +33,11 @@ namespace Skyrates.AI.State
 #if UNITY_EDITOR
         public virtual void DrawGizmos(PhysicsData physics, Behavior.DataPersistent persistent)
         {
-            
+
+        }
+        public virtual void DrawGizmosSelected(PhysicsData physics, Behavior.DataPersistent persistent)
+        {
+
         }
 #endif
 

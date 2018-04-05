@@ -28,7 +28,9 @@ namespace Skyrates.UI
 
 		void Update()
 		{
-			_text.text = PlayerData.Inventory.GetAmount(Type).ToString(); //Show the correct number of items of this type currently in the inventory.
+		    uint countInInv = this.PlayerData.Inventory.GetAmount(Type);
+            
+		    _text.text = string.Format("{0} / {1}", countInInv, 0);
 		}
 	}
 }

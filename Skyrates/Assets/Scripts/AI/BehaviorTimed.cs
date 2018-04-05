@@ -68,8 +68,7 @@ namespace Skyrates.AI
             // And check for updates
             return this.UpdateTimed(ref physics, ref behavioral, customDataTimed, deltaTime);
         }
-
-
+        
         /// <summary>
         /// Checks all triggers if the current state should exit and another state should enter.
         /// </summary>

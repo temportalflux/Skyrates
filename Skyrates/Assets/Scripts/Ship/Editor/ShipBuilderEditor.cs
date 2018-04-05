@@ -60,6 +60,7 @@ namespace Skyrates.Ship
             }
 
             Undo.RecordObject(this.instance, string.Format("Edit {0}", this.instance.name));
+            EditorUtility.SetDirty(this.instance);
 
         }
 

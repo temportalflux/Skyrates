@@ -2,6 +2,7 @@
 using Skyrates.Data;
 using Skyrates.Entity;
 using Skyrates.Game.Event;
+using Skyrates.Respawn;
 using Skyrates.Scene;
 using UnityEngine;
 
@@ -36,12 +37,6 @@ namespace Skyrates.Game
         /// The <see cref="GameEvents"/> dispatcher.
         /// </summary>
         private GameEvents _events;
-
-        // TODO: Move this somewhere pertinent to only the world.
-        /// <summary>
-        /// The spawn location of the player.
-        /// </summary>
-        public Transform PlayerSpawn;
 
         /// <summary>
         /// Local player data - nonnetworked.
@@ -92,7 +87,8 @@ namespace Skyrates.Game
                 case SceneData.SceneKey.World:
                     // spawn the player
                     EntityPlayerShip player = this.SpawnEntity(this.PlayerPrefab) as EntityPlayerShip;
-                    player.PhysicsData.SetPositionAndRotation(this.PlayerSpawn.position, this.PlayerSpawn.rotation);
+                    Transform spawn = RespawnAreaList.Instance.GetRandomCheckpoint().GetNextRespawnLocation();
+                    player.PhysicsData.SetPositionAndRotation(spawn.position, spawn.rotation);
                     player.transform.position = player.PhysicsData.LinearPosition;
                     player.transform.rotation = player.PhysicsData.RotationPosition;
                     break;

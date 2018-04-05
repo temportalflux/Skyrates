@@ -45,9 +45,9 @@ namespace Skyrates.Misc
             this.OnLoaded();
         }
 
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, float rateOfFireModifier)
         {
-            float amount = deltaTime / this.MaxDelaySeconds;
+            float amount = deltaTime / (this.MaxDelaySeconds * rateOfFireModifier);
             this.PercentLoaded = Mathf.Min(1.0f, this.PercentLoaded + amount);
             if (this.IsLoaded())
             {

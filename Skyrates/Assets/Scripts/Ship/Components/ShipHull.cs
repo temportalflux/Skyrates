@@ -20,9 +20,12 @@ namespace Skyrates.Ship
         }
 
         [Tooltip("The amount of damage the ship can take")]
-        public int MaxHealth;
+        [SerializeField]
+        public int HP;
 
+        [SerializeField]
         public float HealthRegenAmount;
+        [SerializeField]
         public float HealthRegenDelay;
 
         #region Particles
@@ -135,7 +138,7 @@ namespace Skyrates.Ship
         public void UpdateHealthParticles(float health)
         {
             // get the amount of damage currently taken (diff in health vs max health)
-            float damageTaken = this.MaxHealth - health;
+            float damageTaken = this.HP - health;
 
             // Update smoke particles
             if (this.SmokeData.Generated != null)
@@ -183,6 +186,12 @@ namespace Skyrates.Ship
 
         }
 
+        public void ClearHealthParticles()
+        {
+            this.SmokeData.Generated.Clear();
+            this.FireData.Generated.Clear();
+        }
+
         #endregion
 
         private void ForEeach<T>(ShipData.ComponentType componentType, Action<T> loop) where T: ShipComponent
@@ -212,11 +221,11 @@ namespace Skyrates.Ship
             float value = 1.0f;
             this.ForEeach<ShipNavigation>(ShipData.ComponentType.NavigationLeft, (nav) =>
             {
-                value *= nav.Maneuverability;
+                value *= nav.TurnSpeed;
             });
             this.ForEeach<ShipNavigation>(ShipData.ComponentType.NavigationRight, (nav) =>
             {
-                value *= nav.Maneuverability;
+                value *= nav.TurnSpeed;
             });
             return value;
         }

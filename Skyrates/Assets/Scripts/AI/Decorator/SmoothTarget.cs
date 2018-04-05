@@ -35,6 +35,8 @@ namespace Skyrates.AI.Decorator
             /// The current target of the agent, which is interpolating to its ultimate target in <see cref="DataBehavioral"/>.
             /// </summary>
             public Vector3 TargetInterpolated;
+
+            public Vector3 TargetActual;
         }
 
         protected override void OnEnable()
@@ -55,6 +57,13 @@ namespace Skyrates.AI.Decorator
             return new Persistent();
         }
 
+        public override DataPersistent OnEnter(PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent)
+        {
+            Persistent data = (Persistent)persistent;
+            data.TargetInterpolated = behavioral.Target.LinearPosition;
+            return data;
+        }
+
         /// <inheritdoc />
         public override DataPersistent GetUpdate(ref PhysicsData physics, ref DataBehavioral behavioral, DataPersistent persistent, float deltaTime)
         {
@@ -62,6 +71,8 @@ namespace Skyrates.AI.Decorator
 
             // Every update, the interpolated target gets closer to the destination target (behavioral target)
             Vector3 directionNormalized = (behavioral.Target.LinearPosition - data.TargetInterpolated).normalized;
+
+            data.TargetActual = behavioral.Target.LinearPosition;
 
             // Determine if the current target is "close enough" to the main target
             // if so, snap there
@@ -85,7 +96,14 @@ namespace Skyrates.AI.Decorator
         public override void DrawGizmos(PhysicsData physics, DataPersistent persistent)
         {
             if (persistent != null)
-                Gizmos.DrawWireSphere(((Persistent)persistent).TargetInterpolated, 1);
+            {
+                Vector3 target = ((Persistent)persistent).TargetInterpolated;
+                Vector3 targetActual = ((Persistent)persistent).TargetActual;
+                Gizmos.color = Colors.BallBlue;
+                Gizmos.DrawLine(physics.LinearPosition, target);
+                Gizmos.color = Colors.RedCrayola;
+                Gizmos.DrawLine(target, targetActual);
+            }
         }
 #endif
 

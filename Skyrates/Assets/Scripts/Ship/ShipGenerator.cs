@@ -61,7 +61,7 @@ namespace Skyrates.Ship
             this.Generate(this.ShipData);
         }
 
-        public void UpgradeComponents(List<ShipData.ComponentType> components)
+        public void UpgradeComponents(IEnumerable<ShipData.ComponentType> components)
         {
             foreach (ShipData.ComponentType type in components)
             {

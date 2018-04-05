@@ -3,6 +3,7 @@ using Skyrates.Data;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using Skyrates.Physics;
+using Skyrates.Respawn;
 using Skyrates.Ship;
 using UnityEngine;
 
@@ -19,7 +20,10 @@ namespace Skyrates.Entity
         /// The network safe data which has information about the modular-ship.
         /// </summary>
         [HideInInspector]
-        public ShipData ShipData;
+        public ShipData ShipData
+        {
+            get { return this.ShipGeneratorRoot.ShipData; }
+        }
 
         /// <summary>
         /// The non-networked data local to the player.
@@ -36,8 +40,7 @@ namespace Skyrates.Entity
 		protected override void Awake()
         {
             base.Awake();
-            this.ShipGeneratorRoot.Destroy();
-            this.ShipData = this.ShipGeneratorRoot.Generate();
+            this.ShipGeneratorRoot.ReGenerate();
             this.PlayerData.Init();
         }
 
@@ -146,12 +149,16 @@ namespace Skyrates.Entity
         {
             // TODO: Do base, and return to menu (always wait for x seconds, so level loads and the animation can play)
 
-            this.Health = this.Hull.MaxHealth;
+            this.Health = this.Hull.HP;
 
-            Transform spawn = GameManager.Instance.PlayerSpawn;
+            Transform spawn = RespawnAreaList.Instance.GetClosestCheckpoint(this.transform.position).GetNextRespawnLocation();
             this.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
             this.PhysicsData.RotationPosition = spawn.rotation;
             this.PhysicsData.LinearPosition = spawn.position;
+
+            this.PlayerData.Movement.CurrentSpeed = 0.0f;
+            
+            this.Hull.ClearHealthParticles();
 
             return false;
         }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Skyrates.Misc;
+﻿using Skyrates.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +8,9 @@ namespace Skyrates.UI
     public class UIStateCooldown : UIStateCooldown<StateCooldown>
     {
         
-        public override void UpdateWith(StateCooldown state, bool isVisible)
+        public override void UpdateWith(StateCooldown state)
         {
-            base.UpdateWith(state, isVisible);
+            base.UpdateWith(state);
             this.PercentComplete = 1 - state.GetPercentLoaded();
             if (this.PercentComplete <= 0.0f) this.PercentComplete = 1.0f;
         }
@@ -31,56 +29,37 @@ namespace Skyrates.UI
 
         public bool _isIsActive = false;
 
-        protected bool IsActive
+        public bool IsActive
         {
             get { return this._isIsActive; }
             set
             {
                 this._isIsActive = value;
-                this.IsVisible = this.IsVisible;
-            }
-        }
-
-        private bool _isVisible = false;
-
-        protected bool IsVisible
-        {
-            get { return this._isVisible; }
-            set
-            {
-                this._isVisible = value && this.IsActive;
-                this.Empty.enabled = this._isVisible;
-                this.Full.enabled = this._isVisible;
                 this.OnSetVisibility();
             }
         }
-
+        
         protected float PercentComplete
         {
             get { return this.Full.fillAmount; }
             set { this.Full.fillAmount = value; }
         }
 
-        protected virtual void Awake()
+        public virtual void OnAwake()
         {
             this.Rect = this.GetComponent<RectTransform>();
             this.Full.rectTransform.sizeDelta = this.Rect.sizeDelta;
-            this.IsActive = this.IsActiveOnAwake();
-            this.IsVisible = false;
-        }
-
-        protected virtual bool IsActiveOnAwake()
-        {
-            return true;
+            this.IsActive = false;
         }
         
         protected virtual void OnSetVisibility()
         {
+            this.Empty.enabled = this.IsActive;
+            this.Full.enabled = this.IsActive;
         }
 
-        public virtual void UpdateWith(T state, bool isVisible)
+        public virtual void UpdateWith(T state)
         {
-            this.IsVisible = isVisible;
         }
 
     }

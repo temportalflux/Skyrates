@@ -28,7 +28,7 @@ namespace Skyrates.AI.Steering.Delegated
             // Delegate to align
             return base.GetUpdate(ref physics, ref behavioral, persistent, deltaTime);
         }
-
+        
     }
 
 }

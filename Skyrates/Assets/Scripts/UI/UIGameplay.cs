@@ -1,6 +1,4 @@
 ﻿using Skyrates.Data;
-using Skyrates.Game;
-using Skyrates.Game.Event;
 using UnityEngine;
 
 namespace Skyrates.UI
@@ -10,21 +8,17 @@ namespace Skyrates.UI
 
         public PlayerData Source;
 
-        public UIStateActiveReload Gimbal;
-        public UIStateOverheat Starboard;
-        public UIStateOverheat Port;
-        public UIStateCooldown Bombs;
+        public HUDState Gimbal;
+        public HUDState Starboard;
+        public HUDState Port;
+        public HUDState Bombs;
         
         void Update()
         {
-            this.Gimbal.UpdateWith(this.Source.Artillery.Gimbal,
-                this.Source.ViewMode == PlayerData.CameraMode.FREE);
-            this.Starboard.UpdateWith(this.Source.Artillery.Starboard,
-                this.Source.ViewMode == PlayerData.CameraMode.LOCK_RIGHT);
-            this.Port.UpdateWith(this.Source.Artillery.Port,
-                this.Source.ViewMode == PlayerData.CameraMode.LOCK_LEFT);
-            this.Bombs.UpdateWith(this.Source.Artillery.Bombs,
-                this.Source.ViewMode == PlayerData.CameraMode.LOCK_DOWN);
+            this.Gimbal.UpdateWith(this.Source);
+            this.Starboard.UpdateWith(this.Source);
+            this.Port.UpdateWith(this.Source);
+            this.Bombs.UpdateWith(this.Source);
         }
 
     }

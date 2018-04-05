@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3606e5cc7708c2d4ba02995a6991ec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: {fileID: 114723030427827778}
   projectilePrefab: {fileID: 114606328650772764, guid: 07304c89426e584419a8311411156937,
     type: 2}
   spawn: {fileID: 4939261401589946}
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
+  AttackModifier: 1
   Shooter: {fileID: 114278336894392368}
   DropDelay: 0.25
   DropAmount: 5

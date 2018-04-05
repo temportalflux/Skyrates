@@ -48,6 +48,9 @@ namespace Skyrates.Ship
 
             if (!ToggleComponents) return;
 
+            if (this._instance.Components.Length != ShipData.ComponentTypes.Length)
+                Array.Resize(ref this._instance.Components, ShipData.ComponentTypes.Length);
+
             EditorGUI.indentLevel++;
 
             foreach (ComponentType compType in ShipData.ComponentTypes)
@@ -56,6 +59,8 @@ namespace Skyrates.Ship
 
                 int iComp = (int)compType;
 
+                if (this._instance.Components[iComp] == null)
+                    this._instance.Components[iComp] = new ShipHull.ComponentList();
                 ShipComponent[] componentsOfType = this._instance.Components[iComp].Value ?? new ShipComponent[0];
 
                 toggleComponentBlock[iComp] = this.DrawArray(
@@ -102,7 +107,7 @@ namespace Skyrates.Ship
                 if (ToggleStats)
                 {
                     EditorGUI.indentLevel++;
-                    this._instance.MaxHealth = EditorGUILayout.IntField("Max HP", this._instance.MaxHealth);
+                    this._instance.HP = EditorGUILayout.IntField("Max HP", this._instance.HP);
                     this._instance.HealthRegenAmount = EditorGUILayout.FloatField("HP Regen Amount", this._instance.HealthRegenAmount);
                     this._instance.HealthRegenDelay = EditorGUILayout.FloatField("HP Regen Delay", this._instance.HealthRegenDelay);
                     EditorGUI.indentLevel--;
@@ -116,6 +121,8 @@ namespace Skyrates.Ship
                 if (ToggleParticles)
                 {
                     EditorGUI.indentLevel++;
+
+                    this._instance.ParticleOnDestruction = (GameObject)EditorGUILayout.ObjectField("Explosion", this._instance.ParticleOnDestruction, typeof(GameObject), false);
 
                     // TODO: Duplicate code
 
@@ -149,6 +156,7 @@ namespace Skyrates.Ship
             this.DrawLootRoots();
 
             Undo.RecordObject(this._instance, string.Format("Edit {0}", this._instance.name));
+            EditorUtility.SetDirty(this._instance);
         }
 
         private void MinMax(ref Vector2Int bounds)

@@ -20,7 +20,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     /// <param name="inst">The instance to check and set</param>
     /// <param name="staticRef">The singleton reference instance</param>
     /// \author Dustin Yost
-    protected void loadSingleton(T inst, ref T staticRef)
+    protected void loadSingleton(T inst, ref T staticRef, bool dontDestroy = true)
     {
 
         if (staticRef != null)
@@ -30,7 +30,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
 
         staticRef = inst;
-        DontDestroyOnLoad(staticRef);
+        if (dontDestroy) DontDestroyOnLoad(staticRef);
 
     }
 

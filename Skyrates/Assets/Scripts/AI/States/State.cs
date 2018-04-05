@@ -36,7 +36,10 @@ namespace Skyrates.AI.State
         /// </summary>
         [SerializeField]
         [HideInInspector]
-        public StateTransition[] Transitions;
+        public StateTransition[] Transitions = new StateTransition[0];
+
+        [SerializeField]
+        public int[] TransitionDestinations = new int[0];
 
         public Behavior.DataPersistent CreatePersistentData()
         {
@@ -54,9 +57,9 @@ namespace Skyrates.AI.State
             };
         }
 
-        public bool CanEnter(PhysicsData physics, Behavior.DataBehavioral behavioral, Behavior.DataPersistent persistent, out StateTransition transitionOut)
+        public bool CanExit(PhysicsData physics, Behavior.DataBehavioral behavioral, Behavior.DataPersistent persistent, out int destinationIndex)
         {
-            transitionOut = null;
+            destinationIndex = -1;
             Persistent statePersistent = (Persistent) persistent;
 
             // Try to transition out of the current state (idle or otherwise)
@@ -69,7 +72,7 @@ namespace Skyrates.AI.State
                 if (transition == null || !transition.CanEnter(
                     behavioral, physics, ref statePersistent.DataTransition[iTransition]))
                     continue;
-                transitionOut = transition;
+                destinationIndex = this.TransitionDestinations[iTransition];
                 return true;
             }
 
@@ -82,7 +85,7 @@ namespace Skyrates.AI.State
         /// <param name="physics"></param>
         /// <param name="behavioral"></param>
         /// <param name="persistent"></param>
-        public void Enter(PhysicsData physics, ref Behavior.DataBehavioral behavioral, ref Behavior.DataPersistent persistent)
+        public void OnEnter(PhysicsData physics, ref Behavior.DataBehavioral behavioral, ref Behavior.DataPersistent persistent)
         {
             Persistent statePersistent = ((Persistent) persistent);
             statePersistent.DataBehavior = this.Behavior.OnEnter(physics, ref behavioral, statePersistent.DataBehavior);
@@ -106,7 +109,7 @@ namespace Skyrates.AI.State
         /// <param name="physics"></param>
         /// <param name="behavioral"></param>
         /// <param name="persistent"></param>
-        public void Exit(PhysicsData physics, ref Behavior.DataBehavioral behavioral, Behavior.DataPersistent persistent)
+        public void OnExit(PhysicsData physics, ref Behavior.DataBehavioral behavioral, Behavior.DataPersistent persistent)
         {
             this.Behavior.OnExit(physics, ref behavioral, ((Persistent)persistent).DataBehavior);
         }
@@ -129,6 +132,21 @@ namespace Skyrates.AI.State
             {
                 if (this.Transitions[iTransition] == null) continue;
                 this.Transitions[iTransition].DrawGizmos(physics,
+                    statePersistent != null ? statePersistent.DataTransition[iTransition] : null);
+            }
+        }
+        public void DrawGizmosSelected(PhysicsData physics, Behavior.DataPersistent persistent)
+        {
+            Persistent statePersistent = (Persistent)persistent;
+            if (this.Behavior != null)
+            {
+                this.Behavior.DrawGizmosSelected(physics,
+                    statePersistent != null ? statePersistent.DataBehavior : null);
+            }
+            for (int iTransition = 0; iTransition < this.Transitions.Length; iTransition++)
+            {
+                if (this.Transitions[iTransition] == null) continue;
+                this.Transitions[iTransition].DrawGizmosSelected(physics,
                     statePersistent != null ? statePersistent.DataTransition[iTransition] : null);
             }
         }

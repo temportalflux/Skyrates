@@ -1,5 +1,6 @@
 ﻿using System;
 using Skyrates.Client.Input;
+using Skyrates.Entity;
 using UnityEngine;
 
 namespace Skyrates.Data
@@ -49,20 +50,14 @@ namespace Skyrates.Data
             [Tooltip("XZ Plan forward movement")]
             [SerializeField]
             public InputConfig TurnY;
-
-            public float YawAngle;
-
-            public float YawAngleSpeed;
+            
             public float YawAngleDeadZone;
 
             [Header("Pitch")]
             [Tooltip("Y Axis forward movement")]
             [SerializeField]
             public InputConfig MoveVertical;
-
-            public float PitchAngle;
-
-            public float PitchAngleSpeed;
+            
             public float PitchAngleDeadZone;
 
             [Header("Camera")]
@@ -123,6 +118,7 @@ namespace Skyrates.Data
         {
             this.ViewMode = CameraMode.FREE;
 			this.InputData.BlockInputs = false;
+            this.Movement.CurrentSpeed = this.Movement.SpeedInitial;
 
 			// TODO: Implement reflection if we need to refactor due to the time it takes for the current non-DRY solution.
 			Inventory.Clear(); // Needed in order to reset player data in editor.  Could remove from builds with a preprocessor macro if we wanted to.

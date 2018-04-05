@@ -18,7 +18,10 @@ namespace Skyrates.AI.Formation
         /// All slots that AI could potentially occupy.
         /// </summary>
         [SerializeField]
-        public Transform[] Slots;
+        public FormationSlot[] Slots;
+
+        [SerializeField]
+        private PhysicsData[] SlotOffsets;
 
         private Vector3 SlotAveragePositionOffset;
 
@@ -27,12 +30,35 @@ namespace Skyrates.AI.Formation
         [SerializeField]
         public float NearbyRange;
 
+        [SerializeField]
+        public float ThreatRange;
+
+#if UNITY_EDITOR
+        public Color GizmoColorNearby = Colors.White;
+        public Color GizmoColorNearbyTargets = Colors.AshGray;
+        public Color GizmoColorThreat = Colors.Red;
+        public Color GizmoColorSlots = Colors.OgreOdor;
+#endif
+
         private List<NearbyTarget> NearbyTargets;
+        private List<NearbyTarget> NearbyThreats;
 
         void Awake()
         {
+            this.SlotOffsets = new PhysicsData[this.Slots.Length];
+            for (int i = 0; i < this.Slots.Length; i++)
+            {
+                this.SlotOffsets[i] = PhysicsData.From(this.Slots[i].transform);
+                this.SlotOffsets[i].LinearPosition -= this.transform.position;
+                this.SlotOffsets[i].LinearPosition = Quaternion.Inverse(this.transform.rotation) * this.SlotOffsets[i].LinearPosition;
+                this.SlotOffsets[i].RotationPosition *= Quaternion.Inverse(this.transform.rotation);
+            }
+
             this.NearbyTargets = new List<NearbyTarget>();
+            this.NearbyThreats = new List<NearbyTarget>();
+
             this.TryInitAgents();
+
             this.SlotAveragePositionOffset = this.CalculateAveragePositionOffset();
         }
 
@@ -51,14 +77,12 @@ namespace Skyrates.AI.Formation
             int count = 1;
             Vector3 average = this.transform.position;
 
-            foreach (Transform slot in this.Slots)
+            foreach (PhysicsData slot in this.SlotOffsets)
             {
-                if (slot == null) continue;
-
                 // TODO: Account for this.tranform being rotated
                 // cannot take dif of rotations, as the slot may intentionally be rotated
                 // take inverse of rotation? just need to counteract the main transform quaternion
-                average += slot.position;
+                average += slot.LinearPosition;
 
                 count++;
             }
@@ -78,7 +102,13 @@ namespace Skyrates.AI.Formation
         {
             if (slot >= 0 && slot < this.Slots.Length)
             {
-                return PhysicsData.From(this.Slots[slot]);
+                if (this.SlotOffsets[slot] == null) return null;
+                PhysicsData slotOffset = this.SlotOffsets[slot].Copy();
+                //slotOffset.LinearPosition = this.transform.rotation * slotOffset.LinearPosition + this.transform.position;
+                slotOffset.LinearPosition = this.transform.rotation * slotOffset.LinearPosition;
+                slotOffset.LinearPosition += this.transform.position;
+                slotOffset.RotationPosition *= this.transform.rotation;
+                return slotOffset;
             }
 
             return null;
@@ -95,14 +125,19 @@ namespace Skyrates.AI.Formation
             this._subscribedAgents[agent.FormationSlot].Remove(agent);
         }
 
-        public bool ContainsNearby(PhysicsData physics)
+        public bool ContainsNearbyTarget(PhysicsData physics)
         {
             return this.NearbyTargets.Exists(data => ReferenceEquals(data.Target, physics));
         }
 
+        public bool ContainsNearbyThreat(PhysicsData physics)
+        {
+            return this.NearbyThreats.Exists(data => ReferenceEquals(data.Target, physics));
+        }
+
         public void OnDetect(FormationAgent source, EntityAI other, float maxDistance)
         {
-            if (!this.ContainsNearby(other.PhysicsData))
+            if (!this.ContainsNearbyTarget(other.PhysicsData))
             {
                 this.NearbyTargets.Add(new NearbyTarget
                 {
@@ -112,32 +147,70 @@ namespace Skyrates.AI.Formation
             }
         }
 
-        void FixedUpdate()
-        {
-            // TODO: put this on a timer, not to execute every physics update
-            float distSq = this.NearbyRange * this.NearbyRange;
-            this.NearbyTargets.RemoveAll(data =>
-                (data.Target.LinearPosition - this.transform.position).sqrMagnitude > distSq);
-        }
-
         public List<NearbyTarget> GetNearbyTargets()
         {
             return this.NearbyTargets;
         }
 
-#if UNITY_EDITOR
-        void OnDrawGizmos()
+        public List<NearbyTarget> GetNearbyThreats()
         {
-            Gizmos.color = Color.white;
+            return this.NearbyThreats;
+        }
+
+        public void OnDamagedBy(FormationAgent agent, EntityAI other)
+        {
+            if (!this.ContainsNearbyThreat(other.PhysicsData))
+            {
+                this.NearbyThreats.Add(new NearbyTarget
+                {
+                    Target = other.PhysicsData,
+                    MaxDistanceSq = this.ThreatRange * this.ThreatRange,
+                });
+            }
+        }
+
+        void FixedUpdate()
+        {
+            // TODO: put this on a timer, not to execute every physics update
+            Vector3 center = this.transform.position + this.SlotAveragePositionOffset;
+
+            float distSq = this.NearbyRange * this.NearbyRange;
+            this.NearbyTargets.RemoveAll(data =>
+                (data.Target.LinearPosition - center).sqrMagnitude > distSq);
+
+            distSq = this.ThreatRange * this.ThreatRange;
+            this.NearbyThreats.RemoveAll(data =>
+                (data.Target.LinearPosition - center).sqrMagnitude > distSq);
+        }
+
+#if UNITY_EDITOR
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = this.GizmoColorNearby;
             Gizmos.DrawWireSphere(this.SlotAveragePositionOffset + this.transform.position, this.NearbyRange);
+
+            Gizmos.color = this.GizmoColorThreat;
+            Gizmos.DrawWireSphere(this.SlotAveragePositionOffset + this.transform.position, this.ThreatRange);
 
             if (this.NearbyTargets != null)
             {
                 foreach (NearbyTarget target in this.NearbyTargets)
                 {
-                    target.Target.DrawGizmos(1.0f, 0.5f, Color.gray);
+                    target.Target.DrawGizmos(1.0f, 0.5f, this.GizmoColorNearbyTargets);
                 }
             }
+
+            if (Application.isPlaying)
+            {
+                for (int i = 0; i < this.Slots.Length; i++)
+                {
+                    PhysicsData data = this.GetTarget(i);
+                    Gizmos.color = this.GizmoColorThreat;
+                    Gizmos.DrawWireSphere(data.LinearPosition, 1.0f);
+                    Gizmos.DrawLine(data.LinearPosition, data.LinearPosition + data.RotationPosition * Vector3.forward * 5);
+                }
+            }
+
         }
 #endif
 

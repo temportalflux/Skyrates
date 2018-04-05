@@ -280,7 +280,7 @@ namespace Skyrates.Client.Input
         {
             this.GetInput();
             this.PlayerStateCurrent.Update(this, this.PlayerData.InputData);
-            this.PlayerData.Artillery.Update(Time.deltaTime);
+            this.PlayerData.Artillery.Update(Time.deltaTime, this.EntityPlayerShip.ShipData);
         }
 
         void GetInput()
