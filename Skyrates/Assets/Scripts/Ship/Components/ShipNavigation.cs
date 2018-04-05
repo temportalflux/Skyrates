@@ -8,7 +8,7 @@ namespace Skyrates.Ship
     {
 		
         //TODO: Doxygen
-		public float Maneuverability;
+		public float TurnSpeed;
 
         public Animator Animator;
 

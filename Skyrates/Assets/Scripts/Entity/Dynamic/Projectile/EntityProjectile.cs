@@ -8,6 +8,7 @@ namespace Skyrates.Entity
     /// A moving entity which has no steering, but a constant/trajectory force.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(SelfDestruct))]
     public class EntityProjectile : EntityDynamic
     {
 

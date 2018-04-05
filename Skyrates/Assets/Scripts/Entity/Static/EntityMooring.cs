@@ -125,9 +125,11 @@ namespace Skyrates.Entity
 		{
 			this._menuIsOpen = true;
 			this.CanvasObject.SetActive(false);
+		    this.UpgradeMenu.SetPlayer(player);
 			foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
 			{
 				button.AddUpgradeListener(player);
+                button.RefreshPending();
 			}
 		    this.UpgradeMenu.gameObject.SetActive(true);
 			player.PlayerData.InputData.BlockInputs = true; //Temporary?

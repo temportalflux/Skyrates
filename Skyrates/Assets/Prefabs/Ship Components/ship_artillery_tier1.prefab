@@ -184,7 +184,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
-  AttackModifier: 1
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 0.168
+  AttackModifier: 0.398
+  DistanceModifier: 0.274
   Shooter: {fileID: 114805736969207426}
 --- !u!114 &114805736969207426
 MonoBehaviour:

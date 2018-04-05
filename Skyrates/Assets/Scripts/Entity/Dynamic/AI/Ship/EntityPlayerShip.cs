@@ -20,7 +20,10 @@ namespace Skyrates.Entity
         /// The network safe data which has information about the modular-ship.
         /// </summary>
         [HideInInspector]
-        public ShipData ShipData;
+        public ShipData ShipData
+        {
+            get { return this.ShipGeneratorRoot.ShipData; }
+        }
 
         /// <summary>
         /// The non-networked data local to the player.
@@ -37,8 +40,7 @@ namespace Skyrates.Entity
 		protected override void Awake()
         {
             base.Awake();
-            this.ShipGeneratorRoot.Destroy();
-            this.ShipData = this.ShipGeneratorRoot.Generate();
+            this.ShipGeneratorRoot.ReGenerate();
             this.PlayerData.Init();
         }
 

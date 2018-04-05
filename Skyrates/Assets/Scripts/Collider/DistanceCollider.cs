@@ -66,7 +66,10 @@ namespace Skyrates.Mono
                     Gizmos.DrawWireSphere(this.transform.position, this.RadiusSphere);
                     break;
                 case DistanceMode.Box:
-                    Gizmos.DrawWireCube(this.transform.position, this.RadiusBox);
+                    Matrix4x4 oldMatrix = Gizmos.matrix;
+                    Gizmos.matrix = Matrix4x4.TRS(this.transform.position, this.transform.rotation, Vector3.one);
+                    Gizmos.DrawWireCube(Vector3.zero, this.RadiusBox * 2);
+                    Gizmos.matrix = oldMatrix;
                     break;
                 default:
                     break;
