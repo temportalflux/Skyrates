@@ -25,13 +25,15 @@ namespace Skyrates.Entity
         public Shooter Shooter;
 
         [HideInInspector]
-        public SelfDestruct SelfDestruct;
+        public SelfDestruct SelfDestruct
+        {
+            get { return this.GetComponent<SelfDestruct>(); }
+        }
 
 		protected override void Start()
         {
             base.Start();
             this.PhysicsComponent = this.GetComponent<Rigidbody>();
-            this.SelfDestruct = this.GetComponent<SelfDestruct>();
         }
 
         /// <summary>

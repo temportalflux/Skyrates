@@ -301,15 +301,20 @@ namespace Skyrates.Client.Input
         {
             // Get total distance of projectile
             EntityProjectile projectile = artillery.Shooter.projectilePrefab as EntityProjectile;
-            float distance = projectile != null ? projectile.SelfDestruct.Delay : 1.0f;
-            distance *= artillery.DistanceModifier;
+            if (projectile == null) return artillery.transform.forward;
+            float distance = projectile.SelfDestruct.Delay * artillery.DistanceModifier;
 
             // Get location from camera POV at distance
-            Vector3 cameraTarget = this.EntityPlayerShip.Camera.transform.forward * distance;
+            Transform viewCamera = this.EntityPlayerShip.Camera.transform;
+            Vector3 source = artillery.Shooter.spawn.position;
 
+            Vector3 srcWrtCamera = source - viewCamera.position;
+            Vector3 projection = Vector3.Project(srcWrtCamera, viewCamera.forward);
+            Vector3 rejection = srcWrtCamera - projection;
+            float cameraDistance = Mathf.Sqrt(distance * distance - rejection.sqrMagnitude);
+            Vector3 destination = viewCamera.forward * cameraDistance;
 
-
-            return Vector3.forward;
+            return destination;
         }
 
     }
