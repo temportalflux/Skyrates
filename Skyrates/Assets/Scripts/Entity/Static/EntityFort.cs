@@ -1,5 +1,7 @@
-﻿using Skyrates.Ship;
+﻿using Skyrates.Scene;
+using Skyrates.Ship;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +15,12 @@ namespace Skyrates.Entity
 		public float Health = 100.0f;
 		public float Defense = 0.0f;
 		public float Protection = 0.0f;
+		public float CreditsDelay = 5.0f;
+		public GameObject Render;
 
 		public void OnTriggerEnter(Collider other)
 		{
-			Debug.Log("Trigger entered fort.");
+			//Debug.Log("Trigger entered fort.");
 			this.TryCalculateDamage(other);
 		}
 
@@ -25,7 +29,7 @@ namespace Skyrates.Entity
 		{
 			// Check to ensure that sources and their projectiles don't collide
 			// downside is that enemies cannot be hit by any projectile that came from an enemy
-			Debug.Log(other.tag);
+			//Debug.Log(other.tag);
 			//Currently, comparing tag is not necessary here, but we'll keep it because it'll happen anyway if/once we merge.
 			if ((other.CompareTag("Projectile-Enemy") && this.CompareTag("Enemy")) ||
 				(other.CompareTag("Projectile-Player") && this.CompareTag("Player")))
@@ -123,6 +127,8 @@ namespace Skyrates.Entity
 		/// <returns>The amount of health remaining after the attack</returns>
 		public virtual float TakeDamage(Entity source, float damage)
 		{
+			if(this.Health <= 0.0f) return 0.0f;
+
 			// Remove the damage from the health
 			this.Health -= damage;
 
@@ -138,8 +144,13 @@ namespace Skyrates.Entity
 			// Get whether or not this object should be destroyed
 			if (this.OnPreDestroy())
 			{
-				// Destroy em
-				Destroy(this.gameObject); //TODO: Do win state instead.
+				//Win state!
+
+				//Disable render
+				if (Render) Render.SetActive(false);
+				
+				//Wait for it...
+				StartCoroutine(DelayedStartCredits(CreditsDelay));
 			}
 
 			// Return that there is no health left - we are dead
@@ -156,6 +167,26 @@ namespace Skyrates.Entity
 			// TODO: Spawn particle, do preparations for win state.
 
 			return true;
+		}
+
+		/// <summary>
+		/// Starts the credits scene.
+		/// </summary>
+		//TODO: Possibly merge into common interface or parent.
+		public void StartCredits()
+		{
+			SceneLoader.Instance.Enqueue(SceneData.SceneKey.Credits);
+			SceneLoader.Instance.ActivateNext();
+		}
+
+		/// <summary>
+		/// Calls StartCredits() on a timer.
+		/// </summary>
+		/// <param name="delay">The delay time in seconds.</param>
+		public IEnumerator DelayedStartCredits(float delay)
+		{
+			yield return new WaitForSeconds(delay);
+			if(this && this.isActiveAndEnabled) StartCredits();
 		}
 
 	}
