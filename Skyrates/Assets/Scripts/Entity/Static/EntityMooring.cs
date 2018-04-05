@@ -128,6 +128,7 @@ namespace Skyrates.Entity
 			foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
 			{
 				button.AddUpgradeListener(player);
+                button.RefreshPending();
 			}
 		    this.UpgradeMenu.gameObject.SetActive(true);
 			player.PlayerData.InputData.BlockInputs = true; //Temporary?

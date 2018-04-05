@@ -17,7 +17,9 @@ namespace Skyrates.Ship
 		/// </summary>
 		[Tooltip("Index of the tier, should be tier number minus one.")]
 		public uint TierIndex = 0;
-        
+
+        public uint CostToUpgradeTo = 1;
+
     }
 
 }
