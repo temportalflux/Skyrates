@@ -11,6 +11,25 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1714927255280634}
   m_IsPrefabParent: 1
+--- !u!1 &1206183807003766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4481736351888848}
+  - component: {fileID: 114111706610109214}
+  - component: {fileID: 65709366954984864}
+  - component: {fileID: 65247442698571490}
+  - component: {fileID: 65054615418190426}
+  m_Layer: 16
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1274495248424942
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,7 +71,6 @@ GameObject:
   - component: {fileID: 33035207440373738}
   - component: {fileID: 23690413454784630}
   - component: {fileID: 95454069483066174}
-  - component: {fileID: 64029175160333810}
   m_Layer: 16
   m_Name: ship_navy_basic_02
   m_TagString: Untagged
@@ -202,6 +220,19 @@ Transform:
   m_Father: {fileID: 4517656572020972}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4481736351888848
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206183807003766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4741361080320124}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4517656572020972
 Transform:
   m_ObjectHideFlags: 1
@@ -284,6 +315,7 @@ Transform:
   - {fileID: 4144529139514880}
   - {fileID: 4617982357928766}
   - {fileID: 4739846600331500}
+  - {fileID: 4481736351888848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -111.003006, z: 0}
@@ -386,20 +418,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64029175160333810
-MeshCollider:
+--- !u!65 &65054615418190426
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1359597492334810}
+  m_GameObject: {fileID: 1206183807003766}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 7b5a02d23a001d045b84b4cb306fe715, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.6435745, y: 3.625782, z: 5.2733393}
+  m_Center: {x: -0.012871623, y: 2.0851812, z: 4.6594806}
+--- !u!65 &65247442698571490
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206183807003766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4198403, y: 2.312891, z: 7.2812862}
+  m_Center: {x: -0.025743246, y: -0.785161, z: -6.9506035}
 --- !u!65 &65402776566438508
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -424,6 +466,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 18, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65709366954984864
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206183807003766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4713259, y: 3.2653809, z: 15.10715}
+  m_Center: {x: 0.0000011324883, y: -1.261406, z: 4.1446176}
 --- !u!95 &95454069483066174
 Animator:
   serializedVersion: 3
@@ -441,6 +495,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114111706610109214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206183807003766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fdebacc13b36049bedd7075606f3ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 114269295474296904}
 --- !u!114 &114269295474296904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -527,7 +593,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 0}
   TierIndex: 0
+  CostToUpgradeTo: 1
+  RateOfFireModifier: 1
   AttackModifier: 0
+  DistanceModifier: 1
   Shooter: {fileID: 114271004218291994}
 --- !u!114 &114702991569725404
 MonoBehaviour:
@@ -554,6 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ship: {fileID: 114269295474296904}
   TierIndex: 0
+  CostToUpgradeTo: 1
   HP: 8
   HealthRegenAmount: 0
   HealthRegenDelay: 0
@@ -578,6 +648,7 @@ MonoBehaviour:
   - Value: []
   - Value:
     - {fileID: 114407348951755256}
+  - Value: []
   - Value: []
   - Value: []
   - Value: []

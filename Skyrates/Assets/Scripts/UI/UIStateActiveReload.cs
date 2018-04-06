@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Skyrates.Misc;
+﻿using Skyrates.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,19 +10,15 @@ namespace Skyrates.UI
         
         public Image Cutoff;
 
-        protected override bool IsActiveOnAwake()
-        {
-            return false;
-        }
-
         protected override void OnSetVisibility()
         {
-            this.Cutoff.enabled = this.IsVisible;
+            base.OnSetVisibility();
+            this.Cutoff.enabled = this.IsActive;
         }
 
-        public override void UpdateWith(StateActiveReload state, bool isVisible)
+        public override void UpdateWith(StateActiveReload state)
         {
-            base.UpdateWith(state, isVisible);
+            base.UpdateWith(state);
             // Cannon not loaded
             if (!state.IsLoaded())
             {
@@ -60,7 +54,7 @@ namespace Skyrates.UI
         public void SetCutoff(float percentStart, float percentEnd)
         {
             this.Cutoff.rectTransform.position = new Vector3(
-                this.Empty.rectTransform.position.x + this.Owner.scaleFactor * this.Rect.sizeDelta.x * 0.2f,
+                this.Empty.rectTransform.position.x + this.Owner.scaleFactor * this.Rect.sizeDelta.x * percentStart,
                 this.Rect.position.y,
                 this.Rect.position.z);
             this.Cutoff.rectTransform.sizeDelta = new Vector2(

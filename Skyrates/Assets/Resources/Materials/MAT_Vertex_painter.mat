@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: MAT_Vertex_painter
-  m_Shader: {fileID: 4800000, guid: 484116f3b6f42774b9e9e71f228df0be, type: 3}
+  m_Shader: {fileID: 4800000, guid: 98c3b314c61d5ef4da70c6435e86f7f3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,19 +19,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo1:
-        m_Texture: {fileID: 2800000, guid: d4ea36825e5a7ea499b9489b66bbd8cf, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Albedo2:
-        m_Texture: {fileID: 2800000, guid: c90698ae2f6bddf48a094625d17a3303, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Albedo3:
         m_Texture: {fileID: 2800000, guid: 7ea26598068784a4f92de7cd383d80e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Albedo4:
+    - _Albedo2:
+        m_Texture: {fileID: 2800000, guid: d4ea36825e5a7ea499b9489b66bbd8cf, type: 3}
+        m_Scale: {x: 6, y: 6}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo3:
         m_Texture: {fileID: 2800000, guid: fa00fc80ae0fde045ba49fd54d662b23, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo4:
+        m_Texture: {fileID: 2800000, guid: c90698ae2f6bddf48a094625d17a3303, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -83,15 +83,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap2:
-        m_Texture: {fileID: 2800000, guid: 516fa5262efd39a42b5f1e13866f837d, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 7a0d45fa10954484e86cfd9024612cfb, type: 3}
+        m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
     - _NormalMap3:
         m_Texture: {fileID: 2800000, guid: 61865dade2f24304fb5e81759509b482, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _NormalMap4:
-        m_Texture: {fileID: 2800000, guid: 61865dade2f24304fb5e81759509b482, type: 3}
+        m_Texture: {fileID: 2800000, guid: 516fa5262efd39a42b5f1e13866f837d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -131,12 +131,16 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Height1Shift: 0
+    - _Height2Shift: 0
+    - _Height3Shift: 0
+    - _Height4Shift: 0
     - _Metallic: 0
     - _Mode: 0
-    - _NormalMap1Strength: 1
-    - _NormalMap2Strength: 1
-    - _NormalMap3Strength: 0.5
-    - _NormalMap4Strength: 0.5
+    - _NormalMap1Strength: 1.1
+    - _NormalMap2Strength: 0.5
+    - _NormalMap3Strength: 1.1
+    - _NormalMap4Strength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Smoothness1: 0.5
@@ -146,6 +150,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TransitionSmoothness: 0.05
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -154,6 +159,6 @@ Material:
     - _Color1: {r: 1, g: 1, b: 1, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _Color3: {r: 1, g: 1, b: 1, a: 1}
-    - _Color4: {r: 1, g: 1, b: 1, a: 1}
+    - _Color4: {r: 0.6102941, g: 0.6041045, b: 0.5878568, a: 1}
     - _Diffuse: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

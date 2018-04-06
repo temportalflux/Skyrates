@@ -60,6 +60,7 @@ namespace Skyrates.Util
         {
             int keyIndex = this.GetIndexFrom(key);
             MonoBehaviour[] prefabs = this.Categories[keyIndex].Prefabs;
+            if (prefabIndex < 0) prefabIndex = prefabs.Length - 1;
             if (prefabIndex >= 0 && prefabIndex < prefabs.Length)
             {
                 prefab = (TValue)prefabs[prefabIndex];

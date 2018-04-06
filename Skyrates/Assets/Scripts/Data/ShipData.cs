@@ -144,5 +144,42 @@ namespace Skyrates.Ship
             this[type]++;
         }
 
+        public static string ToString(ComponentType type)
+        {
+            switch (type)
+            {
+                case ComponentType.ArtilleryForward:
+                    return "Main Cannon";
+                case ComponentType.ArtilleryDown:
+                    return "Bombs";
+                case ComponentType.ArtilleryLeft:
+                    return "Broadside: Port";
+                case ComponentType.ArtilleryRight:
+                    return "Broadside: Starboard";
+                case ComponentType.Figurehead:
+                    return "Figurehead";
+                case ComponentType.HullArmor:
+                    return "Hull Armor";
+                case ComponentType.NavigationLeft:
+                case ComponentType.NavigationRight:
+                    return "Navigation";
+                case ComponentType.Propulsion:
+                    return "Propulsion";
+                default:
+                    return "Unknown";
+            }
+        }
+
+        public float GetStat<T>(ShipComponentList compList, ComponentType type,
+            Func<T, float> predicate, bool scale = true) where T : ShipComponent
+        {
+            int tier = this.ComponentTiers[(int) type];
+            T current = compList.GetComponent<T>(type, tier);
+            float v1 = predicate(current);
+            if (scale)
+                v1 /= predicate(compList.GetComponent<T>(type, -1));
+            return v1;
+        }
+
     }
 }

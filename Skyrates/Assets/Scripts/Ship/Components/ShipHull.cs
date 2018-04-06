@@ -221,11 +221,11 @@ namespace Skyrates.Ship
             float value = 1.0f;
             this.ForEeach<ShipNavigation>(ShipData.ComponentType.NavigationLeft, (nav) =>
             {
-                value *= nav.Maneuverability;
+                value *= nav.TurnSpeed;
             });
             this.ForEeach<ShipNavigation>(ShipData.ComponentType.NavigationRight, (nav) =>
             {
-                value *= nav.Maneuverability;
+                value *= nav.TurnSpeed;
             });
             return value;
         }

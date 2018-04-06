@@ -6,15 +6,15 @@ namespace Skyrates.AI.Target
     public class Waypoint : MonoBehaviour
     {
 
-        public WaypointAgent Agent;
+        public WaypointList Owner;
 
         public float Radius;
 
 #if UNITY_EDITOR
         void OnDrawGizmosSelected()
         {
-            if (this.Agent == null) return;
-            this.Agent.OnDrawGizmosSelected();
+            if (this.Owner == null) return;
+            this.Owner.OnDrawGizmosSelected();
         }
 
         public void DrawGizmos(Color color)

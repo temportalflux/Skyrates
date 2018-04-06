@@ -40,9 +40,9 @@ namespace Skyrates.Misc
             this.PercentLoaded -= this.HeatPerShot;
         }
 
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, float rateOfFireModifier)
         {
-            this.PerShot.Update(deltaTime);
+            this.PerShot.Update(deltaTime, rateOfFireModifier);
             
             float rechargePerSecond = !this._isDisabled ?
                 this.RechargePerSecond :

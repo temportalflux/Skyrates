@@ -14,6 +14,8 @@ namespace Skyrates.Misc
         [Range(0.0f, 1.0f)]
         public float PercentEnd = 0.3f;
 
+        public bool AutoStart = true;
+
         /// <summary>
         /// If the cannon can be actively reloaded.
         /// Can be triggered after starting reload to auto complete if within a specific range.
@@ -33,18 +35,18 @@ namespace Skyrates.Misc
             this._canActiveReload = false;
         }
 
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, float rateOfFireModifier)
         {
             if (!this.IsLoading)
                 return;
-            base.Update(deltaTime);
+            base.Update(deltaTime, rateOfFireModifier);
         }
 
         public override void Unload()
         {
             base.Unload();
             this._canActiveReload = true;
-            this.IsLoading = false;
+            this.IsLoading = this.AutoStart;
         }
         
         public override void OnLoaded()

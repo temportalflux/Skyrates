@@ -13,20 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputData:
     MoveForward:
-      Input: 0
+      Input: -1
       Modifier: 0.25
     TurnY:
       Input: 0
       Modifier: 25
-    YawAngle: 15
-    YawAngleSpeed: 10
-    YawAngleDeadZone: 0.25
+    YawAngleDeadZone: 0.75
     MoveVertical:
       Input: 0
-      Modifier: 25
-    PitchAngle: 5
-    PitchAngleSpeed: 10
-    PitchAngleDeadZone: 0.15
+      Modifier: 45
+    PitchAngleDeadZone: 0.75
     CameraHorizontal:
       Input: 0
       Modifier: 1
@@ -39,12 +35,14 @@ MonoBehaviour:
     SpeedInitial: 0
     SpeedMin: 0
     SpeedMax: 55
-    CurrentSpeed: 52.25
+    CurrentSpeed: 0
   Artillery:
+    ComponentList: {fileID: 11400000, guid: 98955fa5a8fd4974f971ea9115260e4a, type: 2}
     Gimbal:
       MaxDelaySeconds: 2
-      PercentStart: 0.15
-      PercentEnd: 0.4
+      PercentStart: 0.4
+      PercentEnd: 0.6
+      AutoStart: 1
     Starboard:
       MaxDelaySeconds: 5
       HeatPerShot: 0.2
@@ -61,4 +59,4 @@ MonoBehaviour:
         MaxDelaySeconds: 0.5
     Bombs:
       MaxDelaySeconds: 2
-  DebugInfiniteUpgrade: 0
+  DebugInfiniteUpgrade: 1

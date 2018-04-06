@@ -44,9 +44,10 @@ namespace Skyrates.Game
         public PlayerData PlayerData;
 
         public EntityPlayerShip PlayerPrefab;
+        public EntityPlayerShip PlayerInstance;
 
-		/// <inheritdoc />
-		private void Awake()
+        /// <inheritdoc />
+        private void Awake()
         {
             this.loadSingleton(this, ref Instance);
             this._events = new GameEvents();
@@ -86,11 +87,11 @@ namespace Skyrates.Game
                     break;
                 case SceneData.SceneKey.World:
                     // spawn the player
-                    EntityPlayerShip player = this.SpawnEntity(this.PlayerPrefab) as EntityPlayerShip;
+                    this.PlayerInstance = this.SpawnEntity(this.PlayerPrefab) as EntityPlayerShip;
                     Transform spawn = RespawnAreaList.Instance.GetRandomCheckpoint().GetNextRespawnLocation();
-                    player.PhysicsData.SetPositionAndRotation(spawn.position, spawn.rotation);
-                    player.transform.position = player.PhysicsData.LinearPosition;
-                    player.transform.rotation = player.PhysicsData.RotationPosition;
+                    this.PlayerInstance.PhysicsData.SetPositionAndRotation(spawn.position, spawn.rotation);
+                    this.PlayerInstance.transform.position = this.PlayerInstance.PhysicsData.LinearPosition;
+                    this.PlayerInstance.transform.rotation = this.PlayerInstance.PhysicsData.RotationPosition;
                     break;
                 default:
                     break;

@@ -201,7 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fb6bdd616d8b14186de9c264563d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 4
+  Mode: 0
+  Delay: 500
 --- !u!114 &114509081520697296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +229,8 @@ MonoBehaviour:
     RotationAesteticVelocity: {x: 0, y: 0, z: 0}
     RotationPositionComposite: {x: 0, y: 0, z: 0, w: 1}
   PhysicsComponent: {fileID: 0}
-  Attack: 6
+  Attack: 1
+  Shooter: {fileID: 0}
 --- !u!136 &136933438053157366
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -8,6 +8,7 @@ namespace Skyrates.Entity
     /// A moving entity which has no steering, but a constant/trajectory force.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(SelfDestruct))]
     public class EntityProjectile : EntityDynamic
     {
 
@@ -20,8 +21,16 @@ namespace Skyrates.Entity
 		[Tooltip("The base damage of the projectile")]
 		public float Attack;
 
+        public float AdditionalGravity = 0.0f;
+
         [HideInInspector]
         public Shooter Shooter;
+
+        [HideInInspector]
+        public SelfDestruct SelfDestruct
+        {
+            get { return this.GetComponent<SelfDestruct>(); }
+        }
 
 		protected override void Start()
         {
@@ -67,6 +76,7 @@ namespace Skyrates.Entity
         /// </summary>
         protected override void FixedUpdate()
         {
+            this.transform.position += this.AdditionalGravity * UnityEngine.Physics.gravity * Time.fixedDeltaTime;
             this.PhysicsData.LinearPosition = this.transform.position;
             this.PhysicsData.LinearVelocity = this.PhysicsComponent.velocity;
             this.PhysicsData.RotationPosition = this.transform.rotation;

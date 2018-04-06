@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Channels;
 using Cinemachine;
 using Rewired;
 using Skyrates.Data;
@@ -46,7 +45,9 @@ namespace Skyrates.Client.Input
         protected class PlayerState
         {
 
-            public virtual void OnEnter(PlayerController owner) { }
+            public virtual void OnEnter(PlayerController owner)
+            {
+            }
 
             public virtual void UpdatePre(Rewired.Player inputController, PlayerController owner, ref PlayerData.Input data)
             {
@@ -74,7 +75,7 @@ namespace Skyrates.Client.Input
 
 					// Move vertical
 					data.MoveVertical.Input = inputController.GetAxis("Move Vertical");
-				}
+                }
 
                 data.CameraHorizontal.Input = 0.0f;
                 data.CameraVertical.Input = 0.0f;
@@ -87,8 +88,6 @@ namespace Skyrates.Client.Input
 
             public virtual void Update(PlayerController owner, PlayerData.Input data)
             {
-                owner.FreeLookCamera.m_XAxis.Value += data.CameraHorizontal.Value;
-                owner.FreeLookCamera.m_YAxis.Value += data.CameraVertical.Value;
             }
 
             public virtual void OnExit() { }
@@ -100,6 +99,9 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
+                owner.FreeLookCamera.m_XAxis.Value = 0.5f;
+                owner.FreeLookCamera.m_YAxis.Value = 0.5f;
                 owner.StateAnimator.SetTrigger("Unlocked");
             }
 
@@ -109,6 +111,9 @@ namespace Skyrates.Client.Input
 
                 data.CameraHorizontal.Input = inputController.GetAxis("Move Camera Horizontal");
                 data.CameraVertical.Input = -inputController.GetAxis("Move Camera Vertical");
+
+                owner.FreeLookCamera.m_XAxis.Value += data.CameraHorizontal.Value;
+                owner.FreeLookCamera.m_YAxis.Value += data.CameraVertical.Value;
             }
         }
 
@@ -117,6 +122,7 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
                 owner.StateAnimator.SetTrigger("Broadside:Star");
             }
 
@@ -127,6 +133,7 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
                 owner.StateAnimator.SetTrigger("Broadside:Port");
             }
 
@@ -137,6 +144,7 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
                 owner.StateAnimator.SetTrigger("Bomb");
             }
 
@@ -209,18 +217,21 @@ namespace Skyrates.Client.Input
             switch (this.PlayerData.ViewMode)
             {
                 case PlayerData.CameraMode.FREE:
-                    this.PlayerData.Artillery.Gimbal = (StateActiveReload)this.ShootCooldown(
-                        this.PlayerData.Artillery.Gimbal, () =>
-                        {
-                            this.Shoot(ShipData.ComponentType.ArtilleryForward);
-                        }
-                    );
+                    if (this.EntityPlayerShip.CanFireGimbal())
+                    {
+                        this.PlayerData.Artillery.Gimbal = (StateActiveReload)this.ShootCooldown(
+                            this.PlayerData.Artillery.Gimbal, () =>
+                            {
+                                this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryForward, this.GetForwardCannonDirection);
+                            }
+                        );
+                    }
                     break;
                 case PlayerData.CameraMode.LOCK_LEFT:
                     this.PlayerData.Artillery.Port = (StateOverheat) this.ShootCooldown(
                         this.PlayerData.Artillery.Port, () =>
                         {
-                            this.Shoot(ShipData.ComponentType.ArtilleryLeft);
+                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryLeft);
                         }
                     );
                     break;
@@ -228,7 +239,7 @@ namespace Skyrates.Client.Input
                     this.PlayerData.Artillery.Starboard = (StateOverheat) this.ShootCooldown(
                         this.PlayerData.Artillery.Starboard, () =>
                         {
-                            this.Shoot(ShipData.ComponentType.ArtilleryRight);
+                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryRight);
                         }
                     );
                     break;
@@ -236,7 +247,7 @@ namespace Skyrates.Client.Input
                     this.PlayerData.Artillery.Bombs = this.ShootCooldown(
                         this.PlayerData.Artillery.Bombs, () =>
                         {
-                            this.Shoot(ShipData.ComponentType.ArtilleryDown);
+                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryDown);
                         });
                     break;
                 default:
@@ -280,17 +291,12 @@ namespace Skyrates.Client.Input
         {
             this.GetInput();
             this.PlayerStateCurrent.Update(this, this.PlayerData.InputData);
-            this.PlayerData.Artillery.Update(Time.deltaTime);
+            this.PlayerData.Artillery.Update(Time.deltaTime, this.EntityPlayerShip.ShipData);
         }
 
         void GetInput()
         {
             this.PlayerStateCurrent.UpdatePre(this._controller, this, ref this.PlayerData.InputData);
-        }
-        
-        private void Shoot(ShipData.ComponentType artillery)
-        {
-            this.EntityPlayerShip.Shoot(artillery);
         }
 
         private StateCooldown ShootCooldown(StateCooldown cooldown, Action shoot)
@@ -300,7 +306,27 @@ namespace Skyrates.Client.Input
             shoot();
             return cooldown;
         }
-        
+
+        private Vector3 GetForwardCannonDirection(ShipArtillery artillery)
+        {
+            // Get total distance of projectile
+            EntityProjectile projectile = artillery.Shooter.projectilePrefab as EntityProjectile;
+            if (projectile == null) return artillery.transform.forward;
+            float distance = projectile.SelfDestruct.Delay * artillery.DistanceModifier;
+
+            // Get location from camera POV at distance
+            Transform viewCamera = this.EntityPlayerShip.Camera.transform;
+            Vector3 source = artillery.Shooter.spawn.position;
+
+            Vector3 srcWrtCamera = source - viewCamera.position;
+            Vector3 projection = Vector3.Project(srcWrtCamera, viewCamera.forward);
+            Vector3 rejection = srcWrtCamera - projection;
+            float cameraDistance = Mathf.Sqrt(distance * distance - rejection.sqrMagnitude);
+            Vector3 destination = viewCamera.forward * cameraDistance;
+
+            return destination;
+        }
+
     }
 
 }

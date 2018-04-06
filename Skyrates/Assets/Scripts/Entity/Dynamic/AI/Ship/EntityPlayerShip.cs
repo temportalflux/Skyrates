@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Skyrates.Data;
+﻿using Skyrates.Data;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using Skyrates.Physics;
@@ -20,7 +19,10 @@ namespace Skyrates.Entity
         /// The network safe data which has information about the modular-ship.
         /// </summary>
         [HideInInspector]
-        public ShipData ShipData;
+        public ShipData ShipData
+        {
+            get { return this.ShipGeneratorRoot.ShipData; }
+        }
 
         /// <summary>
         /// The non-networked data local to the player.
@@ -33,12 +35,13 @@ namespace Skyrates.Entity
         /// </summary>
         public ShipGenerator ShipGeneratorRoot;
 
+        public Camera Camera;
+
 		/// <inheritdoc />
 		protected override void Awake()
         {
             base.Awake();
-            this.ShipGeneratorRoot.Destroy();
-            this.ShipData = this.ShipGeneratorRoot.Generate();
+            this.ShipGeneratorRoot.ReGenerate();
             this.PlayerData.Init();
         }
 
@@ -167,6 +170,12 @@ namespace Skyrates.Entity
         }
         
         #endregion
+
+        public bool CanFireGimbal()
+        {
+            // Angle is closer to forward view
+            return Vector3.Dot(this.Camera.transform.forward, this.Render.forward) >= 0.75f;
+        }
 
     }
 

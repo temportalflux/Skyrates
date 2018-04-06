@@ -11,14 +11,16 @@ namespace Skyrates.Ship
     /// </summary>
     public class ShipArtillery : ShipComponent
     {
-
+        
+        public float RateOfFireModifier = 1;
         public float AttackModifier = 1;
+        public float DistanceModifier = 1;
         
         public Shooter Shooter;
 
-        public virtual void Shoot(Func<Shooter, Vector3> getDirection, Vector3 velocity)
+        public virtual void Shoot(Func<ShipArtillery, Vector3> getDirection, Vector3 velocity)
         {
-            this.Shooter.FireProjectile(getDirection(this.Shooter), velocity, this.AttackModifier);
+            this.Shooter.FireProjectile(getDirection(this), velocity, this.AttackModifier, this.DistanceModifier);
         }
 
     }

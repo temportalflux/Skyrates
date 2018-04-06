@@ -372,7 +372,7 @@ namespace Skyrates.Entity
         /// <param name="artillery"></param>
         public void Shoot(ShipData.ComponentType artillery)
         {
-            this.Shoot(artillery, (shooter => shooter.GetProjectileDirection().normalized));
+            this.Shoot(artillery, (shooter => shooter.Shooter.GetProjectileDirection().normalized));
         }
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace Skyrates.Entity
         /// Causes all the shooters from <see cref="GetArtilleryShooters"/> to fire for some artillery component.
         /// </summary>
         /// <param name="artillery"></param>
-        public void Shoot(ShipData.ComponentType artillery, Func<Shooter, Vector3> getDirection)
+        public void Shoot(ShipData.ComponentType artillery, Func<ShipArtillery, Vector3> getDirection)
         {
             // TODO: Optimize this
             ShipArtillery[] shooters = this.GetArtilleryShooters(artillery);

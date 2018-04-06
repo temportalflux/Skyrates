@@ -66,13 +66,19 @@ namespace Skyrates.AI.Custom
             // for ship
             //Vector3 movementXZ = forward * this.ControllerData.StateData.CurrentSpeed;
 
+            float verticalInput = input.MoveVertical.Value;
+            if (Mathf.Abs(verticalInput) < this.ControllerData.InputData.PitchAngleDeadZone)
+                verticalInput = 0;
             physicsData.LinearVelocity =
                 (forward * this.Speed)
                 +
-                (vertical * input.MoveVertical.Value);
+                (vertical * verticalInput);
 
             // for ship movement
-            float rotationY = input.TurnY.Value * data.TurnSpeedMultiplier;
+            float turnInput = input.TurnY.Value;
+            if (Mathf.Abs(turnInput) < this.ControllerData.InputData.YawAngleDeadZone)
+                turnInput = 0;
+            float rotationY = turnInput * data.TurnSpeedMultiplier;
             //rotationY *= (1 - input.MoveForward.Input) * 0.5f;
             
             physicsData.RotationVelocity = new Vector3(0.0f, rotationY, 0.0f);
