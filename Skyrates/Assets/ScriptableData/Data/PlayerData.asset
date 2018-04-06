@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputData:
     MoveForward:
-      Input: 0
+      Input: -1
       Modifier: 0.25
     TurnY:
       Input: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
       Input: 0
       Modifier: 1
     CameraVertical:
-      Input: 0
+      Input: -0
       Modifier: 0.005
     BlockInputs: 0
   ViewMode: 0
@@ -59,4 +59,4 @@ MonoBehaviour:
         MaxDelaySeconds: 0.5
     Bombs:
       MaxDelaySeconds: 2
-  DebugInfiniteUpgrade: 0
+  DebugInfiniteUpgrade: 1

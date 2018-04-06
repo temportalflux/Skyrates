@@ -13,8 +13,8 @@ namespace Skyrates.UI
     public class HUDReticle : MonoBehaviour
     {
 
-        public float OverlapDistance = 500;
         public float OverlapDelay = 0.1f;
+        private float _timeElapsed;
 
         private Image Image;
 
@@ -22,6 +22,7 @@ namespace Skyrates.UI
         public Color ColorEnemy;
         public LayerMask MaskFriendly;
         public Color ColorFriendly;
+        public Color ColorDisabled;
 
         private Color _colorDefault;
         private Transform _camera;
@@ -30,25 +31,30 @@ namespace Skyrates.UI
         {
             this.Image = this.GetComponent<Image>();
             this._colorDefault = this.Image.color;
-            StartCoroutine(this.TryOverlap());
+            this._timeElapsed = 0.0f;
         }
 
-        IEnumerator TryOverlap()
+        void Update()
         {
-            while (this && this.gameObject)
+            if (this._camera == null)
+                this._camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+
+            this._timeElapsed += Time.deltaTime;
+            if (this._timeElapsed >= this.OverlapDelay)
             {
-
-                if (this._camera == null)
-                    this._camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
-
+                this._timeElapsed = 0.0f;
                 this.Image.color = this.RaycastReturnColor();
-                yield return new WaitForSeconds(this.OverlapDelay);
             }
+
         }
 
         private Color RaycastReturnColor()
         {
-            if (this.Raycast(this.MaskEnemy))
+            if (!GameManager.Instance.PlayerInstance.CanFireGimbal())
+            {
+                return this.ColorDisabled;
+            }
+            else if (this.Raycast(this.MaskEnemy))
             {
                 return this.ColorEnemy;
             }

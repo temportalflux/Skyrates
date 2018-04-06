@@ -171,6 +171,12 @@ namespace Skyrates.Entity
         
         #endregion
 
+        public bool CanFireGimbal()
+        {
+            // Angle is closer to forward view
+            return Vector3.Dot(this.Camera.transform.forward, this.Render.forward) >= 0.75f;
+        }
+
     }
 
 }

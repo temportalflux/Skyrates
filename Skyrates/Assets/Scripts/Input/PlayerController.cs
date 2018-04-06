@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Channels;
 using Cinemachine;
 using Rewired;
 using Skyrates.Data;
@@ -8,7 +7,6 @@ using Skyrates.Entity;
 using Skyrates.Game;
 using Skyrates.Game.Event;
 using Skyrates.Misc;
-using Skyrates.Mono;
 using Skyrates.Ship;
 using UnityEngine;
 
@@ -47,7 +45,9 @@ namespace Skyrates.Client.Input
         protected class PlayerState
         {
 
-            public virtual void OnEnter(PlayerController owner) { }
+            public virtual void OnEnter(PlayerController owner)
+            {
+            }
 
             public virtual void UpdatePre(Rewired.Player inputController, PlayerController owner, ref PlayerData.Input data)
             {
@@ -75,7 +75,7 @@ namespace Skyrates.Client.Input
 
 					// Move vertical
 					data.MoveVertical.Input = inputController.GetAxis("Move Vertical");
-				}
+                }
 
                 data.CameraHorizontal.Input = 0.0f;
                 data.CameraVertical.Input = 0.0f;
@@ -88,8 +88,6 @@ namespace Skyrates.Client.Input
 
             public virtual void Update(PlayerController owner, PlayerData.Input data)
             {
-                owner.FreeLookCamera.m_XAxis.Value += data.CameraHorizontal.Value;
-                owner.FreeLookCamera.m_YAxis.Value += data.CameraVertical.Value;
             }
 
             public virtual void OnExit() { }
@@ -101,6 +99,9 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
+                owner.FreeLookCamera.m_XAxis.Value = 0.5f;
+                owner.FreeLookCamera.m_YAxis.Value = 0.5f;
                 owner.StateAnimator.SetTrigger("Unlocked");
             }
 
@@ -110,6 +111,9 @@ namespace Skyrates.Client.Input
 
                 data.CameraHorizontal.Input = inputController.GetAxis("Move Camera Horizontal");
                 data.CameraVertical.Input = -inputController.GetAxis("Move Camera Vertical");
+
+                owner.FreeLookCamera.m_XAxis.Value += data.CameraHorizontal.Value;
+                owner.FreeLookCamera.m_YAxis.Value += data.CameraVertical.Value;
             }
         }
 
@@ -118,6 +122,7 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
                 owner.StateAnimator.SetTrigger("Broadside:Star");
             }
 
@@ -128,6 +133,7 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
                 owner.StateAnimator.SetTrigger("Broadside:Port");
             }
 
@@ -138,6 +144,7 @@ namespace Skyrates.Client.Input
 
             public override void OnEnter(PlayerController owner)
             {
+                base.OnEnter(owner);
                 owner.StateAnimator.SetTrigger("Bomb");
             }
 
@@ -210,12 +217,15 @@ namespace Skyrates.Client.Input
             switch (this.PlayerData.ViewMode)
             {
                 case PlayerData.CameraMode.FREE:
-                    this.PlayerData.Artillery.Gimbal = (StateActiveReload)this.ShootCooldown(
-                        this.PlayerData.Artillery.Gimbal, () =>
-                        {
-                            this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryForward, this.GetForwardCannonDirection);
-                        }
-                    );
+                    if (this.EntityPlayerShip.CanFireGimbal())
+                    {
+                        this.PlayerData.Artillery.Gimbal = (StateActiveReload)this.ShootCooldown(
+                            this.PlayerData.Artillery.Gimbal, () =>
+                            {
+                                this.EntityPlayerShip.Shoot(ShipData.ComponentType.ArtilleryForward, this.GetForwardCannonDirection);
+                            }
+                        );
+                    }
                     break;
                 case PlayerData.CameraMode.LOCK_LEFT:
                     this.PlayerData.Artillery.Port = (StateOverheat) this.ShootCooldown(

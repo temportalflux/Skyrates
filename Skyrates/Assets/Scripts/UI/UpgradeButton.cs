@@ -26,7 +26,7 @@ namespace Skyrates.UI
         public Text LabelTier;
 	    public Text LabelQuantity;
 
-	    public Color Normal = Color.white;
+	    public Color Disabled = Color.white;
         // not enough inventory contents
 	    public Color UpgradeMissing;
         // ready for upgrade
@@ -67,22 +67,22 @@ namespace Skyrates.UI
 
 	    public int GetMinTier()
 	    {
-	        return this.pendingUpgrades.Min(upgrade => upgrade.TierCurrent);
+            return this.UpgradeComponentTypes.Min(type => this._player.ShipData.ComponentTiers[(int)type]);
 	    }
 
 		//Removes item from local data and upgrades the tier by 1.
 	    public void UpgradeItem()
 	    {
+	        if (this.pendingUpgrades.Count <= 0) return;
 
             bool hasInfiniteInv = false;
 #if UNITY_EDITOR
 	        hasInfiniteInv = this.PlayerData.DebugInfiniteUpgrade;
 #endif
 
-	        bool isUpgradableFurther = this.pendingUpgrades.Count > 0;
 
 	        // If all components have a next tier, and we have enough inventory
-	        if (isUpgradableFurther && (hasInfiniteInv || this.PlayerData.Inventory.Remove(Type, this.totalCost) != 0))
+	        if (hasInfiniteInv || this.PlayerData.Inventory.Remove(Type, this.totalCost) != 0)
 	        {
 	            // Upgrade the component
 	            this._player.ShipGeneratorRoot.UpgradeComponents(this.UpgradeComponentTypes);
@@ -148,13 +148,12 @@ namespace Skyrates.UI
 	    {
 	        this.LabelTier.text = string.Format("Tier {0}", this.tierMin + 1);
             this.LabelQuantity.text = string.Format("{0} / {1}", this.GetInvAmount(), this.totalCost);
-	        this.Button.interactable = this.pendingUpgrades.Count > 0;
 	        this.Button.GetComponent<Image>().color = this.GetCurrentColor();
 	    }
 
 	    private Color GetCurrentColor()
 	    {
-	        if (this.pendingUpgrades.Count <= 0) return this.Normal;
+	        if (this.pendingUpgrades.Count <= 0) return this.Disabled;
 #if UNITY_EDITOR
             else if (this.PlayerData.DebugInfiniteUpgrade) return this.UpgradePending;
 #endif
