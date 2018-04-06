@@ -15,11 +15,6 @@ namespace Skyrates.Entity
 	{
 
         /// <summary>
-        /// The object which shows the player they can open the menu.
-        /// </summary>
-	    public GameObject CanvasObject;
-
-        /// <summary>
         /// The menu the player opens on interaction.
         /// </summary>
 	    public UpgradeCanvas UpgradeMenu;
@@ -34,7 +29,7 @@ namespace Skyrates.Entity
         /// <summary>
         /// True while the upgrade menu is open.
         /// </summary>
-        private bool _menuIsOpen;
+        private bool _myMenuIsOpen;
 
 	    private void OnEnable()
 	    {
@@ -73,7 +68,7 @@ namespace Skyrates.Entity
 	    {
             // The player is nearby, start running
 	        this._playerNear = true;
-	        this.CanvasObject.SetActive(true);
+            //GameManager.Events.Dispatch(EventMenu.Open(EventMenu.CanvasType.Upgrades));
 
             // Continue until this object is no longer active OR the player is too far
             while (this && this._playerNear && this.isActiveAndEnabled && player && (player.transform.position - this.transform.position).sqrMagnitude <= radiusSq)
@@ -84,13 +79,12 @@ namespace Skyrates.Entity
 
             // Out of range or this object is disabled
             // Double check the menu is closed - in case the player left the area without closing the menu
-	        if (this._menuIsOpen)
+	        if (this._myMenuIsOpen)
 	        {
-	            this.CloseMenu(player, true);
+	            this.CloseMenu(player);
             }
 
             // Player is no longer nearby, stop running
-	        this.CanvasObject.SetActive(false);
             this._playerNear = false;
 	    }
 
@@ -106,7 +100,7 @@ namespace Skyrates.Entity
 	        EventEntityPlayerShip evtPlayer = (EventEntityPlayerShip) evt;
 
             // If the menu is not currently open, then open it
-	        if (!this._menuIsOpen)
+	        if (!this._myMenuIsOpen)
 	        {
 	            this.OpenMenu(evtPlayer.PlayerShip);
             }
@@ -123,16 +117,22 @@ namespace Skyrates.Entity
         /// <param name="player"></param>
         private void OpenMenu(EntityPlayerShip player)
 		{
-			this._menuIsOpen = true;
-			this.CanvasObject.SetActive(false);
-		    this.UpgradeMenu.SetPlayer(player);
+            // Cache state
+			this._myMenuIsOpen = true;
+
+            // Open the menu
+            GameManager.Events.Dispatch(EventMenu.Open(EventMenu.CanvasType.Upgrades));
+            // Stop player from moving (TODO move this to event response)
+		    player.PlayerData.InputData.BlockInputs = true; //Temporary?
+
+            // Init the menu
+            // TODO: Move this into an UpgradeMenu function
+            this.UpgradeMenu.SetPlayer(player);
 			foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
 			{
 				button.AddUpgradeListener(player);
                 button.RefreshPending();
 			}
-		    this.UpgradeMenu.gameObject.SetActive(true);
-			player.PlayerData.InputData.BlockInputs = true; //Temporary?
 		}
 
 	    /// <summary>
@@ -140,16 +140,18 @@ namespace Skyrates.Entity
 	    /// </summary>
 	    /// <param name="player"></param>
 	    /// <param name="forced"></param>
-	    private void CloseMenu(EntityPlayerShip player, bool forced = false)
-		{
-			this._menuIsOpen = false;
-			if (!forced) CanvasObject.SetActive(true);
-			foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
+	    private void CloseMenu(EntityPlayerShip player)
+	    {
+	        // Cache state
+            this._myMenuIsOpen = false;
+
+	        GameManager.Events.Dispatch(EventMenu.Close(EventMenu.CanvasType.Upgrades));
+            player.PlayerData.InputData.BlockInputs = false; //Temporary?
+            
+            foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
 			{
 				button.RemoveUpgradeListener();
 			}
-			this.UpgradeMenu.gameObject.SetActive(false);
-			player.PlayerData.InputData.BlockInputs = false; //Temporary?
 		}
         
 	}

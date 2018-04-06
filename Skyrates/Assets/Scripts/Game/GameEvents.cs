@@ -46,6 +46,8 @@ namespace Skyrates.Game.Event
         #endregion
 
         MenuButtonPressed,
+        MenuOpen,
+        MenuClose,
 
     }
 
@@ -87,6 +89,8 @@ namespace Skyrates.Game.Event
         #endregion
 
         public event GameEventDelegate MenuButtonPressed;
+        public event GameEventDelegate MenuOpen;
+        public event GameEventDelegate MenuClose;
 
         /// <summary>
         /// Get the event delegate for the event ID.
@@ -159,6 +163,12 @@ namespace Skyrates.Game.Event
                 #endregion
                 case GameEventID.MenuButtonPressed:
                     value = this.MenuButtonPressed;
+                    break;
+                case GameEventID.MenuOpen:
+                    value = this.MenuOpen;
+                    break;
+                case GameEventID.MenuClose:
+                    value = this.MenuClose;
                     break;
                 default:
                     Debug.LogWarning(string.Format("No delegate for event {0}", eventID));
