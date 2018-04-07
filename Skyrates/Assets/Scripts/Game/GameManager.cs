@@ -120,17 +120,9 @@ namespace Skyrates.Game
             switch (evtButton.Button)
             {
                 case EventMenuButtonPressed.MenuButton.Menu:
-                    // Go back to main menu                
-                    SceneLoader.Instance.Enqueue(SceneData.SceneKey.MenuMain);
-                    SceneLoader.Instance.ActivateNext();
+                    GameManager.Events.Dispatch(EventMenu.Open(EventMenu.CanvasType.Pause));
                     break;
                 case EventMenuButtonPressed.MenuButton.Back:
-                    // Exit the game
-#if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit();          
-#endif
                     break;
                 default:
                     break;

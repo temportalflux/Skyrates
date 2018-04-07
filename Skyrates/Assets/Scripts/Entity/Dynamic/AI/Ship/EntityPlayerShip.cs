@@ -52,6 +52,24 @@ namespace Skyrates.Entity
             this.PlayerData.Init();
         }
 
+        void OnEnable()
+        {
+            GameManager.Events.MenuOpen += this.OnMenu;
+            GameManager.Events.MenuClose += this.OnMenu;
+        }
+
+        void OnDisable()
+        {
+            GameManager.Events.MenuOpen -= this.OnMenu;
+            GameManager.Events.MenuClose -= this.OnMenu;
+        }
+
+        void OnMenu(GameEvent evt)
+        {
+            EventMenu evtMenu = (EventMenu) evt;
+            this.PlayerData.InputData.BlockInputs = evtMenu.Type != EventMenu.CanvasType.Hud && evtMenu.ShouldOpen;
+        }
+
         /// <inheritdoc />
         protected override void FixedUpdate()
         {
