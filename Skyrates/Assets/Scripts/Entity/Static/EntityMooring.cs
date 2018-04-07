@@ -122,8 +122,6 @@ namespace Skyrates.Entity
 
             // Open the menu
             GameManager.Events.Dispatch(EventMenu.Open(EventMenu.CanvasType.Upgrades));
-            // Stop player from moving (TODO move this to event response)
-		    player.PlayerData.InputData.BlockInputs = true; //Temporary?
 
             // Init the menu
             // TODO: Move this into an UpgradeMenu function
@@ -146,7 +144,6 @@ namespace Skyrates.Entity
             this._myMenuIsOpen = false;
 
 	        GameManager.Events.Dispatch(EventMenu.Close(EventMenu.CanvasType.Upgrades));
-            player.PlayerData.InputData.BlockInputs = false; //Temporary?
             
             foreach (UpgradeButton button in this.UpgradeMenu.MenuButtons)
 			{
