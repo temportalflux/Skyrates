@@ -560,7 +560,9 @@
     <Compile Include="Assets\Scripts\Entity\Dynamic\Projectile\Shooter.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entity\Static\EntityCannon.cs" />
+    <Compile Include="Assets\Scripts\Entity\Static\EntityFort.cs" />
     <Compile Include="Assets\Scripts\Entity\Static\EntityMooring.cs" />
+    <Compile Include="Assets\Scripts\Entity\Static\PropagateFortOnTriggerEnter.cs" />
     <Compile Include="Assets\Scripts\Entity\Static\RespawnArea.cs" />
     <Compile Include="Assets\Scripts\Entity\Static\RespawnAreaList.cs" />
     <Compile Include="Assets\Scripts\Game\Events\EventActiveReloadBegin.cs" />
