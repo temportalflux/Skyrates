@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 333.333333
+%%BoundingBox: 0 0 500 400.000000
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,12 +19,12 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 1.500000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 1.250000 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 10 def
+/rows 12 def
 /cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
@@ -180,7 +180,9 @@ boxfont setfont
 (Skyrates.AI.Decorator.FormationOffsetFromEntity) cw
 (Skyrates.AI.Decorator.SetTargetDirection) cw
 (Skyrates.AI.Decorator.SmoothTarget) cw
+(Skyrates.AI.Decorator.StayWithin) cw
 (Skyrates.AI.Decorator.TargetNearestNearby) cw
+(Skyrates.AI.Decorator.Wander) cw
 (Skyrates.AI.Formation.UpdateTargetFormation) cw
 (Skyrates.AI.Steering.Steering) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -194,15 +196,17 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (Skyrates.AI.Behavior) 0.000000 8.000000 box
- (ScriptableObject) 0.000000 9.000000 box
- (Skyrates.AI.BehaviorTimed) 1.000000 7.000000 box
-1.000000 7.000000 mark
- (Skyrates.AI.Decorator.FindClosestSide) 1.000000 6.000000 box
- (Skyrates.AI.Decorator.FormationOffsetFromEntity) 1.000000 5.000000 box
- (Skyrates.AI.Decorator.SetTargetDirection) 1.000000 4.000000 box
- (Skyrates.AI.Decorator.SmoothTarget) 1.000000 3.000000 box
- (Skyrates.AI.Decorator.TargetNearestNearby) 1.000000 2.000000 box
+ (Skyrates.AI.Behavior) 0.000000 10.000000 box
+ (ScriptableObject) 0.000000 11.000000 box
+ (Skyrates.AI.BehaviorTimed) 1.000000 9.000000 box
+1.000000 9.000000 mark
+ (Skyrates.AI.Decorator.FindClosestSide) 1.000000 8.000000 box
+ (Skyrates.AI.Decorator.FormationOffsetFromEntity) 1.000000 7.000000 box
+ (Skyrates.AI.Decorator.SetTargetDirection) 1.000000 6.000000 box
+ (Skyrates.AI.Decorator.SmoothTarget) 1.000000 5.000000 box
+ (Skyrates.AI.Decorator.StayWithin) 1.000000 4.000000 box
+ (Skyrates.AI.Decorator.TargetNearestNearby) 1.000000 3.000000 box
+ (Skyrates.AI.Decorator.Wander) 1.000000 2.000000 box
  (Skyrates.AI.Formation.UpdateTargetFormation) 1.000000 1.000000 box
  (Skyrates.AI.Steering.Steering) 1.000000 0.000000 box
 1.000000 0.000000 mark
@@ -210,11 +214,15 @@ boundx scalefactor div boundy scalefactor div scale
 % ----- relations -----
 
 solid
-0 0.000000 8.000000 out
+0 0.000000 10.000000 out
 solid
-1 0.000000 9.000000 in
+1 0.000000 11.000000 in
 solid
-1 0.000000 7.250000 out
+1 0.000000 9.250000 out
+solid
+0 0.000000 9.500000 hedge
+solid
+0 0.000000 8.500000 hedge
 solid
 0 0.000000 7.500000 hedge
 solid
@@ -232,4 +240,4 @@ solid
 solid
 0 0.000000 0.500000 hedge
 solid
-0.000000 8.000000 0.500000 vedge
+0.000000 10.000000 0.500000 vedge

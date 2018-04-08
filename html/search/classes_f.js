@@ -52,5 +52,6 @@ var searchData=
   ['stateoverheat',['StateOverheat',['../class_skyrates_1_1_misc_1_1_state_overheat.html',1,'Skyrates::Misc']]],
   ['stateserver',['StateServer',['../class_state_server.html',1,'']]],
   ['statetransition',['StateTransition',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html',1,'Skyrates::AI::State']]],
+  ['staywithin',['StayWithin',['../class_skyrates_1_1_a_i_1_1_decorator_1_1_stay_within.html',1,'Skyrates::AI::Decorator']]],
   ['steering',['Steering',['../class_skyrates_1_1_a_i_1_1_steering_1_1_steering.html',1,'Skyrates::AI::Steering']]]
 ];

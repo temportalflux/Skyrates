@@ -18,22 +18,11 @@ Inheritance diagram for Skyrates.\-A\-I.\-State.\-State\-Transition\-:\begin{fig
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a7adfa94373a575af09f86e8f1161a3a8}{virtual \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} {\bfseries Create\-Persistent\-Data} ()}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a7adfa94373a575af09f86e8f1161a3a8}
 
 \item 
-\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a8bcaa16b736b8d240dfbeaafe8aaddc0}{Get\-State\-Source} (\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine} machine)
-\begin{DoxyCompactList}\small\item\em Returns the source \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} of this transition in the specified \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. \end{DoxyCompactList}\item 
-\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_ae599613de8997bb20df235f616485957}{Get\-State\-Destination} (\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine} machine)
-\begin{DoxyCompactList}\small\item\em Returns the destination \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} of this transition in the specified \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. \end{DoxyCompactList}\item 
 abstract bool \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a774f9f4ee740450b5b41f565f158be88}{Can\-Enter} (\hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral\-Data, \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent)
-\begin{DoxyCompactList}\small\item\em Returns if a \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine} can transition from the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a15c97c73b5e83f2bda77c5f4fb2521c6}{State\-Source} to the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a445177b14011fbc85aec78ecd04680f8}{State\-Destination}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns if a \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine} can transition from the State\-Source to the State\-Destination. \end{DoxyCompactList}\item 
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a68494fbd56a9103d424d57aaf4186ee6}{virtual void {\bfseries On\-Detect} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float distance)}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a68494fbd56a9103d424d57aaf4186ee6}
 
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-int \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a15c97c73b5e83f2bda77c5f4fb2521c6}{State\-Source}
-\begin{DoxyCompactList}\small\item\em The index of the source \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} in the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. \end{DoxyCompactList}\item 
-int \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a445177b14011fbc85aec78ecd04680f8}{State\-Destination}
-\begin{DoxyCompactList}\small\item\em The index of the destination \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} in the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -53,7 +42,7 @@ Specifies when a state is able to be transitioned into.
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a774f9f4ee740450b5b41f565f158be88}
 
 
-Returns if a \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine} can transition from the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a15c97c73b5e83f2bda77c5f4fb2521c6}{State\-Source} to the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a445177b14011fbc85aec78ecd04680f8}{State\-Destination}. 
+Returns if a \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine} can transition from the State\-Source to the State\-Destination. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -68,61 +57,6 @@ Returns if a \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{Stat
 
 
 Implemented in \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_distance_to_target_a894564a64358ce4924f3b64bfef90662}{Skyrates.\-A\-I.\-State.\-Transition.\-Transition\-Distance\-To\-Target}, \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_detected_nearby_targets_ac136c79933da8c0d6d245e81f4bf9210}{Skyrates.\-A\-I.\-State.\-Transition.\-Transition\-Detected\-Nearby\-Targets}, \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_target_exists_a23dc7eee9df4de00fcfec275d7781b73}{Skyrates.\-A\-I.\-State.\-Transition.\-Transition\-Target\-Exists}, and \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_missing_formation_owner_a5007021285f55c85bec2bf2fee921deb}{Skyrates.\-A\-I.\-State.\-Transition.\-Transition\-Missing\-Formation\-Owner}.
-
-\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_ae599613de8997bb20df235f616485957}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}!Get\-State\-Destination@{Get\-State\-Destination}}
-\index{Get\-State\-Destination@{Get\-State\-Destination}!Skyrates::AI::State::StateTransition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}}
-\subsubsection[{Get\-State\-Destination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} Skyrates.\-A\-I.\-State.\-State\-Transition.\-Get\-State\-Destination (
-\begin{DoxyParamCaption}
-\item[{{\bf State\-Machine}}]{machine}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_ae599613de8997bb20df235f616485957}
-
-
-Returns the destination \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} of this transition in the specified \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em machine} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a8bcaa16b736b8d240dfbeaafe8aaddc0}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}!Get\-State\-Source@{Get\-State\-Source}}
-\index{Get\-State\-Source@{Get\-State\-Source}!Skyrates::AI::State::StateTransition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}}
-\subsubsection[{Get\-State\-Source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} Skyrates.\-A\-I.\-State.\-State\-Transition.\-Get\-State\-Source (
-\begin{DoxyParamCaption}
-\item[{{\bf State\-Machine}}]{machine}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a8bcaa16b736b8d240dfbeaafe8aaddc0}
-
-
-Returns the source \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} of this transition in the specified \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em machine} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-
-
-\subsection{Member Data Documentation}
-\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a445177b14011fbc85aec78ecd04680f8}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}!State\-Destination@{State\-Destination}}
-\index{State\-Destination@{State\-Destination}!Skyrates::AI::State::StateTransition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}}
-\subsubsection[{State\-Destination}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-A\-I.\-State.\-State\-Transition.\-State\-Destination}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a445177b14011fbc85aec78ecd04680f8}
-
-
-The index of the destination \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} in the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. 
-
-\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a15c97c73b5e83f2bda77c5f4fb2521c6}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}!State\-Source@{State\-Source}}
-\index{State\-Source@{State\-Source}!Skyrates::AI::State::StateTransition@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Transition}}
-\subsubsection[{State\-Source}]{\setlength{\rightskip}{0pt plus 5cm}int Skyrates.\-A\-I.\-State.\-State\-Transition.\-State\-Source}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition_a15c97c73b5e83f2bda77c5f4fb2521c6}
-
-
-The index of the source \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} in the \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine}{State\-Machine}. 
 
 
 

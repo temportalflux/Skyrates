@@ -50,6 +50,10 @@ class \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_1_1_persiste
 \hline
 \end{DoxyParams}
  \href{https://gamedev.stackexchange.com/questions/121469/unity3d-smooth-rotation-for-seek-steering-behavior}{\tt https\-://gamedev.\-stackexchange.\-com/questions/121469/unity3d-\/smooth-\/rotation-\/for-\/seek-\/steering-\/behavior}  \end{DoxyCompactList}\item 
+override \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a7787302125717fb9fa158ce75541cf53}{On\-Enter} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)
+\begin{DoxyCompactList}\small\item\em Executed when a state begins execution of this behavior. \end{DoxyCompactList}\item 
+override void \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_ae224580487180bef7009c1b49aaded2e}{On\-Exit} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)
+\begin{DoxyCompactList}\small\item\em Executed when a state ends execution of this behavior. \end{DoxyCompactList}\item 
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_af4d282ef6ac4ca72e5fcf8b612277730}{override void {\bfseries On\-Detect} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float distance, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Data\-Persistent} persistent)}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_af4d282ef6ac4ca72e5fcf8b612277730}
 
 \end{DoxyCompactItemize}
@@ -59,7 +63,7 @@ class \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_1_1_persiste
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a056f4fcc07c57a0d967bf61424e0b085}{\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State} {\bfseries Idle\-State}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a056f4fcc07c57a0d967bf61424e0b085}
 
 \item 
-\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a892016093699b67b71a2f69c5fb6443f}{States}
+\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a892016093699b67b71a2f69c5fb6443f}{States} = new \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state}{State}\mbox{[}0\mbox{]}
 \begin{DoxyCompactList}\small\item\em All of the possible states. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -121,6 +125,58 @@ Returns the current state at the specified index.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a7787302125717fb9fa158ce75541cf53}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}!On\-Enter@{On\-Enter}}
+\index{On\-Enter@{On\-Enter}!Skyrates::AI::State::StateMachine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}}
+\subsubsection[{On\-Enter}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf Data\-Persistent} Skyrates.\-A\-I.\-State.\-State\-Machine.\-On\-Enter (
+\begin{DoxyParamCaption}
+\item[{{\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{behavioral, }
+\item[{{\bf Data\-Persistent}}]{persistent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a7787302125717fb9fa158ce75541cf53}
+
+
+Executed when a state begins execution of this behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behavioral} & \\
+\hline
+{\em persistent} & \\
+\hline
+{\em physics} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_affc3cb54c9ace9954204efc90d257823}{Skyrates.\-A\-I.\-Behavior}.
+
+\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_ae224580487180bef7009c1b49aaded2e}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}!On\-Exit@{On\-Exit}}
+\index{On\-Exit@{On\-Exit}!Skyrates::AI::State::StateMachine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}}
+\subsubsection[{On\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}override void Skyrates.\-A\-I.\-State.\-State\-Machine.\-On\-Exit (
+\begin{DoxyParamCaption}
+\item[{{\bf Physics\-Data}}]{physics, }
+\item[{ref {\bf Data\-Behavioral}}]{data, }
+\item[{{\bf Data\-Persistent}}]{persistent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_ae224580487180bef7009c1b49aaded2e}
+
+
+Executed when a state ends execution of this behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+{\em physics} & \\
+\hline
+{\em persistent} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_a4eef309cf75dd9d56b7ea7d19e7f5258}{Skyrates.\-A\-I.\-Behavior}.
+
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_aaf0c030821a596d0bdeee0b87c96bd6e}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}!Update\-Timed@{Update\-Timed}}
 \index{Update\-Timed@{Update\-Timed}!Skyrates::AI::State::StateMachine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}}
 \subsubsection[{Update\-Timed}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf Persistent\-Data\-Timed} Skyrates.\-A\-I.\-State.\-State\-Machine.\-Update\-Timed (
@@ -153,7 +209,7 @@ Implements \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_timed_aea99eb1249969ae
 \subsection{Member Data Documentation}
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a892016093699b67b71a2f69c5fb6443f}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}!States@{States}}
 \index{States@{States}!Skyrates::AI::State::StateMachine@{Skyrates\-::\-A\-I\-::\-State\-::\-State\-Machine}}
-\subsubsection[{States}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} \mbox{[}$\,$\mbox{]} Skyrates.\-A\-I.\-State.\-State\-Machine.\-States}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a892016093699b67b71a2f69c5fb6443f}
+\subsubsection[{States}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} \mbox{[}$\,$\mbox{]} Skyrates.\-A\-I.\-State.\-State\-Machine.\-States = new {\bf State}\mbox{[}0\mbox{]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_a892016093699b67b71a2f69c5fb6443f}
 
 
 All of the possible states. 

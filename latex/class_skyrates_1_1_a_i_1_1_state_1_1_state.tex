@@ -17,15 +17,15 @@ class \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_1_1_persistent}{Pers
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a2f1f04f9cbe51e2e06d0de6a38d702a2}{\hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} {\bfseries Create\-Persistent\-Data} ()}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a2f1f04f9cbe51e2e06d0de6a38d702a2}
 
 \item 
-\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a6edc7aeaa984bbb1e6e6d7e305684ca2}{bool {\bfseries Can\-Enter} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent, out \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition}{State\-Transition} transition\-Out)}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a6edc7aeaa984bbb1e6e6d7e305684ca2}
+\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a187dcd3a030f0e1462bd00ca4b6a81a3}{bool {\bfseries Can\-Exit} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent, out int destination\-Index)}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a187dcd3a030f0e1462bd00ca4b6a81a3}
 
 \item 
-void \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_a73588c6a31317e1356ee5ecabf8a292c}{Enter} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent)
+void \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_a46daed16dabac5ed893958a47906b45d}{On\-Enter} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent)
 \begin{DoxyCompactList}\small\item\em Executed when the state begins execution. \end{DoxyCompactList}\item 
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_ab47704b5a44e02ff9daba4b6e4e2c88c}{\hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} {\bfseries Get\-Update} (ref \hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent, float delta\-Time)}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_ab47704b5a44e02ff9daba4b6e4e2c88c}
 
 \item 
-void \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_a707956b07fa8604f268ae83f657085b1}{Exit} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent)
+void \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_a08e5c027f72e207f2db6734ecf7ff8f2}{On\-Exit} (\hyperlink{class_skyrates_1_1_physics_1_1_physics_data}{Physics\-Data} physics, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral}{Behavior.\-Data\-Behavioral} behavioral, \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent)
 \begin{DoxyCompactList}\small\item\em Executed when the state ends execution. \end{DoxyCompactList}\item 
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a26df125ad49ed38b293a75fb6326f93f}{void {\bfseries On\-Detect} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} other, float distance, ref \hyperlink{class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent}{Behavior.\-Data\-Persistent} persistent)}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a26df125ad49ed38b293a75fb6326f93f}
 
@@ -38,8 +38,11 @@ void \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_a707956b07fa8604f268a
 \item 
 \hyperlink{class_skyrates_1_1_a_i_1_1_behavior}{Behavior} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_ab9057a99beb495631ab4ddada1bce031}{Behavior}
 \begin{DoxyCompactList}\small\item\em The behavior which runs when this state is active. \end{DoxyCompactList}\item 
-\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition}{State\-Transition}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_a58cac0e774a7a26577f98bb12093cf41}{Transitions}
-\begin{DoxyCompactList}\small\item\em A list of possible transitions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition}{State\-Transition}\mbox{[}$\,$\mbox{]} \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_a58cac0e774a7a26577f98bb12093cf41}{Transitions} = new \hyperlink{class_skyrates_1_1_a_i_1_1_state_1_1_state_transition}{State\-Transition}\mbox{[}0\mbox{]}
+\begin{DoxyCompactList}\small\item\em A list of possible transitions. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a69f8a72ba4126b9d7f9a9efa0c8214dc}{int\mbox{[}$\,$\mbox{]} {\bfseries Transition\-Destinations} = new int\mbox{[}0\mbox{]}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a69f8a72ba4126b9d7f9a9efa0c8214dc}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -48,15 +51,15 @@ A state in the overarching machine.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a73588c6a31317e1356ee5ecabf8a292c}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}!Enter@{Enter}}
-\index{Enter@{Enter}!Skyrates::AI::State::State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}}
-\subsubsection[{Enter}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-A\-I.\-State.\-State.\-Enter (
+\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a46daed16dabac5ed893958a47906b45d}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}!On\-Enter@{On\-Enter}}
+\index{On\-Enter@{On\-Enter}!Skyrates::AI::State::State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}}
+\subsubsection[{On\-Enter}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-A\-I.\-State.\-State.\-On\-Enter (
 \begin{DoxyParamCaption}
 \item[{{\bf Physics\-Data}}]{physics, }
 \item[{ref {\bf Behavior.\-Data\-Behavioral}}]{behavioral, }
 \item[{ref {\bf Behavior.\-Data\-Persistent}}]{persistent}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a73588c6a31317e1356ee5ecabf8a292c}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a46daed16dabac5ed893958a47906b45d}
 
 
 Executed when the state begins execution. 
@@ -70,15 +73,15 @@ Executed when the state begins execution.
 {\em persistent} & \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a707956b07fa8604f268ae83f657085b1}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}!Exit@{Exit}}
-\index{Exit@{Exit}!Skyrates::AI::State::State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}}
-\subsubsection[{Exit}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-A\-I.\-State.\-State.\-Exit (
+\hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a08e5c027f72e207f2db6734ecf7ff8f2}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}!On\-Exit@{On\-Exit}}
+\index{On\-Exit@{On\-Exit}!Skyrates::AI::State::State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}}
+\subsubsection[{On\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-A\-I.\-State.\-State.\-On\-Exit (
 \begin{DoxyParamCaption}
 \item[{{\bf Physics\-Data}}]{physics, }
 \item[{ref {\bf Behavior.\-Data\-Behavioral}}]{behavioral, }
 \item[{{\bf Behavior.\-Data\-Persistent}}]{persistent}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a707956b07fa8604f268ae83f657085b1}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a08e5c027f72e207f2db6734ecf7ff8f2}
 
 
 Executed when the state ends execution. 
@@ -104,7 +107,7 @@ The behavior which runs when this state is active.
 
 \hypertarget{class_skyrates_1_1_a_i_1_1_state_1_1_state_a58cac0e774a7a26577f98bb12093cf41}{\index{Skyrates\-::\-A\-I\-::\-State\-::\-State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}!Transitions@{Transitions}}
 \index{Transitions@{Transitions}!Skyrates::AI::State::State@{Skyrates\-::\-A\-I\-::\-State\-::\-State}}
-\subsubsection[{Transitions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\-Transition} \mbox{[}$\,$\mbox{]} Skyrates.\-A\-I.\-State.\-State.\-Transitions}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a58cac0e774a7a26577f98bb12093cf41}
+\subsubsection[{Transitions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\-Transition} \mbox{[}$\,$\mbox{]} Skyrates.\-A\-I.\-State.\-State.\-Transitions = new {\bf State\-Transition}\mbox{[}0\mbox{]}}}\label{class_skyrates_1_1_a_i_1_1_state_1_1_state_a58cac0e774a7a26577f98bb12093cf41}
 
 
 A list of possible transitions. 

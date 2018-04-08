@@ -17,7 +17,6 @@ var searchData=
   ['physicspositionz',['physicsPositionZ',['../struct_game_state_1_1_client.html#a8b4fa85d72284fdf8a1381675b386bbe',1,'GameState::Client']]],
   ['playerdata',['PlayerData',['../class_skyrates_1_1_entity_1_1_entity_player_ship.html#a9dff4c7af9e4872a6bd58b821d12d3df',1,'Skyrates.Entity.EntityPlayerShip.PlayerData()'],['../class_skyrates_1_1_game_1_1_game_manager.html#ad66cf44da1b4400f74853a247987a5df',1,'Skyrates.Game.GameManager.PlayerData()'],['../class_skyrates_1_1_client_1_1_input_1_1_player_controller.html#ae2f6ad16048cdb9690eba17f0adac164',1,'Skyrates.Client.Input.PlayerController.PlayerData()'],['../class_skyrates_1_1_u_i_1_1_inventory_item_text.html#aa4218e0be35c0464bd47187a76fffd3e',1,'Skyrates.UI.InventoryItemText.PlayerData()']]],
   ['playerguid',['PlayerGuid',['../class_skyrates_1_1_game_1_1_event_1_1_event_player_left.html#a9681f9e891aeacdce99eddf68d74abd0',1,'Skyrates::Game::Event::EventPlayerLeft']]],
-  ['playerspawn',['PlayerSpawn',['../class_skyrates_1_1_game_1_1_game_manager.html#ad4e11d1ee870d356ef6c38294f5d5e16',1,'Skyrates::Game::GameManager']]],
   ['port',['port',['../struct_state_network.html#a369a4768473db59ccbd4ba509a61595c',1,'StateNetwork']]],
   ['posx',['posX',['../struct_packet_update_physics.html#a1d9618a795857aab77f183d90ed4e9c5',1,'PacketUpdatePhysics']]],
   ['posy',['posY',['../struct_packet_update_physics.html#aca930e7b03bfe19b9d9ab973a09c1d42',1,'PacketUpdatePhysics']]],

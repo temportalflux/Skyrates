@@ -90,7 +90,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Skyrates.AI.State.StateTransition Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -119,27 +118,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7adfa94373a575af09f86e8f1161a3a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7adfa94373a575af09f86e8f1161a3a8"></a>
 virtual <a class="el" href="class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent.html">Behavior.DataPersistent</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CreatePersistentData</b> ()</td></tr>
 <tr class="separator:a7adfa94373a575af09f86e8f1161a3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bcaa16b736b8d240dfbeaafe8aaddc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a8bcaa16b736b8d240dfbeaafe8aaddc0">GetStateSource</a> (<a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a> machine)</td></tr>
-<tr class="memdesc:a8bcaa16b736b8d240dfbeaafe8aaddc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the source <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> of this transition in the specified <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>.  <a href="#a8bcaa16b736b8d240dfbeaafe8aaddc0">More...</a><br/></td></tr>
-<tr class="separator:a8bcaa16b736b8d240dfbeaafe8aaddc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae599613de8997bb20df235f616485957"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#ae599613de8997bb20df235f616485957">GetStateDestination</a> (<a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a> machine)</td></tr>
-<tr class="memdesc:ae599613de8997bb20df235f616485957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the destination <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> of this transition in the specified <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>.  <a href="#ae599613de8997bb20df235f616485957">More...</a><br/></td></tr>
-<tr class="separator:ae599613de8997bb20df235f616485957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a774f9f4ee740450b5b41f565f158be88"><td class="memItemLeft" align="right" valign="top">abstract bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a774f9f4ee740450b5b41f565f158be88">CanEnter</a> (<a class="el" href="class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral.html">Behavior.DataBehavioral</a> behavioralData, <a class="el" href="class_skyrates_1_1_physics_1_1_physics_data.html">PhysicsData</a> physics, ref <a class="el" href="class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent.html">Behavior.DataPersistent</a> persistent)</td></tr>
-<tr class="memdesc:a774f9f4ee740450b5b41f565f158be88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if a <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a> can transition from the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a15c97c73b5e83f2bda77c5f4fb2521c6" title="The index of the source State in the StateMachine. ">StateSource</a> to the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a445177b14011fbc85aec78ecd04680f8" title="The index of the destination State in the StateMachine. ">StateDestination</a>.  <a href="#a774f9f4ee740450b5b41f565f158be88">More...</a><br/></td></tr>
+<tr class="memdesc:a774f9f4ee740450b5b41f565f158be88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if a <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a> can transition from the StateSource to the StateDestination.  <a href="#a774f9f4ee740450b5b41f565f158be88">More...</a><br/></td></tr>
 <tr class="separator:a774f9f4ee740450b5b41f565f158be88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68494fbd56a9103d424d57aaf4186ee6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68494fbd56a9103d424d57aaf4186ee6"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnDetect</b> (<a class="el" href="class_skyrates_1_1_entity_1_1_entity_a_i.html">EntityAI</a> other, float distance)</td></tr>
 <tr class="separator:a68494fbd56a9103d424d57aaf4186ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a15c97c73b5e83f2bda77c5f4fb2521c6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a15c97c73b5e83f2bda77c5f4fb2521c6">StateSource</a></td></tr>
-<tr class="memdesc:a15c97c73b5e83f2bda77c5f4fb2521c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the source <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> in the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>.  <a href="#a15c97c73b5e83f2bda77c5f4fb2521c6">More...</a><br/></td></tr>
-<tr class="separator:a15c97c73b5e83f2bda77c5f4fb2521c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445177b14011fbc85aec78ecd04680f8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a445177b14011fbc85aec78ecd04680f8">StateDestination</a></td></tr>
-<tr class="memdesc:a445177b14011fbc85aec78ecd04680f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the destination <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> in the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>.  <a href="#a445177b14011fbc85aec78ecd04680f8">More...</a><br/></td></tr>
-<tr class="separator:a445177b14011fbc85aec78ecd04680f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Specifies when a state is able to be transitioned into. </p>
@@ -182,7 +166,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns if a <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a> can transition from the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a15c97c73b5e83f2bda77c5f4fb2521c6" title="The index of the source State in the StateMachine. ">StateSource</a> to the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a445177b14011fbc85aec78ecd04680f8" title="The index of the destination State in the StateMachine. ">StateDestination</a>. </p>
+<p>Returns if a <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a> can transition from the StateSource to the StateDestination. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">behavioralData</td><td></td></tr>
@@ -193,101 +177,6 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implemented in <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_distance_to_target.html#a894564a64358ce4924f3b64bfef90662">Skyrates.AI.State.Transition.TransitionDistanceToTarget</a>, <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_detected_nearby_targets.html#ac136c79933da8c0d6d245e81f4bf9210">Skyrates.AI.State.Transition.TransitionDetectedNearbyTargets</a>, <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_target_exists.html#a23dc7eee9df4de00fcfec275d7781b73">Skyrates.AI.State.Transition.TransitionTargetExists</a>, and <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_transition_1_1_transition_missing_formation_owner.html#a5007021285f55c85bec2bf2fee921deb">Skyrates.AI.State.Transition.TransitionMissingFormationOwner</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae599613de8997bb20df235f616485957"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html">State</a> Skyrates.AI.State.StateTransition.GetStateDestination </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>&#160;</td>
-          <td class="paramname"><em>machine</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the destination <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> of this transition in the specified <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">machine</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a8bcaa16b736b8d240dfbeaafe8aaddc0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html">State</a> Skyrates.AI.State.StateTransition.GetStateSource </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>&#160;</td>
-          <td class="paramname"><em>machine</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the source <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> of this transition in the specified <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">machine</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a445177b14011fbc85aec78ecd04680f8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Skyrates.AI.State.StateTransition.StateDestination</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The index of the destination <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> in the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>. </p>
-
-</div>
-</div>
-<a class="anchor" id="a15c97c73b5e83f2bda77c5f4fb2521c6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Skyrates.AI.State.StateTransition.StateSource</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The index of the source <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state.html" title="A state in the overarching machine. ">State</a> in the <a class="el" href="class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html">StateMachine</a>. </p>
 
 </div>
 </div>

@@ -9,7 +9,7 @@ Base class to assist with objects which only occur once in the lifetime of the g
 Inheritance diagram for Singleton$<$ T $>$\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{class_singleton_3_01_t_01_4}
+\includegraphics[height=2.477876cm]{class_singleton_3_01_t_01_4}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -24,7 +24,7 @@ void \hyperlink{class_singleton_3_01_t_01_4_a4832d0cc115af2e3fe38947538f17dee}{U
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_singleton_3_01_t_01_4_abd0672430ce6d6c8ae4c01905f4bd4b1}{load\-Singleton} (T inst, ref T static\-Ref)
+void \hyperlink{class_singleton_3_01_t_01_4_afb16e8d7d4d68b159cea27f460ce60c5}{load\-Singleton} (T inst, ref T static\-Ref, bool dont\-Destroy=true)
 \begin{DoxyCompactList}\small\item\em Loads the singleton. Checks for singleton properties, then marks the instance \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -60,14 +60,15 @@ Author\-: Dustin Yost Returns if this object is currently being used
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if in\-Use is {\ttfamily true}; otherwise, {\ttfamily false}. 
 \end{DoxyReturn}
-\hypertarget{class_singleton_3_01_t_01_4_abd0672430ce6d6c8ae4c01905f4bd4b1}{\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!load\-Singleton@{load\-Singleton}}
+\hypertarget{class_singleton_3_01_t_01_4_afb16e8d7d4d68b159cea27f460ce60c5}{\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!load\-Singleton@{load\-Singleton}}
 \index{load\-Singleton@{load\-Singleton}!Singleton< T >@{Singleton$<$ T $>$}}
 \subsubsection[{load\-Singleton}]{\setlength{\rightskip}{0pt plus 5cm}void Singleton$<$ T $>$.load\-Singleton (
 \begin{DoxyParamCaption}
 \item[{T}]{inst, }
-\item[{ref T}]{static\-Ref}
+\item[{ref T}]{static\-Ref, }
+\item[{bool}]{dont\-Destroy = {\ttfamily true}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{class_singleton_3_01_t_01_4_abd0672430ce6d6c8ae4c01905f4bd4b1}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{class_singleton_3_01_t_01_4_afb16e8d7d4d68b159cea27f460ce60c5}
 
 
 Loads the singleton. Checks for singleton properties, then marks the instance 

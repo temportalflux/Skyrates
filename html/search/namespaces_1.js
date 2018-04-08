@@ -26,6 +26,7 @@ var searchData=
   ['misc',['Misc',['../namespace_skyrates_1_1_misc.html',1,'Skyrates']]],
   ['mono',['Mono',['../namespace_skyrates_1_1_mono.html',1,'Skyrates']]],
   ['physics',['Physics',['../namespace_skyrates_1_1_physics.html',1,'Skyrates']]],
+  ['respawn',['Respawn',['../namespace_skyrates_1_1_respawn.html',1,'Skyrates']]],
   ['scene',['Scene',['../namespace_skyrates_1_1_scene.html',1,'Skyrates']]],
   ['serializing',['Serializing',['../namespace_skyrates_1_1_util_1_1_serializing.html',1,'Skyrates::Util']]],
   ['ship',['Ship',['../namespace_skyrates_1_1_ship.html',1,'Skyrates']]],

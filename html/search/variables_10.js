@@ -14,13 +14,11 @@ var searchData=
   ['shootspeed',['ShootSpeed',['../class_skyrates_1_1_entity_1_1_entity_cannon.html#a9ee533d27944ebec7884f18fa97b9eb9',1,'Skyrates::Entity::EntityCannon']]],
   ['size_5fkeyboard',['SIZE_KEYBOARD',['../struct_state_input.html#acc91adb5a30e828f5fd4be0228a09040',1,'StateInput']]],
   ['size_5fof_5ftimestamps',['SIZE_OF_TIMESTAMPS',['../namespace_champ_net.html#ae8bece8e869e20f234d9ae67256a735f',1,'ChampNet']]],
-  ['slots',['Slots',['../class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner.html#a9d119a817ac3a7deebc5b41a66907cb2',1,'Skyrates::AI::Formation::FormationOwner']]],
+  ['slots',['Slots',['../class_skyrates_1_1_a_i_1_1_formation_1_1_formation_owner.html#a26e4434abb086b0999a702f1b8d27d98',1,'Skyrates::AI::Formation::FormationOwner']]],
   ['source',['Source',['../class_skyrates_1_1_game_1_1_event_1_1_event_entity_ship_damaged.html#ac1b8360317a40113c209e6e072e05fc4',1,'Skyrates::Game::Event::EventEntityShipDamaged']]],
   ['spawn',['Spawn',['../class_skyrates_1_1_game_1_1_event_1_1_event_spawn_entity_projectile.html#acc1064c2d3d99193935db2d8082c692e',1,'Skyrates.Game.Event.EventSpawnEntityProjectile.Spawn()'],['../class_skyrates_1_1_mono_1_1_shooter.html#aa936f850ff75524adc350c2c3a6763ed',1,'Skyrates.Mono.Shooter.spawn()']]],
-  ['statedestination',['StateDestination',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a445177b14011fbc85aec78ecd04680f8',1,'Skyrates::AI::State::StateTransition']]],
   ['stateindex',['StateIndex',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_machine_1_1_persistent_data_timed_sm.html#a5f1edf5fa67ab1b21219bb378f62f778',1,'Skyrates::AI::State::StateMachine::PersistentDataTimedSm']]],
   ['states',['States',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html#a892016093699b67b71a2f69c5fb6443f',1,'Skyrates::AI::State::StateMachine']]],
-  ['statesource',['StateSource',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html#a15c97c73b5e83f2bda77c5f4fb2521c6',1,'Skyrates::AI::State::StateTransition']]],
   ['strengthonartilleryfire',['StrengthOnArtilleryFire',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher.html#af0d461624b8a89d22a04c2221cd1415c',1,'Skyrates::Client::Input::XInputDispatcher']]],
   ['strengthonram',['StrengthOnRam',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher.html#ab6486f41a0043a925a0ca981d82c9594',1,'Skyrates::Client::Input::XInputDispatcher']]]
 ];
