@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['canvasobject',['CanvasObject',['../class_skyrates_1_1_entity_1_1_entity_mooring.html#a87613aedbca78338b0b975d8f7fbf151',1,'Skyrates::Entity::EntityMooring']]],
   ['categories',['Categories',['../class_skyrates_1_1_util_1_1_prefab_list.html#abd1410aa765b2219337b60dab32083cb',1,'Skyrates::Util::PrefabList']]],
   ['clientid',['clientID',['../struct_game_state_1_1_client.html#a9caf2f8f0ce3cf8d082d73b9ec593e36',1,'GameState::Client::clientID()'],['../struct_packet_handshake_accept.html#abf4588bf69fd1b2519cccba3a3d8825c',1,'PacketHandshakeAccept::clientID()'],['../struct_packet_update_physics.html#a1283bfc7624d2a35cd22f8a402b6998d',1,'PacketUpdatePhysics::clientID()']]],
   ['clients',['clients',['../class_game_state.html#a71a4271c61774b9eb175878657a90bbf',1,'GameState']]],

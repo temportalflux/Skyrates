@@ -1,7 +1,7 @@
 var searchData=
 [
   ['table',['Table',['../class_skyrates_1_1_loot_1_1_loot_table.html#a02144c6a002bd609a0e53410466a1bc8',1,'Skyrates::Loot::LootTable']]],
-  ['takedamage',['TakeDamage',['../class_skyrates_1_1_entity_1_1_entity_ship.html#a3ad30bc27cf8344c4acbfea78f8ee373',1,'Skyrates::Entity::EntityShip']]],
+  ['takedamage',['TakeDamage',['../class_skyrates_1_1_entity_1_1_entity_ship.html#a3ad30bc27cf8344c4acbfea78f8ee373',1,'Skyrates.Entity.EntityShip.TakeDamage()'],['../class_skyrates_1_1_entity_1_1_entity_fort.html#a1076c0a76bde21b94379feddf047b73c',1,'Skyrates.Entity.EntityFort.TakeDamage()']]],
   ['target',['Target',['../class_skyrates_1_1_a_i_1_1_behavior_1_1_data_behavioral.html#aabf18c199391e680f75cbe93fdd7d5e6',1,'Skyrates.AI.Behavior.DataBehavioral.Target()'],['../class_skyrates_1_1_game_1_1_event_1_1_event_entity_ship_damaged.html#a7be9590b3c01d4390b94a9b428196504',1,'Skyrates.Game.Event.EventEntityShipDamaged.Target()']]],
   ['targetinterpolated',['TargetInterpolated',['../class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target_1_1_persistent.html#a95095b4965ea0dd073ff586168650f6e',1,'Skyrates::AI::Decorator::SmoothTarget::Persistent']]],
   ['targetisdirection',['TargetIsDirection',['../class_skyrates_1_1_mono_1_1_shooter.html#a2e5d471386a013815f34d3f1e8bb8996',1,'Skyrates::Mono::Shooter']]],

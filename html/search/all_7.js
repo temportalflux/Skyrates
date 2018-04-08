@@ -24,6 +24,7 @@ var searchData=
   ['getbehaviorfrom',['GetBehaviorFrom',['../class_skyrates_1_1_a_i_1_1_composite_1_1_behavior_pipeline_3_01_t_01_4.html#ab6aaf60a0fbbc573158cfaecf7264040',1,'Skyrates.AI.Composite.BehaviorPipeline&lt; T &gt;.GetBehaviorFrom()'],['../class_skyrates_1_1_a_i_1_1_composite_1_1_weighted_behavior.html#a8c7272a7c2c3039f9cbd2a65ae6faa98',1,'Skyrates.AI.Composite.WeightedBehavior.GetBehaviorFrom()']]],
   ['getcomponent',['GetComponent',['../class_skyrates_1_1_ship_1_1_ship_hull.html#a8bfc377871bb1b2faab4024883339c26',1,'Skyrates::Ship::ShipHull']]],
   ['getcomponent_3c_20t_20_3e',['GetComponent&lt; T &gt;',['../class_skyrates_1_1_ship_1_1_ship_component_list.html#aec118a46c41449adc8e75b12d8157ab5',1,'Skyrates::Ship::ShipComponentList']]],
+  ['getcomponentlast_3c_20t_20_3e',['GetComponentLast&lt; T &gt;',['../class_skyrates_1_1_ship_1_1_ship_component_list.html#ab263c72982792f3145edfc20f958179d',1,'Skyrates::Ship::ShipComponentList']]],
   ['getcount',['getCount',['../class_champ_net_1_1_packet_queue.html#af160b4a4fe3291c9d4bcb64952b4decb',1,'ChampNet::PacketQueue']]],
   ['getcurrentbehavior',['GetCurrentBehavior',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html#aded300b50db9634aeace185557767c51',1,'Skyrates::AI::State::StateMachine']]],
   ['getcurrentstate',['GetCurrentState',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_machine.html#a7fa7e70a4b9a776f8a141e123d2ab3bd',1,'Skyrates::AI::State::StateMachine']]],

@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Skyrates
-   &#160;<span id="projectnumber">0.0.5</span>
+   &#160;<span id="projectnumber">0.1.10</span>
    </div>
   </td>
  </tr>
@@ -112,15 +112,21 @@ Inheritance diagram for Skyrates.Ship.ShipArtillery:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1de4744b1907b1b7ef3f1e232086b7fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1de4744b1907b1b7ef3f1e232086b7fa"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Shoot</b> (Func&lt; <a class="el" href="class_skyrates_1_1_mono_1_1_shooter.html">Shooter</a>, Vector3 &gt; getDirection, Vector3 velocity)</td></tr>
-<tr class="separator:a1de4744b1907b1b7ef3f1e232086b7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a859e7a0232d9baacc4d37b2bd3594279"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a859e7a0232d9baacc4d37b2bd3594279"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Shoot</b> (Func&lt; <a class="el" href="class_skyrates_1_1_ship_1_1_ship_artillery.html">ShipArtillery</a>, Vector3 &gt; getDirection, Vector3 velocity)</td></tr>
+<tr class="separator:a859e7a0232d9baacc4d37b2bd3594279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:ac2d79f50eaff4608d5d087f31cd174ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2d79f50eaff4608d5d087f31cd174ad"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>RateOfFireModifier</b> = 1</td></tr>
+<tr class="separator:ac2d79f50eaff4608d5d087f31cd174ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a301c1be383de2793706f5b22f90b803a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a301c1be383de2793706f5b22f90b803a"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>AttackModifier</b> = 1</td></tr>
 <tr class="separator:a301c1be383de2793706f5b22f90b803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdfa7faa8878b383aa9ff49cf78df7e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdfa7faa8878b383aa9ff49cf78df7e7"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>DistanceModifier</b> = 1</td></tr>
+<tr class="separator:abdfa7faa8878b383aa9ff49cf78df7e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1cc615bfe49b8eeb089c2b36d7417f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1cc615bfe49b8eeb089c2b36d7417f7"></a>
 <a class="el" href="class_skyrates_1_1_mono_1_1_shooter.html">Shooter</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Shooter</b></td></tr>
 <tr class="separator:ae1cc615bfe49b8eeb089c2b36d7417f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +137,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>AttackModifier</b> =
 <tr class="memitem:acb8438da55bb68dfc713c4f340627097 inherit pub_attribs_class_skyrates_1_1_ship_1_1_ship_component"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_ship_1_1_ship_component.html#acb8438da55bb68dfc713c4f340627097">TierIndex</a> = 0</td></tr>
 <tr class="memdesc:acb8438da55bb68dfc713c4f340627097 inherit pub_attribs_class_skyrates_1_1_ship_1_1_ship_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the tier, should be tier number minus one.  <a href="#acb8438da55bb68dfc713c4f340627097">More...</a><br/></td></tr>
 <tr class="separator:acb8438da55bb68dfc713c4f340627097 inherit pub_attribs_class_skyrates_1_1_ship_1_1_ship_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8743bea0cb1ce5afe24eed6aa13b1144 inherit pub_attribs_class_skyrates_1_1_ship_1_1_ship_component"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8743bea0cb1ce5afe24eed6aa13b1144"></a>
+uint&#160;</td><td class="memItemRight" valign="bottom"><b>CostToUpgradeTo</b> = 1</td></tr>
+<tr class="separator:a8743bea0cb1ce5afe24eed6aa13b1144 inherit pub_attribs_class_skyrates_1_1_ship_1_1_ship_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Subclass of <a class="el" href="class_skyrates_1_1_ship_1_1_ship_component.html" title="Base class for all components when are generated as a part of a Ship via ShipRig. ...">ShipComponent</a> dedicated to components of type ShipData.ComponentType.Artillery. </p>

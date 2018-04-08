@@ -8,6 +8,7 @@ var searchData=
   ['datapersistent',['DataPersistent',['../class_skyrates_1_1_a_i_1_1_behavior_1_1_data_persistent.html',1,'Skyrates::AI::Behavior']]],
   ['datasize',['DataSize',['../class_champ_net_1_1_network.html#a5f153a3f9a1687d10922c946e2f0662e',1,'ChampNet::Network']]],
   ['delay',['Delay',['../class_skyrates_1_1_mono_1_1_self_destruct.html#a922acaf93a559878b519ec239e050915',1,'Skyrates::Mono::SelfDestruct']]],
+  ['delayedstartcredits',['DelayedStartCredits',['../class_skyrates_1_1_entity_1_1_entity_fort.html#ad602ef2e9ad8f114b202a6eb6a0cccf5',1,'Skyrates::Entity::EntityFort']]],
   ['delta',['Delta',['../class_skyrates_1_1_client_1_1_input_1_1_x_input_dispatcher_1_1_pulse.html#ae679dbddb9756d6b224c1ec0ba0d591a',1,'Skyrates::Client::Input::XInputDispatcher::Pulse']]],
   ['deprecatedattribute',['DeprecatedAttribute',['../class_skyrates_1_1_util_1_1_attribute_1_1_deprecated_attribute.html',1,'Skyrates::Util::Attribute']]],
   ['dequeue',['dequeue',['../class_champ_net_1_1_packet_queue.html#a775c0b091e646b35b24abd60ed8003e9',1,'ChampNet::PacketQueue']]],

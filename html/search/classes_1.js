@@ -9,5 +9,6 @@ var searchData=
   ['bittest',['BitTest',['../class_skyrates_1_1_util_1_1_serializing_1_1_test_1_1_bit_test.html',1,'Skyrates::Util::Serializing::Test']]],
   ['bittest2',['BitTest2',['../class_skyrates_1_1_util_1_1_serializing_1_1_test_1_1_bit_test2.html',1,'Skyrates::Util::Serializing::Test']]],
   ['bittestnetwork',['BitTestNetwork',['../class_skyrates_1_1_util_1_1_serializing_1_1_test_1_1_bit_test_network.html',1,'Skyrates::Util::Serializing::Test']]],
+  ['buttonautoselect',['ButtonAutoSelect',['../class_button_auto_select.html',1,'']]],
   ['buttonhover',['ButtonHover',['../class_skyrates_1_1_u_i_1_1_button_hover.html',1,'Skyrates::UI']]]
 ];

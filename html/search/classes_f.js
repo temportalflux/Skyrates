@@ -37,6 +37,7 @@ var searchData=
   ['singleton_3c_20t_20_3e',['Singleton&lt; T &gt;',['../class_singleton_3_01_t_01_4.html',1,'']]],
   ['smoothtarget',['SmoothTarget',['../class_skyrates_1_1_a_i_1_1_decorator_1_1_smooth_target.html',1,'Skyrates::AI::Decorator']]],
   ['startscene',['StartScene',['../class_skyrates_1_1_scene_1_1_start_scene.html',1,'Skyrates::Scene']]],
+  ['statbar',['StatBar',['../class_skyrates_1_1_u_i_1_1_stat_bar.html',1,'Skyrates::UI']]],
   ['state',['State',['../class_skyrates_1_1_a_i_1_1_state_1_1_state.html',1,'Skyrates::AI::State']]],
   ['stateactivereload',['StateActiveReload',['../class_skyrates_1_1_misc_1_1_state_active_reload.html',1,'Skyrates::Misc']]],
   ['stateapplication',['StateApplication',['../class_state_application.html',1,'']]],
@@ -52,6 +53,12 @@ var searchData=
   ['stateoverheat',['StateOverheat',['../class_skyrates_1_1_misc_1_1_state_overheat.html',1,'Skyrates::Misc']]],
   ['stateserver',['StateServer',['../class_state_server.html',1,'']]],
   ['statetransition',['StateTransition',['../class_skyrates_1_1_a_i_1_1_state_1_1_state_transition.html',1,'Skyrates::AI::State']]],
+  ['statpanel',['StatPanel',['../class_skyrates_1_1_u_i_1_1_stat_panel.html',1,'Skyrates::UI']]],
+  ['statpanelartillery',['StatPanelArtillery',['../class_skyrates_1_1_u_i_1_1_stat_panel_artillery.html',1,'Skyrates::UI']]],
+  ['statpanelfigurehead',['StatPanelFigurehead',['../class_skyrates_1_1_u_i_1_1_stat_panel_figurehead.html',1,'Skyrates::UI']]],
+  ['statpanelhullarmor',['StatPanelHullArmor',['../class_skyrates_1_1_u_i_1_1_stat_panel_hull_armor.html',1,'Skyrates::UI']]],
+  ['statpanelnavigation',['StatPanelNavigation',['../class_skyrates_1_1_u_i_1_1_stat_panel_navigation.html',1,'Skyrates::UI']]],
+  ['statpanelpropulsion',['StatPanelPropulsion',['../class_skyrates_1_1_u_i_1_1_stat_panel_propulsion.html',1,'Skyrates::UI']]],
   ['staywithin',['StayWithin',['../class_skyrates_1_1_a_i_1_1_decorator_1_1_stay_within.html',1,'Skyrates::AI::Decorator']]],
   ['steering',['Steering',['../class_skyrates_1_1_a_i_1_1_steering_1_1_steering.html',1,'Skyrates::AI::Steering']]]
 ];

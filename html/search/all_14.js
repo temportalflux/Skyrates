@@ -1,13 +1,14 @@
 var searchData=
 [
   ['uigameplay',['UIGameplay',['../class_skyrates_1_1_u_i_1_1_u_i_gameplay.html',1,'Skyrates::UI']]],
+  ['uipause',['UIPause',['../class_u_i_pause.html',1,'']]],
   ['uispeedgauge',['UISpeedGauge',['../class_skyrates_1_1_u_i_1_1_u_i_speed_gauge.html',1,'Skyrates::UI']]],
   ['uistateactivereload',['UIStateActiveReload',['../class_skyrates_1_1_u_i_1_1_u_i_state_active_reload.html',1,'Skyrates::UI']]],
   ['uistatecooldown',['UIStateCooldown',['../class_skyrates_1_1_u_i_1_1_u_i_state_cooldown.html',1,'Skyrates::UI']]],
   ['uistatecooldown_3c_20t_20_3e',['UIStateCooldown&lt; T &gt;',['../class_skyrates_1_1_u_i_1_1_u_i_state_cooldown_3_01_t_01_4.html',1,'Skyrates::UI']]],
   ['uistateoverheat',['UIStateOverheat',['../class_u_i_state_overheat.html',1,'']]],
   ['unlock',['Unlock',['../class_singleton_3_01_t_01_4.html#a4832d0cc115af2e3fe38947538f17dee',1,'Singleton&lt; T &gt;']]],
-  ['update',['Update',['../class_skyrates_1_1_entity_1_1_entity_ship.html#a7a98596188c19f1f509d2bbcec0328e1',1,'Skyrates.Entity.EntityShip.Update()'],['../class_skyrates_1_1_entity_1_1_entity.html#a047df58574baa9b7eab73adf9dfd9707',1,'Skyrates.Entity.Entity.Update()'],['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()']]],
+  ['update',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()'],['../class_skyrates_1_1_entity_1_1_entity_ship.html#a7a98596188c19f1f509d2bbcec0328e1',1,'Skyrates.Entity.EntityShip.Update()'],['../class_skyrates_1_1_entity_1_1_entity.html#a047df58574baa9b7eab73adf9dfd9707',1,'Skyrates.Entity.Entity.Update()']]],
   ['updateanimations',['UpdateAnimations',['../class_skyrates_1_1_entity_1_1_entity_a_i.html#a24547ecc7fbc9ab18b76d3fde528b8e0',1,'Skyrates.Entity.EntityAI.UpdateAnimations()'],['../class_skyrates_1_1_entity_1_1_entity_player_ship.html#a5c786d11582c22d9ab800ed457449801',1,'Skyrates.Entity.EntityPlayerShip.UpdateAnimations()']]],
   ['updatebehaviordata',['UpdateBehaviorData',['../class_skyrates_1_1_entity_1_1_entity_a_i.html#a0b310596b7b7445dccb373432fdfddc9',1,'Skyrates.Entity.EntityAI.UpdateBehaviorData()'],['../class_skyrates_1_1_entity_1_1_entity_ship.html#ad53902e9ca6a6967d4397282393cdc74',1,'Skyrates.Entity.EntityShip.UpdateBehaviorData()']]],
   ['updatecontrolscheme',['UpdateControlScheme',['../class_skyrates_1_1_u_i_1_1_update_control_scheme.html',1,'Skyrates::UI']]],

@@ -25,7 +25,7 @@ void \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a327d02dace8d3388b098c83c011
 \begin{DoxyCompactList}\small\item\em Automatically calculates and sets arc angle and axis based on gravity and distance over time (speed/velocity), in the forward direction. This does not take into account impulse force or deceleration/damping. \end{DoxyCompactList}\item 
 Vector3 \hyperlink{class_skyrates_1_1_mono_1_1_shooter_a170280e49b56961d0211a4c611f7f54b}{Get\-Projectile\-Direction} ()
 \begin{DoxyCompactList}\small\item\em Returns the direction the shooter is facing. \end{DoxyCompactList}\item 
-void \hyperlink{class_skyrates_1_1_mono_1_1_shooter_ad9d7d5122f1b16cfd43c3db5474fe282}{Fire\-Projectile} (Vector3 target, Vector3 launch\-Velocity, float attack\-Modifier)
+void \hyperlink{class_skyrates_1_1_mono_1_1_shooter_adfc8e2ba195adbe98c86dfc6b6e07ab5}{Fire\-Projectile} (Vector3 target, Vector3 launch\-Velocity, float attack\-Modifier, float distance\-Modifier)
 \begin{DoxyCompactList}\small\item\em Fires off Event\-Spawn\-Entity\-Projectile with the spawn location, the projectile to fire, and the initial velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -72,15 +72,16 @@ Special component which dispatches the Event\-Spawn\-Entity\-Projectile game eve
 
 Automatically calculates and sets arc angle and axis based on gravity and distance over time (speed/velocity), in the forward direction. This does not take into account impulse force or deceleration/damping. 
 
-\hypertarget{class_skyrates_1_1_mono_1_1_shooter_ad9d7d5122f1b16cfd43c3db5474fe282}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Fire\-Projectile@{Fire\-Projectile}}
+\hypertarget{class_skyrates_1_1_mono_1_1_shooter_adfc8e2ba195adbe98c86dfc6b6e07ab5}{\index{Skyrates\-::\-Mono\-::\-Shooter@{Skyrates\-::\-Mono\-::\-Shooter}!Fire\-Projectile@{Fire\-Projectile}}
 \index{Fire\-Projectile@{Fire\-Projectile}!Skyrates::Mono::Shooter@{Skyrates\-::\-Mono\-::\-Shooter}}
 \subsubsection[{Fire\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Mono.\-Shooter.\-Fire\-Projectile (
 \begin{DoxyParamCaption}
 \item[{Vector3}]{target, }
 \item[{Vector3}]{launch\-Velocity, }
-\item[{float}]{attack\-Modifier}
+\item[{float}]{attack\-Modifier, }
+\item[{float}]{distance\-Modifier}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_mono_1_1_shooter_ad9d7d5122f1b16cfd43c3db5474fe282}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_mono_1_1_shooter_adfc8e2ba195adbe98c86dfc6b6e07ab5}
 
 
 Fires off Event\-Spawn\-Entity\-Projectile with the spawn location, the projectile to fire, and the initial velocity. 

@@ -28,16 +28,20 @@ Inheritance diagram for Skyrates.\-Entity.\-Entity\-Player\-Ship\-:\begin{figure
 \end{DoxyParams}
  \end{DoxyCompactList}\item 
 void \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_ac0928986c7d12c7c18bc3252d48eb15d}{On\-Loot\-Collided} (\hyperlink{class_skyrates_1_1_loot_1_1_loot}{Loot.\-Loot} loot)
-\begin{DoxyCompactList}\small\item\em Called when this object collides with loot. Adds loot to the \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}{Player\-Data} and updates U\-I/\-U\-X information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Called when this object collides with loot. Adds loot to the \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}{Player\-Data} and updates U\-I/\-U\-X information. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_aa6f4e6408737a3b4952f47e42f6459fb}{bool {\bfseries Can\-Fire\-Gimbal} ()}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_aa6f4e6408737a3b4952f47e42f6459fb}
+
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}{Ship\-Data}
-\begin{DoxyCompactList}\small\item\em The network safe data which has information about the modular-\/ship. \end{DoxyCompactList}\item 
 \hyperlink{class_skyrates_1_1_data_1_1_player_data}{Player\-Data} \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a9dff4c7af9e4872a6bd58b821d12d3df}{Player\-Data}
 \begin{DoxyCompactList}\small\item\em The non-\/networked data local to the player. \end{DoxyCompactList}\item 
 \hyperlink{class_skyrates_1_1_ship_1_1_ship_generator}{Ship\-Generator} \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_abec0fc0c6cc3462c7019ac48b74879ca}{Ship\-Generator\-Root}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{namespace_skyrates_1_1_ship}{Ship} component which creates the modular ship. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{namespace_skyrates_1_1_ship}{Ship} component which creates the modular ship. \end{DoxyCompactList}\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_a2643e297b60a7d0a77941e7f2b9d4256}{Camera {\bfseries Camera}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_a2643e297b60a7d0a77941e7f2b9d4256}
+
+\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -93,6 +97,11 @@ True if the object can be destroyed
 \hline
 \end{DoxyParams}
  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_skyrates_1_1_ship_1_1_ship_data}{Ship\-Data} \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}{Ship\-Data}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The network safe data which has information about the modular-\/ship. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
@@ -128,19 +137,22 @@ Called when this object collides with loot. Adds loot to the \hyperlink{class_sk
 
 The non-\/networked data local to the player. 
 
-\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}{\index{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}!Ship\-Data@{Ship\-Data}}
-\index{Ship\-Data@{Ship\-Data}!Skyrates::Entity::EntityPlayerShip@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}}
-\subsubsection[{Ship\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Data} Skyrates.\-Entity.\-Entity\-Player\-Ship.\-Ship\-Data}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}
-
-
-The network safe data which has information about the modular-\/ship. 
-
 \hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_abec0fc0c6cc3462c7019ac48b74879ca}{\index{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}!Ship\-Generator\-Root@{Ship\-Generator\-Root}}
 \index{Ship\-Generator\-Root@{Ship\-Generator\-Root}!Skyrates::Entity::EntityPlayerShip@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}}
 \subsubsection[{Ship\-Generator\-Root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Generator} Skyrates.\-Entity.\-Entity\-Player\-Ship.\-Ship\-Generator\-Root}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_abec0fc0c6cc3462c7019ac48b74879ca}
 
 
 The \hyperlink{namespace_skyrates_1_1_ship}{Ship} component which creates the modular ship. 
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}{\index{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}!Ship\-Data@{Ship\-Data}}
+\index{Ship\-Data@{Ship\-Data}!Skyrates::Entity::EntityPlayerShip@{Skyrates\-::\-Entity\-::\-Entity\-Player\-Ship}}
+\subsubsection[{Ship\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Data} Skyrates.\-Entity.\-Entity\-Player\-Ship.\-Ship\-Data\hspace{0.3cm}{\ttfamily [get]}}}\label{class_skyrates_1_1_entity_1_1_entity_player_ship_af6c72c799869168d507cec7914ed0ccc}
+
+
+The network safe data which has information about the modular-\/ship. 
 
 
 

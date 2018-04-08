@@ -1,6 +1,7 @@
 var searchData=
 [
   ['uigameplay',['UIGameplay',['../class_skyrates_1_1_u_i_1_1_u_i_gameplay.html',1,'Skyrates::UI']]],
+  ['uipause',['UIPause',['../class_u_i_pause.html',1,'']]],
   ['uispeedgauge',['UISpeedGauge',['../class_skyrates_1_1_u_i_1_1_u_i_speed_gauge.html',1,'Skyrates::UI']]],
   ['uistateactivereload',['UIStateActiveReload',['../class_skyrates_1_1_u_i_1_1_u_i_state_active_reload.html',1,'Skyrates::UI']]],
   ['uistatecooldown',['UIStateCooldown',['../class_skyrates_1_1_u_i_1_1_u_i_state_cooldown.html',1,'Skyrates::UI']]],

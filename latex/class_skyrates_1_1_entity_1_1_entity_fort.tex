@@ -1,0 +1,115 @@
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort}{\section{Skyrates.\-Entity.\-Entity\-Fort Class Reference}
+\label{class_skyrates_1_1_entity_1_1_entity_fort}\index{Skyrates.\-Entity.\-Entity\-Fort@{Skyrates.\-Entity.\-Entity\-Fort}}
+}
+Inheritance diagram for Skyrates.\-Entity.\-Entity\-Fort\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_skyrates_1_1_entity_1_1_entity_fort}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_af81e458f0a68bbbc5edd19c6096327c4}{void {\bfseries On\-Trigger\-Enter} (Collider other)}\label{class_skyrates_1_1_entity_1_1_entity_fort_af81e458f0a68bbbc5edd19c6096327c4}
+
+\item 
+virtual float \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_a1076c0a76bde21b94379feddf047b73c}{Take\-Damage} (\hyperlink{class_skyrates_1_1_entity_1_1_entity}{Entity} source, float damage)
+\begin{DoxyCompactList}\small\item\em Called to cause damage to the fort. \end{DoxyCompactList}\item 
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_ab9cf0ed9030aee1d8fb4ec014baf24a1}{Start\-Credits} ()
+\begin{DoxyCompactList}\small\item\em Starts the credits scene. \end{DoxyCompactList}\item 
+I\-Enumerator \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_ad602ef2e9ad8f114b202a6eb6a0cccf5}{Delayed\-Start\-Credits} (float delay)
+\begin{DoxyCompactList}\small\item\em Calls \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_ab9cf0ed9030aee1d8fb4ec014baf24a1}{Start\-Credits()} on a timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_acb9cf3f1dce811412e304c46a1c039bc}{float {\bfseries Health} = 100.\-0f}\label{class_skyrates_1_1_entity_1_1_entity_fort_acb9cf3f1dce811412e304c46a1c039bc}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_a7e464473f0b4b71baddde97bc84d48a7}{float {\bfseries Defense} = 0.\-0f}\label{class_skyrates_1_1_entity_1_1_entity_fort_a7e464473f0b4b71baddde97bc84d48a7}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_ae493b6bdf9b5c1340355de00cff1b9c4}{float {\bfseries Protection} = 0.\-0f}\label{class_skyrates_1_1_entity_1_1_entity_fort_ae493b6bdf9b5c1340355de00cff1b9c4}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_a946a80008fa5b1f05f73aff5b9f6e364}{float {\bfseries Credits\-Delay} = 5.\-0f}\label{class_skyrates_1_1_entity_1_1_entity_fort_a946a80008fa5b1f05f73aff5b9f6e364}
+
+\item 
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_a15b197a94944b84c136703f1c1b0db8f}{Game\-Object {\bfseries Render}}\label{class_skyrates_1_1_entity_1_1_entity_fort_a15b197a94944b84c136703f1c1b0db8f}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_a28c177ede9ee423bb56c59da4c2f6fe2}{On\-Pre\-Destroy} ()
+\begin{DoxyCompactList}\small\item\em Called right before the fort is destroyed via \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_a1076c0a76bde21b94379feddf047b73c}{Take\-Damage(\-Entity, float)} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_ad602ef2e9ad8f114b202a6eb6a0cccf5}{\index{Skyrates\-::\-Entity\-::\-Entity\-Fort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}!Delayed\-Start\-Credits@{Delayed\-Start\-Credits}}
+\index{Delayed\-Start\-Credits@{Delayed\-Start\-Credits}!Skyrates::Entity::EntityFort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}}
+\subsubsection[{Delayed\-Start\-Credits}]{\setlength{\rightskip}{0pt plus 5cm}I\-Enumerator Skyrates.\-Entity.\-Entity\-Fort.\-Delayed\-Start\-Credits (
+\begin{DoxyParamCaption}
+\item[{float}]{delay}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_fort_ad602ef2e9ad8f114b202a6eb6a0cccf5}
+
+
+Calls \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_ab9cf0ed9030aee1d8fb4ec014baf24a1}{Start\-Credits()} on a timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delay} & The delay time in seconds.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_a28c177ede9ee423bb56c59da4c2f6fe2}{\index{Skyrates\-::\-Entity\-::\-Entity\-Fort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}!On\-Pre\-Destroy@{On\-Pre\-Destroy}}
+\index{On\-Pre\-Destroy@{On\-Pre\-Destroy}!Skyrates::Entity::EntityFort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}}
+\subsubsection[{On\-Pre\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Skyrates.\-Entity.\-Entity\-Fort.\-On\-Pre\-Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_fort_a28c177ede9ee423bb56c59da4c2f6fe2}
+
+
+Called right before the fort is destroyed via \hyperlink{class_skyrates_1_1_entity_1_1_entity_fort_a1076c0a76bde21b94379feddf047b73c}{Take\-Damage(\-Entity, float)} 
+
+\begin{DoxyReturn}{Returns}
+True if the object can be destroyed
+\end{DoxyReturn}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_ab9cf0ed9030aee1d8fb4ec014baf24a1}{\index{Skyrates\-::\-Entity\-::\-Entity\-Fort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}!Start\-Credits@{Start\-Credits}}
+\index{Start\-Credits@{Start\-Credits}!Skyrates::Entity::EntityFort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}}
+\subsubsection[{Start\-Credits}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Fort.\-Start\-Credits (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_fort_ab9cf0ed9030aee1d8fb4ec014baf24a1}
+
+
+Starts the credits scene. 
+
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_fort_a1076c0a76bde21b94379feddf047b73c}{\index{Skyrates\-::\-Entity\-::\-Entity\-Fort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}!Take\-Damage@{Take\-Damage}}
+\index{Take\-Damage@{Take\-Damage}!Skyrates::Entity::EntityFort@{Skyrates\-::\-Entity\-::\-Entity\-Fort}}
+\subsubsection[{Take\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Skyrates.\-Entity.\-Entity\-Fort.\-Take\-Damage (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{source, }
+\item[{float}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_fort_a1076c0a76bde21b94379feddf047b73c}
+
+
+Called to cause damage to the fort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The entity which is causing the damage.\\
+\hline
+{\em damage} & The amount of damage to take.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of health remaining after the attack
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/temportalflux/\-Skyrates/\-Skyrates/\-Assets/\-Scripts/\-Entity/\-Static/Entity\-Fort.\-cs\end{DoxyCompactItemize}

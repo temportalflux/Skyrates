@@ -37,11 +37,13 @@ virtual \hyperlink{class_skyrates_1_1_ship_1_1_ship_figurehead}{Ship\-Figurehead
 \begin{DoxyCompactList}\small\item\em Returns the ramming component of the ship, null if none exists. \end{DoxyCompactList}\item 
 virtual float \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a3ad30bc27cf8344c4acbfea78f8ee373}{Take\-Damage} (\hyperlink{class_skyrates_1_1_entity_1_1_entity}{Entity} source, float damage)
 \begin{DoxyCompactList}\small\item\em Called to cause damage to the ship. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a2e93bc3984f68a3838ec422978b5d152}{On\-Ram\-Unsucessful} (\hyperlink{class_skyrates_1_1_entity_1_1_entity}{Entity} target, float damage)
+\begin{DoxyCompactList}\small\item\em Called when the target still has health after ram. Causes the owner to take some amount of damage. \end{DoxyCompactList}\item 
 void \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_ab8b29253f4934d846919a1020d01d5bc}{Shoot} (Ship\-Data.\-Component\-Type artillery)
 \begin{DoxyCompactList}\small\item\em Causes all the shooters from \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a75c4b113dd48dba91c0abaaa1372ed1a}{Get\-Artillery\-Shooters} to fire for some artillery component. \end{DoxyCompactList}\item 
 void \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a5a6db8ceccf49166e10794393d5100a4}{Shoot} (Ship\-Data.\-Component\-Type artillery, Vector3 all\-Direction)
 \begin{DoxyCompactList}\small\item\em Causes all the shooters from \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a75c4b113dd48dba91c0abaaa1372ed1a}{Get\-Artillery\-Shooters} to fire for some artillery component. \end{DoxyCompactList}\item 
-void \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_afab23985ad58abc0ddb2f2ccebe32e0f}{Shoot} (Ship\-Data.\-Component\-Type artillery, Func$<$ \hyperlink{class_skyrates_1_1_mono_1_1_shooter}{Shooter}, Vector3 $>$ get\-Direction)
+void \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a53c071ec06053fda9744f40cfa1e2481}{Shoot} (Ship\-Data.\-Component\-Type artillery, Func$<$ \hyperlink{class_skyrates_1_1_ship_1_1_ship_artillery}{Ship\-Artillery}, Vector3 $>$ get\-Direction)
 \begin{DoxyCompactList}\small\item\em Causes all the shooters from \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a75c4b113dd48dba91c0abaaa1372ed1a}{Get\-Artillery\-Shooters} to fire for some artillery component. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -85,8 +87,6 @@ override void \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_ad53902e9ca6a
 \hypertarget{class_skyrates_1_1_entity_1_1_entity_ship_a7dbf7fa59ead3f606b9745cf1492bc8d}{virtual void {\bfseries On\-Damaged\-By} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_a_i}{Entity\-A\-I} source)}\label{class_skyrates_1_1_entity_1_1_entity_ship_a7dbf7fa59ead3f606b9745cf1492bc8d}
 
 \item 
-virtual void \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a0fb7fa6590e1bd661daeff6de8210eda}{On\-Ram\-Unsucessful} (\hyperlink{class_skyrates_1_1_entity_1_1_entity_ship}{Entity\-Ship} target, float damage)
-\begin{DoxyCompactList}\small\item\em Called when the target still has health after ram. Causes the owner to take some amount of damage. \end{DoxyCompactList}\item 
 \hypertarget{class_skyrates_1_1_entity_1_1_entity_ship_ad6563d11928b585846bb5725636c1c95}{virtual void {\bfseries Force\-Stop} ()}\label{class_skyrates_1_1_entity_1_1_entity_ship_ad6563d11928b585846bb5725636c1c95}
 
 \item 
@@ -208,14 +208,14 @@ True if the object can be destroyed
 
 Reimplemented in \hyperlink{class_skyrates_1_1_entity_1_1_entity_player_ship_a6c97060ca9e600928b56dc82cf351ac3}{Skyrates.\-Entity.\-Entity\-Player\-Ship}.
 
-\hypertarget{class_skyrates_1_1_entity_1_1_entity_ship_a0fb7fa6590e1bd661daeff6de8210eda}{\index{Skyrates\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Ship}!On\-Ram\-Unsucessful@{On\-Ram\-Unsucessful}}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_ship_a2e93bc3984f68a3838ec422978b5d152}{\index{Skyrates\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Ship}!On\-Ram\-Unsucessful@{On\-Ram\-Unsucessful}}
 \index{On\-Ram\-Unsucessful@{On\-Ram\-Unsucessful}!Skyrates::Entity::EntityShip@{Skyrates\-::\-Entity\-::\-Entity\-Ship}}
 \subsubsection[{On\-Ram\-Unsucessful}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Skyrates.\-Entity.\-Entity\-Ship.\-On\-Ram\-Unsucessful (
 \begin{DoxyParamCaption}
-\item[{{\bf Entity\-Ship}}]{target, }
+\item[{{\bf Entity}}]{target, }
 \item[{float}]{damage}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_ship_a0fb7fa6590e1bd661daeff6de8210eda}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_skyrates_1_1_entity_1_1_entity_ship_a2e93bc3984f68a3838ec422978b5d152}
 
 
 Called when the target still has health after ram. Causes the owner to take some amount of damage. 
@@ -260,14 +260,14 @@ Causes all the shooters from \hyperlink{class_skyrates_1_1_entity_1_1_entity_shi
 {\em artillery} & \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_skyrates_1_1_entity_1_1_entity_ship_afab23985ad58abc0ddb2f2ccebe32e0f}{\index{Skyrates\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Ship}!Shoot@{Shoot}}
+\hypertarget{class_skyrates_1_1_entity_1_1_entity_ship_a53c071ec06053fda9744f40cfa1e2481}{\index{Skyrates\-::\-Entity\-::\-Entity\-Ship@{Skyrates\-::\-Entity\-::\-Entity\-Ship}!Shoot@{Shoot}}
 \index{Shoot@{Shoot}!Skyrates::Entity::EntityShip@{Skyrates\-::\-Entity\-::\-Entity\-Ship}}
 \subsubsection[{Shoot}]{\setlength{\rightskip}{0pt plus 5cm}void Skyrates.\-Entity.\-Entity\-Ship.\-Shoot (
 \begin{DoxyParamCaption}
 \item[{Ship\-Data.\-Component\-Type}]{artillery, }
-\item[{Func$<$ {\bf Shooter}, Vector3 $>$}]{get\-Direction}
+\item[{Func$<$ {\bf Ship\-Artillery}, Vector3 $>$}]{get\-Direction}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_ship_afab23985ad58abc0ddb2f2ccebe32e0f}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_skyrates_1_1_entity_1_1_entity_ship_a53c071ec06053fda9744f40cfa1e2481}
 
 
 Causes all the shooters from \hyperlink{class_skyrates_1_1_entity_1_1_entity_ship_a75c4b113dd48dba91c0abaaa1372ed1a}{Get\-Artillery\-Shooters} to fire for some artillery component. 

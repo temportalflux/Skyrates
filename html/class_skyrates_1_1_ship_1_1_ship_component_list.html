@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Skyrates
-   &#160;<span id="projectnumber">0.0.5</span>
+   &#160;<span id="projectnumber">0.1.10</span>
    </div>
   </td>
  </tr>
@@ -138,6 +138,9 @@ override int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:aec118a46c41449adc8e75b12d8157ab5"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_ship_1_1_ship_component_list.html#aec118a46c41449adc8e75b12d8157ab5">GetComponent&lt; T &gt;</a> (ComponentType compType, int index)</td></tr>
 <tr class="memdesc:aec118a46c41449adc8e75b12d8157ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="class_skyrates_1_1_ship_1_1_ship_component_list.html#a2bbeb0e895095601c7a70fb3954f6c17" title="Returns the ship component of specified type and at a specfic index in the listing. ">GetRawComponent</a> casted to a subclass of <a class="el" href="class_skyrates_1_1_ship_1_1_ship_component.html" title="Base class for all components when are generated as a part of a Ship via ShipRig. ...">ShipComponent</a>.  <a href="#aec118a46c41449adc8e75b12d8157ab5">More...</a><br/></td></tr>
 <tr class="separator:aec118a46c41449adc8e75b12d8157ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab263c72982792f3145edfc20f958179d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skyrates_1_1_ship_1_1_ship_component_list.html#ab263c72982792f3145edfc20f958179d">GetComponentLast&lt; T &gt;</a> (ComponentType compType)</td></tr>
+<tr class="memdesc:ab263c72982792f3145edfc20f958179d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="class_skyrates_1_1_ship_1_1_ship_component_list.html#a2bbeb0e895095601c7a70fb3954f6c17" title="Returns the ship component of specified type and at a specfic index in the listing. ">GetRawComponent</a> casted to a subclass of <a class="el" href="class_skyrates_1_1_ship_1_1_ship_component.html" title="Base class for all components when are generated as a part of a Ship via ShipRig. ...">ShipComponent</a>.  <a href="#ab263c72982792f3145edfc20f958179d">More...</a><br/></td></tr>
+<tr class="separator:ab263c72982792f3145edfc20f958179d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_skyrates_1_1_util_1_1_prefab_list"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_skyrates_1_1_util_1_1_prefab_list')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_skyrates_1_1_util_1_1_prefab_list.html">Skyrates.Util.PrefabList</a></td></tr>
 <tr class="memitem:a257e47900416e06a7b6d0cc81de67d53 inherit pub_methods_class_skyrates_1_1_util_1_1_prefab_list"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a257e47900416e06a7b6d0cc81de67d53"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>TryGetValue&lt; TKey, TValue &gt;</b> (TKey key, int prefabIndex, out TValue prefab)</td></tr>
@@ -189,6 +192,53 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Setup</b> (object[] o
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns <a class="el" href="class_skyrates_1_1_ship_1_1_ship_component_list.html#a2bbeb0e895095601c7a70fb3954f6c17" title="Returns the ship component of specified type and at a specfic index in the listing. ">GetRawComponent</a> casted to a subclass of <a class="el" href="class_skyrates_1_1_ship_1_1_ship_component.html" title="Base class for all components when are generated as a part of a Ship via ShipRig. ...">ShipComponent</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">compType</td><td></td></tr>
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="typeconstraint">
+<dl><dt><b>Type Constraints</b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em>T</em></td><td>&#160;:</td><td valign="top"><em>ShipComponent</em></td><td>&#160;</td></tr>
+</table>
+</dl>
+</div>
+
+</div>
+</div>
+<a class="anchor" id="ab263c72982792f3145edfc20f958179d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T Skyrates.Ship.ShipComponentList.GetComponentLast&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramtype">ComponentType&#160;</td>
+          <td class="paramname"><em>compType</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>

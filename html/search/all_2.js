@@ -14,5 +14,6 @@ var searchData=
   ['blockinputs',['BlockInputs',['../struct_skyrates_1_1_data_1_1_player_data_1_1_input.html#a2bdc93fb39026f0e848d02f5e4a7880c',1,'Skyrates::Data::PlayerData::Input']]],
   ['blueprint',['Blueprint',['../class_skyrates_1_1_ship_1_1_ship_generator.html#a97b0d9ba683bd4ea383f01ef96348d5a',1,'Skyrates::Ship::ShipGenerator']]],
   ['buildto',['BuildTo',['../class_skyrates_1_1_ship_1_1_ship_rig.html#a4b95c83af267ac56332d99ef03b08d86',1,'Skyrates::Ship::ShipRig']]],
+  ['buttonautoselect',['ButtonAutoSelect',['../class_button_auto_select.html',1,'']]],
   ['buttonhover',['ButtonHover',['../class_skyrates_1_1_u_i_1_1_button_hover.html',1,'Skyrates::UI']]]
 ];
